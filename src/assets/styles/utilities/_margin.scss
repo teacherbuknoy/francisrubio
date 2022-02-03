@@ -1,0 +1,19 @@
+$spaces: none, auto, xxxl, xl, l, m, s, xs, xxs, xxxs;
+$directions: top, bottom, left, right, inline, block, inline-start, inline-end,
+  block-start, block-end;
+
+.margin {
+  margin: var(--space);
+
+  @each $space in $spaces {
+    &--#{$space} {
+      margin: var(--space-#{$space});
+    }
+
+    @each $d in $directions {
+      &-#{$d}--#{$space} {
+        margin-#{$d}: var(--space-#{$space});
+      }
+    }
+  }
+}

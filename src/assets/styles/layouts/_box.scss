@@ -1,0 +1,55 @@
+.box {
+  padding: var(--box-padding, var(--space-s));
+  color: var(--box-fg);
+  background-color: var(--box-bg);
+  outline: 0.125rem solid transparent;
+  outline-offset: -0.125rem;
+
+  --box-fg: hsl(var(--fg-default));
+  --box-bg: hsl(var(--bg-secondary) / 25%);
+
+  * {
+    color: inherit;
+  }
+
+  &.transparent {
+    --box-bg: hsl(var(--bg-secondary) / 0%);
+  }
+
+  &.inverted {
+    color: var(--box-bg);
+    background-color: var(--box-fg);
+  }
+
+  &.bordered {
+    border: 1px solid var(--box-border, hsl(var(--bg-secondary)));
+  }
+
+  &.rounded {
+    border-radius: calc(var(--ideal-radius) * 2);
+  }
+}
+
+.box + .box {
+  margin-top: var(--space-xs);
+}
+
+
+.box {
+  --code-border: var(--box-border);
+
+  &.error {
+    --box-border: hsl(var(--error-500));
+    --box-bg: hsl(var(--error-100));
+  }
+
+  &.success {
+    --box-border: hsl(var(--success-500));
+    --box-bg: hsl(var(--success-100));
+  }
+
+  &.success {
+    --box-border: hsl(var(--success-500));
+    --box-bg: hsl(var(--success-100));
+  }
+}

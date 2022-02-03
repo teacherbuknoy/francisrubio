@@ -1,0 +1,19 @@
+$spaces: none, xxxl, xl, l, m, s, xs, xxs, xxxs;
+$directions: top, bottom, left, right, inline, block, inline-start, inline-end,
+  block-start, block-end;
+
+.padding {
+  padding: var(--space);
+
+  @each $space in $spaces {
+    &--#{$space} {
+      padding: var(--space-#{$space});
+    }
+
+    @each $d in $directions {
+      &-#{$d}--#{$space} {
+        padding-#{$d}: var(--space-#{$space});
+      }
+    }
+  }
+}

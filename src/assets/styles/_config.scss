@@ -1,0 +1,115 @@
+/* COLORS */
+:root {
+  --d-contrast: 0 0% 0%;
+  --d-default: 0 0% 20%;
+  --d-subtle: 0 0% 50%;
+  --d-non-essential: 0 0% 75%;
+
+  --l-contrast: 0 0% 100%;
+  --l-default: 0 0% 80%;
+  --l-subtle: 0 0% 50%;
+  --l-non-essential: 0 0% 25%;
+
+  --primary-900: 16 55% 17%;
+  --primary-700: 16 95% 22%;
+  --primary-500: 16 95% 32%;
+  --primary-300: 16 95% 42%;
+  --primary-100: 16 96% 81%;
+
+  --secondary-100: 53 100% 79%;
+  --secondary-300: 48 100% 71%;
+  --secondary-500: 43 94% 61%;
+  --secondary-700: 38 82% 46%;
+  --secondary-900: 33 100% 34%;
+
+  --error-100: 5 100% 75%;
+  --error-300: 0 81% 63%;
+  --error-500: 357 68% 46%;
+  --error-700: 1 94% 33%;
+  --error-900: 0 100% 24%;
+
+  --success-100: 82 100% 75%;
+  --success-300: 87 66% 58%;
+  --success-500: 92 68% 43%;
+  --success-700: 97 95% 29%;
+  --success-900: 102 100% 21%;
+
+  --warning-100: 32 100% 75%;
+  --warning-300: 27 100% 66%;
+  --warning-500: 22 89% 56%;
+  --warning-700: 17 98% 40%;
+  --warning-900: 12 100% 33%;
+
+  @media (prefers-color-scheme: dark) {
+    --error-900: 5 100% 75%;
+    --error-700: 0 81% 63%;
+    --error-500: 357 68% 46%;
+    --error-300: 1 94% 33%;
+    --error-100: 0 100% 24%;
+
+    --success-900: 82 100% 75%;
+    --success-700: 87 66% 58%;
+    --success-500: 92 68% 43%;
+    --success-300: 97 95% 29%;
+    --success-100: 102 100% 21%;
+
+    --warning-900: 32 100% 75%;
+    --warning-700: 27 100% 66%;
+    --warning-500: 22 89% 56%;
+    --warning-300: 17 98% 40%;
+    --warning-100: 12 100% 33%;
+
+    --primary-100: 16 55% 17%;
+    --primary-300: 16 95% 22%;
+    --primary-500: 16 95% 32%;
+    --primary-700: 16 95% 42%;
+    --primary-900: 16 96% 81%;
+
+    --secondary-900: 53 100% 79%;
+    --secondary-700: 48 100% 71%;
+    --secondary-500: 43 94% 61%;
+    --secondary-300: 38 82% 46%;
+    --secondary-100: 33 100% 34%;
+  }
+}
+
+/* FONTS */
+:root {
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Lora", serif;
+  --font-display: "Work Sans", sans-serif;
+  --font-display-serif: "YoungSerif", serif;
+  --font-body: var(--font-sans);
+
+  --type-size: 1rem;
+  --type-size-1: 4.209rem;
+  --type-size-2: 3.157rem;
+  --type-size-3: 2.369rem;
+  --type-size-4: 1.777rem;
+  --type-size-5: 1.333rem;
+  --type-size-6: 1rem;
+  --type-size-7: 0.75rem;
+  --type-size-8: 0.563rem;
+  --type-size-9: 0.422rem;
+
+  --content-width: 65ch;
+}
+
+/* SPACES */
+:root {
+  --space-none: 0;
+  --space-auto: auto;
+  --space-xxxl: 4rem;
+  --space-xxl: 3rem;
+  --space-xl: 2rem;
+  --space-l: 1.5rem;
+  --space: 1rem;
+  --space-s: 0.75rem;
+  --space-xs: 0.5rem;
+  --space-xxs: 0.25rem;
+  --space-xxxs: 0.1rem;
+
+  --space-m: var(--space); /* ALIAS */
+
+  --ideal-radius: 6px;
+}

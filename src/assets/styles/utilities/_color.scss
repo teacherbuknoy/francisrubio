@@ -1,0 +1,43 @@
+$bg-colors: primary, secondary, accent, exception;
+
+.bg {
+  @each $color in $bg-colors {
+    &--#{$color} {
+      background-color: hsl(var(--bg-#{$color}));
+    }
+
+    @media (prefers-color-scheme: dark) {
+      &-d--#{$color} {
+        background-color: hsl(var(--bg-#{$color}));
+      }
+    }
+
+    @media (prefers-color-scheme: light) {
+      &-l--#{$color} {
+        background-color: hsl(var(--bg-#{$color}));
+      }
+    }
+  }
+}
+
+$fg-colors: contrast, default, subtle, non-essential;
+
+.fg {
+  @each $color in $fg-colors {
+    &--#{$color} {
+      color: hsl(var(--fg-#{$color}));
+    }
+
+    @media (prefers-color-scheme: dark) {
+      &-d--#{$color} {
+        color: hsl(var(--fg-#{$color}));
+      }
+    }
+
+    @media (prefers-color-scheme: light) {
+      &-l--#{$color} {
+        color: hsl(var(--fg-#{$color}));
+      }
+    }
+  }
+}

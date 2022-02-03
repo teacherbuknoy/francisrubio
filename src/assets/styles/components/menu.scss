@@ -1,0 +1,39 @@
+.menu {
+  position: relative;
+}
+
+.menu__popover {
+  background: hsl(Var(--bg-primary));
+  border-radius: var(--ideal-radius);
+  box-shadow: 0 6px 12px #0005;
+  margin: var(--space-xs);
+  overflow: clip;
+  position: absolute;
+  top: 100%;
+
+  @media (prefers-color-scheme: dark) {
+    filter: brightness(115%);
+  }
+}
+
+.menu__item {
+  color: hsl(var(--fg-default));
+  cursor: pointer;
+  display: flex;
+  padding: var(--space-xs) var(--space-s);
+  text-decoration: none;
+}
+
+.menu__item:hover {
+  color: hsl(var(--fg-default));
+  background-color: hsl(var(--primary-100));
+}
+
+.menu__item:focus-visible {
+  background-color: transparent;
+  box-shadow: none;
+  color: inherit;
+  outline-color: hsl(var(--primary-500));
+  outline-offset: -4px;
+  outline-width: 2px;
+}

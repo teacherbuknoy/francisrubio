@@ -1,0 +1,46 @@
+.align-self--center {
+  align-self: center;
+}
+
+.align-items--start {
+  align-items: start;
+}
+
+/* #region TEXT ALIGNMENT */
+$alignments: left, right, center, justify, start, end;
+
+.text-align-- {
+  @each $a in $alignments {
+    &#{$a} {
+      text-align: $a;
+    }
+  }
+}
+/* #endregion */
+
+$alignments: start, center, end, stretch, space-between, space-around,
+  space-evenly;
+
+.justify {
+  &-content {
+    @each $a in $alignments {
+      &--#{$a} {
+        justify-content: $a;
+      }
+    }
+  }
+  &-items {
+    @each $a in $alignments {
+      &--#{$a} {
+        justify-items: $a;
+      }
+    }
+  }
+  &-self {
+    @each $a in $alignments {
+      &--#{$a} {
+        justify-self: $a;
+      }
+    }
+  }
+}

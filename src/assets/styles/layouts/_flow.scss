@@ -1,0 +1,15 @@
+.flow>*+* {
+  margin-top: var(--flow-space, 1em);
+}
+
+.content-wrapper {
+  max-width: var(--content-width);
+}
+
+.wide-wrapper {
+  max-width: calc(var(--content-width) * 1.5);
+}
+
+.page-wrapper {
+  max-width: var(--page-width);
+}

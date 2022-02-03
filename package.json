@@ -1,0 +1,49 @@
+{
+  "name": "jujuroom-11ty",
+  "version": "1.0.0",
+  "description": "The official website of The Juju Room",
+  "main": "index.js",
+  "scripts": {
+    "👩‍💻": "cross-env ELEVENTY_ENV=development eleventy --serve",
+    "🚀": "cross-env ELEVENTY_ENV=production eleventy",
+    "dev": "run-s 👩‍💻",
+    "build": "run-s 🚀",
+    "production": "npm run build",
+    "start": "npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://francis-hatchup@bitbucket.org/francis-hatchup/jujuroom-11ty.git"
+  },
+  "author": "Francis Rubio <francis@hatchup.ca>",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://bitbucket.org/francis-hatchup/jujuroom-11ty/issues"
+  },
+  "homepage": "https://bitbucket.org/francis-hatchup/jujuroom-11ty#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^1.0.0-beta.1",
+    "@babel/plugin-transform-runtime": "^7.16.5",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.16.5",
+    "@sendgrid/mail": "^7.6.0",
+    "autoprefixer": "^10.4.0",
+    "babel-loader": "^8.2.3",
+    "clean-css": "^5.2.2",
+    "cross-env": "^7.0.3",
+    "cssnano": "^5.0.12",
+    "dotenv": "^10.0.0",
+    "esbuild": "^0.14.3",
+    "feather-icons": "^4.28.0",
+    "markdown-it": "^12.3.0",
+    "memfs": "^3.4.0",
+    "node-sass": "^7.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.5",
+    "postcss-cli": "^9.1.0",
+    "random-simple": "^2.0.0",
+    "sass": "^1.45.0",
+    "uuid": "^8.3.2",
+    "webpack": "^5.65.0"
+  }
+}

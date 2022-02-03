@@ -1,0 +1,23 @@
+.border {
+  border: 1px solid hsl(var(--border-color, var(--fg-non-essential)));
+}
+
+.border-bottom {
+  border-bottom: 1px solid hsl(var(--border-color, var(--fg-non-essential)));
+}
+
+.border-top {
+  border-top: 1px solid hsl(var(--border-color, var(--fg-non-essential)));
+}
+
+.border-left {
+  border-left: 1px solid hsl(var(--border-color, var(--fg-non-essential)));
+}
+
+.border-right {
+  border-right: 1px solid hsl(var(--border-color, var(--fg-non-essential)));
+}
+
+.shadow {
+  @include box-shadow(15, 3, #0000000a);
+}

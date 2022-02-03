@@ -1,0 +1,7 @@
+<script src="/assets/scripts/index.js"></script>
+
+{% if scripts %}
+  {% for script in scripts %}
+    <script src="/assets/scripts/{{ script }}"></script>
+  {% endfor %}
+{% endif %}

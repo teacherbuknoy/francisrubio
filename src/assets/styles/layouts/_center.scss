@@ -1,0 +1,8 @@
+.center {
+  box-sizing   : content-box;
+  margin-left  : auto;
+  margin-right : auto;
+  max-width    : var(--content-width);
+  padding-left : var(--center-padding, var(--space-s));
+  padding-right: var(--center-padding, var(--space-s));
+}

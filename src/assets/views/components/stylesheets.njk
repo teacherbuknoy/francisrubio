@@ -1,0 +1,7 @@
+<link rel="stylesheet" href="/assets/styles/styles.css">
+
+{% if stylesheets %}
+  {% for sheet in stylesheets %}
+  <link rel="stylesheet" href="/assets/styles/{{ sheet }}">
+  {% endfor %}
+{% endif %}
