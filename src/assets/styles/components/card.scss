@@ -1,0 +1,43 @@
+.feature-grid {
+  gap: var(--space-l);
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: auto;
+  padding: var(--space-xl);
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+
+  .feature-card {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 35ch;
+    scroll-snap-align: center;
+    max-width: min(35ch, 100%);
+  }
+}
+
+.feature-card {
+  border-radius: var(--ideal-radius);
+  overflow: clip;
+  box-shadow: 0 10px 25px #0003;
+}
+
+.feature__header {
+  padding: var(--space);
+}
+
+.feature__content {
+  padding: var(--space-xl);
+  padding-top: 0;
+}
+
+.feature__image {
+  float: right;
+  width: 70%;
+  shape-margin: 0.4ch;
+}
+
+.slide-image {
+  height: 10ch;
+  width: auto;
+}

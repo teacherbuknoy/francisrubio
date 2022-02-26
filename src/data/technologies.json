@@ -1,0 +1,42 @@
+[
+  {
+    "image": {
+      "src": "/assets/images/features/html-5.svg",
+      "alt": "HTML 5",
+      "height": 576,
+      "width": 576
+    }
+  },
+  {
+    "image": {
+      "src": "/assets/images/features/css-3.svg",
+      "alt": "CSS",
+      "height": 363,
+      "width": 512
+    }
+  },
+  {
+    "image": {
+      "src": "/assets/images/features/javascript.png",
+      "alt": "JavaScript",
+      "height": 480,
+      "width": 480
+    }
+  },
+  {
+    "image": {
+      "src": "/assets/images/features/node-js.svg",
+      "alt": "NodeJS",
+      "height": 590,
+      "width": 361
+    }
+  },
+  {
+    "image": {
+      "src": "/assets/images/features/11ty.svg",
+      "alt": "Eleventy",
+      "height": 1569,
+      "width": 2186
+    }
+  }
+]

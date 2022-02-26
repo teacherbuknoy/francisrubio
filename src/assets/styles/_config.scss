@@ -10,17 +10,17 @@
   --l-subtle: 0 0% 50%;
   --l-non-essential: 0 0% 25%;
 
-  --l-primary-900: 279 80% 12%;
-  --l-primary-700: 279 80% 25%;
-  --l-primary-500: 279 80% 49%;
-  --l-primary-300: 279 70% 75%;
-  --l-primary-100: 279 50% 80%;
+  --l-primary-900: 279 100% 14%;
+  --l-primary-700: 279 100% 24%;
+  --l-primary-500: 279 100% 34%;
+  --l-primary-300: 279 100% 54%;
+  --l-primary-100: 279 100% 84%;
 
-  --l-secondary-100: 233 100% 21%;
-  --l-secondary-300: 233 80% 41%;
+  --l-secondary-900: 233 100% 21%;
+  --l-secondary-700: 233 80% 41%;
   --l-secondary-500: 233 80% 61%;
-  --l-secondary-700: 233 50% 71%;
-  --l-secondary-900: 233 50% 81%;
+  --l-secondary-300: 233 50% 71%;
+  --l-secondary-100: 233 50% 81%;
 
   --l-error-100: 5 100% 75%;
   --l-error-300: 0 81% 63%;
@@ -58,17 +58,17 @@
   --d-warning-300: 17 98% 40%;
   --d-warning-100: 12 100% 33%;
 
-  --d-primary-100: 279 80% 12%;
-  --d-primary-300: 279 80% 25%;
-  --d-primary-500: 279 80% 49%;
-  --d-primary-700: 279 70% 75%;
-  --d-primary-900: 279 50% 80%;
+  --d-primary-100: 279 100% 14%;
+  --d-primary-300: 279 100% 24%;
+  --d-primary-500: 279 100% 34%;
+  --d-primary-700: 279 100% 54%;
+  --d-primary-900: 279 100% 84%;
 
-  --d-secondary-900: 53 100% 79%;
-  --d-secondary-700: 48 100% 71%;
+  --d-secondary-100: 53 100% 79%;
+  --d-secondary-300: 48 100% 71%;
   --d-secondary-500: 43 94% 61%;
-  --d-secondary-300: 38 82% 46%;
-  --d-secondary-100: 33 100% 34%;
+  --d-secondary-700: 38 82% 46%;
+  --d-secondary-900: 33 100% 34%;
 }
 
 :root {
@@ -161,7 +161,7 @@
     --font-display-serif: "Fraunces var", serif;
   }
 
-  --type-size: 1rem;
+  --type-size: 1.2rem;
   --type-size-1: 4.209rem;
   --type-size-2: 3.157rem;
   --type-size-3: 2.369rem;

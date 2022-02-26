@@ -10,4 +10,8 @@ module.exports = {
   fonts: function () {
     return { 'src/assets/fonts': 'assets/fonts' }
   },
+
+  files: function () {
+    return { 'src/assets/files': 'assets/files' }
+  },
 }

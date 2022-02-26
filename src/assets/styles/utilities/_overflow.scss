@@ -1,0 +1,9 @@
+$overflow: visible, auto, scroll, clip;
+
+.overflow {
+  @each $o in $overflow {
+    &-#{$o} {
+      overflow: $o;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Reusable responsive layouts using CSS",
+    "content": "Layouts that work on iPhones, Androids, laptops, desktops, even devices that haven't been invented yet. With the power of modern web standards, I create layouts that work everywhere.",
+    "image": {
+      "src": "/assets/images/features/responsive.svg"
+    }
+  },
+  {
+    "title": "Newest tech that works on older devices",
+    "content": "Take advantage of new technologies on the web while keeping sure your customers on older devices are not left behind. I employ backwards-compatible programming to make sure everyone can use your website.",
+    "image": {
+      "src": "/assets/images/features/backwards-compatibility.svg"
+    }
+  },
+  {
+    "title": "Go big on your features, and easy on your users",
+    "content": "Have as much power on your backend service or API, while giving your users a snappy and lightweight experience on their devices. With the power of static site generators, I'll give careful attention to how your website performs to make sure it's blazingly fast, so your users love you more.",
+    "image": {
+      "src": "/assets/images/features/features.svg"
+    }
+  },
+  {
+    "title": "Seamless transition from design to code",
+    "content": "Pixel-perfect just don't work on the web. So I give you an even better solution: intrinsic web design, a set of techniques that take advantage of what the web really is capable of. Your websites become performant and a joy to look at.",
+    "image": {
+      "src": "/assets/images/features/transition.svg"
+    }
+  },
+  {
+    "title": "Don't have a designer? I got you.",
+    "content": "I can create web designs for your ideas, and transform them into working websites your customers can use. Want someone else to develop them into actual sites? I got you. I can export files for your developer, and also communicate with them to implement the design exactly as you got them.",
+    "image": {
+      "src": "/assets/images/features/design.svg"
+    }
+  },
+  {
+    "title": "Accessible—nothing gets better than that",
+    "content": "Your website may be the most aesthetically-pleasing website in the world, but all of that goes to trash if your users cannot use it. By complying with the WCAG, I create websites that are accessible to as many people as possible.",
+    "image": {
+      "src": "/assets/images/features/accessibility.svg"
+    }
+  }
+]

@@ -1,19 +1,21 @@
 .button {
-  align-items: center;
-  background: transparent;
-  border-radius: var(--ideal-radius);
-  border: 1px solid transparent;
-  color: hsl(var(--primary-700));
-  cursor: pointer;
-  display: inline flex;
-  font-size: inherit;
+  align-items    : center;
+  background     : transparent;
+  border         : 1px solid transparent;
+  border-radius  : var(--ideal-radius);
+  color          : hsl(var(--primary-700));
+  cursor         : pointer;
+  display        : inline flex;
+  font-family    : var(--font-sans);
+  font-size      : inherit;
+  font-weight    : 500;
   justify-content: center;
-  padding: var(--space-xs) var(--space);
-  text-align: center;
+  padding        : var(--space-xs) var(--space);
+  text-align     : center;
   text-decoration: none;
-  transition: background 300ms;
-  width: -moz-fit-content;
-  width: fit-content;
+  transition     : background 300ms;
+  width          : -moz-fit-content;
+  width          : fit-content;
 
   &:hover {
     background-color: hsl(var(--primary-100));

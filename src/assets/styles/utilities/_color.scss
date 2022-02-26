@@ -41,3 +41,19 @@ $fg-colors: contrast, default, subtle, non-essential;
     }
   }
 }
+
+$colors: 100, 300, 500, 700, 900;
+
+.fg {
+  @each $intensity in $colors {
+    &-primary-#{$intensity} {
+      color: hsl(var(--primary-#{$intensity}));
+    }
+  }
+
+  @each $intensity in $colors {
+    &-secondary-#{$intensity} {
+      color: hsl(var(--secondary-#{$intensity}));
+    }
+  }
+}

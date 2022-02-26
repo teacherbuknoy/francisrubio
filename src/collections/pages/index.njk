@@ -4,6 +4,42 @@ description: Web developer, designer, and educator from the Philippines
 permalink: /
 ---
 
-<section>
-  <h1>I develop <strong>robust</strong> and <strong>accessible</strong> front ends on the Web.</h1>
+<section class="padding--l" aria-labelledby="section-header-1">
+  <h1 id="section-header-1" class="responsive weight-200 text-center font-serif fg--default">I develop <strong class="weight-700 fg--contrast">robust</strong> and <strong class="weight-700 fg--contrast">accessible</strong> front ends on the Web.</h1>
+  <div class="center-justified cluster">
+    <a href="src/assets/files/Francis Rubio - Resume (site download).pdf" download class="primary button padding-inline--xl padding-block--m">Download my résumé</a>
+  </div>
+</section>
+<section style="padding: var(--space-xl)" aria-labelledby="section-header-2">
+  <h2 id="section-header-2">What I can do for you</h2>
+  <p class="content-wrapper">I am a web developer, designer, and educator from the Philippines. I specialize in creating front ends for web projects and integrating them with APIs and back end processes. I also design web experiences with particular attention to making them accessible and robust. The projects I work on are not just responsive but also light and resilient even on older devices.</p>
+  <div class="feature-grid" style="margin-inline: calc(var(--space-xl) * -1);">
+    {% for feature in features %}
+      <article class="feature-card">
+        <header class="feature__header">
+          <h3 class="fs-5 responsive margin--none">{{ feature.title | safe }}</h3>
+        </header>
+        <div class="feature__content">
+          {% if feature.image %}
+            <img class="feature__image" src="{{ feature.image.src }}" alt="{{ feature.image.alt }}" style="shape-outside: url('{{ feature.image.src }}')">
+          {% endif %}
+          {{ feature.content | safe }}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="padding--xl" style="background-color: hsl(var(--fg-contrast) / 10%);" aria-labelledby="section-header-3">
+  <h2 id="section-header-3">Technologies</h2>
+  <div class="overflow-visible cluster spaced gap--xl padding--xl" style="margin-inline: calc(var(--space-xl) * -1);">
+    {% for feature in technologies %}
+      <div class="tooltip-wrapper" tabindex="-1">
+        {% if feature.image %}
+          <img class="slide-image" src="{{ feature.image.src }}" alt="{{ feature.image.alt }}" style="shape-outside: url('{{ feature.image.src }}')" width="{{ feature.image.height }} " height="{{ feature.image.height }}">
+        {% endif %}
+        <div class="tooltip">{{ feature.image.alt }}</div>
+      </div>
+    {% endfor %}
+  </div>
 </section>

@@ -150,3 +150,13 @@ $fonts: sans, serif, display, display-serif, body;
 .multi-column {
   columns: 2 35ch;
 }
+
+.highlighted {
+  background-image: linear-gradient(
+    hsl(var(--secondary-500)),
+    hsl(var(--secondary-500))
+  );
+  background-size: 100% 0.5ch;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+}

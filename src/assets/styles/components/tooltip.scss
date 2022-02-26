@@ -1,0 +1,29 @@
+.tooltip-wrapper {
+  position: relative;
+  overflow: visible;
+
+  .tooltip {
+    opacity: 0;
+    transform: translate(-50%);
+    transition: transform 300ms, opacity 300ms;
+  }
+
+  &:active .tooltip,
+  &:focus-visible .tooltip,
+  &:hover .tooltip {
+    opacity: 1;
+    transform: translate(-50%, calc(-100% - 1rem));
+  }
+}
+
+.tooltip {
+  font-family: var(--font-sans);
+  background-color: hsl(var(--bg-secondary));
+  border-radius: var(--ideal-radius);
+  padding: var(--space-xxs) var(--space-s);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: max-content;
+  text-align: center;
+}
