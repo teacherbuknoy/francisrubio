@@ -17,4 +17,29 @@
   line-height: 1.2;
   position: relative;
   text-align: center;
+
+  cite {
+    display: block;
+    font-family: var(--font-sans);
+    font-style: normal;
+    font-size: 1rem;
+    margin-top: 1ch;
+    font-weight: 400;
+  }
+}
+
+figure.image {
+  display: flex;
+  flex-direction: column;
+  gap: 1ch;
+  align-items: center;
+
+  img {
+    flex: 1;
+  }
+
+  figcaption {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+  }
 }
