@@ -9,28 +9,48 @@
 /* #endregion */
 
 /* #region ALIGNMENT */
-.text-center {
-  text-align: center;
+$alignments: left, right, center, justify, start, end;
+
+.text {
+  @each $a in $alignments {
+    &-#{$a} {
+      text-align: $a;
+    }
+  }
 }
 /* #endregion */
 
 /* #region WEIGHTS */
-.weight-bold {
-  font-weight: bold;
-}
-
-.weight-normal {
-  font-weight: normal;
+$weights: normal, bold, 100, 200, 300, 400, 500, 600, 700, 800, 900;
+.weight {
+  @each $weight in $weights {
+    &-#{$weight} {
+      font-weight: $weight;
+    }
+  }
 }
 /* #endregion */
 
 /* #region LETTER SPACING */
-.letter-space--m {
-  letter-spacing: 2px;
+$letter-spacing: (
+  xs: 0.5px,
+  s: 0.75px,
+  m: 1px,
+  l: 1.5px,
+  xxl: 2px,
+  xxxl: 3px,
+);
+
+.ls {
+  @each $key, $value in $letter-spacing {
+    &-#{$key} {
+      letter-spacing: $value;
+    }
+  }
 }
 /* #endregion */
 
-/* #region FONTS */
+/* #region FONT FAMILIES */
 .font-display {
   font-family: var(--font-display);
 }
@@ -56,6 +76,28 @@
       #{10 - $size}vw,
       var(--type-size-#{$size})
     );
+  }
+}
+/* #endregion */
+
+/* #region LINE HEIGHTS */
+$line-heights: (
+  xxxs: 0.5,
+  xxs: 0.75,
+  xs: 0.8,
+  s: 1,
+  m: 1.25,
+  l: 1.5,
+  xl: 1.75,
+  xxl: 2,
+  xxxl: 3,
+);
+
+.lh {
+  @each $key, $value in $line-heights {
+    &-#{$key} {
+      line-height: $value;
+    }
   }
 }
 /* #endregion */
@@ -93,4 +135,18 @@
   background-size: 35ch 1px;
   background-position: top left;
   padding-top: var(--space);
+}
+
+$fonts: sans, serif, display, display-serif, body;
+
+.font {
+  @each $font in $fonts {
+    &-#{$font} {
+      font-family: var(--font-#{$font});
+    }
+  }
+}
+
+.multi-column {
+  columns: 2 35ch;
 }

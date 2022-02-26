@@ -1,14 +1,7 @@
-.align-self--center {
-  align-self: center;
-}
-
-.align-items--start {
-  align-items: start;
-}
-
 /* #region TEXT ALIGNMENT */
 $alignments: left, right, center, justify, start, end;
 
+.text-,
 .text-align-- {
   @each $a in $alignments {
     &#{$a} {
@@ -18,29 +11,81 @@ $alignments: left, right, center, justify, start, end;
 }
 /* #endregion */
 
-$alignments: start, center, end, stretch, space-between, space-around,
-  space-evenly;
+/* #region BOX ALIGNMENT */
+$alignments: start, end, center, stretch;
 
-.justify {
-  &-content {
-    @each $a in $alignments {
-      &--#{$a} {
-        justify-content: $a;
-      }
-    }
-  }
-  &-items {
-    @each $a in $alignments {
-      &--#{$a} {
-        justify-items: $a;
-      }
-    }
-  }
-  &-self {
-    @each $a in $alignments {
-      &--#{$a} {
-        justify-self: $a;
-      }
+/* Align Items */
+.ai {
+  @each $a in $alignments {
+    &-#{$a},
+    &--#{$a} {
+      align-items: $a;
     }
   }
 }
+
+/* Align Self */
+.as {
+  @each $a in $alignments {
+    &-#{$a},
+    &--#{$a} {
+      align-self: $a;
+    }
+  }
+}
+
+/* Align Content */
+.ac {
+  @each $a in $alignments {
+    &-#{$a},
+    &--#{$a} {
+      align-content: $a;
+    }
+  }
+}
+
+/* #endregion */
+
+/* #region BOX JUSTIFICATION */
+$alignments: (
+  start: start,
+  end: end,
+  center: center,
+  stretch: stretch,
+  between: space-between,
+  around: space-around,
+  evenly: space-evenly,
+);
+
+/* Justify Content */
+.jc {
+  @each $k, $v in $alignments {
+    &-#{$k},
+    &--#{$k} {
+      justify-content: $v;
+    }
+  }
+}
+
+$alignments: start, end, center, stretch;
+
+/* Justify Items */
+.ji {
+  @each $a in $alignments {
+    &-#{$a},
+    &--#{$a} {
+      justify-items: $a;
+    }
+  }
+}
+
+/* Justify Self */
+.js {
+  @each $a in $alignments {
+    &-#{$a},
+    &--#{$a} {
+      justify-self: $a;
+    }
+  }
+}
+/* #endregion */

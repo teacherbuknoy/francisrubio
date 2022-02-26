@@ -5,3 +5,13 @@
     justify-content: flex-end;
   }
 }
+
+$display: block, inline, inline-block, flex, inline-flex, grid, inline-grid;
+
+.d {
+  @each $d in $display {
+    &-#{$d} {
+      display: $d;
+    }
+  }
+}

@@ -1,28 +1,33 @@
 @font-face {
   font-family: "Fraunces var";
   src: url("/assets/fonts/fraunces-var.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Fraunces var";
   src: url("/assets/fonts/fraunces-italic-var.ttf") format("truetype");
+  font-display: swap;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Fraunces";
   src: url("/assets/fonts/fraunces-regular.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Fraunces";
   src: url("/assets/fonts/fraunces-italic.ttf") format("truetype");
+  font-display: swap;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Fraunces";
   src: url("/assets/fonts/fraunces-bold-italic.ttf") format("truetype");
+  font-display: swap;
   font-style: italic;
   font-weight: bold;
 }
@@ -30,6 +35,7 @@
 @font-face {
   font-family: "Fraunces";
   src: url("/assets/fonts/fraunces-bold-italic.ttf") format("truetype");
+  font-display: swap;
   font-style: italic;
   font-weight: bold;
 }
@@ -37,21 +43,57 @@
 @font-face {
   font-family: "Fraunces";
   src: url("/assets/fonts/fraunces-bold.ttf") format("truetype");
+  font-display: swap;
   font-weight: bold;
 }
 
 @font-face {
-  font-family: 'Outfit var';
-  src: url('/assets/fonts/outfit-var.ttf') format('truetype');
+  font-family: 'Inter var';
+  src: url('/assets/fonts/inter-var.ttf') format('truetype');
+  font-display: swap;
 }
 
 @font-face {
-  font-family: 'Outfit';
-  src: url('/assets/fonts/outfit-regular.ttf') format('truetype');
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/assets/fonts/Inter-Light.woff2?v=3.19") format("woff2"),
+       url("/assets/fonts/Inter-Light.woff?v=3.19") format("woff");
 }
 
 @font-face {
-  font-family: 'Outfit';
-  src: url('/assets/fonts/outfit-bold.ttf') format('truetype');
-  font-weight: bold;
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/Inter-Regular.woff2?v=3.19") format("woff2"),
+       url("/assets/fonts/Inter-Regular.woff?v=3.19") format("woff");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style:  italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/Inter-Italic.woff2?v=3.19") format("woff2"),
+       url("/assets/fonts/Inter-Italic.woff?v=3.19") format("woff");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style:  normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/fonts/Inter-Bold.woff2?v=3.19") format("woff2"),
+       url("/assets/fonts/Inter-Bold.woff?v=3.19") format("woff");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style:  italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/fonts/Inter-BoldItalic.woff2?v=3.19") format("woff2"),
+       url("/assets/fonts/Inter-BoldItalic.woff?v=3.19") format("woff");
 }
