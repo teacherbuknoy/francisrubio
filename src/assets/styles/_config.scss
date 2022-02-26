@@ -10,76 +10,149 @@
   --l-subtle: 0 0% 50%;
   --l-non-essential: 0 0% 25%;
 
-  --primary-900: 16 55% 17%;
-  --primary-700: 16 95% 22%;
-  --primary-500: 16 95% 32%;
-  --primary-300: 16 95% 42%;
-  --primary-100: 16 96% 81%;
+  --l-primary-900: 279 80% 12%;
+  --l-primary-700: 279 80% 25%;
+  --l-primary-500: 279 80% 49%;
+  --l-primary-300: 279 70% 75%;
+  --l-primary-100: 279 50% 80%;
 
-  --secondary-100: 53 100% 79%;
-  --secondary-300: 48 100% 71%;
-  --secondary-500: 43 94% 61%;
-  --secondary-700: 38 82% 46%;
-  --secondary-900: 33 100% 34%;
+  --l-secondary-100: 233 100% 21%;
+  --l-secondary-300: 233 80% 41%;
+  --l-secondary-500: 233 80% 61%;
+  --l-secondary-700: 233 50% 71%;
+  --l-secondary-900: 233 50% 81%;
 
-  --error-100: 5 100% 75%;
-  --error-300: 0 81% 63%;
-  --error-500: 357 68% 46%;
-  --error-700: 1 94% 33%;
-  --error-900: 0 100% 24%;
+  --l-error-100: 5 100% 75%;
+  --l-error-300: 0 81% 63%;
+  --l-error-500: 357 68% 46%;
+  --l-error-700: 1 94% 33%;
+  --l-error-900: 0 100% 24%;
 
-  --success-100: 82 100% 75%;
-  --success-300: 87 66% 58%;
-  --success-500: 92 68% 43%;
-  --success-700: 97 95% 29%;
-  --success-900: 102 100% 21%;
+  --l-success-100: 82 100% 75%;
+  --l-success-300: 87 66% 58%;
+  --l-success-500: 92 68% 43%;
+  --l-success-700: 97 95% 29%;
+  --l-success-900: 102 100% 21%;
 
-  --warning-100: 32 100% 75%;
-  --warning-300: 27 100% 66%;
-  --warning-500: 22 89% 56%;
-  --warning-700: 17 98% 40%;
-  --warning-900: 12 100% 33%;
+  --l-warning-100: 32 100% 75%;
+  --l-warning-300: 27 100% 66%;
+  --l-warning-500: 22 89% 56%;
+  --l-warning-700: 17 98% 40%;
+  --l-warning-900: 12 100% 33%;
+
+  --d-error-900: 5 100% 75%;
+  --d-error-700: 0 81% 63%;
+  --d-error-500: 357 68% 46%;
+  --d-error-300: 1 94% 33%;
+  --d-error-100: 0 100% 24%;
+
+  --d-success-900: 82 100% 75%;
+  --d-success-700: 87 66% 58%;
+  --d-success-500: 92 68% 43%;
+  --d-success-300: 97 95% 29%;
+  --d-success-100: 102 100% 21%;
+
+  --d-warning-900: 32 100% 75%;
+  --d-warning-700: 27 100% 66%;
+  --d-warning-500: 22 89% 56%;
+  --d-warning-300: 17 98% 40%;
+  --d-warning-100: 12 100% 33%;
+
+  --d-primary-100: 279 80% 12%;
+  --d-primary-300: 279 80% 25%;
+  --d-primary-500: 279 80% 49%;
+  --d-primary-700: 279 70% 75%;
+  --d-primary-900: 279 50% 80%;
+
+  --d-secondary-900: 53 100% 79%;
+  --d-secondary-700: 48 100% 71%;
+  --d-secondary-500: 43 94% 61%;
+  --d-secondary-300: 38 82% 46%;
+  --d-secondary-100: 33 100% 34%;
+}
+
+:root {
+  --contrast: var(--l-contrast);
+  --default: var(--l-default);
+  --subtle: var(--l-subtle);
+  --non-essential: var(--l-non-essential);
+
+  --primary-900: var(--l-primary-900);
+  --primary-700: var(--l-primary-700);
+  --primary-500: var(--l-primary-500);
+  --primary-300: var(--l-primary-300);
+  --primary-100: var(--l-primary-100);
+
+  --secondary-100: var(--l-secondary-100);
+  --secondary-300: var(--l-secondary-300);
+  --secondary-500: var(--l-secondary-500);
+  --secondary-700: var(--l-secondary-700);
+  --secondary-900: var(--l-secondary-900);
+
+  --error-100: var(--l-error-100);
+  --error-300: var(--l-error-300);
+  --error-500: var(--l-error-500);
+  --error-700: var(--l-error-700);
+  --error-900: var(--l-error-900);
+
+  --success-100: var(--l-success-100);
+  --success-300: var(--l-success-300);
+  --success-500: var(--l-success-500);
+  --success-700: var(--l-success-700);
+  --success-900: var(--l-success-900);
+
+  --warning-100: var(--d-warning-100);
+  --warning-300: var(--d-warning-300);
+  --warning-500: var(--d-warning-500);
+  --warning-700: var(--d-warning-700);
+  --warning-900: var(--d-warning-900);
 
   @media (prefers-color-scheme: dark) {
-    --error-900: 5 100% 75%;
-    --error-700: 0 81% 63%;
-    --error-500: 357 68% 46%;
-    --error-300: 1 94% 33%;
-    --error-100: 0 100% 24%;
+    --contrast: var(--d-contrast);
+    --default: var(--d-default);
+    --subtle: var(--d-subtle);
+    --non-essential: var(--d-non-essential);
 
-    --success-900: 82 100% 75%;
-    --success-700: 87 66% 58%;
-    --success-500: 92 68% 43%;
-    --success-300: 97 95% 29%;
-    --success-100: 102 100% 21%;
+    --primary-900: var(--d-primary-900);
+    --primary-700: var(--d-primary-700);
+    --primary-500: var(--d-primary-500);
+    --primary-300: var(--d-primary-300);
+    --primary-100: var(--d-primary-100);
 
-    --warning-900: 32 100% 75%;
-    --warning-700: 27 100% 66%;
-    --warning-500: 22 89% 56%;
-    --warning-300: 17 98% 40%;
-    --warning-100: 12 100% 33%;
+    --secondary-100: var(--d-secondary-100);
+    --secondary-300: var(--d-secondary-300);
+    --secondary-500: var(--d-secondary-500);
+    --secondary-700: var(--d-secondary-700);
+    --secondary-900: var(--d-secondary-900);
 
-    --primary-100: 16 55% 17%;
-    --primary-300: 16 95% 22%;
-    --primary-500: 16 95% 32%;
-    --primary-700: 16 95% 42%;
-    --primary-900: 16 96% 81%;
+    --error-100: var(--d-error-100);
+    --error-300: var(--d-error-300);
+    --error-500: var(--d-error-500);
+    --error-700: var(--d-error-700);
+    --error-900: var(--d-error-900);
 
-    --secondary-900: 53 100% 79%;
-    --secondary-700: 48 100% 71%;
-    --secondary-500: 43 94% 61%;
-    --secondary-300: 38 82% 46%;
-    --secondary-100: 33 100% 34%;
+    --success-100: var(--d-success-100);
+    --success-300: var(--d-success-300);
+    --success-500: var(--d-success-500);
+    --success-700: var(--d-success-700);
+    --success-900: var(--d-success-900);
+
+    --warning-100: var(--d-warning-100);
+    --warning-300: var(--d-warning-300);
+    --warning-500: var(--d-warning-500);
+    --warning-700: var(--d-warning-700);
+    --warning-900: var(--d-warning-900);
   }
 }
 
 /* FONTS */
 :root {
-  --font-sans: "Inter", sans-serif;
-  --font-serif: "Lora", serif;
-  --font-display: "Work Sans", sans-serif;
-  --font-display-serif: "YoungSerif", serif;
-  --font-body: var(--font-sans);
+  --font-sans: "Outfit", sans-serif;
+  --font-serif: "Fraunces", serif;
+  --font-display: "Outfit", sans-serif;
+  --font-display-serif: "Fraunces", serif;
+  --font-body: var(--font-serif);
+  --font-ui: var(--font-sans);
 
   --type-size: 1rem;
   --type-size-1: 4.209rem;

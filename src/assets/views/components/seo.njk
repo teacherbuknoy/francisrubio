@@ -1,0 +1,17 @@
+<!-- Primary Meta Tags -->
+<meta name="title" content="{{ title if title else site.title }}">
+<meta name="description" content="{{ description if description else site.description }}">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ site.url }}{{ page.url if page.url }}">
+<meta property="og:title" content="{{ title if title else site.title }}">
+<meta property="og:description" content="{{ description if description else site.description }}">
+<meta property="og:image" content="{{ site.url }}{{ fb_image if fb_image else site.seo.fb_image }}">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="{{ site.url }}{{ page.url if page.url }}">
+<meta property="twitter:title" content="{{ title if title else site.title }}">
+<meta property="twitter:description" content="{{ description if description else site.description }}">
+<meta property="twitter:image" content="{{ site.url }}{{ twitter_image if twitter_image else site.seo.twitter_image }}">

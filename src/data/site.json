@@ -1,4 +1,9 @@
 {
-    "title": "The Juju Room",
-    "description": "Rise above negative thoughts, stress & life’s toughest challenges!"
+    "title": "Francis Rubio",
+    "description": "Web developer, designer, and educator",
+    "url": "https://teacherbuknoy.netlify.app",
+    "seo": {
+        "fb_image": "/assets/images/fb_image.png",
+        "twitter_image": "/assets/images/twitter_image.png"
+    }
 }
