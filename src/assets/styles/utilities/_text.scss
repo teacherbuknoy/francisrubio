@@ -71,11 +71,7 @@ $letter-spacing: (
   }
 
   .fs-#{$size}.responsive {
-    font-size: clamp(
-      var(--type-size-#{$size + 1}),
-      #{10 - $size}vw,
-      var(--type-size-#{$size})
-    );
+    font-size: clamp(var(--type-size-#{$size + 1}), #{10 - $size}vw, var(--type-size-#{$size}));
   }
 }
 /* #endregion */
@@ -125,16 +121,14 @@ $line-heights: (
 }
 
 .footnotes {
-  margin-top: var(--space-xxl);
-  font-size: 0.8rem;
-  background-image: linear-gradient(
-    hsl(var(--fg-default)),
-    hsl(var(--fg-default))
-  );
-  background-repeat: no-repeat;
-  background-size: 35ch 1px;
+  margin-top         : var(--space-xxl);
+  font-size          : 0.9rem;
+  background-image   : linear-gradient(hsl(var(--fg-default)), hsl(var(--fg-default)));
+  background-repeat  : no-repeat;
+  background-size    : 35ch 1px;
   background-position: top left;
-  padding-top: var(--space);
+  padding-top        : var(--space);
+  font-family        : var(--font-sans);
 }
 
 $fonts: sans, serif, display, display-serif, body;
@@ -152,10 +146,7 @@ $fonts: sans, serif, display, display-serif, body;
 }
 
 .highlighted {
-  background-image: linear-gradient(
-    hsl(var(--secondary-500)),
-    hsl(var(--secondary-500))
-  );
+  background-image: linear-gradient(hsl(var(--secondary-500)), hsl(var(--secondary-500)));
   background-size: 100% 0.5ch;
   background-repeat: no-repeat;
   background-position: bottom center;

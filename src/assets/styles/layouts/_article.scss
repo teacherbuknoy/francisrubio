@@ -10,3 +10,11 @@
 .article__body > figure {
   grid-column: 1/-1;
 }
+
+.article__body > blockquote {
+  font-size: 2.5rem;
+  font-weight: 250;
+  line-height: 1.2;
+  position: relative;
+  text-align: center;
+}
