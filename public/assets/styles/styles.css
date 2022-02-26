@@ -821,7 +821,7 @@ legend {
 }
 
 /* COMPONENTS */
-.button {
+.button, .skip-link {
   align-items: center;
   background: transparent;
   border-radius: var(--ideal-radius);
@@ -838,28 +838,28 @@ legend {
   width: -moz-fit-content;
   width: fit-content;
 }
-.button:hover {
+.button:hover, .skip-link:hover {
   background-color: hsl(var(--primary-100));
 }
-.button:focus-visible {
+.button:focus-visible, .skip-link:focus-visible {
   outline: 3px solid hsl(var(--primary-700));
   outline-offset: 4px;
 }
-.button.small {
+.button.small, .small.skip-link {
   padding: var(--space-xxs) var(--space-xs);
 }
 
-.button.primary {
+.button.primary, .skip-link {
   color: hsl(var(--l-contrast));
   background-color: hsl(var(--primary-500));
 }
-.button.primary:hover {
+.button.primary:hover, .skip-link:hover {
   background-color: hsl(var(--primary-700));
 }
-.button.circle, .button.square {
+.button.circle, .circle.skip-link, .button.square, .square.skip-link {
   aspect-ratio: 1;
 }
-.button.circle {
+.button.circle, .circle.skip-link {
   border-radius: 100%;
 }
 
@@ -998,6 +998,14 @@ body:not(.no-js) .navigation-links::before {
   width: var(--width, 0);
   z-index: -1;
 }
+@media (prefers-reduced-motion) {
+  body:not(.no-js) .navigation-links::before {
+    transition-property: opacity;
+  }
+}
+body:not(.no-js) .navigation-links.no-animation::before {
+  transition-property: opacity;
+}
 body:not(.no-js) .navigation-links:not(.hover, .focus)::before {
   opacity: 0;
 }
@@ -1015,10 +1023,26 @@ body:not(.no-js) .navigation-links:not(.hover, .focus)::before {
 .navigation-link:focus-within {
   border: none;
   box-shadow: none;
+  outline: none;
   outline: 5px solid hsl(var(--primary-500));
 }
 body:not(.no-js) .navigation-links .navigation-link:focus-within {
   background-color: transparent;
+}
+
+body:not(.no-js) .navigation-links:not(:hover) .navigation-link:focus-within {
+  outline: none;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, calc(-100% - 1rem));
+  transition: transform 200ms;
+}
+.skip-link:focus-within {
+  transform: translate(-50%, 1rem);
 }
 
 /* UTILITIES */

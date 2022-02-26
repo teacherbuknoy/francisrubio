@@ -44,6 +44,9 @@ var eventCallback = function eventCallback(list, classes) {
   });
   list.addEventListener('mouseleave', function (e) {
     list.classList.remove('hover');
+    eventCallback(list, 'focus')({
+      target: document.activeElement
+    });
   });
   list.addEventListener('focusout', function (e) {
     list.classList.remove('focus');

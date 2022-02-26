@@ -32,6 +32,14 @@
       transition-property: opacity, top, left, width, height;
       width: var(--width, 0);
       z-index: -1;
+
+      @media (prefers-reduced-motion) {
+        transition-property: opacity;
+      }
+    }
+
+    &.no-animation::before {
+      transition-property: opacity;
     }
 
     &:not(.hover, .focus)::before {
@@ -53,12 +61,19 @@
   &:focus-within {
     border: none;
     box-shadow: none;
+    outline: none;
     outline: 5px solid hsl(var(--primary-500));
   }
 
   @at-root body:not(.no-js) .navigation-links & {
     &:focus-within {
       background-color: transparent;
+    }
+  }
+
+  @at-root body:not(.no-js) .navigation-links:not(:hover) & {
+    &:focus-within {
+      outline: none;
     }
   }
 }

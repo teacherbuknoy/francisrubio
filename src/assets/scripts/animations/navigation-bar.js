@@ -35,6 +35,7 @@ $$('[data-navigation-links]').forEach(ul => {
 
   list.addEventListener('mouseleave', e => {
     list.classList.remove('hover')
+    eventCallback(list, 'focus')({ target: document.activeElement })
   })
 
   list.addEventListener('focusout', e => {
