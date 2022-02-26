@@ -1,0 +1,37 @@
+---
+title: Writing - Francis Rubio
+description: Articles, musings, and anything I just thought to write about
+pagination:
+  data: collections.posts
+  size: 6
+  reverse: true
+permalink: /writing/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html
+---
+<section class="padding--xl" aria-labelledby="section-heading-4">
+  <h1 id="section-heading-4">Writing</h1>
+  <div class="post-grid">
+  {% for feature in pagination.items %}
+    <a href="{{ feature.url }}" class="post-card">
+        <header class="feature__header">
+          <h3 class="responsive margin--none">{{ feature.data.title | safe }}</h3>
+        </header>
+        <div class="feature__content padding-inline--l">
+          {{ feature.data.description | safe }}
+        </div>
+        <footer class="feature__footer">
+          <time>{{ feature.date | humanReadableDate }}</time>
+        </footer>
+      </a>
+  {% endfor %}
+  </div>
+</section>
+
+<div class="center-justified cluster padding--l">
+  {% if pagination.href.previous %}
+    <a href="{{ pagination.href.previous }}" class="button">Previous</a>
+  {% endif %}
+
+  {% if pagination.href.next %}
+    <a href="{{ pagination.href.next }}" class="button">Next</a>
+  {% endif %}
+</div>

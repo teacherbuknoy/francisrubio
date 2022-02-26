@@ -29,6 +29,16 @@
   }
 }
 
+.post-card {
+  @extend .feature-card;
+  display: flex;
+  flex-direction: column;
+
+  .feature__content {
+    flex-grow: 1;
+  }
+}
+
 .feature__header {
   padding: var(--space);
 }
