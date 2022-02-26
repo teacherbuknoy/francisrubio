@@ -970,6 +970,11 @@ legend {
   flex-wrap: wrap;
   justify-content: space-between;
   font-family: var(--font-sans);
+  padding: var(--space);
+  transition: padding 300ms;
+}
+.navigation-bar.attached {
+  padding: 0;
 }
 
 .navigation-brand {
