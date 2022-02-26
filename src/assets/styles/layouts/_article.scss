@@ -1,0 +1,12 @@
+.article__body {
+  display: grid;
+  grid-template-columns: 1fr min(65ch, 100%) 1fr;
+}
+
+.article__body > * {
+  grid-column: 2/3;
+}
+
+.article__body > figure {
+  grid-column: 1/-1;
+}

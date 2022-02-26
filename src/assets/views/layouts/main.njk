@@ -2,5 +2,7 @@
 
 {% block content %}
   {% include 'components/navigation.njk' %}
-  {{ content | safe }}
+  <main id="main" tabindex="-1" aria-label="Main content">
+    {{ content | safe }}
+  </main>
 {% endblock %}

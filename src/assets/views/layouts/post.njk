@@ -1,0 +1,14 @@
+{% extends 'layouts/base.njk' %}
+
+{% block content %}
+  {% include 'components/navigation.njk' %}
+  <main class="padding--xl article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
+    <header class="article__header">
+      <h1 id="{{ title | slugify }}" class="article__title margin--none responsive">{{ title | safe }}</h1>
+      <time datetime="{{ page.date | machineReadableDate }}">{{ page.date | humanReadableDate }}</time>
+    </header>
+    <div class="article__body">
+      {{ content | safe }}
+    </div>
+  </main>
+{% endblock %}

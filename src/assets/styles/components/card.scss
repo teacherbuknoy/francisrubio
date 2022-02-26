@@ -17,13 +17,25 @@
 }
 
 .feature-card {
+  display: block;
   border-radius: var(--ideal-radius);
   overflow: clip;
-  box-shadow: 0 10px 25px #0003;
+  text-decoration: none;
+  transition: box-shadow 300ms;
+
+  &:is(a[href], button):hover,
+  &:is(a[href], button):focus-visible {
+    box-shadow: 0 10px 25px #0003;
+  }
 }
 
 .feature__header {
   padding: var(--space);
+}
+
+.feature__content,
+.feature__footer {
+  color: var(--fg-default);
 }
 
 .feature__content {
@@ -37,7 +49,25 @@
   shape-margin: 0.4ch;
 }
 
+.feature__footer {
+  display: flex;
+  justify-content: end;
+  padding: 1ch;
+}
+
 .slide-image {
   height: 10ch;
   width: auto;
+}
+
+.post-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xl);
+}
+
+.post-grid > * {
+  flex: 1;
+  flex-basis: 35ch;
+  gap: 1rem;
 }

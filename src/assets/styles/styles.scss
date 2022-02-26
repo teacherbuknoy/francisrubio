@@ -4,6 +4,7 @@
 @import "config";
 
 /* LAYOUTS */
+@import "layouts/article";
 @import "layouts/box";
 @import "layouts/center";
 @import "layouts/cluster";
@@ -166,14 +167,6 @@ a {
   to {
     outline: 5px solid hsl(var(--primary-500) / 0%);
     outline-offset: 1rem;
-  }
-}
-
-#main {
-  margin-top: 5.5rem;
-
-  &.bleed {
-    margin-top: 0;
   }
 }
 
