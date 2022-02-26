@@ -33,11 +33,11 @@ $weights: normal, bold, 100, 200, 300, 400, 500, 600, 700, 800, 900;
 
 /* #region LETTER SPACING */
 $letter-spacing: (
-  xs: 0.5px,
-  s: 0.75px,
-  m: 1px,
-  l: 1.5px,
-  xxl: 2px,
+  xs  : 0.5px,
+  s   : 0.75px,
+  m   : 1px,
+  l   : 1.5px,
+  xxl : 2px,
   xxxl: 3px,
 );
 
@@ -79,13 +79,13 @@ $letter-spacing: (
 /* #region LINE HEIGHTS */
 $line-heights: (
   xxxs: 0.5,
-  xxs: 0.75,
-  xs: 0.8,
-  s: 1,
-  m: 1.25,
-  l: 1.5,
-  xl: 1.75,
-  xxl: 2,
+  xxs : 0.75,
+  xs  : 0.8,
+  s   : 1,
+  m   : 1.25,
+  l   : 1.5,
+  xl  : 1.75,
+  xxl : 2,
   xxxl: 3,
 );
 
@@ -99,20 +99,24 @@ $line-heights: (
 /* #endregion */
 
 .quotation {
-  text-align: end;
   border-inline-end: 3px solid hsl(var(--primary-100));
-  padding: var(--space);
+  padding          : var(--space);
+  text-align       : end;
 
   blockquote {
-    font-family: var(--font-mono);
-    font-size: var(--type-size-3);
-    line-height: 1.2;
+    font-family            : var(--font-mono);
+    font-size              : var(--type-size-3);
     font-variation-settings: "CRSV" 1, "CASL" 0.5;
-    font-weight: 350;
+    font-weight            : 350;
+    line-height            : 1.2;
   }
 
   cite {
     font-style: normal;
+  }
+
+  figcaption {
+    font-family: var(--font-sans);
   }
 
   figcaption::before {
@@ -146,8 +150,8 @@ $fonts: sans, serif, display, display-serif, body;
 }
 
 .highlighted {
-  background-image: linear-gradient(hsl(var(--secondary-500)), hsl(var(--secondary-500)));
-  background-size: 100% 0.5ch;
-  background-repeat: no-repeat;
+  background-image   : linear-gradient(hsl(var(--secondary-500)), hsl(var(--secondary-500)));
+  background-size    : 100% 0.5ch;
+  background-repeat  : no-repeat;
   background-position: bottom center;
 }
