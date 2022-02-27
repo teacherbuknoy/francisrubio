@@ -35,8 +35,25 @@ module.exports = function (eleventyConfig) {
   })
 
   // Add Eleventy plugins from /src/config/plugins.js
+  let environmentIsProduction = process.env.ELEVENTY_ENV === 'production'
   Object.keys(plugins).forEach(pluginName => {
-    eleventyConfig.addPlugin(plugins[pluginName]())
+    let { plugin, options, isProduction } = plugins[pluginName]()
+    let shouldAddPlugin = false
+
+    if (isProduction) {
+      shouldAddPlugin = environmentIsProduction
+    } else {
+      shouldAddPlugin = true
+    }
+
+    if (shouldAddPlugin) {
+      console.log('[PLUGIN] Adding plugin', pluginName)
+      if (options) {
+        eleventyConfig.addPlugin(plugin, options)
+      } else {
+        eleventyConfig.addPlugin(plugin)
+      }
+    }
   })
 
   // BrowserSync config

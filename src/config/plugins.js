@@ -1,6 +1,5 @@
 module.exports = {
-  // metagen: function () {
-  //   let metagen = require('eleventy-plugin-metagen');
-  //   return metagen;
-  // }
+  syntaxHighlight: function () {
+    return { plugin: require('@11ty/eleventy-plugin-syntaxhighlight') }
+  }
 }

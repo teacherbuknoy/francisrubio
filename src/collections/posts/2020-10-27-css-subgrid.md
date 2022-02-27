@@ -59,7 +59,7 @@ This is in and of itself very powerful. It is unlike anything we have seen on th
 
 We will see in the next image that the container's immediate children, the `.card`s, align to the container's grid tracks. The cards' contents, however, do not align, as is shown by the red dashed lines.
 
-![Gray cards laid out in a grid. Two red dashed lines are drawn across the cards to show that none of the cards' headings and paragraphs align with other cards' contents.](/images/posts/css-subgrid/Cards_no subgrid.png)
+![Gray cards laid out in a grid. Two red dashed lines are drawn across the cards to show that none of the cards' headings and paragraphs align with other cards' contents.](/assets/images/posts/css-subgrid/Cards_no subgrid.png)
 
 We could fix this by assigning fixed height to the cards' contents. This however would not be ideal in cases where the length of the content is unknown. This is where subgrid comes in.
 
@@ -71,15 +71,15 @@ The process of designing websites can vary for every designer, but I design on t
 
 Visualizing a grid can be very easy. Visualizing a subgrid, however, is more complicated. Let's start with a simple grid that will host our cards. In our previous example, this is what our grid looked like:
 
-![A grid with 3 columns and two rows](/images/posts/css-subgrid/grid-visualizer-1.png)
+![A grid with 3 columns and two rows](/assets/images/posts/css-subgrid/grid-visualizer-1.png)
 
 Let's now add the additional rows that the individual cards will use to lay their contents out:
 
-![A grid with 3 columns and six uneven rows. The new rows added are highlighted](/images/posts/css-subgrid/grid-visualizer-2.png)
+![A grid with 3 columns and six uneven rows. The new rows added are highlighted](/assets/images/posts/css-subgrid/grid-visualizer-2.png)
 
 When we use this later on in our code, this is what it's supposed to look like, roughly:
 
-![The previous grid, now superimposed with the card contents to demonstrate how they will align to the grid lines.](/images/posts/css-subgrid/grid-visualizer-3.png)
+![The previous grid, now superimposed with the card contents to demonstrate how they will align to the grid lines.](/assets/images/posts/css-subgrid/grid-visualizer-3.png)
 
 With this design, we expect it to align our cards and their contents with each other, regardless of how long or short the contents are.
 
@@ -96,7 +96,7 @@ As usual, we still use `display: grid` to make the container a grid container an
 
 Now, we'll setup our rows. Let's go back to our grid design and figure out the measurement of each row. To make this simple, we'll only look at the first three rows.
 
-![The first three rows of the previous grid, now superimposed with the measurements assigned to each.](/images/posts/css-subgrid/grid-visualizer-4.png)
+![The first three rows of the previous grid, now superimposed with the measurements assigned to each.](/assets/images/posts/css-subgrid/grid-visualizer-4.png)
 
 We are making the first row `minmax(100px, 1fr)` to make it take up the most space, since that is for our image, but also give it a minimum height of `100px`. We are making the second and third rows auto because we want them to resize to the content we have. Let's make put it into our code.
 
@@ -135,11 +135,11 @@ This is what that looks like now:
 
 Now the cards are also using sort of a <i>copy</i> of the parent's grid rows. Because of this, the browser is also laying the headings and paragraphs out in the same grid rows that the cards are using:
 
-![The code output using the subgrid. The headings and paragraphs line up perfectly with each other, as shown by the two dashed lines.](/images/posts/css-subgrid/cards-with-subgrid.png)
+![The code output using the subgrid. The headings and paragraphs line up perfectly with each other, as shown by the two dashed lines.](/assets/images/posts/css-subgrid/cards-with-subgrid.png)
 
 However, you will notice that the second row of cards are quite shorter than the first ones. This is because from the second row onwards, our grid does not honor our `minmax(100px, 1fr)` and instead uses `auto`. This is because `grid-template-rows` only works one time&mdash;the browser uses `auto` for every other automatically generated rows that we haven't declared in `grid-template-rows`.
 
-![The code output using the subgrid. The second row of cards are shorter than the first one.](/images/posts/css-subgrid/cards-no-autorow.png)
+![The code output using the subgrid. The second row of cards are shorter than the first one.](/assets/images/posts/css-subgrid/cards-no-autorow.png)
 
 To solve this problem, we will go back to our `.grid` container and use the property called `grid-auto-rows` instead. This will tell the browser to reuse our row template whenever it creates new rows:
 

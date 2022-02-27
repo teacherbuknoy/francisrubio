@@ -45,13 +45,17 @@ permalink: /
 </section>
 
 <section class="padding--xl" aria-labelledby="section-heading-4">
-  <h2 id="section-heading-4">Writing</h2>
+  <div class="d-flex jc--between ai--center">
+    <h2 id="section-heading-4">Writing</h2>
+    <a href="/writing" class="button">See all</a>
+  </div>
   <div class="post-grid">
-  {% set posts = collections.posts | reverse %}
-  {% set length = collections.posts.length if collections.posts.length <= 3 else 3 %}
-  {% for i in range(0, length) %}
-    {% set feature = posts[i] %}
-    <a href="{{ feature.url }}" class="feature-card">
+    {% set posts = collections.posts | reverse %}
+    {% set length = collections.posts.length if collections.posts.length <= 3 else 
+      3 %}
+    {% for i in range(0, length) %}
+      {% set feature = posts[i] %}
+      <a href="{{ feature.url }}" class="post-card">
         <header class="feature__header">
           <h3 class="responsive margin--none">{{ feature.data.title | safe }}</h3>
         </header>
@@ -59,9 +63,9 @@ permalink: /
           {{ feature.data.description | safe }}
         </div>
         <footer class="feature__footer">
-          <time datetime="{{ feature.date | machineReadableDate }}">{{ feature.date | humanReadableDate }}</time>
+          <time>{{ feature.date | humanReadableDate }}</time>
         </footer>
       </a>
-  {% endfor %}
+    {% endfor %}
   </div>
 </section>

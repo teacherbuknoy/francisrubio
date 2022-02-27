@@ -10,8 +10,8 @@ permalink: /writing/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber +
 <section class="padding--xl" aria-labelledby="section-heading-4">
   <h1 id="section-heading-4">Writing</h1>
   <div class="post-grid">
-  {% for feature in pagination.items %}
-    <a href="{{ feature.url }}" class="post-card">
+    {% for feature in pagination.items %}
+      <a href="{{ feature.url }}" class="post-card">
         <header class="feature__header">
           <h3 class="responsive margin--none">{{ feature.data.title | safe }}</h3>
         </header>
@@ -22,7 +22,7 @@ permalink: /writing/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber +
           <time>{{ feature.date | humanReadableDate }}</time>
         </footer>
       </a>
-  {% endfor %}
+    {% endfor %}
   </div>
 </section>
 
