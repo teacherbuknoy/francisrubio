@@ -1,10 +1,10 @@
 .navigation-bar {
-  display: flex;
-  flex-wrap: wrap;
+  display        : flex;
+  flex-wrap      : wrap;
+  font-family    : var(--font-sans);
   justify-content: space-between;
-  font-family: var(--font-sans);
-  padding: var(--space);
-  transition: padding 300ms;
+  padding        : var(--space);
+  transition     : padding 300ms;
 
   &.attached {
     padding: 0;
@@ -13,7 +13,7 @@
 .navigation-brand {
   @extend .stack;
 
-  gap: 0;
+  gap        : 0;
   line-height: 1;
 }
 
@@ -26,17 +26,17 @@
     position: relative;
 
     &::before {
-      background-color: hsl(var(--primary-100));
-      border-radius: var(--ideal-radius);
-      content: "";
-      height: var(--height, 0);
-      left: var(--left, 0);
-      position: absolute;
-      top: var(--top, 0);
+      background-color   : hsl(var(--primary-100));
+      border-radius      : var(--ideal-radius);
+      content            : "";
+      height             : var(--height, 0);
+      left               : var(--left, 0);
+      position           : absolute;
+      top                : var(--top, 0);
       transition-duration: 200ms;
       transition-property: opacity, top, left, width, height;
-      width: var(--width, 0);
-      z-index: -1;
+      width              : var(--width, 0);
+      z-index            : -1;
 
       @media (prefers-reduced-motion) {
         transition-property: opacity;
@@ -54,20 +54,20 @@
 }
 
 .navigation-link {
+  align-items    : center;
+  border-radius  : var(--ideal-radius);
+  display        : flex;
+  gap            : 1ch;
+  outline        : 0 solid hsl(var(--primary-500));
+  padding        : var(--space-xs) var(--space);
   text-decoration: none;
-  padding: var(--space-xs) var(--space);
-  display: flex;
-  gap: 1ch;
-  align-items: center;
-  border-radius: var(--ideal-radius);
-  transition: background-color 300ms, outline 300ms;
-  outline: 0 solid hsl(var(--primary-500));
+  transition     : background-color 300ms, outline 300ms;
 
   &:focus-within {
-    border: none;
+    border    : none;
     box-shadow: none;
-    outline: none;
-    outline: 5px solid hsl(var(--primary-500));
+    outline   : 5px solid hsl(var(--primary-500));
+    outline   : none;
   }
 
   @at-root body:not(.no-js) .navigation-links & {
@@ -79,6 +79,29 @@
   @at-root body:not(.no-js) .navigation-links:not(:hover) & {
     &:focus-within {
       outline: none;
+    }
+  }
+
+  &.active {
+    position: relative;
+
+   &::after {
+      background-color: hsl(var(--primary-500));
+      border-radius   : 100px;
+      bottom          : 0;
+      content         : "";
+      height          : 0.5ch;
+      left            : 50%;
+      position        : absolute;
+      transform       : translateX(-50%);
+      transition      : width 100ms;
+      width           : 0.5ch;
+    }
+
+    &:focus-visible::after,
+    &:hover::after {
+      height: 3px;
+      width : 75%;
     }
   }
 }

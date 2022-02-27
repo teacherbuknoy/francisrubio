@@ -34,6 +34,12 @@
   display: flex;
   flex-direction: column;
 
+  .feature__header {
+    padding: 0;
+    padding-inline: var(--space-l);
+    padding-block-start: var(--space-l);
+  }
+
   .feature__content {
     flex-grow: 1;
   }

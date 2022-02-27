@@ -6,8 +6,9 @@
   </div>
   <ul class="navigation-links" data-navigation-links>
     {% for nav in navigation %}
+      {% set path = nav.text | slugify %}
       <li>
-        <a href="{{ nav.url }}" class="navigation-link">
+        <a href="{{ nav.url }}" class="navigation-link {{ 'active' if path === activePath }}">
           {% if nav.text %}
             <span class="navigation-link-text">{{ nav.text }}</span>
           {% endif %}
