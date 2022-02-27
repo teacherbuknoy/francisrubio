@@ -6,6 +6,11 @@
     <header class="article__header">
       <h1 id="{{ title | slugify }}" class="article__title margin--none responsive">{{ title | safe }}</h1>
       <time datetime="{{ page.date | machineReadableDate }}">{{ page.date | humanReadableDate }}</time>
+      <div class="cluster gap--m jc--end">
+        {% for item in link %}
+          <a href="{{ item.url }}" rel="noopener noreferer nofollow" target="_blank" class="primary button">{{ item.text }}</a>
+        {% endfor %}
+      </div>
     </header>
     <div class="with-sidebar m-block-start--l">
       <aside class="sidebar article__sidebar">
