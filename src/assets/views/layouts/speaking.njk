@@ -1,0 +1,44 @@
+{% extends 'layouts/base.njk' %}
+
+{% block content %}
+  {% include 'components/navigation.njk' %}
+  <main class="padding--xl article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
+    <header class="article__header">
+      <h1 id="{{ title | slugify }}" class="article__title margin--none responsive">{{ title | safe }}</h1>
+      <time datetime="{{ page.date | machineReadableDate }}">{{ page.date | humanReadableDate }}</time>
+    </header>
+    <div class="with-sidebar m-block-start--l">
+      <aside class="sidebar article__sidebar">
+        <section class="sidebar__section" aria-labelledby="sidebar-host">
+          <h2 class="sidebar__heading" id="sidebar-host">Hosts</h2>
+          {% for item in host %}
+            <h3 class="sidebar__title">{{ item.name }}</h3>
+            <p>{{ item.description }}</p>
+          {% endfor %}
+        </section>
+        <section class="sidebar__section" aria-labelledby="sidebar-event">
+          <h2 class="sidebar__heading" id="sidebar-event">Events</h2>
+          {% for item in event %}
+            <h3 class="sidebar__title">{{ item.name }}</h3>
+            <p>{{ item.description }}</p>
+          {% endfor %}
+        </section>
+        <section class="sidebar__section" aria-labelledby="sidebar-audience">
+          <h2 class="sidebar__heading" id="sidebar-audience">Audience</h2>
+          {% for item in audience %}
+            <p>{{ item }}</p>
+          {% endfor %}
+        </section>
+        <section class="sidebar__section" aria-labelledby="sidebar-duration">
+          <h2 class="sidebar__heading" id="sidebar-duration">Duration</h2>
+          {% for item in duration %}
+            <p>Around {{ item | duration }}</p>
+          {% endfor %}
+        </section>
+      </aside>
+      <div class="not-sidebar article__body">
+        {{ content | safe }}
+      </div>
+    </div>
+  </main>
+{% endblock %}
