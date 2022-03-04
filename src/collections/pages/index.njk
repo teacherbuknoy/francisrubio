@@ -105,3 +105,31 @@ activePath: frontpage
     <a href="mailto:francis@antaresph.dev" class="primary button padding-inline--xl padding-block--m">Invite me as your speaker</a>
   </div>
 </section>
+
+<section class="padding--xl" aria-labelledby="section-heading-5">
+  <div class="d-flex jc--between ai--center">
+    <h2 id="section-heading-5">Projects</h2>
+    <a href="/projects/" class="button">See all</a>
+  </div>
+
+  <div class="post-grid">
+    {% set posts = collections.projects | reverse %}
+    {% set length = collection.projects.length if collection.projects.length <= 3 else 3 %}
+
+    {% for i in range(0, length) %}
+      {% set feature = posts[i] %}
+      <a href="{{ feature.url }}" class="post-card">
+        <header class="feature__header">
+          <img src="{{ feature.data.logo.src }}" alt="{{ feature.data.logo.alt }}" width="{{ feature.data.logo.width }}"  height="{{ feature.data.logo.height }}" style="width: min(15ch, 100%);">
+          <h3 class="responsive margin--none">{{ feature.data.title | safe }}</h3>
+        </header>
+        <div class="feature__content padding-inline--l">
+          {{ feature.data.description | safe }}
+        </div>
+        <footer class="feature__footer">
+          <time>{{ feature.date | humanReadableDate }}</time>
+        </footer>
+      </a>
+    {% endfor %}
+  </div>
+</section>
