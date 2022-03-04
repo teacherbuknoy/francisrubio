@@ -1,0 +1,44 @@
+{% extends 'layouts/base.njk' %}
+
+{% block content %}
+  {% include 'components/navigation.njk' %}
+  <main class="padding--xl article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
+    {% if images and images.length > 0 %}
+    <ul class="image-scroller">
+      {% for image in images %}
+        <li>
+          <img src="{{ image.src }}" alt="{{ image.alt }}" width="{{ image.width }}" height="{{ image.height }}">
+        </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <header class="article__header with-sidebar ai--center">
+      <div class="sidebar" style="--sidebar-width: 25ch;">
+        {% if logo %}
+          <img class="article__logo" style="width: min(15ch, 100%); margin-inline: auto;" src="{{ logo.src }}" alt="{{ logo.alt }}" width="{{ logo.width }}" height="{{ logo.height }}">
+        {% endif %}
+      </div>
+      <div class="not-sidebar">
+        <h1 id="{{ title | slugify }}" class="article__title margin--none responsive">{{ title | safe }}</h1>
+        <time datetime="{{ page.date | machineReadableDate }}">{{ page.date | humanReadableDate }}</time>
+        <div class="filled cluster ai--center">
+          <div class="cluster gap--m ai--center">
+            {% for tag in tags %}
+              <span class="badge">{{ tag }}</span>
+            {% endfor %}
+          </div>
+
+          <div class="cluster gap--m jc--end ai--center">
+          {% for link in links %}
+            <a href="{{ link.url }}" class="button" target="_blank" rel="noopener noreferer nofollow">{{ link.text }}</a>
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="article__body">
+      {{ content | safe }}
+    </div>
+  </main>
+  {% include 'components/footer.njk' %}
+{% endblock %}

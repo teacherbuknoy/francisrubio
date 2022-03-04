@@ -24,17 +24,20 @@ $fg-colors: contrast, default, subtle, non-essential;
 
 .fg {
   @each $color in $fg-colors {
+    &-#{$color}
     &--#{$color} {
       color: hsl(var(--fg-#{$color}));
     }
 
     @media (prefers-color-scheme: dark) {
+      &-d-#{$color}
       &-d--#{$color} {
         color: hsl(var(--fg-#{$color}));
       }
     }
 
     @media (prefers-color-scheme: light) {
+      &-l-#{$color}
       &-l--#{$color} {
         color: hsl(var(--fg-#{$color}));
       }
@@ -42,18 +45,25 @@ $fg-colors: contrast, default, subtle, non-essential;
   }
 }
 
-$colors: 100, 300, 500, 700, 900;
+$intensities: 100, 300, 500, 700, 900;
+$colors: primary, secondary, warning, error, success;
 
 .fg {
-  @each $intensity in $colors {
-    &-primary-#{$intensity} {
-      color: hsl(var(--primary-#{$intensity}));
+  @each $intensity in $intensities {
+    @each $color in $colors {
+      &-#{$color}-#{$intensity} {
+        color: hsl(var(--#{$color}-#{$intensity}));
+      }
     }
   }
+}
 
-  @each $intensity in $colors {
-    &-secondary-#{$intensity} {
-      color: hsl(var(--secondary-#{$intensity}));
+.bg {
+  @each $intensity in $intensities {
+    @each $color in $colors {
+      &-#{$color}-#{$intensity} {
+        background-color: hsl(var(--#{$color}-#{$intensity}));
+      }
     }
   }
 }

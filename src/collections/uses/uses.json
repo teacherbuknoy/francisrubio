@@ -1,0 +1,5 @@
+{
+  "permalink": "/uses/{{ title | slugify }}/",
+  "layout": "uses.njk",
+  "activePath": "what-i-use"
+}

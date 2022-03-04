@@ -1,0 +1,42 @@
+---
+title: Uses - Francis Rubio
+description: Apps, fonts, scripts, and other things that I use that you may want to try
+pagination:
+  data: collections.uses
+  size: 6
+  reverse: true
+permalink: /uses/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html
+activePath: what-i-use
+---
+
+<section class="padding--xl" aria-labelledby="section-heading-1">
+  <h1 id="section-heading-1">Uses</h1>
+  <div class="post-grid">
+    {% for feature in pagination.items %}
+      <a href="{{ feature.url }}" class="post-card">
+        <header class="feature__header padding--xl">
+          {% if feature.data.logo %}
+          {% set logo = feature.data.logo %}
+            <img src="{{ logo.src }}" alt="{{ logo.alt }}" width="{{ logo.width }}" height="{{ logo.height }}" style="width: min(10ch, 100%);">
+            <h2 class="responsive margin--none">{{ feature.data.title | safe }}</h2>
+          {% endif %}
+        </header>
+        <div class="feature__content padding-inline--l">
+          {{ feature.data.description | safe }}
+        </div>
+        <footer class="feature__footer gap--m font-sans">
+          {% set feathericon = 'star' %}
+          <span class="fg-warning-500">{% include 'components/feathericon.njk' %}</span>
+          {% set rating = feature.data.rating %}
+          {% set perfectRating = 5 %}
+
+          {% if rating != null %}
+            <span class="fg-accent">{{ rating }}/{{ perfectRating }}</span>
+          {% else %}
+            <span class="fg-accent">No rating</span>
+          {% endif %}
+        </footer>
+      </a>
+    {% endfor %}
+  </div>
+</section>
