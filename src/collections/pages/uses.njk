@@ -3,7 +3,7 @@ title: Uses - Francis Rubio
 description: Apps, fonts, scripts, and other things that I use that you may want to try
 pagination:
   data: collections.uses
-  size: 6
+  size: 12
   reverse: true
 permalink: /uses/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html
 activePath: what-i-use
@@ -18,8 +18,8 @@ activePath: what-i-use
           {% if feature.data.logo %}
           {% set logo = feature.data.logo %}
             <img src="{{ logo.src }}" alt="{{ logo.alt }}" width="{{ logo.width }}" height="{{ logo.height }}" style="width: min(10ch, 100%);">
-            <h2 class="responsive margin--none">{{ feature.data.title | safe }}</h2>
           {% endif %}
+          <h2 class="responsive margin--none">{{ feature.data.title | safe }}</h2>
         </header>
         <div class="feature__content padding-inline--l">
           {{ feature.data.description | safe }}
