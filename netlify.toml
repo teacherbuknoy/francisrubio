@@ -8,3 +8,13 @@
 
 [[plugins]]
   package = "netlify-plugin-inline-critical-css"
+
+[[redirects]]
+  from = "/blog"
+  to = "/writing"
+  status = 301
+
+[[redirects]]
+  from = "/blog/*"
+  to = "/writing/:splat"
+  status = 301

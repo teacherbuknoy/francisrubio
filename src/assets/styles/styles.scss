@@ -13,6 +13,7 @@
 @import "layouts/stack";
 
 /* COMPONENTS */
+@import "components/badge";
 @import "components/button";
 @import "components/card";
 @import "components/menu";
@@ -36,38 +37,38 @@
 
 .light,
 :root {
-  --fg-contrast: var(--d-contrast);
-  --fg-default: var(--d-default);
-  --fg-subtle: var(--d-subtle);
+  --fg-contrast     : var(--d-contrast);
+  --fg-default      : var(--d-default);
+  --fg-subtle       : var(--d-subtle);
   --fg-non-essential: var(--d-non-essential);
 
-  --bg-primary: var(--l-contrast);
+  --bg-primary  : var(--l-contrast);
   --bg-secondary: var(--l-default);
-  --bg-accent: var(--l-subtle);
+  --bg-accent   : var(--l-subtle);
   --bg-exception: var(--l-non-essential);
 
   @media (prefers-color-scheme: dark) {
-    --fg-contrast: var(--l-contrast);
-    --fg-default: var(--l-default);
-    --fg-subtle: var(--l-subtle);
+    --fg-contrast     : var(--l-contrast);
+    --fg-default      : var(--l-default);
+    --fg-subtle       : var(--l-subtle);
     --fg-non-essential: var(--l-non-essential);
 
-    --bg-primary: var(--d-default);
+    --bg-primary  : var(--d-default);
     --bg-secondary: var(--d-contrast);
-    --bg-accent: var(--d-subtle);
+    --bg-accent   : var(--d-subtle);
     --bg-exception: var(--d-non-essential);
   }
 }
 
 .dark {
-  --fg-contrast: var(--l-contrast);
-  --fg-default: var(--l-default);
-  --fg-subtle: var(--l-subtle);
+  --fg-contrast     : var(--l-contrast);
+  --fg-default      : var(--l-default);
+  --fg-subtle       : var(--l-subtle);
   --fg-non-essential: var(--l-non-essential);
 
-  --bg-primary: var(--d-default);
+  --bg-primary  : var(--d-default);
   --bg-secondary: var(--d-default);
-  --bg-accent: var(--d-subtle);
+  --bg-accent   : var(--d-subtle);
   --bg-exception: var(--d-non-essential);
 }
 
@@ -79,17 +80,17 @@ body {
 
 :root {
   scroll-padding-top: 7rem;
-  scroll-behavior: smooth;
+  scroll-behavior   : smooth;
 }
 
 body {
-  background-color: hsl(var(--bg-primary));
-  font-family: var(--font-body);
-  font-size: var(--type-size);
+  background-color       : hsl(var(--bg-primary));
+  font-family            : var(--font-body);
+  font-size              : var(--type-size);
   font-variation-settings: "SOFT" 100, "WONK" 0;
-  min-height: 100vh;
-  scroll-behavior: smooth;
-  font-weight: 350;
+  min-height             : 100vh;
+  scroll-behavior        : smooth;
+  font-weight            : 350;
 }
 
 h1,
@@ -98,7 +99,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: hsl(var(--fg-contrast));
+  color      : hsl(var(--fg-contrast));
   font-family: var(--font-display-serif);
 }
 
@@ -117,31 +118,42 @@ h6 {
 }
 
 .feathericon {
-  display: inline-block;
-  width: 1.25em;
-  height: 1.25em;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2px;
+  display        : inline-block;
+  width          : 1.25em;
+  height         : 1.25em;
+  fill           : none;
+  stroke         : currentColor;
+  stroke-width   : 2px;
   stroke-linejoin: unset;
-  stroke-linecap: round;
+  stroke-linecap : round;
 }
 
 a {
   box-decoration-break: clone;
-  color: hsl(var(--fg-default));
-  text-decoration: underline solid hsl(var(--primary-500));
+  color               : hsl(var(--fg-default));
+  text-decoration     : underline solid hsl(var(--primary-500));
+
+  &[target="_blank"] {
+    display: inline-flex;
+    gap    : 1ch;
+
+    &::after {
+      align-self         : baseline;
+      content            : "🡥";
+      margin-inline-start: auto;
+    }
+  }
 
   &:hover {
-    color: hsl(var(--primary-900));
+    color                : hsl(var(--primary-900));
     text-decoration-color: hsl(var(--fg-default));
   }
 
   &:focus-visible {
-    color: hsl(var(--primary-900));
+    color           : hsl(var(--primary-900));
     background-color: hsl(var(--primary-100));
-    box-shadow: 0 0 0 10px hsl(var(--primary-100));
-    outline: 5px solid hsl(var(--primary-100));
+    box-shadow      : 0 0 0 10px hsl(var(--primary-100));
+    outline         : 5px solid hsl(var(--primary-100));
   }
 
   &:focus-visible {
@@ -154,18 +166,18 @@ a {
 }
 
 :target {
-  animation: notify 300ms;
+  animation      : notify 300ms;
   animation-delay: 1000ms;
 }
 
 @keyframes notify {
   from {
-    outline: 5px solid hsl(var(--primary-500));
+    outline       : 5px solid hsl(var(--primary-500));
     outline-offset: 0;
   }
 
   to {
-    outline: 5px solid hsl(var(--primary-500) / 0%);
+    outline       : 5px solid hsl(var(--primary-500) / 0%);
     outline-offset: 1rem;
   }
 }
@@ -173,9 +185,9 @@ a {
 code,
 var,
 samp {
-  font-family: var(--font-mono);
+  font-family            : var(--font-mono);
   font-variation-settings: "MONO" 1, "CASL" 1, "CRSV" 1;
-  font-weight: 390;
+  font-weight            : 390;
 }
 
 :root {
@@ -183,28 +195,28 @@ samp {
 }
 
 *::-webkit-scrollbar {
-  width: 0.75em;
+  width : 0.75em;
   height: 0.75em;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: hsl(var(--bg-accent));
-  border: 3px solid hsl(var(--bg-primary));
-  border-radius: 100px;
+  border          : 3px solid hsl(var(--bg-primary));
+  border-radius   : 100px;
 }
 
 ::-webkit-scrollbar-track {
   background-color: hsl(var(--bg-primary));
-  border-radius: var(--ideal-radius);
+  border-radius   : var(--ideal-radius);
 }
 
 .no-list {
   list-style: none;
-  margin: 0;
-  padding: 0;
+  margin    : 0;
+  padding   : 0;
 
   li:before {
-    content: "\200B";
+    content : "\200B";
     position: absolute;
   }
 }

@@ -18,4 +18,10 @@
   &.center-justified {
     justify-content: center;
   }
+
+  &.filled {
+    & > * {
+      flex: 1;
+    }
+  }
 }

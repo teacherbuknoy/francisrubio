@@ -1,6 +1,6 @@
 .button {
   align-items: center;
-  background: transparent;
+  background-color: hsl(var(--primary-100));
   border: 1px solid transparent;
   border-radius: var(--ideal-radius);
   color: hsl(var(--primary-700));
@@ -18,7 +18,8 @@
   width: fit-content;
 
   &:hover {
-    background-color: hsl(var(--primary-100));
+    background-color: hsl(var(--primary-300));
+    color: hsl(var(--l-contrast));
   }
 
   &:focus-visible {
