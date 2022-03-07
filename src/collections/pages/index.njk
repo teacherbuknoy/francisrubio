@@ -5,10 +5,12 @@ permalink: /
 activePath: frontpage
 ---
 
-<section class="padding--l" aria-labelledby="section-header-1">
-  <h1 id="section-header-1" class="responsive weight-200 text-center font-serif fg--default">I develop <strong class="weight-700 fg--contrast">robust</strong> and <strong class="weight-700 fg--contrast">accessible</strong> front ends on the Web.</h1>
-  <div class="center-justified cluster">
-    <a href="src/assets/files/Francis Rubio - Resume (site download).pdf" download class="primary button padding-inline--xl padding-block--m">Download my résumé</a>
+<section aria-labelledby="section-header-1" style="display: grid; min-height: 85vh;">
+  <div class="margin--auto">
+    <h1 id="section-header-1" class="responsive weight-200 text-center font-serif fg--default">I develop <strong class="weight-700 fg--contrast">robust</strong> and <strong class="weight-700 fg--contrast">accessible</strong> front ends on the Web.</h1>
+    <div class="center-justified cluster">
+      <a href="src/assets/files/Francis Rubio - Resume (site download).pdf" download class="primary button padding-inline--xl padding-block--m">Download my résumé</a>
+    </div>
   </div>
 </section>
 <section style="padding: var(--space-xl)" aria-labelledby="section-header-2">
@@ -114,7 +116,8 @@ activePath: frontpage
 
   <div class="post-grid">
     {% set posts = collections.projects | reverse %}
-    {% set length = collection.projects.length if collection.projects.length <= 3 else 3 %}
+    {% set length = collection.projects.length if collection.projects.length <= 3 else 
+      3 %}
 
     {% for i in range(0, length) %}
       {% set feature = posts[i] %}
