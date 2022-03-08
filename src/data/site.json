@@ -5,5 +5,12 @@
     "seo": {
         "fb_image": "/assets/images/fb_image.png",
         "twitter_image": "/assets/images/twitter_image.png"
+    },
+    "contact": {
+        "email": {
+            "name": "Email",
+            "identifier": "francis@antaresph.dev",
+            "url": "mailto:francis@antaresph.dev"
+        }
     }
 }

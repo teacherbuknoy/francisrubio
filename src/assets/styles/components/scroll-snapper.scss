@@ -2,6 +2,15 @@
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
+  transition: scrollbar-color 100ms;
+
+  &:not(:hover) {
+    scrollbar-color: transparent transparent;
+
+    &::-webkit-scrollbar-thumb {
+      visibility: hidden;
+    }
+  }
 }
 
 $snap-alignments: start, end, center;

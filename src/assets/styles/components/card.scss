@@ -17,7 +17,7 @@
 
   &[data-open] {
     .feature-card__header {
-      font-size: var(--type-size-4);
+      font-size: var(--type-size-5);
 
       &::after {
         width: 0;
@@ -37,7 +37,7 @@
   font-size: var(--type-size-3);
   flex-grow: 1;
   font-family: var(--font-serif);
-  font-weight: 200;
+  font-variation-settings: 'wght' 200;
   text-align: start;
   border: 0;
   display: flex;

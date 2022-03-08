@@ -6,7 +6,7 @@ activePath: frontpage
 stylesheets: ['frontpage.css']
 ---
 
-<section class="section" aria-labelledby="site-name" id="section-1">
+<section class="section margin-block-end--xl" aria-labelledby="site-name" id="section-1">
   <div class="section__inner">
     <h1 class="sr-only" id="site-name">Francis Rubio</h1>
     <svg class="banner-site-title" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 591 267">
@@ -37,6 +37,10 @@ stylesheets: ['frontpage.css']
           <div class="feature-card__content">{{ feature.content }}</div>
         </div>
       {% endfor %}
+    </div>
+    <div class="stack ai--center text-center gap--s padding--xl">
+      <span class="fs-4 weight-300">Ready to give me a shot?</span>
+      <a href="{{ site.contact.email.url }}" class="primary button">Connect with me</a>
     </div>
   </div>
 </section>
