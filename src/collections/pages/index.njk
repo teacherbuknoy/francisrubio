@@ -27,3 +27,16 @@ stylesheets: ['frontpage.css']
     {% img options %}
   </div>
 </section>
+<section class="section padding-block--xxl" id="section-2" aria-labelledby="section-2-heading">
+  <div class="section__inner">
+    <h2 style="width: min(35ch, 100%);" class="fs-4 font-serif weight-300">I specialize in creating <strong class="fg-primary-500 weight-bold">accessible front ends</strong> for web projects and integrating them with APIs and back-end processes.</h2>
+    <div class="scroll-snapper d-flex gap--m padding--xl">
+      {% for feature in features %}
+        <div class="feature-card snap-center" style="flex-basis: 25ch; flex-shrink: 0;">
+          <button data-popover data-aria-hide data-disclosure class="feature-card__header">{{ feature.title }}</button>
+          <div class="feature-card__content">{{ feature.content }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

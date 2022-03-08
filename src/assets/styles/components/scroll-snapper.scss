@@ -1,0 +1,15 @@
+.scroll-snapper {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+$snap-alignments: start, end, center;
+
+.snap {
+  @each $a in $snap-alignments {
+    &-#{$a} {
+      scroll-snap-align: $a;
+    }
+  }
+}
