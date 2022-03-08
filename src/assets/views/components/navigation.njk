@@ -1,15 +1,47 @@
 <a href="#main" class="skip-link">Skip to content</a>
 <nav class="navigation-bar">
-  <button class="navigation-link">
+  <button class="navigation-link" data-dialog="nav-menu">
     {% set feathericon = 'menu' %}
     {% include 'components/feathericon.njk' %}
-    <span>Menu</span>
+    <span class="navigation-link-text">Menu</span>
   </button>
   <span class="weight-300 fs-6">Francis Rubio</span>
   <button class="navigation-link">
     {% set feathericon = 'search' %}
     {% include 'components/feathericon.njk' %}
-    <span>Search</span>
+    <span class="navigation-link-text">Search</span>
   </button>
 </nav>
+<div class="navigation-menu" id="nav-menu" aria-label="Navigation menu">
+  <div class="navigation-menu-backdrop" data-dialog-hide></div>
+  <div class="navigation-menu-content">
+    <div class="spaced cluster ai--center padding-inline--xxl padding-block--l">
+      <span class="weight-300 font-sans">Francis Rubio</span>
+      <button class="navigation-link" data-dialog-hide>
+        {% set feathericon = 'x' %}
+        {% include 'components/feathericon.njk' %}
+        <span class="navigation-link-text">Close menu</span>
+      </button>
+    </div>
+    <div class="navigation-menu-items">
+      {% for item in navigation %}
+        <a href="{{ item.url }}" class="navigation-menu-link" style="--delay-factor: {{ loop.index0 }}">
+          {% if item.text %}
+            <span class="navigation-menu-link-text">{{ item.text }}</span>
+          {% endif %}
+          {% if item.feathericon %}
+            {% set feathericon = item.feathericon %}
+            {% include "components/feathericon.njk" %}
+          {% endif %}
+          {% if item.label %}
+            <span class="navigation-menu-link-label">{{ item.label }}</span>
+          {% endif %}
+        </a>
+      {% endfor %}
+    </div>
+    <div class="navigation-menu-contact-items">
+
+    </div>
+  </div>
+</div>
 <div data-observer-trigger></div>

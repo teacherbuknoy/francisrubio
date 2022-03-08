@@ -7,15 +7,13 @@
 /// @parameter { color } $color the color of the focus ring
 /// @parameter { boolean } $inset whether the focus ring appears inside the element or not. Default: false
 @mixin focus-ring($color, $inset: false, $inset-value: 3px) {
-    outline: 3px solid $color;
+  outline: 3px solid $color;
 
-    @if $inset {
-        outline-offset: $inset-value * -1;
-    }
-
-    @else {
-        outline-offset: $inset-value;
-    }
+  @if $inset {
+    outline-offset: $inset-value * -1;
+  } @else {
+    outline-offset: $inset-value;
+  }
 }
 
 // @name Focus
@@ -25,33 +23,44 @@
 /// @parameter { number } $inset-value the amount of inset. Negative numbers will cause offset. Default: 3px;
 /// @deprecated
 @mixin focus($color: currentColor, $inset: false, $inset-value: 3px) {
-    &:focus:not(:focus-visible) {
-        outline: none;
-    }
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
 
-    &:focus-visible,
-    &:focus {
-        @include focus-ring($color, $inset, $inset-value);
-    }
+  &:focus-visible,
+  &:focus {
+    @include focus-ring($color, $inset, $inset-value);
+  }
 }
-
 
 /// @name FitContent
 /// Width that uses the fit-content value;
 @mixin fit-content {
-    width: -moz-fit-content;
-    width: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 @mixin box-shadow($factor: 3, $skipAmount: 1, $color: #0001) {
   $shadow: 0 1px 2px $color;
-  
-    @for $i from 2 through $factor {
-      @if $i % $skipAmount == 0 {
-        $s: 0 #{$i}px #{$i * 2}px $color;
-        $shadow: $shadow , $s;
-      }
+
+  @for $i from 2 through $factor {
+    @if $i % $skipAmount == 0 {
+      $s: 0 #{$i}px #{$i * 2}px $color;
+      $shadow: $shadow, $s;
     }
-  
+  }
+
   box-shadow: $shadow;
+}
+
+@mixin visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
 }
