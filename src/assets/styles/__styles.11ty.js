@@ -4,6 +4,7 @@
 // main entry point name
 const ENTRY_POINTS = {
   styles: 'styles.scss',
+  frontpage: 'frontpage.scss',
 }
 
 const path = require('path')

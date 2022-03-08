@@ -7,14 +7,18 @@
   font-family: var(--font-sans);
   justify-content: space-between;
   margin: var(--space);
+  margin-inline: auto;
   padding: var(--space-xs);
   position: sticky;
   top: var(--space);
-  transition: padding 300ms, box-shadow 300ms;
+  transition: padding 300ms, box-shadow 300ms, max-width 200ms;
+  max-width: 100%;
+  width: 90%;
   z-index: 998;
 
   &.attached {
     box-shadow: 0 10px 25px #0003;
+    max-width: min(75ch, 100%);
   }
 
   @supports (backdrop-filter: blur(10px)) {

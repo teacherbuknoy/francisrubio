@@ -94,6 +94,15 @@ body {
   font-weight            : 350;
 }
 
+body {
+  display       : flex;
+  flex-direction: column;
+
+  @at-root #main {
+    flex-grow: 1;
+  }
+}
+
 h1,
 h2,
 h3,

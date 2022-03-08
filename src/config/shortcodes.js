@@ -1,27 +1,40 @@
-const CLOUDNAME = 'hatchup-magazine'
-const FOLDER = 'thejujuroom/'
-const BASE_URL = `https://res.cloudinary.com/${CLOUDNAME}/image/upload/`
-const FALLBACK_WIDTHS = [300, 600, 680, 1360, 1800]
-const FALLBACK_WIDTH = 680
+const Image = require('@11ty/eleventy-img')
 
-// Generate srcset attribute using the fallback widths or a supplied array of widths
-function getSrcset(file, widths) {
-  console.log("Getting srcset for file:", file)
-  const widthSet = widths ? widths : FALLBACK_WIDTHS
-  return widthSet.map(width => {
-    return `${getSrc(file, width)} ${width}w`;
-  }).join(", ")
-}
-// Generate the src attribute using the fallback width or a width supplied
-// by the shortcode params
-function getSrc(file, width) {
-  console.log("Getting src for file:", file);
-  const src = `${BASE_URL}q_auto,f_auto,w_${width ? width : FALLBACK_WIDTH}/${FOLDER}${file}`
-  console.log("SRC", src)
-  return src
+function img ({ src, classes, alt, sizes, widths, width, height, formats }) {
+  if (process.env.ELEVENTY_ENV === 'development') {
+    return `<img src="${src}" alt="${alt}" class="${classes}" width="${width}" height="${height}">`
+  }
+
+  let prefix = 'src'
+  let options = {
+    widths: widths ? widths : [300, 600, 900, 1200],
+    formats: formats ? formats : ['avif', 'jpeg', 'png'],
+    outputDir: './public/assets/images/',
+    urlPath: '/assets/images/'
+  }
+
+  let fullSrc = prefix + src
+  console.log('[IMAGE] Generating', fullSrc)
+  Image(fullSrc, options)
+
+  let imageAttributes = {
+    class: classes,
+    alt,
+    width,
+    height,
+    sizes: sizes != null ? sizes : '(min-width: 30em) 900px, 1200px',
+    loading: 'lazy',
+    decoding: 'async'
+  }
+
+  let metadata = Image.statsSync(fullSrc, options)
+  return Image.generateHTML(metadata, imageAttributes)
 }
 
 module.exports = {
-  srcset: (file, widths) => getSrcset(file, widths),
-  src: (file, width) => getSrc(file, width),
+  image: (src, classes, alt, sizes, widths, width, height, formats) => {
+    return img({ src, classes, alt, sizes, widths, width, height, formats })
+  },
+
+  img
 }
