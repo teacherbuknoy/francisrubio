@@ -19,5 +19,61 @@
     "title": "JavaScript",
     "content": "When building websites, I reach for JavaScript only when truly necessary. Just like with CSS, I try to write my own JavaScript code whenever possible. I can build client-side integrations with REST APIs, accessible UI components sans the frameworks, and a little more than just the basics.",
     "icon": "javascript"
+  },
+  {
+    "category": "Front-end Development",
+    "experience": 3,
+    "title": "Sass (SCSS)",
+    "content": "Sass adds more fun and power in writing CSS styles. I am no Sass expert, but who needs to be? All of the websites I have developed since 2020 have styles that are written with SCSS.",
+    "icon": "sass"
+  },
+  {
+    "category": "Development in General",
+    "experience": 4,
+    "title": "Git",
+    "content": "Git is a version control manager for code. It makes sure that code for your projects will not go mysteriously missing, or that if you break something, you can safely go back to a time when your code is working perfectly. A working knowledge with Git is something that I am proud of.",
+    "icon": "git"
+  },
+  {
+    "category": "Back-end Development",
+    "experience": 4,
+    "title": "Node.js",
+    "content": "Although I mostly focus on building front ends for APIs, I am also very comfortable around building back end services. Node.js is my technology of choice when it comes to that.",
+    "icon": "nodejs"
+  },
+  {
+    "category": "Development in General",
+    "experience": 4,
+    "title": "Github",
+    "content": "Through the years, I have had several Github accounts. My web projects are mostly stored in git repositories hosted on Github. Its free hosting service, Github Pages, is also something that I have often used in the past before moving to Netlify. My knowledge with Github includes the basics, as well as creating organizations, organizing projects and timelines, managing and resolving bugs and issues, as well as tinkering with its security features.",
+    "icon": "github"
+  },
+  {
+    "category": "Design",
+    "experience": 4,
+    "title": "Figma",
+    "content": "When it comes to prototyping, mockups, or even the occasional graphic design, Figma is my design tool of choice. When presenting designs and concepts to clients, I either send them a link to a Figma presentation or PNGs exported from it. My experience with Figma mostly focuses on prototyping, but my needs for social media cards and graphics also required me to learn more of the advanced side of the software.",
+    "icon": "figma"
+  },
+  {
+    "category": "Authentication, Analytics, Cloud Storage",
+    "experience": 4,
+    "title": "Firebase",
+    "content": "Since I am building JAMStack sites more often than not, most of my backend needs are fulfilled by Firebase. I use this technology for authentication, user management, cloud storage, and analytics",
+    "icon": "firebase"
+  },
+  {
+    "category": "Static Site Generator",
+    "experience": 3,
+    "title": "Eleventy",
+    "content": "For static site generation, I switched to Eleventy from Hexo and Jekyll. Eleventy gives me more control on how site pages are generated. All of my web projects sinces 2021, as well as some from 2020, are all made with Eleventy. I have working knowledge about creating templates, adding plugins, assembling a build system, as well as adding shortcodes, plugins, and filters.",
+    "icon": "eleventy"
+  },
+  {
+    "category": "Development in General",
+    "experience": 5,
+    "title": "Bitbucket",
+    "content": "For private repositories, I use Bitbucket. Its features are pretty similar. For clients that commission sites that don't want to open source their sites, I store the source code in Bitbucket repositories.",
+    "icon": "bitbucket"
   }
 ]

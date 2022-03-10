@@ -52,7 +52,7 @@ stylesheets: ['frontpage.css']
     </div>
     <div class="with-sidebar padding-block--xl">
       <div class="sidebar padding-inline--m" style="flex-basis: 20ch;">
-        <div data-tablist style="gap: 1ch; display: grid; grid-template-columns: repeat(auto-fit, minmax(1ch, 1fr));">
+        <div data-tablist style="gap: 1ch; display: grid; grid-template-columns: repeat(auto-fit, minmax(4ch, 1fr));">
           {% for tech in technologies %}
             <a href="#tabpanel-{{ tech.icon }}" id="tab-{{ tech.icon }}" data-tab class="button square padding--none tab-trigger">
               <svg>
@@ -62,18 +62,24 @@ stylesheets: ['frontpage.css']
           {% endfor %}
         </div>
       </div>
-      <div class="not-sidebar stack gap--xl" id="technologies-tabpanels">
-        {% for tech in technologies %}
-          <section aria-labelledby="{{ tech.icon }}-heading" class="stack tab-panel" id="tabpanel-{{ tech.icon }}">
-            <div class="cluster gap--m ai--center">
-              <span class="uppercase ls-l font-sans">{{ tech.category }}</span>
-              <span style="aspect-ratio: 1; background-color: hsl(var(--fg-non-essential)); width: 0.6ch; border-radius: 100%;"></span>
-              <span class="uppercase ls-l font-sans">{{ tech.experience }} years of experience</span>
-            </div>
-            <h3 class="margin--none" id="{{ tech.icon }}-heading">{{ tech.title }}</h3>
-            <div class="stack gap--s">{{ tech.content | safe }}</div>
-          </section>
-        {% endfor %}
+      <div class="not-sidebar filled stack gap--xl" id="technologies-tabpanels">
+        <div class="tabpanel-container">
+          {% for tech in technologies %}
+            <section aria-labelledby="{{ tech.icon }}-heading" class="stack tab-panel" id="tabpanel-{{ tech.icon }}">
+              <div class="cluster ai--center column-gap--m lh-s margin-bottom--m">
+                <span class="uppercase ls-l font-sans">{{ tech.category }}</span>
+                <span style="aspect-ratio: 1; background-color: hsl(var(--fg-non-essential)); width: 0.6ch; border-radius: 100%;"></span>
+                <span class="uppercase ls-xs font-sans">{{ tech.experience }} years of experience</span>
+              </div>
+              <h3 class="margin--none" id="{{ tech.icon }}-heading">{{ tech.title }}</h3>
+              <div class="stack gap--s">{{ tech.content | safe }}</div>
+            </section>
+          {% endfor %}
+        </div>
+        <div class="stack fill-reset ai--center text-center gap--s padding--xl">
+          <span class="fs-4 weight-300">Ready to give me a shot?</span>
+          <a href="{{ site.contact.email.url }}" class="primary button">Connect with me</a>
+        </div>
       </div>
     </div>
   </div>

@@ -89,3 +89,7 @@
     display: none;
   }
 }
+
+.tab-trigger:nth-child(3n + 2) {
+  margin-top: 50%;
+}

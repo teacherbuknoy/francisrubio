@@ -7,6 +7,20 @@
   display: none;
 }
 
+.tab-panel[role="tabpanel"][hidden] {
+  display: block !important;
+  visibility: hidden;
+}
+
+.tabpanel-container {
+  display: grid;
+
+  &>* {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+}
+
 .tab-trigger {
   background-color: transparent;
 

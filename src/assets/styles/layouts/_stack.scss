@@ -56,5 +56,15 @@
     --stack-gap: var(--space-xxl);
   }
 
+  &.filled {
+    &> * {
+      flex-grow: 1;
+    }
+
+    .fill-reset {
+      flex-grow: 0;
+    }
+  }
+
   /* #endregion */
 }
