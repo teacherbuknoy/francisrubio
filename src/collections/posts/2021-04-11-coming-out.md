@@ -1,7 +1,7 @@
 ---
 title: I am coming out
 description: This is probably the most vulnerable I've been online.
-image: /posts/coming-out/cover.png
+image: /posts/coming-out/cover.jpeg
 permalink: /writing/coming-out/
 author: teacherbuknoy
 category: life

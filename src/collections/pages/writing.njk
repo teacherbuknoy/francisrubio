@@ -8,7 +8,7 @@ pagination:
 permalink: /writing/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html
 activePath: writing
 ---
-<section class="padding--xl" aria-labelledby="section-heading-4">
+<section class="padding--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
   <h1 id="section-heading-4">Writing</h1>
   {% set collection = pagination.items %}
   {% include 'components/post-grid.njk' %}

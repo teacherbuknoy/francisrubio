@@ -1,7 +1,7 @@
 ---
 title: "Is Homosexuality Wrong?"
 description: An analysis of Jehovah's Witnesses' stand against homosexuality
-image: /posts/on-antares-programming/cover.png
+image: /posts/homosexuality-wrong/cover.jpg
 author: teacherbuknoy
 category: opinion
 language: en-US

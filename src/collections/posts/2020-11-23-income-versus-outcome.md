@@ -1,7 +1,7 @@
 ---
 title: Income versus Outcome
 description: We love people with big hearts. Big hearts cause cardiac arrests.
-image: /posts/income-versus-outcome/cover.png
+image: /posts/income-versus-outcome/cover.jpeg
 author: teacherbuknoy
 category: education
 ---
