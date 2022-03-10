@@ -6,11 +6,14 @@
     <h{{ cardLevel if cardLevel != null else 2 }} class="post-card__title">{{ post.title }}</h{{ cardLevel if cardLevel != null else 2 }}>
     <div class="post-card__footer">
       <p class="post-card__description">{{ post.description }}</p>
-      <span class="post-card__link margin-left--auto">
+      <div class="spaced cluster font-sans fs-7 margin-top--m">
+        <span>{{ item.date | humanReadableDate }}</span>
+        <span class="post-card__link margin-left--auto">
         Read More
         {% set feathericon = 'arrow-right' %}
-        {% include 'components/feathericon.njk' %}
-      </span>
+          {% include 'components/feathericon.njk' %}
+        </span>
+      </div>
     </div>
   </div>
 </a>

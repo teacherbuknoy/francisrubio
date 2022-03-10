@@ -91,6 +91,7 @@ stylesheets: ['frontpage.css']
       <h2 class="font-serif fs-1">The Life and Times of Francis Rubio</h2>
       <p>A glimpse of what it's like to be me.</p>
       {% set postLimit = 4 %}
+      {% set collection = collections.posts %}
       {% include 'components/post-grid.njk' %}
     </div>
   </div>
