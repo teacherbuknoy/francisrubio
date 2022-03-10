@@ -1,0 +1,16 @@
+<a class="post-card" href="{{ postURL }}">
+  {% set arrPath = ['/assets/images', post.image] %}
+  {% set path %}url('{{ arrPath | join }}'){% endset %}
+  <div class="post-card__image" style="--post-image: {{ path if post.image else 'linear-gradient(transparent, transparent)' }}"></div>
+  <div class="post-card__body">
+    <h{{ cardLevel if cardLevel != null else 2 }} class="post-card__title">{{ post.title }}</h{{ cardLevel if cardLevel != null else 2 }}>
+    <div class="post-card__footer">
+      <p class="post-card__description">{{ post.description }}</p>
+      <span class="post-card__link margin-left--auto">
+        Read More
+        {% set feathericon = 'arrow-right' %}
+        {% include 'components/feathericon.njk' %}
+      </span>
+    </div>
+  </div>
+</a>

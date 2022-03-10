@@ -44,7 +44,7 @@ stylesheets: ['frontpage.css']
     </div>
   </div>
 </section>
-<section class="section padding-block--xxl" id="section-3">
+<section class="section padding-block--xxl" id="section-3" aria-labelledby="section-3-heading">
   <div class="section__inner">
     <div class="stack gap--none">
       <span id="section-3-heading" class="uppercase ls-l font-sans">Experience</span>
@@ -81,6 +81,17 @@ stylesheets: ['frontpage.css']
           <a href="{{ site.contact.email.url }}" class="primary button">Connect with me</a>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+<section class="section padding-block--xxl" id="section-4" aria-labelledby="section-4-heading">
+  <div class="section__inner">
+    <div class="stack gap--none">
+      <span id="section-4-heading" class="uppercase ls-l font-sans">Writing</span>
+      <h2 class="font-serif fs-1">The Life and Times of Francis Rubio</h2>
+      <p>A glimpse of what it's like to be me.</p>
+      {% set postLimit = 4 %}
+      {% include 'components/post-grid.njk' %}
     </div>
   </div>
 </section>
