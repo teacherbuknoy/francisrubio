@@ -51,6 +51,27 @@ class PopOver {
   }
 
   /**
+   * Controls whether the parent of the trigger will also get an
+   * attribute for finer control via CSS ([data-open])
+   * @param {boolean} value if true, the parent will have a [data-open]
+   * attribute when the popover is expanded
+   * @memberof PopOver
+   */
+  set parentControlled (value) {
+    if (value) {
+      this.trigger.setAttribute('data-parent-controlled', 'true')
+    } else {
+      this.trigger.removeAttribute('data-parent-controlled', 'true')
+    }
+  }
+
+  get parentControlled () {
+    return this.trigger.dataset.parentControlled == null
+      ? true
+      : this.trigger.dataset.parentControlled
+  }
+
+  /**
    * @
    */
   set isShown (value) {
@@ -66,7 +87,9 @@ class PopOver {
    * Shows this popover
    */
   show () {
-    this.trigger.parentElement.setAttribute('data-open', 'true')
+    if (this.parentControlled) {
+      this.trigger.parentElement.setAttribute('data-open', 'true')
+    }
     this.trigger.setAttribute('aria-expanded', 'false')
     this.popOver.removeAttribute('hidden')
     this.popOver.removeAttribute('aria-hidden')
@@ -79,7 +102,9 @@ class PopOver {
    * Hides this popover
    */
   hide () {
-    this.trigger.parentElement.removeAttribute('data-open')
+    if (this.parentControlled) {
+      this.trigger.parentElement.removeAttribute('data-open')
+    }
     this.trigger.setAttribute('aria-expanded', 'false')
 
     if (this.ariaHide) {

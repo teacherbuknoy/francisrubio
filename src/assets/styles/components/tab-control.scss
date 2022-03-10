@@ -1,0 +1,25 @@
+.tab-panel {
+  margin-inline: auto;
+  width: min(70ch, 100%);
+}
+
+.tab-panel:not([role="tabpanel"]):not(:target) {
+  display: none;
+}
+
+.tab-trigger {
+  background-color: transparent;
+
+  svg {
+    width: 5ch;
+    fill: hsl(var(--fg-non-essential));
+    stroke: hsl(var(--primary-500) / 0%);
+    transition: fill 200ms;
+  }
+
+  &[aria-selected="true"] {
+    svg {
+      fill: hsl(var(--primary-500));
+    }
+  }
+}

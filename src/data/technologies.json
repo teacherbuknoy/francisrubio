@@ -1,42 +1,23 @@
 [
   {
-    "image": {
-      "src": "/assets/images/features/html-5.svg",
-      "alt": "HTML 5",
-      "height": 576,
-      "width": 576
-    }
+    "category": "Front-end Development",
+    "experience": 5,
+    "title": "HyperText Markup Language (HTML)",
+    "content": "I worked as freelance web developer for 5 years. I spent two of those years teaching it too. HTML is the foundation of a semantic website, helping it rank well on search results, and accessibility, helping your users regardless of age and abilities to use your webpage comfortably.",
+    "icon": "html5"
   },
   {
-    "image": {
-      "src": "/assets/images/features/css-3.svg",
-      "alt": "CSS",
-      "height": 363,
-      "width": 512
-    }
+    "category": "Front-end Development",
+    "experience": 5,
+    "title": "Cascading Stylesheets (CSS)",
+    "content": "Since I worked as a freelances web developer for 5 years now, and also doing web development full time for a couple of companies, I can say I can use CSS comfortably. For example, I wrote all of the styles for this website by hand with no help from existing CSS frameworks or libraries. I am well-versed in responsive design using modern techniques.",
+    "icon": "css3"
   },
   {
-    "image": {
-      "src": "/assets/images/features/javascript.png",
-      "alt": "JavaScript",
-      "height": 480,
-      "width": 480
-    }
-  },
-  {
-    "image": {
-      "src": "/assets/images/features/node-js.svg",
-      "alt": "NodeJS",
-      "height": 590,
-      "width": 361
-    }
-  },
-  {
-    "image": {
-      "src": "/assets/images/features/11ty.svg",
-      "alt": "Eleventy",
-      "height": 1569,
-      "width": 2186
-    }
+    "category": "Front-end Development",
+    "experience": 5,
+    "title": "JavaScript",
+    "content": "When building websites, I reach for JavaScript only when truly necessary. Just like with CSS, I try to write my own JavaScript code whenever possible. I can build client-side integrations with REST APIs, accessible UI components sans the frameworks, and a little more than just the basics.",
+    "icon": "javascript"
   }
 ]
