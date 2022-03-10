@@ -26,7 +26,7 @@
 
   svg {
     width: 5ch;
-    fill: hsl(var(--fg-non-essential));
+    fill: hsl(var(--fg-default) / 50%);
     stroke: hsl(var(--primary-500) / 0%);
     transition: fill 200ms;
   }
