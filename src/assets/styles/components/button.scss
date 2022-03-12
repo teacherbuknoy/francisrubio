@@ -1,19 +1,22 @@
 .button {
-  align-items      : center;
-  background-color : hsl(var(--d-contrast) / 10%);
-  background-repeat: no-repeat;
-  border           : 0;
-  border-radius    : var(--ideal-radius);
-  display          : inline-flex;
-  font-family      : var(--font-sans);
-  justify-content  : center;
-  letter-spacing   : 1px;
-  overflow         : clip;
-  padding          : var(--space-xs) var(--space-xl);
-  position         : relative;
-  text-decoration  : none;
-  text-transform   : uppercase;
-  transition       : background-image 200ms, outline 200ms;
+  align-items            : center;
+  background-color       : hsl(var(--d-contrast) / 10%);
+  background-repeat      : no-repeat;
+  border                 : 0;
+  border-radius          : var(--ideal-radius);
+  display                : inline-flex;
+  font-family            : var(--font-sans);
+  font-size              : 1em;
+  font-variation-settings: "wght" 300;
+  gap                    : var(--space);
+  justify-content        : center;
+  letter-spacing         : 1px;
+  overflow               : clip;
+  padding                : var(--space-xs) var(--space-xl);
+  position               : relative;
+  text-decoration        : none;
+  text-transform         : uppercase;
+  transition             : background-image 200ms, outline 200ms;
 
   &::before {
     content         : "";

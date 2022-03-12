@@ -1,0 +1,68 @@
+.notification-container {
+  align-items    : stretch;
+  display        : flex;
+  flex-direction : column;
+  gap            : 1em;
+  justify-content: start;
+  padding        : var(--space);
+  pointer-events : none;
+  position       : fixed;
+  right          : 0;
+  top            : 0;
+  width          : min(35ch, 100%);
+  z-index        : 99999;
+  transition: height 300ms;
+}
+
+.toast {
+  background-color     : hsl(var(--d-default));
+  border-radius        : var(--ideal-radius);
+  color                : hsl(var(--l-default));
+  column-gap           : var(--space);
+  display              : grid;
+  font-family          : var(--font-sans);
+  font-size            : 1rem;
+  grid-template-columns: auto 1fr;
+  padding              : var(--space);
+  pointer-events       : all;
+  transition           : opacity 300ms, transform 300ms;
+}
+
+.toast:not(.shown) {
+  opacity  : 0;
+  transform: translateX(150%);
+}
+
+.toast .feathericon {
+  grid-row  : span 2;
+  height    : 2em;
+  place-self: center;
+  stroke    : var(--theme-color);
+  width     : 2em;
+}
+
+.toast__title {
+  color      : var(--theme-color, hsl(var(--l-contrast)));
+  font-weight: bold;
+}
+
+.toast__message {
+  margin   : 0;
+  max-width: 45ch;
+}
+
+.toast.default {
+  --theme-color: hsl(var(--l-contrast));
+}
+
+.success.toast {
+  --theme-color: hsl(var(--success-300));
+}
+
+.warning.toast {
+  --theme-color: hsl(var(--warning-300));
+}
+
+.error.toast {
+  --theme-color: hsl(var(--error-300));
+}

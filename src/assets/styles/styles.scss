@@ -20,6 +20,7 @@
 @import "components/menu";
 @import "components/modal";
 @import "components/navigation";
+@import "components/notification";
 @import "components/scroll-snapper";
 @import "components/skip-link";
 @import "components/tab-control";
@@ -145,7 +146,7 @@ a {
     text-decoration: none;
   }
 
-  &[target="_blank"] {
+  &:not(.no-arrow)[target="_blank"] {
     display: inline-flex;
     gap: 1ch;
 

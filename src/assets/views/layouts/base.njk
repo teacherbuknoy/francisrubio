@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title | safe }}</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title | safe }}</title>
 
-  {% include "components/seo.njk" %}
-  {% include "components/stylesheets.njk" %}
-</head>
-<body class="no-js">
-  {% block content %}
-    {{ content | safe }}
-  {% endblock %}
+    {% include "components/seo.njk" %}
+    {% include "components/stylesheets.njk" %}
+  </head>
+  <body class="no-js">
+    {% block content %}
+      {{ content | safe }}
+    {% endblock %}
 
-  {% include "components/scripts.njk" %}
-  {% block scripts %}{% endblock %}
-</body>
+    <div class="notification-container" aria-live="polite" role="log" data-notification-container>
+      <template>
+        <div class="toast success" hidden="true">
+          <svg class="feathericon">
+            <use href="/assets/images/feather-sprite.svg#check-circle"></use>
+          </svg>
+          <span class="toast__title">This is a toast</span>
+          <span class="toast__message">We're just trying to display a toast. That's all.</span>
+        </div>
+      </template>
+    </div>
+    {% include "components/scripts.njk" %}
+    {% block scripts %}{% endblock %}
+  </body>
 </html>
