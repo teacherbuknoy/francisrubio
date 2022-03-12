@@ -1,5 +1,5 @@
 <a href="#main" class="skip-link">Skip to content</a>
-<nav class="navigation-bar">
+<div class="navigation-bar">
   <button class="navigation-link" data-dialog="nav-menu">
     {% set feathericon = 'menu' %}
     {% include 'components/feathericon.njk' %}
@@ -11,10 +11,10 @@
     {% include 'components/feathericon.njk' %}
     <span class="navigation-link-text">Search</span>
   </button>
-</nav>
-<div class="navigation-menu" id="nav-menu" aria-label="Navigation menu">
-  <div class="navigation-menu-backdrop" data-dialog-hide></div>
-  <div class="navigation-menu-content">
+</div>
+<div class="navigation-menu" id="nav-menu" aria-label="Navigation menu dialog">
+  <div class="navigation-menu-backdrop" data-dialog-hide aria-hidden="true"></div>
+  <nav class="navigation-menu-content" aria-label="Navigation menu">
     <div class="spaced cluster ai--center padding-inline--xxl padding-block--l">
       <span class="weight-300 font-sans">Francis Rubio</span>
       <button class="navigation-link" data-dialog-hide>
@@ -42,6 +42,6 @@
     <div class="navigation-menu-contact-items">
 
     </div>
-  </div>
+  </nav>
 </div>
 <div data-observer-trigger></div>
