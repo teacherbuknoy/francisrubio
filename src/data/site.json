@@ -7,10 +7,30 @@
         "twitter_image": "/assets/images/twitter_image.png"
     },
     "contact": {
-        "email": {
-            "name": "Email",
-            "identifier": "francis@antaresph.dev",
-            "url": "mailto:francis@antaresph.dev"
-        }
+      "email": {
+        "name": "Email",
+        "identifier": "francis@antaresph.dev",
+        "url": "mailto:francis@antaresph.dev"
+      },
+      "linkedin": {
+        "name": "LinkedIn",
+        "identifier": "teacherbuknoy",
+        "url": "https://www.linkedin.com/in/teacherbuknoy/"
+      },
+      "instagram": {
+        "name": "Instagram",
+        "identifier": "teacherbuknoyofficial",
+        "url": "https://www.instagram.com/teacherbuknoyofficial"
+      },
+      "twitter": {
+        "name": "Twitter",
+        "identifier": "teacherbuknoy",
+        "url": "https://www.twitter.com/teacherbuknoy"
+      },
+      "github": {
+        "name": "Github",
+        "identifier": "manicadamantium",
+        "url": "https://github.com/manicadamantium/"
+      }
     }
 }

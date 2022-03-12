@@ -122,3 +122,23 @@ stylesheets: ['frontpage.css']
     </div>
   </div>
 </section>
+
+<section class="section padding-block--xxl bg-secondary" id="footer" aria-labelledby="footer-heading">
+  <div class="section__inner">
+    <div class="stack gap">
+      <span id="footer-heading" class="uppercase ls-l font-sans">Contact</span>
+      <h2 class="font-serif fs-1">Initiating space beacon…</h2>
+      <p style="width: min(75ch, 100%)">Send me a message. I would love to hear from you! Well, unless it's spammy or hateful, then y'know…*</p>
+      <p style="width: min(75ch, 100%)">If you want me to join your team, commission my services for a project, invite me to be one of your event speakers, or just for a chat, you can reach out to me via the following communication <i>waypoints</i>.**</p>
+    </div>
+    <div class="cluster gap--m padding--xl center-justified">
+      {% for key, value in site.contact %}
+        <a target="_blank" rel="noopener" href="{{ value.url }}" class="button">{{ value.name }}</a>
+      {% endfor %}
+    </div>
+    <div class="footnotes">
+      <p class="font-sans">* I can't curse here. Our capitalist overlords are saying curse words are unprofessional.</p>
+      <p class="font-sans">** Hehe, <i>waypoints</i>. Genshin Impact players, anyone?</p>
+    </div>
+  </div>
+</section>
