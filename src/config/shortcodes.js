@@ -14,7 +14,7 @@ function img ({ src, classes, alt, sizes, widths, width, height, formats }) {
   }
 
   let fullSrc = prefix + src
-  console.log('[IMAGE] Generating', fullSrc)
+  console.log('[IMAGE] Generating', fullSrc, sizes)
   Image(fullSrc, options)
 
   let imageAttributes = {
@@ -22,7 +22,7 @@ function img ({ src, classes, alt, sizes, widths, width, height, formats }) {
     alt,
     width,
     height,
-    sizes: sizes != null ? sizes : '(min-width: 30em) 900px, 1200px',
+    sizes: sizes != null && sizes.length > 0 ? sizes : '(min-width: 30em) 900px, 1200px',
     loading: 'lazy',
     decoding: 'async'
   }
