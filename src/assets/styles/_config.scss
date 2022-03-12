@@ -147,17 +147,15 @@
 
 /* FONTS */
 :root {
-  --font-sans: "Inter", sans-serif;
+  --font-sans: "DM Sans", sans-serif;
   --font-serif: "Fraunces", serif;
-  --font-display: "Inter", sans-serif;
+  --font-display: "DM Sans", sans-serif;
   --font-display-serif: "Fraunces", serif;
   --font-body: var(--font-serif);
   --font-ui: var(--font-sans);
 
   @supports (font-variation-settings: "wght" 100) {
-    --font-sans: "Inter var", sans-serif;
     --font-serif: "Fraunces var", serif;
-    --font-display: "Inter var", sans-serif;
     --font-display-serif: "Fraunces var", serif;
   }
 
