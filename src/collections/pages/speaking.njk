@@ -8,26 +8,13 @@ pagination:
 permalink: /speaking/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html
 activePath: speaking
 ---
-<section class="padding--xl" aria-labelledby="section-heading-4">
-  <header class="spaced cluster ai--center">
-    <h1 id="section-heading-4">Talks</h1>
-    <a href="mailto:francis@antaresph.dev" class="primary button">Invite me as your speaker</a>
-  </header>
-  <div class="post-grid">
-    {% for feature in pagination.items %}
-      <a href="{{ feature.url }}" class="post-card">
-        <header class="feature__header">
-          <h3 class="responsive margin--none">{{ feature.data.title | safe }}</h3>
-        </header>
-        <div class="feature__content padding-inline--l">
-          {{ feature.data.description | safe }}
-        </div>
-        <footer class="feature__footer">
-          <time>{{ feature.date | humanReadableDate }}</time>
-        </footer>
-      </a>
-    {% endfor %}
+<section class="padding--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
+  <div class="spaced cluster ai--center">
+    <h1 id="section-heading-4">Speaking</h1>
+    <a href="{{ site.contact.email.url }}" class="primary button">Invite me as a speaker</a>
   </div>
+  {% set collection = pagination.items %}
+  {% include 'components/post-grid.njk' %}
 </section>
 
 <div class="center-justified cluster padding--l">

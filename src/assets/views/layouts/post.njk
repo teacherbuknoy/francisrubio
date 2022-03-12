@@ -2,8 +2,13 @@
 
 {% block content %}
   {% include 'components/navigation.njk' %}
-  <main class="padding--xl article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
+  <main style="width: min(100ch, 100%); margin-inline: auto;" class="padding--xl article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
     <header class="article__header">
+      <div class="ai--center cluster margin-bottom--l lh-s">
+        <a href="/writing/" class="button jc--start padding--xs">Writing</a>
+        <span>/</span>
+        <a class="d-flex font-sans jc--start">This post</a>
+      </div>
       <h1 id="{{ title | slugify }}" class="article__title margin--none responsive">{{ title | safe }}</h1>
       <p class="fs-4 weight-300">{{ description }}</p>
       <time datetime="{{ page.date | machineReadableDate }}">{{ page.date | humanReadableDate }}</time>

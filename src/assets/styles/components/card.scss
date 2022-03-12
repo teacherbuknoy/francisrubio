@@ -78,7 +78,7 @@
   gap: var(--space);
   padding: var(--space);
 
-  .post-card {
+  &.has-featured .post-card {
     &:nth-child(4n - 3) {
       grid-column: 1/-1;
 
@@ -204,7 +204,7 @@
     }
 
     .post-card__footer {
-      max-height: 15ch;
+      max-height: 8ch;
     }
   }
 }

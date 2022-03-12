@@ -1,6 +1,7 @@
 ---
 title: "TECH2RISM: Web development and design workshop"
 description: An introductory talk about the basics of Web development
+image: /talks/tech2rism-2021/cover.jpg
 date: 2021-12-08
 host:
   - name: Likhang 2rismo
@@ -50,7 +51,7 @@ duration:
 
 <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" class="file-button" target="_blank" rel="noopener noreferer nofollow">
   <div class="file__image">
-    <img src="https://developer.mozilla.org/apple-touch-icon.0ea0fa02.png" alt="">
+    <img src="https://developer.mozilla.org/favicon-48x48.cbbd161b.png" alt="">
   </div>
   <div class="stack">
     <span class="weight-bold">HTML Tags Reference</span>

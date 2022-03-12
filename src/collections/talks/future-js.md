@@ -1,6 +1,7 @@
 ---
 title: Looking at a future with JavaScript
 description: An introductory talk about the basics of JavaScript and its use in web development.
+image: /talks/future-javascript/cover.jpg
 date: 2020-10-05
 host:
   - name: Developer Student Club AMA Computer College Caloocan

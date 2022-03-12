@@ -6,7 +6,7 @@ activePath: frontpage
 stylesheets: ['frontpage.css']
 ---
 
-<section class="section margin-block-end--xl" aria-labelledby="site-name" id="section-1">
+<header class="section margin-block-end--xl" aria-labelledby="site-name" id="section-1">
   <div class="section__inner">
     <h1 class="sr-only" id="site-name">Francis Rubio</h1>
     <svg class="banner-site-title" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 591 267">
@@ -26,7 +26,7 @@ stylesheets: ['frontpage.css']
     {% set options = { src: "/assets/images/me.png", classes: "banner-image", alt: "Francis Rubio", sizes: "", widths: [300,500,860,1080], width: 300, height: 300 } %}
     {% img options %}
   </div>
-</section>
+</header>
 <section class="section padding-block--xxl" id="section-2" aria-labelledby="section-2-heading">
   <div class="section__inner">
     <h2 style="width: min(35ch, 100%);" class="fs-4 font-serif weight-300">I specialize in creating <strong class="fg-primary-500 weight-bold">accessible front ends</strong> for web projects and integrating them with APIs and back-end processes.</h2>
@@ -93,6 +93,31 @@ stylesheets: ['frontpage.css']
       {% set postLimit = 4 %}
       {% set collection = collections.posts | reverse %}
       {% include 'components/post-grid.njk' %}
+    </div>
+    <div class="stack ai--center text-center gap--s padding--xl">
+      <div class="cluster center-align">
+        <a href="/writing/" class="primary button">See all posts</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="padding-block--xxl" id="section-5" aria-labelledby="section-5-heading">
+  <div class="section__inner">
+    <div class="stack gap">
+      <span id="section-4=5-heading" class="uppercase ls-l font-sans">Talks</span>
+      <h2 class="font-serif fs-1">Conferences and Appearances</h2>
+      <p>I speak at developer conferences and teach students and other developers about the tings I find fascinating about building websites.</p>
+    </div>
+    {% set postLimit = 4 %}
+    {% set hasFeatured = false %}
+    {% set collection = collections.talks %}
+    {% include 'components/post-grid.njk' %}
+    <div class="stack ai--center text-center gap--s padding--xl">
+      <span class="fs-4 weight-300">Have an event coming up?</span>
+      <div class="cluster center-align">
+        <a href="/speaking/" class="button">See all of my previous talks</a>
+        <a href="{{ site.contact.email.url }}" class="primary button">Invite me as a speaker</a>
+      </div>
     </div>
   </div>
 </section>

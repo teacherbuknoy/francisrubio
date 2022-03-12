@@ -2,11 +2,12 @@
   @extend .button;
   @extend .primary;
   
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, calc(-100% - 1rem));
+  position  : fixed;
+  top       : 0;
+  left      : 50%;
+  transform : translate(-50%, calc(-100% - 1rem));
   transition: transform 200ms;
+  z-index   : 9999;
 
   &:focus-within {
     transform: translate(-50%, 1rem);

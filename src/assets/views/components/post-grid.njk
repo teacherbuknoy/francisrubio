@@ -1,4 +1,5 @@
-<div class="post-grid">
+{% set hasFeatured = true if hasFeatured == null else hasFeatured %}
+<div class="post-grid {{ 'has-featured' if hasFeatured }}">
 {% if postLimit != null %}
   {% set limit = postLimit if collection.length > postLimit else collection.length %}
   {% for index in range(0, limit) %}

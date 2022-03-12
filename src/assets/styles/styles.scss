@@ -145,6 +145,10 @@ a {
   color               : hsl(var(--fg-default));
   text-decoration     : underline solid hsl(var(--primary-500));
 
+  &:not([href]) {
+    text-decoration: none;
+  }
+
   &[target="_blank"] {
     display: inline-flex;
     gap    : 1ch;
