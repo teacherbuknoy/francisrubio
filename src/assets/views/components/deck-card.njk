@@ -1,0 +1,38 @@
+<a href="{{ item.url }}" class="deck-card">
+  {% if item.data.cover %}
+    <img src="{{ item.data.cover.src }}"
+       alt="{{ item.data.cover.alt }}"
+       width="{{ item.data.cover.width }}"
+       height="{{ item.data.cover.height }}"
+       loading="lazy"
+       class="deck-card__image" />
+  {% else %}
+    <img src="/assets/images/posts/placeholder.png"
+       alt=""
+       width="500"
+       height="500"
+       loading="lazy"
+       class="deck-card__image" />
+  {% endif %}
+  <div class="deck-card__body">
+    <img src="{{ item.data.logo.src }}"
+        alt="{{ item.data.logo.alt }}"
+        width="{{ item.data.logo.width }}"
+        height="{{ item.data.logo.height }}"
+        loading="lazy"
+        class="deck-card__logo">
+    <span class="cluster ai--center">
+      {% for tag in item.data.tags %}
+        {% if loop.index > 1 %}
+        <span style="aspect-ratio: 1; background-color: hsl(var(--fg-default) / 50%); width: 0.4ch; border-radius: 100%;"></span>
+        {% endif %}
+        <span class="uppercase fs-7 ls-s font-sans">{{ tag }}</span>
+      {% endfor %}
+    </span>
+    <h{{ cardLevel if cardLevel != null else 3 }}
+      class="deck-card__title">
+      {{ item.data.title }}
+    </h{{ cardLevel if cardLevel != null else 3 }}>
+    <p class="deck-card__description">{{ item.data.description }}</p>
+  </div>
+</a>

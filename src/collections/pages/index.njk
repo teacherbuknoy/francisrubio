@@ -122,6 +122,31 @@ stylesheets: ['frontpage.css']
     </div>
   </div>
 </section>
+<section class="padding-block--xxl" id="section-5" aria-labelledby="section-6-heading">
+  <div class="section__inner">
+    <div class="stack gap">
+      <span id="section-6-heading" class="uppercase ls-l font-sans">Projects</span>
+      <h2 class="font-serif fs-1">The Gallery</h2>
+      <p>My most notable projects. Things that I am proud I made, or was involved in making. Work that I would love to do more of.</p>
+    </div>
+    {% set postLimit = 3 %}
+    {% set collection = collections.projects | reverse %}
+    <span class="cluster">
+      {% set limit = postLimit if collection.length > postLimit else collection.length %}
+      {% for i in range(0, limit) %}
+        {% set item = collection[i] %}
+        {% include 'components/deck-card.njk' %}
+      {% endfor %}
+    </span>
+    <div class="stack ai--center text-center gap--s padding--xl">
+      <span class="fs-4 weight-300">Have an event coming up?</span>
+      <div class="cluster center-align">
+        <a href="/speaking/" class="button">See all of my previous talks</a>
+        <a href="{{ site.contact.email.url }}" class="primary button">Invite me as a speaker</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section padding-block--xxl bg-secondary" id="footer" aria-labelledby="footer-heading">
   <div class="section__inner">
