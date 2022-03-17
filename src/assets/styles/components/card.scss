@@ -230,8 +230,7 @@
     flex-direction  : column;
     justify-content : end;
     padding         : var(--space);
-    transform       : rotate(1deg);
-    transition      : transform 200ms;
+    transform       : rotate(3deg);
   }
 
   &__logo {
@@ -258,53 +257,53 @@
     background-image: var(--image, linear-gradient(transparent, transparent)), url('/assets/images/posts/placeholder.png');
     border-radius   : var(--ideal-radius);
     box-shadow      : 0 4px 10px rgb(0 0 0 / 0.15);
-    justify-self    : stretch;
-    transform       : rotate(-1deg);
-    transition      : transform 200ms;
-    width           : 100%;
     height          : 100%;
+    justify-self    : stretch;
+    transform       : rotate(-3deg);
+    width           : 100%;
+    object-fit      : cover;
+    object-position : center;
   }
 }
 
 .deck-card {
+  border-radius     : calc(var(--ideal-radius) * 1.5);
   gap               : var(--space-xs);
-  grid-template-rows: 0 1fr 0;
-  transition        : grid-template-rows 200ms;
+  grid-template-rows: 1fr;
   position          : relative;
 
   .deck-card__body,
   .deck-card__image {
-    grid-row   : 1 / -1;
     grid-column: 1 / -1;
+    grid-row   : 1 / -1;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform 200ms, height 200ms 100ms;
+    }
   }
 
   .deck-card__body {
-    grid-row: 2/-1;
-  }
+    @extend .dark;
 
-  .deck-card__image {
-    grid-row: 1/3;
+    align-self: end;
+    height    : 100%;
   }
 
   &:focus-visible,
   &:hover {
-    grid-template-rows: minmax(5rem, 1fr) 0 1fr;
-    transition        : grid-template-rows 500ms;
-    outline           : none;
-    box-shadow        : none;
     background-color  : transparent;
+    box-shadow        : none;
+    grid-template-rows: minmax(5rem, 1fr) 0 1fr;
+    outline           : none;
 
     .deck-card__body,
     .deck-card__image {
+      height   : calc(50% - var(--space-xs));
       transform: rotate(0);
-    }
 
-    .deck-card__body {
-      grid-row: 2/-1;
-    }
-
-    .deck-card__image {
-      grid-row: 1/2;
+      @media (prefers-reduced-motion: no-preference) {
+        transition: transform 200ms 100ms, height 200ms;
+      }
     }
 
     .deck-card__description {
@@ -313,15 +312,13 @@
   }
 
   &:focus-visible {
-    .deck-card__body {
-      outline: 5px solid hsl(var(--primary-500));
-      outline-offset: 0;
-    }
+    outline       : 5px solid hsl(var(--primary-500));
+    outline-offset: 0;
   }
 
   .deck-card__description {
-    transition: max-height 200ms;
     max-height: 10rem;
     overflow  : clip;
+    transition: max-height 200ms;
   }
 }

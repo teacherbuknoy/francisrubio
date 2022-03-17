@@ -131,7 +131,7 @@ stylesheets: ['frontpage.css']
     </div>
     {% set postLimit = 3 %}
     {% set collection = collections.projects | reverse %}
-    <span class="cluster">
+    <span class="cluster padding--xxl jc--center">
       {% set limit = postLimit if collection.length > postLimit else collection.length %}
       {% for i in range(0, limit) %}
         {% set item = collection[i] %}
