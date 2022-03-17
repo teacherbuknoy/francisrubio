@@ -11,6 +11,7 @@
       </div>
       <div class="not-sidebar">
         <h1 id="{{ title | slugify }}" class="article__title margin--none responsive">{{ title | safe }}</h1>
+        <p class="fs-5 font-sans margin-block--none padding-block-end--l">{{ description | safe }}</p>
         <time datetime="{{ page.date | machineReadableDate }}">{{ page.date | humanReadableDate }}</time>
         <div class="filled cluster ai--center">
           <div class="cluster gap--m ai--center">

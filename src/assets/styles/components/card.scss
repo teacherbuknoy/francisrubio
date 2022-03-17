@@ -296,9 +296,16 @@
     grid-template-rows: minmax(5rem, 1fr) 0 1fr;
     outline           : none;
 
+    .deck-card__body {
+      height : calc(65% - var(--space-xs));
+    }
+
+    .deck-card__image {
+      height : calc(35% - var(--space-xs));
+    }
+
     .deck-card__body,
     .deck-card__image {
-      height   : calc(50% - var(--space-xs));
       transform: rotate(0);
 
       @media (prefers-reduced-motion: no-preference) {

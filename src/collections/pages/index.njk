@@ -131,23 +131,31 @@ stylesheets: ['frontpage.css']
     </div>
     {% set postLimit = 3 %}
     {% set collection = collections.projects | reverse %}
-    <span class="cluster padding--xxl jc--center">
-      {% set limit = postLimit if collection.length > postLimit else collection.length %}
+    <span class="filled cluster padding--xxl jc--center">
+      {% set limit = postLimit if collection.length > postLimit else 
+        collection.length %}
       {% for i in range(0, limit) %}
         {% set item = collection[i] %}
         {% include 'components/deck-card.njk' %}
       {% endfor %}
     </span>
     <div class="stack ai--center text-center gap--s padding--xl">
-      <span class="fs-4 weight-300">Have an event coming up?</span>
+      <span class="fs-4 weight-300">Building a similar project?</span>
       <div class="cluster center-align">
-        <a href="/speaking/" class="button">See all of my previous talks</a>
-        <a href="{{ site.contact.email.url }}" class="primary button">Invite me as a speaker</a>
+        <a href="/projects/" class="button">See all of my projects</a>
+        <a href="{{ site.contact.email.url }}" class="primary button">Bring me to your team</a>
       </div>
     </div>
   </div>
 </section>
-
+<section class="padding-block--xxl bg--secondary" id="section-6" aria-labelledby="section-61-heading">
+  <div class="section__inner jc--center stack gap text-center">
+    <span id="section-61-heading" class="uppercase ls-l font-sans">Uses</span>
+    <h2 class="font-serif fs-1">What makes my day to day run</h2>
+    <p>Want to see things I use and swear by? Here's an archive of all the things I use and how I rate them.</p>
+    <div class="cluster jc--center padding"><a href="/uses/" class="button">Things I use</a></div>
+  </div>
+</section>
 <section class="section padding-block--xxl bg-secondary" id="footer" aria-labelledby="footer-heading">
   <div class="section__inner">
     <div class="stack gap">

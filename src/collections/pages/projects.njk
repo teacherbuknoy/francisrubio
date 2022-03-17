@@ -10,21 +10,10 @@ activePath: projects
 ---
 <section class="padding--xl" aria-labelledby="section-heading-4">
   <h1 id="section-heading-4">Projects</h1>
-  <div class="post-grid">
-    {% for feature in pagination.items %}
-      <a href="{{ feature.url }}" class="post-card">
-        <header class="feature__header">
-          <img src="{{ feature.data.logo.src }}" alt="{{ feature.data.logo.alt }}" width="{{ feature.data.logo.width }}"  height="{{ feature.data.logo.height }}" style="width: min(15ch, 100%);">
-          <h3 class="responsive margin--none">{{ feature.data.title | safe }}</h3>
-        </header>
-        <div class="feature__content padding-inline--l">
-          {{ feature.data.description | safe }}
-        </div>
-        <footer class="feature__footer">
-          <time>{{ feature.date | humanReadableDate }}</time>
-        </footer>
-      </a>
-    {% endfor %}
+  <div class="filled cluster padding--xl gap--l jc--center">
+    {% for item in pagination.items %}
+        {% include 'components/deck-card.njk' %}
+      {% endfor %}
   </div>
 </section>
 
