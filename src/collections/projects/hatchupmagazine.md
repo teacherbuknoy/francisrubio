@@ -12,6 +12,11 @@ logo:
   alt: HatchUp Magazine's logo
   width: 1080
   height: 1080
+cover:
+  src: "/assets/images/projects/hatchupmagazine/cover.png"
+  alt: Quantarks
+  width: 1200
+  height: 630
 ---
 
 HatchUp Magazine is a magazine that represents local businesses and entrepreneurs from Calgary, Canada. I was tasked to create the magazine's official website, both for promotion and to give potential subscribers a way to buy copies or subscribe to the magazine, both digital and in print.
