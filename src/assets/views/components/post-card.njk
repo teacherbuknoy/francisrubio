@@ -3,9 +3,9 @@
   {% set path %}url('{{ arrPath | join }}'){% endset %}
   <div class="post-card__image" style="--post-image: {{ path if post.image else 'linear-gradient(transparent, transparent)' }}"></div>
   <div class="post-card__body">
-    <h{{ cardLevel if cardLevel != null else 3 }} class="post-card__title">{{ post.title }}</h{{ cardLevel if cardLevel != null else 3 }}>
+    <h{{ cardLevel if cardLevel != null else 3 }} class="post-card__title">{{ post.title | safe }}</h{{ cardLevel if cardLevel != null else 3 }}>
     <div class="post-card__footer">
-      <p class="post-card__description">{{ post.description }}</p>
+      <p class="post-card__description">{{ post.description | safe }}</p>
       <div class="spaced cluster font-sans fs-7 margin-top--m">
         <span>{{ item.date | humanReadableDate }}</span>
         <span class="post-card__link margin-left--auto">

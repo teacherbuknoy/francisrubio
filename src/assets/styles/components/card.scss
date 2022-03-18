@@ -120,7 +120,7 @@
   display           : grid;
   text-decoration   : none;
   border-radius     : var(--ideal-radius);
-  overflow          : clip;
+  overflow          : hidden;
   grid-template-rows: 2fr 1fr;
   height            : 30ch;
 
@@ -191,14 +191,29 @@
 }
 
 .post-card__footer {
-  overflow  : clip;
-  max-height: 0;
-  transition: max-height 200ms;
+  overflow: hidden;
 }
 
-@media (hover: hover) {
+.post-card:hover {
+  color: hsl(var(--fg-default));
+}
 
-  .post-card:hover,
+@media (min-width: 720px) {
+  .post-card__footer {
+    max-height: 0;
+    transition: max-height 200ms;
+  }
+
+  .post-card:hover {
+    .post-card__title {
+      font-size: var(--type-size-5);
+    }
+
+    .post-card__footer {
+      max-height: 8ch;
+    }
+  }
+
   .post-card:focus-visible {
     .post-card__title {
       font-size: var(--type-size-5);
@@ -272,6 +287,10 @@
   grid-template-rows: 1fr;
   position          : relative;
 
+  @at-root .cluster & {
+    flex-basis: 25ch;
+  }
+
   .deck-card__body,
   .deck-card__image {
     grid-column: 1 / -1;
@@ -289,7 +308,6 @@
     height    : 100%;
   }
 
-  &:focus-visible,
   &:hover {
     background-color  : transparent;
     box-shadow        : none;
@@ -297,11 +315,39 @@
     outline           : none;
 
     .deck-card__body {
-      height : calc(65% - var(--space-xs));
+      height: calc(65% - var(--space-xs));
     }
 
     .deck-card__image {
-      height : calc(35% - var(--space-xs));
+      height: calc(35% - var(--space-xs));
+    }
+
+    .deck-card__body,
+    .deck-card__image {
+      transform: rotate(0);
+
+      @media (prefers-reduced-motion: no-preference) {
+        transition: transform 200ms 100ms, height 200ms;
+      }
+    }
+
+    .deck-card__description {
+      max-height: 0;
+    }
+  }
+
+  &:focus-visible {
+    background-color  : transparent;
+    box-shadow        : none;
+    grid-template-rows: minmax(5rem, 1fr) 0 1fr;
+    outline           : none;
+
+    .deck-card__body {
+      height: calc(65% - var(--space-xs));
+    }
+
+    .deck-card__image {
+      height: calc(35% - var(--space-xs));
     }
 
     .deck-card__body,
@@ -325,7 +371,37 @@
 
   .deck-card__description {
     max-height: 10rem;
-    overflow  : clip;
+    overflow  : hidden;
     transition: max-height 200ms;
+  }
+}
+
+.product-card {
+  color          : hsl(var(--fg-default)) !important;
+  text-decoration: none;
+  display        : grid;
+
+  &__body {
+    @extend .stack;
+
+    background-color: hsl(var(--bg-secondary));
+    box-shadow      : 0 7px 10px #0004;
+    border-radius   : var(--ideal-radius);
+    display         : flex;
+    flex-direction  : column;
+    align-items     : start;
+    justify-content : end;
+    padding         : var(--space);
+    margin-top      : 5ch;
+  }
+
+  &__title {
+    font-size: var(--type-size-4);
+  }
+
+  &__logo {
+    height: 10ch;
+    border: none;
+    width : auto;
   }
 }

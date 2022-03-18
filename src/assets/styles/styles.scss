@@ -91,7 +91,7 @@ body {
   background-color: hsl(var(--bg-primary));
   font-family: var(--font-body);
   font-size: var(--type-size);
-  font-variation-settings: "SOFT" 100, "WONK" 0;
+  font-variation-settings: "SOFT" 100, "WONK" 0, 'wght' 350;
   min-height: 100vh;
   scroll-behavior: smooth;
   font-weight: 350;

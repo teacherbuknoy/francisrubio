@@ -31,8 +31,8 @@
     </span>
     <h{{ cardLevel if cardLevel != null else 3 }}
       class="deck-card__title">
-      {{ item.data.title }}
+      {{ item.data.title | safe }}
     </h{{ cardLevel if cardLevel != null else 3 }}>
-    <p class="deck-card__description">{{ item.data.description }}</p>
+    <p class="deck-card__description">{{ item.data.description | safe }}</p>
   </div>
 </a>

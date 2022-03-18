@@ -11,7 +11,7 @@
   gap                    : var(--space);
   justify-content        : center;
   letter-spacing         : 1px;
-  overflow               : clip;
+  overflow               : hidden;
   padding                : var(--space-xs) var(--space-xl);
   position               : relative;
   text-decoration        : none;

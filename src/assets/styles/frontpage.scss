@@ -31,7 +31,7 @@
 .section__inner {
   width: min(100ch, 90%);
   margin-inline: auto;
-  overflow: clip;
+  overflow: hidden;
 }
 
 .banner-site-title {
