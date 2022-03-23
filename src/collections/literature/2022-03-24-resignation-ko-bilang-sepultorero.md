@@ -1,14 +1,12 @@
 ---
 title: "Ang Resignation Ko Bilang Sepultorero"
-description: Isang akda 
-image: /posts/homosexuality-wrong/cover.jpg
+description: Isang orihinal na akda ni Francis Rubio
+image: /literatures/resignation/cover.jpg
 author: teacherbuknoy
 type: Short Story
 category: literature
 language: tl
 ---
-
-
 
 Hindi na ako takot sa kaluluwa at espiritu. Kahit sa mga bayolenteng multo, hindi na ako nanginginig. Narinig ko na ang kuwento ng mahigit pitong libong kalansay na nakabaon sa lupa ng sementeryong ito. At walang dapat katakutan sa mga ito. Maliban sa mangilan-ngilang dapat na talagang mamatay, ang mga bangkay ay dating katawang ginagamit ng mga ordinaryong tao—mga taong may pangarap, damdamin, pamilya, kaibigan, at buhay. Mga taong gaya ko ring nangarap, nagdusa, naglakbay, at umibig.
 

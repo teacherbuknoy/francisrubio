@@ -1,0 +1,26 @@
+---
+title: Literature - Francis Rubio
+description: I write poems and short stories
+pagination:
+  data: collections.literature
+  size: 8
+  reverse: true
+permalink: /literature/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html
+activePath: literature
+---
+<section class="padding--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
+  <h1 id="section-heading-4">Literature</h1>
+  <p>All writings here are subject to copyright.</p>
+  {% set collection = pagination.items %}
+  {% include 'components/post-grid.njk' %}
+</section>
+
+<div class="center-justified cluster padding--l">
+  {% if pagination.href.previous %}
+    <a href="{{ pagination.href.previous }}" class="button">Previous</a>
+  {% endif %}
+
+  {% if pagination.href.next %}
+    <a href="{{ pagination.href.next }}" class="button">Next</a>
+  {% endif %}
+</div>

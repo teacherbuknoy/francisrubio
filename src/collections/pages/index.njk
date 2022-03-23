@@ -102,6 +102,23 @@ stylesheets: ['frontpage.css']
     </div>
   </div>
 </section>
+<section class="section padding-block--xxl" id="section-4" aria-labelledby="section-4-heading">
+  <div class="section__inner">
+    <div class="stack gap--none">
+      <span id="section-4-heading" class="uppercase ls-l font-sans">Literature</span>
+      <h2 class="font-serif fs-1">Speaking in future tense</h2>
+      <p>My attempts in encapsulating my thoughts into written art</p>
+      {% set postLimit = 4 %}
+      {% set collection = collections.literature | reverse %}
+      {% include 'components/post-grid.njk' %}
+    </div>
+    <div class="stack ai--center text-center gap--s padding--xl">
+      <div class="cluster center-align">
+        <a href="/literature/" class="primary button">See all</a>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="padding-block--xxl" id="section-5" aria-labelledby="section-5-heading">
   <div class="section__inner">
     <div class="stack gap">
