@@ -8,11 +8,11 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 {% if not fb_image %}
-  {% set fb_image = image %}
+  {% set fb_image %}/assets/images{{ image }}{% endset %}
 {% endif %}
 
 {% if not twitter_image %}
-  {% set twitter_image = image %}
+  {% set twitter_image %}/assets/images{{ image }}{% endset %}
 {% endif %}
 
 <!-- Open Graph / Facebook -->
