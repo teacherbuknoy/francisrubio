@@ -4,6 +4,7 @@ description: Isang orihinal na akda ni Francis Rubio
 image: /posts/ginoong-m/cover.jpg
 author: teacherbuknoy
 category: literature
+type: Poem
 class: poetry
 language: fil
 ---

@@ -1,0 +1,5 @@
+{
+  "permalink": "/literature/{{ title | slugify }}/",
+  "layout": "literature.njk",
+  "activePath": "writing"
+}

@@ -1,47 +1,47 @@
 .article__sidebar {
   background-color: hsl(var(--bg-secondary) / 50%);
-  border-radius: var(--ideal-radius);
+  border-radius   : var(--ideal-radius);
 
   p {
-    margin: 0;
+    margin   : 0;
     font-size: 1rem;
   }
 }
 
 .sidebar__section {
   padding-block-end: var(--space);
-  padding-inline: var(--space);
+  padding-inline   : var(--space);
 
   &:not(:last-child) {
-    background-image: linear-gradient(hsl(var(--fg-non-essential)), hsl(var(--fg-non-essential)));
+    background-image   : linear-gradient(hsl(var(--fg-non-essential)), hsl(var(--fg-non-essential)));
     background-position: bottom center;
-    background-repeat: no-repeat;
-    background-size: 75% 1px;
+    background-repeat  : no-repeat;
+    background-size    : 75% 1px;
   }
 }
 
 .sidebar__heading {
-  margin: 0;
-  font-family: var(--font-sans);
+  margin        : 0;
+  font-family   : var(--font-sans);
   text-transform: uppercase;
-  font-weight: normal;
-  font-size: 1rem;
-  padding-block: var(--space);
+  font-weight   : normal;
+  font-size     : 1rem;
+  padding-block : var(--space);
 }
 
 .sidebar__title {
-  margin: 0;
-  font-size: var(--type-size-5);
+  margin     : 0;
+  font-size  : var(--type-size-5);
   font-family: var(--font-sans);
 }
 
 .article__body {
-  display: grid;
-  grid-auto-rows: min-content;
+  display              : grid;
+  grid-auto-rows       : min-content;
   grid-template-columns: 1fr min(65ch, 100%) 1fr;
-  gap: var(--space);
+  gap                  : var(--space);
 
-  & > * {
+  &>* {
     margin-block: 0;
   }
 
@@ -64,36 +64,36 @@
   width: min(25ch, 100%);
 }
 
-.article__body > * {
+.article__body>* {
   grid-column: 2/3;
 }
 
-.article__body > figure {
+.article__body>figure {
   grid-column: 1/-1;
 }
 
-.article__body > blockquote {
-  font-size: 2.5rem;
+.article__body>blockquote {
+  font-size  : 2.5rem;
   font-weight: 250;
   line-height: 1.2;
-  position: relative;
-  text-align: center;
+  position   : relative;
+  text-align : center;
 
   cite {
-    display: block;
+    display    : block;
     font-family: var(--font-sans);
-    font-size: 1rem;
-    font-style: normal;
+    font-size  : 1rem;
+    font-style : normal;
     font-weight: 400;
-    margin-top: 1ch;
+    margin-top : 1ch;
   }
 }
 
 figure.image {
-  align-items: center;
-  display: flex;
+  align-items   : center;
+  display       : flex;
   flex-direction: column;
-  gap: 1ch;
+  gap           : 1ch;
 
   img {
     flex: 1;
@@ -101,6 +101,18 @@ figure.image {
 
   figcaption {
     font-family: var(--font-sans);
-    font-size: 1rem;
+    font-size  : 1rem;
+  }
+}
+
+.literature__body {
+  &>* {
+    width        : min(65ch, 90%);
+    margin-inline: auto;
+
+
+    & + * {
+      margin-block-start: var(--space-xl);
+    }
   }
 }

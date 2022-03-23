@@ -5,21 +5,23 @@
   <main style="width: min(100ch, 100%); margin-inline: auto;" class="padding--xl article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
     <header class="article__header">
       <div class="ai--center cluster margin-bottom--l lh-s">
-        <a href="/writing/" class="button jc--start padding--xs">Writing</a>
+        <a href="/literature/" class="button jc--start padding--xs">Literature</a>
         <span>/</span>
-        <span class="d-flex font-sans jc--start">This post</span>
+        <span class="d-flex font-sans jc--start">This writing</span>
       </div>
       <h1 id="{{ title | slugify }}" class="article__title margin--none responsive">{{ title | safe }}</h1>
-      <p class="fs-4 weight-300">{{ description }}</p>
-      <time datetime="{{ page.date | machineReadableDate }}">{{ page.date | humanReadableDate }}</time>
+      <div class="spaced cluster">
+        <time datetime="{{ page.date | machineReadableDate }}">{{ page.date | humanReadableDate }}</time>
+        <span class="badge">{{ type | safe }}</span>
+      </div>
     </header>
-    <div class="article__body">
+    <div class="literature__body">
       {{ content | safe }}
     </div>
     <footer class="stack padding--l">
       <div class="content-wrapper margin--auto text-center">
         <h2 class="fs-4">Share</h2>
-        <p>Found this helpful? Tell other people about it!</p>
+        <p>Did you like this? Tell other people about it!</p>
         <ul class="margin-top--m cluster margin-inline--auto jc-center" style="list-style: none;">
           <li>
             <a 

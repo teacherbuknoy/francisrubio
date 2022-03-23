@@ -33,6 +33,13 @@ module.exports = {
       "src/collections/uses/*.njk",
       "src/collections/uses/*.md",
     ]);
+  },
+  literature: function (collection) {
+    return collection.getFilteredByGlob([
+      "src/collections/literature/*.html",
+      "src/collections/literature/*.njk",
+      "src/collections/literature/*.md",
+    ]);
   }
 }
  
