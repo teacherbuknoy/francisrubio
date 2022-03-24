@@ -8,12 +8,20 @@ pagination:
 permalink: /projects/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html
 activePath: projects
 ---
-<section class="padding--xl" aria-labelledby="section-heading-4">
-  <h1 id="section-heading-4">Projects</h1>
-  <div class="filled cluster padding--xl gap--l jc--center">
+<section class="padding--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
+  <div class="stack gap">
+    <span id="section-heading-4" class="uppercase ls-l font-sans">Projects</span>
+    <h2 class="font-serif fs-1">The Gallery</h2>
+    <p>My most notable projects. Things that I am proud I made, or was involved in making. Work that I would love to do more of.</p>
+  </div>
+  <div class="spaced cluster ai--center padding-block--l margin-bottom--xl">
+    <span class="fs-4 weight-300">Building a similar project?</span>
+    <a href="{{ site.contact.email.url }}" class="primary button">Bring me to your team</a>
+  </div>
+  <div class="padding-block--xl gap--l" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(30ch, 100%), 1fr))">
     {% for item in pagination.items %}
-        {% include 'components/deck-card.njk' %}
-      {% endfor %}
+      {% include 'components/deck-card.njk' %}
+    {% endfor %}
   </div>
 </section>
 

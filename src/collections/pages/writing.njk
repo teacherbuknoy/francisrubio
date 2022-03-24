@@ -9,7 +9,11 @@ permalink: /writing/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber +
 activePath: writing
 ---
 <section class="padding--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
-  <h1 id="section-heading-4">Writing</h1>
+  <div class="stack margin-bottom--xl">
+    <span id="section-heading-4" class="uppercase ls-l font-sans">Writing</span>
+    <h2 class="font-serif fs-1">The Life and Times of Francis Rubio</h2>
+    <p>A glimpse of what it's like to be me.</p>
+  </div>
   {% set collection = pagination.items %}
   {% include 'components/post-grid.njk' %}
 </section>

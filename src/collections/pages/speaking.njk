@@ -9,8 +9,13 @@ permalink: /speaking/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber 
 activePath: speaking
 ---
 <section class="padding--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
-  <div class="spaced cluster ai--center">
-    <h1 id="section-heading-4">Speaking</h1>
+  <div class="stack">
+    <span id="section-heading-4" class="uppercase ls-l font-sans">Talks</span>
+    <h2 class="font-serif fs-1">Conferences and Appearances</h2>
+    <p>I speak at developer conferences and teach students and other developers about the tings I find fascinating about building websites.</p>
+  </div>
+  <div class="spaced cluster ai--center padding-block--l margin-bottom--xl">
+    <span class="fs-4 weight-300">Have an event coming up?</span>
     <a href="{{ site.contact.email.url }}" class="primary button">Invite me as a speaker</a>
   </div>
   {% set collection = pagination.items %}
