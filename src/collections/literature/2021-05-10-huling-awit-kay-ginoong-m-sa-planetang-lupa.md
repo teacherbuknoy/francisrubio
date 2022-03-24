@@ -35,4 +35,4 @@ Sikat ko sa iyo'y isa lang kutitap na walang pangalan
 
 *[SEO]: search engine optimization
 
-<img src="/images/posts/huling-awit-kay-ginoong-m-sa-planetang-lupa/cover.jpg" alt="" width="640" height="247">
+<img src="/assets/images/posts/ginoong-m/cover.jpg" alt="" width="640" height="247">
