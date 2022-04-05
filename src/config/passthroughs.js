@@ -15,7 +15,7 @@ module.exports = {
     return { 'src/assets/files': 'assets/files' }
   },
 
-  files: function () {
+  root: function () {
     return { 'src/assets/root': '/' }
   },
 }
