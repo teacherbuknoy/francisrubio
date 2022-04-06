@@ -14,7 +14,6 @@ class SearchDataProvider {
             return false
           }
 
-          console.log("Matching item", item)
           const pattern = new RegExp(`\\b${term}\\b`, 'gmi')
           const titleMatch = item.title.match(pattern)
           const descriptionMatch = item.description.match(pattern)
@@ -28,6 +27,63 @@ class SearchDataProvider {
       })
 
     return results
+  }
+}
+
+class SearchUi {
+  /**
+   * Creates an instance of SearchUi.
+   * @author Francis Rubio
+   * @param {SearchDataProvider} provider
+   * @memberof SearchUi
+   */
+  constructor(provider) {
+    this.container = $('#search-results-list')
+    this.form = document.forms.search
+    this.template = $('#search-result-listitem-template')
+
+    this.form.addEventListener('submit', e => {
+      e.preventDefault()
+      const term = this.form.term.value
+
+      const results = provider.search({ term })
+
+      // 1. Empty the contents of the results list
+      this.resetSearchResults()
+
+      // 2. Render the new search results
+      const resultsArray = this.resultsToArray(results)
+      resultsArray.forEach(data => this.renderSearchResultItem(data))
+    })
+  }
+
+  resultsToArray(data) {
+    const results = Object.keys(data).map(key => data[key])
+
+    return results.flat()
+  }
+
+  resetSearchResults() {
+    while (this.container.lastChild) {
+      this.container.removeChild(this.container.lastChild)
+    }
+  }
+
+  renderSearchResultItem(data) {
+    const li = this.template.content.cloneNode(true).firstElementChild
+    console.log(data)
+    li.firstElementChild.href = data.url
+    li.querySelector('[data-result=image]').src = data.image.src != null
+      ? data.image.src
+      : data.image
+
+    li.querySelector('[data-result=title]').innerText = data.title != null
+      ? data.title : ""
+
+    li.querySelector('[data-result=subtitle]').innerText = data.description != null
+      ? data.description : ""
+
+    this.container.appendChild(li)
   }
 }
 
@@ -54,6 +110,8 @@ async function initialize() {
   const searchDataProvider = await initializeSearchData()
   console.log("Sine:", searchDataProvider.search({ term: "Sine" }))
   console.log(searchDataProvider)
+
+  const searchUi = new SearchUi(searchDataProvider)
 }
 
 initialize()
