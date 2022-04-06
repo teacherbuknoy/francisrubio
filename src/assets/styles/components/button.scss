@@ -1,6 +1,9 @@
 .button {
+  -webkit-backdrop-filter: blur(10px);
+
   align-items            : center;
-  background-color       : hsl(var(--primary-900) / 15%);
+  backdrop-filter        : blur(10px);
+  background-color       : hsl(var(--primary-500) / 15%);
   background-repeat      : no-repeat;
   border                 : 0;
   border-radius          : var(--ideal-radius);
