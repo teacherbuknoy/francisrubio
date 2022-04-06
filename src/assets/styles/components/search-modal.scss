@@ -26,12 +26,18 @@
 }
 
 .search-container {
-  display: flex;
-  gap    : var(--space);
+  display  : flex;
+  gap      : var(--space);
+  flex-wrap: wrap;
+
+  button {
+    flex      : 1;
+    flex-basis: 5ch;
+  }
 }
 
 .search-form-control {
-  flex         : 1;
+  flex         : 100;
   display      : grid;
   position     : relative;
   border       : 5px solid hsl(var(--primary-100));
