@@ -71,7 +71,6 @@ class SearchUi {
 
   renderSearchResultItem(data) {
     const li = this.template.content.cloneNode(true).firstElementChild
-    console.log(data)
     li.firstElementChild.href = data.url
     li.querySelector('[data-result=image]').src = data.image.src != null
       ? data.image.src
@@ -108,9 +107,6 @@ async function initializeSearchData() {
 
 async function initialize() {
   const searchDataProvider = await initializeSearchData()
-  console.log("Sine:", searchDataProvider.search({ term: "Sine" }))
-  console.log(searchDataProvider)
-
   const searchUi = new SearchUi(searchDataProvider)
 }
 
