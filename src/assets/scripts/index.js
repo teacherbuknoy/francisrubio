@@ -2,6 +2,7 @@ import './animations/navigation-bar'
 import './animations/button'
 import './components/Dialog'
 import './components/PopOver'
+import './components/SearchUI'
 import { $, $$ } from './utilities/dom'
 import { Tab, TabControl } from './components/TabControl'
 import { NotificationManager } from './components/NotificationManager'
@@ -32,7 +33,6 @@ let tabs = [...document.querySelectorAll('[data-tab]:is(button, a)')].map(
 
 if (tabs != null && tabs.length > 0) {
   const tabControl = new TabControl(tabs)
-  tabControl.addEventListener('change', e => console.log('[CHANGE]', e))
 }
 
 $$('button[data-copy]').forEach(button => {

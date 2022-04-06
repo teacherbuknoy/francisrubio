@@ -6,6 +6,7 @@ permalink: /site-data.json
   "literature": [
     {% for item in collections.literature %}
       {
+        "url": {{ item.url | dump |safe }},
         "title": {{ item.data.title | dump | safe }},
         "description": {{ item.data.description | dump | safe }},
         "type": {{ item.data.type | dump | safe }},
@@ -18,6 +19,7 @@ permalink: /site-data.json
     {% set collection = collections.posts %}
     {% for item in collection %}
       {
+        "url": {{ item.url | dump |safe }},
         "title": {{ item.data.title | dump | safe }},
         "description": {{ item.data.description | dump | safe }},
         "category": {{ item.data.category | dump | safe }},
@@ -31,6 +33,7 @@ permalink: /site-data.json
     {% set collection = collections.projects %}
     {% for item in collection %}
       {
+        "url": {{ item.url | dump |safe }},
         "title": {{ item.data.title | dump | safe }},
         "description": {{ item.data.description | dump | safe }},
         "tags": [
@@ -48,6 +51,7 @@ permalink: /site-data.json
     {% set collection = collections.talks %}
     {% for item in collection %}
       {
+        "url" : {{ item.url | dump |safe }},
         "title": {{ item.data.title | dump | safe }},
         "description": {{ item.data.description | dump | safe }},
         "image": "/assets/images{{ item.data.image | safe }}"

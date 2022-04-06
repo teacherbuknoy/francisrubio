@@ -69,8 +69,6 @@ class Tab {
       throw Error('Tab and tab panel cannot be null')
     }
 
-    console.log({ button, panel })
-
     this.trigger = button
     if (button.matches('a')) {
       const trigger = document.createElement('button')

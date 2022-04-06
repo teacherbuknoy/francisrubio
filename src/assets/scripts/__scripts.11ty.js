@@ -59,8 +59,11 @@ module.exports = class {
       output: { path: outputPath },
       module: { rules },
       plugins: [envPlugin, vars],
-      devtool: 'source-map',
       target: 'web',
+    }
+
+    if (process.env.ELEVENTY_ENV !== 'production') {
+      webpackConfig.devtool = 'eval'
     }
 
     return {

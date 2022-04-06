@@ -48,7 +48,6 @@ class NotificationManager {
     });
 
     let notificationDismisser = () => {
-      console.log("HOVERING?", isMouseOver);
       if (isMouseOver) {
         setTimeout(notificationDismisser, timeoutMS);
       } else {

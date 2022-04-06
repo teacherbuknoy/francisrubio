@@ -41,7 +41,6 @@ class Dialog {
         this.hide()
       })
     )
-    console.log(closers)
 
     // CUSTOM EVENTS
     this.events = { show: [], hide: [] }
@@ -165,7 +164,6 @@ const modalsWithNoTrigger = [...document.querySelectorAll('[data-modal]')]
     const dummyButton = document.createElement('button')
     dummyButton.dataset.dialog = d.id
     dummyButton.dataset.show = d.dataset.modal === 'show'
-    console.log(d.id, dummyButton)
     return dummyButton
   })
 const dialogButtons = [...dialogTriggers, ...modalsWithNoTrigger]
