@@ -23,7 +23,7 @@ stylesheets: ['frontpage.css']
       <a href="/assets/files/francis-rubio-resume-2-3.pdf" download="Francis-Rubio-resume.pdf" class="button">Download my résumé</a>
       <a href="mailto:francis@antaresph.dev" class="primary button">Hire me</a>
     </div>
-    {% set options = { src: "/assets/images/me.png", classes: "banner-image", alt: "Francis Rubio", widths: [300,500,860,1080], width: 300, height: 300 } %}
+    {% set options = { src: "/assets/images/me.png", classes: "banner-image", alt: "Francis Rubio", widths: [300,500,860,1080], width: 300, height: 300, formats: ['png', 'webp', 'avif'] } %}
     {% img options %}
   </div>
 </header>
