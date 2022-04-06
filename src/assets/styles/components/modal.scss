@@ -2,6 +2,7 @@
   position: fixed;
   inset: 0;
   display: grid;
+  z-index: 9999;
 
   &[hidden] {
     display: none;
