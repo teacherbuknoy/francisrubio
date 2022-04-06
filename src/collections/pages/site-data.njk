@@ -1,0 +1,58 @@
+---
+layout: null
+permalink: /site-data.json
+---
+{
+  "literature": [
+    {% for item in collections.literature %}
+      {
+        "title": {{ item.data.title | dump | safe }},
+        "description": {{ item.data.description | dump | safe }},
+        "type": {{ item.data.type | dump | safe }},
+        "image": "/assets/images{{ item.data.image | safe }}"
+      }
+      {{ "," if loop.index < collections.literature.length }}
+    {% endfor %}
+  ],
+  "posts": [
+    {% set collection = collections.posts %}
+    {% for item in collection %}
+      {
+        "title": {{ item.data.title | dump | safe }},
+        "description": {{ item.data.description | dump | safe }},
+        "category": {{ item.data.category | dump | safe }},
+        "image": "/assets/images{{ item.data.image | safe }}",
+        "date": {{ item.date | dump | safe }}
+      }
+      {{ "," if loop.index < collection.length }}
+    {% endfor %}
+  ],
+  "projects": [
+    {% set collection = collections.projects %}
+    {% for item in collection %}
+      {
+        "title": {{ item.data.title | dump | safe }},
+        "description": {{ item.data.description | dump | safe }},
+        "tags": [
+          {% for tag in item.data.tags %}
+            {{ tag | dump | safe }}
+            {{ "," if loop.index < item.data.tags.length }}
+          {% endfor %}
+        ],
+        "image": {{ item.data.logo | dump | safe }}
+      }
+      {{ "," if loop.index < collection.length }}
+    {% endfor %}
+  ],
+  "talks": [
+    {% set collection = collections.talks %}
+    {% for item in collection %}
+      {
+        "title": {{ item.data.title | dump | safe }},
+        "description": {{ item.data.description | dump | safe }},
+        "image": "/assets/images{{ item.data.image | safe }}"
+      }
+      {{ "," if loop.index < collection.length }}
+    {% endfor %}
+  ]
+}
