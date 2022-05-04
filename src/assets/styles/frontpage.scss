@@ -76,6 +76,14 @@
   @media (max-width: 570px) {
     display: none;
   }
+
+  @media (min-width: 941px) and (max-width: 1020px) {
+    object-position: -10vw bottom;
+  }
+
+  @media (min-width: 1021px) {
+    object-position: -5vw bottom;
+  }
 }
 
 .banner-site-title {

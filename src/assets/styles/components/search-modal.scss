@@ -67,11 +67,13 @@
 }
 
 .search-form-control :is(input, select, textarea) {
-  border     : none;
-  padding    : 1ch;
-  font-size  : var(--type-size);
-  font-family: var(--font-sans);
-  margin-top : 0.5em;
+  background-color: transparent;
+  border          : none;
+  color           : inherit;
+  padding         : 1ch;
+  font-size       : var(--type-size);
+  font-family     : var(--font-sans);
+  margin-top      : 0.5em;
 
   &:focus {
     outline: none;
