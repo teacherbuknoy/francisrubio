@@ -116,3 +116,25 @@ body.no-js {
 .file__image svg {
   width: 2ch;
 }
+
+.button,
+.navigation-link,
+.navigation-menu-link {
+  &.has-icon {
+    &--start {
+      padding-inline-start: calc(var(--space) - 0.5em);
+    }
+
+    &--end {
+      padding-inline-end: calc(var(--space) - 0.5em);
+    }
+
+    &--left {
+      padding-left: calc(var(--space) - 0.5em);
+    }
+
+    &--right {
+      padding-right: calc(var(--space) - 0.5em);
+    }
+  }
+}
