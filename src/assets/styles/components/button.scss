@@ -7,10 +7,11 @@
   background-repeat      : no-repeat;
   border                 : 0;
   border-radius          : var(--ideal-radius);
+  color                  : hsl(var(--fg-default));
   display                : inline-flex;
   font-family            : var(--font-sans);
   font-size              : 1em;
-  font-variation-settings: "wght" 300;
+  font-variation-settings: "wght"300;
   gap                    : var(--space);
   justify-content        : center;
   letter-spacing         : 1px;

@@ -153,6 +153,7 @@
   --font-display-serif: "Fraunces", serif;
   --font-body: var(--font-serif);
   --font-ui: var(--font-sans);
+  --font-mono: "Recursive", monospace;
 
   @supports (font-variation-settings: "wght" 100) {
     --font-serif: "Fraunces var", serif;

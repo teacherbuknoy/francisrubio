@@ -101,7 +101,9 @@ figure.image {
 
   figcaption {
     font-family: var(--font-sans);
-    font-size  : 1rem;
+    font-size  : 0.9rem;
+    width        : min(65ch, 100%);
+    margin-inline: auto;
   }
 }
 
