@@ -23,6 +23,14 @@
   {% endif %}
 {% endif %}
 
+{% if seo.twitter.src %}
+  {% set twitter_image %}/assets/images{{ seo.twitter.src }}{% endset %}
+{% endif %}
+
+{% if seo.og.src %}
+  {% set fb_image %}/assets/images{{ seo.og.src }}{% endset %}
+{% endif %}
+
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ site.url }}{{ page.url if page.url }}">
