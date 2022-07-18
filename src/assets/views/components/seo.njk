@@ -24,11 +24,11 @@
 {% endif %}
 
 {% if seo.twitter.src %}
-  {% set twitter_image %}/assets/images{{ seo.twitter.src }}{% endset %}
+  {% set twitter_image %}{{ "/assets/images" if seo.twitter.is_prefixed == null or seo.twitter.is_prefixed == true }}{{ seo.twitter.src }}{% endset %}
 {% endif %}
 
 {% if seo.og.src %}
-  {% set fb_image %}/assets/images{{ seo.og.src }}{% endset %}
+  {% set fb_image %}{{ "/assets/images" if seo.og.is_prefixed == null or seo.og.is_prefixed == true }}{{ seo.og.src }}{% endset %}
 {% endif %}
 
 <!-- Open Graph / Facebook -->
