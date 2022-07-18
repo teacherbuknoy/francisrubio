@@ -9,7 +9,7 @@ seo:
   twitter:
     src: /literatures/read-this-when-i-die/twitter.png
 author: teacherbuknoy
-type: Poem
+type: literature
 category: literature
 language: en
 ---
