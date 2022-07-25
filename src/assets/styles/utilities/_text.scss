@@ -6,10 +6,16 @@
 .lowercase {
   text-transform: lowercase;
 }
+
 /* #endregion */
 
 /* #region ALIGNMENT */
-$alignments: left, right, center, justify, start, end;
+$alignments: left,
+right,
+center,
+justify,
+start,
+end;
 
 .text {
   @each $a in $alignments {
@@ -18,15 +24,25 @@ $alignments: left, right, center, justify, start, end;
     }
   }
 }
+
 /* #endregion */
 
 /* #region WEIGHTS */
-$weights: 100, 200, 300, 400, 500, 600, 700, 800, 900;
+$weights: 100,
+200,
+300,
+400,
+500,
+600,
+700,
+800,
+900;
+
 .weight {
   @each $weight in $weights {
     &-#{$weight} {
-      font-weight: $weight;
-      font-variation-settings: 'wght' $weight;
+      font-weight            : $weight;
+      font-variation-settings: 'wght'$weight;
     }
   }
 
@@ -38,25 +54,28 @@ $weights: 100, 200, 300, 400, 500, 600, 700, 800, 900;
     font-weight: normal;
   }
 }
+
 /* #endregion */
 
 /* #region LETTER SPACING */
-$letter-spacing: (
-  xs  : 0.5px,
-  s   : 0.75px,
-  m   : 1px,
-  l   : 1.5px,
+$letter-spacing: (xs : 0.5px,
+  s : 0.75px,
+  m : 1px,
+  l : 1.5px,
   xxl : 2px,
   xxxl: 3px,
 );
 
 .ls {
-  @each $key, $value in $letter-spacing {
+
+  @each $key,
+  $value in $letter-spacing {
     &-#{$key} {
       letter-spacing: $value;
     }
   }
 }
+
 /* #endregion */
 
 /* #region FONT FAMILIES */
@@ -67,6 +86,7 @@ $letter-spacing: (
 .font-sans {
   font-family: var(--font-sans);
 }
+
 /* #endregion */
 
 /* #region FONT SIZES */
@@ -74,7 +94,7 @@ $letter-spacing: (
   .fs-#{$size} {
     font-size: var(--type-size-#{$size});
 
-    @if $size > 7 {
+    @if $size>7 {
       line-height: 1;
     }
   }
@@ -83,40 +103,46 @@ $letter-spacing: (
     font-size: clamp(var(--type-size-#{$size + 1}), #{10 - $size}vw, var(--type-size-#{$size}));
   }
 }
+
 /* #endregion */
 
 /* #region LINE HEIGHTS */
-$line-heights: (
-  xxxs: 0.5,
+$line-heights: (xxxs: 0.5,
   xxs : 0.75,
-  xs  : 0.8,
-  s   : 1,
-  m   : 1.25,
-  l   : 1.5,
-  xl  : 1.75,
+  xs : 0.8,
+  s : 1,
+  m : 1.25,
+  l : 1.5,
+  xl : 1.75,
   xxl : 2,
   xxxl: 3,
 );
 
 .lh {
-  @each $key, $value in $line-heights {
+
+  @each $key,
+  $value in $line-heights {
     &-#{$key} {
       line-height: $value;
     }
   }
 }
+
 /* #endregion */
 
 .quotation {
   border-inline-end: 3px solid hsl(var(--primary-100));
   padding          : var(--space);
   text-align       : end;
+  margin           : 0;
 
   blockquote {
-    font-family            : var(--font-serif);
-    font-size              : var(--type-size-3);
-    font-weight            : 350;
-    line-height            : 1.2;
+    font-family: var(--font-serif);
+    font-size  : clamp(1.75rem, 10vw, 2rem);
+    font-weight: 350;
+    line-height: 1.2;
+    margin     : var(--space);
+    hyphens    : auto;
   }
 
   cite {
@@ -143,7 +169,11 @@ $line-heights: (
   font-family        : var(--font-sans);
 }
 
-$fonts: sans, serif, display, display-serif, body;
+$fonts: sans,
+serif,
+display,
+display-serif,
+body;
 
 .font {
   @each $font in $fonts {
