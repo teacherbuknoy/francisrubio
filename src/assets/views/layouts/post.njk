@@ -19,8 +19,11 @@
         </div>
       </div>
     </header>
-    <div class="article__body">
-      {{ content | safe }}
+    <div class="with-sidebar float-on-mobile">
+      {{ content | toc | safe }}
+      <div class="article__body not-sidebar">
+        {{ content | safe }}
+      </div>
     </div>
     <footer class="stack padding--l">
       <div class="content-wrapper margin--auto text-center">

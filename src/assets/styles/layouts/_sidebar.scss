@@ -1,16 +1,24 @@
 .with-sidebar {
-  display: flex;
+  display  : flex;
   flex-wrap: wrap;
-  gap: var(--sidebar-gap, var(--space-m));
+  gap      : var(--sidebar-gap, var(--space-m));
 }
 
 .sidebar {
-  flex-grow: 1;
+  flex-grow : 1;
   flex-basis: var(--sidebar-width, 35ch);
 }
 
 .not-sidebar {
   flex-basis: 0;
-  flex-grow: 999;
-  min-width: 50%;
+  flex-grow : 999;
+  min-width : 50%;
+}
+
+.with-sidebar.float-on-mobile {
+  display: block;
+
+  @media (min-width: 920px) {
+    display: flex;
+  }
 }

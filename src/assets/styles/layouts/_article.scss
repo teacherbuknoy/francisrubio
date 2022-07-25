@@ -100,8 +100,8 @@ figure.image {
   }
 
   figcaption {
-    font-family: var(--font-sans);
-    font-size  : 0.9rem;
+    font-family  : var(--font-sans);
+    font-size    : 0.9rem;
     width        : min(65ch, 100%);
     margin-inline: auto;
   }
@@ -113,8 +113,54 @@ figure.image {
     margin-inline: auto;
 
 
-    & + * {
+    &+* {
       margin-block-start: var(--space-xl);
     }
   }
+}
+
+.article__toc {
+  --sidebar-width: 20ch;
+  border-block   : 2px solid hsl(var(--fg-non-essential));
+  height         : fit-content;
+  margin-bottom  : var(--space-xl);
+  margin-inline  : auto;
+
+  @media (min-width: 920px) {
+    position: sticky;
+    top     : calc(var(--space-xxl) * 2.4);
+  }
+}
+
+.article__toc::before {
+  content       : 'Contents';
+  display       : block;
+  font-family   : var(--font-sans);
+  font-weight   : bold;
+  letter-spacing: 2px;
+  margin-top    : 1ch;
+  text-transform: uppercase;
+}
+
+.article__toc a {
+  font-family    : var(--font-sans);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline
+  }
+}
+
+.article__toc ol {
+  padding      : 0;
+  width        : min(100%, 65ch);
+  margin-inline: auto;
+}
+
+.article__toc li::marker {
+  content: "";
+}
+
+.with-sidebar .article__body {
+  grid-template-columns: 0fr min(65ch, 100%) 0fr;
 }
