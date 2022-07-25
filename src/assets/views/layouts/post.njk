@@ -11,7 +11,13 @@
       </div>
       <h1 id="{{ title | slugify }}" class="article__title margin--none responsive">{{ title | safe }}</h1>
       <p class="fs-4 weight-300">{{ description }}</p>
-      <time datetime="{{ page.date | machineReadableDate }}">{{ page.date | humanReadableDate }}</time>
+      <div class="spaced cluster">
+        <time datetime="{{ page.date | machineReadableDate }}">{{ page.date | humanReadableDate }}</time>
+        <div class="category-pill">
+          <div class="category-pill__inner category-pill__category">{{ category }}</div>
+          <div class="category-pill__inner category-pill__read-time">{{ content | timeToRead }}</div>
+        </div>
+      </div>
     </header>
     <div class="article__body">
       {{ content | safe }}
