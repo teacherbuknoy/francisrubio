@@ -106,6 +106,7 @@
 
       .post-card__title {
         font-size: var(--type-size-3);
+        font-size: clamp(var(--type-size-5), 3vw, var(--type-size-3));
       }
 
       .post-card__footer {
