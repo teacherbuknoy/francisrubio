@@ -19,7 +19,7 @@
       },
       "instagram": {
         "name": "Instagram",
-        "identifier": "teacherbuknoyofficial",
+        "identifier": "teacherbuknoy",
         "url": "https://www.instagram.com/teacherbuknoy"
       },
       "twitter": {
@@ -29,8 +29,8 @@
       },
       "github": {
         "name": "Github",
-        "identifier": "manicadamantium",
-        "url": "https://github.com/manicadamantium/"
+        "identifier": "teacherbuknoy",
+        "url": "https://github.com/teacherbuknoy/"
       }
     }
 }
