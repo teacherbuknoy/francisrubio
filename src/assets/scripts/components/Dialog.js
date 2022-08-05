@@ -24,7 +24,11 @@ class Dialog {
     }
 
     this.element = element
-    this.element.setAttribute('hidden', true)
+    const shouldBeOpen = this.element.hasAttribute('data-open')
+    shouldBeOpen
+      ? this.element.removeAttribute('hidden')
+      : this.element.setAttribute('hidden', true)
+    
     this.element.setAttribute('role', 'dialog')
     this.element.setAttribute('aria-modal', true)
 

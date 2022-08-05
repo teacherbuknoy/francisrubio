@@ -26,6 +26,7 @@
 @import "components/search-modal";
 @import "components/skip-link";
 @import "components/tab-control";
+@import "components/toggle-control";
 @import "components/tooltip";
 
 /* UTILITIES */
@@ -46,7 +47,6 @@
   transition: color 200ms, background 200ms;
 }
 
-.light,
 :root {
   --fg-contrast     : var(--d-contrast);
   --fg-default      : var(--d-default);
@@ -69,6 +69,18 @@
     --bg-accent   : var(--d-subtle);
     --bg-exception: var(--d-non-essential);
   }
+}
+
+.light {
+  --fg-contrast     : var(--d-contrast);
+  --fg-default      : var(--d-default);
+  --fg-subtle       : var(--d-subtle);
+  --fg-non-essential: var(--d-non-essential);
+
+  --bg-primary  : var(--l-contrast);
+  --bg-secondary: var(--l-default);
+  --bg-accent   : var(--l-subtle);
+  --bg-exception: var(--l-non-essential);
 }
 
 .dark {
