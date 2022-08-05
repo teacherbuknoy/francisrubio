@@ -41,6 +41,11 @@
 @import "utilities/text";
 @import "utilities/visibility";
 
+* {
+  // Animate transition from dark to light color scheme
+  transition: color 200ms, background 200ms;
+}
+
 .light,
 :root {
   --fg-contrast     : var(--d-contrast);
