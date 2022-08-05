@@ -35,6 +35,11 @@
       z-index: -1;
     }
   }
+
+  &__section {
+    flex: 1;
+    display: flex;
+  }
 }
 
 .navigation-link {
