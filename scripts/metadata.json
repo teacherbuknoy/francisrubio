@@ -1,0 +1,20 @@
+{
+  "types": {
+    "posts": {
+      "title": "text",
+      "description": "text",
+      "category": "text",
+      "image": "text",
+      "author": "select",
+      "language": "text"
+    },
+    "literature": {
+      "title": "text",
+      "description": "text",
+      "image": "text",
+      "author": "select",
+      "type": "text",
+      "language": "text"
+    }
+  }
+}
