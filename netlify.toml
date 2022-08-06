@@ -3,12 +3,6 @@
   publish = "public"
   functions = "lambda"
 
-[[plugins]]
-  package = "netlify-plugin-image-optim"
-
-[[plugins]]
-  package = "netlify-plugin-inline-critical-css"
-
 [[redirects]]
   from = "/blog"
   to = "/writing"
