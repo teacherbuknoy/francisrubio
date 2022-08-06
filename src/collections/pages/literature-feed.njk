@@ -1,0 +1,62 @@
+---
+eleventyExcludeFromCollections: true
+layout: null
+permalink: /literature.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.title }}</title>
+  <subtitle>{{ site.description }}</subtitle>
+  <link href="{{ site.domain }}/feed.xml" rel="self"/>
+  <updated>{{ generated }}</updated>
+  <author>
+    <name>{{ authors.teacherbuknoy.name }}</name>
+    <email>{{ authors.teacherbuknoy.email }}</email>
+    <uri>{{ authors.teacherbuknoy.url }}</uri>
+  </author>
+  <id>{{ site.domain }}</id>
+  <category term="blog"/>
+  <icon>/assets/root/favicon.svg</icon>
+  <rights>ⓒ {{ utils.currentYear }} Francis Rubio</rights>
+
+  {% for post in collections.literature %}
+    {% set absolutePostUrl %}{{ site.url }}{{ post.url }}{% endset %}
+    <entry>
+      <title>{{ post.data.title }}</title>
+      <link href="{{ absolutePostUrl }}"/>
+      <updated>{{ post.date | dateToRfc3339 }}</updated>
+      <id>{{ absolutePostUrl }}</id>
+      {% set person = authors[post.data.author] %}
+      <author>
+        <name>{{ person.name }}</name>
+        {% if person.url %}
+          <uri>{{ person.url }}</uri>
+        {% endif %}
+        {% if person.email %}
+          <email>{{ person.email }}</email>
+        {% endif %}
+      </author>
+      {% if post.data.tags and post.data.tags.length > 0 %}
+        {% for tag in post.data.tags %}
+          <category term="{{ tag }}"/>
+        {% endfor %}
+      {% endif %}
+
+      {% if post.data.contributors and post.data.contributors.length > 0 %}
+        {% for contributor in post.data.contributors %}
+          {% set person = authors[contributor] %}
+          <contributor>
+            <name>{{ person.name }}</name>
+            {% if person.url %}
+              <uri>{{ person.url }}</uri>
+            {% endif %}
+            {% if person.email %}
+              <email>{{ person.email }}</email>
+            {% endif %}
+          </contributor>
+        {% endfor %}
+      {% endif %}
+      <content type="html">{{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
+    </entry>
+  {% endfor %}
+</feed>

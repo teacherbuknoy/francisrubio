@@ -29,5 +29,10 @@ module.exports = {
         wrapperClass: "article__toc sidebar"
       }
     }
+  },
+  rss: function () {
+    return {
+      plugin: require('@11ty/eleventy-plugin-rss')
+    }
   }
 }

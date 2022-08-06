@@ -50,5 +50,8 @@ module.exports = {
       minutes > 0 ? `${minutes} ${units.minutes}` : null,
       seconds > 0 ? `${seconds} ${units.seconds}` : null,
     ].filter(s => s != null))
+  },
+  dateToISO: function (value) {
+    return new Date(Date.parse(value)).toISOString()
   }
 }

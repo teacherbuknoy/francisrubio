@@ -55,6 +55,11 @@ module.exports = function (eleventyConfig) {
     }
   })
 
+  // Latest build date, for feed.xml
+  eleventyConfig.addGlobalData('generated', () => {
+    return new Date().toISOString()
+  })
+
   // BrowserSync config
   eleventyConfig.setBrowserSyncConfig({
     /* open: true */
