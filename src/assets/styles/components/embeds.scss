@@ -1,0 +1,11 @@
+.embed {
+  width        : 100%;
+  height       : auto;
+  border-radius: var(--ideal-radius);
+
+  &--youtube {
+    background-color: black;
+    aspect-ratio: 16/9;
+    box-shadow  : 0 15px 28px #0005;
+  }
+}

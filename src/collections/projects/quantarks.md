@@ -59,6 +59,6 @@ We were not able to test this application in a real world setting. However, our 
 
 ## Preview
 
-<video src="https://firebasestorage.googleapis.com/v0/b/francisrubio-a38c4.appspot.com/o/YouCut_20200107_235210187.mp4?alt=media&token=8169d5cb-3a6a-4a2f-bd74-d8b5b0f38666" controls>
-  <p>Your browser doesn't support videos just yet. Consider upgrading to a newer version.</p>
-</video>
+<iframe class="embed embed--youtube" width="560" height="315" src="https://www.youtube-nocookie.com/embed/aYPIwqVA5O8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe class="embed embed--youtube" width="560" height="315" src="https://www.youtube-nocookie.com/embed/o2x8RXFutfY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
