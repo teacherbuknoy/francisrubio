@@ -8,6 +8,7 @@ tags:
 links:
   - text: Facebook Page
     url: https://web.facebook.com/quantarks/
+    is_primary: true
 logo:
   src: "/assets/images/projects/quantarks.svg"
   alt: Quantarks logo

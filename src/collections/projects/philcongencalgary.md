@@ -7,6 +7,7 @@ tags:
 links:
   - text: Official Website
     url: https://philcongencalgary.org/
+    is_primary: true
 logo:
   src: "/assets/images/projects/philcongen-logo-alt.png"
   alt: Philippine Consulate General's logo

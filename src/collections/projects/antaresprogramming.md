@@ -7,6 +7,7 @@ tags:
 links:
   - text: Official Website
     url: https://antaresph.dev/
+    is_primary: true
 logo:
   src: "/assets/images/projects/antaresprogramming.svg"
   alt: Antares Programming's logo

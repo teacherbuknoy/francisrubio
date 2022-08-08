@@ -7,6 +7,7 @@ tags:
 links:
   - text: Official Website
     url: https://hatchupmagazine.com/
+    is_primary: true
 logo:
   src: "/assets/images/projects/hatchupmagazine.png"
   alt: HatchUp Magazine's logo
