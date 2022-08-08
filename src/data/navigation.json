@@ -5,5 +5,6 @@
   { "text": "Speaking", "url": "/speaking/" },
   { "text": "Projects", "url": "/projects/" },
   { "text": "What I Use", "url": "/uses/" },
+  { "text": "Press Kit", "url": "/press-kit/" },
   { "label": "RSS Feed", "feathericon": "rss", "url": "/feed.xml" }
 ]

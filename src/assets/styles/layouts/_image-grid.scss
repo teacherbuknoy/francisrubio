@@ -1,0 +1,18 @@
+.image-grid {
+  --size               : 7.5ch;
+  display              : grid;
+  gap                  : 1ch;
+  grid-auto-flow       : dense;
+  grid-auto-rows       : calc(var(--size) * 1);
+  grid-template-columns: repeat(auto-fit, minmax(var(--size), 1fr));
+
+  &__link {
+    display       : flex;
+    flex-direction: column;
+  }
+
+  &__image {
+    height    : 100%;
+    object-fit: cover;
+  }
+}

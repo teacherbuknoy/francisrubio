@@ -4,6 +4,7 @@
 
 .content-wrapper {
   max-width: var(--content-width);
+  width: min(100%, var(--content-width))
 }
 
 .wide-wrapper {

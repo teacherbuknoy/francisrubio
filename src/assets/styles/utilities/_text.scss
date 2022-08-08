@@ -193,3 +193,27 @@ body;
   background-repeat  : no-repeat;
   background-position: bottom center;
 }
+
+dl.grid {
+  font-family          : var(--font-sans);
+  display              : grid;
+  grid-template-columns: 1fr 3fr;
+  column-gap           : 0.5ch;
+
+  dt {
+    font-weight: bold;
+    grid-column: 1/2;
+
+    &::after {
+      content: ":";
+    }
+  }
+
+  dd {
+    grid-column: 2/-1;
+
+    &+dt, &+dt+dd {
+      margin-top: 1ch;
+    }
+  }
+}
