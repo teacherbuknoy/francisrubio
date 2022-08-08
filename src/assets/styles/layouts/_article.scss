@@ -125,12 +125,19 @@ figure.image {
   }
 }
 
-.article__toc {
-  --sidebar-width: 20ch;
-  border-block   : 2px solid hsl(var(--fg-non-essential));
-  height         : fit-content;
-  margin-bottom  : var(--space-xl);
-  margin-inline  : auto;
+.article__toc,
+.article__sidebar {
+  --sidebar-width : 20ch;
+  border-block    : 2px solid hsl(var(--fg-non-essential));
+  border-radius   : 0;
+  background-color: transparent;
+  height          : fit-content;
+  margin-bottom   : var(--space-xl);
+  margin-inline   : auto;
+
+  dl {
+    margin-top: 1ch;
+  }
 
   @media (min-width: 920px) {
     position: sticky;
@@ -139,13 +146,44 @@ figure.image {
 }
 
 .article__toc::before {
-  content       : 'Contents';
+  content: 'Contents';
+}
+
+.article__toc::before,
+.article__sidebar__title {
   display       : block;
   font-family   : var(--font-sans);
   font-weight   : bold;
+  font-size     : inherit;
   letter-spacing: 2px;
   margin-top    : 1ch;
   text-transform: uppercase;
+}
+
+.article__sidebar__title {
+  margin-bottom: 0;
+}
+
+details {
+  summary.article__sidebar__title {
+    display        : flex;
+    gap            : 1ch;
+    justify-content: space-between;
+    align-items    : center;
+    cursor         : pointer;
+
+    &::after {
+      content    : '▼';
+      font-size  : 1ch;
+      font-family: var(--font-mono);
+    }
+  }
+
+  &[open] summary.article__sidebar__title {
+    &::after {
+      content: '▲';
+    }
+  }
 }
 
 .article__toc a {

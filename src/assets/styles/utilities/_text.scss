@@ -194,6 +194,12 @@ body;
   background-position: bottom center;
 }
 
+dl:is(.grid, .stacked) {
+  dt {
+    font-weight: bold;
+  }
+}
+
 dl.grid {
   font-family          : var(--font-sans);
   display              : grid;
@@ -201,7 +207,6 @@ dl.grid {
   column-gap           : 0.5ch;
 
   dt {
-    font-weight: bold;
     grid-column: 1/2;
 
     &::after {
@@ -212,8 +217,24 @@ dl.grid {
   dd {
     grid-column: 2/-1;
 
-    &+dt, &+dt+dd {
+    &+dt,
+    &+dt+dd {
       margin-top: 1ch;
     }
+  }
+}
+
+dl.stacked {
+  font-family   : var(--font-sans);
+  display       : flex;
+  flex-direction: column;
+
+  dd + dt {
+    margin-top: 1ch;
+  }
+
+  dd {
+    margin : 0;
+    padding: 0;
   }
 }

@@ -19,6 +19,13 @@ cover:
   alt: Quantarks
   width: 1200
   height: 630
+details:
+  - key: Technologies used
+    values:
+      - Unity 3D, C#, Android, Blender, Adobe AfterEffects, Adobe Photoshop
+  - key: Project duration
+    values:
+      - One year (2018 - 2019)
 ---
 
 Quantarks is an augmented reality (AR) application for Android devices that serves interactive content to facilitate learning about the periodic table of elements. This was our thesis project for my bachelor's degree in Computer Science. This project was made by a team that included me and three other developers and designers that happened to be my best friends.

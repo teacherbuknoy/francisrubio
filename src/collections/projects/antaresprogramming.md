@@ -18,6 +18,18 @@ cover:
   alt: Antares Programming
   width: 1200
   height: 630
+details:
+  - key: Technologies used
+    values:
+      - Eleventy, Nunjucks, NodeJS, HTML, CSS, JavaScript
+      - Figma (for graphic design)
+      - Facebook Pages and Ads
+  - key: Hosting provider
+    values:
+      - Netlify
+  - key: Domain Name Server
+    values:
+      - Google Domains
 ---
 
 Antares Programming is not intended to replace all of the existing resources; it just augments them. It is intended to support existing educational resources by curating learning materials from around the Web and creating resources that explains what other sources have missed. 

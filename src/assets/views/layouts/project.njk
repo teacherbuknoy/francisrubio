@@ -2,7 +2,7 @@
 
 {% block content %}
   {% include 'components/navigation.njk' %}
-  <main class="padding--xl article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
+  <main class="padding--xl article" id="main" style="width: min(100ch, 100%); margin-inline: auto;" tabindex="-1" aria-labelledby="{{ title | slugify }}">
     <header style="width: min(100ch, 100%);" class="article__header with-sidebar ai--center margin-inline--auto">
       <div class="ai--center cluster margin-bottom--l lh-s">
         <a href="/projects/" class="button jc--start padding--xs">Projects</a>
@@ -26,17 +26,38 @@
               {% endfor %}
             </div>
             <div class="cluster gap--m jc--end ai--center">
-            {% for link in links %}
-              <a href="{{ link.url }}" class="{{ "primary" if link.is_primary }} button" target="_blank" rel="noopener noreferer nofollow">{{ link.text }}</a>
-            {% endfor %}
+              {% for link in links %}
+                <a href="{{ link.url }}" class="{{ "primary" if link.is_primary }} button" target="_blank" rel="noopener noreferer nofollow">{{ link.text }}</a>
+              {% endfor %}
             </div>
           </div>
         </div>
       </div>
     </header>
-    <div class="article__body">
-      {{ content | safe }}
-    </div>
+    {% if details != null or details.length > 0 %}
+      <div class="with-sidebar">
+        <aside class="article__sidebar sidebar" style="--sidebar-width: 25ch;">
+          <details open>
+            <summary class="margin--none padding-block--xs article__sidebar__title">Technical Details</summary>
+            <dl class="stacked">
+              {% for item in details %}
+                <dt>{{ item.key | safe }}</dt>
+                {% for value in item.values %}
+                  <dd>{{ value | safe }}</dd>
+                {% endfor %}
+              {% endfor %}
+            </dl>
+          </details>
+        </aside>
+        <div class="article__body not-sidebar">
+          {{ content | safe }}
+        </div>
+      </div>
+    {% else %}
+      <div class="article__body">
+        {{ content | safe }}
+      </div>
+    {% endif %}
   </main>
   {% include 'components/footer.njk' %}
 {% endblock %}
