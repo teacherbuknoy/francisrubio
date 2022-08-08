@@ -280,6 +280,8 @@ strong {
 }
 
 em,
-strong {
+strong,
+em *,
+strong * {
   color: hsl(var(--fg-contrast));
 }
