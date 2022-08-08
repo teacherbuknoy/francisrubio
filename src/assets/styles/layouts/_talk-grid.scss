@@ -1,0 +1,55 @@
+.talks-grid {
+  grid-template-columns: repeat(auto-fill, minmax(25ch, 1fr));
+  display              : grid;
+  gap                  : 2ch;
+}
+
+.talk-card {
+  display              : grid;
+  flex-direction       : column;
+  gap                  : 0;
+  font-family          : var(--font-sans);
+  grid-template-columns: min-content 1fr;
+  column-gap           : 1ch;
+  text-decoration      : none;
+
+  &:hover {
+    color: hsl(var(--fg-default));
+
+    .talk-card__title {
+      color: hsl(var(--primary-700));
+    }
+  }
+
+  &>* {
+    margin     : 0;
+    grid-column: 2;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &::before {
+    content    : attr(data-index) ".";
+    grid-column: 1/2;
+    font-weight: bold;
+    color      : hsl(var(--primary-700));
+  }
+
+  &__title {
+    font-family: inherit;
+    font-size  : var(--type-size-5);
+    margin     : 0;
+    padding    : 0;
+    color      : inherit;
+  }
+
+  &__time,
+  &__location {
+    display    : flex;
+    gap        : 0.5ch;
+    align-items: center;
+    opacity    : 0.75;
+  }
+}

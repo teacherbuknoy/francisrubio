@@ -31,10 +31,19 @@ function img ({ src, classes, alt, sizes, widths, width, height, formats }) {
   return Image.generateHTML(metadata, imageAttributes)
 }
 
+function padStart(string, length, filler) {
+  return (string + "").padStart(length, filler)
+}
+
+function padEnd(string, length, filler) {
+  return (string + "").padEnd(length, filler)
+}
+
 module.exports = {
   image: (src, classes, alt, sizes, widths, width, height, formats) => {
     return img({ src, classes, alt, sizes, widths, width, height, formats })
   },
 
-  img
+  img,
+  padStart, padEnd
 }

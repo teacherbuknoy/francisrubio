@@ -53,5 +53,5 @@ module.exports = {
   },
   dateToISO: function (value) {
     return new Date(Date.parse(value)).toISOString()
-  }
+  },
 }

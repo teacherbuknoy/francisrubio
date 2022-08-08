@@ -13,6 +13,7 @@ audience:
   - Students from PATTS College of Aeronautics
 duration:
   - PT1H25M
+location: Online
 ---
 
 ## Files

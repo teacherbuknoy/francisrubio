@@ -1,0 +1,19 @@
+<div class="talks-grid">
+  {% if postLimit != null %}
+    {% set limit = postLimit if collection.length > postLimit else 
+      collection.length %}
+    {% for index in range(0, limit) %}
+      {% set item = collection[index] %}
+      {% set postURL = item.url %}
+      {% set post = item.data %}
+      {% include 'components/talk-card.njk' %}
+    {% endfor %}
+  {% else %}
+    {% for item in collection %}
+      {% set index = loop.revindex %}
+      {% set postURL = item.url %}
+      {% set post = item.data %}
+      {% include 'components/talk-card.njk' %}
+    {% endfor %}
+  {% endif %}
+</div>

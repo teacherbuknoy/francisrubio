@@ -8,18 +8,29 @@ pagination:
 permalink: /speaking/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html
 activePath: speaking
 ---
-<section class="padding--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
+<hgroup class="padding--xl ai--center" role="group" style="width: min(100ch, 90%); margin-inline: auto;">
+  <p aria-roledescription="subtitle" id="section-heading-4" class="margin--none uppercase ls-l font-sans">Talks</p>
+  <h1 class="margin--none font-serif responsive">Con&shy;fe&shy;ren&shy;ces and Ap&shy;pea&shy;ran&shy;ces</h1>
+  <p aria-roledescription="subtitle">I speak at developer conferences and teach students and other developers about the tings I find fascinating about building websites.</p>
+</hgroup>
+
+<section aria-labelledby="section-heading-2" class="ai--center stack padding--xl margin-inline--auto" style="width: min(90%, 100ch);">
+  <div>
+    <h2 id="section-heading-2">Upcoming Talks</h2>
+    <p>I have no speaking engagements for 2022 (yet). This page will be updated as soon as I commit to one.</p>
+  </div>
   <div class="stack">
-    <span id="section-heading-4" class="uppercase ls-l font-sans">Talks</span>
-    <h2 class="font-serif responsive">Con&shy;fe&shy;ren&shy;ces and Ap&shy;pea&shy;ran&shy;ces</h2>
-    <p>I speak at developer conferences and teach students and other developers about the tings I find fascinating about building websites.</p>
+    <div class="gap--m cluster padding-block--l">
+      <a href="{{ site.contact.email.url }}" class="primary button">Invite me as a speaker</a>
+      <a href="/press-kit/" class="button">Press Kit</a>
+    </div>
   </div>
-  <div class="spaced cluster ai--center padding-block--l margin-bottom--xl">
-    <span class="fs-4 weight-300">Have an event coming up?</span>
-    <a href="{{ site.contact.email.url }}" class="primary button">Invite me as a speaker</a>
-  </div>
+</section>
+
+<section class="padding--xl margin-inline--auto" style="width: min(90%, 100ch); margin-inline: auto" aria-labelledby="section-heading-1">
+  <h2 id="section-heading-1">Past Talks</h2>
   {% set collection = pagination.items %}
-  {% include 'components/post-grid.njk' %}
+  {% include 'components/talks-grid.njk' %}
 </section>
 
 <div class="center-justified cluster padding--l">

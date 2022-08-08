@@ -13,4 +13,5 @@ audience:
   - Students from various schools with beginner to intermediate understanding of JavaScript as a language.
 duration:
   - PT1H
+location: Online
 ---
