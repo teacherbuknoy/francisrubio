@@ -2,8 +2,12 @@
   {% if postLimit != null %}
     {% set limit = postLimit if collection.length > postLimit else 
       collection.length %}
-    {% for index in range(0, limit) %}
-      {% set item = collection[index] %}
+    {% for i in range(0, limit) %}
+      {% set item = collection[i] %}
+      {% set index = i + 1 %}
+      {% if isReversed %}
+      {% set index = collection.length - i %}
+      {% endif %}
       {% set postURL = item.url %}
       {% set post = item.data %}
       {% include 'components/talk-card.njk' %}
