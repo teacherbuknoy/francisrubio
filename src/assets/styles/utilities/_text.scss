@@ -137,16 +137,19 @@ $line-heights: (xxxs: 0.5,
   margin           : 0;
 
   blockquote {
-    font-family: var(--font-serif);
-    font-size  : clamp(1.75rem, 10vw, 2rem);
-    font-weight: 350;
-    line-height: 1.2;
-    margin     : var(--space);
-    hyphens    : auto;
+    font-family    : var(--font-serif);
+    font-size      : clamp(1.75rem, 10vw, 2rem);
+    font-weight    : 350;
+    line-height    : 1.2;
+    margin         : var(--space);
+    -webkit-hyphens: auto;
+    hyphens        : auto;
   }
 
-  cite {
+  cite,
+  address {
     font-style: normal;
+    display   : inline-block;
   }
 
   figcaption {
@@ -229,7 +232,7 @@ dl.stacked {
   display       : flex;
   flex-direction: column;
 
-  dd + dt {
+  dd+dt {
     margin-top: 1ch;
   }
 

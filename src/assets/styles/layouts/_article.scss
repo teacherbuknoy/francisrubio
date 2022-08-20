@@ -85,7 +85,7 @@
   position   : relative;
   text-align : center;
 
-  cite {
+  cite, address {
     display    : block;
     font-family: var(--font-sans);
     font-size  : 1rem;

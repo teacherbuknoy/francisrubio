@@ -61,7 +61,7 @@ async function getCollectionDetails(collectionType) {
       twitter: { src: '', is_prefixed: false },
       og: { src: '', is_prefixed: false }
     },
-    eleventyExclueFromCollections: false
+    eleventyExcludeFromCollections: false
   }
 
   return postData
