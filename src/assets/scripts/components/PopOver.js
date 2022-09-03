@@ -90,7 +90,7 @@ class PopOver {
     if (this.parentControlled) {
       this.trigger.parentElement.setAttribute('data-open', 'true')
     }
-    this.trigger.setAttribute('aria-expanded', 'false')
+    this.trigger.setAttribute('aria-expanded', 'true')
     this.popOver.removeAttribute('hidden')
     this.popOver.removeAttribute('aria-hidden')
     this._isShown = true
