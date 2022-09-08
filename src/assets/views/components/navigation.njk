@@ -80,7 +80,7 @@
     </div>
     <div class="navigation-menu-items">
       {% for item in navigation %}
-        <a href="{{ item.url }}" class="navigation-menu-link" style="--delay-factor: {{ loop.index0 }}">
+        <a href="{{ item.url }}" class="navigation-menu-link" style="--delay-factor: {{ loop.index0 / 2 }}">
           {% if item.text %}
             <span class="navigation-menu-link-text">{{ item.text }}</span>
           {% endif %}
