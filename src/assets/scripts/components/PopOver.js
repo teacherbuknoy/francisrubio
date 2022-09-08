@@ -19,17 +19,6 @@ class PopOver {
     this.popOver = popover
     this._isShown = false
 
-    const toggleHandler = () => {
-      if (this.parentControlled) {
-        this.trigger.parentElement.scrollIntoView()
-      } else {
-        this.trigger.scrollIntoView
-      }
-    }
-    this.events.toggle.push(() => {
-      setTimeout(toggleHandler, 300)
-    })
-
     if (trigger.dataset.disclosure == null) {
       document.addEventListener('keydown', event => {
         if (event.key === 'Escape') this.hide()

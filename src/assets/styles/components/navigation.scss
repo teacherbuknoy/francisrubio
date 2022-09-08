@@ -253,7 +253,25 @@
 
 .navigation-popup.detached {
   z-index : 99;
-  position: fixed;
+  position: absolute;
   top     : calc(4rem + var(--space-s));
   right   : 5%;
+}
+
+.navbar-wrapper {
+  position     : sticky;
+  top          : var(--space);
+  z-index      : 9999;
+  margin-inline: auto;
+  width        : 90%;
+  transition   : max-width 200ms;
+  max-width    : 100%;
+
+  &.attached {
+    max-width: min(75ch, 100%);
+  }
+
+  @media (max-width: 800px) {
+    margin-block: var(--space);
+  }
 }
