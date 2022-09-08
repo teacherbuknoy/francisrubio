@@ -100,7 +100,6 @@ class Tab {
       this.selected = true
     })
 
-    console.log({ panel })
     this.panel = panel
     this.panel.setAttribute('aria-labelledby', buttonID)
     this.panel.setAttribute('hidden', true)
