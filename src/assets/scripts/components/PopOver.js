@@ -20,10 +20,13 @@ class PopOver {
     this._isShown = false
 
     const toggleHandler = () => {
+      if (!this.scrollIntoView) 
+        return
+        
       if (this.parentControlled) {
         this.trigger.parentElement.scrollIntoView()
       } else {
-        this.trigger.scrollIntoView
+        this.trigger.scrollIntoView()
       }
     }
     this.events.toggle.push(() => {
@@ -49,6 +52,13 @@ class PopOver {
     this.hide()
   }
 
+  /**
+   * @description If true, the component will use
+   * aria-hidden instead of hidden attribute. This
+   * is useful for adding show and hide animation
+   * @author Francis Rubio
+   * @memberof PopOver
+   */
   set ariaHide(value) {
     if (value) {
       this.trigger.dataset.ariaHide = true
@@ -59,6 +69,24 @@ class PopOver {
 
   get ariaHide() {
     return this.trigger.dataset.ariaHide
+  }
+
+  /**
+   * @description If true, the component will scroll into view
+   * upon user interaction
+   * @author Francis Rubio
+   * @memberof PopOver
+   */
+  set scrollIntoView(value) {
+    if (value) {
+      this.trigger.dataset.scrollIntoView = true
+    } else {
+      this.trigger.removeAttribute('data-scroll-into-view')
+    }
+  }
+
+  get scrollIntoView() {
+    return !!this.trigger.dataset.scrollIntoView
   }
 
   /**
@@ -104,6 +132,7 @@ class PopOver {
     this.trigger.setAttribute('aria-expanded', 'true')
     this.popOver.removeAttribute('hidden')
     this.popOver.removeAttribute('aria-hidden')
+    this._enableFocus()
     this._isShown = true
 
     this.events.show.forEach(event => event())
@@ -121,6 +150,7 @@ class PopOver {
 
     if (this.ariaHide) {
       this.popOver.setAttribute('aria-hidden', 'true')
+      this._disableFocus()
     } else {
       this.popOver.setAttribute('hidden', 'true')
     }
@@ -161,6 +191,22 @@ class PopOver {
     const index = this.events[type].indexOf(fn)
     if (index > -1) this.events[type].splice(index, 1)
   }
+
+  _disableFocus() {
+    focusableElements(this.popOver)
+      .forEach(element => element.setAttribute('tabindex', -1))
+  }
+
+  _enableFocus() {
+    focusableElements(this.popOver)
+      .forEach(element => element.removeAttribute('tabindex'))
+  }
+}
+
+function focusableElements(parent = document) {
+  return parent.querySelectorAll(
+    'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled]), details:not([disabled]), summary:not(:disabled)'
+  )
 }
 
 const popoverTriggers = document.querySelectorAll('button[data-popover]')
