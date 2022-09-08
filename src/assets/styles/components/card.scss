@@ -1,8 +1,9 @@
 .feature-card {
   display           : grid;
+  gap               : var(--space);
   grid-template-rows: auto 1fr;
   height            : 35ch;
-  gap               : var(--space);
+  max-width         : 95%;
   transition        : grid-template-rows 100ms ease, gap 100ms;
 
   &:not([data-open]) {
@@ -174,7 +175,7 @@
 }
 
 .post-card__description {
-  margin: 0;
+  margin : 0;
   opacity: 0.55;
 }
 
