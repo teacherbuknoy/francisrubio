@@ -50,10 +50,10 @@ stylesheets: ['frontpage.css']
 </section>
 <section class="section padding-block--xxl" id="section-3" aria-labelledby="section-3-heading">
   <div class="section__inner">
-    <div class="stack gap--none">
-      <span id="section-3-heading" class="uppercase ls-l font-sans">Experience</span>
+    <hgroup role="group" class="stack gap--none">
+      <p aria-roledescription="subtitle" id="section-3-heading" class="uppercase ls-l font-sans">Experience</p>
       <h2 class="font-serif fs-1">Proven skill in tech that just works</h2>
-    </div>
+    </hgroup>
     <div class="with-sidebar padding-block--xl">
       <div class="sidebar padding-inline--m" style="flex-basis: 20ch;">
         <div data-tablist style="gap: 1ch; display: grid; grid-template-columns: repeat(auto-fit, minmax(4ch, 1fr));">
@@ -92,9 +92,11 @@ stylesheets: ['frontpage.css']
 <section class="section padding-block--xxl" id="section-4" aria-labelledby="section-41-heading">
   <div class="section__inner">
     <div class="stack gap--none">
-      <span id="section-41-heading" class="uppercase ls-l font-sans">Writing</span>
-      <h2 class="font-serif fs-1">The Life and Times of Francis Rubio</h2>
-      <p>A glimpse of what it's like to be me.</p>
+      <hgroup role="group">
+        <p aria-roledescription="subtitle" id="section-41-heading" class="uppercase ls-l font-sans">Writing</p>
+        <h2 class="font-serif fs-1">The Life and Times of Francis Rubio</h2>
+        <p aria-roledescription="subtitle">A glimpse of what it's like to be me.</p>
+      </hgroup>
       {% set postLimit = 4 %}
       {% set collection = collections.posts | reverse %}
       {% include 'components/post-grid.njk' %}
@@ -109,9 +111,11 @@ stylesheets: ['frontpage.css']
 <section class="section padding-block--xxl" id="section-4" aria-labelledby="section-4-heading">
   <div class="section__inner">
     <div class="stack gap--none">
-      <span id="section-4-heading" class="uppercase ls-l font-sans">Literature</span>
-      <h2 class="font-serif fs-1">Speaking in cultural tense</h2>
-      <p>My attempts in encapsulating my thoughts into written art</p>
+      <hgroup role="group">
+        <p role="subtitle" id="section-4-heading" class="uppercase ls-l font-sans">Literature</p>
+        <h2 class="font-serif fs-1">Speaking in cultural tense</h2>
+        <p role="subtitle">My attempts in encapsulating my thoughts into written art</p>
+      </hgroup>
       {% set postLimit = 4 %}
       {% set collection = collections.literature | reverse %}
       {% include 'components/post-grid.njk' %}
@@ -125,11 +129,11 @@ stylesheets: ['frontpage.css']
 </section>
 <section class="padding-block--xxl" id="section-5" aria-labelledby="section-5-heading">
   <div class="section__inner">
-    <div class="stack gap">
-      <span id="section-5-heading" class="uppercase ls-l font-sans">Talks</span>
+    <hgroup role="group" class="stack gap">
+      <p aria-roledescription="subtitle" id="section-5-heading" class="uppercase ls-l font-sans">Talks</p>
       <h2 class="font-serif fs-1">Conferences and Appearances</h2>
-      <p>I speak at developer conferences and events about web development. If you are an event organizer looking for speakers, let's talk about it.</p>
-    </div>
+      <p aria-roledescription="subtitle">I speak at developer conferences and events about web development. If you are an event organizer looking for speakers, let's talk about it.</p>
+    </hgroup>
     <div class="margin-block--l">
       {% set postLimit = 4 %}
       {% set hasFeatured = false %}
@@ -148,11 +152,11 @@ stylesheets: ['frontpage.css']
 </section>
 <section class="padding-block--xxl" id="section-5" aria-labelledby="section-6-heading">
   <div class="section__inner">
-    <div class="stack gap">
-      <span id="section-6-heading" class="uppercase ls-l font-sans">Projects</span>
+    <hgroup role="group" class="stack gap">
+      <p aria-roledescription="subtitle" id="section-6-heading" class="uppercase ls-l font-sans">Projects</p>
       <h2 class="font-serif fs-1">The Gallery</h2>
-      <p>My most notable projects. Things that I am proud I made, or was involved in making. Work that I would love to do more of.</p>
-    </div>
+      <p aria-roledescription="subtitle">My most notable projects. Things that I am proud I made, or was involved in making. Work that I would love to do more of.</p>
+    </hgroup>
     {% set postLimit = 3 %}
     {% set collection = collections.projects | reverse %}
     <span class="filled cluster padding--xxl jc--center">
@@ -174,7 +178,7 @@ stylesheets: ['frontpage.css']
 </section>
 <section class="padding-block--xxl bg--secondary" id="section-6" aria-labelledby="section-61-heading">
   <div class="section__inner jc--center stack gap text-center">
-    <span id="section-61-heading" class="uppercase ls-l font-sans">Uses</span>
+    <p id="section-61-heading" class="uppercase ls-l font-sans">Uses</p>
     <h2 class="font-serif fs-1">What makes my day to day run</h2>
     <p>Want to see things I use and swear by? Here's an archive of all the things I use and how I rate them.</p>
     <div class="cluster jc--center padding">
@@ -185,10 +189,12 @@ stylesheets: ['frontpage.css']
 <section class="section padding-block--xxl bg-secondary" id="footer" aria-labelledby="footer-heading">
   <div class="section__inner">
     <div class="stack gap">
-      <span id="footer-heading" class="uppercase ls-l font-sans">Contact</span>
-      <h2 class="font-serif fs-1">Initiating space beacon…</h2>
-      <p style="width: min(75ch, 100%)">Send me a message. I would love to hear from you! Well, unless it's spammy or hateful, then y'know…*</p>
-      <p style="width: min(75ch, 100%)">If you want me to join your team, commission my services for a project, invite me to be one of your event speakers, or just for a chat, you can reach out to me via the following communication <i>waypoints</i>.**</p>
+      <hgroup role="group">
+        <p aria-roledescription="subtitle" id="footer-heading" class="uppercase ls-l font-sans">Contact</p>
+        <h2 class="font-serif fs-1">Initiating space beacon…</h2>
+      </hgroup>
+      <p style="width: min(75ch, 100%)">Send me a message. I would love to hear from you!</p>
+      <p style="width: min(75ch, 100%)">If you want me to join your team, commission my services for a project, invite me to be one of your event speakers, or just for a chat, you can reach out to me via the following communication <i>waypoints</i>.*</p>
     </div>
     <div class="cluster gap--m padding--xl center-justified">
       {% for key, value in site.contact %}
@@ -196,8 +202,7 @@ stylesheets: ['frontpage.css']
       {% endfor %}
     </div>
     <div class="footnotes">
-      <p class="font-sans">* I can't curse here. Our capitalist overlords are saying curse words are unprofessional.</p>
-      <p class="font-sans">** Hehe, <i>waypoints</i>. Genshin Impact players, anyone?</p>
+      <p class="font-sans">*Hehe, <i>waypoints</i>. Genshin Impact players, anyone?</p>
     </div>
   </div>
 </section>
