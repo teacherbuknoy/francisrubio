@@ -29,12 +29,12 @@
   <div class="navigation-bar__section">
     <div class="navigation-bar__section jc--start">
       <ul class="navigation-list">
-        <li class="navigation-list-items">
+        <li class="navigation-list-item">
           <a href="/" class="navigation-link weight-900">Francis Rubio</a>
         </li>
 
         {% for item in navigation | rejectattr("overflow") %}
-          <li class="navigation-list-items">
+          <li class="navigation-list-item">
             <a href="{{ item.url }}" class="navigation-link" style="--delay-factor: {{ loop.index0 }}">
               {% if item.text %}
                 <span class="navigation-link-text">{{ item.text }}</span>
@@ -49,6 +49,34 @@
             </a>
           </li>
         {% endfor %}
+
+        <li class="navigation-list-item" style="position: relative">
+          <button class="navigation-link" data-popover>
+            {% set feathericon = 'more-horizontal' %}
+            {% include 'components/feathericon.njk' %}
+            <span class="sr-only">More items</span>
+          </button>
+          <div class="navigation-popup">
+            <ul class="navigation-list">
+              {% for item in navigation | selectattr("overflow") %}
+                <li class="navigation-list-item">
+                  <a href="{{ item.url }}" class="navigation-link" style="--delay-factor: {{ loop.index0 }}">
+                    {% if item.text %}
+                      <span class="navigation-link-text">{{ item.text }}</span>
+                    {% endif %}
+                    {% if item.feathericon %}
+                      {% set feathericon = item.feathericon %}
+                      {% include "components/feathericon.njk" %}
+                    {% endif %}
+                    {% if item.label %}
+                      <span class="navigation-link-label">{{ item.label }}</span>
+                    {% endif %}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </li>
       </ul>
     </div>
     <div class="navigation-bar__section jc--end">
@@ -71,7 +99,7 @@
   <div class="navigation-menu-backdrop" data-dialog-hide aria-hidden="true"></div>
   <nav class="navigation-menu-content" aria-label="Navigation menu">
     <div class="spaced cluster ai--center padding-inline--xxl padding-block--l">
-      <span class="weight-300 font-sans">Francis Rubio</span>
+      <a href="/" class="weight-300 font-sans navigation-menu-link">Francis Rubio</a>
       <button class="navigation-link has-icon--start" data-dialog-hide>
         {% set feathericon = 'x' %}
         {% include 'components/feathericon.njk' %}
@@ -103,7 +131,7 @@
     <form name="search" aria-labelledby="search-label" class="search-container search-form">
       <div class="search-form-control">
         <input type="text" name="term" id="term" placeholder=" ">
-        <label id="search-label" for="term">Maghanap sa site</label>
+        <label id="search-label" for="term">Search the site</label>
     </div>
     <button class="primary button padding--m">
       {% set feathericon = 'search' %}
@@ -111,7 +139,7 @@
       <span class="sr-only">Hanapin</span>
     </button>
   </form>
-  <ul class="results-container" id="search-results-list"></ul>
+  <ul class="results-container" id="search-results-list" aria-label="Search results"></ul>
   <template id="search-result-listitem-template">
     <li>
       <a class="result-item" href="#!">

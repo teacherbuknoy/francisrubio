@@ -395,12 +395,12 @@ legend {
 
 .feather,
 .feather-icon {
-  width: 1em;
-  height: 1em;
   fill: none;
-  stroke: currentColor;
-  stroke-width: 2px;
-  stroke-linecap: round;
   flex: 0 0 1em;
+  height: 1em;
+  min-width: 1em;
+  stroke-linecap: round;
   stroke-linejoin: round;
+  stroke-width: 2px;
+  stroke: currentColor;
 }

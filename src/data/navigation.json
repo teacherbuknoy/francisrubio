@@ -1,5 +1,4 @@
 [
-  { "overflow": true, "text": "Frontpage", "url": "/" },
   { "text": "Writing", "url": "/writing/" },
   { "text": "Literature", "url": "/literature/" },
   { "text": "Speaking", "url": "/speaking/" },
