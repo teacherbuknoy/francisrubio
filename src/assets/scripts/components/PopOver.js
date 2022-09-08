@@ -5,7 +5,7 @@ class PopOver {
    * specify the [id] of the HTMLElement that will be the popover
    * @param {HTMLButtonElement} trigger the button that triggers this popover
    */
-  constructor (trigger) {
+  constructor(trigger) {
     this.trigger = trigger
     let popover = document.getElementById(trigger.dataset.popover)
 
@@ -14,10 +14,21 @@ class PopOver {
         popover = trigger.nextElementSibling
       } else throw Error('Popover is null')
     }
-    this.events = { show: [], hide: [] }
+    this.events = { show: [], hide: [], toggle: [] }
     this.trigger.addEventListener('click', e => this.toggle())
     this.popOver = popover
     this._isShown = false
+
+    const toggleHandler = () => {
+      if (this.parentControlled) {
+        this.trigger.parentElement.scrollIntoView()
+      } else {
+        this.trigger.scrollIntoView
+      }
+    }
+    this.events.toggle.push(() => {
+      setTimeout(toggleHandler, 300)
+    })
 
     if (trigger.dataset.disclosure == null) {
       document.addEventListener('keydown', event => {
@@ -38,7 +49,7 @@ class PopOver {
     this.hide()
   }
 
-  set ariaHide (value) {
+  set ariaHide(value) {
     if (value) {
       this.trigger.dataset.ariaHide = true
     } else {
@@ -46,7 +57,7 @@ class PopOver {
     }
   }
 
-  get ariaHide () {
+  get ariaHide() {
     return this.trigger.dataset.ariaHide
   }
 
@@ -57,7 +68,7 @@ class PopOver {
    * attribute when the popover is expanded
    * @memberof PopOver
    */
-  set parentControlled (value) {
+  set parentControlled(value) {
     if (value) {
       this.trigger.setAttribute('data-parent-controlled', 'true')
     } else {
@@ -65,7 +76,7 @@ class PopOver {
     }
   }
 
-  get parentControlled () {
+  get parentControlled() {
     return this.trigger.dataset.parentControlled == null
       ? true
       : this.trigger.dataset.parentControlled
@@ -74,19 +85,19 @@ class PopOver {
   /**
    * @
    */
-  set isShown (value) {
+  set isShown(value) {
     this._isShown = value
     this.toggle(value)
   }
 
-  get isShown () {
+  get isShown() {
     return this._isShown
   }
 
   /**
    * Shows this popover
    */
-  show () {
+  show() {
     if (this.parentControlled) {
       this.trigger.parentElement.setAttribute('data-open', 'true')
     }
@@ -96,12 +107,13 @@ class PopOver {
     this._isShown = true
 
     this.events.show.forEach(event => event())
+    this.events.toggle.forEach(event => event(this.__isShown))
   }
 
   /**
    * Hides this popover
    */
-  hide () {
+  hide() {
     if (this.parentControlled) {
       this.trigger.parentElement.removeAttribute('data-open')
     }
@@ -116,13 +128,14 @@ class PopOver {
     this._isShown = false
 
     this.events.hide.forEach(event => event())
+    this.events.toggle.forEach(event => event(this.__isShown))
   }
 
   /**
    * Toggles this popover
    * @param {boolean} isPopoverShown if null, toggles this popover; otherwise, true shows this popover, false hides it
    */
-  toggle (isPopoverShown) {
+  toggle(isPopoverShown) {
     const popoverIsShown =
       isPopoverShown == null ? this.isShown : isPopoverShown
 
@@ -135,7 +148,7 @@ class PopOver {
    * @param {String} type the type of event to listen for
    * @param {Function} fn the function to execute when the event is triggered
    */
-  on (type, fn) {
+  on(type, fn) {
     this.events[type].push(fn)
   }
 
@@ -144,7 +157,7 @@ class PopOver {
    * @param {String} type the type of event to listen for
    * @param {Function} fn the function to execute when the event is triggered
    */
-  off (type, fn) {
+  off(type, fn) {
     const index = this.events[type].indexOf(fn)
     if (index > -1) this.events[type].splice(index, 1)
   }
