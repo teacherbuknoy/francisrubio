@@ -163,18 +163,25 @@
 }
 
 .navigation-popup {
-  background-color       : hsl(var(--bg-secondary));
-  border-radius          : calc(var(--ideal-radius) * 1.35);
-  box-shadow             : 0 10px 25px -15px #0003;
-  height                 : auto;
-  padding                : var(--space-xs);
-  position               : absolute;
-  right                  : 0;
-  top                    : calc(100% + var(--space-s));
-  transition             : transform 200ms, box-shadow 300ms, opacity 200ms 75ms;
-  z-index                : -2;
+  background-color: hsl(var(--bg-secondary));
+  border-radius   : calc(var(--ideal-radius) * 1.35);
+  box-shadow      : 0 10px 25px -15px #0003;
+  height          : auto;
+  padding         : var(--space-xs);
+  position        : absolute;
+  right           : 0;
+  top             : calc(100% + var(--space-s));
+  transition      : transform 200ms, box-shadow 300ms, opacity 200ms 75ms;
+  z-index         : -2;
+  --brightness    : 0.7;
 
+  @at-root .dark {
+    --brightness: 4.5;
+  }
 
+  @media (prefers-color-scheme: dark) {
+    --brightness: 4.5;
+  }
 
   &[aria-hidden] {
     transform     : translateY(calc(-50% - var(--space-s)));
@@ -185,8 +192,10 @@
   }
 
   @supports (backdrop-filter: blur(10px)) {
-    background-color: hsl(var(--bg-secondary) / 70%);
-    backdrop-filter : blur(10px);
+    background-color: hsl(var(--bg-primary) / 70%);
+    backdrop-filter : blur(10px) brightness(var(--brightness, 1));
+
+
 
     &::after,
     &::before {
