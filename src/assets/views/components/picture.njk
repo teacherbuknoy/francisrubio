@@ -1,0 +1,37 @@
+{#
+ # Inserts a responsive image
+ #
+ # VARIABLES
+ # string baseFolder - the folder that contains the images with no trailing slash                       
+ # string identifier - the file name of the original unresized image excluding extension                
+ # string[] types    - the file name extensions (e.g. png, jpg, avif, webp), with the default on index 0
+ # number[] sizes    - the widths of the responsive image in pixels, with the default on index 0        
+ # string alt        - the alt text                                                                     
+ # string imgClass   - the class attribute of the <img> element                                         
+ # string width      - the width attribute of the <img> element                                         
+ # string height     - the height attribute of the <img> element                                        
+ #}
+{% if sizes == null %}
+  {% set sizes = [300, 500, 750, 1000] %}
+{% endif %}
+
+<picture>
+  {# source elements #}
+  {% for type in types %}
+    {% set src %}{{ baseFolder }}/{{ identifier }}-{{ sizes[0] }}w.{{ type }}{% endset %}
+    {% set srcset %}
+      {% for size in sizes %}
+        {{ baseFolder }}/{{ identifier }}-{{ size }}.{{ type }} {{ size }}w{% if not loop.last %},{% endif %}
+      {% endfor %}
+    {% endset %}
+
+    <source
+      src="{{ src }}"
+      srcset="{{ srcset }}"
+      width="{{ width }}" height="{{ height }}"/>
+  {% endfor %}
+
+  {# default image #}
+  {% set src %}{{ baseFolder }}/{{ identifier }}-{{ sizes[0] }}.{{ types[0] }}{% endset %}
+  <img src="{{ src }}" alt="{{ alt }}" class="{{ imgClass }}" width="{{ width }}" height="{{ height }}">
+</picture>
