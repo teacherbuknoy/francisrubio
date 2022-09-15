@@ -149,7 +149,7 @@
 }
 
 .post-card__image {
-  background-image   : 
+  background-image:
     var(--post-image, linear-gradient(transparent, transparent)),
     radial-gradient(ellipse at bottom right, hsl(var(--primary-500)), hsl(var(--primary-300) / 0%)),
     radial-gradient(ellipse at top left, hsl(var(--primary-700)), hsl(var(--primary-300) / 0%));
@@ -161,9 +161,10 @@
   width              : 100%;
 
   img {
-    object-fit: cover;
-    height    : 100%;
-    width     : 100%;
+    object-fit  : cover;
+    height      : 100%;
+    width       : 100%;
+    aspect-ratio: 16/9;
   }
 }
 
