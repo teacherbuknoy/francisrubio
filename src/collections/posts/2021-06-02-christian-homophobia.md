@@ -5,6 +5,10 @@ image: /posts/arsenokoitai/cover.jpg
 author: teacherbuknoy
 category: opinion
 language: fil
+images: 
+    path: /assets/images/posts/arsenokoitai/optimized
+    sizes: [500, 700]
+    types: ['png', 'webp', 'avif']
 ---
 
 Ang buwan ng June 2021 ang pinakauna kong Pride month celebration out in the open. Last month, I came out of the closet via a Facebook post and sinabi ko na sa lahat na ako ay isang bisexual[^1]. Pero ilang taon na rin akong sumasali sa mga discussion around gay rights and equality. Siguro dala na rin ng kagustuhang higit pang makilala ang sarili ko at ang lugar ko sa lipunan.
