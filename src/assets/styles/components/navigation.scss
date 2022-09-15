@@ -13,7 +13,6 @@
   top             : var(--space);
   transition      : padding 300ms, box-shadow 300ms, max-width 200ms, border 200ms;
   max-width       : 100%;
-  width           : 90%;
   z-index         : 998;
 
   &.attached {
