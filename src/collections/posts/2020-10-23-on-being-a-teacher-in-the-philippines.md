@@ -3,6 +3,10 @@ title: On being a teacher in the Philippines
 description: Education is, in theory, a right. But it is, in practice, a privilege.
 category: education
 image: /posts/on-being-a-teacher-in-the-philippines/cover.jpg
+images: 
+    path: /assets/images/posts/on-being-a-teacher-in-the-philippines/optimized
+    sizes: [500, 700]
+    types: ['png', 'webp', 'avif']
 ---
 
 Last year, I was hired as a teacher in a private school in Metro Manila. This was two months after I graduated from college. With my bachelor's degree in Computer Science, I tried sending out my résumés to tech companies, as a computer student would. I was also to fortunate to have been interviewed&mdash;and even considered for hiring&mdash;by these tech companies. But my life goal has always been to experience teaching.
