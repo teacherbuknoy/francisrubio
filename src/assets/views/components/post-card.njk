@@ -1,7 +1,20 @@
 <a class="post-card" href="{{ postURL }}">
   {% set arrPath = ['/assets/images', post.image] %}
   {% set path %}url('{{ arrPath | join }}'){% endset %}
+  {% if post.images %}
+  <div class="post-card__image">
+    {% set baseFolder = post.images.path %}
+    {% set identifier = "cover" %}
+    {% set types = post.images.types %}
+    {% set sizes = post.images.sizes %}
+    {% set alt = "" %}
+    {% set width = 600 %}
+    {% set height = 350 %}
+    {% include "components/picture.njk" %}
+  </div>
+  {% else %}
   <div class="post-card__image" style="--post-image: {{ path if post.image else 'linear-gradient(transparent, transparent)' }}"></div>
+  {% endif %}
   <div class="post-card__body">
     <h{{ cardLevel if cardLevel != null else 3 }} class="post-card__title">{{ post.title | safe }}</h{{ cardLevel if cardLevel != null else 3 }}>
     <div class="post-card__footer">
