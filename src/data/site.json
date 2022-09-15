@@ -1,36 +1,48 @@
 {
-    "title": "Francis Rubio",
-    "description": "Web developer, designer, and educator",
-    "url": "https://teacherbuknoy.netlify.app",
-    "seo": {
-        "fb_image": "/assets/images/fb_image.png",
-        "twitter_image": "/assets/images/twitter_image.png"
+  "title": "Francis Rubio",
+  "description": "Web developer, designer, and educator",
+  "url": "https://teacherbuknoy.netlify.app",
+  "seo": {
+    "fb_image": "/assets/images/fb_image.png",
+    "twitter_image": "/assets/images/twitter_image.png"
+  },
+  "contact": {
+    "email": {
+      "name": "Email",
+      "identifier": "devfrancisrubio@gmail.com",
+      "url": "mailto:devfrancisrubio@gmail.com"
     },
-    "contact": {
-      "email": {
-        "name": "Email",
-        "identifier": "devfrancisrubio@gmail.com",
-        "url": "mailto:devfrancisrubio@gmail.com"
-      },
-      "linkedin": {
-        "name": "LinkedIn",
-        "identifier": "teacherbuknoy",
-        "url": "https://www.linkedin.com/in/teacherbuknoy/"
-      },
-      "instagram": {
-        "name": "Instagram",
-        "identifier": "teacherbuknoy",
-        "url": "https://www.instagram.com/teacherbuknoy"
-      },
-      "twitter": {
-        "name": "Twitter",
-        "identifier": "teacherbuknoy",
-        "url": "https://www.twitter.com/teacherbuknoy"
-      },
-      "github": {
-        "name": "Github",
-        "identifier": "teacherbuknoy",
-        "url": "https://github.com/teacherbuknoy/"
-      }
+    "linkedin": {
+      "name": "LinkedIn",
+      "identifier": "teacherbuknoy",
+      "url": "https://www.linkedin.com/in/teacherbuknoy/"
+    },
+    "instagram": {
+      "name": "Instagram",
+      "identifier": "teacherbuknoy",
+      "url": "https://www.instagram.com/teacherbuknoy"
+    },
+    "twitter": {
+      "name": "Twitter",
+      "identifier": "teacherbuknoy",
+      "url": "https://www.twitter.com/teacherbuknoy"
+    },
+    "github": {
+      "name": "Github",
+      "identifier": "teacherbuknoy",
+      "url": "https://github.com/teacherbuknoy/"
     }
+  },
+  "domains": [
+    {
+      "name": "Netlify",
+      "value": "teacherbuknoy.netlify.app",
+      "isPreferred": false
+    },
+    {
+      "name": "Google Domains",
+      "value": "francisrubio.antaresph.dev",
+      "isPreferred": true
+    }
+  ]
 }
