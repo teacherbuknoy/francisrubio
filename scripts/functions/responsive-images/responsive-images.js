@@ -26,7 +26,7 @@ async function optimizeImages(imagePath, outputDirectory, sizes, types) {
 
       // Write to file
       console.log("[WRITE] Writing", img.info.identifier, img.size, type, "to file")
-      const filename = `${img.info.identifier}-${img.size}.${type}`
+      const filename = `${img.info.identifier}-${img.size}w.${type}`
       const optimizedPath = path.join(output, filename)
 
       console.log("[WRITE]", optimizedPath)
