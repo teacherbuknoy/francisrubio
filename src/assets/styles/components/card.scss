@@ -184,6 +184,7 @@
 .post-card__title {
   align-self: end;
   font-size : calc(var(--type-size-5) * 1.25);
+  font-size : clamp(var(--type-size-5), 3vw, var(--type-size-5) * 1.25);
   margin    : 0;
   transition: font-size 100ms;
 }
@@ -224,6 +225,7 @@
   .post-card:hover {
     .post-card__title {
       font-size: var(--type-size-5);
+      font-size: clamp(var(--type-size-6), 3vw, var(--type-size-5));
     }
 
     .post-card__footer {
@@ -234,6 +236,7 @@
   .post-card:focus-visible {
     .post-card__title {
       font-size: var(--type-size-5);
+      font-size: clamp(var(--type-size-6), 3vw, var(--type-size-5));
     }
 
     .post-card__footer {
