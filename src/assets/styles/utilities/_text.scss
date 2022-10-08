@@ -133,10 +133,11 @@ $line-heights: (xxxs: 0.5,
 .quotation {
   border-inline-end: 3px solid hsl(var(--primary-100));
   padding          : var(--space);
-  text-align       : end;
   margin           : 0;
+  text-align       : end;
 
-  blockquote {
+  blockquote,
+  &:is(blockquote) {
     font-family    : var(--font-serif);
     font-size      : clamp(1.75rem, 10vw, 2rem);
     font-weight    : 350;
@@ -144,6 +145,10 @@ $line-heights: (xxxs: 0.5,
     margin         : var(--space);
     -webkit-hyphens: auto;
     hyphens        : auto;
+
+    p {
+      text-align: inherit;
+    }
   }
 
   cite,
@@ -158,6 +163,27 @@ $line-heights: (xxxs: 0.5,
 
   figcaption::before {
     content: "— ";
+  }
+
+  &:is(.left, .right) {
+    width: min(100%, 20ch);
+
+    p {
+      font-size: 0.75em;
+      margin   : 0;
+    }
+  }
+
+  &.right {
+    float     : right;
+    text-align: end;
+  }
+
+  &.left {
+    float              : left;
+    text-align         : start;
+    border-inline-start: 3px solid hsl(var(--primary-100));
+    border-inline-end  : none;
   }
 }
 
@@ -253,4 +279,8 @@ hgroup {
   p {
     margin: 0;
   }
+}
+
+q[lang] {
+  font-style: italic;
 }
