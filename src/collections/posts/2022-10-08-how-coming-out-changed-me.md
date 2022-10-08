@@ -12,10 +12,10 @@ language: "en"
 seo:
   twitter:
     src: "/posts/how-coming-out-changed-me/twitter.png"
-    is_prefixed: false
+    is_prefixed: true
   og:
     src: "/posts/how-coming-out-changed-me/og.png"
-    is_prefixed: false
+    is_prefixed: true
 eleventyExcludeFromCollections: false
 ---
 
