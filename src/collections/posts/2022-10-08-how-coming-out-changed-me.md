@@ -3,6 +3,10 @@ title: "How coming out changed me"
 description: "Having the freedom to be who I actually am"
 category: "Life"
 image: "/posts/how-coming-out-changed-me/cover.png"
+images: 
+    path: /assets/images/posts/how-coming-out-changed-me/optimized
+    sizes: [500, 700]
+    types: ['png', 'webp', 'avif']
 author: "teacherbuknoy"
 language: "en"
 seo:
