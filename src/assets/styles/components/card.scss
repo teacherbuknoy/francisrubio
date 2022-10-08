@@ -182,11 +182,13 @@
 }
 
 .post-card__title {
-  align-self: end;
-  font-size : calc(var(--type-size-5) * 1.25);
-  font-size : clamp(var(--type-size-5), 3vw, var(--type-size-5) * 1.25);
-  margin    : 0;
-  transition: font-size 100ms;
+  align-self             : end;
+  font-size              : calc(var(--type-size-5) * 1.25);
+  font-size              : clamp(var(--type-size-5), 3vw, var(--type-size-5) * 1.25);
+  font-variation-settings: 'wght'350;
+  font-weight            : normal;
+  margin                 : 0;
+  transition             : font-size 100ms;
 }
 
 .post-card__description {

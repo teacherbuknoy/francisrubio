@@ -134,8 +134,10 @@ h3,
 h4,
 h5,
 h6 {
-  color      : hsl(var(--fg-contrast));
-  font-family: var(--font-display-serif);
+  color                  : hsl(var(--fg-contrast));
+  font-family            : var(--font-display-serif);
+  font-weight            : normal;
+  font-variation-settings: "SOFT"100, "WONK"0, 'wght'350;
 }
 
 @for $size from 1 through 5 {
