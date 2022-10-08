@@ -2,6 +2,10 @@
 title: "Ang Resignation Ko Bilang Sepultorero"
 description: Isang orihinal na akda ni Francis Rubio
 image: /literatures/resignation/cover.jpg
+images: 
+    path: /assets/images/literatures/resignation/optimized
+    sizes: [500, 700]
+    types: ['png', 'webp', 'avif']
 author: teacherbuknoy
 type: Short Story
 category: literature
