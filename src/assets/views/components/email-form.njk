@@ -1,4 +1,4 @@
-<div class="modal" id="modal__email" data-open>
+<div class="modal" id="modal__email">
   <div class="modal__backdrop" data-dialog-hide></div>
   <div class="modal__content">
     <div class="modal__header">
@@ -9,7 +9,7 @@
         <span class="sr-only">Close dialog</span>
       </button>
     </div>
-    <form id="frm-email" action="{{ site.api.email }}" class="modal__body form">
+    <form id="frm-email" action="{{ site.api.email }}" class="modal__body form" method="POST">
       <div class="form-group">
         <input placeholder="" class="form-control" type="text" name="name" id="frm-email__name" required>
         <label for="frm-email__name" class="form-label">Your Name</label>

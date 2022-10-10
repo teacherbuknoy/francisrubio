@@ -1,0 +1,40 @@
+---
+title: Your message has been sent! &middot; Francis Rubio
+description: Web developer, designer, and educator from the Philippines
+permalink: /email-success/
+activePath: frontpage
+stylesheets: ['frontpage.css']
+---
+
+<div class="section">
+  <div class="section__inner">
+    <h1 class="weight--bold">Your message has been sent!</h1>
+    <p class="font-sans">Thank you so much for reaching out! I will reply to you as soon as possible via email.</p>
+
+    {% set post = collections.posts | last %}
+    <div class="cluster ai--center gap--m padding--m">
+      <a href="{{ post.url }}" class="button">Read my latest blog post</a>
+      <a href="/" class="primary button">Go back to home</a>
+    </div>
+  </div>
+</div>
+<hr>
+<section class="section padding-block--xxl" id="section-4" aria-labelledby="section-41-heading">
+  <div class="section__inner">
+    <div class="stack gap--none">
+      <hgroup role="group">
+        <p aria-roledescription="subtitle" id="section-41-heading" class="uppercase ls-l font-sans">Writing</p>
+        <h2 class="font-serif fs-3">The Life and Times of Francis Rubio</h2>
+        <p aria-roledescription="subtitle">A glimpse of what it's like to be me.</p>
+      </hgroup>
+      {% set postLimit = 4 %}
+      {% set collection = collections.posts | reverse %}
+      {% include 'components/post-grid.njk' %}
+    </div>
+    <div class="stack ai--center text-center gap--s padding--xl">
+      <div class="cluster center-align">
+        <a href="/writing/" class="primary button">See all posts</a>
+      </div>
+    </div>
+  </div>
+</section>
