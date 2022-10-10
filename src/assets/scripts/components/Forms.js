@@ -52,7 +52,7 @@ class FormValidator {
     if (requiredButEmpty) {
       inputStatus.innerText = FormErrors.REQUIRED
     } else if (invalidEmail) {
-      inputStatus.innerText = input.validationMessage
+      inputStatus.innerText = FormErrors.EMAIL
     }
   }
 
