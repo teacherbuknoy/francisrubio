@@ -21,7 +21,7 @@ stylesheets: ['frontpage.css']
     </div>
     <div class="padding-inline--xl banner-actions cluster ai--center gap--m">
       <a href="/assets/files/francis-rubio-resume-2-3.pdf" download="Francis-Rubio-resume.pdf" class="button">Download my résumé</a>
-      <a href="mailto:francis@antaresph.dev" class="primary button">Hire me</a>
+      <button class="primary button" data-dialog="modal__email">Hire me</button>
     </div>
     {% set baseFolder = "/assets/images/index/francis-rubio" %}
     {% set identifier = "francis-rubio"                      %}
@@ -46,7 +46,7 @@ stylesheets: ['frontpage.css']
     </div>
     <div class="stack ai--center text-center gap--s padding--xl">
       <span class="fs-4 weight-300">Ready to give me a shot?</span>
-      <a href="{{ site.contact.email.url }}" class="primary button">Connect with me</a>
+      <button class="primary button" data-dialog="modal__email">Connect with me</button>
     </div>
   </div>
 </section>
@@ -85,7 +85,7 @@ stylesheets: ['frontpage.css']
         </div>
         <div class="stack fill-reset ai--center text-center gap--s padding--xl">
           <span class="fs-4 weight-300">Ready to give me a shot?</span>
-          <a href="{{ site.contact.email.url }}" class="primary button">Connect with me</a>
+          <button class="primary button" data-dialog="modal__email">Connect with me</button>
         </div>
       </div>
     </div>
@@ -173,7 +173,6 @@ stylesheets: ['frontpage.css']
       <span class="fs-4 weight-300">Building a similar project?</span>
       <div class="cluster center-align center-justified">
         <a href="/projects/" class="button">See all of my projects</a>
-        <!--a-- class="sr-only" href="{{ site.contact.email.url }}" class="primary button">Bring me to your team</!--a-->
         <button class="primary button" data-dialog="modal__email">Bring me to your team</button>
       </div>
     </div>

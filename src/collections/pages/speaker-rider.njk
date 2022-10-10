@@ -58,7 +58,8 @@ activePath: speaking
       <strong class="font-sans">Preferrably, I want to have direct control over the slides during the talk.</strong> I prefer being in control of the slide presentation as opposed to having someone from the technical team moving the slides forwards and backwards.</li>
     <li>
       <strong class="font-sans">A lavalier mic or a mic mounted on a stand or podium is preferred over a handheld mic.</strong> Depending on the topic, I'd like to live-code during my talks, so I would need both of my hands free for typing during the talk. I also tend to move around if the talk is happening onstage.</li>
-      <li><strong class="font-sans">Please let me know if you need me to have a virtual background if the talk is being held online.</strong> I have a green screen I can use during the talk, so please inform me in advance if your event requires a virtual background. Also, some organizers I have been in touch with in the past have provided me with their own virtual background for me to use; you might also want to do that.</li>
+    <li>
+      <strong class="font-sans">Please let me know if you need me to have a virtual background if the talk is being held online.</strong> I have a green screen I can use during the talk, so please inform me in advance if your event requires a virtual background. Also, some organizers I have been in touch with in the past have provided me with their own virtual background for me to use; you might also want to do that.</li>
     <li>
       <strong class="font-sans">Preferrably, my talk would be available to the public, especially if I'm doing it for free.</strong> My previous speaking engagements are available online, or were available at some point, courtesy of the organizers. Some of my previous talks were streamed on Facebook Live or some other platform for everyone to see. If this isn't the case for your event, I would love to have a recorded copy of my talk, <em>if possible</em>, and I will host it for online viewing in this website.</li>
     <li>
@@ -69,6 +70,8 @@ activePath: speaking
 </section>
 
 <div class="cluster jc--center">
-  <a href="{{ site.contact.email.url }}" class="primary button">Invite me as a speaker</a>
+  <button class="primary button" data-dialog="modal__email">Invite me as a speaker</button>
   <a href="/press-kit/" class="button">Press Kit</a>
 </div>
+
+{% include 'components/email-form.njk' %}

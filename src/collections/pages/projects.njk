@@ -16,7 +16,7 @@ activePath: projects
   </div>
   <div class="spaced cluster ai--center padding-block--l margin-bottom--xl">
     <span class="fs-4 weight-300">Building a similar project?</span>
-    <a href="{{ site.contact.email.url }}" class="primary button">Bring me to your team</a>
+    <button class="primary button" data-dialog="modal__email">Connect with me</button>
   </div>
   <div class="padding-block--xl gap--l" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(30ch, 100%), 1fr))">
     {% for item in pagination.items %}
@@ -34,3 +34,5 @@ activePath: projects
     <a href="{{ pagination.href.next }}" class="button">Next</a>
   {% endif %}
 </div>
+
+{% include 'components/email-form.njk' %}

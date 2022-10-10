@@ -22,7 +22,7 @@ activePath: speaking
     </div>
     <div class="stack">
       <div class="gap--m cluster padding-block--l">
-        <a href="{{ site.contact.email.url }}" class="primary button">Invite me as a speaker</a>
+        <button class="primary button" data-dialog="modal__email">Invite me as a speaker</button>
         <a href="/press-kit/" class="button">Press Kit</a>
         <a href="/speaker-rider/" class="button">Before sending an invitation...</a>
       </div>
@@ -45,3 +45,5 @@ activePath: speaking
     <a href="{{ pagination.href.next }}" class="button">Next</a>
   {% endif %}
 </div>
+
+{% include 'components/email-form.njk' %}
