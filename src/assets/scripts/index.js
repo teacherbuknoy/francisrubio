@@ -7,6 +7,7 @@ import './components/ColorScheme'
 import { $, $$ } from './utilities/dom'
 import { Tab, TabControl } from './components/TabControl'
 import { NotificationManager } from './components/NotificationManager'
+import { FormValidator } from './components/Forms'
 
 window.addEventListener('load', e => {
   document.body.classList.remove('no-js')
@@ -24,7 +25,7 @@ let tabs = [...document.querySelectorAll('[data-tab]:is(button, a)')].map(
     } else {
       throw Element(
         'Tab should be an anchor element that points to an existing element in its href, ' +
-          'or a button with a data-tab that has an ID of a panel.'
+        'or a button with a data-tab that has an ID of a panel.'
       )
     }
 
@@ -46,7 +47,7 @@ const container = $('[data-notification-container]')
 const notifications = new NotificationManager(container)
 
 
-function copyText (textboxID) {
+function copyText(textboxID) {
   const textbox = document.getElementById(textboxID)
 
   textbox.select()
@@ -61,3 +62,6 @@ function copyText (textboxID) {
     type: 'success'
   })
 }
+
+
+new FormValidator(document.getElementById('frm-email'))

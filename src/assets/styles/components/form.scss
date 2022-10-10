@@ -16,17 +16,23 @@
   }
 
   &-group {
-    display       : flex;
-    flex-direction: column;
-    gap           : 0.25ch;
-    margin-inline : auto;
-    width         : min(45ch, 100%);
+    display      : grid;
+    gap          : 0.25ch;
+    margin-inline: auto;
+    width        : min(45ch, 100%);
+
+    &>* {
+      grid-column: 1/2;
+    }
+
+    &:not(.has-error) {}
   }
 
   &-label {
     font-family: var(--font-sans);
     font-weight: bold;
     font-size  : var(--type-size-6);
+    grid-row   : 1/2;
 
     @media (prefers-reduced-motion: no-preference) {
       display    : flex;
@@ -53,15 +59,23 @@
         opacity         : 0;
         padding-inline  : var(--space-xxs);
         text-transform  : uppercase;
-        transition      : opacity 200ms;
+
+        @at-root .has-error & {
+          content         : "Error";
+          background-color: hsl(var(--error-100));
+          color           : hsl(var(--error-900));
+          opacity         : 1;
+        }
       }
     }
   }
 
+  &-status,
   &-comment {
     font-family: var(--font-sans);
     margin     : 0;
     font-size  : var(--type-size-7);
+    grid-row   : 2/3;
   }
 
   &-control {
@@ -73,14 +87,20 @@
     padding-block : 0.5ch;
     padding-inline: 1ch;
     transition    : outline-offset 200ms, outline-color 300ms;
-    order         : 1;
+    grid-row      : 3/4;
+
+    &:invalid:not(:placeholder-shown) {
+      background-color: hsl(var(--error-100));
+      color           : hsl(var(--error-900));
+      outline-color   : hsl(var(--error-500));
+    }
 
     &:is(textarea) {
       padding-block: 1ch;
       min-height   : 10ch;
     }
 
-    &:not([required])+.form-label {
+    &:not([required]):not([data-required])+.form-label {
       &::after {
         opacity: 1;
       }
@@ -100,6 +120,15 @@
           opacity  : 1;
         }
       }
+    }
+  }
+
+  &-status {
+    grid-row: auto;
+    color   : hsl(var(--error-900));
+
+    @at-root .form-group:not(.has-error) & {
+      display: none;
     }
   }
 }
