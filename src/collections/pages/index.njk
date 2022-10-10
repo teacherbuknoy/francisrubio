@@ -173,7 +173,8 @@ stylesheets: ['frontpage.css']
       <span class="fs-4 weight-300">Building a similar project?</span>
       <div class="cluster center-align center-justified">
         <a href="/projects/" class="button">See all of my projects</a>
-        <a href="{{ site.contact.email.url }}" class="primary button">Bring me to your team</a>
+        <!--a-- class="sr-only" href="{{ site.contact.email.url }}" class="primary button">Bring me to your team</!--a-->
+        <button class="primary button" data-dialog="modal__email">Bring me to your team</button>
       </div>
     </div>
   </div>
@@ -208,3 +209,5 @@ stylesheets: ['frontpage.css']
     </div>
   </div>
 </section>
+
+{% include 'components/email-form.njk' %}

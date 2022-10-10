@@ -1,0 +1,33 @@
+<div class="modal" id="modal__email" data-open>
+  <div class="modal__backdrop" data-dialog-hide></div>
+  <div class="modal__content">
+    <div class="modal__header">
+      <h2 class="modal__title">Contact Form</h2>
+      <button class="button" data-dialog-hide>
+        {% set feathericon = 'x' %}
+        {% include "components/feathericon.njk" %}
+        <span class="sr-only">Close dialog</span>
+      </button>
+    </div>
+    <form id="frm-email" action="{{ site.api.email }}" class="modal__body form">
+      <div class="form-group">
+        <input class="form-control" type="text" name="name" id="frm-email__name" required>
+        <label for="frm-email__name" class="form-label">Your Name</label>
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="email" name="email" id="frm-email__email" required>
+        <label for="frm-email__email" class="form-label">Your Email</label>
+      </div>
+      <div class="form-group">
+        <textarea class="form-control" name="message" id="frm-email__message" aria-describedby="frm-email__message-description" required></textarea>
+        <label for="frm-email__message" class="form-label">Message</label>
+        <p class="form-comment" id="frm-email__message-description">Why are you reaching out? Is it an interesting project you want to build? Or do you want to invite me as a guest speaker?</p>
+      </div>
+    </form>
+    <div class="modal__footer jc--end">
+      <p class="form-comment">All fields are required</p>
+      <button form="frm-email" type="reset" data-dialog-hide class="button">Cancel</button>
+      <button form="frm-email" type="submit" class="primary button">Send</button>
+    </div>
+  </div>
+</div>

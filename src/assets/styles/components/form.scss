@@ -1,0 +1,105 @@
+.form {
+  display       : flex;
+  flex-direction: column;
+  gap           : var(--space);
+
+  & &-actions {
+    flex: 1;
+  }
+
+  &-actions {
+    align-items    : end;
+    display        : flex;
+    flex-wrap      : wrap;
+    justify-content: end;
+    gap            : 1ch;
+  }
+
+  &-group {
+    display       : flex;
+    flex-direction: column;
+    gap           : 0.25ch;
+    margin-inline : auto;
+    width         : min(45ch, 100%);
+  }
+
+  &-label {
+    font-family: var(--font-sans);
+    font-weight: bold;
+    font-size  : var(--type-size-6);
+
+    @media (prefers-reduced-motion: no-preference) {
+      display    : flex;
+      align-items: center;
+      gap        : 0.5ch;
+      transition : transform 200ms;
+      transform  : translateX(-1.15ch);
+
+      &::before {
+        content     : '';
+        aspect-ratio: 1;
+        border-right: 3px solid currentColor;
+        border-top  : 3px solid currentColor;
+        height      : 0.65ch;
+        opacity     : 0;
+        transition  : opacity 200ms, background-color 200ms, transform 200ms;
+      }
+
+      &::after {
+        content         : 'Optional';
+        background-color: hsl(var(--bg-secondary));
+        border-radius   : 2px;
+        font-size       : var(--type-size-7);
+        opacity         : 0;
+        padding-inline  : var(--space-xxs);
+        text-transform  : uppercase;
+        transition      : opacity 200ms;
+      }
+    }
+  }
+
+  &-comment {
+    font-family: var(--font-sans);
+    margin     : 0;
+    font-size  : var(--type-size-7);
+  }
+
+  &-control {
+    outline       : 1px solid hsl(var(--bg-accent) / 50%);
+    border        : 0;
+    border-radius : var(--ideal-radius);
+    font-size     : var(--type-size-6);
+    font-family   : var(--font-sans);
+    padding-block : 0.5ch;
+    padding-inline: 1ch;
+    transition    : outline-offset 200ms, outline-color 300ms;
+    order         : 1;
+
+    &:is(textarea) {
+      padding-block: 1ch;
+      min-height   : 10ch;
+    }
+
+    &:not([required])+.form-label {
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    &:focus {
+      outline-offset: 2px;
+      outline       : 2px solid hsl(var(--primary-500));
+      border-color  : transparent;
+
+      &+.form-label {
+        color    : hsl(var(--primary-500));
+        transform: none;
+
+        &::before {
+          transform: rotate(45deg);
+          opacity  : 1;
+        }
+      }
+    }
+  }
+}

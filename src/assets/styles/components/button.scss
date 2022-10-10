@@ -20,7 +20,8 @@
   position               : relative;
   text-decoration        : none;
   text-transform         : uppercase;
-  transition             : background-image 200ms, outline 200ms;
+  transition             : background-image 200ms, outline 200ms, outline-offset 200ms;
+  outline                : 0px solid hsl(var(--primary-500) / 0%);
 
   &::before {
     content         : "";
@@ -44,7 +45,8 @@
   }
 
   &:focus {
-    outline: 5px solid hsl(var(--primary-500));
+    outline       : 5px solid hsl(var(--primary-500));
+    outline-offset: 3px;
   }
 
   &.primary {
