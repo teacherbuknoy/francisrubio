@@ -249,7 +249,7 @@
 
 .deck-card {
   display        : grid;
-  flex-basis     : 25ch;
+  flex-basis     : 30ch;
   height         : 35ch;
   padding        : var(--space-xs);
   text-decoration: none;
@@ -303,14 +303,29 @@
   }
 }
 
+.deck-card-container {
+  display         : flex;
+  gap             : var(--space-xl);
+  overflow        : auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior : smooth;
+  transition      : scrollbar-color 100ms;
+
+  .deck-card {
+    scroll-snap-align: center;
+    flex-shrink      : 0;
+  }
+}
+
 .deck-card {
   border-radius     : calc(var(--ideal-radius) * 1.5);
   gap               : var(--space-xs);
   grid-template-rows: 1fr;
+  max-width         : min(35ch, 100%);
   position          : relative;
 
   @at-root .cluster & {
-    flex-basis: 30ch;
+    flex-basis: 25ch;
   }
 
   .deck-card__body,

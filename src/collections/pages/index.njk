@@ -161,7 +161,7 @@ stylesheets: ['frontpage.css']
     </hgroup>
     {% set postLimit = 3 %}
     {% set collection = collections.projects | reverse %}
-    <span class="filled cluster padding--xxl jc--center">
+    <span class="deck-card-container">
       {% set limit = postLimit if collection.length > postLimit else 
         collection.length %}
       {% for i in range(0, limit) %}
