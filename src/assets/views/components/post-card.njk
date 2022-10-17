@@ -1,6 +1,7 @@
 <a class="post-card" href="{{ postURL }}">
   {% set arrPath = ['/assets/images', post.image] %}
   {% set path %}url('{{ arrPath | join }}'){% endset %}
+  {% set defaultImg = post.image %}
   {% if post.images %}
   <div class="post-card__image">
     {% set baseFolder = post.images.path %}
