@@ -18,7 +18,7 @@ category: literature
 language: en
 ---
 
-Let's be clear: the paths we have once walked on have long diverged. We have led different lives and have come to a point where our differences far outnumber our similarities. This is not to say that we have come into an opposition against one anotherl it's just that we've been practically strangers oblivious to each other's fate.
+Let's be clear: the paths we have once walked on have long diverged. We have led different lives and have come to a point where our differences far outnumber our similarities. This is not to say that we have come into an opposition against one another; it's just that we've been practically strangers oblivious to each other's fate.
 
 The roads we crawled on when we were toddlers have now become monuments of the persons we once were. The muddy swamps we swam in with held hands have now turned to luscious farms of wheat and grains. Our gardens of sunflowers and chrysanthemums have now become massive rain forests attesting to our shared history and culture.
 

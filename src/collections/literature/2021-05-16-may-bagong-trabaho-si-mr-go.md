@@ -30,7 +30,7 @@ Sa entrance ay pilit niyang ipinasok ang asul na kard sa slot.
 
 <q>Patong n'yo lang 'yung Beep sa bilog.</q>
 
-Umilaw nang berde ang screen nito at nakapasok siya. Ilang taon na rin mula nang huli siyang nakasakay sa LRT, at 'yun pa ang unang beses niya. <i>Iba talaga kapag asensado,</i> naisip niya.
+Umilaw nang berde ang screen nito at nakapasok siya. Ilang taon na rin mula nang huli niyang pinangarap na makasakay sa LRT, at 'yun pa ang unang beses niya. <i>Iba talaga kapag asensado,</i> naisip niya.
 
 Pagbaba sa Gil Puyat ay ipinasya niyang lakarin mula sa istasyon ng LRT hanggang sa opisinang papasukan n'ya. <i>May isa't kalahating oras pa naman ako,</i> naisip niya. <i>Mas magandang maging pamilyar ako sa lugar na 'to.</i> Binagtas niya ang kahabaan ng Buendia, at pagkatapos ay lumiko papunta sa Ayala. Bumaba siya sa mga underpass at namangha sa mga larawang kapuwa ipininta at idinidispley ng digital screens. Para siyang probinsyanong isinilang sa malayong isla na ngayo'y inilakbay patungo sa Encantadia.
 
@@ -42,7 +42,7 @@ Pumasok siya sa pa-carousel na pintuan, at maingat na tinutukan ang entrance nan
 
 <q>Saan po rito 'yung WebX Systems International?</q> tanong ni Elias sa guwardiya pagkatapos nitong makalagpas sa metal detector.
 
-<q>Punta ka do'n sa lobby. Tanong mo sa attendant doon, 'tapos magbigay ka ng ID.</q> Halatang walang kakarampot na paggalang ang sikyô kay Elias dahil bukod sa bata eh hindi bumagay sa kaniya ang suot niyang pampropesyunal. Siguro talagang babaguhin ng pamumuhay mo ang magiging hitsura mo, at ramdam ng mundo kung di ka bagay sa kinaroroonan mo&mdash;o sa kasong ito, sa suot mo.
+<q>Punta ka do'n sa lobby. Tanong mo sa attendant doon, 'tapos magbigay ka ng ID.</q> Halatang walang kakarampot na paggalang ang sikyò kay Elias dahil bukod sa bata eh hindi bumagay sa kaniya ang suot niyang pampropesyunal. Siguro talagang babaguhin ng pamumuhay mo ang magiging hitsura mo, at ramdam ng mundo kung di ka bagay sa kinaroroonan mo&mdash;o sa kasong ito, sa suot mo.
 
 Sumakay si Elias sa elevator. Kinailangan niyang maghintay ng kasabay dahil sa stereotypical na takot niyang baka mag-malfunction ang elevator at maiwan siya sa loob nang walang signal, dala na rin siguro ng paulit-ulit na plot point sa mga pinanonood niyang TV drama kapag hapon. <i>Dapat kasi ibinalik na lang nila 'yung mga animé,</i> naisip niya.
 
@@ -88,7 +88,7 @@ Pinalabas silang lima mula sa conference room at pinaghintay sa mga upuan sa wai
 
 Nanatiling nakaupo si Elias. Humihinga nang malalim hanggang sa sumakit na ang ilong niya dahil sa lamig ng hangin sa loob ng de-aircon na kuwarto. Pagkatapos ng kalahating oras, nagsimula nang tawagin silang lahat isa-isa. Nauna ang dalawang galing sa Ateneo. Sunod na tinawag ang isa na galing sa La Salle. At panghuli ang galing sa PUP. <i>Bakit kaya ako ang huli? Dahil ba ako lang ang matatanggap, o dahil ako lang ang tatanggalin?</i> Dahil sa mahabang paghihintay ay walang nagawa kundi sariwain ni Elias ang buo niyang buhay. Kung sa bagay, hindi siya kailanman nagkaroon ng oras para maupong tahimik at mag-isip.
 
-Limang taon bago nito, dahil wala nang mga magulang ay mag-isang itinaguyod ni Elias ang kaniyang sarili. Naglilibot siya mula sa Grace Park hanggang 3rd avenue para maglako ng ice candy. Kumikita siya nang di-bababa sa 200 pesos bawat araw. Minsang tanungin siya kung bakit siya nagsisipag, pabirô niyang isinagot, <q>para po ito sa charity na tumutulong sa mahihirap. Eh mahirap ako, kaya tinutulungan ko silang tulungan ako.</q>
+Limang taon bago nito, dahil wala nang mga magulang ay mag-isang itinaguyod ni Elias ang kaniyang sarili. Naglilibot siya mula sa Grace Park hanggang 3rd avenue para maglako ng ice candy. Kumikita siya nang di-bababa sa 200 pesos bawat araw. Minsang tanungin siya kung bakit siya nagsisipag, pabirò niyang isinagot, <q>para po ito sa charity na tumutulong sa mahihirap. Eh mahirap ako, kaya tinutulungan ko silang tulungan ako.</q>
 
 Tatlo at kalahating taon bago nito, naging tambay si Elias sa Monumento. Nakaabang siya sa mga baklang parokyanong naghahanap ng mga mas adventurous na mga call boy na handang makipaglaro ng apoy. At 'di basta-bastang larong apoy. Natutuwa sila sa mga larong apoy na may kadena, lubid, latigo, at mga katulad nito. Iyon bang pinipilit silang makipaglaro, pagkatapos ay pupuwersahin sila at kunwari'y gagahasain kahit ang totoo ay iyon ang binabayaran nila. <i>Hindi ako bakla,</i> ang laging sabi ni Elias sa sarili. <i>Isa lang akong magaling na aktor.</i>
 
@@ -102,7 +102,7 @@ Nagtrabaho din siya bilang service crew sa McDonald's. <i>'Di ko love 'to</i> an
 
 <q>Mr. Go, I am quite impressed by your experience,</q> sabi sa kaniya ng branch manager.
 
-<q>However,</q> pagpapatuloy nito, <q>I don't think the initial salary that HR proposes for you is enough. So from a starting salary of 18,000, we want to let you know that we are bumping our offer to 25,000 as your starting salary, with an annual increase depending on your performance. How does that sound to you?</q>
+<q>However,</q> pagpapatuloy nito, <q>I don't think the initial proposed salary for you is enough. So from a starting salary of 18,000, we want to let you know that we are bumping our offer to 25,000 as your starting salary, with an annual increase depending on your performance. How does that sound to you?</q>
 
 <q>It's a good offer,</q> sagot ni Elias, pilit tinatago ang ngiti.
 
