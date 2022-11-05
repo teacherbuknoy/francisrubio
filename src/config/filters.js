@@ -8,7 +8,8 @@ module.exports = {
   icon: function (value) {
     return `<svg class="feather" aria-hidden="true"><use href="/assets/images/feather-sprite.svg#${value}" /></svg>`
   },
-  machineReadableDate: function (value) {
+  machineReadableDate: function (obj) {
+    const value = new Date(obj)
     const year = value.getFullYear()
     const month = value.getMonth() + 1
     const date = value.getDate()

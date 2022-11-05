@@ -4,7 +4,15 @@
   <p class="talk-card__time">
     {% set feathericon = 'calendar' %}
     {% include 'components/feathericon.njk' %}
+    {% if post.tentativeDate != null %}
+      {% set tDate = post.tentativeDate %}
+      {% set talkDate = utils.tentativeDate(tDate.year, tDate.month, tDate.day) %}
+      <time datetime="{{ utils.machineReadableDate(talkDate) }}">
+        {{ utils.extractMonth(talkDate) }} {{ tDate.day + ', ' if tDate.day }}{{ tDate.year }} (tentative)
+      </time>
+    {% else %}
     <time datetime="{{ item.date | machineReadableDate }}">{{ item.date | humanReadableDate }}</time>
+    {% endif %}
   </p>
   <p class="talk-card__location">
     {% set feathericon = 'map-pin' %}
