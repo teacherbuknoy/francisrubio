@@ -20,7 +20,7 @@ stylesheets: ['frontpage.css']
       <span>Educator</span>
     </div>
     <div class="padding-inline--xl banner-actions cluster ai--center gap--m">
-      <a href="/assets/files/francis-rubio-resume-2-3.pdf" download="Francis-Rubio-resume.pdf" class="button">Download my résumé</a>
+      <a href="{{ files.resume.path }}" download="{{ files.resume.filename }}" class="button">Download my résumé</a>
       <button class="primary button" data-dialog="modal__email">Hire me</button>
     </div>
     {% set baseFolder = "/assets/images/index/francis-rubio" %}

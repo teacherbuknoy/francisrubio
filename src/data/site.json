@@ -7,10 +7,15 @@
     "twitter_image": "/assets/images/twitter_image.png"
   },
   "contact": {
+    "phone": {
+      "name": "Phone",
+      "identifier": "0976 016 2963",
+      "url": "tel:+639760162963"
+    },
     "email": {
       "name": "Email",
-      "identifier": "devfrancisrubio@gmail.com",
-      "url": "mailto:devfrancisrubio@gmail.com"
+      "identifier": "francis@antaresph.dev",
+      "url": "mailto:francis@antaresph.dev"
     },
     "linkedin": {
       "name": "LinkedIn",
