@@ -1,6 +1,6 @@
 ---
 title: "Augmented Reality and Mobile Apps"
-description: An introductory talk about Augmented Reality and mobile apps
+description: A bird's-eye-view talk on the state of augmented reality and mobile apps
 image: /talks/tech2rism-2021/cover.jpg
 date: 2022-11
 tentativeDate:
@@ -19,3 +19,5 @@ duration:
   - PT0H40M
 location: Online
 ---
+
+Details and files used during the presentation will be posted here.

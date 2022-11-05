@@ -55,4 +55,13 @@ module.exports = {
   dateToISO: function (value) {
     return new Date(Date.parse(value)).toISOString()
   },
+  upcomingTalks: collections => {
+    const date = new Date()
+    const talks = [
+      ...collections.filter(item => item.date.getTime() >= date.getTime()),
+      ...collections.filter(item => item.data.tentativeDate != null)
+    ]
+
+    return talks
+  }
 }

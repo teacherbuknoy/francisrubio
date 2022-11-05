@@ -1,0 +1,14 @@
+{% set talks = collections.talks | upcomingTalks %}
+
+{% if talks.length > 0 %}
+<div class="talks-grid">
+  {% for item in talks %}
+    {% set index = loop.revindex %}
+    {% set postURL = item.url %}
+    {% set post = item.data %}
+    {% include 'components/talk-card.njk' %}
+  {% endfor %}
+</div>
+{% else %}
+<p>I have no speaking engagements for {{ utils.currentYear }} (yet). This page will be updated as soon as I commit to one.</p>
+{% endif %}
