@@ -44,8 +44,8 @@
 .navigation-link {
   align-items     : center;
   background-color: transparent;
-  border-radius   : var(--ideal-radius);
   border          : 0;
+  border-radius   : var(--ideal-radius);
   color           : hsl(var(--fg-default));
   cursor          : pointer;
   display         : flex;
@@ -54,9 +54,47 @@
   font-weight     : 300;
   gap             : 1ch;
   justify-content : center;
+  outline         : 3px solid transparent;
   padding         : var(--space-xs) var(--space);
   text-decoration : none;
   white-space     : nowrap;
+  transition      : background 200ms, color 200ms, outline-offset 100ms, outline 50ms 50ms;
+
+  &:focus-visible {
+    box-shadow      : none;
+    background-color: hsl(var(--bg-accent) /20%);
+    outline-color   : hsl(var(--primary-500));
+    outline-offset  : 5px;
+    outline-width   : 3px;
+    transition      : background 200ms, color 200ms, outline-offset 100ms, outline 100ms;
+  }
+
+
+  &.active {
+    position: relative;
+
+    &::after {
+      content         : '';
+      background-color: hsl(var(--primary-500));
+      border-radius   : 100px;
+      height          : 6px;
+      width           : 6px;
+      position        : absolute;
+      bottom          : 0;
+      left            : 50%;
+      transform       : translate(-50%);
+      transition      : width 200ms, height 100ms;
+      will-change     : width, height;
+    }
+
+    &:hover,
+    &:focus-visible {
+      &::after {
+        height: 4px;
+        width : 90%;
+      }
+    }
+  }
 
   &.primary {
     background-color: hsl(var(--primary-100));

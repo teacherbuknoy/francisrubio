@@ -17,5 +17,8 @@ module.exports = {
     return `${year.toString().padStart(4, 0)}-${month
       .toString()
       .padStart(2, 0)}-${date.toString().padStart(2, 0)}`
+  },
+  isActivePath: (activePath, url) => {
+    return url.includes(`/${activePath}/`)
   }
 }

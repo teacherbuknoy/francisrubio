@@ -36,7 +36,7 @@
 
           {% for item in navigation | rejectattr("overflow") %}
             <li class="navigation-list-item">
-              <a href="{{ item.url }}" class="navigation-link" style="--delay-factor: {{ loop.index0 }}">
+              <a href="{{ item.url }}" class="navigation-link {{ 'active' if utils.isActivePath(activePath, item.url) }}" style="--delay-factor: {{ loop.index0 }}">
                 {% if item.text %}
                   <span class="navigation-link-text">{{ item.text }}</span>
                 {% endif %}
