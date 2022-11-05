@@ -1,7 +1,7 @@
 {
-  "name": "jujuroom-11ty",
+  "name": "francisrubio",
   "version": "1.0.0",
-  "description": "The official website of The Juju Room",
+  "description": "The official website of Francis Rubio",
   "main": "index.js",
   "scripts": {
     "👩‍💻": "cross-env ELEVENTY_ENV=development eleventy --serve",
