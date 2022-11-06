@@ -36,6 +36,11 @@
       "name": "Github",
       "identifier": "teacherbuknoy",
       "url": "https://github.com/teacherbuknoy/"
+    },
+    "mastodon": {
+      "name": "Mastodon",
+      "identifier": "teacherbuknoy",
+      "url": "https://fosstodon.org/@teacherbuknoy"
     }
   },
   "domains": [
