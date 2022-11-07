@@ -5,6 +5,7 @@
 const ENTRY_FILE_NAME = 'main.js'
 const ENTRY_POINTS = {
   index: './src/assets/scripts/index.js',
+  webmentions: './src/assets/scripts/webmentions.js',
 }
 
 const fs = require('fs')
@@ -41,15 +42,12 @@ module.exports = class {
     })
 
     // pass other variables
+    const siteData = require('../../data/site.json')
     const vars = new webpack.DefinePlugin({
-      LAMBDA_ENDPOINT: JSON.stringify(process.env.LAMBDA_ENDPOINT),
-      STRIPE_PUBLISHABLE_KEY: JSON.stringify(
-        process.env.STRIPE_PUBLISHABLE_KEY
-      ),
-      PRICE_ID: JSON.stringify(process.env.PRICE_ID),
-      PAYMENT_ENDPOINT: JSON.stringify(process.env.PAYMENT_ENDPOINT),
-      TRANSACTION_ENDPOINT: JSON.stringify(process.env.TRANSACTION_ENDPOINT),
-      EMAIL_ENDPOINT: JSON.stringify(process.env.EMAIL_ENDPOINT),
+      TWITTER_API_KEY: JSON.stringify(process.env.TWITTER_API_KEY),
+      WEBMENTIONS_API_KEY: JSON.stringify(process.env.WEBMENTIONS_API_KEY),
+      DOMAIN: JSON.stringify(siteData.domains.find(i => i.isPreferred).value),
+      GENERATED: JSON.stringify(new Date().toISOString())
     })
 
     // Main Config
