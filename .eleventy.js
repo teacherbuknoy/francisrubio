@@ -65,15 +65,6 @@ module.exports = function (eleventyConfig) {
     /* open: true */
   })
 
-  eleventyConfig.addGlobalData('PAYMENT_ENDPOINT', process.env.PAYMENT_ENDPOINT)
-  eleventyConfig.addGlobalData('PRICE_ID', process.env.PRICE_ID)
-  eleventyConfig.addGlobalData('SITE_BASE', process.env.SITE_BASE)
-  eleventyConfig.addGlobalData(
-    'TRANSACTION_ENDPOINT',
-    process.env.TRANSACTION_ENDPOINT
-  )
-  eleventyConfig.addGlobalData('EMAIL_ENDPOINT', process.env.EMAIL_ENDPOINT)
-
   const markdownIt = require('markdown-it')
   const markdownItAnchor = require('markdown-it-anchor')
   const slug = require('slug')
