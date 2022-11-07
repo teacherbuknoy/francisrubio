@@ -1,0 +1,35 @@
+.webmentions {
+  &--summary {
+    display        : flex;
+    justify-content: space-between;
+    padding        : 1rem 0.5ch;
+    gap            : 2ch;
+  }
+}
+
+.webmention {
+  &__statistic {
+    display        : flex;
+    flex-wrap      : wrap;
+    align-items    : center;
+    justify-content: center;
+    column-gap     : 0.5ch;
+    font-family    : var(--font-sans);
+
+    &-label {
+      font-size : var(--type-size-8);
+      transition: transform 200ms, opacity 200ms;
+
+      @media (hover: hover) {
+        padding         : 0.25ch 1ch;
+        border-radius   : 4px;
+        background-color: hsl(var(--bg-secondary));
+
+        @at-root *:not(:hover) & {
+          transform: translateY(-100%);
+          opacity  : 0;
+        }
+      }
+    }
+  }
+}

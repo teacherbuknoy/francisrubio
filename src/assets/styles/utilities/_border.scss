@@ -18,6 +18,11 @@
   border-right: 1px solid hsl(var(--border-color, var(--fg-non-essential)));
 }
 
+.border--none,
+.border-none {
+  border: none
+}
+
 .shadow {
   @include box-shadow(15, 3, #0000000a);
 }

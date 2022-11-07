@@ -20,7 +20,29 @@
       </div>
     </header>
     <div class="with-sidebar float-on-mobile">
-      {{ content | toc | safe }}
+      <div class="sidebar article__sidebar border--none margin--none" style="--sidebar-width: 20ch">
+        {{ content | toc | safe }}
+        <div class="webmentions webmentions--summary" aria-label="Web Mentions Summary">
+          <div class="webmention__statistic">
+            {% set feathericon = "heart" %}
+            {% include 'components/feathericon.njk' %}
+            <span data-webmention="like">0</span>
+            <span class="webmention__statistic-label">Likes</span>
+          </div>
+          <div class="webmention__statistic">
+            {% set feathericon = "at-sign" %}
+            {% include 'components/feathericon.njk' %}
+            <span data-webmention="mentions">0</span>
+            <span class="webmention__statistic-label">Mentions</span>
+          </div>
+          <div class="webmention__statistic">
+            {% set feathericon = "message-circle" %}
+            {% include 'components/feathericon.njk' %}
+            <span data-webmention="replies">0</span>
+            <span class="webmention__statistic-label">Replies</span>
+          </div>
+        </div>
+      </div>
       <div class="article__body not-sidebar">
         {{ content | safe }}
       </div>
@@ -65,7 +87,7 @@
     </main>
     {% include 'components/footer.njk' %}
   {% endblock %}
-  
+
   {% block scripts %}
-  <script src="/assets/scripts/webmentions.js"></script>
+    <script src="/assets/scripts/webmentions.js"></script>
   {% endblock %}
