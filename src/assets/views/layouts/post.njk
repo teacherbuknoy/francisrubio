@@ -99,5 +99,8 @@
   {% endblock %}
 
   {% block scripts %}
+    <script>
+      const siteData = {{ site | dump | safe }}
+    </script>
     <script src="/assets/scripts/webmentions.js"></script>
   {% endblock %}
