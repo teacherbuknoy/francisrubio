@@ -12,9 +12,13 @@
       <h1 id="{{ title | slugify }}" class="p-name article__title margin--none responsive">{{ title | safe }}</h1>
       <p class="p-summary responsive fs-4 weight-300">{{ description }}</p>
       <div class="spaced cluster">
-        <time class="dt-published" datetime="{{ page.date | machineReadableDate }}">
-          <a class="u-url" href="./">{{ page.date | humanReadableDate }}</a>
-        </time>
+        <div>
+          by <a rel="author" href="{{ authors[author].url }}">{{ authors[author].name }}</a>
+          
+          on <time class="dt-published" datetime="{{ page.date | machineReadableDate }}">
+            <a class="u-url" href="./">{{ page.date | humanReadableDate }}</a>
+          </time>
+        </div>
         <div class="category-pill">
           <div class="p-category category-pill__inner category-pill__category">{{ category }}</div>
           <div class="category-pill__inner category-pill__read-time">{{ content | timeToRead }}</div>

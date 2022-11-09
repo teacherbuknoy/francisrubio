@@ -1,5 +1,6 @@
 {
   "layout": "post.njk",
   "permalink": "/writing/{{ title | slugify }}/",
-  "activePath": "writing"
+  "activePath": "writing",
+  "author": "teacherbuknoy"
 }
