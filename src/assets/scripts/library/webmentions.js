@@ -1,4 +1,4 @@
-const TESTING = true
+const TESTING = false
 const TEST_URL = 'https://matthiasott.com/articles/going-indie-reclaiming-content'
 
 class WebMentions {
