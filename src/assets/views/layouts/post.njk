@@ -31,7 +31,7 @@
     <div class="with-sidebar float-on-mobile">
       <div class="sidebar article__sidebar border--none margin--none" style="--sidebar-width: 20ch">
         {{ content | toc | safe }}
-        <div class="webmentions webmentions--summary" aria-label="Web Mentions Summary" hidden>
+        <div class="webmentions webmentions--summary hidden" aria-label="Web Mentions Summary" data-webmention-container>
           <div class="webmention__statistic">
             {% set feathericon = "heart" %}
             {% include 'components/feathericon.njk' %}
