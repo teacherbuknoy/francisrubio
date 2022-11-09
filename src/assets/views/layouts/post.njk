@@ -13,8 +13,10 @@
       <p class="p-summary responsive fs-4 weight-300">{{ description }}</p>
       <div class="spaced cluster">
         <div>
-          <img class="u-photo" hidden src="{{ authors[author].photo }}"/>
-          by <a rel="author" class="p-author h-card" href="{{ authors[author].url }}">{{ authors[author].name }}</a>
+          by <a rel="author" class="p-author h-card" href="{{ authors[author].url }}">
+              <span class="p-name">{{ authors[author].name }}</span>
+              <img class="u-photo hidden" src="{{ authors[author].photo }}"/>
+            </a>
           
           on <time class="dt-published" datetime="{{ page.date | machineReadableDate }}">
             <a class="u-url" href="./">{{ page.date | humanReadableDate }}</a>
