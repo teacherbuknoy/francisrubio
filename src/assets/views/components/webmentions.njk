@@ -1,11 +1,20 @@
+<hr>
 <div class="content-wrapper margin--auto">
-  <h2 class="font-sans uppercase fs-5 weight-900">Likes</h2>
+  <h2 class="font-sans uppercase fs-5 weight-900">Likes and reposts</h2>
   <ul data-webmention-container="likes" class="webmention-container likes">
     <template id="webmention-like-entry">
       <li class="webmention__entry" id="">
         <div class="webmention__author">
           <a href="" class="webmention__photo-link" data-webmention-entry="author-link">
             <img data-webmention-entry="photo" src="" alt="" class="webmention__author-photo">
+            <div class="webmention__photo-icon" data-webmention-type="like">
+              {% set feathericon = 'heart' %}
+              {% include 'components/feathericon.njk' %}
+            </div>
+            <div class="webmention__photo-icon" data-webmention-type="retweet">
+              {% set feathericon = 'rotate-cw' %}
+              {% include 'components/feathericon.njk' %}
+            </div>
           </a>
           <div class="webmention__author-details">
             <a data-webmention-entry="author-name" href="" class="webmention__author-name"></a>

@@ -24,7 +24,8 @@ const TEMPLATES = Object.freeze({
 const WebMentionType = Object.freeze({
   LIKE: 'like-of',
   MENTION: 'mention-of',
-  REPLY: 'in-reply-to'
+  REPLY: 'in-reply-to',
+  REPOST: 'repost'
 })
 
 class WebMentions {
@@ -78,6 +79,14 @@ class WebMentions {
 
     return this.data.filter(i => i['wm-property'] === 'like-of')
   }
+
+  async getReposts() {
+    if (this.data == null) {
+      await this.fetch()
+    }
+
+    return this.data.filter(i => i['wm-property'] === 'repost-of')
+  }
 }
 
 class WebMentionResponse {
@@ -106,6 +115,7 @@ class WebMentionResponse {
     console.log(element)
 
     element.setAttribute('id', `wmr-${this.id}`)
+    element.setAttribute('data-webmention-type', this.type)
     
     const photoLink = element.querySelector('a[data-webmention-entry=author-link]')
     photoLink.setAttribute('href', this.author.url)
