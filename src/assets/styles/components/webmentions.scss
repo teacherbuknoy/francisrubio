@@ -33,3 +33,78 @@
     }
   }
 }
+
+.webmention-container {
+  margin    : 0;
+  padding   : 0;
+  list-style: none;
+
+  &.likes {
+    display  : flex;
+    flex-wrap: wrap;
+    gap      : 0.5ch;
+  }
+}
+
+.webmention__entry {
+  display       : flex;
+  flex-direction: column;
+  padding       : 0;
+  margin        : 0;
+  gap           : 1ch;
+}
+
+.webmention__photo-link {
+  text-decoration: none;
+  color          : inherit;
+}
+
+.webmention__author {
+  align-items: center;
+  display    : flex;
+  gap        : 1ch;
+
+  &-photo {
+    --photo-size : 5ch;
+    aspect-ratio : 1;
+    border-radius: 1ch;
+    height       : var(--photo-size);
+    width        : var(--photo-size);
+
+    @at-root .likes & {
+      --photo-size: 4ch;
+    }
+  }
+
+  &-name {
+    font-family    : var(--font-sans);
+    font-size      : 1rem;
+    font-weight    : bold;
+    text-decoration: none;
+
+    &:is(a[href]):hover {
+      text-decoration      : underline;
+      text-decoration-color: hsl(var(--primary-500));
+    }
+
+    @at-root .likes & {
+      display: none;
+    }
+  }
+}
+
+.webmention__timestamp-link {
+  @extend .webmention__author-name;
+
+  font-size  : var(--type-size-6);
+  font-weight: normal;
+}
+
+.webmention__author-details {
+  display       : flex;
+  flex-direction: column;
+
+  @at-root .likes & {
+    display: none;
+  }
+}
