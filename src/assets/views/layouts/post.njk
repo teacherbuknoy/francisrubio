@@ -2,19 +2,21 @@
 
 {% block content %}
   {% include 'components/navigation.njk' %}
-  <main style="width: min(100ch, 100%); margin-inline: auto;" class="padding--xl article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
+  <main style="width: min(100ch, 100%); margin-inline: auto;" class="h-entry padding--xl article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
     <header class="article__header">
       <div class="ai--center cluster margin-bottom--l lh-s">
         <a href="/writing/" class="button jc--start padding--xs">Writing</a>
         <span>/</span>
         <span class="d-flex font-sans jc--start">This post</span>
       </div>
-      <h1 id="{{ title | slugify }}" class="article__title margin--none responsive">{{ title | safe }}</h1>
-      <p class="responsive fs-4 weight-300">{{ description }}</p>
+      <h1 id="{{ title | slugify }}" class="p-name article__title margin--none responsive">{{ title | safe }}</h1>
+      <p class="p-summary responsive fs-4 weight-300">{{ description }}</p>
       <div class="spaced cluster">
-        <time datetime="{{ page.date | machineReadableDate }}">{{ page.date | humanReadableDate }}</time>
+        <time class="dt-published" datetime="{{ page.date | machineReadableDate }}">
+          <a class="u-url" href="./">{{ page.date | humanReadableDate }}</a>
+        </time>
         <div class="category-pill">
-          <div class="category-pill__inner category-pill__category">{{ category }}</div>
+          <div class="p-category category-pill__inner category-pill__category">{{ category }}</div>
           <div class="category-pill__inner category-pill__read-time">{{ content | timeToRead }}</div>
         </div>
       </div>
@@ -43,7 +45,7 @@
           </div>
         </div>
       </div>
-      <div class="article__body not-sidebar">
+      <div class="article__body not-sidebar e-content">
         {{ content | safe }}
       </div>
     </div>
