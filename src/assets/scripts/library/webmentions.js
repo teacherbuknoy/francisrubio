@@ -25,7 +25,7 @@ const WebMentionType = Object.freeze({
   LIKE: 'like-of',
   MENTION: 'mention-of',
   REPLY: 'in-reply-to',
-  REPOST: 'repost'
+  REPOST: 'repost-of'
 })
 
 class WebMentions {
@@ -62,7 +62,6 @@ class WebMentions {
     const data = (await this.fetch()).children
     const monitoredKeys = ['mention-of', 'in-reply-to']
     const responses = data.filter(i => monitoredKeys.includes(i['wm-property']))
-    console.log("[WEBMENTION] getResponses()", responses)
 
     return responses
   }
@@ -91,7 +90,6 @@ class WebMentions {
 
 class WebMentionResponse {
   constructor(data) {
-    console.log(data)
     this.author = data.author
     this.content = data.content
     this.type = data['wm-property']
@@ -103,16 +101,15 @@ class WebMentionResponse {
   render() {
     switch (this.type) {
       case WebMentionType.LIKE:
+      case WebMentionType.REPOST:
         return this.#renderLike();
       default: return;
     }
   }
 
   #renderLike() {
-    console.log('[WebMentionResponse]', this)
     const template = document.getElementById(TEMPLATES.LIKE)
     const element = template.content.firstElementChild.cloneNode(true)
-    console.log(element)
 
     element.setAttribute('id', `wmr-${this.id}`)
     element.setAttribute('data-webmention-type', this.type)
@@ -127,7 +124,6 @@ class WebMentionResponse {
     const authorNames = element.querySelectorAll('[data-webmention-entry=author-name]')
     authorNames.forEach(authorName => {
       authorName.innerText = this.author.name
-      console.log(authorName, this.author.url)
       if (authorName.matches('a')) {
         authorName.setAttribute('href', this.author.url)
       }

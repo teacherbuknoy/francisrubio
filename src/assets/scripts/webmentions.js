@@ -30,3 +30,16 @@ wm.getLikes()
         })
       })
   })
+
+wm.getReposts()
+  .then(data => {
+    const responses = data.map(d => new WebMentionResponse(d).render())
+
+    document.querySelectorAll('[data-webmention-container=likes]:is(ul, ol)')
+      .forEach(container => {
+        responses.forEach(element => {
+          const clone = element.cloneNode(true)
+          container.appendChild(clone)
+        })
+      })
+  })

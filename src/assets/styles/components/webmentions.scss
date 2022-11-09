@@ -112,20 +112,19 @@
 
 .webmention__photo-icon {
   aspect-ratio       : 1;
-  background-color   : hsl(var(--error-100));
   border-radius      : 100%;
-  color              : hsl(var(--error-900));
   display            : none;
   margin-block-start : -40%;
   margin-inline-start: auto;
-  outline            : 0.3ch solid white;
+  outline            : 0.3ch solid hsl(var(--bg-primary));
   position           : relative;
   right              : -20%;
   z-index            : 2;
   width              : 2.5ch;
+  transition         : outline 200ms, background 200ms, color 200ms;
 
   @at-root .webmention__entry[data-webmention-type=like-of] &[data-webmention-type=like],
-  .webmention__entry[data-webmention-type=repost-of] &[data-webmention-type=retweet] {
+  .webmention__entry[data-webmention-type=repost-of] &[data-webmention-type=repost] {
     align-items    : center;
     display        : flex;
     justify-content: center;
@@ -136,5 +135,15 @@
       height      : 1ch;
       width       : auto;
     }
+  }
+
+  &[data-webmention-type=like] {
+    background-color: hsl(var(--error-100));
+    color           : hsl(var(--error-900));
+  }
+
+  &[data-webmention-type=repost] {
+    background-color: hsl(var(--success-100));
+    color           : hsl(var(--success-900));
   }
 }
