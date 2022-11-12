@@ -1,5 +1,5 @@
 ---
-title: "Augmented Reality and Mobile Apps"
+title: "Augmented Reality and the State of Mobile Apps"
 description: A bird's-eye-view talk on the state of augmented reality and mobile apps
 image: /talks/tech2rism-2021/cover.jpg
 date: 2022-11
