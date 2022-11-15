@@ -16,7 +16,7 @@ event:
 audience:
   - Students from Technological University of the Philippines
 duration:
-  - PT0H40M
+  - PT2H0M
 location: Online
 ---
 
