@@ -14,7 +14,7 @@ event:
   - name: Student-Organized Webinars
     description: Webinars organized by college students as part of their student program.
 audience:
-  - Students from Technological University of the Philippines
+  - Students and faculty members from Technological University of the Philippines
 duration:
   - PT2H0M
 location: Online
