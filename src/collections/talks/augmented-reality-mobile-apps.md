@@ -6,7 +6,7 @@ date: 2022-11
 tentativeDate:
   toBeDiscussed: true
   year: 2022
-  month: 10
+  month: 11
 host:
   - name: Technological University of the Philippines
     description: Computer Studies Department, College of Science
