@@ -7,7 +7,6 @@ module.exports = {
       plugin: require('eleventy-plugin-time-to-read'),
       options: {
         output: data => {
-          console.log("[TIME TO READ]", data)
 
           const includeHours = data.hours != null
           const includeMinutes = data.minutes != null && !includeHours

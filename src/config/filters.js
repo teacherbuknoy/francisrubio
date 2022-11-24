@@ -22,7 +22,6 @@ module.exports = {
     return formatter.format(value)
   },
   duration: function (value) {
-    console.log('[DURATION]', value)
     const regex = {
       hours: /[0-9]*[Hh]/g,
       minutes: /[0-9]*[Mm]/g,

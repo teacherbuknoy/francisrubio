@@ -96,10 +96,6 @@ module.exports = class {
           return
         }
 
-        console.log(
-          'OUTPUT_PATH:',
-          `${webpackConfig.output.path}/${bundleName}.js`
-        )
         mfs.readFile(
           `${webpackConfig.output.path}/${bundleName}.js`,
           'utf8',
@@ -114,7 +110,6 @@ module.exports = class {
 
   // render the JS file
   async render({ webpackConfig, bundleName, permalink }) {
-    console.log('[RENDERING]', permalink({ bundleName }))
     try {
       const result = await this.compile(webpackConfig, bundleName)
       return result

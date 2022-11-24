@@ -109,7 +109,6 @@ module.exports = class {
   // render the CSS file
   async render({ cssFile }) {
     try {
-      console.log('[CSS_FILE]', cssFile)
       const entryPath = path.join(__dirname, `/${cssFile}.scss`)
       const css = await this.compile({ file: entryPath })
       const result = await this.minify(css)

@@ -14,7 +14,6 @@ function img ({ src, classes, alt, sizes, widths, width, height, formats }) {
   }
 
   let fullSrc = prefix + src
-  console.log('[IMAGE] Generating', fullSrc, sizes)
   Image(fullSrc, options)
 
   let imageAttributes = {
