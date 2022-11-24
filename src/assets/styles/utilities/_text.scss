@@ -1,3 +1,7 @@
+::selection {
+  background-color: hsl(var(--primary-100));
+}
+
 /* #region CASES */
 .uppercase {
   text-transform: uppercase;
