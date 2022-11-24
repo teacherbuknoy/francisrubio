@@ -10,7 +10,17 @@
         <span class="d-flex font-sans jc--start">This talk</span>
       </div>
       <h1 id="{{ title | slugify }}" class="article__title margin--none responsive">{{ title | safe }}</h1>
+
+      {% if tentativeDate != null %}
+      {% set tDate = tentativeDate %}
+      {% set talkDate = utils.tentativeDate(tDate.year, tDate.month, tDate.day) %}
+      <time datetime="{{ utils.machineReadableDate(talkDate) }}">
+        {{ utils.extractMonth(talkDate) }} {{ tDate.day + ', ' if tDate.day }}{{ tDate.year }} (tentative)
+      </time>
+      {% else %}
       <time datetime="{{ page.date | machineReadableDate }}">{{ page.date | humanReadableDate }}</time>
+      {% endif %}
+
       <div class="cluster gap--m jc--end">
         {% for item in link %}
           <a href="{{ item.url }}" rel="noopener noreferer nofollow" target="_blank" class="primary button">{{ item.text }}</a>
