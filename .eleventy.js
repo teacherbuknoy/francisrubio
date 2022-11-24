@@ -5,6 +5,9 @@ const watchtargets = require('./src/config/watchtargets')
 const plugins = require('./src/config/plugins')
 const shortcodes = require('./src/config/shortcodes')
 
+const path     = require('path')
+const prettier = require('prettier')
+
 require('dotenv').config()
 
 module.exports = function (eleventyConfig) {
@@ -85,6 +88,19 @@ module.exports = function (eleventyConfig) {
       .use(require('markdown-it-attrs'))
       .disable('code')
   )
+
+  eleventyConfig.addTransform('prettier', function (content, outputPath) {
+    const extname = path.extname(outputPath)
+    switch (extname) {
+      case ".html":
+      case ".json":
+        const parser = extname.replace(/^./, "")
+        return prettier.format(content, { parser, singleAttributePerLine: false, printWidth: 100 })
+      
+      default:
+          return content
+    }
+  })
 
   // Always return
   return {

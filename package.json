@@ -64,5 +64,8 @@
     "slug": "^5.2.0",
     "uuid": "^8.3.2",
     "webpack": "^5.65.0"
+  },
+  "devDependencies": {
+    "prettier": "2.8.0"
   }
 }

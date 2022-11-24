@@ -14,9 +14,9 @@
       <div class="spaced cluster">
         <div>
           by <a rel="author" class="p-author h-card" href="{{ authors[author].url }}">
-              <span class="p-name">{{ authors[author].name }}</span>
-              <img class="u-photo hidden" src="{{ authors[author].photo }}"/>
-            </a>
+            <span class="p-name">{{ authors[author].name }}</span>
+            <img class="u-photo hidden" src="{{ authors[author].photo }}"/>
+          </a>
           
           on <time class="dt-published" datetime="{{ page.date | machineReadableDate }}">
             <a class="u-url" href="./">{{ page.date | humanReadableDate }}</a>
@@ -93,15 +93,16 @@
             <input type="text" id="page-link" value="{{ site.url }}{{ page.url }}" class="sr-only" aria-hidden="true">
           </li>
         </ul>
-      </footer>
-    </main>
-    {% include 'components/footer.njk' %}
-  {% endblock %}
+      </div>
+    </footer>
+  </main>
+  {% include 'components/footer.njk' %}
+{% endblock %}
 
-  {% block scripts %}
-    <a href="https://brid.gy/publish/mastodon" class="hidden"></a>
-    <script>
-      const siteData = {{ site | dump | safe }}
-    </script>
-    <script src="/assets/scripts/webmentions.js"></script>
-  {% endblock %}
+{% block scripts %}
+  <a href="https://brid.gy/publish/mastodon" class="hidden"></a>
+  <script>
+    const siteData = {{ site | dump | safe }}
+  </script>
+  <script src="/assets/scripts/webmentions.js"></script>
+{% endblock %}
