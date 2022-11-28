@@ -1,6 +1,6 @@
 ---
 title: "Rotting Flesh in a Beating Heart"
-description: ""
+description: null
 image: /literatures/rotting-flesh-beating-heart/cover.png
 author: "teacherbuknoy"
 type: "literature"

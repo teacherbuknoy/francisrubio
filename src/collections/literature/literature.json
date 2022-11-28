@@ -1,5 +1,6 @@
 {
   "permalink": "/literature/{{ title | slugify }}/",
   "layout": "literature.njk",
-  "activePath": "literature"
+  "activePath": "literature",
+  "description": "From the literary archives of Francis Rubio"
 }
