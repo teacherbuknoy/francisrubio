@@ -34,24 +34,24 @@
       <div class="sidebar article__sidebar border--none margin--none" style="--sidebar-width: 20ch">
         {{ content | toc | safe }}
         <div class="webmentions webmentions--summary hidden" aria-label="Web Mentions Summary" data-webmention-container>
-          <div class="webmention__statistic">
+          <a href="#webmention-likes-repost" class="webmention__statistic">
             {% set feathericon = "heart" %}
             {% include 'components/feathericon.njk' %}
             <span data-webmention="like"></span>
             <span class="webmention__statistic-label">Likes</span>
-          </div>
-          <div class="webmention__statistic">
+          </a>
+          <a href="#webmention-likes-repost" class="webmention__statistic">
             {% set feathericon = "at-sign" %}
             {% include 'components/feathericon.njk' %}
             <span data-webmention="mention"></span>
             <span class="webmention__statistic-label">Mentions</span>
-          </div>
-          <div class="webmention__statistic">
+          </a>
+          <a href="#webmention-replies" class="webmention__statistic">
             {% set feathericon = "message-circle" %}
             {% include 'components/feathericon.njk' %}
             <span data-webmention="reply"></span>
             <span class="webmention__statistic-label">Replies</span>
-          </div>
+          </a>
         </div>
       </div>
       <div class="article__body not-sidebar e-content">
