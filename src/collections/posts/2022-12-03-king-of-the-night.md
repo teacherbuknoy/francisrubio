@@ -153,7 +153,7 @@ A part of me says that the only reason I won was that I had only won because I l
       <img src="/assets/images/posts/king-of-the-night/coronation.webp" alt="Coronation of King and Queen of the night">
     </a>
     <figcaption>
-      <p>The coronation of King and Queen of the Night. From left to right: Ms. Jaana Abrogena (CEO), Ms Doren Garcia (Queen of the Night), me (King of the Night), and Ms. Christnell Aquino (HR Manager).</p>
+      <p>The coronation of King and Queen of the Night. From left to right: Ms. Jaana Fernandez-Abrogena (CEO), Ms Doren Garcia (Queen of the Night), me (King of the Night), and Ms. Christnell Aquino (HR Manager).</p>
     </figcaption>
   </figure>
   <figure class="image-card" style="aspect-ratio: 1">
