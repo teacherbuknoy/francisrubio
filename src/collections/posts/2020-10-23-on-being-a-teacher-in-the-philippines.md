@@ -1,7 +1,7 @@
 ---
 title: On being a teacher in the Philippines
 description: Education is, in theory, a right. But it is, in practice, a privilege.
-category: education
+category: [education]
 image: /posts/on-being-a-teacher-in-the-philippines/cover.jpg
 images: 
     path: /assets/images/posts/on-being-a-teacher-in-the-philippines/optimized

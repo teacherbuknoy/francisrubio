@@ -3,7 +3,7 @@ title: "Why CSS is hard"
 description: It's not, really.
 image: /posts/why-css-hard/cover.jpg
 author: teacherbuknoy
-category: opinion
+category: [opinion]
 language: en-US
 ---
 

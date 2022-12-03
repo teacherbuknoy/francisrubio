@@ -3,7 +3,7 @@ title: Income versus Outcome
 description: We love people with big hearts. Big hearts cause cardiac arrests.
 image: /posts/income-versus-outcome/cover.jpeg
 author: teacherbuknoy
-category: education
+category: [education]
 ---
 There is always this discussion about how teachers their infuence on their students more than they do money. This is supposed to be inspiring, not just to students but to teachers as well. However, I cannot help but think about how this is used by institutions to give useless salutations to their teachers instead of paying them what they're worth. After all this income versus outcome discussion is a false dichotomy that almost feels like it was created for a specific purpose&mdash;to take advantage of idealistic teachers who want to change the world.
 

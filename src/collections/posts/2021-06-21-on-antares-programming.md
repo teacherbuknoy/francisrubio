@@ -3,7 +3,7 @@ title: "Antares Programming: My Best Project Yet"
 description: What it is like to work on a project to educate Filipinos.
 image: /posts/on-antares-programming/cover.png
 author: teacherbuknoy
-category: opinion
+category: [opinion]
 language: en-US
 ---
 I started Antares Programming in late 2018 as a Facebook page where I advertise my services as a freelance web developer and designer. Since then it has grew into a passion project that has helped me become a better developer, designer, and educator.

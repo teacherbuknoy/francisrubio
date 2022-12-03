@@ -7,7 +7,7 @@ images:
     sizes: [500, 700]
     types: ['png', 'webp', 'avif']
 author: teacherbuknoy
-category: opinion
+category: [opinion]
 language: en-US
 seo:
     twitter:
