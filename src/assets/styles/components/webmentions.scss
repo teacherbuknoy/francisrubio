@@ -168,6 +168,7 @@
     display        : flex;
     justify-content: space-between;
     font-family    : var(--font-sans);
+    padding-bottom : 0;
 
     .webmention__author-photo {
       --photo-size : 3ch;
@@ -186,4 +187,8 @@
       margin: 0;
     }
   }
+}
+
+[data-webmention-entry=interaction-timestamp] {
+  font-size: var(--type-size-7);
 }
