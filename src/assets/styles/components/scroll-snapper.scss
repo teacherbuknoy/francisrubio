@@ -21,4 +21,9 @@ $snap-alignments: start, end, center;
       scroll-snap-align: $a;
     }
   }
+
+  &-item {
+    flex-basis: var(--snap-item-size, 30ch);
+    flex-shrink: 0;
+  }
 }

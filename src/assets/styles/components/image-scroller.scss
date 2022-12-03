@@ -1,20 +1,60 @@
 .image-scroller {
-  margin: 0;
-  padding: var(--space-l);
-  list-style: none;
-  display: flex;
-  overflow: scroll;
-  gap: 1ch;
-  scroll-behavior: smooth;
+  align-items     : center;
+  display         : flex;
+  gap             : 3ch;
+  list-style      : none;
+  margin          : 0;
+  overflow        : auto;
+  padding-block   : var(--space-l);
+  scroll-behavior : smooth;
   scroll-snap-type: x mandatory;
+
+  img,
+  .image-card {
+    border-radius    : var(--ideal-radius);
+    object-fit       : cover;
+    scroll-snap-align: center;
+    width            : auto;
+    margin           : 0;
+  }
+
+  &>img {
+    height: 25ch;
+  }
 }
 
-.image-scroller > * {
-  flex: 1 0 35ch;
-}
+.image-card {
+  display              : grid;
+  grid-template-columns: 1fr;
+  overflow             : clip;
+  height               : 40ch;
 
-.image-scroller img {
-  border-radius: var(--ideal-radius);
-  box-shadow: 2px 10px 20px #0004;
-  scroll-snap-align: center;
+  a {
+    cursor: zoom-in;
+  }
+
+  &> :is(figcaption, a, img) {
+    grid-column: 1/2;
+    grid-row   : 1/2;
+  }
+
+  figcaption {
+    background-image   : linear-gradient(to bottom, transparent, black);
+    background-position: bottom center;
+    background-repeat  : no-repeat;
+    background-size    : 100% 50%;
+    color              : hsl(var(--l-contrast));
+    display            : flex;
+    flex-direction     : column;
+    font-family        : var(--font-sans);
+    font-size          : var(--type-size-7);
+    justify-content    : end;
+    padding            : var(--space-s);
+    pointer-events     : none;
+    z-index            : 2;
+
+    p {
+      margin: 0;
+    }
+  }
 }

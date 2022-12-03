@@ -23,7 +23,9 @@
           </time>
         </div>
         <div class="category-pill">
-          <div class="p-category category-pill__inner category-pill__category">{{ category }}</div>
+          {% for item in category %}
+          <div class="p-category category-pill__inner category-pill__category">{{ item }}</div>
+          {% endfor %}
           <div class="category-pill__inner category-pill__read-time">{{ content | timeToRead }}</div>
         </div>
       </div>

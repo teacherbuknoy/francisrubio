@@ -1,10 +1,12 @@
 .category-pill {
-  align-items     : center;
-  background-color: hsl(var(--bg-secondary));
-  border-radius   : 100px;
-  display         : flex;
-  font-family     : var(--font-sans);
-  padding         : var(--space-xxs);
+  align-items        : center;
+  background-color   : hsl(var(--bg-secondary));
+  border-radius      : 100px;
+  display            : flex;
+  font-family        : var(--font-sans);
+  padding            : var(--space-xxs);
+  gap                : var(--category-pill-gap);
+  --category-pill-gap: var(--space-xxs);
 }
 
 .category-pill__inner {
@@ -17,4 +19,8 @@
   background-color: hsl(var(--bg-primary));
   font-weight     : bold;
   text-transform  : capitalize;
+}
+
+.category-pill__read-time {
+  margin-inline-start: calc(-1 * var(--category-pill-gap));
 }

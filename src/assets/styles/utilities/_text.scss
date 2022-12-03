@@ -168,8 +168,10 @@ $line-heights: (xxxs: 0.5,
   figcaption::before {
     content: "— ";
   }
+}
 
-  &:is(.left, .right) {
+@media(min-width: 75ch) {
+  :is(.left, .right) {
     width: min(100%, 20ch);
 
     p {
@@ -178,16 +180,16 @@ $line-heights: (xxxs: 0.5,
     }
   }
 
-  &.right {
-    float     : right;
-    text-align: end;
+  .right {
+    float       : right;
+    text-align  : end;
+    margin-right: 0;
   }
 
-  &.left {
-    float              : left;
-    text-align         : start;
-    border-inline-start: 3px solid hsl(var(--primary-100));
-    border-inline-end  : none;
+  .left {
+    float      : left;
+    text-align : start;
+    margin-left: 0;
   }
 }
 
