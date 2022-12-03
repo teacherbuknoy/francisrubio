@@ -15,7 +15,8 @@ const PAGE_URL = new URL(document.URL).hostname == 'localhost'
  * @type {Object}
  */
 const TEMPLATES = Object.freeze({
-  LIKE: 'webmention-like-entry'
+  LIKE: 'webmention-like-entry',
+  REPLY: 'webmention-reply-entry'
 })
 
 /** 
@@ -131,6 +132,21 @@ class WebMentions {
   }
 
   /**
+   * @description Gets all `in-reply-to` responses
+   * @author Francis Rubio
+   * @returns {Promise<WMEntry[]>}
+   * @throws Will throw an error if the data property is null. Use WebMentionsBuilder to avoid.
+   * @memberof WebMentions
+   */
+  async getReplies() {
+    if (this.data == null) {
+      throw new Error("WebMentions data is null. Did you use the WebMentionsBuilder class to create this object?")
+    }
+
+    return this.data.filter(i => i['wm-property'] === 'in-reply-to')
+  }
+
+  /**
    * @description Returns true if there are no WebMentions responses
    * @author Francis Rubio
    * @returns {boolean}
@@ -182,11 +198,23 @@ class WebMentionResponse {
    */
   constructor(data) {
     this.author = data.author
+    this.author.name = this.#sanitizeName(this.author.name)
     this.content = data.content
     this.type = data['wm-property']
     this.url = data.url
     this.id = data['wm-id']
-    this.timestamp = new Date(Date.parse(data['wm-received']))
+    this.timestamp = new Date(Date.parse(data['published']))
+    this.publishLink = data['url']
+  }
+
+  /**
+   * Removes custom emojis from Mastodon servers
+   * 
+   * @param {string} name the name to sanitize
+   */
+  #sanitizeName(name) {
+    const regex = /\s*:\w*:/g
+    return name.replace(regex, '')
   }
 
   /**
@@ -200,6 +228,8 @@ class WebMentionResponse {
       case WebMentionType.LIKE:
       case WebMentionType.REPOST:
         return this.#renderLike();
+      case WebMentionType.REPLY:
+        return this.#renderReply();
       default: return;
     }
   }
@@ -236,8 +266,59 @@ class WebMentionResponse {
     const timestamps = element.querySelectorAll('time[data-webmention-entry=interaction-timestamp]')
     timestamps.forEach(ts => {
       ts.innerText = this.timestamp.toLocaleTimeString()
-      ts.setAttribute('datetime', this.timestamp.toISOString())
+      try {
+        ts.setAttribute('datetime', this.timestamp.toISOString())
+      } catch (e) {
+        console.log(this.timestamp)
+      }
     })
+
+    return element
+  }
+
+  /**
+   * @description Creates an HTML element out of this object's data if
+   *  it is an `in-reply-to` entry
+   * @author Francis Rubio
+   * @returns {HTMLLIElement}  
+   * @memberof WebMentionResponse
+   */
+  #renderReply() {
+    const template = document.getElementById(TEMPLATES.REPLY)
+    const element = template.content.firstElementChild.cloneNode(true)
+
+    element.setAttribute('id', `wmr-${this.id}`)
+    element.setAttribute('data-webmention-type', this.type)
+
+    const photo = element.querySelector('[data-webmention-entry=photo]')
+    if (photo) {
+      photo.setAttribute('src', this.author.photo)
+      photo.setAttribute('alt', `Photo of ${this.author.name}`)
+    }
+
+    const name = element.querySelector('[data-webmention-entry=author-name]')
+    if (name) {
+      name.setAttribute('href', this.author.url)
+      name.innerText = this.author.name
+    }
+
+    const responseLink = element.querySelector('[data-webmention-entry=interaction-link]')
+    if (responseLink) {
+      responseLink.setAttribute('href', this.publishLink)
+    }
+
+    const timestamp = element.querySelector('[data-webmention-entry=interaction-timestamp]')
+    if (timestamp) {
+      timestamp.setAttribute('datetime', this.timestamp.toLocaleString())
+
+      const formatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'medium', timeStyle: 'short' })
+      timestamp.innerText = formatter.format(this.timestamp)
+    }
+
+    const body = element.querySelector('[data-webmention-entry=interaction-body]')
+    if (body) {
+      body.innerHTML = this.content.html
+    }
 
     return element
   }

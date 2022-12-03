@@ -44,6 +44,12 @@
     flex-wrap: wrap;
     gap      : 1ch;
   }
+
+  &.replies {
+    display       : flex;
+    flex-direction: column;
+    gap           : 1ch;
+  }
 }
 
 .webmention__entry {
@@ -145,5 +151,38 @@
   &[data-webmention-type=repost] {
     background-color: hsl(var(--success-100));
     color           : hsl(var(--success-900));
+  }
+}
+
+.webmention-reply {
+  background-color: hsl(var(--bg-secondary) / 50%);
+  border-radius   : var(--ideal-radius);
+
+  &__header,
+  &__body {
+    padding: var(--space);
+  }
+
+  &__header {
+    display        : flex;
+    justify-content: space-between;
+    font-family    : var(--font-sans);
+
+    .webmention__author-photo {
+      --photo-size : 3ch;
+      border-radius: 100%;
+    }
+  }
+
+  &__body {
+    display       : flex;
+    flex-direction: column;
+    gap           : 1ch;
+
+    p,
+    ul,
+    ol {
+      margin: 0;
+    }
   }
 }

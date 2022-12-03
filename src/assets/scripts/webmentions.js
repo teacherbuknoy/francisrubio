@@ -52,6 +52,21 @@ async function renderWebMentions() {
         })
     })
 
+  await wm.getReplies()
+    .then(data => {
+      const responses = data.map(d => new WebMentionResponse(d).render())
+
+      console.log(data)
+
+      document.querySelectorAll('[data-webmention-container=in-reply-to]')
+        .forEach(container => {
+          responses.forEach(element => {
+            const clone = element.cloneNode(true)
+            container.appendChild(clone)
+          })
+        })
+    })
+
   document.querySelectorAll('.hidden[data-webmention-container]')
     .forEach(el => el.classList.remove('hidden'))
 }
