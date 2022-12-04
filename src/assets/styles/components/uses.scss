@@ -1,0 +1,54 @@
+.use-card {
+  text-decoration: none;
+  display        : grid;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &__article {
+    background-color: hsl(var(--d-contrast));
+    color           : hsl(var(--l-contrast));
+    padding         : var(--space-l);
+    display         : flex;
+    flex-direction  : column;
+    gap             : 1ch;
+    border-radius   : var(--ideal-radius);
+
+    &>* {
+      margin: 0;
+    }
+  }
+
+  &__title {
+    color                  : inherit;
+    font-size              : var(--type-size-4);
+    font-variation-settings: 'wght'600;
+  }
+
+  &__description {
+    flex   : 1;
+    opacity: 0.75;
+  }
+
+  &__rating {
+    font-family: var(--font-sans);
+    display    : flex;
+    align-items: center;
+    gap        : 0.5ch;
+    line-height: 1;
+
+    .feather {
+      color: hsl(var(--d-warning-700));
+    }
+  }
+}
+
+.uses-grid {
+  columns: 25ch;
+
+  .use-card {
+    margin-bottom: 1ch;
+    break-inside : avoid-column;
+  }
+}

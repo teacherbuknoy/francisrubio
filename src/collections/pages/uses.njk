@@ -18,12 +18,12 @@ activePath: what-i-use
   </div>
 </section> #}
 
-<hgroup role="group" class="stack gap wide-wrapper margin-inline--auto">
+<hgroup role="group" class="stack gap wide-wrapper margin-inline--auto margin-top--l padding-inline--l">
   <h1 class="font-serif responsive">Uses</h1>
   <p aria-roledescription="subtitle">Apps, fonts, scripts, hardware, and other stuff I use that you may want to try.</p>
 </hgroup>
 
-<section aria-labelledby="section-heading-1" class="padding--xl margin-inline--auto content-wrapper">
+<!--section aria-labelledby="section-heading-1" class="padding--xl margin-inline--auto content-wrapper">
   <h2 id="section-heading-1">Hardware</h2>
   <ul>
     <li>Lenovo ThinkPad E14 (Windows 10)</li>
@@ -59,4 +59,10 @@ activePath: what-i-use
     <li>Discord (so I could be in a voice channel with my boyfriend while we both sleep)</li>
     <li>Microsoft PowerToys</li>
   </ul>
-</section>
+</section-->
+
+<div class="uses-grid gap--s padding-top--l wide-wrapper margin-inline--auto padding-inline--l">
+{% for item in collections.uses %}
+  {% include 'components/use-card.njk' %}
+{% endfor %}
+</div>

@@ -4,14 +4,19 @@
   {% include 'components/navigation.njk' %}
   <main class="padding--xl article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
     {% if images and images.length > 0 %}
-    <ul class="image-scroller">
-      {% for image in images %}
-        <li>
-          <img src="{{ image.src }}" alt="{{ image.alt }}" width="{{ image.width }}" height="{{ image.height }}">
-        </li>
-      {% endfor %}
-    </ul>
+      <ul class="image-scroller">
+        {% for image in images %}
+          <li>
+            <a href="{{ image.src }}" target="_blank" class="no-arrow cursor--zoom-in"><img src="{{ image.src }}" alt="{{ image.alt }}" width="{{ image.width }}" height="{{ image.height }}"></a>
+          </li>
+        {% endfor %}
+      </ul>
     {% endif %}
+    <div class="ai--center cluster margin-bottom--l lh-s">
+      <a href="/uses/" class="button jc--start padding--xs">Uses</a>
+      <span>/</span>
+      <span class="d-flex font-sans jc--start">{{ title | safe }}</span>
+    </div>
     <header class="article__header with-sidebar ai--center">
       <div class="sidebar" style="--sidebar-width: 25ch;">
         {% if logo %}
@@ -29,9 +34,9 @@
           </div>
 
           <div class="cluster gap--m jc--end ai--center">
-          {% for link in links %}
-            <a href="{{ link.url }}" class="button" target="_blank" rel="noopener noreferer nofollow">{{ link.text }}</a>
-          {% endfor %}
+            {% for link in links %}
+              <a href="{{ link.url }}" class="button" target="_blank" rel="noopener noreferer nofollow">{{ link.text }}</a>
+            {% endfor %}
           </div>
         </div>
       </div>

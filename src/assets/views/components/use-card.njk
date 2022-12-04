@@ -1,0 +1,12 @@
+{% set use = item.data %}
+<a href="{{ item.url }}" class="use-card">
+  <article class="use-card__article">
+    {% if use.image %}
+    <img class="use-card__image" src="{{ use.image }}" alt="">
+    {% endif %}
+    <h2 class="use-card__title">{{ use.title | safe }}</h2>
+    <p class="use-card__description">{{ use.description | safe }}</p>
+    {% set feathericon = 'star' %}
+    <span class="use-card__rating">{{ use.rating }}{% include 'components/feathericon.njk' %}</span>
+  </article>
+</a>

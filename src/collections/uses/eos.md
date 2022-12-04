@@ -10,6 +10,7 @@ logo:
   alt: elementary OS logo
   width: 360
   height: 360
+image: /assets/images/uses/eos/eos-2.jpeg
 images:
   - src: /assets/images/uses/eos/eos-1.jpeg
     alt: elementary OS App Center
