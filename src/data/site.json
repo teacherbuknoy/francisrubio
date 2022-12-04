@@ -42,6 +42,12 @@
       "identifier": "teacherbuknoy",
       "url": "https://mstdn.party/@teacherbuknoy",
       "rel": "me"
+    },
+    "youtube": {
+      "name": "YouTube",
+      "identifier": "teacherbuknoy",
+      "url": "https://www.youtube.com/@teacherbuknoy/",
+      "rel": "me"
     }
   },
   "domains": [
