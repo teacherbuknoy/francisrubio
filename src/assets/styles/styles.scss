@@ -171,9 +171,17 @@ a {
   box-decoration-break: clone;
   color               : hsl(var(--fg-default));
   text-decoration     : underline solid hsl(var(--primary-500));
+  outline             : var(--ideal-radius) solid;
+  outline-color       : hsl(var(--primary-500) / 0);
+  outline-offset      : var(--ideal-radius);
+  transition          : outline 200ms, outline-offset 200ms;
 
   &:not([href]) {
     text-decoration: none;
+  }
+
+  &:not([class]) {
+    border-radius: var(--ideal-radius);
   }
 
   &:not(.no-arrow)[target="_blank"] {
@@ -195,16 +203,8 @@ a {
   &:focus-visible {
     color           : hsl(var(--primary-900));
     background-color: hsl(var(--primary-100));
-    box-shadow      : 0 0 0 10px hsl(var(--primary-100));
-    outline         : 5px solid hsl(var(--primary-100));
-  }
-
-  &:focus-visible {
-    box-shadow: 0 0 0 10px hsl(var(--primary-300));
-
-    @media (prefers-color-scheme: dark) {
-      box-shadow: 0 0 0 10px hsl(var(--primary-700));
-    }
+    outline-color   : hsl(var(--primary-500) / 1);
+    outline-offset  : 0;
   }
 }
 

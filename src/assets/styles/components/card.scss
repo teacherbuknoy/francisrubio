@@ -125,6 +125,7 @@
   overflow          : hidden;
   grid-template-rows: 2fr 1fr;
   height            : 30ch;
+  transition        : box-shadow 500ms, outline 300ms, outline-offset 200ms;
 
   &:focus-visible,
   &:hover {
