@@ -2,7 +2,6 @@
   --bg-content-warning: var(--bg-secondary);
   background-color    : hsl(var(--bg-content-warning) / var(--bg-content-warning-opacity, 1));
   border-radius       : var(--ideal-radius);
-  overflow            : auto;
 
   --bg-content-warning               : var(--bg-secondary);
   --bg-content-warning-opacity       : 0.25;
@@ -10,26 +9,44 @@
   --bg-content-warning-accent-opacity: 0.25;
 
   &__notice {
+    border-radius : var(--ideal-radius);
     color         : hsl(var(--fg-content-warning, var(--fg-contrast)));
     cursor        : pointer;
     display       : flex;
     font-family   : var(--font-sans);
     font-weight   : bold;
     gap           : 1ch;
+    outline       : 3px solid hsl(var(--fg-content-warning, var(--fg-contrast)) / 0);
     padding-block : var(--space-xs);
     padding-inline: var(--space);
+    transition    : outline-color 200ms, outline-offset 200ms;
 
     @at-root [open] &,
-    &:hover {
+    &:hover,
+    &:focus-visible {
       background-color: hsl(var(--bg-content-warning-accent) / var(--bg-content-warning-accent-opacity, 1));
     }
 
+    @at-root [open] & {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:focus-visible {
+      outline-color : hsl(var(--fg-content-warning, var(--fg-contrast)) / 1);
+      outline-offset: 3px;
+    }
+
     &::after {
-      content            : '+';
+      content            : "Select to open";
       margin-inline-start: auto;
+      text-transform     : uppercase;
+      font-weight        : normal;
+      font-size          : var(--type-size-6);
+      align-self         : center;
 
       @at-root [open] & {
-        content: '-'
+        content: 'Select to close'
       }
     }
   }
