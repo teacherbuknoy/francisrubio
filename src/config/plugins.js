@@ -25,7 +25,8 @@ module.exports = {
     return {
       plugin: require('eleventy-plugin-toc'),
       options: {
-        wrapperClass: "article__toc sidebar"
+        wrapperClass: "article__toc sidebar",
+        tags: ['h2']
       }
     }
   },

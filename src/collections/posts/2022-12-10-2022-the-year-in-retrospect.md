@@ -69,7 +69,7 @@ Before we talk about the top 1 on this list, let’s first talk about other nota
 - **I jumped 3 companies this year.** That’s a whole record. This year, I worked for 3 different companies. I worked for the first company for almost 3 years, for the second one almost a year (my time in the first company coincided with my time working part-time for the second one, and eventually worked there full-time), and now I am with DICE205.
 - **I learned a whole lot this year.** For my job, I had to learn how to do server-side Java programming, which I never had to do before. I also had to learn PL/SQL, and while I am by no means an expert at it, I can proudly say that I can write up a simple script in less than a day. And at the time of writing, I am currently learning Docker, which is a completely complicated behemoth, so I am taking my precious time with it.
 
-## 1. King of the Night.
+## The most remarkable moment of this year…
 The top 1 for this year I think is me winning King of the Night for our company’s gala night. I wrote about it in a previous blog post. The reason I put this at the top is because it’s such a validating experience for me and make me feel appreciated in a lot of ways. I’ll be trauma dumping in the next paragraphs, so I’ll be putting it in spoiler so you can choose not to read.
 
 <details class="content-warning content-warning--warning">
@@ -96,3 +96,10 @@ This was undoubtedly the most memorable experience this year for me.
 Of course, we are always a work in progress. The next year will give me another 365 days to work on myself. That includes working out (hopefully I finally do it this year), eating healthier, drinking more water, being more financially responsible, and being a more social person. I look forward to the next year, that is in spite of all the bad things happening in the Philippines, what with its government being run by a family of corrupt politicians with no care at all about their constituents. I am optimistic that all these things will fall to their right places at the proper time.
 
 That’s it! Thank you for joining me in this journey. I hope you had a great time this year, and if you hadn’t, I wish you a very prosperous new year. I hope you all stay hydrated, moisturized, nourished, and loved.
+
+<hr>
+
+## Other lists
+### Top 100 Songs I listened to this year.
+
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/7EsAy2ROWb8o6RaCyMdCfY?utm_source=generator&theme=0" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
