@@ -4,6 +4,7 @@ import './components/Dialog'
 import './components/PopOver'
 import './components/SearchUI'
 import './components/ColorScheme'
+import { SlurToggle } from './components/SlurToggle'
 import { $, $$ } from './utilities/dom'
 import { Tab, TabControl } from './components/TabControl'
 import { NotificationManager } from './components/NotificationManager'
@@ -65,3 +66,6 @@ function copyText(textboxID) {
 
 
 new FormValidator(document.getElementById('frm-email'))
+
+document.querySelectorAll('button[data-slur]')
+  .forEach(button => new SlurToggle(button))

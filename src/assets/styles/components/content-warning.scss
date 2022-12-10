@@ -89,3 +89,64 @@
     --fg-content-warning               : var(--primary-900);
   }
 }
+
+.slur {
+  --space-block   : 0.15ch;
+  background-color: hsl(var(--warning-100)/0.5);
+  border          : 0;
+  border-radius   : var(--ideal-radius);
+  color           : inherit;
+  display         : inline-flex;
+  font-family     : inherit;
+  font-size       : inherit;
+  font-weight     : inherit;
+  gap             : 0.5ch;
+  margin-block    : calc(-1 * var(--space-block, 0.25ch));
+  overflow        : auto;
+  padding-block   : var(--space-block, 0.25ch);
+  padding-inline  : 0.5ch;
+  position        : relative;
+  transition      : filter 300ms;
+
+
+  &:not([aria-pressed=true]) .slur__content {
+    filter: blur(3px);
+  }
+
+  &::before,
+  &::after {
+    align-self      : center;
+    background-color: hsl(var(--warning-300) / .5);
+    border-radius   : calc(var(--ideal-radius) / 1.25);
+    display         : inline-block;
+    font-family     : var(--font-sans);
+    font-size       : var(--type-size-6);
+    padding-block   : 0;
+    padding-inline  : 0.5ch;
+  }
+
+  &::before {
+    content       : "Slur";
+    margin-left   : -0.15ch;
+    font-weight   : bold;
+    text-transform: uppercase;
+    font-size     : var(--type-size-7);
+    padding-block : 0.2ch;
+  }
+
+  &::after {
+    content         : attr(data-slur-details);
+    position        : absolute;
+    top             : -100%;
+    background-color: hsl(var(--warning-100));
+    width           : max-content;
+    text-align      : left;
+    left            : 0;
+    transition      : transform 300ms, opacity 300ms;
+  }
+
+  &:not([aria-pressed=true])::after {
+    transform: translateY(100%);
+    opacity  : 0;
+  }
+}
