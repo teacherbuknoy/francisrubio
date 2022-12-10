@@ -40,6 +40,12 @@ module.exports = {
       "src/collections/literature/*.njk",
       "src/collections/literature/*.md",
     ]);
+  },
+  gallery: function (collection) {
+    return collection.getFilteredByGlob([
+      "src/collections/gallery/*.html",
+      "src/collections/gallery/*.njk",
+      "src/collections/gallery/*.md",
+    ]);
   }
 }
- 

@@ -1,0 +1,6 @@
+{
+  "author": "teacherbuknoy",
+  "layout": "gallery.njk",
+  "permalink": "gallery/{{ title | slugify }}/",
+  "activePath": "gallery"
+}

@@ -1,0 +1,22 @@
+{% if item.data.cover_images.index != null     %}
+{%   set index = item.data.cover_images.index  %}
+{%   set coverImage = item.data.entries[index] %}
+{%   set baseFolder %}/assets/images/gallery/{{ item.data.folder }}/optimized{% endset %}
+{%   set defaultImg %}/gallery/{{ item.data.folder }}/{{ coverImage.key }}.{{ item.data.types[0] }}{% endset %}
+{%   set identifier = coverImage.key %}
+{%   set types      = item.data.types %}
+{%   set sizes      = item.data.sizes %}
+{%   set alt        = coverImage.alt  %}
+{%   set imgClass   = "gallery-entry__cover-image"  %}
+{%   set width      = coverImage.width  %}
+{%   set height      = coverImage.height  %}
+{% endif %}
+<a href="{{ item.url }}" class="gallery-entry-link">
+  <article class="gallery-entry">
+    {% include 'components/picture.njk' %}
+    <div class="gallery-entry__body">
+      <h2 class="gallery-entry__headline">{{ item.data.title | safe }}</h2>
+      <p class="gallery-entry__subtitle">{{ item.data.description | safe }}</p>
+    </div>
+  </article>
+</a>
