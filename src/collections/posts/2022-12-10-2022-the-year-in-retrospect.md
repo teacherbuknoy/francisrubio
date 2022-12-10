@@ -2,15 +2,19 @@
 title: "2022: The Year in Retrospect"
 description: "In this post, I will list down the Top 10 most significant events in my year as we look forward to the coming year."
 category: [Life, Year-End Special]
-image: ""
+image: /posts/2022-retrospect/cover.png
+images:
+  path: /assets/images/posts/2022-retrospect/optimized
+  sizes: [500, 600, 700]
+  types: ['jpeg', 'webp', 'avif']
 author: "teacherbuknoy"
 language: "en-US"
 seo:
   twitter:
-    src: ""
+    src: "/assets/images/posts/2022-retrospect/twitter.png"
     is_prefixed: false
   og:
-    src: ""
+    src: "/assets/images/posts/2022-retrospect/og.png"
     is_prefixed: false
 eleventyExcludeFromCollections: false
 ---
@@ -68,7 +72,7 @@ Before we talk about the top 1 on this list, let’s first talk about other nota
 ## 1. King of the Night.
 The top 1 for this year I think is me winning King of the Night for our company’s gala night. I wrote about it in a previous blog post. The reason I put this at the top is because it’s such a validating experience for me and make me feel appreciated in a lot of ways. I’ll be trauma dumping in the next paragraphs, so I’ll be putting it in spoiler so you can choose not to read.
 
-<details class="content-warning content-warning--warning" open>
+<details class="content-warning content-warning--warning">
   <summary class="content-warning__notice">
     <span class="content-warning__category">
       <span>TW</span>
