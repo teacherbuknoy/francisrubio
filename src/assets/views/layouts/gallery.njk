@@ -1,8 +1,8 @@
 {% extends 'layouts/main.njk' %}
 {% block content %}
   {% include 'components/navigation.njk' %}
-  <main id="main" style="width: 90%; margin-inline: auto;" class="padding--xl article" tabindex="-1" aria-labelledby="{{ title | slugify }}">
-    <header class="article__header">
+  <main id="main" class="padding--l article gallery-layout" tabindex="-1" aria-labelledby="{{ title | slugify }}">
+    <header class="article__header" style="width: min(100ch, 100%); margin-inline: auto;">
       <div class="ai--center cluster margin-bottom--l lh-s">
         <a href="/gallery/" class="button jc--start padding--xs">Gallery</a>
         <span>/</span>
@@ -23,7 +23,7 @@
         </div>
       </div>
     </header>
-    <div class="gallery-grid">
+    <div class="gallery-grid" style="width: min(120ch, 100%); margin-inline: auto;">
       {% for image in entries %}
         {% set baseFolder %}/assets/images/gallery/{{ folder }}/optimized{% endset %}
         {% set defaultImg %}/gallery/{{ folder }}/{{ image.key }}.{{ types[0] }}{% endset %}
@@ -48,4 +48,5 @@
       {% endfor %}
     </div>
   </main>
+  {% include 'components/footer.njk' %}
 {% endblock %}

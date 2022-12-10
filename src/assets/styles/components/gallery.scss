@@ -1,6 +1,6 @@
  .gallery-grid {
    gap    : var(--space-s);
-   columns: 30ch;
+   columns: 25ch;
  }
 
  .gallery-entry-link {
@@ -52,16 +52,22 @@
    }
 
    &__caption {
+     align-items     : center;
      background-color: hsl(var(--bg-primary) / 75%);
      display         : flex;
      flex-direction  : column;
      gap             : 1ch;
      height          : 100%;
-     justify-content : end;
+     justify-content : center;
+     opacity         : 0;
      padding         : var(--space);
      pointer-events  : none;
-     opacity         : 0;
+     text-align      : center;
      transition      : opacity 200ms;
+
+     @media (max-width: 960px) {
+       display: none;
+     }
 
      p {
        margin: 0;
