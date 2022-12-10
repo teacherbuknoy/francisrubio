@@ -1,0 +1,33 @@
+---
+title: Writing Categories - Francis Rubio
+description: My blog posts, sorted by categories.
+pagination:
+  data: collections.postTags
+  size: 1
+  reverse: true
+  alias: category
+permalink: /writing/categories/{{ category }}/
+activePath: writing
+---
+
+<section class="padding--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
+  <div class="stack margin-bottom--xl">
+    <div class="ai--center cluster margin-bottom--l lh-s">
+      <a href="/writing/" class="button jc--start padding--xs">Writing</a>
+      <span>/</span>
+      <a href="/writing/#categories" class="button jc--start padding--xs">Categories</a>
+      <span>/</span>
+      <span class="d-flex font-sans jc--start">{{ category }}</span>
+    </div>
+    <h1 class="h2 font-serif responsive" id="section-heading-4">The Life and Times of Francis Rubio</h1>
+    <p>A glimpse of what it's like to be me.</p>
+  </div>
+    
+  <div class="tag-scroller">
+    {% for item in collections.postTags %}
+      <a href="/writing/categories/{{ item }}/" class="tag {{ "active" if category === item }}" style="width: fit-content;">{{ item }}</a>
+    {% endfor %}
+  </div>
+  {% set collection = utils.filterByCategory(collections.posts, category) %}
+  {% include 'components/post-grid.njk' %}
+</section>

@@ -20,5 +20,11 @@ module.exports = {
   },
   isActivePath: (activePath, url) => {
     return url.includes(`/${activePath}/`)
-  }
+  },
+  filterByCategory: (array, tag) => array.filter(item => {
+    const { category } = item.data
+    const slugifiedCategories = category.map(tag => tag.toLowerCase().replaceAll(/\W|_/g, "-"))
+
+    return slugifiedCategories.includes(tag)
+  })
 }

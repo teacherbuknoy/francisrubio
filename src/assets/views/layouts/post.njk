@@ -24,7 +24,7 @@
         </div>
         <div class="category-pill">
           {% for item in category %}
-          <div class="p-category category-pill__inner category-pill__category">{{ item }}</div>
+          <a href="/writing/categories/{{ item | slugify }}" class="p-category category-pill__inner category-pill__category">{{ item }}</a>
           {% endfor %}
           <div class="category-pill__inner category-pill__read-time">{{ content | timeToRead }}</div>
         </div>

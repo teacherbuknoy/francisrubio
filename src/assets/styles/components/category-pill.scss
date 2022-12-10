@@ -19,8 +19,34 @@
   background-color: hsl(var(--bg-primary));
   font-weight     : bold;
   text-transform  : capitalize;
+  text-decoration : none;
 }
 
 .category-pill__read-time {
   margin-inline-start: calc(-1 * var(--category-pill-gap));
+}
+
+.tag-scroller {
+  display : flex;
+  gap     : 1ch;
+  overflow: auto;
+  padding : var(--space-s);
+}
+
+.tag {
+  @extend .category-pill;
+
+  padding        : var(--space-xxxs) var(--space-s);
+  text-decoration: none;
+  flex-shrink    : 0;
+  display        : inline-flex;
+
+  &.active {
+    background-color: hsl(var(--primary-500));
+    color           : hsl(var(--l-contrast));
+
+    &:focus-visible {
+      outline-color: hsl(var(--primary-700));
+    }
+  }
 }

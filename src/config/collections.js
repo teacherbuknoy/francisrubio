@@ -1,3 +1,5 @@
+const { default: createPromisesApi } = require("memfs/lib/promises");
+
 module.exports = {
   pages: function (collection) {
     return collection.getFilteredByGlob([
@@ -47,5 +49,25 @@ module.exports = {
       "src/collections/gallery/*.njk",
       "src/collections/gallery/*.md",
     ]);
+  },
+  postTags: function (collection) {
+    const posts = collection.getFilteredByGlob([
+      "src/collections/posts/*.html",
+      "src/collections/posts/*.njk",
+      "src/collections/posts/*.md",
+    ]);
+
+    const categories = []
+
+    posts.forEach(item => {
+      const { category } = item.data
+      const formattedCategories = category.map(tag => {
+        return tag.toLowerCase().replaceAll(/\W|_/g, "-")
+      })
+
+      categories.push(...formattedCategories)
+    })
+
+    return [...new Set(categories)]
   }
 }
