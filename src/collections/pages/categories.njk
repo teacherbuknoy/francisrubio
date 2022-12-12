@@ -28,6 +28,6 @@ activePath: writing
       <a href="/writing/categories/{{ item }}/" class="tag {{ "active" if category === item }}" style="width: fit-content;">{{ item }}</a>
     {% endfor %}
   </div>
-  {% set collection = utils.filterByCategory(collections.posts, category) %}
+  {% set collection = utils.filterByCategory(collections.posts, category) | reverse %}
   {% include 'components/post-grid.njk' %}
 </section>
