@@ -27,10 +27,19 @@
 }
 
 .tag-scroller {
-  display : flex;
-  gap     : 1ch;
-  overflow: auto;
-  padding : var(--space-s);
+  display             : flex;
+  gap                 : 1ch;
+  overflow            : auto;
+  padding             : var(--space-s);
+  padding-inline-start: 5ch;
+  scrollbar-width     : thin;
+  transition          : scrollbar-color 200ms;
+
+  @media (hover: hover) {
+    &:not(:hover) {
+      scrollbar-color: transparent transparent;
+    }
+  }
 }
 
 .tag {
