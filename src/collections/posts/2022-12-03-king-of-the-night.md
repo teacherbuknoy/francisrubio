@@ -106,7 +106,7 @@ For the gala night, I spent an entire month trying on different looks. At first,
 
 What I ended up with was a simple editorial look. I had brown winged eyeliner surrounded by pearl stickers that accentuated my eyes even when I was wearing a mask. I had overblown blush with very little contouring to achieve that magazine model look. And finally, I had red-tinted lips with a lot of lip gloss. Actually, what I used was a lip plumper, which is similar to lip gloss but a lot thicker. It would look like your lips had gel on it and it would shimmer whenever light hits it. It looked very good on close ups.
 
-<div class="image-scroller">
+<div class="image-scroller image-scroller--gallery">
   <img src="/assets/images/posts/king-of-the-night/makeup-1.webp" alt="My final makeup look without the mask">
   <img src="/assets/images/posts/king-of-the-night/makeup-2.webp" alt="My final makeup look with the mask">
   <img src="/assets/images/posts/king-of-the-night/makeup-3.webp" alt="Another picture of my final makeup look with the mask">
@@ -123,7 +123,7 @@ The Stars of the Night was one of the highlights of the event. It was like a pro
 
 A part of me says that the only reason I won was that I had only won because I looked different and extra, and had I went with a coat-and-tie, I wouldn’t have won. But another part of me scoffs at that sentence because that’s why I went extra. I am slowly learning to feel my successes and not treat them as just another steppingstone to something else. I will come to terms with my insecurities eventually but having big wins like this gives me energy to push through. I am also very grateful to DICE205 Digital Corporation for going above and beyond the bare minimum. I am not saying this because I know they’d read this, but because it is the truth. Never have I ever been in a company that cares about its employees as much as DICE205.
 
-<div class="image-scroller">
+<div class="image-scroller image-scroller--gallery">
   <figure class="image-card" style="aspect-ratio: 651/827">
     <a href="/assets/images/posts/king-of-the-night/red-carpet.jpg" class="no-arrow" target="_blank">
       <img src="/assets/images/posts/king-of-the-night/red-carpet.jpg" alt="Me on the red carpet">

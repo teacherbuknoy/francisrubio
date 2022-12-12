@@ -25,6 +25,21 @@
   &>img {
     height: 25ch;
   }
+
+  &--gallery {
+    column-width  : 20ch;
+    display       : block;
+    flex-direction: column;
+    gap           : 1ch;
+
+    @at-root &.image-scroller img,
+    & .image-card {
+      aspect-ratio    : auto !important;
+      break-inside    : avoid;
+      height          : auto;
+      margin-block-end: 1ch;
+    }
+  }
 }
 
 .image-card {
