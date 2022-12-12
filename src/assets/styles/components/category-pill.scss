@@ -1,17 +1,20 @@
 .category-pill {
   align-items        : center;
   background-color   : hsl(var(--bg-secondary));
-  border-radius      : 100px;
+  border-radius      : calc(var(--ideal-radius) * 3);
   display            : flex;
+  flex-wrap          : wrap;
   font-family        : var(--font-sans);
-  padding            : var(--space-xxs);
   gap                : var(--category-pill-gap);
+  padding            : var(--space-xxs);
   --category-pill-gap: var(--space-xxs);
 }
 
 .category-pill__inner {
   border-radius: inherit;
+  flex-grow    : 1;
   padding      : var(--space-xxxs) var(--space-s);
+  text-align   : center;
 }
 
 
