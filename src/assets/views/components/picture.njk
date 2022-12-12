@@ -16,6 +16,12 @@
   {% set sizes = [300, 500, 750, 1000] %}
 {% endif %}
 
+{% set sizesAttr %}
+  {% for size in sizes %}
+    (min-width: {{ size }}px) {{ size }}px{{ "," if not loop.last }}
+  {% endfor %}
+{% endset %}
+
 <picture>
   {# source elements #}
   {% for type in types %}
@@ -28,7 +34,7 @@
     <source
       src="{{ src }}"
       srcset="{{ srcset }}"
-      width="{{ width }}" height="{{ height }}"/>
+      width="{{ width }}" height="{{ height }}" sizes="{{ sizesAttr }}"/>
   {% endfor %}
 
   {# default image #}
