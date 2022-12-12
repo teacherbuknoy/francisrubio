@@ -18,11 +18,10 @@ async function renderWebMentions() {
       if (actualKeys.length <= 0)
         return
 
-      actualKeys.forEach(t => {
+      monitoredKeys.forEach(t => {
         document.querySelectorAll(`[data-webmention=${t}]`)
           .forEach(element => {
-            element.innerText = type[t]
-          })
+            element.innerText = type[t] != null ? type[t] : 0          })
       })
     })
 
