@@ -4,6 +4,13 @@ description: My favorite photos from this year.
 sizes: [500,700,900]
 types: [jpeg, webp, avif]
 folder: 2022-life-in-photos
+seo:
+  twitter:
+    src: "/assets/images/gallery/2022-life-in-photos/twitter.png"
+    is_prefixed: false
+  og:
+    src: "/assets/images/gallery/2022-life-in-photos/og.png"
+    is_prefixed: false
 cover_images:
   index: 0
 entries:
