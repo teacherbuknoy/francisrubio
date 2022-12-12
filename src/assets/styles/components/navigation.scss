@@ -1,19 +1,19 @@
 .navigation-bar {
-  align-items     : center;
-  background-color: hsl(var(--bg-secondary));
-  border-radius   : calc(var(--ideal-radius) * 1.35);
-  display         : flex;
-  flex-wrap       : wrap;
-  font-family     : var(--font-sans);
-  justify-content : space-between;
-  margin          : var(--space);
-  margin-inline   : auto;
-  padding         : var(--space-xs);
-  position        : sticky;
-  top             : var(--space);
-  transition      : padding 300ms, box-shadow 300ms, max-width 200ms, border 200ms;
-  max-width       : 100%;
-  z-index         : 998;
+  align-items          : center;
+  background-color     : hsl(var(--bg-secondary));
+  border-radius        : calc(var(--ideal-radius) * 1.35);
+  display              : grid;
+  font-family          : var(--font-sans);
+  grid-template-columns: repeat(auto-fit, minmax(min(6ch, 100%), 1fr));
+  justify-content      : space-between;
+  margin               : var(--space);
+  margin-inline        : auto;
+  max-width            : 100ch;
+  padding              : var(--space-xs);
+  position             : sticky;
+  top                  : var(--space);
+  transition           : padding 300ms, box-shadow 300ms, max-width 200ms, border 200ms;
+  z-index              : 998;
 
   &.attached {
     box-shadow: 0 10px 25px #0003;
@@ -311,4 +311,8 @@
   @media (max-width: 800px) {
     margin-block: var(--space);
   }
+}
+
+@media (max-width: 392px) {
+  .hide-on-small { display: none; }
 }
