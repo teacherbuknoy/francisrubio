@@ -14,7 +14,7 @@
        loading="lazy"
        class="deck-card__image" />
   {% endif %}
-  <div class="deck-card__body">
+  <span class="deck-card__body">
     <img src="{{ item.data.logo.src }}"
         alt="{{ item.data.logo.alt }}"
         width="{{ item.data.logo.width }}"
@@ -34,5 +34,5 @@
       {{ item.data.title | safe }}
     </h{{ cardLevel if cardLevel != null else 3 }}>
     <p class="deck-card__description">{{ item.data.description | safe }}</p>
-  </div>
+  </span>
 </a>
