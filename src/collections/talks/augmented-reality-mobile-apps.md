@@ -5,8 +5,8 @@ image: /talks/tech2rism-2021/cover.jpg
 date: 2022-11
 tentativeDate:
   toBeDiscussed: true
-  year: 2022
-  month: 11
+  year: 2023
+  month: 0
 host:
   - name: Technological University of the Philippines
     description: Computer Studies Department, College of Science
