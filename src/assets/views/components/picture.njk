@@ -19,7 +19,6 @@
 <picture>
   {# source elements #}
   {% for type in types %}
-    {% set src %}{{ baseFolder }}/{{ identifier }}-{{ sizes[0] }}w.{{ type }}{% endset %}
     {% set srcset %}
       {% for size in sizes %}
         {{ baseFolder }}/{{ identifier }}-{{ size }}w.{{ type }} {{ size }}w{% if not loop.last %},{% endif %}
