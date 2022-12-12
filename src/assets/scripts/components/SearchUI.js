@@ -41,6 +41,7 @@ class SearchUi {
     this.container = $('#search-results-list')
     this.form = document.forms.search
     this.template = $('#search-result-listitem-template')
+    this.resultsCount = $('[data-search=count]')
 
     this.form.addEventListener('submit', e => {
       e.preventDefault()
@@ -54,6 +55,9 @@ class SearchUi {
       // 2. Render the new search results
       const resultsArray = this.resultsToArray(results)
       resultsArray.forEach(data => this.renderSearchResultItem(data))
+
+      // 3. Display total result count
+      this.renderSearchResultCount(resultsArray.length)
     })
   }
 
@@ -67,6 +71,10 @@ class SearchUi {
     while (this.container.lastChild) {
       this.container.removeChild(this.container.lastChild)
     }
+  }
+
+  renderSearchResultCount(count) {
+    this.resultsCount.innerText = `${count} total search results`
   }
 
   renderSearchResultItem(data) {

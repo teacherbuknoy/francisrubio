@@ -136,3 +136,10 @@
     }
   }
 }
+
+.results-count {
+  font-family  : var(--font-sans);
+  margin-block : 0;
+  margin-inline: auto;
+  width        : min(60ch, 90%);
+}
