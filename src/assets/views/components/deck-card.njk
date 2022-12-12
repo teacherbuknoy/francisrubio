@@ -24,7 +24,7 @@
     <span class="cluster ai--center">
       {% for tag in item.data.tags %}
         {% if loop.index > 1 %}
-        <span style="aspect-ratio: 1; background-color: hsl(var(--fg-default) / 50%); width: 0.4ch; border-radius: 100%;"></span>
+        <span style="aspect-ratio: 1/1; background-color: hsl(var(--fg-default) / 50%); width: 0.4ch; border-radius: 100%;"></span>
         {% endif %}
         <span class="uppercase fs-7 ls-s font-sans">{{ tag }}</span>
       {% endfor %}
