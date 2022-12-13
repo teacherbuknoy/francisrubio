@@ -32,6 +32,10 @@ entries:
     alt: Four people adorned in beautiful outfits on a stage
     caption: "The coronation of King and Queen of the Night. From left to right: Ms. Jaana Fernandez-Abrogena (CEO), Ms Doren Garcia (Queen of the Night), me (King of the Night), and Ms. Christnell Aquino (HR Manager)."
     date: 2022-12-02
+  - key: gala-3
+    alt: 'Three photos of a person wearing a black wide-brimmed hat, black corset, and white lace blouse. The image is labeled with the words "Gala Night: A Christmas Thanksgiving Celebration. December 2, 2022."'
+    caption: "My photos from the gala night's photo booth"
+    date: 2022-12-02
   #- key: partner-1
   #  alt: Two people
   #  caption: Me and my partner in one of our dates
