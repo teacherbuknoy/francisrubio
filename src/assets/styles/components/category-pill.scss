@@ -45,7 +45,7 @@
   }
 }
 
-.tag {
+.tag:not(.token) {
   @extend .category-pill;
 
   padding        : var(--space-xxxs) var(--space-s);

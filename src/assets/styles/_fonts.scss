@@ -38,3 +38,20 @@
   font-display: swap;
   font-weight: bold;
 }
+
+@font-face {
+  font-family : "Source Code Pro";
+  font-display: swap;
+  src         :
+    url("/assets/fonts/SourceCodeVariable-Roman.ttf") format("truetype"),
+    url("/assets/fonts/SourceCodeVariable-Roman.otf") format("opentype");
+}
+
+@font-face {
+  font-family : "Source Code Pro";
+  font-display: swap;
+  font-style  : italic;
+  src         :
+    url("/assets/fonts/SourceCodeVariable-italic.ttf") format("truetype"),
+    url("/assets/fonts/SourceCodeVariable-italic.otf") format("opentype");
+}

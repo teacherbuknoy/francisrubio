@@ -64,11 +64,11 @@
   --d-primary-700: 335 100% 54%;
   --d-primary-900: 335 100% 84%;
 
-  --d-secondary-100: 53 100% 79%;
-  --d-secondary-300: 48 100% 71%;
-  --d-secondary-500: 43 94% 61%;
-  --d-secondary-700: 38 82% 46%;
-  --d-secondary-900: 33 100% 34%;
+  --d-secondary-100: 233 100% 21%;
+  --d-secondary-300: 233 80% 41%;
+  --d-secondary-500: 233 80% 61%;
+  --d-secondary-700: 233 50% 71%;
+  --d-secondary-900: 233 50% 81%;
 }
 
 :root {
@@ -145,7 +145,7 @@
   }
 }
 
-.light {
+@mixin light-theme() {
   --contrast     : var(--l-contrast);
   --default      : var(--l-default);
   --subtle       : var(--l-subtle);
@@ -182,7 +182,7 @@
   --warning-900: var(--l-warning-900);
 }
 
-.dark {
+@mixin dark-theme() {
   --contrast     : var(--d-contrast);
   --default      : var(--d-default);
   --subtle       : var(--d-subtle);
@@ -219,6 +219,22 @@
   --warning-900: var(--d-warning-900);
 }
 
+.system {
+  @include light-theme();
+
+  @media (prefers-color-scheme: dark) {
+    @include dark-theme();
+  }
+}
+
+.light {
+  @include light-theme();
+}
+
+.dark {
+  @include dark-theme();
+}
+
 /* FONTS */
 :root {
   --font-sans         : "DM Sans", sans-serif;
@@ -227,7 +243,7 @@
   --font-display-serif: "Fraunces", serif;
   --font-body         : var(--font-serif);
   --font-ui           : var(--font-sans);
-  --font-mono         : "Recursive", monospace;
+  --font-mono         : "Source Code Pro", monospace;
 
   @supports (font-variation-settings: "wght"100) {
     --font-serif        : "Fraunces var", serif;
@@ -266,4 +282,9 @@
   /* ALIAS */
 
   --ideal-radius: 6px;
+  --radius-1    : 4px;
+  --radius-2    : 6px;
+  --radius-3    : 8px;
+  --radius-4    : 10px;
+  --radius-5    : 12px;
 }

@@ -60,6 +60,15 @@
       margin-top: 1ch;
     }
   }
+
+  .cp_embed_wrapper {
+    border: 1px solid hsl(var(--fg-non-essential));
+  }
+
+  pre[class^=language]+:is(pre[class^=language], .cp_embed_wrapper) {
+    margin-block-start: calc(-1 * var(--space));
+    border-block-start: none;
+  }
 }
 
 .article__header {
@@ -85,7 +94,8 @@
   position   : relative;
   text-align : center;
 
-  cite, address {
+  cite,
+  address {
     display    : block;
     font-family: var(--font-sans);
     font-size  : 1rem;
@@ -133,6 +143,7 @@ figure.image {
   background-color: transparent;
   height          : fit-content;
   margin-inline   : auto;
+  margin-block-end: var(--space);
 
   dl {
     margin-top: 1ch;

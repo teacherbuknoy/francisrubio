@@ -85,7 +85,6 @@ When we use this later on in our code, this is what it's supposed to look like, 
 With this design, we expect it to align our cards and their contents with each other, regardless of how long or short the contents are.
 
 ## Coding the grid
-
 As usual, we still use `display: grid` to make the container a grid container and turn its direct children into grid items. We will also just use the column templates from our previous examples since nothing changed in our columns. We are still using our previous example's HTML code.
 
 ```css
@@ -109,7 +108,7 @@ We are making the first row `minmax(100px, 1fr)` to make it take up the most spa
 }
 ```
 
-We will then make the cards span those three rows. We're giving each card three rows since our content will align to those three rows. We will also make it a grid container using `display: grid;`.
+We will then make the cards span those three rows. We're giving each card three rows since our content will align to those three rows. We will also make it a grid container using `display: grid;`. 
 
 ```css
 .card {
@@ -120,11 +119,13 @@ We will then make the cards span those three rows. We're giving each card three 
 
 And now for the exciting part: instead of assigning a custom row template for the cards, we will instead use the `subgrid` value. This tells the browser to use the rows of the parent container to lay out the contents of our card:
 
-<pre><code data-language="css">.card {
+```css/3
+.card {
   display: grid;
   grid-row: span 3;
-  <mark>grid-template-rows: subgrid;</mark>
-}</code></pre>
+  grid-template-rows: subgrid;
+}
+```
 
 This is what that looks like now:
 
@@ -144,11 +145,15 @@ However, you will notice that the second row of cards are quite shorter than the
 
 To solve this problem, we will go back to our `.grid` container and use the property called `grid-auto-rows` instead. This will tell the browser to reuse our row template whenever it creates new rows:
 
-<pre><code data-language="css">.grid {
+<pre><code data-language="css"></code></pre>
+
+```css/3
+.grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-<mark>auto</mark>-rows: 1fr auto auto;
-}</code></pre>
+    grid-auto-rows: 1fr auto auto;
+}
+```
 
 <p class="codepen" data-height="459" data-theme-id="light" data-default-tab="result" data-user="maniczirconium" data-slug-hash="vYKmLEr" style="height: 459px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Cards with subgrid (with grid-auto-rows)">
   <span>See the Pen <a href="https://codepen.io/maniczirconium/pen/vYKmLEr">
@@ -160,12 +165,16 @@ To solve this problem, we will go back to our `.grid` container and use the prop
 
 We can make this responsive by using the `minmax()` syntax on the `.grid` container. Instead of using `1fr 1fr 1fr` to specify three equal-sized columns, we will use `repeat()` to tell the browser to fit whatever number of cards can fit into the current size of the container:
 
-<pre><code data-language="css">.grid {
+<pre><code data-language="css"></code></pre>
+
+```css/2
+.grid {
   display: grid;
-  grid-template-columns: <mark>repeat(auto-fill, minmax(300px, 1fr))</mark>;
+  grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
   grid-auto-rows: minmax(100px, 1fr) auto auto;
   gap: 1em;
-}</code></pre>
+}
+```
 
 Jen Simmons has a really great [video on the Layout Land Youtube channel](https://www.youtube.com/watch?v=tFKrK4eAiUQ) that explains how this syntax works. But basically, it tells the browser to fit as many cards as possible into our rows as long as each card is `300px` or more. Let's see what that looks like:
 

@@ -1,0 +1,122 @@
+code:not([class]) {
+  background-color: hsl(var(--bg-contrast) / 50%);
+  padding-inline  : 0.25ch;
+  border-radius   : var(--radius-1);
+  font-size       : 90%;
+}
+
+.dark {
+  --color-highlight-1: hsl(var(--primary-700) / 25%);
+  --color-highlight-2: hsl(var(--primary-700) / 5%)
+}
+
+.light,
+.system {
+  --color-highlight-1: hsl(var(--primary-300) / 25%);
+  --color-highlight-2: hsl(var(--primary-300) / 1%)
+}
+
+.system {
+  @media (prefers-color-scheme: dark) {
+    --color-highlight-1: hsl(var(--primary-700) / 25%);
+    --color-highlight-2: hsl(var(--primary-700) / 5%)
+  }
+}
+
+pre[class^=language] {
+  background-color: hsl(var(--bg-contrast) / 50%);
+  display         : flex;
+  flex-direction  : column;
+  font-family     : var(--font-mono);
+  font-size       : 90%;
+  font-size       : var(--type-size);
+  gap             : 1ch;
+  overflow        : auto;
+  padding         : var(--space);
+  tab-size        : 2;
+  white-space     : pre;
+  border          : 1px solid hsl(var(--fg-non-essential));
+  scrollbar-width : thin;
+
+  &::before {
+    background-color: hsl(var(--secondary-300));
+    content         : var(--pre-language, "");
+    font-family     : var(--font-sans);
+    font-size       : var(--type-size-6);
+    font-weight     : bold;
+    left            : 0;
+    padding         : var(--space-xxs) var(--space-s);
+    position        : sticky;
+    text-transform  : uppercase;
+    top             : 0;
+    width           : fit-content;
+  }
+
+  &.language-css {
+    --pre-language: "CSS"
+  }
+
+  &.language-html {
+    --pre-language: "HTML"
+  }
+
+  &.language-js,
+  &.language-javascript {
+    --pre-language: "JavaScript"
+  }
+
+  .token {
+
+    &.selector,
+    &.tag .tag,
+    &.keyword {
+      color                  : hsl(var(--primary-900) / 75%);
+      font-variation-settings: 'wght'500;
+    }
+
+    &.property,
+    &.attr-name {
+      color: hsl(var(--warning-700));
+    }
+
+    &.string,
+    &.attr-value,
+    &.attr-value .punctuation:not(.attr-equals) {
+      color: hsl(var(--success-700));
+    }
+
+    &.function {
+      color                  : hsl(var(--secondary-900) / 80%);
+      font-variation-settings: 'wght'500;
+    }
+
+    &.comment {
+      color: hsl(var(--fg-default) / 50%);
+    }
+
+    &.punctuation {
+      color: hsl(var(--fg-subtle));
+    }
+
+    &.important {
+      color: hsl(var(--error-700));
+    }
+
+    &.special-attr {
+      color: hsl(var(--warning-700));
+    }
+  }
+
+  .highlight-line {
+    display: inline-block;
+
+    &-active {
+      background-color    : transparent;
+      background-image    : linear-gradient(to right, var(--color-highlight-1), var(--color-highlight-2));
+      color               : inherit;
+      margin-left         : calc(-1 * var(--space));
+      padding-inline-start: var(--space);
+      width               : calc(100% + var(--space) * 2);
+    }
+  }
+}
