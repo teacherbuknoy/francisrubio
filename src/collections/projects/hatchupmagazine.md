@@ -18,6 +18,12 @@ cover:
   alt: Quantarks
   width: 1200
   height: 630
+details:
+  - key: Technologies used
+    values:
+      - Eleventy, Nunjucks, NodeJS
+      - Figma (for graphic design)
+      - Vanilla HTML, CSS, JavaScript
 ---
 
 HatchUp Magazine is a magazine that represents local businesses and entrepreneurs from Calgary, Canada. I was tasked to create the magazine's official website, both for promotion and to give potential subscribers a way to buy copies or subscribe to the magazine, both digital and in print.

@@ -22,7 +22,7 @@ cover:
 details:
   - key: Technologies used
     values:
-      - Unity 3D, C#, Android, Blender, Adobe AfterEffects, Adobe Photoshop
+      - Unity 3D, C#, Android, Blender, Adobe AfterEffects, Adobe Photoshop, Vuforia
   - key: Project duration
     values:
       - One year (2018 - 2019)

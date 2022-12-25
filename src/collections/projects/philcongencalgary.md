@@ -18,6 +18,12 @@ cover:
   alt: Philippine Consulate General - Calgary
   width: 1200
   height: 630
+details:
+  - key: Technologies used
+    values:
+      - Eleventy, Nunjucks, NodeJS
+      - Figma (for graphic design)
+      - Vanilla HTML, CSS, JavaScript
 ---
 
 ## Problem
