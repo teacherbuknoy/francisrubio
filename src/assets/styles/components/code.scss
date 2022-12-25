@@ -39,7 +39,7 @@ pre[class^=language] {
   scrollbar-width : thin;
 
   &::before {
-    background-color: hsl(var(--secondary-300));
+    background-color: hsl(var(--primary-300));
     content         : var(--pre-language, "");
     font-family     : var(--font-sans);
     font-size       : var(--type-size-6);

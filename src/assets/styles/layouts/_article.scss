@@ -197,7 +197,10 @@ details {
 }
 
 .article__toc a {
+  display        : inline-block;
   font-family    : var(--font-sans);
+  line-height    : 1.2;
+  margin-bottom  : 0.8ch;
   text-decoration: none;
 
   &:hover {
