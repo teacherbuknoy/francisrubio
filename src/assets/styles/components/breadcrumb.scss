@@ -1,0 +1,44 @@
+.breadcrumb {
+  &__list {
+    margin          : 0;
+    margin-block-end: var(--space);
+    padding         : 0;
+    list-style      : none;
+    display         : flex;
+    flex-wrap       : wrap;
+    column-gap      : 1ch;
+
+    &-item {
+      display    : flex;
+      gap        : inherit;
+      align-items: center;
+
+      &:not(:last-child)::after {
+        content          : "";
+        --chevron-size   : 0.5ch;
+        border           : var(--chevron-size) solid transparent;
+        border-left-color: currentColor;
+        border-right     : 0;
+      }
+    }
+  }
+
+  &__link {
+    font-family: var(--font-sans);
+    font-size  : 90%;
+
+    &:not([href]) {
+      padding: var(--space-xxxs) var(--space-xs);
+    }
+
+    &[href] {
+      @extend .button;
+
+      padding         : var(--space-xxxs) var(--space-xs);
+      background-color: transparent;
+      text-transform  : none;
+      font-size       : 90%;
+      letter-spacing  : normal;
+    }
+  }
+}

@@ -4,11 +4,32 @@
   {% include 'components/navigation.njk' %}
   <main style="width: min(100ch, 100%); margin-inline: auto;" class="h-entry padding--xl article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
     <header class="article__header">
-      <div class="ai--center cluster margin-bottom--l lh-s">
-        <a href="/writing/" class="button jc--start padding--xs">Writing</a>
-        <span>/</span>
-        <span class="d-flex font-sans jc--start">This post</span>
-      </div>
+      {% if images %}
+        {% set baseFolder = images.path %}
+        {% set identifier = "cover" %}
+        {% set types = images.types %}
+        {% set sizes = images.sizes %}
+        {% set alt = "" %}
+        {% set imgClass = "article__image" %}
+        {% set width = 600 %}
+        {% set height = 350 %}
+        {% include "components/picture.njk" %}
+      {% else %}
+        <img src="{{ image.src }}" alt="" class="article__image">
+      {% endif %}
+      <nav class="breadcrumb" aria-label="Breadcrumbs">
+        <ol class="breadcrumb__list">
+          <li class="breadcrumb__list-item">
+            <a href="/" class="breadcrumb__link" data-animation="button">Frontpage</a>
+          </li>
+          <li class="breadcrumb__list-item">
+            <a href="/writing/" class="breadcrumb__link" data-animation="button">Writing</a>
+          </li>
+          <li class="breadcrumb__list-item">
+            <a aria-current="location" class="breadcrumb__link" data-animation="button">This page</a>
+          </li>
+        </ol>
+      </nav>
       <h1 id="{{ title | slugify }}" class="p-name article__title margin--none responsive">{{ title | safe }}</h1>
       <p class="p-summary responsive fs-4 weight-300">{{ description }}</p>
       <div class="spaced cluster ai--center">

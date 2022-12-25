@@ -17,6 +17,7 @@
 /* COMPONENTS */
 @import "components/badge";
 @import "components/button";
+@import "components/breadcrumb.scss";
 @import "components/card";
 @import "components/category-pill";
 @import "components/content-warning";
@@ -196,7 +197,7 @@ a {
     }
   }
 
-  &:hover {
+  &:where([href]):hover {
     color                : hsl(var(--primary-900));
     text-decoration-color: hsl(var(--fg-default));
   }
