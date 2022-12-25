@@ -36,11 +36,12 @@
 }
 
 .article__image {
-  width        : 100%;
-  border-radius: var(--radius-3);
-  height       : 15ch;
-  object-fit   : cover;
-  margin-bottom: var(--space-l);
+  width          : 100%;
+  border-radius  : var(--radius-3);
+  height         : 25ch;
+  object-fit     : cover;
+  object-position: center;
+  margin-bottom  : var(--space-l);
 }
 
 .article__body {
