@@ -1,0 +1,9 @@
+---
+layout: null
+permalink: /links.json
+eleventyExcludeFromCollections: true
+---
+{% set domain = site.domains | selectattr("isPreferred") | first %}
+[
+  {% for item in collections.all %}"https://{{ domain.value }}{{ item.url | url }}"{{ "," if not loop.last }}{% endfor %}
+]
