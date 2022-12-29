@@ -165,11 +165,23 @@ class WebMentions {
 async function fetchWebMentions() {
   const API = new URL('https://webmention.io/api/mentions.jf2')
   const params = API.searchParams
+  const data = []
 
   params.append("target", this.url)
+  params.append("wm-property", 'like-of')
 
-  const data = await fetch(API.toString()).then(data => data.json())
-  this.data = data.children
+  const likes = (await fetch(API.toString()).then(data => data.json())).children
+  data.push(...likes)
+
+  params.set("wm-property", 'repost-of')
+  const repost = (await fetch(API.toString()).then(data => data.json())).children
+  data.push(...repost)
+
+  params.set("wm-property", 'in-reply-to')
+  const replies = (await fetch(API.toString()).then(data => data.json())).children
+  data.push(...replies)
+
+  this.data = data
   return data
 }
 class WebMentionBuilder {
