@@ -1,0 +1,61 @@
+.callout {
+  --callout-radius: var(--radius-3);
+  align-items     : first baseline;
+  background-color: hsl(var(--bg-contrast) / 50%);
+  border-radius   : var(--callout-radius);
+  display         : flex;
+  gap             : 1ch;
+  padding         : var(--space);
+
+  .callout__body {
+    flex       : 1;
+    font-family: var(--font-sans);
+    font-size  : var(--type-size-6);
+    margin     : 0;
+  }
+
+  .feather {
+    position: relative;
+    bottom  : -0.4ch;
+    color   : var(--icon-color, currentColor)
+  }
+
+  &--info {
+    --icon-color    : hsl(var(--fg-default));
+    background-color: hsl(var(--fg-contrast) / 5%);
+  }
+
+  &--warning {
+    --icon-color    : hsl(var(--warning-700));
+    color           : hsl(var(--warning-900));
+    background-color: hsl(var(--warning-100) / 25%);
+  }
+
+  &--left,
+  &--right {
+    width         : 100vw;
+    margin-inline : 0;
+    margin-left   : -5vw;
+    padding-inline: 10vw;
+    border-radius : 0;
+  }
+
+  @media (min-width: 690px) {
+
+    &--left,
+    &--right {
+      width         : min(25ch, 90%);
+      margin-inline : var(--space-l);
+      border-radius : var(--callout-radius);
+      padding-inline: var(--space);
+    }
+
+    &--left {
+      float: left;
+    }
+
+    &--right {
+      float: right;
+    }
+  }
+}

@@ -78,6 +78,10 @@
     margin-block-start: calc(-1 * var(--space));
     border-block-start: none;
   }
+
+  p {
+    hyphens: auto;
+  }
 }
 
 .article__header {

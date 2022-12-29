@@ -300,4 +300,17 @@ hr {
   height             : 1ch;
   margin-block       : var(--space-xxl);
   width              : 100%;
+
+  @at-root {
+    .dark & {
+      filter: invert(1)
+    }
+
+    @media (prefers-color-scheme) {
+      .default &,
+      .system & {
+        filter: invert(1)
+      }
+    }
+  }
 }
