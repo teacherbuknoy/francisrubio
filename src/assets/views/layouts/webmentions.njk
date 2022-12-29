@@ -17,6 +17,9 @@
           <img class="u-photo" src="{{ author.photo }}" alt="" width="300" height="300">
           <a href="{{ author.url }}" class="u-url">User link</a>
         </address>
+        {% if type === 'in-reply-to' %}
+          <div class="e-content">{{ content | safe }}</div>
+        {% endif %}
       </article>
     {% endblock %}
   </body>
