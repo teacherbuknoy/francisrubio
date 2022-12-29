@@ -1,0 +1,4 @@
+{
+  "permalink": "/webmentions/{{ title | slug }}/",
+  "layout": "webmentions.njk"
+}
