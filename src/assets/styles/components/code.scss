@@ -24,19 +24,28 @@ code:not([class]) {
 }
 
 pre[class^=language] {
-  background-color: hsl(var(--bg-contrast) / 50%);
-  display         : flex;
-  flex-direction  : column;
-  font-family     : var(--font-mono);
-  font-size       : 90%;
-  font-size       : var(--type-size);
-  gap             : 1ch;
-  overflow        : auto;
-  padding         : var(--space);
-  tab-size        : 2;
-  white-space     : pre;
-  border          : 1px solid hsl(var(--fg-non-essential));
-  scrollbar-width : thin;
+  display        : flex;
+  flex-direction : column;
+  font-family    : var(--font-mono);
+  font-size      : 90%;
+  font-size      : var(--type-size);
+  gap            : 1ch;
+  overflow       : auto;
+  padding        : var(--space);
+  tab-size       : 2;
+  white-space    : pre;
+  border         : 1px solid hsl(var(--fg-non-essential));
+  scrollbar-width: thin;
+
+  background:
+    linear-gradient(90deg, hsl(var(--bg-primary)) 30%, hsl(var(--bg-primary) / 0)),
+    linear-gradient(90deg, hsl(var(--bg-primary) / 0), hsl(var(--bg-primary)) 70%) 0 100%,
+    radial-gradient(farthest-side at 0 50%, #0003, #0000),
+    radial-gradient(farthest-side at 100% 50%, #0003, #0000) 0 100%;
+  background-attachment: local, local, scroll, scroll;
+  background-position  : 0 0, 100%, 0 0, 100%;
+  background-repeat    : no-repeat;
+  background-size      : 50px 100%, 50px 1100%, 25px 100%, 25px 100%;
 
   &::before {
     background-color: hsl(var(--primary-300));
