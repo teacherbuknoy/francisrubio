@@ -9,7 +9,7 @@
   <body>
     {% block content %}
       <article class="h-entry">
-        <a class="u-{{ typeClass }}" href="{{ originalPost }}">Original Post</a>
+        <a class="u-{{ type }}" href="{{ originalPost }}">Original Post</a>
         <a href="{{ sourceUrl }}" class="u-url">Permalink</a>
         <time class="dt-published" datetime="{{ dtPublished }}">{{ dtPublished | humanReadableDate }}</time>
         <address class="p-author h-card">
