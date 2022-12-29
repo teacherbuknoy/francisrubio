@@ -64,9 +64,58 @@
   h5,
   h6 {
     @extend .responsive;
+    align-items    : center;
+    display        : flex;
+    gap            : var(--space-xs);
+    justify-content: space-between;
+    position       : relative;
 
     &:not(:first-child) {
       margin-top: 1ch;
+    }
+
+    .header-anchor {
+      align-items    : center;
+      border-radius  : var(--radius-1);
+      display        : flex;
+      font-size      : var(--type-size);
+      gap            : 1ch;
+      overflow       : hidden;
+      text-align     : center;
+      text-decoration: none;
+      justify-content: center;
+      flex-basis     : 3ch;
+
+      &:focus-visible {
+        background    : transparent;
+        outline-offset: 0.25ch;
+        outline-width : 3px;
+      }
+
+      &::before {
+        --margin        : 100%;
+        background-color: hsl(var(--bg-secondary));
+        border-radius   : var(--radius-1);
+        content         : attr(aria-label);
+        font-family     : var(--font-sans);
+        mask-image      : linear-gradient(to right, black 50%, transparent 50%);
+        mask-position   : calc(-1 * var(--margin));
+        mask-repeat     : no-repeat;
+        mask-size       : 200%;
+        padding-block   : var(--space-xxs);
+        padding-inline  : var(--space-xs);
+        position        : absolute;
+        right           : 3ch;
+        top             : 50%;
+        transform       : translateY(-50%);
+        transition      : mask-position 200ms, margin-right 200ms;
+        width           : max-content;
+      }
+
+      &:focus-visible::before,
+      &:hover::before {
+        --margin: 0;
+      }
     }
   }
 

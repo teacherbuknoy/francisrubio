@@ -12,7 +12,7 @@ seo:
   og:
     src: ""
     is_prefixed: false
-eleventyExcludeFromCollections: false
+eleventyExcludeFromCollections: true
 ---
 It’s been more than a year since I started playing Genshin Impact, and all I can say is out of all the games I’ve played, this has got to be the best one yet. Granted, I did not play a lot of games before this, and if I did, they were always arcade and casual games. Even so, if a game pulls someone like me, a person with not enough time to himself, into playing it, it has got to account for something, right?
 
@@ -71,7 +71,7 @@ The Raiden Shogun’s first appearance is also a remarkable scene. I am always g
 
 In this scene, the Raiden Shogun appears in front of the people for the ceremony of the 100th Vision to be taken during the Vision Hunt Decree. Visions are to regular humans what Gnoses are to Archons. It gives them control over a single element in Teyvat, giving them extraordinary power, which, to the Raiden Shogun, goes against her goal of unchanging Eternity. This scene shows Thoma, one of The Traveler’s first friends in Inazuma, being captured and his Vision being taken away by the Raiden Shogun.
 
-**What I liked*:** up until this moment, the player has no idea what the Raiden Shogun looks like. And the previous two Archons we have met have been benevolent and helpful. This is the first time we get a villainous Archon who seems to have little care about her people. Seeing the Raiden Shogun, in all her glory, unsheathing her electric sword out of her boobs, slashing time and space to take the Traveler inside her consciousness—all this contribute to a very thrilling scene. I literally got chills when I first played through this, and the battle scene afterwards which made all of my character’s skills disabled because of the Vision Hunt Decree only added to the immersive experience.
+**What I liked:** up until this moment, the player has no idea what the Raiden Shogun looks like. And the previous two Archons we have met have been benevolent and helpful. This is the first time we get a villainous Archon who seems to have little care about her people. Seeing the Raiden Shogun, in all her glory, unsheathing her electric sword out of her boobs, slashing time and space to take the Traveler inside her consciousness—all this contribute to a very thrilling scene. I literally got chills when I first played through this, and the battle scene afterwards which made all of my character’s skills disabled because of the Vision Hunt Decree only added to the immersive experience.
 
 {{ 'nnezQamegYo' | youtube }}
 
@@ -132,11 +132,19 @@ The Lantern Rite is an annual festival in Liyue around the same time as the Chin
 
 {{ 'GJiO22r9418' | youtube }}
 
-### 6.Turning Point
+### 6. Turning Point
 
-{{ 'jS0T59kKJxg' | youtube }}
+The people of Liyue, led by Ningguang and the Adepti from the Jade Chamber, fight the Overlord of the Vortex, Osial. Losing the fight will mean that the people of Liyue in the harbor will drown to their deaths. With their last line of defense destroyed, Ningguang sacrifices the Jade Chamber, a floating palace in the sky that she had built from the time she was poor, to kill the water serpent once and for all.
+
+**What I like:** this was the first epic battle scene we got from the game. It felt like a Marvel movie, and it was also very emotional seeing Ningguang sacrifice entire years' worth of hardwork destroyed to protect her people.
+
+{{ 'bfrdqaguW4g' | youtube }}
 
 ### 5. Where the Heart Finds Rest
+
+Jade Chamber is rebuilt after the original one suffered total destruction to defeat Osial. But the new Jade Chamber is threatened to be destroyed once more when Ningguang reveals that Osial's wife, Beisht, harbors hate towards the Jade Chamber. She also reveals that she specifically rebuilt this new one so Beisht would come out of the waters. The Traveler and Paimon offers to fetch the powerful Adepti to contain the situation, but Ningguang stops them, stating that “in this human age, the people of Liyue must find a way to overcome this crisis on our strength alone.” Beisht unleashes a giant wave that once again threatened to drown Liyue Harbor, but Shenhe, a superhuman with homicidal tendencies contained by red ropes from the Adepti, freezes the wave in a moment of realization that this is the moment she could become one with the people again.
+
+**What I like:** The entire quest focused on Shenhe's life and how she was sacrificed by her father to a malevolent god to bring back her mother. She has since been too traumatized and believes herself to be a cursed child. Seeing her give her all to protect the people that rejected her made me so emotional. It's a shame that Shenhe hasn't had a rerun since.
 
 {{ 'tbLJ2DizBws' | youtube }}
 
@@ -170,6 +178,11 @@ As Kazuha parries the Shogun’s attack, the resistance moves forward to sieze a
 {{ "oap4SLanYXU" | youtube }}
 
 ## Honorable mentions.
+
+### The Divine Damsel of Devastation
+
+{{ "EiAhMr6IJTQ" | youtube }}
+
 ### Nahida gambles.
 This is not a cutscene, but it is one of the best scenes so far in Genshin Impact. It was a battle, not of the physical, but of the mental. The God of Wisdom Nahida and the scorned scholar Dottore negotiate with each other about the electro and dendro gnoses. The amount of lore drop and the way Nahida speaks to Dottore, a man she once feared, is very refreshing. It is a very remarkable way to show that she is indeed the God of Wisdom. And the best part is this is the first time in two years that the plot point of Teyvat’s skies being fake is addressed again.
 

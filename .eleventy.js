@@ -80,7 +80,13 @@ module.exports = function (eleventyConfig) {
       typographer: true
     })
       .use(markdownItAnchor, {
-        slugify: s => slug(s)
+        slugify: s => slug(s),
+        permalink: markdownItAnchor.permalink.linkInsideHeader({
+          symbol: `
+            <svg class="feather" aria-hidden="true"><use href="/assets/images/feather-sprite.svg#link-2" /></svg>
+          `,
+          renderAttrs: slug => ({ 'aria-label': 'Link to this header' })
+        })
       })
       .use(require('markdown-it-deflist'))
       .use(require('markdown-it-abbr'))
