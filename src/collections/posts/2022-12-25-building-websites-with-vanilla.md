@@ -106,6 +106,6 @@ And look at our form’s attributes, specifically the `action` attribute. This m
 
 ## Conclusion.
 
-HTML, CSS, and JavaScript are all powerful on their own. In reality, frameworks are just there to make our jobs easier for us, and make everything abstracted and less verbose. But considering the trade-offs frameworks have, we must first look out and think if its really worth it.
+HTML, CSS, and JavaScript are all powerful on their own. In reality, frameworks are just there to make our jobs easier for us, and make everything abstracted and less verbose. But considering the trade-offs frameworks have, we must first look out and think if it's really worth it.
 
 The Antares Programming redesign is almost complete. I’m estimating around 80% of the site is complete at the time of writing. And right now, my front-end JS is sitting at around 4.68kb minified but not yet optimized, so every functionality across all pages are bundled within one JS file. I expect that to be smaller if I separate them across multiple bundles. And that’s a testament to the fact that vanilla JS can be made more performant than frameworks. Why not give it a try in your next project? It can be a fun challenge and a rewarding experience.
