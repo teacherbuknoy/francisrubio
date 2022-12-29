@@ -86,7 +86,7 @@ frmNewsletter.addEventListener('submit', e => {
 	.then(response => response.json())
 	.then(data => output.message = 'Form submitted successfully.')
 	.catch(err => {
-		output.message = 'Something went wrong. Check logs for details.'
+		output.value = 'Something went wrong. Check logs for details.'
 		console.error(err)
 	})
 })
