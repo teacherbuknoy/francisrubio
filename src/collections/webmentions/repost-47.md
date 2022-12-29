@@ -1,5 +1,5 @@
 ---
-title: Repost 46
+title: Repost 47
 originalPost: https://francisrubio.antaresph.dev/writing/building-websites-with-vanilla/
 sourceUrl: https://mstdn.party/@teacherbuknoy/109588734989853380
 type: in-reply-to
