@@ -72,7 +72,6 @@ So how do we learn CSS effectively? I recommend a few things:
 
 All of these tips are in actuality also applicable in learning other languages. CSS is just another programming language you'll learn. And you don't even have to have an eye for good design to use CSS effectively. And just like any other programming languages, the more you use CSS, the more you get the hang of it. So go ahead and build with CSS. You won't regret it.
 
-*[CSS]: Cascading Stylesheets
 *[W3C]: Worldwide Web Consortium
 
 [^1]: “The Web Back in 1996-1997 - Pingdom.” Pingdom.com, https://www.pingdom.com/blog/the-web-in-1996-1997/. 
