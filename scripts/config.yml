@@ -6,6 +6,10 @@ compress_images:
     - src/assets/images/literatures/**/*.jpg
     - src/assets/images/literatures/**/*.png
     - src/assets/images/literatures/**/*.webp
+    - src/assets/images/gallery/**/*.jpg
+    - src/assets/images/gallery/**/*.jpeg
+    - src/assets/images/gallery/**/*.png
+    - src/assets/images/gallery/**/*.webp
   exclude:
     - src/assets/images/root/**
   sizes: [500, 700, 900, 1080, 1240]

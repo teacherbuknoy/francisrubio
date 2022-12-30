@@ -13,7 +13,13 @@
 {% endif %}
 <a href="{{ item.url }}" class="gallery-entry-link">
   <article class="gallery-entry">
-    {% include 'components/picture.njk' %}
+    {% set baseFolder %}/assets/images/gallery/{{ item.data.folder }}/optimized{% endset %}
+    {% set identifier = item.data.entries[0].key %}
+    {% set types = post.images.types %}
+    {% set sizes = post.images.sizes %}
+    {% set alt = item.entries[0].alt %}
+    {% set defaultImageClass = "gallery-entry__cover-image" %}
+    {% include "components/post-picture.njk" %}
     <div class="gallery-entry__body">
       <h2 class="gallery-entry__headline">{{ item.data.title | safe }}</h2>
       <p class="gallery-entry__subtitle">{{ item.data.description | safe }}</p>

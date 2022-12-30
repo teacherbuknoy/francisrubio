@@ -34,7 +34,15 @@
         {% set height = image.height %}
         <figure class="gallery-card">
           <a class="gallery-card__link no-arrow" href="/assets/images{{ defaultImg }}" target="_blank">
-            {% include 'components/picture.njk' %}
+            {% set baseFolder %}/assets/images/gallery/{{ folder }}/optimized{% endset %}
+            {% set identifier = image.key %}
+            {% set types = post.images.types %}
+            {% set sizes = post.images.sizes %}
+            {% set alt = image.alt %}
+            {% set imgClass = "gallery-card__image" %}
+            {% set width = image.width %}
+            {% set height = image.height %}
+            {% include "components/post-picture.njk" %}
           </a>
           <figcaption class="gallery-card__caption">
             <p>{{ image.caption | safe }}</p>

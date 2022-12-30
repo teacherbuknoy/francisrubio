@@ -1,7 +1,12 @@
 {% set sizes = imgconfig.sizes %}
 {% set formats = imgconfig.formats %}
-{% set path = images.path if images.path else post.images.path %}
-{% set identifier = 'cover' %}
+{% set path = baseFolder %}
+{% if images.path %}
+  {% set path = images.path %}
+{% elif post.images.path %}
+  {% set path = post.images.path %}
+{% endif %}
+{% set identifier = identifier if identifier else 'cover' %}
 {% set width = '600' %}
 {% set height = '350' %}
 
