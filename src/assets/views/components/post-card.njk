@@ -12,7 +12,7 @@
     {% set imgClass = "" %}
     {% set width = 600 %}
     {% set height = 350 %}
-    {% include "components/picture.njk" %}
+    {% include "components/post-picture.njk" %}
   </div>
   {% else %}
   <div class="post-card__image" style="--post-image: {{ path if post.image else 'linear-gradient(transparent, transparent)' }}"></div>

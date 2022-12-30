@@ -1,0 +1,37 @@
+{% set sizes = post.images.sizes %}
+{% set formats = post.images.types %}
+{% set path = post.images.path %}
+{% set identifier = 'cover' %}
+{% set width = '600' %}
+{% set height = '350' %}
+
+{% set sizesAttr %}
+  {% for size in sizes %}(max-width: {{ size }}px) {{ size }}px{{ "," if not loop.last }}{% endfor %}
+{% endset %}
+
+{% set sourceElements %}
+{% for format in formats %}
+  {% set srcset %}{% for size in sizes %}{{ path }}/{{ identifier }}-{{ size }}w.{{ format }} {{ size }}w{{ ',' if not loop.last }}{% endfor %}{% endset %}
+  
+  <source 
+    data-format="{{ format }}"
+    srcset="{{ srcset }}"
+    type="image/{{ format }}"
+    width="{{ width }}"
+    height="{{ height }}"
+    size="{{ sizesAttr | trim }}"
+  />
+{% endfor %}
+{% endset %}
+
+{% set src %}{{ path }}/{{ identifier }}-{{ sizes | first }}w.{{ formats | first }}{% endset %}
+
+<picture>
+  {{ sourceElements | safe }}
+  <img
+    src="{{ src }}"
+    alt=""
+    width="{{ width }}"
+    height="{{ height }}"
+/>
+</picture>
