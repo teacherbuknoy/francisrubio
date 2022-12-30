@@ -8,7 +8,7 @@
         {% set defaultImageClass = "article__image" %}
         {% include "components/post-picture.njk" %}
       {% else %}
-        <img src="{{ image.src }}" alt="" class="article__image">
+        <img src="/assets/images{{ image.src if image.src else image }}" alt="" width="600" height="350" class="article__image">
       {% endif %}
       <nav class="breadcrumb" aria-label="Breadcrumbs">
         <ol class="breadcrumb__list">
