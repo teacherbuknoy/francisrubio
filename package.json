@@ -14,6 +14,7 @@
     "serve": "npm run prodserve",
     "new-post": "node ./scripts/new-post.js",
     "images": "node ./scripts/images.js",
+    "img-compress": "node ./scripts/compress-images.js",
     "archive": "node ./scripts/internet-archive.mjs"
   },
   "repository": {
@@ -69,6 +70,8 @@
   },
   "devDependencies": {
     "formdata-node": "^5.0.0",
-    "prettier": "2.8.0"
+    "glob-all": "^3.3.1",
+    "prettier": "2.8.0",
+    "yaml": "^2.2.0"
   }
 }

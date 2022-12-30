@@ -1,5 +1,5 @@
-{% set sizes = post.images.sizes %}
-{% set formats = post.images.types %}
+{% set sizes = imgconfig.sizes %}
+{% set formats = imgconfig.formats %}
 {% set path = post.images.path %}
 {% set identifier = 'cover' %}
 {% set width = '600' %}
@@ -11,7 +11,7 @@
 
 {% set sourceElements %}
 {% for format in formats %}
-  {% set srcset %}{% for size in sizes %}{{ path }}/{{ identifier }}-{{ size }}w.{{ format }} {{ size }}w{{ ',' if not loop.last }}{% endfor %}{% endset %}
+  {% set srcset %}{% for size in sizes %}{{ path }}/{{ identifier }}-{{ size }}.{{ format }} {{ size }}w{{ ',' if not loop.last }}{% endfor %}{% endset %}
   
   <source 
     data-format="{{ format }}"
@@ -24,7 +24,7 @@
 {% endfor %}
 {% endset %}
 
-{% set src %}{{ path }}/{{ identifier }}-{{ sizes | first }}w.{{ formats | first }}{% endset %}
+{% set src %}{{ path }}/{{ identifier }}-{{ sizes | first }}.{{ formats | first }}{% endset %}
 
 <picture>
   {{ sourceElements | safe }}

@@ -1,0 +1,15 @@
+compress_images:
+  paths: 
+    - src/assets/images/posts/**/*.jpg
+    - src/assets/images/posts/**/*.png
+    - src/assets/images/posts/**/*.webp
+  exclude:
+    - src/assets/images/root/**
+    - src/assets/images/posts/css-layout-1/**
+    - src/assets/images/posts/box-sizing/**
+    - src/assets/images/posts/accessible-writing/**
+  sizes: [500, 700, 900, 1080, 1240]
+  formats:
+    - png
+    - webp
+    - avif
