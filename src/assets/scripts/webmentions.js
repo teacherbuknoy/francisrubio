@@ -1,4 +1,4 @@
-import { WebMentionBuilder, WebMentionResponse, WebMentions } from './library/webmentions'
+import { WebMentionBuilder, WebMentionResponse, WebMentionType } from './library/webmentions'
 
 
 async function renderWebMentions() {
@@ -21,35 +21,27 @@ async function renderWebMentions() {
       monitoredKeys.forEach(t => {
         document.querySelectorAll(`[data-webmention=${t}]`)
           .forEach(element => {
-            element.innerText = type[t] != null ? type[t] : 0          })
+            element.innerText = type[t] != null ? type[t] : 0
+          })
       })
     })
 
-  await wm.getLikes()
-    .then(data => {
-      const responses = data.map(d => new WebMentionResponse(d).render())
+  const likes = await wm.getLikes()
+  const reposts = await wm.getReposts()
 
-      document.querySelectorAll('[data-webmention-container=likes]:is(ul, ol)')
-        .forEach(container => {
-          responses.forEach(element => {
-            const clone = element.cloneNode(true)
-            container.appendChild(clone)
-          })
-        })
-    })
+  const likesAndReposts = (await wm.getAllMentions())
+    .filter(item => item.type === 'like-of' || item.type === 'repost-of')
+  console.log({ likesAndReposts })
 
-  await wm.getReposts()
-    .then(data => {
-      const responses = data.map(d => new WebMentionResponse(d).render())
+  likesAndReposts.forEach(interaction => {
+    const rendered = new WebMentionResponse(interaction).render()
 
-      document.querySelectorAll('[data-webmention-container=likes]:is(ul, ol)')
-        .forEach(container => {
-          responses.forEach(element => {
-            const clone = element.cloneNode(true)
-            container.appendChild(clone)
-          })
-        })
-    })
+    document.querySelectorAll('[data-webmention-container=likes]:is(ul, ol)')
+      .forEach(container => {
+        const clone = rendered.cloneNode(true)
+        container.appendChild(clone)
+      })
+  })
 
   await wm.getReplies()
     .then(data => {

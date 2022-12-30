@@ -98,7 +98,7 @@ class WebMentions {
       throw new Error("WebMentions data is null. Did you use the WebMentionsBuilder class to create this object?")
     }
 
-    return data.children
+    return this.data
   }
 
   /**
@@ -182,6 +182,17 @@ async function fetchWebMentions() {
   data.push(...replies)
 
   this.data = data
+    .map(item => ({ ...item, type: item['wm-property'] }))
+    .sort((a, b) => {
+
+      const publishA = a.published ? a.published : a['wm-received']
+      const publishB = b.published ? b.published : b['wm-received']
+
+      const dateA = new Date(publishA).getTime() || -Infinity
+      const dateB = new Date(publishB).getTime() || -Infinity
+
+      return dateA - dateB
+    })
   return data
 }
 class WebMentionBuilder {
@@ -354,6 +365,7 @@ class WebMentionResponse {
  * @property {string} url the url of the page that sent this response entry
  * @property {string} published the timestamp this entry was published
  * @property {WMContent} content the content of this entry
+ * @property {WebMentionType} type the type of this entry
  */
 
 /**
