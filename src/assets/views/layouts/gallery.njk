@@ -47,6 +47,21 @@
         </figure>
       {% endfor %}
     </div>
+
+    <footer class="stack gap--xl m-block--xxxl" style="text-align: center; margin-inline: auto; width: min(var(--content-width), 90%);">
+      <div class="section__header">
+        <hgroup role="group">
+          <h2 class="section__subtitle fs-3">I also serve visuals somewhere else.</h2>
+          <p style="text-align: left;">Drag, make up, outfits, places, and moments. I post most of them on Instagram.</p>
+        </hgroup>
+      </div>
+      <div class="stack ai--center gap--s">
+        <a href="{{ site.contact.instagram.url }}" class="primary button" target="blank" rel="noopener">
+          {{ "instagram" | icon | safe }}
+          <span>Follow me on Instagram</span>
+        </a>
+      </div>
+    </footer>
   </main>
   {% include 'components/footer.njk' %}
 {% endblock %}
