@@ -15,6 +15,7 @@
     "new-post": "node ./scripts/new-post.js",
     "images": "node ./scripts/images.js",
     "img-compress": "node ./scripts/compress-images.js",
+    "remove-optimize-dirs": "node ./scripts/remove-optimization-dirs.js",
     "archive": "node ./scripts/internet-archive.mjs"
   },
   "repository": {
