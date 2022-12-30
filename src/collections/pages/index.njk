@@ -198,7 +198,7 @@ stylesheets: ['frontpage.css']
         <p>Videos of me. Candid, without a care for the world (well, slight care actually)</p>
       </hgroup>
     </div>
-      {% set postLimit = 4 %}
+      {% set postLimit = 3 %}
       {% set collection = collections.videos | reverse %}
       {% include 'components/video-grid.njk' %}
     <div class="stack ai--center text-center gap--s padding--xl">
