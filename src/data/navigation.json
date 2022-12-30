@@ -1,9 +1,10 @@
 [
   { "text": "Writing", "url": "/writing/" },
-  { "text": "Literature", "url": "/literature/" },
   { "text": "Speaking", "url": "/speaking/" },
   { "text": "Projects", "url": "/projects/" },
   { "text": "Gallery", "url": "/gallery/" },
+  { "text": "Videos", "url": "/videos/" },
+  { "overflow": true, "text": "Literature", "url": "/literature/" },
   { "overflow": true, "text": "What I Use", "url": "/uses/" },
   { "overflow": true, "text": "Press Kit", "url": "/press-kit/" },
   { "overflow": true, "label": "RSS Feed", "feathericon": "rss", "url": "/feed.xml" }
