@@ -3,11 +3,11 @@ compress_images:
     - src/assets/images/posts/**/*.jpg
     - src/assets/images/posts/**/*.png
     - src/assets/images/posts/**/*.webp
+    - src/assets/images/literatures/**/*.jpg
+    - src/assets/images/literatures/**/*.png
+    - src/assets/images/literatures/**/*.webp
   exclude:
     - src/assets/images/root/**
-    - src/assets/images/posts/css-layout-1/**
-    - src/assets/images/posts/box-sizing/**
-    - src/assets/images/posts/accessible-writing/**
   sizes: [500, 700, 900, 1080, 1240]
   formats:
     - png

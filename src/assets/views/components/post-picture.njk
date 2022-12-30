@@ -1,6 +1,6 @@
 {% set sizes = imgconfig.sizes %}
 {% set formats = imgconfig.formats %}
-{% set path = post.images.path %}
+{% set path = images.path if images.path else post.images.path %}
 {% set identifier = 'cover' %}
 {% set width = '600' %}
 {% set height = '350' %}
@@ -25,7 +25,6 @@
 {% endset %}
 
 {% set src %}{{ path }}/{{ identifier }}-{{ sizes | first }}.{{ formats | first }}{% endset %}
-
 <picture>
   {{ sourceElements | safe }}
   <img
@@ -33,5 +32,6 @@
     alt=""
     width="{{ width }}"
     height="{{ height }}"
+    class="{{ defaultImageClass }}"
 />
 </picture>

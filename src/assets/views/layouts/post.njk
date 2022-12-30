@@ -5,15 +5,8 @@
   <main style="width: min(100ch, 100%); margin-inline: auto;" class="h-entry padding--xl article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
     <header class="article__header">
       {% if images %}
-        {% set baseFolder = images.path %}
-        {% set identifier = "cover" %}
-        {% set types = images.types %}
-        {% set sizes = images.sizes %}
-        {% set alt = "" %}
-        {% set imgClass = "article__image" %}
-        {% set width = 600 %}
-        {% set height = 350 %}
-        {% include "components/picture.njk" %}
+        {% set defaultImageClass = "article__image" %}
+        {% include "components/post-picture.njk" %}
       {% else %}
         <img src="{{ image.src }}" alt="" class="article__image">
       {% endif %}
