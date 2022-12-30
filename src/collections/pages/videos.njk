@@ -10,9 +10,9 @@ activePath: videos
 ---
 <section class="padding--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
   <div class="stack margin-bottom--xl">
-      <span id="section-heading-4" class="uppercase ls-l font-sans">Videos</span>
-      <h2 class="font-serif responsive">Me in motion</h2>
-      <p>Videos of me. Candid, without a care for the world (well, slight care actually)</p>
+    <span id="section-heading-4" class="uppercase ls-l font-sans">Videos</span>
+    <h2 class="font-serif responsive">Me in motion</h2>
+    <p>Videos of me. Candid, without a care for the world (well, slight care actually)</p>
   </div>
   {% set collection = pagination.items %}
   {% include 'components/video-grid.njk' %}
@@ -27,3 +27,18 @@ activePath: videos
     <a href="{{ pagination.href.next }}" class="button">Next</a>
   {% endif %}
 </div>
+
+<footer class="stack gap--xl m-block--xxxl" style="text-align: center">
+  <div class="section__header">
+    <hgroup role="group">
+      <h2 class="section__subtitle fs-3">Subscribe to see more</h2>
+      <p>I'm not as active on YouTube, but if you enjoyed these videos, I'd appreciate it if you subscribe.</p>
+    </hgroup>
+  </div>
+  <div class="stack ai--center gap--s">
+    <a href="{{ site.contact.youtube.url }}" class="primary button" target="blank" rel="noopener">
+      {{ "youtube" | icon | safe }}
+      <span>YouTube Channel</span>
+    </a>
+  </div>
+</footer>
