@@ -60,6 +60,23 @@
         {{ content | safe }}
       </div>
     {% endif %}
+
+    <footer class="stack gap--xl m-block--xxxl" style="text-align: center; margin-inline: auto; width: min(var(--content-width), 90%);">
+      <div class="section__header">
+        <hgroup role="group">
+          <h2 class="section__subtitle fs-3">Building a similar project?</h2>
+          <p style="text-align: left;">I'm currently open to projects. We can arrange for me to help you in your next project.</p>
+        </hgroup>
+      </div>
+      <div class="stack ai--center gap--s">
+        <button class="primary button" data-dialog="modal__email">
+          {{ "mail" | icon | safe }}
+          <span>Connect with me</span>
+        </button>
+
+      </div>
+    </footer>
   </main>
+  {% include 'components/email-form.njk' %}
   {% include 'components/footer.njk' %}
 {% endblock %}
