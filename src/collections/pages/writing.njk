@@ -32,3 +32,18 @@ activePath: writing
     <a href="{{ pagination.href.next }}" class="button">Next</a>
   {% endif %}
 </div>
+
+<footer class="stack gap--xl m-block--xxxl" style="text-align: center; margin-inline: auto; width: min(var(--content-width), 90%);">
+  <div class="section__header">
+    <hgroup role="group">
+      <h2 class="section__subtitle fs-3">Follow me on the Fediverse</h2>
+      <p style="text-align: left;">If you were impressed by my mind because of these longform texts, I encourage you to follow me on Mastodon and see my silly side. (I talk about all kinds of things, though, so be prepared for that.)</p>
+    </hgroup>
+  </div>
+  <div class="stack ai--center gap--s">
+    <a href="{{ site.contact.mastodon.url }}" class="primary button" target="blank" rel="noopener">
+      {{ "user-plus" | icon | safe }}
+      <span>Follow me on Mastodon</span>
+    </a>
+  </div>
+</footer>
