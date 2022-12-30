@@ -74,6 +74,10 @@
     padding      : 0;
     box-shadow   : 0 4px 25px hsl(var(--primary-500) / 50%);
   }
+
+  &--small {
+    padding: var(--space-xxs) var(--space-m);
+  }
 }
 
 body.no-js {
@@ -140,4 +144,13 @@ body.no-js {
       padding-right: calc(var(--space) - 0.5em);
     }
   }
+}
+
+.button-list {
+  margin    : 0;
+  padding   : 0;
+  list-style: none;
+  display   : flex;
+  gap       : 1ch;
+  flex-wrap : wrap;
 }

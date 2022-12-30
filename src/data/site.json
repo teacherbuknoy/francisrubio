@@ -10,7 +10,8 @@
     "phone": {
       "name": "Phone",
       "identifier": "0976 016 2963",
-      "url": "tel:+639760162963"
+      "url": "tel:+639760162963",
+      "hidden": true
     },
     "email": {
       "name": "Email",
@@ -47,6 +48,12 @@
       "name": "YouTube",
       "identifier": "teacherbuknoy",
       "url": "https://www.youtube.com/@teacherbuknoy/",
+      "rel": "me"
+    },
+    "dribbble": {
+      "name": "Dribbble",
+      "identifier": "teacherbuknoy",
+      "url": "https://dribbble.com/teacherbuknoy",
       "rel": "me"
     }
   },

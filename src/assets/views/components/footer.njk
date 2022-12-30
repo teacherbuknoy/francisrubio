@@ -3,14 +3,28 @@
   {% include 'components/feathericon.njk' %}
   <span class="sr-only">Back to top</span>
 </a>
-<footer class="padding--m bg--secondary spaced cluster" aria-label="Footer">
-  <p>
-    <small>&copy; 2022 Francis Rubio</small>
-  </p>
-  <p>
-    <small>Powered by <a href="https://11ty.dev/" target="_blank" rel="noreferer">Eleventy</a>
-    </small>
-  </p>
+<footer class="footer">
+  <section class="footer__header">
+    <p>&copy; {{ "" | year }} Francis Rubio. All rights reserved.</p>
+    <p>Powered by <a href="https://11ty.dev">Eleventy</a> and <a href="https://netlify.com">Netlify</a>.</p>
+  </section>
+  <section class="footer__body">
+    <div class="footer__section">
+      <img src="/favicon-512.png" alt="Logo" width="50" height="50">
+      <h2 style="margin: 0;">Francis Rubio</h2>
+      <p style="margin: 0; font-family: var(--font-sans);">Web designer, developer, and educator from the Philippines.</p>
+    </div>
+    <div class="footer__section" id="footer-contact">
+      <h2 class="footer__section-title">Contact Me</h2>
+      <ul class="button-list">
+        {% for item in site.contact | notHidden %}
+          <li class="button-list__item">
+            <a href="{{ item.url }}" class="button button--small">{{ item.name }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
 </footer>
 <div class="h-card hidden">
   <span class="p-name">Francis Rubio</span>

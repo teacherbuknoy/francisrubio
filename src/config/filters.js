@@ -74,5 +74,11 @@ module.exports = {
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
 </iframe>`
+  },
+  year: function (value) {
+    return new Date().getFullYear()
+  },
+  notHidden: function (object) {
+    return Object.keys(object).filter(key => !object[key].hidden).map(key => object[key])
   }
 }
