@@ -54,7 +54,7 @@
 @import "utilities/text";
 @import "utilities/visibility";
 
-* {
+body {
   // Animate transition from dark to light color scheme
   transition: color 200ms, background 200ms;
 }
