@@ -76,5 +76,12 @@ module.exports = {
       "src/collections/webmentions/*.njk",
       "src/collections/webmentions/*.md",
     ]);
+  },
+  videos: function (collection) {
+    return collection.getFilteredByGlob([
+      "src/collections/videos/*.html",
+      "src/collections/videos/*.njk",
+      "src/collections/videos/*.md",
+    ]);
   }
 }

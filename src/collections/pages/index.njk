@@ -189,6 +189,25 @@ stylesheets: ['frontpage.css']
     </div>
   </div>
 </section>
+<section class="section padding-block--xxl" id="section-44" aria-labelledby="section-4-heading">
+  <div class="section__inner">
+    <div class="stack gap--none">
+      <hgroup role="group">
+        <p id="section-4-heading" class="uppercase ls-l font-sans">Videos</p>
+        <h2 class="font-serif fs-1">Me in motion</h2>
+        <p>Videos of me. Candid, without a care for the world (well, slight care actually)</p>
+      </hgroup>
+    </div>
+      {% set postLimit = 4 %}
+      {% set collection = collections.videos | reverse %}
+      {% include 'components/video-grid.njk' %}
+    <div class="stack ai--center text-center gap--s padding--xl">
+      <div class="cluster center-align">
+        <a href="/videos/" class="primary button">See all</a>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="section padding-block--xxl bg-secondary" id="footer" aria-labelledby="footer-heading">
   <div class="section__inner">
     <div class="stack gap">

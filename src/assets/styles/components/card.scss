@@ -77,7 +77,7 @@
   display              : grid;
   grid-template-columns: repeat(auto-fill, minmax(min(25ch, 100%), 1fr));
   gap                  : var(--space);
-  padding-block        : var(--space);
+  padding              : var(--space);
 
   &.has-featured .post-card {
     &:nth-child(4n - 3) {
@@ -441,5 +441,71 @@
     height: 10ch;
     border: none;
     width : auto;
+  }
+}
+
+.card {
+  display: flex;
+
+  &--video {
+    flex-direction: column;
+    position      : relative;
+    row-gap       : 1ch;
+
+    .card {
+      &__image {
+        border-radius: var(--radius-3);
+        box-shadow   : 0 2px 2px #0001, 0 4px 4px #0001, 0 6px 6px #0001;
+        outline      : 3px solid hsl(var(--primary-500) / 0);
+        overflow     : hidden;
+        transition   : outline-color 200ms, outline-offset 200ms;
+      }
+
+      &__title {
+        margin                 : 0;
+        font-family            : var(--font-sans);
+        font-variation-settings: 'wght'500;
+        font-size              : var(--type-size-5);
+
+        &,
+        &-link {
+          color: hsl(var(--fg-contrast));
+        }
+
+        &-link {
+          &::before {
+            content : '';
+            position: absolute;
+            inset   : 0;
+          }
+
+          &:focus-visible {
+            outline: none;
+          }
+        }
+      }
+
+      &__subtitle {
+        color: hsl(var(--fg-subtle));
+
+        p {
+          margin: 0;
+        }
+      }
+
+      &__metadata {
+        display        : flex;
+        justify-content: space-between;
+      }
+    }
+
+    &:focus-within {
+      .card {
+        &__image {
+          outline-color : hsl(var(--primary-500) / 100%);
+          outline-offset: 5px;
+        }
+      }
+    }
   }
 }

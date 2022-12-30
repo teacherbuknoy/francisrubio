@@ -1,0 +1,29 @@
+---
+title: Videos - Francis Rubio
+description: Videos of me. Candid, without a care for the world (well, slight care actually)
+pagination:
+  data: collections.videos
+  size: 8
+  reverse: true
+permalink: /videos/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html
+activePath: videos
+---
+<section class="padding--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
+  <div class="stack margin-bottom--xl">
+      <span id="section-heading-4" class="uppercase ls-l font-sans">Videos</span>
+      <h2 class="font-serif responsive">Me in motion</h2>
+      <p>Videos of me. Candid, without a care for the world (well, slight care actually)</p>
+  </div>
+  {% set collection = pagination.items %}
+  {% include 'components/video-grid.njk' %}
+</section>
+
+<div class="center-justified cluster padding--l">
+  {% if pagination.href.previous %}
+    <a href="{{ pagination.href.previous }}" class="button">Previous</a>
+  {% endif %}
+
+  {% if pagination.href.next %}
+    <a href="{{ pagination.href.next }}" class="button">Next</a>
+  {% endif %}
+</div>

@@ -1,0 +1,9 @@
+{% extends 'layouts/base.njk' %}
+
+{% block content %}
+  {% include 'components/navigation.njk' %}
+  <main class="padding--xl article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
+    
+  </main>
+  {% include 'components/footer.njk' %}
+{% endblock %}

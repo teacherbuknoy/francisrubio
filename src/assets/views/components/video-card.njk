@@ -1,0 +1,17 @@
+
+<article class="card card--video" aria-labelledby="card--{{ post.title | slugify }}">
+  <div class="card__image">
+    <img src="https://i.ytimg.com/vi_webp/{{ post.code }}/maxresdefault.webp" alt="Thumbnail" width="1280" height="1012">
+  </div>
+  <div class="card__header">
+    <h{{ headingLevel if headingLevel != null else 3 }} class="card__title h5" id="card--{{ post.title | slugify }}">
+      {% set externalUrl %}https://youtu.be/{{ post.code }}{% endset %}
+      {% set newTab %}target="_blank" rel="noopener"{% endset %}
+      <a class="card__title-link" href="{{ externalUrl if externalUrl else post.url }}" {{ newTab if externalUrl }}>{{ post.title | safe }}</a>
+    </h{{headingLevel if headingLevel != null else 3}}>
+    <div class="card__subtitle">{{ item.templateContent | safe | truncate(45) }}</div>
+    <div class="card__metadata">
+      <time class="card__pubdate">{{ item.date | humanReadableDate }}</time>
+    </div>
+  </div>
+</article>

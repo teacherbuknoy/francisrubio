@@ -1,0 +1,18 @@
+{% set hasFeatured = true if hasFeatured == null else hasFeatured %}
+<div class="post-grid {{ 'has-featured' if hasFeatured }}">
+{% if postLimit != null %}
+  {% set limit = postLimit if collection.length > postLimit else collection.length %}
+  {% for index in range(0, limit) %}
+    {% set item = collection[index] %}
+  {% set postURL = item.url %}
+  {% set post = item.data %}
+  {% include 'components/video-card.njk' %}
+  {% endfor %}
+{% else %}
+{% for item in collection %}
+  {% set postURL = item.url %}
+  {% set post = item.data %}
+  {% include 'components/video-card.njk' %}
+{% endfor %}
+{% endif %}
+</div>
