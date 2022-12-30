@@ -38,7 +38,7 @@
         </div>
         <div class="category-pill">
           {% for item in category %}
-          <a href="/writing/categories/{{ item | slugify }}" class="p-category category-pill__inner category-pill__category">{{ item }}</a>
+            <a href="/writing/categories/{{ item | slugify }}" class="p-category category-pill__inner category-pill__category">{{ item }}</a>
           {% endfor %}
           <div class="category-pill__inner category-pill__read-time">{{ content | timeToRead }}</div>
         </div>
@@ -73,7 +73,6 @@
       </div>
     </div>
     <footer class="stack padding--l">
-      {% include 'components/webmentions.njk' %}
       <div class="content-wrapper margin--auto text-center">
         <h2 class="fs-4">Share</h2>
         <p>Found this helpful? Tell other people about it!</p>
@@ -110,6 +109,7 @@
           </li>
         </ul>
       </div>
+      {% include 'components/webmentions.njk' %}
     </footer>
   </main>
   {% include 'components/footer.njk' %}
