@@ -64,11 +64,12 @@
   h5,
   h6 {
     @extend .responsive;
-    align-items    : center;
-    display        : flex;
-    gap            : var(--space-xs);
-    justify-content: space-between;
-    position       : relative;
+    align-items       : center;
+    display           : flex;
+    gap               : var(--space-xs);
+    justify-content   : space-between;
+    position          : relative;
+    padding-inline-end: var(--space-xl);
 
     &:not(:first-child) {
       margin-top: 1ch;
@@ -78,13 +79,17 @@
       align-items    : center;
       border-radius  : var(--radius-1);
       display        : flex;
+      flex-basis     : 3ch;
       font-size      : var(--type-size);
       gap            : 1ch;
-      overflow       : hidden;
+      justify-content: center;
+      position       : absolute;
+      right          : 0;
       text-align     : center;
       text-decoration: none;
-      justify-content: center;
-      flex-basis     : 3ch;
+      top            : 50%;
+      transform      : translateY(-50%);
+      width          : min-content;
 
       &:focus-visible {
         background    : transparent;
@@ -93,23 +98,23 @@
       }
 
       &::before {
-        --margin        : 100%;
-        background-color: hsl(var(--bg-secondary));
-        border-radius   : var(--radius-1);
-        content         : attr(aria-label);
-        font-family     : var(--font-sans);
-        mask-image      : linear-gradient(to right, black 50%, transparent 50%);
-        mask-position   : calc(-1 * var(--margin));
-        mask-repeat     : no-repeat;
-        mask-size       : 200%;
-        padding-block   : var(--space-xxs);
-        padding-inline  : var(--space-xs);
-        position        : absolute;
-        right           : 3ch;
-        top             : 50%;
-        transform       : translateY(-50%);
-        transition      : mask-position 200ms, margin-right 200ms;
-        width           : max-content;
+        --margin             : 100%;
+        -webkit-mask-image   : linear-gradient(to right, black 50%, transparent 50%);
+        -webkit-mask-position: calc(-1 * var(--margin));
+        -webkit-mask-repeat  : no-repeat;
+        -webkit-mask-size    : 200%;
+        background-color     : hsl(var(--bg-secondary));
+        border-radius        : var(--radius-2);
+        content              : attr(aria-label);
+        font-family          : var(--font-sans);
+        mask-image           : linear-gradient(to right, black 50%, transparent 50%);
+        mask-position        : calc(-1 * var(--margin));
+        mask-repeat          : no-repeat;
+        mask-size            : 200%;
+        padding-block        : var(--space-xxs);
+        padding-inline       : var(--space-s);
+        transition           : mask-position 200ms, -webkit-mask-position 200ms;
+        white-space          : nowrap;
       }
 
       &:focus-visible::before,
@@ -129,7 +134,8 @@
   }
 
   p {
-    hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens        : auto;
   }
 }
 
