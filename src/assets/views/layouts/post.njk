@@ -4,12 +4,15 @@
   {% include 'components/navigation.njk' %}
   <main style="width: min(100ch, 100%); margin-inline: auto;" class="h-entry padding--xl article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
     <header class="article__header">
-      {% if images %}
+        {% set postType = postType if postType else 'post' %}
+        {% set sizes = cover.sizes %}
+        {% set alt = "" %}
+        {% set width = 600 %}
+        {% set height = 350 %}
+        {% set formats = cover.types %}
+        {% set filename = 'posts/' + cover.folder + '/' + cover.filename %}
         {% set defaultImageClass = "article__image" %}
-        {% include "components/post-picture.njk" %}
-      {% else %}
-        <img src="/assets/images{{ image.src if image.src else image }}" alt="" width="600" height="350" class="article__image">
-      {% endif %}
+        {% include "components/cdn-picture.njk" %}
       <nav class="breadcrumb" aria-label="Breadcrumbs">
         <ol class="breadcrumb__list">
           <li class="breadcrumb__list-item">
