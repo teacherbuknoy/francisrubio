@@ -33,9 +33,15 @@
           <a class="gallery-card__link no-arrow" href="{{ site.api.images }}{{ filename }}" target="_blank">
             {% include "components/cdn-picture.njk" %}
           </a>
+          {% if image.caption %}
           <figcaption class="gallery-card__caption">
             <p>{{ image.caption | safe }}</p>
           </figcaption>
+          {% elif image.credits %}
+          <figcaption class="gallery-card__caption gallery-card__caption--credits">
+            <p>{{ image.credits | safe }}</p>
+          </figcaption>
+          {% endif %}
         </figure>
       {% endfor %}
     </div>

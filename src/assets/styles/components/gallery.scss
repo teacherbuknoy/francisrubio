@@ -59,25 +59,32 @@
    }
 
    &__caption {
-     align-items     : center;
-     background-color: hsl(var(--bg-primary) / 75%);
-     display         : flex;
-     flex-direction  : column;
-     gap             : 1ch;
-     height          : 100%;
-     justify-content : center;
-     opacity         : 0;
-     padding         : var(--space);
-     pointer-events  : none;
-     text-align      : center;
-     transition      : opacity 200ms;
+     align-items        : start;
+     background-color   : transparent;
+     background-image   : radial-gradient(circle at top right, hsl(var(--bg-primary)) 25%, hsl(var(--bg-primary)/0));
+     background-position: top right;
+     background-size    : 150%;
+     display            : flex;
+     flex-direction     : column;
+     font-family        : var(--font-sans);
+     font-size          : var(--type-size-6);
+     gap                : 1ch;
+     height             : 100%;
+     justify-content    : start;
+     opacity            : 0;
+     padding            : var(--space);
+     pointer-events     : none;
+     text-align         : end;
+     transition         : opacity 200ms;
 
      @media (max-width: 960px) {
        display: none;
      }
 
      p {
-       margin: 0;
+       margin             : 0;
+       margin-inline-start: auto;
+       max-width          : 75%;
      }
    }
 
