@@ -11,7 +11,7 @@
 {% if filename %}
   {% set defaultImageSource = cdnUrl + filename %}
   {% set thumbnailSize = width / 4 %}
-  {% set thumbnail = cdnUrl + 'tr:w-' + thumbnailSize + ',bl-5' + filename %}
+  {% set thumbnail = cdnUrl + 'tr:w-1,h-1:w-' + width + ',h-' + height + ',bl-5' + filename %}
 
   <picture>
   {% for format in formats %}
