@@ -12,6 +12,7 @@
     <div class="gallery-entry__body">
       <h2 class="gallery-entry__headline">{{ item.data.title | safe }}</h2>
       <p class="gallery-entry__subtitle">{{ item.data.description | safe }}</p>
+      <p class="gallery-entry__metadata"><time datetime="{{ item.date | machineReadableDate }}">{{ item.date | humanReadableDate }}</time></p>
     </div>
   </article>
 </a>
