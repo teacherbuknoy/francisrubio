@@ -15,44 +15,48 @@
 <link rel="webmention" href="https://webmention.io/francisrubio.antaresph.dev/webmention" />
 <link rel="pingback" href="https://webmention.io/francisrubio.antaresph.dev/xmlrpc" />
 
+{% set preferredDomain = site.domains | selectattr('isPreferred') | first %}
 {% if not fb_image %}
   {% if image %}
-    {% set fb_image %}{{ site.url }}/assets/images{{ image }}{% endset %}
+    {% set fb_image %}{{ 'https://' + preferredDomain.value }}/assets/images{{ image }}{% endset %}
   {% elif cover and cover.src %}
-    {% set fb_image %}{{ cover.src }}{% endset %}
+    {% set fb_image %}{{ 'https://' + preferredDomain.value }}{{ cover.src }}{% endset %}
   {% endif %}
 {% endif %}
 
 {% if not twitter_image %}
   {% if image %}
-    {% set twitter_image %}{{ site.url }}/assets/images{{ image }}{% endset %}
+    {% set twitter_image %}{{ 'https://' + preferredDomain.value }}/assets/images{{ image }}{% endset %}
   {% elif cover and cover.src %}
-    {% set twitter_image %}{{ cover.src }}{% endset %}
+    {% set twitter_image %}{{ 'https://' + preferredDomain.value }}{{ cover.src }}{% endset %}
   {% endif %}
 {% endif %}
 
 {% if seo.twitter.url %}
   {% set twitter_image %}{{ seo.twitter.url }}{% endset %}
 {% elif seo.twitter.src %}
-  {% set twitter_image %}{{ site.url }}{{ site.url }}{{ "/assets/images" if seo.twitter.is_prefixed == null or seo.twitter.is_prefixed == true }}{{ seo.twitter.src }}{% endset %}
+  {% set twitter_image %}{{ 'https://' + preferredDomain.value }}{{ "/assets/images" if seo.twitter.is_prefixed == null or seo.twitter.is_prefixed == true }}{{ seo.twitter.src }}{% endset %}
 {% endif %}
 
 {% if seo.og.url %}
   {% set fb_image %}{{ seo.og.url }}{% endset %}
 {% elif seo.og.src %}
-  {% set fb_image %}{{ site.url }}{{ "/assets/images" if seo.og.is_prefixed == null or seo.og.is_prefixed == true }}{{ seo.og.src }}{% endset %}
+  {% set fb_image %}{{ 'https://' + preferredDomain.value }}{{ "/assets/images" if seo.og.is_prefixed == null or seo.og.is_prefixed == true }}{{ seo.og.src }}{% endset %}
 {% endif %}
+
+{% set fb_image %}{% if not fb_image %}{{ 'https://' + preferredDomain.value }}/{{ site.seo.fb_image }}{% endif %}{% endset %}
+{% set twitter_image %}{% if not twitter_image %}{{ 'https://' + preferredDomain.value }}/{{ site.seo.twitter_image }}{% endif %}{% endset %}
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="{{ site.url }}{{ page.url if page.url }}">
+<meta property="og:url" content="{{ 'https://' + preferredDomain.value }}{{ page.url if page.url }}">
 <meta property="og:title" content="{{ title if title else site.title }}">
 <meta property="og:description" content="{{ description if description else site.description }}">
 <meta property="og:image" content="{{ fb_image if fb_image else site.seo.fb_image }}">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="{{ site.url }}{{ page.url if page.url }}">
+<meta property="twitter:url" content="{{ 'https://' + preferredDomain.value }}{{ page.url if page.url }}">
 <meta property="twitter:title" content="{{ title if title else site.title }}">
 <meta property="twitter:description" content="{{ description if description else site.description }}">
 <meta property="twitter:image" content="{{ twitter_image if twitter_image else site.seo.twitter_image }}">
