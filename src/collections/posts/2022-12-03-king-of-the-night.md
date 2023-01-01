@@ -3,8 +3,9 @@ title: "King of the Night"
 description: "How I was crowned King of the Night 9 years after high school"
 category: [Life, Workplace]
 image: "/assets/images/posts/king-of-the-night/cover.png"
-images:
-  path: "/assets/images/posts/king-of-the-night/optimized/"
+cover:
+  folder: king-of-the-night
+  filename: cover.png
   sizes: [500, 600, 700]
   types: ['png', 'webp', 'avif']
 author: "teacherbuknoy"

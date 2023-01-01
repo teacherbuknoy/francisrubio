@@ -1,7 +1,11 @@
 ---
 title: "Why CSS is hard"
 description: It's not, really.
-image: /posts/why-css-hard/cover.jpg
+cover:
+  folder: why-css-hard
+  filename: cover.jpg
+  sizes: [300, 500, 700]
+  formats: ['jpg', 'avif', 'webp']
 author: teacherbuknoy
 category: [opinion]
 language: en-US

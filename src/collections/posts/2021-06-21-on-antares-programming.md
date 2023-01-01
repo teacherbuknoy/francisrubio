@@ -1,7 +1,11 @@
 ---
 title: "Antares Programming: My Best Project Yet"
 description: What it is like to work on a project to educate Filipinos.
-image: /posts/on-antares-programming/cover.png
+cover:
+  folder: on-antares-programming
+  filename: cover.png
+  sizes: [300, 500, 700]
+  formats: ['jpg', 'avif', 'webp']
 author: teacherbuknoy
 category: [opinion]
 language: en-US

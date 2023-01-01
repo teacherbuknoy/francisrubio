@@ -3,7 +3,9 @@ title: "How coming out changed me"
 description: "Having the freedom to be who I actually am"
 category: ["Life"]
 image: "/posts/how-coming-out-changed-me/cover.png"
-images: 
+cover: 
+    folder: how-coming-out-changed-me
+    filename: cover.png
     path: /assets/images/posts/how-coming-out-changed-me/optimized
     sizes: [500, 700]
     types: ['png', 'webp', 'avif']

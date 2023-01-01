@@ -1,7 +1,11 @@
 ---
 title: "Arsenokoitai: Ang LGBTQ+ community sa perspective ng Bibliya"
 description: Galit ba talaga ang Diyos sa mga bakla?
-image: /posts/arsenokoitai/cover.jpg
+cover:
+  folder: arsenokoitai
+  filename: cover.jpg
+  sizes: [300, 500, 700]
+  formats: ['jpg', 'avif', 'webp']
 author: teacherbuknoy
 category: [opinion]
 language: fil

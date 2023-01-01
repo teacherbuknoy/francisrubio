@@ -3,6 +3,11 @@ title: CSS Subgrid
 description: CSS level 2 spec is here, and it makes grid layouts even better.
 category: [Cascading Style Sheets]
 image: /posts/css-subgrid/cover.jpg
+cover:
+  folder: css-subgrid
+  filename: cover.jpg
+  sizes: [300, 500, 700]
+  formats: ['jpg', 'avif', 'webp']
 ---
 CSS grid is a monumental new feature for CSS. Along with Flexbox, it gave us&mdash;finally&mdash;a way to lay out our pages without the need for hacks or frameworks; the layout framework is built into the browser itself. And the fact that it came out to all browsers within a month of each other is even better because we can use it as soon as possible.
 

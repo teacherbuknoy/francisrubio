@@ -1,9 +1,9 @@
 ---
 title: "Your Biblical Argument Against Homosexuality Tells Something About You"
 description: You’d be surprised it’s not good.
-image: /posts/christianity-and-homosexuality/cover.png
-images: 
-    path: /assets/images/posts/christianity-and-homosexuality/optimized
+cover: 
+    folder: christianity-and-homosexuality
+    filename: cover.png
     sizes: [500, 700]
     types: ['png', 'webp', 'avif']
 author: teacherbuknoy

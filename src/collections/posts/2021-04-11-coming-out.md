@@ -2,6 +2,11 @@
 title: I am coming out
 description: This is probably the most vulnerable I've been online.
 image: /posts/coming-out/cover.jpeg
+cover:
+  folder: coming-out
+  filename: cover.jpeg
+  sizes: [300, 500, 700]
+  formats: ['jpg', 'avif', 'webp']
 permalink: /writing/coming-out/
 author: teacherbuknoy
 category: [life]

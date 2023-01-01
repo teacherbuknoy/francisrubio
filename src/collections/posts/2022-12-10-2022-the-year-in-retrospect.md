@@ -2,11 +2,11 @@
 title: "2022: The Year in Retrospect"
 description: "In this post, I will list down the Top 10 most significant events in my year as we look forward to the coming year."
 category: [Life, Year-End Special]
-image: /posts/2022-retrospect/cover.png
-images:
-  path: /assets/images/posts/2022-retrospect/optimized
+cover:
+  folder: 2022-retrospect
+  filename: cover.png
   sizes: [500, 600, 700]
-  types: ['jpeg', 'webp', 'avif']
+  formats: ['png', 'webp', 'avif']
 author: "teacherbuknoy"
 language: "en-US"
 seo:
