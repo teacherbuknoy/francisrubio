@@ -5,6 +5,19 @@
 
  .gallery-entry-link {
    text-decoration: none;
+
+   .gallery-entry__cover-image {
+     outline       : 5px solid hsl(var(--primary-700) / 0);
+     outline-offset: 2ch;
+     transition    : outline 200ms, outline-offset 200ms;
+   }
+
+   &:focus-visible {
+     .gallery-entry__cover-image {
+       outline       : 5px solid hsl(var(--primary-500));
+       outline-offset: 0;
+     }
+   }
  }
 
  .gallery-entry {
