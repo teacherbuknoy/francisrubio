@@ -40,7 +40,7 @@
     },
     "mastodon": {
       "name": "Mastodon",
-      "identifier": "teacherbuknoy",
+      "identifier": "@teacherbuknoy@mstdn.party",
       "url": "https://mstdn.party/@teacherbuknoy",
       "rel": "me"
     },

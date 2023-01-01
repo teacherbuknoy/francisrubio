@@ -45,19 +45,25 @@ activePath: press-kit
     <dd>Caloocan, Metro Manila, Philippines</dd>
 
     <dt>Website</dt>
+    {% set preferredDomain = site.domains | selectattr('isPreferred') | first %}
     <dd>
-      <a href="/">teacherbuknoy.netlify.app</a>
-    </dd>
-
-    <dt>Twitter Handle</dt>
-    <dd>
-      <a href="https://twitter.com/teacherbuknoy">@teacherbuknoy</a>
+      <a href="/">https://{{ preferredDomain.value }}</a>
     </dd>
 
     <dt>Previous Talks</dt>
     <dd>
       <a href="/speaking/">Speaking Page</a>
     </dd>
+  </dl>
+
+  <h3 class="responsive h5">Social Media</h3>
+  <dl class="grid margin-inline--auto">
+    {% for key, value in site.contact %}
+      {% if not value.hidden %}
+        <dt>{{ value.name }}</dt>
+        <dd><a href="{{ value.url }}" target="_blank" rel="noopener">{{ value.identifier }}</a></dd>
+      {% endif %}
+    {% endfor %}
   </dl>
 </section>
 
