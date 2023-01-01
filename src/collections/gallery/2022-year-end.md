@@ -1,7 +1,7 @@
 ---
 title: "2022: My Year in Photos"
 description: My favorite photos from this year.
-sizes: [500,700,900]
+sizes: [200, 500, 700]
 types: [jpeg, webp, avif]
 folder: 2022-life-in-photos
 seo:
