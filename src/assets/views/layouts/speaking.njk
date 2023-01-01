@@ -4,11 +4,19 @@
   {% include 'components/navigation.njk' %}
   <main style="width: min(100ch, 100%); margin-inline: auto;" class="padding--xl article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
     <header class="article__header">
-      <div class="ai--center cluster margin-bottom--l lh-s">
-        <a href="/speaking/" class="button jc--start padding--xs">Talks</a>
-        <span>/</span>
-        <span class="d-flex font-sans jc--start">This talk</span>
-      </div>
+      <nav class="breadcrumb" aria-label="Breadcrumbs">
+        <ol class="breadcrumb__list">
+          <li class="breadcrumb__list-item">
+            <a href="/" class="breadcrumb__link" data-animation="button">Frontpage</a>
+          </li>
+          <li class="breadcrumb__list-item">
+            <a href="/speaking/" class="breadcrumb__link" data-animation="button">Speaking</a>
+          </li>
+          <li class="breadcrumb__list-item">
+            <a aria-current="location" class="breadcrumb__link" data-animation="button">This talk</a>
+          </li>
+        </ol>
+      </nav>
       <h1 id="{{ title | slugify }}" class="article__title margin--none responsive">{{ title | safe }}</h1>
 
       {% if tentativeDate != null %}
