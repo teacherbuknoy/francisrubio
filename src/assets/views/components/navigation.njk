@@ -57,7 +57,7 @@
               {% include 'components/feathericon.njk' %}
               <span class="sr-only">More items</span>
             </button>
-            <div class="navigation-popup">
+            <div class="navigation-popup" hidden>
               <ul class="navigation-list">
                 {% for item in navigation | selectattr("overflow") %}
                   <li class="navigation-list-item">
@@ -97,7 +97,7 @@
     </div>
   </nav>
 
-  <form class="navigation-popup detached" data-navbar-popover-animations aria-label="Change color scheme" name="color-scheme" id="form-color-scheme">
+  <form class="navigation-popup detached" data-navbar-popover-animations aria-label="Change color scheme" name="color-scheme" id="form-color-scheme" hidden>
     <div class="navigation-list gap-m">
       <div class="navigation-list-item navigation-list-radio">
         <input type="radio" id="desktop-colscheme-light" name="color-scheme" value="light">
