@@ -17,7 +17,7 @@
 
 {% if not fb_image %}
   {% if image %}
-    {% set fb_image %}/assets/images{{ image }}{% endset %}
+    {% set fb_image %}{{ site.url }}/assets/images{{ image }}{% endset %}
   {% elif cover and cover.src %}
     {% set fb_image %}{{ cover.src }}{% endset %}
   {% endif %}
@@ -25,7 +25,7 @@
 
 {% if not twitter_image %}
   {% if image %}
-    {% set twitter_image %}/assets/images{{ image }}{% endset %}
+    {% set twitter_image %}{{ site.url }}/assets/images{{ image }}{% endset %}
   {% elif cover and cover.src %}
     {% set twitter_image %}{{ cover.src }}{% endset %}
   {% endif %}
@@ -34,13 +34,13 @@
 {% if seo.twitter.url %}
   {% set twitter_image %}{{ seo.twitter.url }}{% endset %}
 {% elif seo.twitter.src %}
-  {% set twitter_image %}{{ site.url }}{{ "/assets/images" if seo.twitter.is_prefixed == null or seo.twitter.is_prefixed == true }}{{ seo.twitter.src }}{% endset %}
+  {% set twitter_image %}{{ site.url }}{{ site.url }}{{ "/assets/images" if seo.twitter.is_prefixed == null or seo.twitter.is_prefixed == true }}{{ seo.twitter.src }}{% endset %}
 {% endif %}
 
 {% if seo.og.url %}
   {% set fb_image %}{{ seo.og.url }}{% endset %}
 {% elif seo.og.src %}
-  {% set fb_image %}{{ "/assets/images" if seo.og.is_prefixed == null or seo.og.is_prefixed == true }}{{ seo.og.src }}{% endset %}
+  {% set fb_image %}{{ site.url }}{{ "/assets/images" if seo.og.is_prefixed == null or seo.og.is_prefixed == true }}{{ seo.og.src }}{% endset %}
 {% endif %}
 
 <!-- Open Graph / Facebook -->
