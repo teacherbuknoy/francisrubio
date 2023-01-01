@@ -1,24 +1,26 @@
-{% set sizes = sizes if sizes else [500, 700, 1000] %}
-{% set formats = formats if formats else ['png', 'webp', 'avif'] %}
+{% set sizes = sizes if sizes else 
+  [500, 700, 1000] %}
+{% set formats = formats if formats else 
+  ['png', 'webp', 'avif'] %}
 {% set cdnUrl = site.api.images %}
 
 {% set sizesAttr %}
-  {% for size in sizes %}
+{% for size in sizes %}
     (max-width: {{ size }}px) {{ size }}px{{ ", " if not loop.last }}
-  {% endfor %}
+{% endfor %}
 {% endset %}
 
-{% if filename %}
-  {% set defaultImageSource = cdnUrl + filename %}
-  {% set thumbnailSize = width / 4 %}
-  {% set thumbnail = cdnUrl + 'tr:w-1,h-1:w-' + width + ',h-' + height + ',bl-5' + filename %}
+{% set defaultImageSource = cdnUrl + filename %}
+{% set thumbnailSize = width / 4 %}
+{% set thumbnail = cdnUrl + 'tr:w-1,h-1:w-' + width + ',h-' + height + ',bl-5' + filename %}
 
-  <picture>
+<picture>
   {% for format in formats %}
     {% set srcset %}
-      {% for size in sizes %}
-        {{ cdnUrl }}/tr:f-{{ format }},w-{{ size }}/{{ filename }} {{ size }}w{{ ',' if not loop.last }}
-      {% endfor %}
+    {% for size in sizes %}
+      {{ cdnUrl }}/tr:f-{{ format }},w-{{ size }}/{{ filename }}
+      {{ size }}w{{ ',' if not loop.last }}
+    {% endfor %}
     {% endset %}
 
     <source
@@ -30,13 +32,11 @@
     >
   {% endfor %}
 
-    <img 
+  <img 
       {% if hasThumbnail %}style="--thumbnail: url({{ thumbnail }})"{% endif %}
       src="{{ defaultImageSource }}" alt="{{ alt }}"
       class="{{ defaultImageClass }}"
       width="{{ width }}"
       height="{{ height }}"
       loading="lazy">
-  </picture>
-
-{% endif %}
+</picture>
