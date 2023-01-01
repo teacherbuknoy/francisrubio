@@ -298,3 +298,10 @@ em *,
 strong * {
   color: hsl(var(--fg-contrast));
 }
+
+img {
+  background-image   : var(--thumbnail);
+  background-position: center;
+  background-repeat  : no-repeat;
+  background-size    : cover;
+}

@@ -10,6 +10,8 @@
 
 {% if filename %}
   {% set defaultImageSource = cdnUrl + filename %}
+  {% set thumbnailSize = width / 4 %}
+  {% set thumbnail = cdnUrl + 'tr:w-' + thumbnailSize + ',bl-5' + filename %}
 
   <picture>
   {% for format in formats %}
@@ -29,6 +31,7 @@
   {% endfor %}
 
     <img 
+      style="--thumbnail: url({{ thumbnail }})"
       src="{{ defaultImageSource }}" alt="{{ alt }}"
       class="{{ defaultImageClass }}"
       width="{{ width }}"
