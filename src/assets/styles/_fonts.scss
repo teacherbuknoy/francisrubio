@@ -1,4 +1,21 @@
 @font-face {
+  font-family : "Figtree";
+  font-display: swap;
+  font-weight : 100 900;
+  src         : url("/assets/fonts/Figtree-var.ttf") format("truetype");
+}
+
+@font-feature-values "Figtree" {
+  @styleset {
+    alt-a: 1;
+  }
+
+  @stylistic {
+    alternates: 1;
+  }
+}
+
+@font-face {
   font-family: "Fraunces var";
   src: url("/assets/fonts/fraunces-var.ttf") format("truetype");
   font-display: swap;
