@@ -23,15 +23,13 @@ stylesheets: ['frontpage.css']
       <a href="{{ files.resume.path }}" download="{{ files.resume.filename }}" class="button">Download my résumé</a>
       <button class="primary button" data-dialog="modal__email">Hire me</button>
     </div>
-    {% set baseFolder = "/assets/images/index/francis-rubio" %}
-    {% set identifier = "francis-rubio"                      %}
-    {% set types = ["png", "webp", "avif"]                   %}
-    {% set alt = "Francis Rubio"                             %}
-    {% set imgClass = "banner-image"                         %}
-    {% set width = 300                                       %}
-    {% set height = 400                                      %}
-    {% set defaultImg = "/assets/images/index/francis-rubio/francis-rubio.png" %}
-    {% include "components/picture.njk"                      %}
+    {% set sizes = [300, 500, 700, 900] %}
+    {% set formats = ['png', 'webp', 'avif'] %}
+    {% set filename = '/index/francis-rubio.png' %}
+    {% set defaultImageClass = "banner-image" %}
+    {% set width = 300 %}
+    {% set height = 400 %}
+    {% include "components/cdn-picture.njk" %}
   </div>
 </header>
 <section class="section padding-block--xxl" id="section-2" aria-labelledby="section-2-heading">

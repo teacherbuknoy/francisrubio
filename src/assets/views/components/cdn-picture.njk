@@ -31,7 +31,7 @@
   {% endfor %}
 
     <img 
-      style="--thumbnail: url({{ thumbnail }})"
+      {% if hasThumbnail %}style="--thumbnail: url({{ thumbnail }})"{% endif %}
       src="{{ defaultImageSource }}" alt="{{ alt }}"
       class="{{ defaultImageClass }}"
       width="{{ width }}"
