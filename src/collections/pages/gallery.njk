@@ -17,7 +17,9 @@ activePath: gallery
   </div>
   <div class="padding-block--xl gap--l gallery-grid">
     {% for item in pagination.items %}
-      {% include 'components/gallery-entry.njk' %}
+      <div>
+        {% include 'components/gallery-entry.njk' %}
+      </div>
     {% endfor %}
   </div>
 </section>
