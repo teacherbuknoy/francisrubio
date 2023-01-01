@@ -24,8 +24,9 @@
   }
 
   &__link {
-    font-family: var(--font-sans);
-    font-size  : 90%;
+    font-family   : var(--font-sans);
+    font-size     : 90%;
+    text-transform: lowercase;
 
     &:not([href]) {
       padding: var(--space-xxxs) var(--space-xs);
@@ -36,7 +37,6 @@
 
       padding         : var(--space-xxxs) var(--space-xs);
       background-color: transparent;
-      text-transform  : none;
       font-size       : 90%;
       letter-spacing  : normal;
     }
