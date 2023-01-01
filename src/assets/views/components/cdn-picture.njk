@@ -1,0 +1,39 @@
+{% set sizes = sizes if sizes else [500, 700, 1000] %}
+{% set formats = formats if formats else ['png', 'webp', 'avif'] %}
+{% set cdnUrl = site.api.images %}
+
+{% set sizesAttr %}
+  {% for size in sizes %}
+    (max-width: {{ size }}px) {{ size }}px{{ ", " if not loop.last }}
+  {% endfor %}
+{% endset %}
+
+{% if filename %}
+  {% set defaultImageSource = cdnUrl + filename %}
+
+  <picture>
+  {% for format in formats %}
+    {% set srcset %}
+      {% for size in sizes %}
+        {{ cdnUrl }}/tr:f-{{ format }},w-{{ size }}/{{ filename }} {{ size }}w{{ ',' if not loop.last }}
+      {% endfor %}
+    {% endset %}
+
+    <source
+      srcset="{{ srcset }}"
+      type="image/{{ format }}"
+      sizes="{{ sizesAttr }}"
+      width="{{ width }}"
+      height="{{ height }}"
+    >
+  {% endfor %}
+
+    <img 
+      src="{{ defaultImageSource }}" alt="{{ alt }}"
+      class="{{ defaultImageClass }}"
+      width="{{ width }}"
+      height="{{ height }}"
+      loading="lazy">
+  </picture>
+
+{% endif %}

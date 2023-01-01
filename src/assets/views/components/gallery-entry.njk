@@ -1,25 +1,14 @@
-{% if item.data.cover_images.index != null     %}
-{%   set index = item.data.cover_images.index  %}
-{%   set coverImage = item.data.entries[index] %}
-{%   set baseFolder %}/assets/images/gallery/{{ item.data.folder }}/optimized{% endset %}
-{%   set defaultImg %}/gallery/{{ item.data.folder }}/{{ coverImage.key }}.{{ item.data.types[0] }}{% endset %}
-{%   set identifier = coverImage.key %}
-{%   set types      = item.data.types %}
-{%   set sizes      = item.data.sizes %}
-{%   set alt        = coverImage.alt  %}
-{%   set imgClass   = "gallery-entry__cover-image"  %}
-{%   set width      = coverImage.width  %}
-{%   set height      = coverImage.height  %}
-{% endif %}
+{% set gallery = item.data %}
+{% set cover = gallery.entries[0] %}
+{% set sizes = gallery.sizes %}
+{% set formats = gallery.formats if gallery.formats else gallery.types %}
+{% set filename = '/gallery/' + gallery.folder + '/' + cover.key %}
+{% set defaultImageClass = "gallery-entry__cover-image" %}
+{% set width = cover.width %}
+{% set height = cover.height %}
 <a href="{{ item.url }}" class="gallery-entry-link">
   <article class="gallery-entry">
-    {% set baseFolder %}/assets/images/gallery/{{ item.data.folder }}/optimized{% endset %}
-    {% set identifier = item.data.entries[0].key %}
-    {% set types = post.images.types %}
-    {% set sizes = post.images.sizes %}
-    {% set alt = item.entries[0].alt %}
-    {% set defaultImageClass = "gallery-entry__cover-image" %}
-    {% include "components/post-picture.njk" %}
+    {% include "components/cdn-picture.njk" %}
     <div class="gallery-entry__body">
       <h2 class="gallery-entry__headline">{{ item.data.title | safe }}</h2>
       <p class="gallery-entry__subtitle">{{ item.data.description | safe }}</p>
