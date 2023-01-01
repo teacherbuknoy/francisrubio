@@ -57,9 +57,9 @@ stylesheets: ['frontpage.css']
     </hgroup>
     <div class="with-sidebar padding-block--xl">
       <div class="sidebar padding-inline--m" style="flex-basis: 20ch;">
-        <div data-tablist style="gap: 1ch; display: grid; grid-template-columns: repeat(auto-fit, minmax(4ch, 1fr));">
+        <div data-tablist style="gap: 0.5ch; display: grid; grid-template-columns: repeat(auto-fit, minmax(4ch, 1fr));">
           {% for tech in technologies %}
-            <a aria-label="{{ tech.title }}" href="#tabpanel-{{ tech.icon }}" id="tab-{{ tech.icon }}" data-tab class="button square padding--none tab-trigger">
+            <a aria-label="{{ tech.title }}" href="#tabpanel-{{ tech.icon }}" id="tab-{{ tech.icon }}" data-tab class="button square tab-trigger">
               <svg>
                 <title>{{ tech.title }}</title>
                 <use href="/assets/images/technologies.svg#{{ tech.icon }}"></use>

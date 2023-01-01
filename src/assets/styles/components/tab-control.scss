@@ -23,6 +23,8 @@
 
 .tab-trigger {
   background-color: transparent;
+  width: 5ch;
+  padding: var(--space-xs);
 
   svg {
     width: 5ch;
