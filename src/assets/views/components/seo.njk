@@ -31,11 +31,15 @@
   {% endif %}
 {% endif %}
 
-{% if seo.twitter.src %}
-  {% set twitter_image %}{{ "/assets/images" if seo.twitter.is_prefixed == null or seo.twitter.is_prefixed == true }}{{ seo.twitter.src }}{% endset %}
+{% if seo.twitter.url %}
+  {% set twitter_image %}{{ seo.twitter.url }}{% endset %}
+{% elif seo.twitter.src %}
+  {% set twitter_image %}{{ site.url }}{{ "/assets/images" if seo.twitter.is_prefixed == null or seo.twitter.is_prefixed == true }}{{ seo.twitter.src }}{% endset %}
 {% endif %}
 
-{% if seo.og.src %}
+{% if seo.og.url %}
+  {% set fb_image %}{{ seo.og.url }}{% endset %}
+{% elif seo.og.src %}
   {% set fb_image %}{{ "/assets/images" if seo.og.is_prefixed == null or seo.og.is_prefixed == true }}{{ seo.og.src }}{% endset %}
 {% endif %}
 
@@ -44,14 +48,14 @@
 <meta property="og:url" content="{{ site.url }}{{ page.url if page.url }}">
 <meta property="og:title" content="{{ title if title else site.title }}">
 <meta property="og:description" content="{{ description if description else site.description }}">
-<meta property="og:image" content="{{ site.url }}{{ fb_image if fb_image else site.seo.fb_image }}">
+<meta property="og:image" content="{{ fb_image if fb_image else site.seo.fb_image }}">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="{{ site.url }}{{ page.url if page.url }}">
 <meta property="twitter:title" content="{{ title if title else site.title }}">
 <meta property="twitter:description" content="{{ description if description else site.description }}">
-<meta property="twitter:image" content="{{ site.url }}{{ twitter_image if twitter_image else site.seo.twitter_image }}">
+<meta property="twitter:image" content="{{ twitter_image if twitter_image else site.seo.twitter_image }}">
 
 <!-- Feeds -->
 <link rel="alternate" type="application/rss+xml" title="Blog - by Francis Rubio" href="/blog.xml">
