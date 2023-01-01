@@ -15,6 +15,7 @@ activePath: literature
       <p>My attempts in encapsulating my thoughts into written art</p>
   </div>
   <p>All writings here are subject to copyright.</p>
+  {% set postType = 'literature' %}
   {% set collection = pagination.items %}
   {% include 'components/post-grid.njk' %}
 </section>

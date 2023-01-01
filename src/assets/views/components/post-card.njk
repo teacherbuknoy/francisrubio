@@ -1,11 +1,12 @@
 <a class="post-card" href="{{ postURL }}">
   <div class="post-card__image">
+    {% set postType = postType if postType else 'post' %}
     {% set sizes = post.cover.sizes %}
     {% set alt = "" %}
     {% set width = 600 %}
     {% set height = 350 %}
     {% set formats = post.cover.types %}
-    {% set filename = 'posts/' + post.cover.folder + '/' + post.cover.filename %}
+    {% set filename = postType + '/' + post.cover.folder + '/' + post.cover.filename %}
     {% set defaultImageClass = "" %}
     {% include "components/cdn-picture.njk" %}
   </div>

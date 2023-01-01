@@ -2,6 +2,11 @@
 title: May Bagong Trabaho si Mr. Go
 description: Isang orihinal na akda ni Francis Rubio
 image: /posts/mr-go/cover.jpg
+cover:
+  folder: mr-go
+  filename: cover.jpg
+  sizes: [300, 500, 700]
+  formats: ['jpg', 'avif', 'webp']
 author: teacherbuknoy
 type: Short Story
 category: literature

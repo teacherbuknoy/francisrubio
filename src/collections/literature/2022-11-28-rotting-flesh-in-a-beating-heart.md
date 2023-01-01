@@ -1,7 +1,11 @@
 ---
 title: "Rotting Flesh in a Beating Heart"
 description: null
-image: /literatures/rotting-flesh-beating-heart/cover.png
+cover:
+  folder: rotting-flesh-beating-heart
+  filename: cover.png
+  sizes: [300, 500, 700]
+  formats: ['jpg', 'avif', 'webp']
 author: "teacherbuknoy"
 type: "literature"
 language: "en"

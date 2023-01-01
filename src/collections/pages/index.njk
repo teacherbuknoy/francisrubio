@@ -118,6 +118,7 @@ stylesheets: ['frontpage.css']
         <p>My attempts in encapsulating my thoughts into written art</p>
       </hgroup>
       {% set postLimit = 4 %}
+      {% set postType = 'literature' %}
       {% set collection = collections.literature | reverse %}
       {% include 'components/post-grid.njk' %}
     </div>

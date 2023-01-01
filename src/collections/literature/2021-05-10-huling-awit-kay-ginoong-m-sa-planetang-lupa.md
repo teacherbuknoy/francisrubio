@@ -2,6 +2,11 @@
 title: Huling Awit Para Kay Ginoong M sa Planetang Lupa
 description: Isang orihinal na akda ni Francis Rubio
 image: /posts/ginoong-m/cover.jpg
+cover:
+  folder: ginoong-m
+  filename: cover.jpg
+  sizes: [300, 500, 700]
+  formats: ['jpg', 'avif', 'webp']
 author: teacherbuknoy
 category: literature
 type: Poem

@@ -2,10 +2,11 @@
 title: "It's time to move on"
 description: 
 image: /literatures/its-time-to-move-on/cover.png
-images: 
-    path: /assets/images/literatures/its-time-to-move-on/optimized
-    sizes: [500, 700]
-    types: ['png', 'webp', 'avif']
+cover:
+  folder: its-time-to-move-on
+  filename: cover.png
+  sizes: [300, 500, 700]
+  formats: ['jpg', 'avif', 'webp']
 seo:
   og:
     src: /assets/images/literatures/its-time-to-move-on/og.png

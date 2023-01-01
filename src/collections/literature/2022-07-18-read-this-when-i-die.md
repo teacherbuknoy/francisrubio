@@ -2,10 +2,11 @@
 title: "Read this when I die"
 description: A letter to people who love me but never had the chance to say goodbye
 image: /literatures/read-this-when-i-die/cover.png
-images: 
-    path: /assets/images/literatures/read-this-when-i-die/optimized
-    sizes: [500, 700]
-    types: ['png', 'webp', 'avif']
+cover:
+  folder: read-this-when-i-die
+  filename: cover.png
+  sizes: [300, 500, 700]
+  formats: ['jpg', 'avif', 'webp']
 seo:
   og:
     src: /assets/images/literatures/read-this-when-i-die/og.png
