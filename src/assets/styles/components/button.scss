@@ -11,15 +11,14 @@
   display                : inline-flex;
   font-family            : var(--font-sans);
   font-size              : 1em;
-  font-variation-settings: "wght"300;
+  font-variation-settings: "wght" 500;
   gap                    : var(--space);
   justify-content        : center;
-  letter-spacing         : 1px;
   overflow               : hidden;
   padding                : var(--space-xs) var(--space-xl);
   position               : relative;
   text-decoration        : none;
-  text-transform         : uppercase;
+  text-transform         : lowercase;
   transition             : background-image 200ms, outline 200ms, outline-offset 200ms;
   outline                : 0px solid hsl(var(--primary-500) / 0%);
   width                  : min-content;
