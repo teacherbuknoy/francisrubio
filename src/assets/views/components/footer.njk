@@ -1,8 +1,4 @@
-<a href="#top" class="primary button go-to-top" style="z-index: 999; position: sticky;bottom: 1rem;right: 1rem;margin-inline-start: auto;display: flex;margin-block-end: 1rem;margin-inline-end: 1rem;">
-  {% set feathericon = 'arrow-up' %}
-  {% include 'components/feathericon.njk' %}
-  <span class="sr-only">Back to top</span>
-</a>
+
 <footer class="footer">
   <section class="footer__header">
     <p>&copy; {{ "" | year }} Francis Rubio. All rights reserved.</p>
@@ -28,6 +24,11 @@
     </div>
   </section>
 </footer>
+<a href="#top" class="primary button go-to-top" style="z-index: 9; position: fixed;bottom: 1rem;right: 1rem;margin-inline-start: auto;display: flex;margin-block-end: 1rem;margin-inline-end: 1rem;">
+  {% set feathericon = 'arrow-up' %}
+  {% include 'components/feathericon.njk' %}
+  <span class="sr-only">Back to top</span>
+</a>
 <div class="h-card hidden">
   <span class="p-name">Francis Rubio</span>
   <span class="p-given-name">Francis</span>

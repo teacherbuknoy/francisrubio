@@ -3,11 +3,12 @@
   flex-direction  : column;
   gap             : 0;
   margin          : 0;
-  background-color: hsl(var(--bg-secondary) / 75%);
+  background-color: hsl(var(--bg-secondary));
   color           : hsl(var(--fg-default));
+  z-index: 10;
 
   &__header {
-    background-color: hsl(var(--bg-secondary));
+    background-color: hsl(var(--fg-default) / 5%);
     display         : flex;
     flex-wrap       : wrap;
     column-gap      : 1ch;
