@@ -1,4 +1,5 @@
 {
   "layout": "speaking.njk",
-  "activePath": "speaking"
+  "activePath": "speaking",
+  "permalink": "/talks/{{ title | slug }}"
 }
