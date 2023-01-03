@@ -2,6 +2,7 @@
 title: "TECH2RISM: Web development and design workshop"
 description: An introductory talk about the basics of Web development
 image: /talks/tech2rism-2021/cover.jpg
+slug: tech2rism-2021
 date: 2021-12-08
 host:
   - name: Likhang 2rismo
