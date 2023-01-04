@@ -1,16 +1,16 @@
 [build]
-  command = "npm run production"
-  publish = "public"
+  command   = "npm run production"
+  publish   = "public"
   functions = "lambda"
 
 [[redirects]]
-  from = "/blog"
-  to = "/writing"
+  from   = "/blog"
+  to     = "/writing"
   status = 301
 
 [[redirects]]
-  from = "/blog/*"
-  to = "/writing/:splat"
+  from   = "/blog/*"
+  to     = "/writing/:splat"
   status = 301
 
 [[redirects]]
