@@ -38,6 +38,7 @@
     "@babel/preset-env": "^7.16.5",
     "@sendgrid/mail": "^7.6.0",
     "autoprefixer": "^10.4.0",
+    "aws-sdk": "^2.1287.0",
     "babel-loader": "^8.2.3",
     "clean-css": "^5.2.2",
     "cross-env": "^7.0.3",
