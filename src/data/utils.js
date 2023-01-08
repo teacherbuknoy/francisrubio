@@ -1,3 +1,10 @@
+/**
+ * @typedef {Object} MastodonEmoji
+ * @property {string} shortcode
+ * @property {string} url
+ * @property {string} static_url
+ * @property {boolean} visible_in_picker
+ */
 module.exports = {
   currentYear: new Date().getFullYear(),
   tentativeDate: (year, month, day) => {
@@ -26,5 +33,21 @@ module.exports = {
     const slugifiedCategories = category.map(tag => tag.toLowerCase().replaceAll(/\W|_/g, "-"))
 
     return slugifiedCategories.includes(tag)
-  })
+  }),
+  /**
+   * 
+   * @param {string} str 
+   * @param {MastodonEmoji[]} emojis 
+   * @returns 
+   */
+  replaceMastodonEmoji: (str, emojis) => {
+    const regex = /(<a?)?:\w+:(\d{18}>)?/gm
+    
+    return str.match(regex)
+      .reduce((finalString, emojiMatch) => {
+        const emoji = emojis.find(e => e.shortcode === emojiMatch.replaceAll(':', ''))
+        const img = `<img src="${emoji.url}" alt="${emoji.shortcode}" width="16" height="16" class="emoji">`
+        return finalString.replace(emojiMatch, img)
+      }, str)
+  }
 }

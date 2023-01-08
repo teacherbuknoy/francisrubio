@@ -1,0 +1,46 @@
+---
+title: Mastodon - Francis Rubio
+description: Check my most recent posts from Mastodon
+permalink: /socials/mastodon/
+activePath: socials
+stylesheets: ['mastodon.css']
+---
+{% set mastodon = socials.mastodon %}
+{% set profile = mastodon.profile %}
+<section class="padding--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
+  <div class="stack gap">
+    <span id="section-heading-4" class="uppercase ls-l font-sans">Social Feed</span>
+    <h2 class="font-serif responsive">Mastodon</h2>
+    <p>My most recent posts.</p>
+  </div>
+  <div class="feed-grid">
+    <article class="feed__profile profile">
+      <img src="{{ profile.header_static }}" alt="Header Image" class="profile__header">
+      <div class="profile__body">
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space); align-items: center;">
+          <img src="{{ profile.avatar_static }}" alt="Avatar" width="400" height="400" class="profile__avatar">
+          <div class="stack">
+            <h3 class="profile__name">
+              <a href="{{ profile.url | safe }}" class="profile__link">{{ utils.replaceMastodonEmoji(profile.display_name, profile.emojis) | safe }}</a>
+            </h3>
+            <span class="profile__identifier">{{ site.contact.mastodon.identifier }}</span>
+          </div>
+        </div>
+        <div class="profile__metadata">
+          <p class="statistic">
+            <span class="statistic__figure">{{ profile.followers_count }}</span>
+            <span class="statistic__label">Followers</span>
+          </p>
+          <p class="statistic">
+            <span class="statistic__figure">{{ profile.following_count }}</span>
+            <span class="statistic__label">Following</span>
+          </p>
+          <p class="statistic">
+            <span class="statistic__figure">{{ profile.statuses_count }}</span>
+            <span class="statistic__label">Posts</span>
+          </p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

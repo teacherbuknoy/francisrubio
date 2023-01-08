@@ -1,0 +1,66 @@
+.profile {
+  background-color: hsl(var(--bg-secondary));
+  border-radius   : var(--radius-4);
+  display         : flex;
+  flex-direction  : column;
+  overflow        : hidden;
+
+  &__body {
+    display       : flex;
+    flex-direction: column;
+    font-family   : var(--font-sans);
+    gap           : var(--space);
+    padding       : var(--space);
+  }
+
+  &__avatar {
+    aspect-ratio : 1/1;
+    border-radius: var(--radius-5);
+    height       : 6rem;
+    width        : auto;
+  }
+
+  &__name {
+    font-size              : var(--type-size-5);
+    font-family            : var(--font-sans);
+    font-variation-settings: 'wght'600;
+  }
+
+  &__link {
+    align-items    : center;
+    display        : flex;
+    gap            : 0.5ch;
+    text-decoration: none;
+  }
+
+  &__metadata {
+    display        : flex;
+    gap            : var(--space);
+    flex-wrap      : wrap;
+    justify-content: space-between;
+    padding        : var(--space);
+  }
+
+  &__identifier {
+    font-size: var(--type-size-6);
+    color    : hsl(var(--fg-subtle));
+  }
+}
+
+.statistic {
+  display       : flex;
+  flex-direction: column;
+  align-items   : center;
+
+  &__figure {
+    font-size              : var(--type-size-5);
+    font-variation-settings: 'wght'600;
+  }
+
+  &__label {
+    font-size     : var(--type-size-7);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align    : center;
+  }
+}
