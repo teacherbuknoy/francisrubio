@@ -7,6 +7,7 @@ stylesheets: ['mastodon.css']
 ---
 {% set mastodon = socials.mastodon %}
 {% set profile = mastodon.profile %}
+{% set feed = mastodon.feed %}
 <section class="padding--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
   <div class="stack gap">
     <span id="section-heading-4" class="uppercase ls-l font-sans">Social Feed</span>
@@ -42,5 +43,13 @@ stylesheets: ['mastodon.css']
         </div>
       </div>
     </article>
+    <div class="feed__entries">
+      {% for entry in feed %}
+        {% set isReplyTo = entry.in_reply_to_id != null %}
+        {% if entry.content.length > 0 and entry.mentions.length === 0 and not isReplyTo %}
+          {% include "components/mastodon-feed-entry.njk" %}
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
 </section>

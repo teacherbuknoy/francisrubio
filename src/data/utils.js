@@ -25,6 +25,11 @@ module.exports = {
       .toString()
       .padStart(2, 0)}-${date.toString().padStart(2, 0)}`
   },
+  humanReadableDate: obj => {
+    const value = new Date(obj)
+    let formatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' })
+    return formatter.format(value)
+  },
   isActivePath: (activePath, url) => {
     return url.includes(`/${activePath}/`)
   },
