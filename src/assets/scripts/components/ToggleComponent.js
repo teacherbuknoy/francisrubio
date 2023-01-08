@@ -10,6 +10,9 @@ class ToggleComponent {
     this.element = document.getElementById(button.dataset.toggle)
     this.button.setAttribute('aria-pressed', false)
     this.button.addEventListener('click', e => this.toggle())
+
+    this.element.addEventListener('show', e => this.button.setAttribute('aria-pressed', true))
+    this.element.addEventListener('hide', e => this.button.setAttribute('aria-pressed', false))
   }
 
   toggle() {
@@ -22,8 +25,10 @@ class ToggleComponent {
     
     if (value) {
       this.element.removeAttribute('hidden')
+      this.element.dispatchEvent(new Event('show'))
     } else {
       this.element.setAttribute('hidden', '')
+      this.element.dispatchEvent(new Event('hide'))
     }
   }
 

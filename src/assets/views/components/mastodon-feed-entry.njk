@@ -1,13 +1,13 @@
 <article class="entry">
   <header class="entry__header">
     {% if entry.sensitive %}
-      <button class="button entry__cw-toggle" data-toggle="content-{{ entry.id }}">
-        <div class="hide-on-pressed">{{ "eye-off" | icon | safe }}
-          <span class="sr-only">Hide content</span></div>
-        <div class="hide-on-unpressed">{{ "eye" | icon | safe }}
-          <span class="sr-only">Show content</span></div>
-        {{ entry.spoiler_text }}
-      </button>
+      <div class="cluster ai--center">
+        <button class="button entry__cw-toggle" data-toggle="content-{{ entry.id }}">
+          <div class="hide-on-pressed">{{ "eye-off" | icon | safe }} <span class="sr-only">Hide content</span></div>
+          <div class="hide-on-unpressed">{{ "eye" | icon | safe }} <div class="sr-only">Show content</div></div>
+        </button>
+        <span class="entry__reply">{{ entry.spoiler_text }}</span>
+      </div>
     {% endif %}
     {% if entry.in_reply_to_id != null and entry.in_reply_to_account_id !== mastodon.id %}
       {% set replyToLink%}#entry-{{ entry.in_reply_to_id }}{% endset %}
@@ -17,6 +17,11 @@
   </header>
   <section class="entry__body" id="entry-{{ entry.id }}">
     <div class="entry__content" id="content-{{ entry.id }}" {{ 'hidden' if entry.sensitive }}>{{ entry.content | safe }}</div>
+    {% if entry.sensitive %}
+      <div class="entry__content-hidden-notice">
+        <button class="button entry__cw-toggle" data-toggle="content-{{ entry.id }}">[Show content]</button>
+      </div>
+    {% endif %}
     <footer class="entry__footer">
       <a href="{{ entry.url }}" class="no-arrow entry__post-time" target="_blank" rel="noopener" style="margin-right: auto;">
         <time datetime="{{ entry.created_at }}">{{ utils.humanReadableDate(entry.created_at) }}</time>

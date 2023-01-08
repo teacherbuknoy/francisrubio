@@ -93,6 +93,7 @@
     color      : inherit;
     display    : flex;
     font-family: inherit;
+    font-family: var(--font-sans);
     font-size  : inherit;
     gap        : var(--space-xs);
     padding    : var(--space-xs);
@@ -108,10 +109,20 @@
     }
   }
 
+  &__content-hidden-notice {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+  }
+
   &__content:not([hidden]) {
     display       : flex;
     flex-direction: column;
     gap           : var(--space);
+
+    &+.entry__content-hidden-notice {
+      display: none;
+    }
   }
 
   .statistic {
