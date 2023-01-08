@@ -8,11 +8,11 @@ stylesheets: ['mastodon.css']
 {% set mastodon = socials.mastodon %}
 {% set profile = mastodon.profile %}
 {% set feed = mastodon.feed %}
-<section class="padding--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
+<section class="padding--xl" aria-labelledby="section-heading-4" style="margin-inline: auto">
   <div class="stack gap">
     <span id="section-heading-4" class="uppercase ls-l font-sans">Social Feed</span>
     <h2 class="font-serif responsive">Mastodon</h2>
-    <p>My most recent posts.</p>
+    <p>For things I have something to say but don't have a lot of words for.</p>
   </div>
   <div class="feed-grid">
     <article class="feed__profile profile">
@@ -45,11 +45,25 @@ stylesheets: ['mastodon.css']
     </article>
     <div class="feed__entries">
       {% for entry in feed %}
-        {% set isReplyTo = entry.in_reply_to_id != null %}
-        {% if entry.content.length > 0 and entry.mentions.length === 0 and not isReplyTo %}
+        {% set isReplyToMe = entry.in_reply_to_account_id === mastodon.id %}
+        {% if entry.content.length > 0 and not isReplyToMe %}
           {% include "components/mastodon-feed-entry.njk" %}
         {% endif %}
       {% endfor %}
     </div>
   </div>
 </section>
+<footer class="stack gap--xl m-block--xxxl" style="text-align: center; margin-inline: auto; width: min(var(--content-width), 90%);">
+  <div class="section__header">
+    <hgroup role="group">
+      <h2 class="section__subtitle fs-3">I can do this all day.</h2>
+      <p style="text-align: left;">Follow me on the Fediverse to be updated on things I dare to have an opinion about.</p>
+    </hgroup>
+  </div>
+  <div class="stack ai--center gap--s">
+    <a href="{{ site.contact.mastodon.url }}" class="primary button" target="blank" rel="noopener">
+      {{ "user-plus" | icon | safe }}
+      <span>Follow me on Mastodon</span>
+    </a>
+  </div>
+</footer>

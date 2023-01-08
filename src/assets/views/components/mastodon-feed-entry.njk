@@ -1,14 +1,26 @@
 <article class="entry">
   <header class="entry__header">
-    {% if entry.in_reply_to_id != null %}
-      {% set replyToLink%}#entry-{{ entry.in_reply_to_id }}{% endset %}
-      <span class="entry__reply">In response to <a href="{{ replyToLink | safe }}">this post</a></span>
+    {% if entry.sensitive %}
+      <button class="button entry__cw-toggle" data-toggle="content-{{ entry.id }}">
+        <div class="hide-on-pressed">{{ "eye-off" | icon | safe }}
+          <span class="sr-only">Hide content</span></div>
+        <div class="hide-on-unpressed">{{ "eye" | icon | safe }}
+          <span class="sr-only">Show content</span></div>
+        {{ entry.spoiler_text }}
+      </button>
     {% endif %}
-    <a href="{{ entry.url }}" class="no-arrow entry__post-time" target="_blank" rel="noopener"><time datetime="{{ entry.created_at }}">{{ utils.humanReadableDate(entry.created_at) }}</time></a>
+    {% if entry.in_reply_to_id != null and entry.in_reply_to_account_id !== mastodon.id %}
+      {% set replyToLink%}#entry-{{ entry.in_reply_to_id }}{% endset %}
+      <span class="entry__reply">In response to <a href="{{ replyToLink | safe }}">this post</a>
+      </span>
+    {% endif %}
   </header>
   <section class="entry__body" id="entry-{{ entry.id }}">
-    {{ entry.content | safe }}
+    <div class="entry__content" id="content-{{ entry.id }}" {{ 'hidden' if entry.sensitive }}>{{ entry.content | safe }}</div>
     <footer class="entry__footer">
+      <a href="{{ entry.url }}" class="no-arrow entry__post-time" target="_blank" rel="noopener" style="margin-right: auto;">
+        <time datetime="{{ entry.created_at }}">{{ utils.humanReadableDate(entry.created_at) }}</time>
+      </a>
       <p class="statistic">
         {% set replies = entry.replies_count %}
         <span class="statistic__figure">{{ replies if replies else '0' }}</span>

@@ -45,7 +45,7 @@
     }
   }
 
-  &:focus {
+  &:focus-visible {
     outline       : 5px solid hsl(var(--primary-500));
     outline-offset: 3px;
   }
@@ -58,7 +58,7 @@
       background-image: radial-gradient(circle at center, hsl(var(--l-contrast) / 25%), transparent 75%);
     }
 
-    &:focus {
+    &:focus-visible {
       outline: 5px solid hsl(var(--fg-contrast));
     }
   }
