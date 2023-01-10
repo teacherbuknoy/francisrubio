@@ -3,6 +3,10 @@
   flex-wrap: wrap;
   gap      : var(--cluster-gap, var(--space-xs));
 
+  &--inline {
+    display: inline-flex;
+  }
+
   &.spaced {
     justify-content: space-between;
   }
@@ -20,7 +24,7 @@
   }
 
   &.filled {
-    & > * {
+    &>* {
       flex: 1;
     }
   }

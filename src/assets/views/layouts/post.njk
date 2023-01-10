@@ -4,28 +4,41 @@
   {% include 'components/navigation.njk' %}
   <main style="width: min(100ch, 100%); margin-inline: auto;" class="h-entry padding--xl article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
     <header class="article__header">
-        {% set postType = postType if postType else 'post' %}
-        {% set sizes = cover.sizes %}
-        {% set alt = "" %}
-        {% set width = 600 %}
-        {% set height = 350 %}
-        {% set formats = cover.types %}
-        {% set filename = 'posts/' + cover.folder + '/' + cover.filename %}
-        {% set defaultImageClass = "article__image" %}
-        {% include "components/cdn-picture.njk" %}
-      <nav class="breadcrumb" aria-label="Breadcrumbs">
-        <ol class="breadcrumb__list">
-          <li class="breadcrumb__list-item">
-            <a href="/" class="breadcrumb__link" data-animation="button">Frontpage</a>
-          </li>
-          <li class="breadcrumb__list-item">
-            <a href="/writing/" class="breadcrumb__link" data-animation="button">Writing</a>
-          </li>
-          <li class="breadcrumb__list-item">
-            <a aria-current="location" class="breadcrumb__link" data-animation="button">This page</a>
-          </li>
-        </ol>
-      </nav>
+      {% set postType = postType if postType else 
+        'post' %}
+      {% set sizes = cover.sizes %}
+      {% set alt = "" %}
+      {% set width = 600 %}
+      {% set height = 350 %}
+      {% set formats = cover.types %}
+      {% set filename = 'posts/' + cover.folder + '/' + cover.filename %}
+      {% set defaultImageClass = "article__image" %}
+      {% include "components/cdn-picture.njk" %}
+      <div class="spaced cluster ai--center">
+        <nav class="breadcrumb" aria-label="Breadcrumbs">
+          <ol class="breadcrumb__list">
+            <li class="breadcrumb__list-item">
+              <a href="/" class="breadcrumb__link" data-animation="button">Frontpage</a>
+            </li>
+            <li class="breadcrumb__list-item">
+              <a href="/writing/" class="breadcrumb__link" data-animation="button">Writing</a>
+            </li>
+            <li class="breadcrumb__list-item">
+              <a aria-current="location" class="breadcrumb__link" data-animation="button">This page</a>
+            </li>
+          </ol>
+        </nav>
+        {% if translations != null %}
+          <p>
+            Read this in:
+            <span class="cluster cluster--inline gap--xs ai--center">
+              {% for lang in translations %}
+                <a href="{{ lang.url }}" class="button button--small">{{ lang.label }}</a>
+              {% endfor %}
+            </span>
+          </p>
+        {% endif %}
+      </div>
       <h1 id="{{ title | slugify }}" class="p-name article__title margin--none responsive">{{ title | safe }}</h1>
       <p class="p-summary responsive fs-4 weight-300">{{ description }}</p>
       <div class="spaced cluster ai--center">
