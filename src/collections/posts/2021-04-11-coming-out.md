@@ -7,7 +7,8 @@ cover:
   filename: cover.jpeg
   sizes: [300, 500, 700]
   formats: ['jpg', 'avif', 'webp']
-permalink: /writing/coming-out/
+aliases: 
+  - /writing/coming-out/
 author: teacherbuknoy
 category: [life]
 ---

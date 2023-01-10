@@ -26,5 +26,6 @@ module.exports = {
     const slugifiedCategories = category.map(tag => tag.toLowerCase().replaceAll(/\W|_/g, "-"))
 
     return slugifiedCategories.includes(tag)
-  })
+  }),
+  removeNoAlias: (collection) => collection.filter(item => item.data.alias)
 }

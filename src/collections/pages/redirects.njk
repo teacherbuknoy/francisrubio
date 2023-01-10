@@ -1,0 +1,14 @@
+---
+permalink: /_redirects
+layout: null
+eleventyExcludeFromCollections: true
+---
+{% for item in collections.all %}
+{% if item.data.aliases %}
+  {% set slugifiedTitle = item.data.title | slugify %}
+  {% for alias in item.data.aliases %}
+  {% set resolvedAlias %}{{ alias | replace('{{ title }}', slugifiedTitle) | safe }}{% endset %}
+  {{ resolvedAlias | safe }} {{ item.url | safe }}
+  {% endfor %}
+{% endif %}
+{% endfor %}

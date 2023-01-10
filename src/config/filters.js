@@ -80,5 +80,6 @@ module.exports = {
   },
   notHidden: function (object) {
     return Object.keys(object).filter(key => !object[key].hidden).map(key => object[key])
-  }
+  },
+  removeNoAlias: collection => collection.filter(item => item.data.alias != null)
 }
