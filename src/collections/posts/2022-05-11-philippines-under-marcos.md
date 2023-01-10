@@ -4,7 +4,7 @@ description: Neutrality has been a safe haven for those with no tolerance nor st
 image: /posts/homosexuality-wrong/cover.jpg
 author: teacherbuknoy
 category: [opinion]
-language: en-US
+language: en
 eleventyExcludeFromCollections: true
 ---
 

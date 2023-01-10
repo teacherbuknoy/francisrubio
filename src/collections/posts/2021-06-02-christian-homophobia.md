@@ -8,7 +8,7 @@ cover:
   formats: ['jpg', 'avif', 'webp']
 author: teacherbuknoy
 category: [opinion]
-language: fil
+language: tl
 images: 
     path: /assets/images/posts/arsenokoitai/optimized
     sizes: [500, 700]

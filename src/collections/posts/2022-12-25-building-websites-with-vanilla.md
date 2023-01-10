@@ -2,14 +2,14 @@
 title: "Building Websites with Vanilla"
 description: "No, vanilla is not a framework."
 category: ["Web Development"]
-lang: "en-US"
+language: "en"
 cover:
   folder: build-with-vanilla
   filename: cover.png
   sizes: [500, 600, 700]
   formats: ['png', 'webp', 'avif']
 author: "teacherbuknoy"
-language: "en-US"
+language: "en"
 seo:
   twitter:
     src: "/assets/images/posts/build-with-vanilla/twitter.png"

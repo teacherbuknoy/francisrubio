@@ -8,7 +8,7 @@ cover:
     types: ['png', 'webp', 'avif']
 author: teacherbuknoy
 category: [opinion]
-language: en-US
+language: en
 seo:
     twitter:
         src: /posts/christianity-and-homosexuality/twitter.png

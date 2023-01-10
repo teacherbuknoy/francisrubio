@@ -10,7 +10,7 @@ cover:
 author: teacherbuknoy
 type: Short Story
 category: literature
-language: fil
+language: tl
 ---
 
 Tumayo si Elias mula sa kaniyang mesa habang inaayos ang papeles niya sa kaniyang brown envelope na nasa loob ng clear na plastic envelope. Isa itong malaking araw para sa kaniya. Dumungaw siya sa labas ng kaniyang bintana, sinipat-sipat ang mga kapitbahay niyang mga Lourdes, Marites, at Baby. Kailangan nila itong makita. Sila ang mga paparazzi, ang mga tabloid, ang mga Cristy Fermin at Jobert Sucaldito ng DM Compound. Pulang kurbata, puting long-sleeves, itim na slacks, at makintab  na sapatos—handa na siyang matanggap sa trabaho, at marapat lamang na pag-usapan siya ng mga tao.

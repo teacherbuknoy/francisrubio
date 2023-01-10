@@ -8,7 +8,7 @@ cover:
   formats: ['jpg', 'avif', 'webp']
 author: teacherbuknoy
 category: [opinion]
-language: en-US
+language: en
 ---
 
 Recently, Jehovah's Witnesses published an article in their website reiterating their stand against homosexuality titled [<cite>Is Homosexuality Wrong?</cite>](https://www.jw.org/en/bible-teachings/teenagers/ask/is-homosexuality-wrong/). This post is an analysis of that article, applauding the parts that exalt love for one another, and criticizing the parts that present misinformation that may cause the organization's members to further close their minds and view homophobia as an acceptable reaction toward queer people.

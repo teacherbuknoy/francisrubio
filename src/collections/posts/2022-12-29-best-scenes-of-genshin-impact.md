@@ -4,7 +4,7 @@ description: "Spoilers for version version 3.3."
 category: ["Genshin Impact", "Game"]
 image: ""
 author: "teacherbuknoy"
-language: "en-US"
+language: "en"
 seo:
   twitter:
     src: ""

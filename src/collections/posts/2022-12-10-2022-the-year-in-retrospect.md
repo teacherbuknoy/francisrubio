@@ -8,7 +8,7 @@ cover:
   sizes: [500, 600, 700]
   formats: ['png', 'webp', 'avif']
 author: "teacherbuknoy"
-language: "en-US"
+language: "en"
 seo:
   twitter:
     src: "/assets/images/posts/2022-retrospect/twitter.png"

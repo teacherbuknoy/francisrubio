@@ -11,7 +11,7 @@ author: teacherbuknoy
 category: literature
 type: Poem
 class: poetry
-language: fil
+language: tl
 ---
 
 Mahihintay mo bang lumubog ang araw?<br>

@@ -8,7 +8,7 @@ cover:
   formats: ['jpg', 'avif', 'webp']
 author: teacherbuknoy
 category: [opinion]
-language: en-US
+language: en
 ---
 
 A lot of developers argue that CSS is hard. And I tend to agree, but only if we also acknowledge that it is no more difficult than learning any other programming language. CSS is a language that's focused on a particular domain, and for a developer that's used to using a general-purpose programming language like JavaScript, it's quite constraining and a lot of times confusing. Let's deconstruct that and see what we can do to make it easier.
