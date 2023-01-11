@@ -110,6 +110,8 @@ class SocialPost {
         try { new ToggleComponent(tglSensitive) }
         catch (e) { console.error(tglSensitive); throw e; }
       })
+
+      content.setAttribute('hidden', '')
     }
 
     const permalink = entry.querySelector('a[data-entry=permalink]')
