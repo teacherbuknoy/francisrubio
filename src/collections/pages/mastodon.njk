@@ -4,6 +4,7 @@ description: Check my most recent posts from Mastodon
 permalink: /socials/mastodon/
 activePath: socials
 stylesheets: ['mastodon.css']
+scripts: ['mastodon.js']
 ---
 {% set mastodon = socials.mastodon %}
 {% set profile = mastodon.profile %}
@@ -43,13 +44,67 @@ stylesheets: ['mastodon.css']
         </div>
       </div>
     </article>
-    <div class="feed__entries">
+    <div class="feed__entries" data-feed>
+      {% set lastPost = feed | last %}
       {% for entry in feed %}
         {% set isReplyToMe = entry.in_reply_to_account_id === mastodon.id %}
         {% if entry.content.length > 0 and not isReplyToMe %}
           {% include "components/mastodon-feed-entry.njk" %}
         {% endif %}
       {% endfor %}
+      <template id="mastodon-feed-entry">
+        <article class="entry">
+          <section class="entry__body" data-entry="entry">
+            <div class="entry__content" data-entry="content"></div>
+            <div class="entry__content-hidden-notice" data-entry="sensitive" hidden>
+              <button class="button entry__cw-toggle" data-toggle="">[Show content]</button>
+            </div>
+            <footer class="entry__footer">
+              <a class="no-arrow entry__post-time" target="_blank" rel="noopener" style="margin-right: auto;" data-entry="permalink">
+                <time data-entry="timestamp"></time>
+              </a>
+              <p class="statistic">
+                <span class="statistic__figure" data-entry="replies">0</span>
+                <span class="statistic__label">Replies</span>
+              </p>
+              <p class="statistic">
+                <span class="statistic__figure" data-entry="reblogs">0</span>
+                <span class="statistic__label">Reblogs</span>
+              </p>
+              <p class="statistic">
+                <span class="statistic__figure" data-entry="favorites">0</span>
+                <span class="statistic__label">Favorites</span>
+              </p>
+            </footer>
+          </section>
+        </article>
+      </template>
+      <template id="mastodon-feed-header">
+        <header class="entry__header">
+          <div class="cluster ai--center entry__sensitive" data-entry="sensitive" hidden>
+            <button data-entry="sensitive-toggle" class="button entry__cw-toggle" data-toggle="">
+              <div class="hide-on-pressed">
+                {{ "eye-off" | icon | safe }}
+                <span class="sr-only">Hide content</span>
+              </div>
+              <div class="hide-on-unpressed">
+                {{ "eye" | icon | safe }}
+                <span class="sr-only">Show content</span>
+              </div>
+            </button>
+            <span data-entry="spoiler-text" class="entry__reply"></span>
+          </div>
+          <span class="entry__reply" data-entry="reply" hidden>
+          In response to <a href="" data-entry="reply-link">this post</a>
+          </span>
+        </header>
+      </template>
+      <div class="cluster jc--center ai--center">
+        <button class="button" data-feed-reload data-feed-last-id="{{ lastPost.id }}">
+          <span class="button-text--default">Load more posts</span>
+          <span class="button-text--disabled">Loading…</span>
+        </button>
+      </div>
     </div>
   </div>
 </section>
@@ -67,3 +122,10 @@ stylesheets: ['mastodon.css']
     </a>
   </div>
 </footer>
+<script>
+  window.MASTODON = {
+    accountId: "{{ socials.mastodon.id }}",
+    feed: `{{ socials.mastodon.endpoints.feed | safe}}`,
+    profile: `{{ socials.mastodon.profile.feed | safe }}`
+  }
+</script>

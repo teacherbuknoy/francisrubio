@@ -4,13 +4,13 @@ const mastodon = {
   id: '109319595958763014',
   endpoints: {
     profile: 'https://mstdn.party/api/v1/accounts/109319595958763014',
-    feed: 'https://mstdn.party/api/v1/accounts/109319595958763014/statuses/?limit=40',
+    feed: 'https://mstdn.party/api/v1/accounts/109319595958763014/statuses/?limit=40&exclude_replies=true',
   }
 }
 
 async function fetchMastodon() {
   return {
-    id: mastodon.id,
+    ...mastodon,
     profile: await EleventyFetch(mastodon.endpoints.profile, { duration: '1d', type: 'json' }),
     feed: assignMastodonReplies(await EleventyFetch(mastodon.endpoints.feed, { duration: '1d', type: 'json' }))
   }

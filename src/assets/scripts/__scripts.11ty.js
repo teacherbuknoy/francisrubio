@@ -6,6 +6,7 @@ const ENTRY_FILE_NAME = 'main.js'
 const ENTRY_POINTS = {
   index: './src/assets/scripts/index.js',
   webmentions: './src/assets/scripts/webmentions.js',
+  mastodon: './src/assets/scripts/mastodon.js',
 }
 
 const fs = require('fs')
