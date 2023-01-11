@@ -39,7 +39,7 @@ async function handleLoadMore(e) {
     }
   })
 
-  btn.dataset.feedLastId = data.id
+  btn.dataset.feedLastId = data[data.length - 1].id
   btn.classList.remove('button--disabled')
 
   // restore event handler after processing
