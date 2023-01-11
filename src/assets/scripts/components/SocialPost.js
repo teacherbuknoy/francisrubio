@@ -78,6 +78,7 @@ class SocialPost {
   #id = 'mastodon-feed-entry'
   #element
   #renderers = []
+  #section
 
   /**
    * Creates a SocialPost component
@@ -94,6 +95,7 @@ class SocialPost {
 
     const section = entry.querySelector('[data-entry=entry]')
     section.setAttribute('id', `entry-${post.id}`)
+    this.#section = section
 
     const content = entry.querySelector('[data-entry=content]')
     content.innerHTML = post.content
@@ -139,8 +141,17 @@ class SocialPost {
     this.#element = entry
   }
 
+  /** 
+   * Adds a new post that is a reply to this post
+   * @param {SocialPost} post the reply post
+   */
+  addReply(post) {
+    this.#section.insertAdjacentElement('afterend', post.element)
+    this.#renderers.push(() => post.render())
+  }
+
   get element() {
-    return this.#element 
+    return this.#element
   }
 
   render() {
@@ -158,4 +169,31 @@ function createMastodonPost(post) {
   return new SocialPost(post)
 }
 
-export { createMastodonPost }
+/**
+ * @description Creates an array of Mastodon post components
+ * @author Francis Rubio
+ * @param {MastodonPost[]} posts
+ * @returns {SocialPost[]}
+ */
+function createMastodonFeed(posts) {
+  const feed = posts.map(post => ({
+    id: post.id,
+    replyEntry: post.replyEntry,
+    isReply: post.in_reply_to_id != null,
+    component: new SocialPost(post)
+  }))
+
+  const noReplies = feed.filter(post => !post.isReply)
+  const finalFeed = noReplies.map(post => {
+    if (post.replyEntry) {
+      const reply = feed.find(p => p.id === post.replyEntry)
+      post.component.addReply(reply.component)
+    }
+
+    return post.component
+  })
+  
+  return finalFeed
+}
+
+export { createMastodonPost, createMastodonFeed }

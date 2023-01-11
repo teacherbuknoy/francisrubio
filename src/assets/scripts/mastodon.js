@@ -1,4 +1,4 @@
-import { createMastodonPost } from "./components/SocialPost"
+import { createMastodonPost, createMastodonFeed } from "./components/SocialPost"
 const mastodon = window.MASTODON
 window.MASTODON_POSTS = []
 
@@ -11,37 +11,45 @@ async function handleLoadMore(e) {
   const btn = e.target
   // remove handler so we don't duplicate requests
   btn.removeEventListener('click', handleLoadMore)
-  
+
   btn.classList.add('button--disabled')
   const lastID = btn.dataset.feedLastId
 
   const ENDPOINT = new URL(mastodon.feed)
   ENDPOINT.searchParams.append('max_id', lastID)
 
-  const data = await fetch(ENDPOINT.toString())
+  const rawdata = await fetch(ENDPOINT.toString())
     .then(response => response.json())
     .catch(e => console.error(e))
 
+  const data = assignMastodonReplies(rawdata)
+    .filter(post => post.reblog == null)
+  console.log(data)
   MASTODON_POSTS.push(...data)
   
-  data
-    .filter(post => post.reblog == null)
-    .forEach(post => {
-    try {
-      const socialPost = createMastodonPost(post)
-      btn.parentElement.insertAdjacentElement('beforebegin', socialPost.element)
-
-      // Attaches JS functions from other modules
-      socialPost.render()
-    } catch (e) {
-      console.error(e)
-      console.error(post)
-    }
+  createMastodonFeed(data).forEach(socialPost => {
+    btn.parentElement.insertAdjacentElement('beforebegin', socialPost.element)
+    socialPost.render()
   })
 
   btn.dataset.feedLastId = data[data.length - 1].id
   btn.classList.remove('button--disabled')
 
   // restore event handler after processing
-  btn.addEventListener('click', handleLoadMore) 
+  btn.addEventListener('click', handleLoadMore)
+}
+
+function assignMastodonReplies(arr) {
+  arr.forEach(entry => {
+    const { id } = entry
+
+    if (entry.in_reply_to_account_id === MASTODON.accountId) {
+      // Get entry that receives this reply
+      const { in_reply_to_id: inReplyToId } = entry
+      const inReplyTo = arr.find(post => post.id === inReplyToId)
+      inReplyTo.replyEntry = id
+    }
+  })
+
+  return arr
 }

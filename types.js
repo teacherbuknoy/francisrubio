@@ -31,6 +31,7 @@
  * @property {boolean} reblogged
  * @property {boolean} favourited
  * @property {boolean} bookmarked
+ * @property {string} replyEntry
  * @property {MastodonMediaAttachment[]} media_attachments
  * @property {}
  */
