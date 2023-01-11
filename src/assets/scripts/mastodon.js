@@ -2,12 +2,12 @@ import { createMastodonPost } from "./components/SocialPost"
 const mastodon = window.MASTODON
 window.MASTODON_POSTS = []
 
-const feed = document.querySelector('[data-feed]')
+const template = document.getElementById('mastodon-feed-entry')
 const btnFeedReload = document.querySelectorAll('button[data-feed-reload]')
-
 btnFeedReload.forEach(btn => btn.addEventListener('click', handleLoadMore))
 
 async function handleLoadMore(e) {
+  /** @typedef {HTMLButtonElement} */
   const btn = e.target
   // remove handler so we don't duplicate requests
   btn.removeEventListener('click', handleLoadMore)
@@ -28,11 +28,11 @@ async function handleLoadMore(e) {
     .filter(post => post.reblog == null)
     .forEach(post => {
     try {
-      const postElement = createMastodonPost(post)
-      feed.appendChild(postElement.element)
+      const socialPost = createMastodonPost(post)
+      btn.parentElement.insertAdjacentElement('beforebegin', socialPost.element)
 
       // Attaches JS functions from other modules
-      postElement.render()
+      socialPost.render()
     } catch (e) {
       console.error(e)
       console.error(post)
