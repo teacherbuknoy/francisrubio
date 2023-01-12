@@ -1,0 +1,50 @@
+<article class="entry">
+  <header class="entry__header">
+    {% if entry.sensitive %}
+      <div class="cluster ai--center">
+        <button class="button entry__cw-toggle" data-toggle="content-{{ entry.id }}">
+          <div class="hide-on-pressed">{{ "eye-off" | icon | safe }} <span class="sr-only">Hide content</span></div>
+          <div class="hide-on-unpressed">{{ "eye" | icon | safe }} <div class="sr-only">Show content</div></div>
+        </button>
+        <span class="entry__reply">{{ entry.spoiler_text }}</span>
+      </div>
+    {% endif %}
+    {% if entry.in_reply_to_id != null and entry.in_reply_to_account_id !== mastodon.id %}
+      {% set replyToLink%}#entry-{{ entry.in_reply_to_id }}{% endset %}
+      <span class="entry__reply">In response to <a href="{{ replyToLink | safe }}">this post</a>
+      </span>
+    {% endif %}
+  </header>
+  <section class="entry__body" id="entry-{{ entry.id }}">
+    <div class="entry__content" id="content-{{ entry.id }}" {{ 'hidden' if entry.sensitive }}>{{ entry.content | safe }}</div>
+    {% if entry.sensitive %}
+      <div class="entry__content-hidden-notice">
+        <button class="button entry__cw-toggle" data-toggle="content-{{ entry.id }}">[Show content]</button>
+      </div>
+    {% endif %}
+    <footer class="entry__footer">
+      <a href="{{ entry.url }}" class="no-arrow entry__post-time" target="_blank" rel="noopener" style="margin-right: auto;">
+        <time datetime="{{ entry.created_at }}">{{ utils.humanReadableDate(entry.created_at) }}</time>
+      </a>
+      <p class="statistic">
+        {% set replies = entry.replies_count %}
+        <span class="statistic__figure">{{ replies if replies else '0' }}</span>
+        <span class="statistic__label">Replies</span>
+      </p>
+      <p class="statistic">
+        {% set reblog = entry.reblog_count %}
+        <span class="statistic__figure">{{ reblog if reblog else '0' }}</span>
+        <span class="statistic__label">Reblogs</span>
+      </p>
+      <p class="statistic">
+        {% set likes = entry.favourites_count %}
+        <span class="statistic__figure">{{ likes if likes else '0' }}</span>
+        <span class="statistic__label">Favorites</span>
+      </p>
+    </footer>
+  </section>
+  {% if entry.replyEntry != null %}
+    {% set entry = mastodon.findReply(entry.replyEntry) %}
+    {% include "components/mastodon-feed-entry.njk" %}
+  {% endif %}
+</article>

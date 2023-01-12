@@ -11,7 +11,7 @@
   display                : inline-flex;
   font-family            : var(--font-sans);
   font-size              : 1em;
-  font-variation-settings: "wght" 500;
+  font-variation-settings: "wght"500;
   gap                    : var(--space);
   justify-content        : center;
   overflow               : hidden;
@@ -45,7 +45,7 @@
     }
   }
 
-  &:focus {
+  &:focus-visible {
     outline       : 5px solid hsl(var(--primary-500));
     outline-offset: 3px;
   }
@@ -58,7 +58,7 @@
       background-image: radial-gradient(circle at center, hsl(var(--l-contrast) / 25%), transparent 75%);
     }
 
-    &:focus {
+    &:focus-visible {
       outline: 5px solid hsl(var(--fg-contrast));
     }
   }
@@ -79,6 +79,20 @@
   &--small {
     font-size: 1rem;
     padding  : var(--space-xxs) var(--space-m);
+  }
+
+  &-text--disabled {
+    display: none;
+  }
+
+  &--disabled {
+    pointer-events: none;
+    cursor        : default;
+
+    .button-text {
+      &--default { display: none; }
+      &--disabled { display: block; }
+    }
   }
 }
 

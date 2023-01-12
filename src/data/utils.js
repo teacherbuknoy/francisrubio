@@ -1,3 +1,10 @@
+/**
+ * @typedef {Object} MastodonEmoji
+ * @property {string} shortcode
+ * @property {string} url
+ * @property {string} static_url
+ * @property {boolean} visible_in_picker
+ */
 module.exports = {
   currentYear: new Date().getFullYear(),
   tentativeDate: (year, month, day) => {
@@ -18,6 +25,11 @@ module.exports = {
       .toString()
       .padStart(2, 0)}-${date.toString().padStart(2, 0)}`
   },
+  humanReadableDate: obj => {
+    const value = new Date(obj)
+    let formatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' })
+    return formatter.format(value)
+  },
   isActivePath: (activePath, url) => {
     return url.includes(`/${activePath}/`)
   },
@@ -27,5 +39,21 @@ module.exports = {
 
     return slugifiedCategories.includes(tag)
   }),
-  removeNoAlias: (collection) => collection.filter(item => item.data.alias)
+  removeNoAlias: (collection) => collection.filter(item => item.data.alias),
+  /**
+   * 
+   * @param {string} str 
+   * @param {MastodonEmoji[]} emojis 
+   * @returns 
+   */
+  replaceMastodonEmoji: (str, emojis) => {
+    const regex = /(<a?)?:\w+:(\d{18}>)?/gm
+    
+    return str.match(regex)
+      .reduce((finalString, emojiMatch) => {
+        const emoji = emojis.find(e => e.shortcode === emojiMatch.replaceAll(':', ''))
+        const img = `<img src="${emoji.url}" alt="${emoji.shortcode}" width="16" height="16" class="emoji">`
+        return finalString.replace(emojiMatch, img)
+      }, str)
+  }
 }
