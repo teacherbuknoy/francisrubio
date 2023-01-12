@@ -13,6 +13,7 @@
       {% set formats = cover.types %}
       {% set filename = 'posts/' + cover.folder + '/' + cover.filename %}
       {% set defaultImageClass = "article__image" %}
+      {% set focus = cover.focus %}
       {% include "components/cdn-picture.njk" %}
       <div class="spaced cluster ai--center">
         <nav class="breadcrumb" aria-label="Breadcrumbs">

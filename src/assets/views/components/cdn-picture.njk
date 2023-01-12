@@ -6,7 +6,7 @@
 
 {% set sizesAttr %}
 {% for size in sizes %}
-    (max-width: {{ size }}px) {{ size }}px{{ ", " if not loop.last }}
+    (max-width: {{ size }}px) {{ size }}w{{ ", " if not loop.last }}
 {% endfor %}
 {% endset %}
 
@@ -15,7 +15,7 @@
 {% set thumbnail = cdnUrl + 'tr:w-1,h-1:w-' + width + ',h-' + height + ',bl-5' + filename %}
 
 <picture>
-  {% for format in formats %}
+  {% for format in formats | reverse %}
     {% set srcset %}
     {% for size in sizes %}
       {{ cdnUrl }}/tr:f-{{ format }},w-{{ size }}/{{ filename }}
@@ -32,11 +32,18 @@
     >
   {% endfor %}
 
+  {% set styles %}
+    {% if focus %}
+      object-position: {{ focus }};
+    {% endif %}
+  {% endset %}
+
   <img 
       {% if hasThumbnail %}style="--thumbnail: url({{ thumbnail }})"{% endif %}
       src="{{ defaultImageSource }}" alt="{{ alt }}"
       class="{{ defaultImageClass }}"
       width="{{ width }}"
       height="{{ height }}"
-      loading="lazy">
+      loading="lazy"
+      style="{{ styles }}">
 </picture>

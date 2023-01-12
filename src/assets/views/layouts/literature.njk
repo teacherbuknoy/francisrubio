@@ -12,6 +12,7 @@
         {% set formats = cover.types %}
         {% set filename = 'literature/' + cover.folder + '/' + cover.filename %}
         {% set defaultImageClass = "article__image" %}
+        {% set focus = cover.focus %}
         {% include "components/cdn-picture.njk" %}
       <nav class="breadcrumb" aria-label="Breadcrumbs">
         <ol class="breadcrumb__list">

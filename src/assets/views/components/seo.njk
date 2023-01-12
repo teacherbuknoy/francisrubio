@@ -38,20 +38,26 @@
   {% endif %}
 {% endif %}
 
-{% if seo.twitter.url %}
-  {% set twitter_image %}{{ seo.twitter.url }}{% endset %}
-{% elif seo.twitter.src %}
+{% if seo.twitter.src %}
   {% set twitter_image %}{{ 'https://' + preferredDomain.value }}{{ "/assets/images" if seo.twitter.is_prefixed == null or seo.twitter.is_prefixed == true }}{{ seo.twitter.src }}{% endset %}
+{% elif seo.twitter.url %}
+  {% set twitter_image %}{{ seo.twitter.url }}{% endset %}
 {% endif %}
 
-{% if seo.og.url %}
-  {% set fb_image %}{{ seo.og.url }}{% endset %}
-{% elif seo.og.src %}
+
+{% if seo.og.src %}
   {% set fb_image %}{{ 'https://' + preferredDomain.value }}{{ "/assets/images" if seo.og.is_prefixed == null or seo.og.is_prefixed == true }}{{ seo.og.src }}{% endset %}
+{% elif seo.og.url %}
+  {% set fb_image %}{{ seo.og.url }}{% endset %}
 {% endif %}
 
+{% if not fb_image %}
 {% set fb_image %}{% if not fb_image %}{{ 'https://' + preferredDomain.value }}/{{ site.seo.fb_image }}{% endif %}{% endset %}
+{% endif %}
+
+{% if not twitter_image %}
 {% set twitter_image %}{% if not twitter_image %}{{ 'https://' + preferredDomain.value }}/{{ site.seo.twitter_image }}{% endif %}{% endset %}
+{% endif %}
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">

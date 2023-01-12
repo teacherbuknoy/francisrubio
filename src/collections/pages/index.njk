@@ -29,6 +29,7 @@ stylesheets: ['frontpage.css']
     {% set defaultImageClass = "banner-image" %}
     {% set width = 300 %}
     {% set height = 400 %}
+    {% set focus = post.cover.focus %}
     {% include "components/cdn-picture.njk" %}
   </div>
 </header>
