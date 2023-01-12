@@ -26,7 +26,8 @@ async function handleLoadMore(e) {
     .filter(post => post.reblog == null)
   console.log(data)
   MASTODON_POSTS.push(...data)
-  
+
+  console.log(data)
   createMastodonFeed(data).forEach(socialPost => {
     btn.parentElement.insertAdjacentElement('beforebegin', socialPost.element)
     socialPost.render()
@@ -40,6 +41,7 @@ async function handleLoadMore(e) {
 }
 
 function assignMastodonReplies(arr) {
+  console.log('[ASSIGN MASTODON REPLIES]', arr)
   arr.forEach(entry => {
     const { id } = entry
 
@@ -47,7 +49,11 @@ function assignMastodonReplies(arr) {
       // Get entry that receives this reply
       const { in_reply_to_id: inReplyToId } = entry
       const inReplyTo = arr.find(post => post.id === inReplyToId)
-      inReplyTo.replyEntry = id
+      if (inReplyTo != null) {
+        inReplyTo.replyEntry = id
+      } else {
+        console.log('[ASSIGN MASTODON REPLIES]', inReplyToId, entry)
+      }
     }
   })
 
