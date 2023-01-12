@@ -28,7 +28,9 @@ function assignMastodonReplies(arr) {
       // Get entry that receives this reply
       const { in_reply_to_id: inReplyToId } = entry
       const inReplyTo = arr.find(post => post.id === inReplyToId)
-      inReplyTo.replyEntry = id
+      if (inReplyTo != null) {
+        inReplyTo.replyEntry = id
+      }
     }
   })
   return arr
