@@ -4,10 +4,44 @@ window.MASTODON_POSTS = []
 
 const template = document.getElementById('mastodon-feed-entry')
 const btnFeedReload = document.querySelectorAll('button[data-feed-reload]')
-btnFeedReload.forEach(btn => btn.addEventListener('click', handleLoadMore))
+const feedContainer = document.querySelector('[data-feed]')
+btnFeedReload.forEach(btn => {
+  if (btn.dataset.feedLastId != null)
+    btn.addEventListener('click', handleLoadMore)
+  else
+    btn.addEventListener('click', handleLoadLatest)
+})
+
+async function handleLoadLatest(e) {
+  const btn = e.target
+  btn.removeEventListener('click', handleLoadLatest)
+  btn.classList.add('button--disabled')
+  console.log("LATEST", btn)
+
+  await loadLatestPosts(feedContainer)
+
+  btn.classList.remove('button--disabled')
+  btn.addEventListener('click', handleLoadLatest)
+}
+
+async function loadLatestPosts(container) {
+  const posts = []
+  const data = await loadPosts(null, sp => posts.push(sp))
+
+  if (posts.length > 0) {
+    const oldEntries = container.querySelectorAll(':scope > .entry') // direct .entry children only
+    oldEntries.forEach(entry => container.removeChild(entry))
+
+    posts.forEach(post => {
+      container.appendChild(post.element)
+      post.render()
+    })
+  }
+
+  return data
+}
 
 async function handleLoadMore(e) {
-  /** @typedef {HTMLButtonElement} */
   const btn = e.target
   // remove handler so we don't duplicate requests
   btn.removeEventListener('click', handleLoadMore)
@@ -15,8 +49,31 @@ async function handleLoadMore(e) {
   btn.classList.add('button--disabled')
   const lastID = btn.dataset.feedLastId
 
+  const data = await loadOlderPosts(feedContainer, lastID)
+
+  btn.dataset.feedLastId = data[data.length - 1].id
+  btn.classList.remove('button--disabled')
+
+  // restore event handler after processing
+  btn.addEventListener('click', handleLoadMore)
+}
+
+async function loadOlderPosts(container, lastID) {
+  const posts = []
+  const data = await loadPosts(lastID, sp => posts.push(sp))
+
+  posts.forEach(post => {
+    container.appendChild(post.element)
+    post.render()
+  })
+
+  return data
+}
+
+async function loadPosts(lastID, handler = (post) => post.render()) {
   const ENDPOINT = new URL(mastodon.feed)
-  ENDPOINT.searchParams.append('max_id', lastID)
+  if (lastID != null)
+    ENDPOINT.searchParams.append('max_id', lastID)
 
   const rawdata = await fetch(ENDPOINT.toString())
     .then(response => response.json())
@@ -28,16 +85,9 @@ async function handleLoadMore(e) {
   MASTODON_POSTS.push(...data)
 
   console.log(data)
-  createMastodonFeed(data).forEach(socialPost => {
-    btn.parentElement.insertAdjacentElement('beforebegin', socialPost.element)
-    socialPost.render()
-  })
+  createMastodonFeed(data).forEach(socialPost => handler(socialPost))
 
-  btn.dataset.feedLastId = data[data.length - 1].id
-  btn.classList.remove('button--disabled')
-
-  // restore event handler after processing
-  btn.addEventListener('click', handleLoadMore)
+  return data
 }
 
 function assignMastodonReplies(arr) {

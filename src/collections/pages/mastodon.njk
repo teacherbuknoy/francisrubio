@@ -17,10 +17,10 @@ scripts: ['mastodon.js']
   </div>
   <div class="feed-grid">
     <article class="feed__profile profile">
-      <img src="{{ profile.header_static }}" alt="Header Image" class="profile__header">
+      <img src="{{ profile.header_static }}" alt="Header Image" class="profile__header" data-profile="header">
       <div class="profile__body">
         <div style="display: flex; flex-wrap: wrap; gap: var(--space); align-items: center;">
-          <img src="{{ profile.avatar_static }}" alt="Avatar" width="400" height="400" class="profile__avatar">
+          <img src="{{ profile.avatar_static }}" alt="Avatar" width="400" height="400" class="profile__avatar" data-profile="avatar">
           <div class="stack">
             <h3 class="profile__name">
               <a href="{{ profile.url | safe }}" class="profile__link">{{ utils.replaceMastodonEmoji(profile.display_name, profile.emojis) | safe }}</a>
@@ -44,7 +44,14 @@ scripts: ['mastodon.js']
         </div>
       </div>
     </article>
-    <div class="feed__entries" data-feed>
+    <div class="feed__entries">
+      <div class="cluster jc--center ai--center">
+        <button class="button" data-feed-reload>
+          <span class="button-text--default">Load latest posts</span>
+          <span class="button-text--disabled">Loading…</span>
+        </button>
+      </div>
+      <div class="feed__entry-list" data-feed>
       {% set lastPost = feed | last %}
       {% for entry in feed %}
         {% set isReplyToMe = entry.in_reply_to_account_id === mastodon.id %}
@@ -52,6 +59,7 @@ scripts: ['mastodon.js']
           {% include "components/mastodon-feed-entry.njk" %}
         {% endif %}
       {% endfor %}
+      </div>
       <template id="mastodon-feed-entry">
         <article class="entry">
           <section class="entry__body" data-entry="entry">
@@ -99,9 +107,19 @@ scripts: ['mastodon.js']
           </span>
         </header>
       </template>
+      <template id="mastodon-preview-card">
+        <article class="entry__preview-card seo-preview">
+          <a href="" class="preview__link" aria-labelledby="" data-preview="link"></a>
+          <img src="" alt="" class="preview__image" data-preview="image">
+          <div class="preview__body">
+            <h3 class="preview__title" data-preview="title"></h3>
+            <p class="preview__description" data-preview="description"></p>
+          </div>
+        </article>
+      </template>
       <div class="cluster jc--center ai--center">
         <button class="button" data-feed-reload data-feed-last-id="{{ lastPost.id }}">
-          <span class="button-text--default">Load more posts</span>
+          <span class="button-text--default">Load older posts</span>
           <span class="button-text--disabled">Loading…</span>
         </button>
       </div>

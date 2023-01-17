@@ -17,12 +17,16 @@
 }
 
 .feed__entries {
+  flex-basis: 0;
+  flex-grow : 999;
+  min-width : 50%;
+}
+
+.feed__entry-list,
+.feed__entries {
   display       : flex;
-  flex-basis    : 0;
   flex-direction: column;
-  flex-grow     : 999;
   gap           : var(--space-l);
-  min-width     : 50%;
 }
 
 
@@ -132,6 +136,22 @@
 
     &+.entry__content-hidden-notice {
       display: none;
+    }
+  }
+
+  &__media {
+    display              : grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(25ch, 100%), 1fr));
+    gap                  : 0.25ch;
+    grid-template-rows   : 25ch;
+    border-radius        : var(--radius-3);
+    overflow             : hidden;
+
+    img {
+      width          : 100%;
+      height         : 25ch;
+      object-fit     : cover;
+      object-position: top;
     }
   }
 

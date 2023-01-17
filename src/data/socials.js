@@ -12,7 +12,7 @@ async function fetchMastodon() {
   return {
     ...mastodon,
     profile: await EleventyFetch(mastodon.endpoints.profile, { duration: '1d', type: 'json' }),
-    feed: assignMastodonReplies(await EleventyFetch(mastodon.endpoints.feed, { duration: '1d', type: 'json' }))
+    feed: assignMastodonReplies(await EleventyFetch(`${mastodon.endpoints.feed}&max_id=109620369877756044`, { duration: '1d', type: 'json' }))
   }
 }
 

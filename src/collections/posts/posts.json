@@ -4,5 +4,6 @@
   "permalink": "/writing/{{ language }}/{{ title | slugify }}/",
   "activePath": "writing",
   "author": "teacherbuknoy",
-  "language": "en"
+  "language": "en",
+  "seoType": "article"
 }

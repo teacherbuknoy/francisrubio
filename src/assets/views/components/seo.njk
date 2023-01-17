@@ -22,13 +22,6 @@
 {% endif %}
 
 {% set preferredDomain = site.domains | selectattr('isPreferred') | first %}
-{% if not fb_image %}
-  {% if image %}
-    {% set fb_image %}{{ 'https://' + preferredDomain.value }}/assets/images{{ image }}{% endset %}
-  {% elif cover and cover.src %}
-    {% set fb_image %}{{ 'https://' + preferredDomain.value }}{{ cover.src }}{% endset %}
-  {% endif %}
-{% endif %}
 
 {% if not twitter_image %}
   {% if image %}
@@ -44,27 +37,11 @@
   {% set twitter_image %}{{ seo.twitter.url }}{% endset %}
 {% endif %}
 
-
-{% if seo.og.src %}
-  {% set fb_image %}{{ 'https://' + preferredDomain.value }}{{ "/assets/images" if seo.og.is_prefixed == null or seo.og.is_prefixed == true }}{{ seo.og.src }}{% endset %}
-{% elif seo.og.url %}
-  {% set fb_image %}{{ seo.og.url }}{% endset %}
-{% endif %}
-
-{% if not fb_image %}
-{% set fb_image %}{% if not fb_image %}{{ 'https://' + preferredDomain.value }}/{{ site.seo.fb_image }}{% endif %}{% endset %}
-{% endif %}
-
 {% if not twitter_image %}
 {% set twitter_image %}{% if not twitter_image %}{{ 'https://' + preferredDomain.value }}/{{ site.seo.twitter_image }}{% endif %}{% endset %}
 {% endif %}
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="{{ 'https://' + preferredDomain.value }}{{ page.url if page.url }}">
-<meta property="og:title" content="{{ title if title else site.title }}">
-<meta property="og:description" content="{{ description if description else site.description }}">
-<meta property="og:image" content="{{ fb_image if fb_image else site.seo.fb_image }}">
+{% include "components/seo/og.njk" %}
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
