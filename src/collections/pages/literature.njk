@@ -29,3 +29,17 @@ activePath: literature
     <a href="{{ pagination.href.next }}" class="button">Next</a>
   {% endif %}
 </div>
+
+{% set preferredDomain = site.domains | selectattr('isPreferred') | first %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Literature",
+    "item": "https://{{ preferredDomain.value }}/literature/"
+  }]
+}
+</script>

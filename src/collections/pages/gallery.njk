@@ -48,3 +48,17 @@ activePath: gallery
     </a>
   </div>
 </footer>
+
+{% set preferredDomain = site.domains | selectattr('isPreferred') | first %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Gallery",
+    "item": "https://{{ preferredDomain.value }}/gallery/"
+  }]
+}
+</script>
