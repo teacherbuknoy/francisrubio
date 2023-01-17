@@ -9,16 +9,22 @@ btnFeedReload.forEach(btn => {
   if (btn.dataset.feedLastId != null)
     btn.addEventListener('click', handleLoadMore)
   else
-    btn.addEventListener('click', e => {
-      loadInitialPosts(feedContainer)
-    })
+    btn.addEventListener('click', handleLoadLatest)
 })
 
-/**
- * 
- * @param {HTMLElement} container 
- */
-async function loadInitialPosts(container) {
+async function handleLoadLatest(e) {
+  const btn = e.target
+  btn.removeEventListener('click', handleLoadLatest)
+  btn.classList.add('button--disabled')
+  console.log("LATEST", btn)
+
+  loadLatestPosts(feedContainer)
+
+  btn.classList.remove('button--disabled')
+  btn.addEventListener('click', handleLoadLatest)
+}
+
+async function loadLatestPosts(container) {
   const posts = []
   const data = await loadPosts(null, sp => posts.push(sp))
 
