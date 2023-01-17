@@ -102,7 +102,7 @@ module.exports = function (eleventyConfig) {
       case ".html":
       case ".json":
         const parser = extname.replace(/^./, "")
-        return prettier.format(content, { parser, singleAttributePerLine: false, printWidth: 100 })
+        return prettier.format(content, { parser, singleAttributePerLine: false, printWidth: 200 })
       
       default:
           return content

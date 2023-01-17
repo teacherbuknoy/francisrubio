@@ -55,3 +55,9 @@
  * @property {string} name
  * @property {string} url
  */
+
+/**
+ * @typedef {Object} MastodonPreviewCard
+ * @property {string} author_name
+ * @property {string} author_url
+ */
