@@ -33,7 +33,7 @@
  * @property {boolean} bookmarked
  * @property {string} replyEntry
  * @property {MastodonMediaAttachment[]} media_attachments
- * @property {}
+ * @property {MastodonPreviewCard} card
  */
 
 /** @typedef {'public'|'unlisted'|'private'|'direct'} MastodonPostVisibility */

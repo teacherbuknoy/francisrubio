@@ -1,6 +1,102 @@
 import { ToggleComponent } from "./ToggleComponent"
 const CONTENT_PREFIX = 'content'
 
+class SocialPostMedia {
+  #element
+  #renderers = []
+
+  /**
+   * @param {MastodonMediaAttachment[]} images 
+   */
+  constructor(images) {
+    const container = document.createElement('div')
+    container.classList.add('entry__media')
+
+    images
+      .filter(item => item.type === 'image')
+      .forEach(item => {
+        const img = document.createElement('img')
+        img.setAttribute('src', item.preview_url)
+        img.setAttribute('alt', item.description)
+        img.setAttribute('width', item.meta.small.width)
+        img.setAttribute('height', item.meta.small.height)
+
+        const a = document.createElement('a')
+        a.setAttribute('href', item.url)
+        a.setAttribute('target', '_blank')
+        a.setAttribute('rel', 'noopener')
+        a.classList.add('entry__media-link')
+
+        a.appendChild(img)
+        container.appendChild(a)
+      })
+    
+    this.#element = container
+  }
+
+  get element() {
+    return this.#element
+  }
+
+  render() {
+    this.#renderers.forEach(fn => fn())
+  }
+}
+
+class SocialPreviewCard {
+  #templateId = 'mastodon-preview-card'
+  #id
+  #element
+  #renderers = []
+
+  /**
+   * Creates an instance of SocialPreviewCard.
+   * @author Francis Rubio
+   * @param {MastodonPreviewCard} card
+   * @memberof SocialPreviewCard
+   */
+  constructor(card) {
+    /** @type {HTMLTemplateElement} */
+    const template = document.getElementById(this.#templateId)
+    /** @type {HTMLElement} */
+    const article = template.content.firstElementChild.cloneNode(true)
+    const articleId = `preview-${Date.now()}`
+
+    const rawElements = article.querySelectorAll('[data-preview]')
+    const elements = {}
+
+    rawElements.forEach(el => {
+      const key = el.getAttribute('data-preview')
+      elements[key] = el
+    })
+
+    elements.link.setAttribute('href', card.url)
+    elements.link.setAttribute('aria-labelledby', articleId)
+
+    if (card.image != null) {
+      elements.image.setAttribute('src', card.image)
+      elements.image.setAttribute('alt', '')
+    } else {
+      elements.image.parentElement.removeChild(elements.image)
+    }
+
+    elements.title.setAttribute('id', articleId)
+    elements.title.innerText = card.title
+
+    elements.description.innerText = card.description
+
+    this.#element = article
+  }
+
+  get element() {
+    return this.#element
+  }
+
+  render() {
+    this.#renderers.forEach(fn => fn())
+  }
+}
+
 class SocialPostHeader {
   #id = 'mastodon-feed-header'
   #element
@@ -102,6 +198,19 @@ class SocialPost {
     content.setAttribute('id', postId)
     content.setAttribute('lang', post.language)
 
+    if (post.media_attachments != null && post.media_attachments.length > 0) {
+      const media = new SocialPostMedia(post.media_attachments)
+      this.#renderers.push(() => media.render())
+      content.appendChild(media.element)
+    }
+
+    if (post.card != null) {
+      const card = new SocialPreviewCard(post.card)
+      this.#renderers.push(() => card.render())
+
+      content.appendChild(card.element)
+    }
+
     if (post.sensitive) {
       const sensitive = entry.querySelector('[data-entry=sensitive]')
       sensitive.removeAttribute('hidden')
@@ -193,7 +302,7 @@ function createMastodonFeed(posts) {
 
     return post.component
   })
-  
+
   return finalFeed
 }
 
