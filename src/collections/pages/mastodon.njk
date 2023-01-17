@@ -107,6 +107,16 @@ scripts: ['mastodon.js']
           </span>
         </header>
       </template>
+      <template id="mastodon-preview-card">
+        <article class="entry__preview-card seo-preview">
+          <a href="" class="preview__link" aria-labelledby=""></a>
+          <img src="" alt="" class="preview__image" data-preview="image">
+          <div class="preview__body">
+            <h3 class="preview__title" data-preview="title"></h3>
+            <p class="preview__description" data-preview="description"></p>
+          </div>
+        </article>
+      </template>
       <div class="cluster jc--center ai--center">
         <button class="button" data-feed-reload data-feed-last-id="{{ lastPost.id }}">
           <span class="button-text--default">Load older posts</span>
