@@ -100,6 +100,7 @@ class SocialPost {
     const content = entry.querySelector('[data-entry=content]')
     content.innerHTML = post.content
     content.setAttribute('id', postId)
+    content.setAttribute('lang', post.language)
 
     if (post.sensitive) {
       const sensitive = entry.querySelector('[data-entry=sensitive]')
