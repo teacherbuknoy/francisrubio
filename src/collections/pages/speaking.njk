@@ -47,3 +47,17 @@ activePath: speaking
 </div>
 
 {% include 'components/email-form.njk' %}
+
+{% set preferredDomain = site.domains | selectattr('isPreferred') | first %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Speaking",
+    "item": "https://{{ preferredDomain.value }}/speaking/"
+  }]
+}
+</script>
