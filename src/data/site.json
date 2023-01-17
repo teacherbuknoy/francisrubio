@@ -76,6 +76,7 @@
   "publisher": {
     "@type": "Organization",
     "name": "Antares Programming",
-    "url": "https://antaresph.dev/"
+    "url": "https://antaresph.dev/",
+    "logo": "https://www.antaresph.dev/assets/images/root/logo.svg"
   }
 }
