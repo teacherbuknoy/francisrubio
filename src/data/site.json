@@ -72,5 +72,10 @@
   "api": {
     "email": "https://form.taxi/s/egdwtcqq",
     "images": "https://ik.imagekit.io/8jjzxcl9p/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Antares Programming",
+    "url": "https://antaresph.dev/"
   }
 }
