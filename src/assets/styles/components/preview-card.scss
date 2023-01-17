@@ -6,6 +6,11 @@
 }
 
 .preview {
+  &__image {
+    width : 100%;
+    height: auto;
+  }
+
   &__body {
     background-color  : hsl(var(--bg-secondary) / 50%);
     border-block-start: start;
@@ -14,7 +19,7 @@
 
   &__title {
     font-family            : var(--font-sans);
-    font-size              : var(--type-size-4);
+    font-size              : var(--type-size-5);
     font-variation-settings: 'wght'500;
     margin                 : 0;
   }
