@@ -58,6 +58,19 @@
 
 /**
  * @typedef {Object} MastodonPreviewCard
+ * @property {string} url
+ * @property {string} title
+ * @property {string} description
+ * @property {string} type
  * @property {string} author_name
  * @property {string} author_url
+ * @property {string} provider_name
+ * @property {string} provider_url
+ * @property {string} html
+ * @property {string} width
+ * @property {string} height
+ * @property {string} image
+ * @property {string} embed_url
+ * @property {string} blurhash
+ * 
  */
