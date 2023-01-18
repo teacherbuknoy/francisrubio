@@ -198,9 +198,9 @@ stylesheets: ['frontpage.css']
         <p>Videos of me. Candid, without a care for the world (well, slight care actually)</p>
       </hgroup>
     </div>
-      {% set postLimit = 3 %}
-      {% set collection = collections.videos | reverse %}
-      {% include 'components/video-grid.njk' %}
+    {% set postLimit = 3 %}
+    {% set collection = collections.videos | reverse %}
+    {% include 'components/video-grid.njk' %}
     <div class="stack ai--center text-center gap--s padding--xl">
       <div class="cluster center-align">
         <a href="/videos/" class="primary button">See all</a>
@@ -230,3 +230,8 @@ stylesheets: ['frontpage.css']
 </section>
 
 {% include 'components/email-form.njk' %}
+
+{% set preferredDomain = site.domains | selectattr('isPreferred') | first %}
+<script type="application/ld+json">
+  [{% include "components/seo/structure/website.njk" %}]
+</script>

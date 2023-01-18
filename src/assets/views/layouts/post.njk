@@ -153,23 +153,9 @@
             "item": "https://{{ preferredDomain.value }}{{ page.url }}"
           }
         ]
-      }, {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": "{{ title }}",
-        "image": ["{{ site.api.images + 'posts/' + cover.folder + '/' + cover.filename }}"],
-        "datePublished": "{{ page.date.toISOString() }}",
-        "dateModified": "{{ page.date.toISOString() }}",
-        "author": [
-          {
-            "@type": "Person",
-            "name": "{{ authors.teacherbuknoy.name }}",
-            "url": "{{ authors.teacherbuknoy.url }}",
-            "image": ["{{ preferredDomain.value }}{{ authors.teacherbuknoy.photo }}"]
-          }
-        ],
-        "publisher": {{ site.publisher | dump | safe }}
-      }
+      }, 
+      {% include "components/seo/structure/blogposting.njk" %},
+      {% include "components/seo/structure/website.njk" %}
     ]
   </script>
   <a href="https://brid.gy/publish/mastodon" class="hidden"></a>
