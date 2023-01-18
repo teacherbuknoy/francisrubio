@@ -30,7 +30,7 @@ class SocialPostMedia {
         a.appendChild(img)
         container.appendChild(a)
       })
-    
+
     this.#element = container
   }
 
@@ -175,6 +175,7 @@ class SocialPost {
   #element
   #renderers = []
   #section
+  #replies = []
 
   /**
    * Creates a SocialPost component
@@ -257,6 +258,7 @@ class SocialPost {
    */
   addReply(post) {
     this.#section.insertAdjacentElement('afterend', post.element)
+    this.#replies.push(post)
     this.#renderers.push(() => post.render())
   }
 
@@ -269,41 +271,62 @@ class SocialPost {
   }
 }
 
-/**
- * @description Creates a Mastodon Post component
- * @author Francis Rubio
- * @param {MastodonPost} post
- * @returns {SocialPost}
- */
-function createMastodonPost(post) {
-  return new SocialPost(post)
-}
+class MastodonFeed {
+  /** @type {MastodonPost[]} */
+  #posts = []
+  /**
+   * Creates a Mastodon feed
+   * @param {MastodonPost[]} posts 
+   */
+  constructor(posts) {
+    this.#posts = posts
+  }
 
-/**
- * @description Creates an array of Mastodon post components
- * @author Francis Rubio
- * @param {MastodonPost[]} posts
- * @returns {SocialPost[]}
- */
-function createMastodonFeed(posts) {
-  const feed = posts.map(post => ({
-    id: post.id,
-    replyEntry: post.replyEntry,
-    isReply: post.in_reply_to_id != null,
-    component: new SocialPost(post)
-  }))
+  /**
+   * Renders a SocialPost based on a Mastodon Post
+   * @param {MastodonFeedItem} post 
+   * @returns {SocialPost}
+   */
+  renderPost(post) {
+    const sp = new SocialPost(post.data)
 
-  const noReplies = feed.filter(post => !post.isReply)
-  const finalFeed = noReplies.map(post => {
-    if (post.replyEntry) {
-      const reply = feed.find(p => p.id === post.replyEntry)
-      post.component.addReply(reply.component)
+    if (post.replies && post.replies.length > 0) {
+      post.replies.forEach(replyId => {
+        const replyPost = this.#posts.find(item => item.id === replyId)
+        const replyItem = this.#createFeedItem(replyPost)
+        const replyComponent = this.renderPost(replyItem)
+
+        sp.addReply(replyComponent)
+      })
     }
 
-    return post.component
-  })
+    return sp
+  }
 
-  return finalFeed
+  /**
+   * Renders a Mastodon feed
+   * @returns {SocialPost[]}
+   */
+  renderFeed() {
+    const feed = this.#posts.map(post => this.#createFeedItem(post))
+    const feedNoReplies = feed.filter(post => !post.isReply)
+    const finalFeed = feedNoReplies.map(post => this.renderPost(post))
+
+    return finalFeed
+  }
+
+  /**
+   * 
+   * @param {MastodonPost} post 
+   */
+  #createFeedItem(post) {
+    return {
+      id: post.id,
+      replies: post.replyEntry,
+      isReply: post.in_reply_to_id != null,
+      component: null,
+      data: post
+    }
+  }
 }
-
-export { createMastodonPost, createMastodonFeed }
+export { MastodonFeed }

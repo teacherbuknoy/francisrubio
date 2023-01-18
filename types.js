@@ -74,3 +74,12 @@
  * @property {string} blurhash
  * 
  */
+
+/**
+ * @typedef {Object} MastodonFeedItem
+ * @property {string} id,
+ * @property {string[]} replies
+ * @property {boolean} isReply
+ * @property {SocialPost} component
+ * @property {MastodonPost} data
+ */
