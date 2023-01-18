@@ -1,0 +1,21 @@
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ title }}",
+  "image": [
+    "{{ site.api.images + 'posts/' + cover.folder + '/' + cover.filename }}"
+  ],
+  "datePublished": "{{ page.date.toISOString() }}",
+  "dateModified": "{{ page.date.toISOString() }}",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "{{ authors.teacherbuknoy.name }}",
+      "url": "{{ authors.teacherbuknoy.url }}",
+      "image": [
+        "{{ preferredDomain.value }}{{ authors.teacherbuknoy.photo }}"
+      ]
+    }
+  ],
+  "publisher": {{ site.publisher | dump | safe }}
+}
