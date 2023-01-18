@@ -1,4 +1,4 @@
-import { createMastodonPost, createMastodonFeed } from "./components/SocialPost"
+import { MastodonFeed } from "./components/SocialPost"
 const mastodon = window.MASTODON
 window.MASTODON_POSTS = []
 
@@ -79,31 +79,34 @@ async function loadPosts(lastID, handler = (post) => post.render()) {
     .then(response => response.json())
     .catch(e => console.error(e))
 
-  const data = assignMastodonReplies(rawdata)
+  const data = organizePostReplies(rawdata)
     .filter(post => post.reblog == null)
-  console.log(data)
   MASTODON_POSTS.push(...data)
-
-  console.log(data)
-  createMastodonFeed(data).forEach(socialPost => handler(socialPost))
+  //createMastodonFeed(data).forEach(socialPost => handler(socialPost))
+  const feedManager = new MastodonFeed(data)
+  feedManager.renderFeed()
+    .forEach(sp => handler(sp))
 
   return data
 }
 
-function assignMastodonReplies(arr) {
-  console.log('[ASSIGN MASTODON REPLIES]', arr)
+function organizePostReplies(arr) {
+  console.log("[ORGANIZE MASTODON REPLIES]", arr)
   arr.forEach(entry => {
     const { id } = entry
 
     if (entry.in_reply_to_account_id === MASTODON.accountId) {
-      // Get entry that receives this reply
       const { in_reply_to_id: inReplyToId } = entry
       const inReplyTo = arr.find(post => post.id === inReplyToId)
       if (inReplyTo != null) {
-        inReplyTo.replyEntry = id
+        if (inReplyTo.replyEntry == null)
+          inReplyTo.replyEntry = []
+        
+        inReplyTo.replyEntry.push(id)
       } else {
-        console.log('[ASSIGN MASTODON REPLIES]', inReplyToId, entry)
+        console.warn('[ORGANIZE MASTODON REPLIES]', "Missing post", inReplyToId)
       }
+        
     }
   })
 
