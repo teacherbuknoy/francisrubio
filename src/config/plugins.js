@@ -34,5 +34,6 @@ module.exports = {
     return {
       plugin: require('@11ty/eleventy-plugin-rss')
     }
-  }
+  },
+  upgradeHelper: () => ({ plugin: require("@11ty/eleventy-upgrade-help") })
 }

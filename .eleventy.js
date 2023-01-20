@@ -62,12 +62,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addGlobalData('generated', () => {
     return new Date().toISOString()
   })
-
-  // BrowserSync config
-  eleventyConfig.setBrowserSyncConfig({
-    /* open: true */
-  })
-
+  
   const markdownIt = require('markdown-it')
   const markdownItAnchor = require('markdown-it-anchor')
   const slug = require('slug')
