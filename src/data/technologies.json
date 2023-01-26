@@ -28,7 +28,7 @@
     "icon": "sass"
   },
   {
-    "category": "Development in General",
+    "category": "Development Operations",
     "experience": 4,
     "title": "Git",
     "content": "Git is a version control manager for code. It makes sure that code for your projects will not go mysteriously missing, or that if you break something, you can safely go back to a time when your code is working perfectly. A working knowledge with Git is something that I am proud of.",
@@ -42,7 +42,7 @@
     "icon": "nodejs"
   },
   {
-    "category": "Development in General",
+    "category": "Development Operations",
     "experience": 4,
     "title": "Github",
     "content": "Through the years, I have had several Github accounts. My web projects are mostly stored in git repositories hosted on Github. Its free hosting service, Github Pages, is also something that I have often used in the past before moving to Netlify. My knowledge with Github includes the basics, as well as creating organizations, organizing projects and timelines, managing and resolving bugs and issues, as well as tinkering with its security features.",
@@ -70,7 +70,7 @@
     "icon": "eleventy"
   },
   {
-    "category": "Development in General",
+    "category": "Development Operations",
     "experience": 5,
     "title": "Bitbucket",
     "content": "For private repositories, I use Bitbucket. Its features are pretty similar. For clients that commission sites that don't want to open source their sites, I store the source code in Bitbucket repositories.",
