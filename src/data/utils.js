@@ -55,5 +55,6 @@ module.exports = {
         const img = `<img src="${emoji.url}" alt="${emoji.shortcode}" width="16" height="16" class="emoji">`
         return finalString.replace(emojiMatch, img)
       }, str)
-  }
+  },
+  isFutureDate: value => new Date().getTime() <= new Date(value).getTime()
 }

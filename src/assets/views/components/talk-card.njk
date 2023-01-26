@@ -1,5 +1,5 @@
 <a href="{{ postURL }}" class="talk-card" data-index="{% padStart index, 2, "0" %}">
-  <h3 class="talk-card__title {{ 'upcoming' if post.tentativeDate != null }}">{{ post.title | safe }}</h3>
+  <h3 class="talk-card__title {{ 'upcoming' if post.tentativeDate != null or utils.isFutureDate(post.date) }}">{{ post.title | safe }}</h3>
   <p class="talk-card__description">{{ post.description | safe }}</p>
   <p class="talk-card__time">
     {% set feathericon = 'calendar' %}
