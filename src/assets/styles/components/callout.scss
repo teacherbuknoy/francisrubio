@@ -35,8 +35,9 @@
   &--right {
     width         : 100vw;
     margin-inline : 0;
-    margin-left   : -5vw;
+    margin-inline : -9vw;
     padding-inline: 10vw;
+    padding-block : 3ch;
     border-radius : 0;
   }
 
@@ -44,10 +45,10 @@
 
     &--left,
     &--right {
-      width         : min(25ch, 90%);
-      margin-inline : var(--space-l);
-      border-radius : var(--callout-radius);
-      padding-inline: var(--space);
+      width        : min(25ch, 90%);
+      margin-inline: var(--space-l);
+      border-radius: var(--callout-radius);
+      padding      : var(--space-l);
     }
 
     &--left {

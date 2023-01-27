@@ -5,7 +5,7 @@ const watchtargets = require('./src/config/watchtargets')
 const plugins = require('./src/config/plugins')
 const shortcodes = require('./src/config/shortcodes')
 
-const path     = require('path')
+const path = require('path')
 const prettier = require('prettier')
 
 require('dotenv').config()
@@ -62,7 +62,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addGlobalData('generated', () => {
     return new Date().toISOString()
   })
-  
+
   const markdownIt = require('markdown-it')
   const markdownItAnchor = require('markdown-it-anchor')
   const slug = require('slug')
@@ -98,9 +98,9 @@ module.exports = function (eleventyConfig) {
       case ".json":
         const parser = extname.replace(/^./, "")
         return prettier.format(content, { parser, singleAttributePerLine: false, printWidth: 200 })
-      
+
       default:
-          return content
+        return content
     }
   })
 

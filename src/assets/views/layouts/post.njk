@@ -11,7 +11,12 @@
       {% set width = 600 %}
       {% set height = 350 %}
       {% set formats = cover.types %}
+
       {% set filename = 'posts/' + cover.folder + '/' + cover.filename %}
+      {% if cover.header %}
+        {% set filename = 'posts/' + cover.folder + '/' + cover.header %}
+      {% endif %}
+
       {% set defaultImageClass = "article__image" %}
       {% set focus = cover.focus %}
       {% include "components/cdn-picture.njk" %}
@@ -153,7 +158,7 @@
             "item": "https://{{ preferredDomain.value }}{{ page.url }}"
           }
         ]
-      }, 
+      },
       {% include "components/seo/structure/blogposting.njk" %},
       {% include "components/seo/structure/website.njk" %}
     ]
