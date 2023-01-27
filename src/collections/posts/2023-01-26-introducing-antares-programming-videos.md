@@ -46,11 +46,11 @@ I need your help, however. If you are a Filipino developer, it would be very awe
 
 ## The content.
 
-Filipino creators in tech already exist. We have Boss ROD who has been in this for years. We also have Pinoyfreecoder who has a ton of tutorial series. Then we have PATutorials for a lot of low-level CS concepts and advice. Algo Filipino is another community that's focused on tech for Filipinos. I am sure there are tons of others I haven't heard of that are also really great and deserve bigger platforms.
+Filipino creators in tech already exist, and arguably, they can all be considered behemoths with several tens of thousands of subscribers. We have [Boss ROD](https://www.youtube.com/@bossRODTV) who has been in this for years. We also have [Pinoyfreecoder](https://www.youtube.com/@PinoyFreeCoder) who has a ton of tutorial series. Then we have [PATutorials](https://www.youtube.com/@PATutorials) for a lot of low-level CS concepts and advice. [Algo Filipino](https://www.youtube.com/@algofilipinotambayan6349) is another community that's focused on tech for Filipinos. I am sure there are tons of others I haven't heard of that are also really great and deserve bigger platforms.
 
-For Antares Programming, I just want to do content about web development in general. Short videos for YouTube Shorts and TikTok are good ideas I want to explore. In the past, I have focused more on HTML and CSS since that is what I haven’t seen much of from other content creators. But with videos, I would love to talk more about JavaScript especially about vanilla JS since most tutorials now talk more about frameworks. I wish to also talk more about general concepts like accessibility, progressive enhancement, error handling, and debugging.
+For [Antares Programming](https://antaresph.dev/), I just want to do content about web development in general. Short videos for YouTube Shorts and TikTok are good ideas I want to explore. In the past, I have focused more on HTML and CSS since that is what I haven’t seen much of from other content creators. And with videos, I would still love to talk about HTML and CSS and a bit of JavaScript on the side. I wish to also talk more about general concepts like accessibility, progressive enhancement, error handling, and debugging.
 
-Of course, blogging and infographics will still have their place in all of this. I still consider them as the main course, not side dishes. But in this transitionary time, I think I’ll have to do a little bit less of them. We don’t want to be burnt out doing what we love to do.
+Of course, blogging and infographics will still have their place in all of this. But in this transitionary time, I think I’ll have to do a little bit less of them. We don’t want to be burnt out doing what we love to do.
 
 ## Conclusion.
 
@@ -70,3 +70,5 @@ Here's the first video of Antares Programming.
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
 </iframe>
+
+Don't forget to [subscribe](https://www.youtube.com/@antaresphdev), and also follow [Antares Programming](https://antaresph.dev) on [Facebook](https://facebook.com/antaresprogramming), [Instagram](https://instagram.com/antaresphdev), and [Twitter](https://twitter.com/antaresphdev).
