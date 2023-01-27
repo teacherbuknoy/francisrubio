@@ -205,7 +205,7 @@ class SocialPost {
       content.appendChild(media.element)
     }
 
-    if (post.card != null) {
+    else if (post.card != null) {
       const card = new SocialPreviewCard(post.card)
       this.#renderers.push(() => card.render())
 
