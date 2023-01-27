@@ -28,21 +28,22 @@ I set out to create Antares Programming to share what these people are talking a
 
 ## The road to videos.
 
+<div>
+
 For several years now, all I have done were blog posts and infographics. Through these, I have talked about CSS, graphic design on the web, a tiny bit about accessibility, and best practices. And while it’s been a good 4 years, it’s apparent that my audience don’t really read blog posts all that much. I don’t have a statistic, but what I see from experience is that most Filipino developers would rather watch than read. After all, most textual content about software development in general are in English and are very technical at that. So, for someone who isn’t all that fluent in a foreign language, reading wouldn’t be all that pleasant when compared to watching someone just code and show what happens.
 
-<div>
   <aside class="callout callout--info callout--right">
-  {{ 'info' | icon }}
-  <p class="callout__body">I've put out substandard videos in the past. I have tried to scour the web to rid their existence at one point because I was so embarrassed of them, but I have since changed my mind. I will not be telling people where those videos are (there were two or three of them that I remember), but I won't stop them from looking.</p>
-</aside>
+    <p class="callout__body">I've put out substandard videos in the past. I have tried to scour the web to rid their existence at one point because I was so embarrassed of them, but I have since changed my mind. I think keeping them out there as a remember of how bad I used to be at this is a good anchor point for future benchmarks for when I am doubting about my progress. I will not be telling people where those videos are (there were two or three of them that I remember), but I won't stop them from looking.</p>
+  </aside>
 
 Videos have been my goal the whole time. It’s just that it’s something that requires a lot of effort, time, and money. This year, however, I have all of those things for the foreseeable future. And I am so excited to start working on it. 
 
 By the time this post gets published, I would have already posted my first video on the Antares Programming YouTube channel. I do not intend to monetize the content for now, although I would not be pretentious and say that I wouldn’t monetize it in the future. I think we’ll cross that bridge when we get there. For now, all I want is to produce these videos and keep them free for as long as possible.
 
+I need your help, however. If you are a Filipino developer, it would be very awesome if you could share to people you know about Antares Programming’s new videos. If you think this is something that would help you and others, please tell them. It would be a very huge help. Also, if you are interested in creating something like this, I highly encourage you to do so, especially if you have the means.
+
 </div>
 
-I need your help, however. If you are a Filipino developer, it would be very awesome if you could share to people you know about Antares Programming’s new videos. If you think this is something that would help you and others, please tell them. It would be a very huge help. Also, if you are interested in creating something like this, I highly encourage you to do so, especially if you have the means.
 
 ## The content.
 
