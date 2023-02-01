@@ -350,7 +350,6 @@
     background-color  : transparent;
     box-shadow        : none;
     grid-template-rows: minmax(5rem, 1fr) 0 1fr;
-    outline           : none;
 
     .deck-card__body {
       height: calc(65% - var(--space-xs));
