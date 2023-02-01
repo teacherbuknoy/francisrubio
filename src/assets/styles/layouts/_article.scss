@@ -137,6 +137,9 @@
   }
 
   p {
+    -moz-hyphens   : auto;
+    -ms-hyphens    : auto;
+    -o-hyphens     : auto;
     -webkit-hyphens: auto;
     hyphens        : auto;
   }
