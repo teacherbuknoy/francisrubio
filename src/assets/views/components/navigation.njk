@@ -18,12 +18,12 @@
           {% include 'components/feathericon.njk' %}
           <span class="navigation-link-text">Search</span>
         </button>
-        <button class="navigation-link icon-only" data-popover="form-color-scheme" data-aria-hide data-disclosure data-scroll-into-view="false">
+        <button class="navigation-link icon-only" data-toggle="form-color-scheme" data-aria-hide data-disclosure data-scroll-into-view="false">
           {% set feathericon = 'moon' %}
           {% include 'components/feathericon.njk' %}
           <span class="navigation-link-text sr-only">Change color Scheme</span>
         </button>
-        <button class="navigation-link icon-only" data-popover="list-rss" data-aria-hide data-disclosure data-scroll-into-view="false">
+        <button class="navigation-link icon-only" data-toggle="list-rss" data-aria-hide data-disclosure data-scroll-into-view="false">
           {% set feathericon = 'rss' %}
           {% include 'components/feathericon.njk' %}
           <span class="navigation-link-text sr-only">RSS Feeds</span>
@@ -32,7 +32,7 @@
     </div>
   </nav>
 
- <!-- DESKTOP NAVIGATION -->
+  <!-- DESKTOP NAVIGATION -->
   <nav class="navigation-bar hide-on-mobile" data-navbar-animations>
     <div class="navigation-bar__section navigation-bar__section--start">
       <ul class="navigation-list">
@@ -57,32 +57,12 @@
           </li>
         {% endfor %}
 
-        <li class="navigation-list-item" style="position: relative">
-          <button class="navigation-link icon-only" data-popover data-aria-hide>
+        <li class="navigation-list-item">
+          <button class="navigation-link icon-only" data-toggle="nav-overflow" data-aria-hide>
             {% set feathericon = 'more-horizontal' %}
             {% include 'components/feathericon.njk' %}
             <span class="sr-only">More items</span>
           </button>
-          <div class="navigation-popup" hidden>
-            <ul class="navigation-list">
-              {% for item in navigation | selectattr("overflow") %}
-                <li class="navigation-list-item">
-                  <a href="{{ item.url }}" class="navigation-link" style="--delay-factor: {{ loop.index0 }}">
-                    {% if item.text %}
-                      <span class="navigation-link-text">{{ item.text }}</span>
-                    {% endif %}
-                    {% if item.feathericon %}
-                      {% set feathericon = item.feathericon %}
-                      {% include "components/feathericon.njk" %}
-                    {% endif %}
-                    {% if item.label %}
-                      <span class="navigation-link-label">{{ item.label }}</span>
-                    {% endif %}
-                  </a>
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
         </li>
       </ul>
     </div>
@@ -93,12 +73,12 @@
           {% include 'components/feathericon.njk' %}
           <span class="navigation-link-text">Search</span>
         </button>
-        <button class="navigation-link icon-only" data-popover="form-color-scheme" data-aria-hide data-disclosure data-scroll-into-view="false">
+        <button class="navigation-link icon-only" data-toggle="form-color-scheme" data-aria-hide data-disclosure data-scroll-into-view="false">
           {% set feathericon = 'moon' %}
           {% include 'components/feathericon.njk' %}
           <span class="navigation-link-text sr-only">Change color Scheme</span>
         </button>
-        <button class="navigation-link icon-only" data-popover="list-rss" data-aria-hide data-disclosure data-scroll-into-view="false">
+        <button class="navigation-link icon-only" data-toggle="list-rss" data-aria-hide data-disclosure data-scroll-into-view="false">
           {% set feathericon = 'rss' %}
           {% include 'components/feathericon.njk' %}
           <span class="navigation-link-text sr-only">RSS Feeds</span>
@@ -106,8 +86,30 @@
       </div>
     </div>
   </nav>
+</div>
 
-  <form class="navigation-popup detached" data-navbar-popover-animations aria-label="Change color scheme" name="color-scheme" id="form-color-scheme" hidden>
+<div class="popup-wrapper">
+  <div class="navigation-popup js--start" id="nav-overflow" hidden>
+    <ul class="navigation-list">
+      {% for item in navigation | selectattr("overflow") %}
+        <li class="navigation-list-item">
+          <a href="{{ item.url }}" class="navigation-link" style="--delay-factor: {{ loop.index0 }}">
+            {% if item.text %}
+              <span class="navigation-link-text">{{ item.text }}</span>
+            {% endif %}
+            {% if item.feathericon %}
+              {% set feathericon = item.feathericon %}
+              {% include "components/feathericon.njk" %}
+            {% endif %}
+            {% if item.label %}
+              <span class="navigation-link-label">{{ item.label }}</span>
+            {% endif %}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <form class="navigation-popup detached js--end" data-navbar-popover-animations aria-label="Change color scheme" name="color-scheme" id="form-color-scheme" hidden>
     <div class="navigation-list gap-m">
       <div class="navigation-list-item navigation-list-radio">
         <input type="radio" id="desktop-colscheme-light" name="color-scheme" value="light">
@@ -124,7 +126,7 @@
     </div>
   </form>
 
-  <nav class="navigation-popup navigation-popup--bar detached" id="list-rss" data-navbar-animations aria-label="RSS Feeds" hidden>
+  <nav class="navigation-popup navigation-popup--bar detached js--end" id="list-rss" data-navbar-animations aria-label="RSS Feeds" hidden>
     <ul class="navigation-list">
       {% for item in site.feeds | values %}
         <li class="navigation-list-item">

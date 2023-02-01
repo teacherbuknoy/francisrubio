@@ -307,6 +307,24 @@
   right   : 5%;
 }
 
+.popup-wrapper {
+  display           : grid;
+  inset             : 0;
+  left              : 5%;
+  margin-block-start: calc(5.5rem + var(--space));
+  position          : fixed;
+  right             : 5%;
+  z-index           : 9999;
+
+  .navigation-popup {
+    grid-column: 1/2;
+    grid-row   : 1/2;
+    height     : fit-content;
+    position   : static;
+    width      : fit-content;
+  }
+}
+
 .navbar-wrapper {
   margin-block-end: var(--space);
   margin-inline   : auto;

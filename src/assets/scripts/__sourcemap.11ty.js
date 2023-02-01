@@ -3,10 +3,7 @@ const path = require('path')
 const webpack = require('webpack')
 const { fs: mfs } = require('memfs')
 const isProd = process.env.ELEVENTY_ENV === 'production'
-
-require('dotenv').config()
-
-class Script {
+class ScriptSourceMap {
   constructor() {
     this.inputFiles = {
       index: 'index.js',
@@ -19,9 +16,7 @@ class Script {
     const outputPath = path.resolve(__dirname, "../../memory-fs/js/")
     const envPlugin = new webpack.EnvironmentPlugin({ ELEVENTY_ENV: process.env.ELEVENTY_ENV })
     const vars = new webpack.DefinePlugin({
-      GENERATED: JSON.stringify(new Date().toISOString()),
-      API_SITE_DATA: JSON.stringify("/api/v1/site-data.json"),
-      API_CONTENT: JSON.stringify("/api/v1/content.json")
+      GENERATED: JSON.stringify(new Date().toISOString())
     })
 
     const rules = [
@@ -49,7 +44,7 @@ class Script {
         alias: 'bundleName',
         size: 1
       },
-      permalink: ({ bundleName }) => `/assets/scripts/${bundleName}.js`,
+      permalink: ({ bundleName }) => `/assets/scripts/${bundleName}.js.map`,
       webpackConfig: {
         mode: isProd ? 'production' : 'development',
         entry: webpackEntry,
@@ -76,24 +71,9 @@ class Script {
           return
         }
 
-        const outputFile = `${webpackConfig.output.path}/${bundleName}.js`
         const outputSourceMap = `${webpackConfig.output.path}/${bundleName}.js.map`
         const charset = 'utf-8'
-
-        console.log('[Webpack] Compiling sourcemap:', this.inputFiles[bundleName])
-        // mfs.readFile(outputSourceMap, charset, (err, data) => {
-        //   if (err) console.error("[WEBPACK] Sourcemap:", err)
-        //   else console.log("[WEBPACK] Sourcemap:", data)
-        // })
-
-        mfs.readdir(webpackConfig.output.path, (err, files) => {
-          if (err) console.error("[WEBPACK] Sourcemap:", err)
-          else {
-            files.forEach(file => console.log("[WEBPACK] memfs file:", file))
-          }
-        })
-
-        mfs.readFile(outputFile, charset, (err, data) => {
+        mfs.readFile(outputSourceMap, charset, (err, data) => {
           if (err) reject(err)
           else resolve(data)
         })
@@ -114,4 +94,4 @@ class Script {
   }
 }
 
-module.exports = Script
+module.exports = ScriptSourceMap

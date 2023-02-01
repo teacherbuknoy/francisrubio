@@ -10,6 +10,8 @@ import { Tab, TabControl } from './components/TabControl'
 import { NotificationManager } from './components/NotificationManager'
 import { FormValidator } from './components/Forms'
 import { ToggleComponent } from './components/ToggleComponent'
+import { Toggle } from './components/toggle'
+import { ToggleController } from "./components/toggle-controller";
 
 window.addEventListener('load', e => {
   document.body.classList.remove('no-js')
@@ -71,5 +73,12 @@ new FormValidator(document.getElementById('frm-email'))
 document.querySelectorAll('button[data-slur]')
   .forEach(button => new SlurToggle(button))
 
-document.querySelectorAll('button[data-toggle]')
-  .forEach(button => new ToggleComponent(button))
+//document.querySelectorAll('button[data-toggle]')
+//  .forEach(button => new ToggleComponent(button))
+
+
+const popupToggles = document.querySelectorAll('button[data-toggle]')
+const toggles = [...popupToggles].map(toggle => new Toggle(toggle))
+console.log({ toggles })
+
+const toggleController = new ToggleController(toggles)
