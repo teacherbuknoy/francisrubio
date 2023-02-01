@@ -310,10 +310,14 @@
 .popup-wrapper {
   display           : grid;
   inset             : 0;
-  left              : 5%;
+  left              : 50%;
   margin-block-start: calc(5.5rem + var(--space));
+  max-width         : 100ch;
   position          : fixed;
-  right             : 5%;
+  right             : auto;
+  transform         : translateX(-50%);
+  transition        : max-width 200ms, left 200ms, right 200ms, transform 200ms;
+  width             : 90%;
   z-index           : 9999;
 
   .navigation-popup {
@@ -335,6 +339,7 @@
   width           : 90%;
   z-index         : 9999;
 
+  &.attached+.popup-wrapper,
   &.attached {
     max-width: min(75ch, 100%);
   }
