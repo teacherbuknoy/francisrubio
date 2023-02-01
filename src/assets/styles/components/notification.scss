@@ -11,7 +11,7 @@
   top            : 0;
   width          : min(35ch, 100%);
   z-index        : 99999;
-  transition: height 300ms;
+  transition     : height 300ms;
 }
 
 .toast {
@@ -42,8 +42,9 @@
 }
 
 .toast__title {
-  color      : var(--theme-color, hsl(var(--l-contrast)));
-  font-weight: bold;
+  color                  : var(--theme-color, hsl(var(--l-contrast)));
+  font-weight            : bold;
+  font-variation-settings: 'wght'600;
 }
 
 .toast__message {

@@ -50,7 +50,7 @@
   grid-template-columns: 1fr min(65ch, 100%) 1fr;
   gap                  : var(--space);
 
-  dl dd + dt {
+  dl dd+dt {
     margin-block-start: var(--space);
   }
 
@@ -233,13 +233,14 @@ figure.image {
 
 .article__toc::before,
 .article__sidebar__title {
-  display       : block;
-  font-family   : var(--font-sans);
-  font-weight   : bold;
-  font-size     : inherit;
-  letter-spacing: 2px;
-  margin-top    : 1ch;
-  text-transform: uppercase;
+  display                : block;
+  font-family            : var(--font-sans);
+  font-weight            : bold;
+  font-variation-settings: 'wght'600;
+  font-size              : inherit;
+  letter-spacing         : 2px;
+  margin-top             : 1ch;
+  text-transform         : uppercase;
 }
 
 .article__sidebar__title {

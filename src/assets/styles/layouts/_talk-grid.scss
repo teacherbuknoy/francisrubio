@@ -31,30 +31,33 @@
   }
 
   &::before {
-    content    : attr(data-index) ".";
-    grid-column: 1/2;
-    font-weight: bold;
-    color      : hsl(var(--primary-700));
+    content                : attr(data-index) ".";
+    grid-column            : 1/2;
+    font-weight            : bold;
+    font-variation-settings: 'wght'600;
+    color                  : hsl(var(--primary-700));
   }
 
   &__title {
-    font-family: inherit;
-    font-size  : var(--type-size-5);
-    font-weight: bold;
-    margin     : 0;
-    padding    : 0;
-    color      : inherit;
+    font-family            : inherit;
+    font-size              : var(--type-size-5);
+    font-weight            : bold;
+    font-variation-settings: 'wght'600;
+    margin                 : 0;
+    padding                : 0;
+    color                  : inherit;
 
     &.upcoming::after {
-      content         : 'Upcoming';
-      font-size       : 0.9ch;
-      font-weight     : bold;
-      text-transform  : uppercase;
-      padding         : 0.3ch 1ch;
-      margin-inline   : 1ch;
-      background-color: hsl(var(--success-300) / 25%);
-      color           : hsl(var(--success-900));
-      border-radius   : 6px;
+      content                : 'Upcoming';
+      font-size              : 0.9ch;
+      font-weight            : bold;
+      font-variation-settings: 'wght'600;
+      text-transform         : uppercase;
+      padding                : 0.3ch 1ch;
+      margin-inline          : 1ch;
+      background-color       : hsl(var(--success-300) / 25%);
+      color                  : hsl(var(--success-900));
+      border-radius          : 6px;
     }
   }
 

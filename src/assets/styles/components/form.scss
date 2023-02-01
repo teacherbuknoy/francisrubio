@@ -29,10 +29,11 @@
   }
 
   &-label {
-    font-family: var(--font-sans);
-    font-weight: bold;
-    font-size  : var(--type-size-6);
-    grid-row   : 1/2;
+    font-family            : var(--font-sans);
+    font-weight            : bold;
+    font-variation-settings: 'wght'600;
+    font-size              : var(--type-size-6);
+    grid-row               : 1/2;
 
     @media (prefers-reduced-motion: no-preference) {
       display    : flex;

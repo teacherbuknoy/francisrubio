@@ -112,10 +112,11 @@
     }
 
     .result-title {
-      font-family: var(--font-sans);
-      font-size  : var(--type-size);
-      font-weight: bold;
-      grid-column: 2/3;
+      font-family            : var(--font-sans);
+      font-size              : var(--type-size);
+      font-weight            : bold;
+      font-variation-settings: 'wght'600;
+      grid-column            : 2/3;
     }
 
     .result-subtitle {

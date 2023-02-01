@@ -4,6 +4,11 @@
     flex-direction: column;
     margin-bottom : var(--space-xl);
     margin-inline : auto;
-    width         : min(100ch, 90%);
+    width         : 100%;
+
+    &.no-section {
+      width             : min(100ch, 90%);
+      margin-block: var(--space-xxl)
+    }
   }
 }

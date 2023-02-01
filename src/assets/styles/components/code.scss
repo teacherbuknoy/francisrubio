@@ -48,17 +48,18 @@ pre[class^=language] {
   background-size      : 50px 100%, 50px 1100%, 25px 100%, 25px 100%;
 
   &::before {
-    background-color: hsl(var(--primary-300));
-    content         : var(--pre-language, "");
-    font-family     : var(--font-sans);
-    font-size       : var(--type-size-6);
-    font-weight     : bold;
-    left            : 0;
-    padding         : var(--space-xxs) var(--space-s);
-    position        : sticky;
-    text-transform  : uppercase;
-    top             : 0;
-    width           : fit-content;
+    background-color       : hsl(var(--primary-300));
+    content                : var(--pre-language, "");
+    font-family            : var(--font-sans);
+    font-size              : var(--type-size-6);
+    font-weight            : bold;
+    font-variation-settings: 'wght'600;
+    left                   : 0;
+    padding                : var(--space-xxs) var(--space-s);
+    position               : sticky;
+    text-transform         : uppercase;
+    top                    : 0;
+    width                  : fit-content;
   }
 
   &.language-css {
