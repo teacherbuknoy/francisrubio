@@ -1,7 +1,7 @@
 import { Toggle } from './toggle'
 
 class ToggleController {
-
+  #toggleParent;
   #toggles;
 
   /**
@@ -10,6 +10,8 @@ class ToggleController {
    */
   constructor(elements) {
     this.#toggles = [...elements];
+    this.#toggleParent = document.querySelector('[data-toggle-parent]')
+
 
     this.#toggles.forEach(toggle => {
       toggle.addEventListener('show', tg => {
@@ -42,6 +44,8 @@ class ToggleController {
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape') this.hideAll()
     })
+
+    this.#attachMutationObserver()
   }
 
   getOpenToggle() {
@@ -52,6 +56,20 @@ class ToggleController {
     this.#toggles.forEach(toggle => {
       toggle.hidden = true
     })
+  }
+
+  #attachMutationObserver() {
+    const observer = new MutationObserver((mutationList, ob) => {
+      const allHidden = this.getOpenToggle() == null
+
+      if (allHidden) {
+        this.#toggleParent.classList.add('hidden')
+      } else {
+        this.#toggleParent.classList.remove('hidden')
+      }
+    })
+
+    observer.observe(this.#toggleParent, { attributes: true, attributeFilter: ['hidden'], subtree: true, childList: true })
   }
 }
 

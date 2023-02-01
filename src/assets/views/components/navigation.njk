@@ -88,7 +88,7 @@
   </nav>
 </div>
 
-<div class="popup-wrapper">
+<div class="popup-wrapper" data-toggle-parent hidden>
   <div class="navigation-popup js--start" id="nav-overflow" hidden>
     <ul class="navigation-list">
       {% for item in navigation | selectattr("overflow") %}
