@@ -10,9 +10,9 @@ activePath: projects
 ---
 <section class="padding--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
   <div class="stack gap">
-    <span id="section-heading-4" class="uppercase ls-l font-sans">Projects</span>
-    <h2 class="font-serif responsive">The Gallery</h2>
-    <p>My most notable projects. Things that I am proud I made, or was involved in making. Work that I would love to do more of.</p>
+    <span id="section-heading-4" class="uppercase ls-l font-sans">{{ sections.projects.label | safe }}</span>
+    <h2 class="font-serif responsive">{{ sections.projects.title | safe }}</h2>
+    <p>{{ sections.projects.description | safe }}</p>
   </div>
   <div class="padding-block--xl gap--l" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(30ch, 100%), 1fr))">
     {% for item in pagination.items %}

@@ -10,9 +10,9 @@ activePath: literature
 ---
 <section class="padding--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
   <div class="stack margin-bottom--xl">
-      <span id="section-heading-4" class="uppercase ls-l font-sans">Literature</span>
-      <h2 class="font-serif responsive">Speaking in cultural tense</h2>
-      <p>My attempts in encapsulating my thoughts into written art</p>
+      <span id="section-heading-4" class="uppercase ls-l font-sans">{{ sections.literature.label | safe }}</span>
+      <h2 class="font-serif responsive">{{ sections.literature.title | safe }}</h2>
+      <p>{{ sections.literature.description | safe }}</p>
   </div>
   <p>All writings here are subject to copyright.</p>
   {% set postType = 'literature' %}

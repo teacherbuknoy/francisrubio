@@ -9,7 +9,6 @@ pagination:
 permalink: /writing/categories/{{ category }}/
 activePath: writing
 ---
-
 <section class="padding--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
   <div class="stack margin-bottom--xl">
     <div class="ai--center cluster margin-bottom--l lh-s">
@@ -19,8 +18,8 @@ activePath: writing
       <span>/</span>
       <span class="d-flex font-sans jc--start">{{ category }}</span>
     </div>
-    <h1 class="h2 font-serif responsive" id="section-heading-4">The Life and Times of Francis Rubio</h1>
-    <p>A glimpse of what it's like to be me.</p>
+    <h1 class="h2 font-serif responsive" id="section-heading-4">{{ sections.writing.title | safe }}</h1>
+    <p>{{ sections.writing.description | safe }}</p>
   </div>
     
   <div class="tag-scroller">

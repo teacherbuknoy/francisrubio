@@ -9,11 +9,11 @@ permalink: /writing/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber +
 activePath: writing
 ---
 <section class="padding--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
-  <div class="stack margin-bottom--xl">
-    <span id="section-heading-4" class="uppercase ls-l font-sans">Writing</span>
-    <h1 class="font-serif responsive">The Life and Times of Francis Rubio</h1>
-    <p>A glimpse of what it's like to be me.</p>
-  </div>
+  <hgroup role="group" class="stack margin-bottom--xl">
+    <span aria-roledescription="subtitle" id="section-heading-4" class="uppercase ls-l font-sans">{{ sections.writing.label | safe }}</span>
+    <h1 class="font-serif responsive">{{ sections.writing.title | safe }}</h1>
+    <p aria-roledescription="subtitle">{{ sections.writing.description | safe }}</p>
+  </hgroup>
   <div class="tag-scroller">
     {% for item in collections.postTags %}
       <a href="/writing/categories/{{ item }}/" class="tag" style="width: fit-content;">{{ item }}</a>

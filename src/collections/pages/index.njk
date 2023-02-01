@@ -5,7 +5,6 @@ permalink: /
 activePath: frontpage
 stylesheets: ['frontpage.css']
 ---
-
 <header class="section margin-block-end--xl" aria-labelledby="site-name" id="section-1">
   <div class="section__inner">
     <h1 class="banner-site-title" id="site-name">
@@ -53,8 +52,8 @@ stylesheets: ['frontpage.css']
 <section class="section padding-block--xxl" id="section-3" aria-labelledby="section-3-heading">
   <div class="section__inner">
     <hgroup role="group" class="stack gap--none">
-      <p aria-roledescription="subtitle" id="section-3-heading" class="uppercase ls-l font-sans">Experience</p>
-      <h2 class="font-serif fs-1">Proven skill in tech that just works</h2>
+      <p aria-roledescription="subtitle" id="section-3-heading" class="uppercase ls-l font-sans">{{ sections.experience.label | safe }}</p>
+      <h2 class="font-serif fs-1">{{ sections.experience.title | safe }}</h2>
     </hgroup>
     <div class="with-sidebar padding-block--xl">
       <div class="sidebar padding-inline--m" style="flex-basis: 20ch;">
@@ -95,9 +94,9 @@ stylesheets: ['frontpage.css']
   <div class="section__inner">
     <div class="stack gap--none">
       <hgroup role="group">
-        <p aria-roledescription="subtitle" id="section-41-heading" class="uppercase ls-l font-sans">Writing</p>
-        <h2 class="font-serif fs-1">The Life and Times of Francis Rubio</h2>
-        <p aria-roledescription="subtitle">A glimpse of what it's like to be me.</p>
+        <p aria-roledescription="subtitle" id="section-41-heading" class="uppercase ls-l font-sans">{{ sections.writing.label | safe }}</p>
+        <h2 class="font-serif fs-1">{{ sections.writing.title | safe }}</h2>
+        <p aria-roledescription="subtitle">{{ sections.writing.description | safe }}</p>
       </hgroup>
       {% set postLimit = 4 %}
       {% set collection = collections.posts | reverse %}
@@ -114,9 +113,9 @@ stylesheets: ['frontpage.css']
   <div class="section__inner">
     <div class="stack gap--none">
       <hgroup role="group">
-        <p id="section-4-heading" class="uppercase ls-l font-sans">Literature</p>
-        <h2 class="font-serif fs-1">Speaking in cultural tense</h2>
-        <p>My attempts in encapsulating my thoughts into written art</p>
+        <p id="section-4-heading" class="uppercase ls-l font-sans">{{ sections.literature.label | safe }}</p>
+        <h2 class="font-serif fs-1">{{ sections.literature.title | safe }}</h2>
+        <p>{{ sections.literature.description | safe }}</p>
       </hgroup>
       {% set postLimit = 4 %}
       {% set postType = 'literature' %}
@@ -133,9 +132,9 @@ stylesheets: ['frontpage.css']
 <section class="padding-block--xxl" id="section-5" aria-labelledby="section-5-heading">
   <div class="section__inner">
     <hgroup role="group" class="stack gap">
-      <p aria-roledescription="subtitle" id="section-5-heading" class="uppercase ls-l font-sans">Talks</p>
-      <h2 class="font-serif fs-1">Conferences and Appearances</h2>
-      <p aria-roledescription="subtitle">I speak at developer conferences and events about web development. If you are an event organizer looking for speakers, let's talk about it.</p>
+      <p aria-roledescription="subtitle" id="section-5-heading" class="uppercase ls-l font-sans">{{ sections.talks.label | safe }}</p>
+      <h2 class="font-serif fs-1">{{ sections.talks.title | safe }}</h2>
+      <p aria-roledescription="subtitle">{{ sections.talks.description | safe }}</p>
     </hgroup>
     <div class="margin-block--l">
       {% set postLimit = 3 %}
@@ -181,12 +180,13 @@ stylesheets: ['frontpage.css']
 </section>
 <section class="padding-block--xxl bg--secondary" id="section-6" aria-labelledby="section-61-heading">
   <div class="section__inner jc--center stack gap text-center">
-    <p id="section-61-heading" class="uppercase ls-l font-sans">Uses</p>
-    <h2 class="font-serif fs-1">What makes my day to day run</h2>
-    <p>Want to see things I use and swear by? Here's an archive of all the things I use and how I rate them.</p>
+    <p id="section-61-heading" class="uppercase ls-l font-sans">{{ sections.uses.label | safe }}</p>
+    <h2 class="font-serif fs-1">{{ sections.uses.title | safe }}</h2>
+    <p>{{ sections.uses.description | safe }}</p>
     <div class="cluster jc--center padding">
       <a href="/uses/" class="button">Things I use</a>
     </div>
+    <p><small><sup>*</sup> <i>Sick Picks</i> is a reference to the <a href="https://syntax.fm/show/306/sickpickisode-2020-web-developer-gift-guide" target="_blank" rel="noopener">Syntax.FM podcast</a></small></p>
   </div>
 </section>
 <section class="section padding-block--xxl" id="section-44" aria-labelledby="section-4-heading">
@@ -212,19 +212,15 @@ stylesheets: ['frontpage.css']
   <div class="section__inner">
     <div class="stack gap">
       <hgroup role="group">
-        <p aria-roledescription="subtitle" id="footer-heading" class="uppercase ls-l font-sans">Contact</p>
-        <h2 class="font-serif fs-1">Initiating space beacon…</h2>
+        <p aria-roledescription="subtitle" id="footer-heading" class="uppercase ls-l font-sans">{{ sections.contact.label | safe }}</p>
+        <h2 class="font-serif fs-1">{{ sections.contact.title | safe }}</h2>
       </hgroup>
-      <p style="width: min(75ch, 100%)">Send me a message. I would love to hear from you!</p>
-      <p style="width: min(75ch, 100%)">If you want me to join your team, commission my services for a project, invite me to be one of your event speakers, or just for a chat, you can reach out to me via the following communication <i>waypoints</i>.*</p>
+      <p style="width: min(75ch, 100%)">{{ sections.contact.description | safe }}</p>
     </div>
     <div class="cluster gap--m padding--xl center-justified">
       {% for key, value in site.contact %}
         <a target="_blank" rel="noopener me" href="{{ value.url }}" class="button">{{ value.name }}</a>
       {% endfor %}
-    </div>
-    <div class="footnotes">
-      <p class="font-sans">*Hehe, <i>waypoints</i>. Genshin Impact players, anyone?</p>
     </div>
   </div>
 </section>

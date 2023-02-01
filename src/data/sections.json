@@ -1,0 +1,47 @@
+{
+  "experience": {
+    "label": "Experience",
+    "title": "Proven skill in tech that just works",
+    "description": null
+  },
+  "writing": {
+    "label": "Writing",
+    "title": "The Life and Times of Francis Rubio",
+    "description": "A glimpse of what it's like to be me."
+  },
+  "literature": {
+    "label": "Literature",
+    "title": "Speaking in Cultural Tense",
+    "description": "My attempts at encapsulating my thoughts into written art."
+  },
+  "talks": {
+    "label": "Talks",
+    "title": "The Stage",
+    "description": "I speak at developer conferences and events about web development. If you are an event organizer looking for speakers, let's talk about it."
+  },
+  "projects": {
+    "label": "Projects",
+    "title": "The Museum",
+    "description": "My most notable projects. Things that I am proud I made, or was involved in making. Work that I would love to do more of."
+  },
+  "uses": {
+    "label": "Uses",
+    "title": "🔥 Sick Picks™ 🔥",
+    "description": "Things I use and swear by. An archive of things I use and how I rate them."
+  },
+  "videos": {
+    "label": "Videos",
+    "title": "Me in Motion",
+    "description": "Videos of me doing… stuff. Not necessarily about tech and software."
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Initiating space beacon…",
+    "description": "Send me a message. I would love to hear from you! If you want me to join your team, commission my services for a project, invite me as a speaker in your event, or just for a chat, you can reach out to me through these links."
+  },
+  "gallery": {
+    "label": "Gallery",
+    "title": "My Life in Photos",
+    "description": "Selfies. Blurry. Wacky. Photobombs. The whole she-bang."
+  }
+}

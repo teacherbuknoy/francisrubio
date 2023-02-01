@@ -9,11 +9,11 @@ permalink: /videos/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 
 activePath: videos
 ---
 <section class="padding--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
-  <div class="stack margin-bottom--xl">
-    <span id="section-heading-4" class="uppercase ls-l font-sans">Videos</span>
-    <h2 class="font-serif responsive">Me in motion</h2>
-    <p>Videos of me. Candid, without a care for the world (well, slight care actually)</p>
-  </div>
+  <hgroup role="group" class="stack margin-bottom--xl">
+    <span id="section-heading-4" class="uppercase ls-l font-sans">{{ sections.videos.label | safe }}</span>
+    <h2 class="font-serif responsive">{{ sections.videos.title | safe }}</h2>
+    <p>{{ sections.videos.description | safe }}</p>
+  </hgroup>
   {% set collection = pagination.items %}
   {% include 'components/video-grid.njk' %}
 </section>

@@ -11,9 +11,9 @@ activePath: gallery
 
 <section class="padding--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
   <div class="stack gap">
-    <span id="section-heading-4" class="uppercase ls-l font-sans">Gallery</span>
-    <h1 class="h2 font-serif responsive">My Life in Photos</h1>
-    <p>Selfies. Blurry. Wacky. Photobombs. The whole she-bang.</p>
+    <span id="section-heading-4" class="uppercase ls-l font-sans">{{ sections.gallery.label | safe }}</span>
+    <h1 class="h2 font-serif responsive">{{ sections.gallery.title | safe }}</h1>
+    <p>{{ sections.gallery.description | safe }}</p>
   </div>
   <div class="padding-block--xl gap--l gallery-grid">
     {% for item in pagination.items %}

@@ -2,7 +2,7 @@
 
 {% block content %}
   {% include 'components/navigation.njk' %}
-  <main style="width: min(100ch, 100%); margin-inline: auto;" class="padding--xl article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
+  <main style="width: min(150ch, 100%); margin-inline: auto;" class="padding--xl article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
     <header class="article__header">
       <nav class="breadcrumb" aria-label="Breadcrumbs">
         <ol class="breadcrumb__list">
@@ -36,7 +36,7 @@
       </div>
     </header>
     <div class="with-sidebar m-block-start--l">
-      <aside class="sidebar article__sidebar">
+      <aside class="sidebar article__sidebar" style="--sidebar-width: 30ch;">
         <section class="sidebar__section" aria-labelledby="sidebar-host">
           <h2 class="sidebar__heading" id="sidebar-host">Hosts</h2>
           {% for item in host %}
@@ -64,7 +64,7 @@
           {% endfor %}
         </section>
       </aside>
-      <div class="not-sidebar article__body">
+      <div class="not-sidebar article__body" style="grid-template-columns: 1fr min(75ch, 100%) 1fr">
         {{ content | safe }}
       </div>
     </div>
