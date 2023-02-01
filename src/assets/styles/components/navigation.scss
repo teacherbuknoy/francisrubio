@@ -257,6 +257,12 @@
   z-index         : -2;
   --brightness    : 0.7;
 
+  &:not([hidden]) {
+    display    : flex;
+    align-items: center;
+    gap        : 1ch;
+  }
+
   @at-root .dark & {
     --brightness: 4.5;
   }
@@ -271,6 +277,14 @@
     opacity       : 0;
     pointer-events: none;
     transition    : transform 200ms 75ms, box-shadow 300ms, opacity 200ms;
+  }
+
+  &__label {
+    display                : block;
+    font-family            : var(--font-sans);
+    font-size              : 1rem;
+    font-variation-settings: 'wght'600;
+    padding-inline-start   : 1ch;
   }
 
   @supports (backdrop-filter: blur(10px)) {
@@ -319,7 +333,7 @@
   transition        : max-width 200ms, left 200ms, right 200ms, transform 200ms;
   width             : 90%;
   z-index           : 9999;
-  
+
   .navigation-popup {
     grid-column: 1/2;
     grid-row   : 1/2;

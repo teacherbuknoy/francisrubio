@@ -89,7 +89,7 @@
 </div>
 
 <div class="popup-wrapper" data-toggle-parent hidden>
-  <div class="navigation-popup js--start" id="nav-overflow" hidden>
+  <nav aria-label="More navigation" class="navigation-popup js--start" id="nav-overflow" hidden>
     <ul class="navigation-list">
       {% for item in navigation | selectattr("overflow") %}
         <li class="navigation-list-item">
@@ -108,7 +108,7 @@
         </li>
       {% endfor %}
     </ul>
-  </div>
+  </nav>
   <form class="navigation-popup detached js--end" data-navbar-popover-animations aria-label="Change color scheme" name="color-scheme" id="form-color-scheme" hidden>
     <div class="navigation-list gap-m">
       <div class="navigation-list-item navigation-list-radio">
@@ -125,8 +125,8 @@
       </div>
     </div>
   </form>
-
-  <nav class="navigation-popup navigation-popup--bar detached js--end" id="list-rss" data-navbar-animations aria-label="RSS Feeds" hidden>
+  <nav aria-labelledby="list-rss__label" class="navigation-popup navigation-popup--bar detached js--end" id="list-rss" data-navbar-animations aria-label="RSS Feeds" hidden>
+    <span id="list-rss__label" class="navigation-popup__label">RSS Feeds</span>
     <ul class="navigation-list">
       {% for item in site.feeds | values %}
         <li class="navigation-list-item">
