@@ -6,6 +6,5 @@
   { "text": "Gallery", "url": "/gallery/" },
   { "overflow": true, "text": "Videos", "url": "/videos/" },
   { "overflow": true, "text": "What I Use", "url": "/uses/" },
-  { "overflow": true, "text": "Press Kit", "url": "/press-kit/" },
-  { "overflow": true, "label": "RSS Feed", "feathericon": "rss", "url": "/feed.xml" }
+  { "overflow": true, "text": "Press Kit", "url": "/press-kit/" }
 ]

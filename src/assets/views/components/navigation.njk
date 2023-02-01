@@ -1,98 +1,108 @@
 <a href="#main" class="skip-link">Skip to content</a>
 <div class="navbar-wrapper" data-navbar-animations>
   <nav class="navigation-bar show-on-mobile" data-navbar-animations>
-    <div class="navigation-bar__section">
-      <button class="navigation-link has-icon--start" data-dialog="nav-menu">
+    <div class="navigation-bar__section navigation-bar__section--start">
+      <button class="navigation-link icon-only--mobile" data-dialog="nav-menu">
         {% set feathericon = 'menu' %}
         {% include 'components/feathericon.njk' %}
         <span class="navigation-link-text">Menu</span>
       </button>
     </div>
-    <div class="navigation-bar__section jc--center hide-on-small">
+    <div class="navigation-bar__section navigation-bar__section--center hide-on-medium">
       <a href="/" style="text-decoration: none; " class="weight-300 fs-6">Francis Rubio</a>
     </div>
-    <div class="navigation-bar__section jc--end">
+    <div class="navigation-bar__section navigation-bar__section--end">
+      <div class="cluster gap">
+        <button class="navigation-link icon-only--mobile" data-dialog="search-menu">
+          {% set feathericon = 'search' %}
+          {% include 'components/feathericon.njk' %}
+          <span class="navigation-link-text">Search</span>
+        </button>
+        <button class="navigation-link icon-only" data-popover="form-color-scheme" data-aria-hide data-disclosure data-scroll-into-view="false">
+          {% set feathericon = 'moon' %}
+          {% include 'components/feathericon.njk' %}
+          <span class="navigation-link-text sr-only">Change color Scheme</span>
+        </button>
+        <button class="navigation-link icon-only" data-popover="list-rss" data-aria-hide data-disclosure data-scroll-into-view="false">
+          {% set feathericon = 'rss' %}
+          {% include 'components/feathericon.njk' %}
+          <span class="navigation-link-text sr-only">RSS Feeds</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+ <!-- DESKTOP NAVIGATION -->
+  <nav class="navigation-bar hide-on-mobile" data-navbar-animations>
+    <div class="navigation-bar__section navigation-bar__section--start">
+      <ul class="navigation-list">
+        <li class="navigation-list-item">
+          <a href="/" class="navigation-link weight-700">Francis Rubio</a>
+        </li>
+
+        {% for item in navigation | rejectattr("overflow") %}
+          <li class="navigation-list-item">
+            <a href="{{ item.url }}" class="navigation-link {{ 'active' if utils.isActivePath(activePath, item.url) }}" style="--delay-factor: {{ loop.index0 }}">
+              {% if item.text %}
+                <span class="navigation-link-text">{{ item.text }}</span>
+              {% endif %}
+              {% if item.feathericon %}
+                {% set feathericon = item.feathericon %}
+                {% include "components/feathericon.njk" %}
+              {% endif %}
+              {% if item.label %}
+                <span class="navigation-link-label">{{ item.label }}</span>
+              {% endif %}
+            </a>
+          </li>
+        {% endfor %}
+
+        <li class="navigation-list-item" style="position: relative">
+          <button class="navigation-link icon-only" data-popover data-aria-hide>
+            {% set feathericon = 'more-horizontal' %}
+            {% include 'components/feathericon.njk' %}
+            <span class="sr-only">More items</span>
+          </button>
+          <div class="navigation-popup" hidden>
+            <ul class="navigation-list">
+              {% for item in navigation | selectattr("overflow") %}
+                <li class="navigation-list-item">
+                  <a href="{{ item.url }}" class="navigation-link" style="--delay-factor: {{ loop.index0 }}">
+                    {% if item.text %}
+                      <span class="navigation-link-text">{{ item.text }}</span>
+                    {% endif %}
+                    {% if item.feathericon %}
+                      {% set feathericon = item.feathericon %}
+                      {% include "components/feathericon.njk" %}
+                    {% endif %}
+                    {% if item.label %}
+                      <span class="navigation-link-label">{{ item.label }}</span>
+                    {% endif %}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="navigation-bar__section navigation-bar__section--end">
       <div class="cluster gap">
         <button class="navigation-link has-icon--start" data-dialog="search-menu">
           {% set feathericon = 'search' %}
           {% include 'components/feathericon.njk' %}
           <span class="navigation-link-text">Search</span>
         </button>
-        <button class="navigation-link" data-popover="form-color-scheme" data-aria-hide data-disclosure data-scroll-into-view="false">
+        <button class="navigation-link icon-only" data-popover="form-color-scheme" data-aria-hide data-disclosure data-scroll-into-view="false">
           {% set feathericon = 'moon' %}
           {% include 'components/feathericon.njk' %}
           <span class="navigation-link-text sr-only">Change color Scheme</span>
         </button>
-      </div>
-    </div>
-  </nav>
-  <nav class="navigation-bar hide-on-mobile" data-navbar-animations>
-    <div class="navigation-bar__section">
-      <div class="navigation-bar__section jc--start">
-        <ul class="navigation-list">
-          <li class="navigation-list-item">
-            <a href="/" class="navigation-link weight-700">Francis Rubio</a>
-          </li>
-
-          {% for item in navigation | rejectattr("overflow") %}
-            <li class="navigation-list-item">
-              <a href="{{ item.url }}" class="navigation-link {{ 'active' if utils.isActivePath(activePath, item.url) }}" style="--delay-factor: {{ loop.index0 }}">
-                {% if item.text %}
-                  <span class="navigation-link-text">{{ item.text }}</span>
-                {% endif %}
-                {% if item.feathericon %}
-                  {% set feathericon = item.feathericon %}
-                  {% include "components/feathericon.njk" %}
-                {% endif %}
-                {% if item.label %}
-                  <span class="navigation-link-label">{{ item.label }}</span>
-                {% endif %}
-              </a>
-            </li>
-          {% endfor %}
-
-          <li class="navigation-list-item" style="position: relative">
-            <button class="navigation-link" data-popover data-aria-hide>
-              {% set feathericon = 'more-horizontal' %}
-              {% include 'components/feathericon.njk' %}
-              <span class="sr-only">More items</span>
-            </button>
-            <div class="navigation-popup" hidden>
-              <ul class="navigation-list">
-                {% for item in navigation | selectattr("overflow") %}
-                  <li class="navigation-list-item">
-                    <a href="{{ item.url }}" class="navigation-link" style="--delay-factor: {{ loop.index0 }}">
-                      {% if item.text %}
-                        <span class="navigation-link-text">{{ item.text }}</span>
-                      {% endif %}
-                      {% if item.feathericon %}
-                        {% set feathericon = item.feathericon %}
-                        {% include "components/feathericon.njk" %}
-                      {% endif %}
-                      {% if item.label %}
-                        <span class="navigation-link-label">{{ item.label }}</span>
-                      {% endif %}
-                    </a>
-                  </li>
-                {% endfor %}
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="navigation-bar__section jc--end">
-        <div class="cluster gap">
-          <button class="navigation-link has-icon--start" data-dialog="search-menu">
-            {% set feathericon = 'search' %}
-            {% include 'components/feathericon.njk' %}
-            <span class="navigation-link-text">Search</span>
-          </button>
-          <button class="navigation-link" data-popover="form-color-scheme" data-aria-hide data-disclosure data-scroll-into-view="false">
-            {% set feathericon = 'moon' %}
-            {% include 'components/feathericon.njk' %}
-            <span class="navigation-link-text sr-only">Change color Scheme</span>
-          </button>
-        </div>
+        <button class="navigation-link icon-only" data-popover="list-rss" data-aria-hide data-disclosure data-scroll-into-view="false">
+          {% set feathericon = 'rss' %}
+          {% include 'components/feathericon.njk' %}
+          <span class="navigation-link-text sr-only">RSS Feeds</span>
+        </button>
       </div>
     </div>
   </nav>
@@ -113,6 +123,18 @@
       </div>
     </div>
   </form>
+
+  <nav class="navigation-popup navigation-popup--bar detached" id="list-rss" data-navbar-animations aria-label="RSS Feeds" hidden>
+    <ul class="navigation-list">
+      {% for item in site.feeds | values %}
+        <li class="navigation-list-item">
+          <a href="{{ item.url }}" class="navigation-link">
+            {{ item.label }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
 </div>
 
 <div class="navigation-menu" id="nav-menu" aria-label="Navigation menu dialog" hidden>

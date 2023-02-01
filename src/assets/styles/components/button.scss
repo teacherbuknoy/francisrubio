@@ -1,4 +1,5 @@
 .button {
+  --button-padding       : var(--space-xs) var(--space-xl);
   -webkit-backdrop-filter: blur(10px);
 
   align-items            : center;
@@ -14,15 +15,15 @@
   font-variation-settings: "wght"500;
   gap                    : var(--space);
   justify-content        : center;
+  outline                : 0px solid hsl(var(--primary-500) / 0%);
   overflow               : hidden;
-  padding                : var(--space-xs) var(--space-xl);
+  padding                : var(--button-padding);
   position               : relative;
   text-decoration        : none;
   text-transform         : lowercase;
   transition             : background-image 200ms, outline 200ms, outline-offset 200ms;
-  outline                : 0px solid hsl(var(--primary-500) / 0%);
-  width                  : min-content;
   white-space            : nowrap;
+  width                  : min-content;
 
   &::before {
     content         : "";
@@ -90,8 +91,13 @@
     cursor        : default;
 
     .button-text {
-      &--default { display: none; }
-      &--disabled { display: block; }
+      &--default {
+        display: none;
+      }
+
+      &--disabled {
+        display: block;
+      }
     }
   }
 }
@@ -143,6 +149,20 @@ body.no-js {
 .button,
 .navigation-link,
 .navigation-menu-link {
+  &.icon-only {
+    aspect-ratio: 1/1;
+    padding     : var(--space-xs);
+
+    &--mobile {
+      aspect-ratio: none;
+
+      @media (max-width: 720) {
+        aspect-ratio: 1/1;
+        padding     : var(--space-xs);
+      }
+    }
+  }
+
   &.has-icon {
     &--start {
       padding-inline-start: calc(var(--space) - 0.5em);
