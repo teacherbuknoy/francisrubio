@@ -232,20 +232,26 @@ body;
 dl:is(.grid, .stacked) {
   dt {
     font-weight: bold;
+    font-variation-settings: 'wght' 600;
   }
 }
 
 dl.grid {
-  font-family          : var(--font-sans);
-  display              : grid;
-  grid-template-columns: 1fr 3fr;
-  column-gap           : 0.5ch;
+  font-family: var(--font-sans);
+  column-gap : 0.5ch;
+
+  @media (min-width: 490px) {
+    display              : grid;
+    grid-template-columns: 1fr 3fr;
+  }
 
   dt {
     grid-column: 1/2;
 
     &::after {
-      content: ":";
+      @media (min-width: 490px) {
+        content: ":";
+      }
     }
   }
 
@@ -307,6 +313,7 @@ hr {
     }
 
     @media (prefers-color-scheme) {
+
       .default &,
       .system & {
         filter: invert(1)

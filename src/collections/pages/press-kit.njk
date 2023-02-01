@@ -28,7 +28,7 @@ activePath: press-kit
   <p>He has created Antares Programming, a project aiming to make web development more accessible to Filipino developers. This project, started in 2018, has now helped thousands of Filipino developers learn HTML and CSS through blog posts and infographics posted on both the project's website and social media accounts.</p>
   <p>Francis has also given talks and workshops for several schools about web development, particularly in front-end web development. He has worked as a teacher for 2 years where he helped high school students learn to program and create their first websites.</p>
   <p>He has completed a bachelor's degree in Computer Science at the University of Caloocan City in 2019. Since then, he has worked on many websites. His latest creation is working on the official website of the Philippine Consulate General of Calgary, Canada.</p>
-  <p>Francis is currently preparing to launch a Youtube Channel as a part of the Antares Programming initiative. Soon, his videos talking about web development will be watched by many Filipinos, hopefully helping them learn web development in a language they speak and understand fluently.</p>
+  <p>Francis is recently launched a Youtube Channel as a for Antares Programming. His videos talking about web development have been watched by many Filipinos, hopefully helping them learn web development in a language they speak and understand fluently.</p>
 </section>
 <section aria-labelledby="section-heading-5" class="padding--xl gap--l content-wrapper margin-inline--auto">
   <h2 id="section-heading-5">Details</h2>
@@ -62,14 +62,13 @@ activePath: press-kit
   </dl>
 
   <h3 class="responsive h5">Social Media</h3>
-  <dl class="grid margin-inline--auto">
-    {% for key, value in site.contact %}
-      {% if not value.hidden %}
-        <dt>{{ value.name }}</dt>
-        <dd><a href="{{ value.url }}" target="_blank" rel="noopener">{{ value.identifier }}</a></dd>
-      {% endif %}
+  <ul class="button-list">
+    {% for item in site.contact | notHidden %}
+      <li class="button-list__item">
+        <a href="{{ item.url }}" class="button button--small">{{ item.name }}</a>
+      </li>
     {% endfor %}
-  </dl>
+  </ul>
 </section>
 
 <section class="padding--xxxl gap--l dark bg--secondary" aria-labelledby="section-heading-6">
