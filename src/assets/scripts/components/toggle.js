@@ -5,6 +5,8 @@ class Toggle {
 
   constructor(toggler) {
     this.#toggler = toggler
+    const togglerId = `toggler-${Date.now()}`
+    this.#toggler.id = togglerId
 
     this.#events = {
       show: [],

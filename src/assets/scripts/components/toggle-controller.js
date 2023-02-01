@@ -11,21 +11,30 @@ class ToggleController {
   constructor(elements) {
     this.#toggles = [...elements];
 
-    //this.#toggles.forEach(toggle => {
-    //  toggle.addEventListener('show', e => {
-    //    const otherPopups = this.#toggles.filter(t => t !== toggle)
-    //    otherPopups.forEach(p => p.hidden = true)
-    //  })
-    //})
+    this.#toggles.forEach(toggle => {
+      toggle.addEventListener('show', tg => {
+        this.#toggles.forEach(p => {
+          if (p.popup.id !== tg.popup.id) {
+            p.hidden = true
+          }
+        })
+      })
+    })
 
     document.body.addEventListener('click', e => {
       const { target } = e
-      
-      const elementIDs = [...this.#toggles].map(t => `#${t.popup.getAttribute('id')}, #${t.popup.getAttribute('id')} *`).join(', ')
-      const selector = 'button[data-toggle], button[data-toggle] *, ' + elementIDs
-      console.log({ target, matches: target.matches(selector) })
-      if (!target.matches(selector)) {
-        this.hideAll()
+
+      const toggle = this.getOpenToggle()
+      if (toggle) {
+        const togglerId = toggle.toggleButton.id
+        const popupId = toggle.popup.id
+        const togglerSelector = `#${togglerId}, #${togglerId} *`
+        const popupSelector = `#${popupId}, #${popupId} *`
+        const elementIDs = [...this.#toggles].map(t => `#${t.popup.getAttribute('id')}, #${t.popup.getAttribute('id')} *`).join(', ')
+        const selector = 'button[data-toggle], button[data-toggle] *, ' + elementIDs
+        if (!target.matches(togglerSelector) && !target.matches(popupSelector)) {
+          this.hideAll()
+        }
       }
     })
 
@@ -33,6 +42,10 @@ class ToggleController {
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape') this.hideAll()
     })
+  }
+
+  getOpenToggle() {
+    return this.#toggles.find(t => !t.hidden)
   }
 
   hideAll() {
