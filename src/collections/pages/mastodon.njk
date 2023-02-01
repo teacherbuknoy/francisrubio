@@ -10,11 +10,11 @@ scripts: ['mastodon.js']
 {% set profile = mastodon.profile %}
 {% set feed = mastodon.feed %}
 <section class="padding--xl" aria-labelledby="section-heading-4" style="margin-inline: auto">
-  <div class="stack gap">
+  <hgroup class="page__header">
     <span id="section-heading-4" class="uppercase ls-l font-sans">Social Feed</span>
     <h2 class="font-serif responsive">Mastodon</h2>
     <p>For things I have something to say but don't have a lot of words for.</p>
-  </div>
+  </hgroup>
   <div class="feed-grid">
     <article class="feed__profile profile">
       <img src="{{ profile.header_static }}" alt="Header Image" class="profile__header" data-profile="header">

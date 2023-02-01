@@ -48,10 +48,11 @@
 .tag:not(.token) {
   @extend .category-pill;
 
+  display        : inline-flex;
+  flex-shrink    : 0;
   padding        : var(--space-xxxs) var(--space-s);
   text-decoration: none;
-  flex-shrink    : 0;
-  display        : inline-flex;
+  white-space    : nowrap;
 
   &.active {
     background-color: hsl(var(--primary-500));

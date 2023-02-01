@@ -9,12 +9,11 @@ permalink: /literature/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumbe
 activePath: literature
 ---
 <section class="padding--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
-  <div class="stack margin-bottom--xl">
-      <span id="section-heading-4" class="uppercase ls-l font-sans">{{ sections.literature.label | safe }}</span>
+  <hgroup role="group" class="page__header">
+      <span aria-roledescription="subtitle" id="section-heading-4" class="uppercase ls-l font-sans">{{ sections.literature.label | safe }}</span>
       <h2 class="font-serif responsive">{{ sections.literature.title | safe }}</h2>
-      <p>{{ sections.literature.description | safe }}</p>
-  </div>
-  <p>All writings here are subject to copyright.</p>
+      <p>{{ sections.literature.description | safe }} All writings here are subject to copyright.</p>
+  </hgroup>
   {% set postType = 'literature' %}
   {% set collection = pagination.items %}
   {% include 'components/post-grid.njk' %}

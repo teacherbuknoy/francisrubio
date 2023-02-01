@@ -9,11 +9,11 @@ permalink: /projects/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber 
 activePath: projects
 ---
 <section class="padding--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
-  <div class="stack gap">
-    <span id="section-heading-4" class="uppercase ls-l font-sans">{{ sections.projects.label | safe }}</span>
+  <hgroup class="page__header">
+    <span aria-roledescription="summary" id="section-heading-4" class="uppercase ls-l font-sans">{{ sections.projects.label | safe }}</span>
     <h2 class="font-serif responsive">{{ sections.projects.title | safe }}</h2>
     <p>{{ sections.projects.description | safe }}</p>
-  </div>
+  </hgroup>
   <div class="padding-block--xl gap--l" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(30ch, 100%), 1fr))">
     {% for item in pagination.items %}
       {% include 'components/deck-card.njk' %}
