@@ -294,3 +294,7 @@ details {
 .with-sidebar .article__body {
   grid-template-columns: 0fr min(65ch, 93%) 0fr;
 }
+
+.footnotes-sep {
+  display: none;
+}

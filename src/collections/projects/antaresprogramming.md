@@ -64,7 +64,7 @@ I built the second iteration of the website when I came back to working on it af
 
 ### Phase 3: Youtube
 
-The third phase of this project started just recently. I opened the Antares Programming Youtube channel. It barely has anything, as video production is very tedious and costly. But I intend to post videos in the future. 
+It took about 4 years to open a channel for Antares Programming and post videos for it. I tried producing videos in the past, but none fit the standards of how I wanted it to look like and it didn't turn out the way I wanted it. In 2023, however, I produced the first video for Antares Programming and opened the YouTube channel. The current plan is to post videos at least once a month.
 
 ## Results
 
