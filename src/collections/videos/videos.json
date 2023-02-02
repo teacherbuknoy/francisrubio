@@ -1,3 +1,4 @@
 {
-  "layout": "video.njk"
+  "layout": "video.njk",
+  "author": "teacherbuknoy"
 }

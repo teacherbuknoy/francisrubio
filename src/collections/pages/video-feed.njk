@@ -1,13 +1,13 @@
 ---
 eleventyExcludeFromCollections: true
 layout: null
-permalink: /literature.xml
+permalink: /videos.xml
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Creative literature by Francis Rubio</title>
   <subtitle>My attempts in encapsulating my thoughts into written art</subtitle>
-  <link href="{{ site.url }}/literature.xml" rel="self"/>
+  <link href="{{ site.url }}/videos.xml" rel="self"/>
   <updated>{{ generated }}</updated>
   <author>
     <name>{{ authors.teacherbuknoy.name }}</name>
@@ -15,17 +15,17 @@ permalink: /literature.xml
     <uri>{{ authors.teacherbuknoy.url }}</uri>
   </author>
   <id>{{ site.domain }}</id>
-  <category term="literature"/>
+  <category term="videos"/>
   <icon>/assets/root/favicon.svg</icon>
   <rights>ⓒ {{ utils.currentYear }} Francis Rubio</rights>
 
-  {% for post in collections.literature %}
+  {% for post in collections.videos %}
     {% set absolutePostUrl %}{{ site.url }}{{ post.url }}{% endset %}
     <entry>
-      <title>{{ post.data.title }}</title>
-      <link href="{{ absolutePostUrl }}"/>
+      <title type="html">{{ post.data.title }}</title>
+      <link href="https://youtu.be/{{ post.data.code }}"/>
       <updated>{{ post.date | dateToRfc3339 }}</updated>
-      <id>{{ absolutePostUrl }}</id>
+      <id>https://youtu.be/{{ post.data.code }}</id>
       {% set person = authors[post.data.author] %}
       <author>
         <name>{{ person.name }}</name>

@@ -4,5 +4,11 @@
     "email": "devfrancisrubio@gmail.com",
     "url": "https://francisrubio.antaresph.dev",
     "photo": "/assets/images/index/francis-rubio/francis-rubio-300w.png"
+  },
+  "antaresphdev": {
+    "name": "Antares Programming",
+    "email": "info@antaresph.dev",
+    "url": "https://antaresph.dev",
+    "photo": "/assets/images/projects/antaresprogramming.svg"
   }
 }
