@@ -27,6 +27,11 @@ activePath: literature
   {% if pagination.href.next %}
     <a href="{{ pagination.href.next }}" class="button">Next</a>
   {% endif %}
+
+  <a href="{{ site.feeds.literature.url }}" class="{{ 'icon-only' if pagination.href.previous or pagination.href.next }} button" style="padding: var(--space-s);">
+    {{ 'rss' | icon | safe }}
+    <span class="{{ 'sr-only' if pagination.href.previous or pagination.href.next }}">RSS feed of all literature</span>
+  </a>
 </div>
 
 {% set preferredDomain = site.domains | selectattr('isPreferred') | first %}
