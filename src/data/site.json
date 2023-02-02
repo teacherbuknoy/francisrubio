@@ -80,6 +80,10 @@
     "logo": "https://www.antaresph.dev/assets/images/root/logo.svg"
   },
   "feeds": {
+    "all": {
+      "label": "Everything",
+      "url": "/feed.xml"
+    },
     "literature": {
       "label": "Literature",
       "url": "/literature.xml"
@@ -87,6 +91,10 @@
     "blog": {
       "label": "Blog",
       "url": "/blog.xml"
+    },
+    "videos": {
+      "label": "Videos",
+      "url": "/videos.xml"
     }
   }
 }
