@@ -34,6 +34,21 @@ activePath: literature
   </a>
 </div>
 
+<footer class="stack gap--xl m-block--xxxl" style="text-align: center; margin-inline: auto; width: min(var(--content-width), 90%);">
+  <div class="section__header">
+    <hgroup role="group">
+      <h2 class="section__subtitle fs-3">Follow me on the Fediverse</h2>
+      <p>If you were impressed by my mind because of these longform texts, I talk a lot more on Mastodon. I talk about a lot of things—work, gaming, coding, politics, religious trauma, the usual stuff.</p>
+    </hgroup>
+  </div>
+  <div class="stack ai--center gap--s">
+    <a href="{{ site.contact.mastodon.url }}" class="primary button" target="blank" rel="noopener">
+      {{ "user-plus" | icon | safe }}
+      <span>Follow me on Mastodon</span>
+    </a>
+  </div>
+</footer>
+
 {% set preferredDomain = site.domains | selectattr('isPreferred') | first %}
 <script type="application/ld+json">
 {

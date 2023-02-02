@@ -14,18 +14,11 @@ activePath: speaking
   <p aria-roledescription="subtitle">{{ sections.talks.description | safe }}</p>
 </hgroup>
 
-<div class="bg--secondary">
+<div class="bg--secondary padding-block--l">
   <section aria-labelledby="section-heading-2" class="ai--center stack padding--xl margin-inline--auto" style="width: min(90%, 100ch);">
-    <div style="width: min(80ch, 100%)">
-      <h2 id="section-heading-2">Upcoming Talks</h2>
+    <div style="width: min(80ch, 100%)" class="stack gap--xl">
+      <h2 id="section-heading-2" class="margin--none">Upcoming Talks</h2>
       {% include 'components/upcoming-talks-grid.njk' %}
-    </div>
-    <div class="stack">
-      <div class="gap--m cluster padding-block--l">
-        <button class="primary button" data-dialog="modal__email">Invite me as a speaker</button>
-        <a href="/press-kit/" class="button">Press Kit</a>
-        <a href="/speaker-rider/" class="button">Before sending an invitation...</a>
-      </div>
     </div>
   </section>
 </div>
@@ -46,19 +39,34 @@ activePath: speaking
   {% endif %}
 </div>
 
+<footer id="talks-footer" class="stack gap--xl m-block--xxxl" style="text-align: center; width: min(80ch, 90%); margin-inline: auto;">
+  <div class="section__header">
+    <hgroup role="group">
+      <h2 class="section__subtitle fs-3">Share the stage with me</h2>
+      <p>If you're an event organizer looking for speakers, a content creator looking for guests, or a student in a club looking for someone knowledgeable about software development, send me an email! I reply within the day.</p>
+    </hgroup>
+  </div>
+  <div class="stack ai--center gap--s">
+    <a href="/speaker-rider/" class="primary button">Send me an invitation</a>
+    <a href="/press-kit/" class="button">Download assets for your pubmats</a>
+  </div>
+</footer>
+
 {% include 'components/email-form.njk' %}
 
 {% set preferredDomain = site.domains | selectattr('isPreferred') | first %}
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-        "name": "Navigation",
-  "itemListElement": [{
-    "@type": "ListItem",
-    "position": 1,
-    "name": "Speaking",
-    "item": "https://{{ preferredDomain.value }}/speaking/"
-  }]
-}
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "name": "Navigation",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Speaking",
+        "item": "https://{{ preferredDomain.value }}/speaking/"
+      }
+    ]
+  }
 </script>
