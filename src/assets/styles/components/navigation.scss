@@ -67,7 +67,7 @@
   gap             : 1ch;
   justify-content : center;
   outline         : 3px solid transparent;
-  padding         : var(--space-xs) var(--space);
+  padding         : var(--space-xxxs) var(--space);
   text-decoration : none;
   white-space     : nowrap;
   transition      : background 200ms, color 200ms, outline-offset 100ms, outline 50ms 50ms;
@@ -81,6 +81,9 @@
     transition      : background 200ms, color 200ms, outline-offset 100ms, outline 100ms;
   }
 
+  &.icon-only {
+    padding: var(--space-xxxs);
+  }
 
   &.active {
     position: relative;
@@ -324,7 +327,7 @@
 .popup-wrapper {
   inset             : 0;
   left              : 50%;
-  margin-block-start: calc(5.5rem + var(--space));
+  margin-block-start: calc(4.5rem + var(--space));
   max-width         : 100ch;
   position          : fixed;
   right             : auto;
