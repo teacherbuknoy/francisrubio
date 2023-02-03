@@ -144,7 +144,7 @@
   }
 
   &::before {
-    content                : "Slur";
+    content                : attr(data-slur);
     margin-left            : -0.15ch;
     font-weight            : bold;
     font-variation-settings: 'wght'600;
@@ -154,18 +154,20 @@
   }
 
   &::after {
-    content         : attr(data-slur-details);
-    position        : absolute;
-    top             : -100%;
     background-color: hsl(var(--warning-100));
-    width           : max-content;
+    bottom          : calc(100% + var(--space-xs));
+    content         : attr(data-slur-details);
+    left            : 50%;
+    padding         : var(--space-xs);
+    position        : absolute;
     text-align      : left;
-    left            : 0;
-    transition      : transform 300ms, opacity 300ms;
+    transform       : translateX(-50%);
+    transition      : transform 200ms, opacity 150ms;
+    width           : 200%;
   }
 
   &:not([aria-pressed=true])::after {
-    transform: translateY(100%);
+    transform: translateY(50%) translateX(-50%);
     opacity  : 0;
   }
 }

@@ -207,6 +207,15 @@ $line-heights: (xxxs: 0.5,
   font-family        : var(--font-sans);
 }
 
+.footnote {
+
+  &--reference,
+  &--source {
+    font-size  : var(--type-size-7);
+    font-family: var(--font-sans);
+  }
+}
+
 $fonts: sans,
 serif,
 display,

@@ -2,17 +2,22 @@
 title: "Best Scenes of Genshin Impact"
 description: "Spoilers for version version 3.3."
 category: ["Genshin Impact", "Game"]
-image: ""
+cover:
+  folder: best-genshin-scenes
+  filename: cover.png
+  header: header.png
+  sizes: [500, 600, 700, 1000, 1280]
+  formats: ['png', 'webp', 'avif']
 author: "teacherbuknoy"
 language: "en"
 seo:
   twitter:
-    src: ""
+    url: "https://ik.imagekit.io/8jjzxcl9p/tr:f-png,h-0.5/posts/best-genshin-scenes/twitter.png"
     is_prefixed: false
   og:
-    src: ""
+    url: "https://ik.imagekit.io/8jjzxcl9p/tr:f-png,h-0.5/posts/best-genshin-scenes/og.png"
     is_prefixed: false
-eleventyExcludeFromCollections: true
+eleventyExcludeFromCollections: false
 ---
 It’s been more than a year since I started playing Genshin Impact, and all I can say is out of all the games I’ve played, this has got to be the best one yet. Granted, I did not play a lot of games before this, and if I did, they were always arcade and casual games. Even so, if a game pulls someone like me, a person with not enough time to himself, into playing it, it has got to account for something, right?
 
@@ -61,7 +66,7 @@ Signora is the first major antagonist character in-game. This was in the Mondsta
 
 Kidding aside, this scene sets the tone for the next chapters of the game. Mondstadt is a very beginner-friendly area. But this scene transforms the game from being a cutesy kid-friendly game into being a political, thrilling story. It also sets up the subplot about the Fatui, an organization from the land of Snezhnaya that is present in all other countries in Teyvat.
 
-It also sets up the Gnoses, which were later explained as proof of Archonship from Celestia. It was a physical proof of Celestia’s rule over all of Teyvat. And this scene incites intrigue for two reasons: (1) why are the Fatui collecting the Gnoses, and (2) why did Venti, a very powerful Archon, not fight for his Gnosis? These two questions barely have an answer even at this point.
+It also sets up the Gnoses, which were later explained as proof of Archonship from Celestia. It was a physical proof of Celestia’s rule over all of Teyvat. And this scene incites intrigue for two reasons: (1) why are the Fatui collecting the Gnoses, and (2) why did Venti, a very powerful Archon as we realize later on in the game, not fight for his Gnosis? These two questions barely have answers even at this point.
 
 {{ 'SZOHQordzYw' | youtube }}
 
@@ -71,37 +76,39 @@ The Raiden Shogun’s first appearance is also a remarkable scene. I am always g
 
 In this scene, the Raiden Shogun appears in front of the people for the ceremony of the 100th Vision to be taken during the Vision Hunt Decree. Visions are to regular humans what Gnoses are to Archons. It gives them control over a single element in Teyvat, giving them extraordinary power, which, to the Raiden Shogun, goes against her goal of unchanging Eternity. This scene shows Thoma, one of The Traveler’s first friends in Inazuma, being captured and his Vision being taken away by the Raiden Shogun.
 
-**What I liked:** up until this moment, the player has no idea what the Raiden Shogun looks like. And the previous two Archons we have met have been benevolent and helpful. This is the first time we get a villainous Archon who seems to have little care about her people. Seeing the Raiden Shogun, in all her glory, unsheathing her electric sword out of her boobs, slashing time and space to take the Traveler inside her consciousness—all this contribute to a very thrilling scene. I literally got chills when I first played through this, and the battle scene afterwards which made all of my character’s skills disabled because of the Vision Hunt Decree only added to the immersive experience.
+**What I liked:** up until this moment, the player has no idea what the Raiden Shogun looks like. And the previous two Archons we have met have been benevolent and helpful. This is the first time we get a villainous Archon who seems to have little care about her people. Seeing the Raiden Shogun, in all her glory, unsheathing her electric sword out of her boobs, slashing time and space to take the Traveler inside her consciousness—all this contribute to a very thrilling scene. I literally got chills when I first played through this, and the battle scene afterwards which made all of my character’s skills disabled because of the Vision Hunt Decree only added to the immersive experience. It was a genuinely frightening experience.
 
 {{ 'nnezQamegYo' | youtube }}
 
 ### 11. Moment of Life or Death
 
-The Chasm is an ancient place in Liyue characterized by spiraling rock formations that circle towards a central passageway that leads into an even deeper cavern system underground. At its very bottom lies a Celestial nail. We’ve seen this first in Mondstadt’s eternally frozen mountain Dragonspine. It seems like wherever a Celestial nail is placed, the surrounding area is fucked up in some form or another. And the Chasm is no different from it.
+The Chasm is an ancient place in Liyue characterized by spiraling rock formations that circle towards a central passageway that leads into an even deeper cavern system underground. At its very bottom lies a Celestial nail. We’ve seen this first in Mondstadt’s eternally frozen mountain Dragonspine. It seems like wherever a Celestial nail is placed, the surrounding area is <button class="slur" data-slur-details="In this context, the word means &quot;damaged, messed up, disoriented, destroyed.&quot;" data-slur="Expletive">
+      <span class="slur__content" data-slur-content>fucked</span>
+    </button> up in some form or another. And the Chasm is no different from it.
 
 Xiao, a yaksha from Liyue and an assistant to the Geo Archon Morax, dives deep into the Chasm, while the Traveler, Yanfei (a lawyer), Yelan (a government undercover), Itto (a gang leader from Inazuma), and Kuki Shinobu (a law student from Inazuma but studied law in Liyue) get trapped inside the deepest parts of the Chasm with no way of getting out. Yanfei came here in search of a certain “fantastic compass” for one of her clients. Yelan came here to investigate one of her missing ancestor’s past. And Itto and Kuki were here following Yanfei after getting them out of jail.
 
-In the final part of this interlude Archon Quest, they use the fantastic compass to get out of the Chasm. The compass’ power was maintained by Xiao, and when the evil spirits stopping them from escaping has gotten the best of them, Xiao chooses to sacrifice himself to send all the others out from the Chasm.
+In the final part of this interlude Archon Quest, they use the fantastic compass to get out of the Chasm. The compass’ power was maintained by Xiao, and when the evil spirits stopping them from escaping has gotten the best of them, Xiao chooses to sacrifice himself to send all the others out of the Chasm.
 
-**What I liked:** this is the closest we got to the first ever character death in-game. A lot of speculation have gone around that Hoyoverse, the developer of this game, would never allow playable characters to die. But counter arguments say that they have actually done that before in another game, Honkai, where a major character died even after being made playable. So this uncertainty made players scared for Xiao’s life, him being beloved for all of the tragedies he’s had in life. He did not deserve to die, at least not in that way, but also, it was very in character for him to sacrifice himself like that. The fact that this cutscene closes one of the best quests in the game only adds to the *fantastic* experience (hehe see what I did there?)
+**What I liked:** this is the closest we got to the first ever character death in-game. A lot of speculation have gone around that Hoyoverse, the developer of this game, would never allow playable characters to die. But counter arguments say that they have actually done that before in another game, Honkai, where a major character died even after being made playable. So this uncertainty made players scared for Xiao’s life, him being beloved for all of the tragedies he’s had in life. He did not deserve to die, at least not in that way, but also, it was very in character for him to offer his life like that. The fact that this cutscene closes one of the best quests in the game only adds to the *fantastic* experience (hehe see what I did there?)
 
 {{ 'C24nvloZZhE' | youtube }}
 
-### 10. Lost Legacies
+### 10. Lost Legacies in the Sand
 
 Sumeru is divided between the forest-dwelling people under the rule of the Akademiya and worships the previous Dendro Archon, Greater Lord Rukkhadevata, and the desert-dwelling people, among the latter are the Eremites who are mercenaries that worship King Deshret, the Scarlet King. To further encourage this divide, the Akademiya has disseminated false news and revisionist history that King Deshret died because Greater Lord Rukkhadevata had betrayed him, sparking discontent between the two factions.
 
-This scene happens shortly after the Traveler, Sumeru’s main characters and leader of the Eremites, Rahman, gets sucked into a quicksand that led to the tomb of King Deshret’s priest. His final memory was contained within the tomb, thus clearing the confusion spread by the Akademiya—namely, that King Deshret has brought forbidden knowledge into Sumeru, corrupting his territory and turning it into a deserted land, displacing his people from their homes, and bringing the disease Eleazar into the people of Sumeru. King Deshret asked for Greater Lord Rukkhadevata’s help to contain the contamination, leading to the Scarlet King sacrificing his life to cleanse the earth, and Rukkhadevata exhausting her power, turning her back into a teenager.
+This scene happens shortly after the Traveler, Sumeru’s main characters, and leader of the Eremites, Rahman, gets sucked into a quicksand that led to the tomb of King Deshret’s priest. His final memory was contained within the tomb, thus clearing the confusion spread by the Akademiya—namely, that King Deshret has brought forbidden knowledge into Sumeru, corrupting his territory and turning it into a deserted land, displacing his people from their homes, and bringing the disease Eleazar into the people of Sumeru. King Deshret asked for Greater Lord Rukkhadevata’s help to contain the contamination, leading to the Scarlet King sacrificing his life to cleanse the earth, and Rukkhadevata exhausting her power, turning her back into a teenager.
 
 <div>
 
 <aside class="callout callout--info callout--right" id="footnote-1" aria-labelledby="footnote-1-headline">
   {{ 'alert-triangle' | icon }}
   <h4 class="sr-only" id="footnote-1-headline">Sidebar (article continues below)</h4>
-  <p class="callout__body">In the end, <a href="#fsrc-1">this theory</a> was somewhat true. Greater Lord Rukkhadevata and Lesser Lord Kusanali weren’t exactly one and the same, but are rather incarnations of the Irminsul Tree’s avatar. They were born out of the Irminsul Tree’s purest branch, making them the kind of the same person, but also different enough to have different fates.</p>
+  <p class="callout__body">In the end, <a href="#fsrc-1">this theory</a> was somewhat true. Greater Lord Rukkhadevata and Lesser Lord Kusanali weren’t exactly one and the same, but are rather incarnations of the Irminsul Tree’s avatar. They were born out of the Irminsul Tree’s purest branch, making them the kind of the same person, but also different enough to have different fates. <sup class="footnote--reference"><a href="#fn-1">Paragraph</a></sup></p>
 </aside>
 
-**What I like:** throughout the Sumeru Archon Quests, a lot of emphasis was given on the effects of historical revisionism, technological advancements, and the spread of false news. Coming out just months after elections and impeachments all around the world, the story hits so close to home, and the relief of finally finding out the truth is afforded to the players as this scene plays out. Also, a leading theory at the time was that Greater Lord Rukkhadevata and Lesser Lord Kusanali were one and the same, and that Kusanali forgot her identity after getting her powers exhausted during the Cataclysm in Khaenri’ah 500 years ago.<sup>[<a href="#footnote-1">Footnote</a>]</sup> This scene gave those theories another basis, even if the truth was slightly different. {#fsrc-1}
+**What I like:** throughout the Sumeru Archon Quests, a lot of emphasis was given on the effects of historical revisionism, technological advancements, and the spread of false news. Coming out just months after elections and impeachments all around the world, the story hits so close to home, and the relief of finally finding out the truth is afforded to the players as this scene plays out. Also, a leading theory at the time was that Greater Lord Rukkhadevata and Lesser Lord Kusanali were one and the same, and that Kusanali forgot her identity after getting her powers exhausted during the Cataclysm in Khaenri’ah 500 years ago.<sup id="fn-1" class="footnote--source"><a href="#footnote-1">Footnote</a></sup> This scene gave those theories another basis, even if the truth was slightly different. {#fsrc-1}
 
 </div>
 
@@ -117,7 +124,7 @@ In the Aranara questline, we see the first NPC, Rana, to get a Vision in-game. T
 
 ### 8. Akasha Pulses, the Kalpa Flame Rises
 
-In the climax of the Sumeru Archon Quests, Nahida faces off with Shouki no Kami, a new god created by the Akademiya out of the Fatui Harbinger Scaramouche. At this point, it has already been revealed that the Akademiya imprisoned Nahida after she was deemed powerless and with no wisdom to rule over Sumeru, and that the Sabzeruz Festival samsara was done to harvest people’s dream and turn them into wisdom that Shouki no Kami would use to become the new God of Wisdom, replacing Nahida altogether.
+In the climax of the Sumeru Archon Quests, Nahida faces off with Shouki no Kami, a new god created by the Akademiya out of the Fatui Harbinger Scaramouche. At this point, it has already been revealed that the Akademiya imprisoned Nahida after she was deemed powerless and with no wisdom to rule over Sumeru, and that the Sabzeruz Festival samsara was done to harvest people’s dreams and turn them into wisdom that Shouki no Kami would use to become the new God of Wisdom, replacing Nahida altogether.
 
 **What I like:** the climax acts as the cohesive glue that ties all of the details of the story. Before fighting Shouki no Kami, Nahida secretly used the power of dreams to put herself, Shouki no Kami, the Traveler, and Paimon into 168 samsara loops, the same number of loops that the people of Sumeru underwent to have their dreams harvested, to record data about Shouki no Kami’s moves and attack styles. She then disseminated this data to all of Sumeru through the Akasha system so people can help the Traveler defeat the false god, finally restoring the Akasha system into its original purpose, “to compile human wisdom in the name of the Archon”.
 
@@ -195,13 +202,19 @@ In this scene, Nahida, still imprisoned in the Sanctuary of Surasthana, possesse
 
 ### Marana's avatar.
 
+The climax to the Aranyaka questline, which is the longest world quest so far in game, shows Arama and the Traveler fighting Marana's avatar. This is one of the few (if not the only one) cutscene that shows in a world quest.
+
 {{ 'l6tWyEfXY4M' | youtube }}
 
 ### The cleansing of Irminsul
 
+In a very tragic twist of fate, Greater Lord Rukkhadevata realizes 500 years ago that she, the avatar of Irminsul, has been corrupted and the only way to cleanse the corruption is to remove her completely from the records of the world. Her successor, Lesser Lord Kusanali, whom she created out of the Irminsul's purest branch, is now tasked to delete Greater Lord Rukkhadevata from everyone's memory and historical records. Kusanali had always looked up to the Greater Lord as she had always been loved by the people, unlike Kusanali who was immediately locked up by the sages for being too young and powerless. As she looked forward to meeting the Greater Lord, Lesser Lord Kusanali has to face the task the previous Dendro Archon has tasked her and make it like the Greater Lord never existed.
+
 {{ 'TvsUPQDSweM' | youtube }}
 
 ### Albedo versus… Albedo?
+
+In one of the best cutscenes in game, we see Bennett, Eula, and Amber fight "Albedo" who turned out to be a whopperflower in disguise. This cutscene is part of a limited event that gave out huge lore bombs about Albedo.
 
 {{ 'YTiq1ClS4Uc' | youtube }}
 
@@ -210,11 +223,13 @@ In this scene, Nahida, still imprisoned in the Sanctuary of Surasthana, possesse
 
 Since her first appearance, Signora has been positioned in the narrative as the biggest bad so far. She has been in collusion with Zhongli in awakening Osial to prove that the people of Liyue can indeed handle crises even without a god. She has also been involved in the Vision Hunt Decree, and manipulating the resistance by distributing Delusions, items like Vision that give its holder extraordinary power over the elements, only that it drains them of life with continuous use. Signora is the closest we’ve had to a villainous character in-game.
 
-In this scene, in their desperation and anger seeing how the Fatui’s Delusions harmed the resistance, specifically Teppei who was their comrade in the resistance, the Traveler challenges Signora to a duel before a throne, one where the loser must die. 
+In this scene, in their desperation and anger seeing how the Fatui’s Delusions harmed the resistance, specifically Teppei who was their comrade in the resistance, the Traveler challenges Signora to a duel before the throne, one where “the loser must die.”
 
 Long story short, the Traveler wins the duel, even after Signora uses all of her might, final form, and Delusion, to win. The Raiden Shogun executes judgment on Signora even if she wasn’t from Inazuma. Signora threatens the Shogun that there will be consequences to her death at her hands, but the Shogun does not listen. The Shogun unleashes the feared Musou no Hitotachi, a legendary sword slash that can split islands in half. She uses it on Signora, who dies immediately as she disintegrates to ashes.
 
-**What I like:** I knew this was coming because I asked my partner to spoil it for me back when I was still doing Liyue Archon Quests and I was not that invested in the story yet. But seeing everything unfold disappointed me a lot. I always thought that Signora would play an even bigger role in the story, and she’s one gorgeous bitch. But seeing her die this early, and with no one yet to replace her role as the big bad person, is too shocking for me even if I knew. The whole scene is epic though, and the previous fight against the Crimson Witch of Embers is also great. It displays how powerful the Raiden Shogun actually is. And it’s the first time we see an Archon use their power in all of their glory.
+**What I like:** I knew this was coming because I asked my partner to spoil it for me back when I was still doing Liyue Archon Quests and I was not that invested in the story yet. But seeing everything unfold disappointed me a lot. I always thought that Signora would play an even bigger role in the story, and she’s one gorgeous <button class="slur" data-slur-details="In this context, the word means &quot;strong and powerful woman,&quot; used by the gay community as a term of endearment." data-slur="Expletive">
+      <span class="slur__content" data-slur-content>bitch</span>
+    </button>. But seeing her die this early, and with no one yet to replace her role as the big bad person, is too shocking for me even if I knew. The whole scene is epic though, and the previous fight against the Crimson Witch of Embers is also great. It displays how powerful the Raiden Shogun actually is. And it’s the first time we see an Archon use their power in all of their glory.
 
 {{ '4sNi6wBHHDU' | youtube }}
 
