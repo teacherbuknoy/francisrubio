@@ -2,7 +2,7 @@
 <div class="navbar-wrapper" data-navbar-animations>
   <nav class="navigation-bar show-on-mobile" data-navbar-animations>
     <div class="navigation-bar__section navigation-bar__section--start">
-      <button class="navigation-link icon-only--mobile" data-dialog="nav-menu">
+      <button class="navigation-link icon-only" data-dialog="nav-menu">
         {% set feathericon = 'menu' %}
         {% include 'components/feathericon.njk' %}
         <span class="navigation-link-text">Menu</span>
@@ -13,7 +13,7 @@
     </div>
     <div class="navigation-bar__section navigation-bar__section--end">
       <div class="cluster gap">
-        <button class="navigation-link icon-only--mobile" data-dialog="search-menu">
+        <button class="navigation-link icon-only" data-dialog="search-menu">
           {% set feathericon = 'search' %}
           {% include 'components/feathericon.njk' %}
           <span class="navigation-link-text">Search</span>
@@ -145,7 +145,7 @@
   <nav class="navigation-menu-content" aria-label="Navigation menu">
     <div class="spaced cluster ai--center padding-inline--xxl padding-block--l">
       <a href="/" class="weight-300 font-sans navigation-menu-link">Francis Rubio</a>
-      <button class="navigation-link has-icon--start" data-dialog-hide>
+      <button class="navigation-link has-icon--start icon-only" data-dialog-hide>
         {% set feathericon = 'x' %}
         {% include 'components/feathericon.njk' %}
         <span class="navigation-link-text">Close menu</span>

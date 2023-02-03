@@ -173,16 +173,10 @@ body.no-js {
 .navigation-link,
 .navigation-menu-link {
   &.icon-only {
-    aspect-ratio: 1/1;
-    padding     : var(--space-xs);
+    padding: var(--space-xs);
 
-    &--mobile {
-      aspect-ratio: none;
-
-      @media (max-width: 720) {
-        aspect-ratio: 1/1;
-        padding     : var(--space-xs);
-      }
+    @media not (pointer: fine), (max-width: 720px) {
+      padding: var(--space-xs) !important;
     }
   }
 

@@ -66,11 +66,12 @@
   font-weight     : 300;
   gap             : 1ch;
   justify-content : center;
+  line-height     : 1.5;
   outline         : 3px solid transparent;
   padding         : var(--space-xxxs) var(--space);
   text-decoration : none;
-  white-space     : nowrap;
   transition      : background 200ms, color 200ms, outline-offset 100ms, outline 50ms 50ms;
+  white-space     : nowrap;
 
   &:focus-visible {
     box-shadow      : none;
@@ -95,7 +96,7 @@
       height          : 6px;
       width           : 6px;
       position        : absolute;
-      bottom          : 0;
+      bottom          : calc(-1 * var(--space-xxxs));
       left            : 50%;
       transform       : translate(-50%);
       transition      : width 200ms, height 100ms;
