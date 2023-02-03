@@ -39,16 +39,18 @@ activePath: speaking
   {% endif %}
 </div>
 
+{% set footer = sections.talks.footer %}
 <footer id="talks-footer" class="stack gap--xl m-block--xxxl" style="text-align: center; width: min(80ch, 90%); margin-inline: auto;">
   <div class="section__header">
     <hgroup role="group">
-      <h2 class="section__subtitle fs-3">Share the stage with me</h2>
-      <p>If you're an event organizer looking for speakers, a content creator looking for guests, or a student in a club looking for someone knowledgeable about software development, send me an email! I reply within the day.</p>
+      <h2 class="section__subtitle fs-3">{{ footer.title }}</h2>
+      <p>{{ footer.description }}</p>
     </hgroup>
   </div>
   <div class="cluster jc--center gap--s">
-    <a href="/speaker-rider/" class="primary button">Send me an invitation</a>
-    <a href="/press-kit/" class="button">Download assets for your pubmats</a>
+    {% for action in sections.talks.footer.actions %}
+    <a href="{{ action.url }}" class="{{ "primary" if action.isPrimary }} button">{{ action.label }}</a>
+    {% endfor %}
   </div>
 </footer>
 
