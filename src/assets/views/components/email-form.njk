@@ -3,7 +3,7 @@
   <div class="modal__content">
     <div class="modal__header">
       <h2 class="modal__title">Contact Form</h2>
-      <button class="button" data-dialog-hide>
+      <button class="icon-only button" style="padding: var(--space-s)" data-dialog-hide>
         {% set feathericon = 'x' %}
         {% include "components/feathericon.njk" %}
         <span class="sr-only">Close dialog</span>
@@ -27,9 +27,10 @@
       </div>
     </form>
     <div class="modal__footer jc--end">
-      <p class="form-comment">All fields are required</p>
-      <button form="frm-email" type="button" data-dialog-hide class="button">Cancel</button>
-      <button form="frm-email" type="submit" class="primary button">Send</button>
+      <a href="{{ site.contact.email.url }}" target="_blank" rel="noopener" class="button button--small margin-right--auto no-arrow">Open in your mail app</a>
+      <p class="form-comment text-align--right">All fields are required</p>
+      <button form="frm-email" type="button" data-dialog-hide class="button button--small">Cancel</button>
+      <button form="frm-email" type="submit" class="primary button button--small">Send</button>
     </div>
   </div>
 </div>
