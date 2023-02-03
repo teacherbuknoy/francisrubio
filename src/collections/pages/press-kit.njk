@@ -65,7 +65,10 @@ activePath: press-kit
   <ul class="button-list">
     {% for item in site.contact | notHidden %}
       <li class="button-list__item">
-        <a href="{{ item.url }}" class="button button--small">{{ item.name }}</a>
+        <a href="{{ item.url }}" class="button button--small button--social-media">
+          <span class="social-media__label">{{ item.name }}</span>
+          <span class="social-media__identifier">{{ item.identifier }}</span>
+        </a>
       </li>
     {% endfor %}
   </ul>

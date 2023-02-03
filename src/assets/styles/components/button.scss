@@ -100,6 +100,30 @@
       }
     }
   }
+
+  &--social-media {
+    --bg-inner      : hsl(var(--primary-100));
+    --bg-outer      : hsl(var(--bg-primary));
+    background-color: var(--bg-inner);
+    border-radius   : var(--radius-3);
+    color           : hsl(var(--primary-900));
+    gap             : 0;
+    padding-inline  : var(--space-xxs);
+
+    @at-root .social-media {
+
+      &__label,
+      &__identifier {
+        padding: var(--space-xxs) var(--space-xs);
+      }
+
+      &__identifier {
+        background-color: var(--bg-outer);
+        border-radius   : var(--radius-2);
+        color           : hsl(var(--primary-700));
+      }
+    }
+  }
 }
 
 body.no-js {
