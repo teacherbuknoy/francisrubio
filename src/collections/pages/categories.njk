@@ -11,17 +11,26 @@ activePath: writing
 ---
 <section class="padding--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
   <div class="stack margin-bottom--xl">
-    <div class="ai--center cluster margin-bottom--l lh-s">
-      <a href="/writing/" class="button jc--start padding--xs">Writing</a>
-      <span>/</span>
-      <a href="/writing/#categories" class="button jc--start padding--xs">Categories</a>
-      <span>/</span>
-      <span class="d-flex font-sans jc--start">{{ category }}</span>
-    </div>
+    <nav class="breadcrumb" aria-label="Breadcrumbs">
+      <ol class="breadcrumb__list">
+        <li class="breadcrumb__list-item">
+          <a href="/" class="breadcrumb__link" data-animation="button">Frontpage</a>
+        </li>
+        <li class="breadcrumb__list-item">
+          <a href="/writing/" class="breadcrumb__link" data-animation="button">Writing</a>
+        </li>
+        <li class="breadcrumb__list-item">
+          <a href="/writing/#categories" class="breadcrumb__link" data-animation="button">Categories</a>
+        </li>
+        <li class="breadcrumb__list-item">
+          <a aria-current="location" class="breadcrumb__link" data-animation="button">{{ category }}</a>
+        </li>
+      </ol>
+    </nav>
     <h1 class="h2 font-serif responsive" id="section-heading-4">{{ sections.writing.title | safe }}</h1>
     <p>{{ sections.writing.description | safe }}</p>
   </div>
-    
+
   <div class="tag-scroller">
     {% for item in collections.postTags %}
       <a href="/writing/categories/{{ item }}/" class="tag {{ "active" if category === item }}" style="width: fit-content;">{{ item }}</a>
