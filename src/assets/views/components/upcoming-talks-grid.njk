@@ -1,14 +1,21 @@
 {% set talks = collections.talks | upcomingTalks %}
 
 {% if talks.length > 0 %}
-<div class="talks-grid">
-  {% for item in talks %}
-    {% set index = loop.revindex %}
-    {% set postURL = item.url %}
-    {% set post = item.data %}
-    {% include 'components/talk-card.njk' %}
-  {% endfor %}
-</div>
+  <div class="talks-grid">
+    {% for item in talks %}
+      {% set index = loop.revindex %}
+      {% set postURL = item.url %}
+      {% set post = item.data %}
+      {% include 'components/talk-card.njk' %}
+    {% endfor %}
+  </div>
 {% else %}
-<p>I have no speaking engagements for {{ utils.currentYear }} (yet). This page will be updated as soon as I commit to one.</p>
+  <p>I have no upcoming speaking engagements for the rest of {{ utils.currentYear }} (yet). This page will be updated as soon as I commit to one.</p>
+
+  <div class="cluster jc--center gap--s">
+    {% for action in sections.talks.footer.actions %}
+    <a href="{{ action.url }}" class="{{ "primary" if action.isPrimary }} button">{{ action.label }}</a>
+    {% endfor %}
+  </div>
+
 {% endif %}

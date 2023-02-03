@@ -17,7 +17,15 @@
   "talks": {
     "label": "Talks",
     "title": "The Stage",
-    "description": "I speak at developer conferences and events about web development. If you are an event organizer looking for speakers, let's talk about it."
+    "description": "I speak at developer conferences and events about web development. If you are an event organizer looking for speakers, let's talk about it.",
+    "footer": {
+      "title": "Share the stage with me",
+      "description": "If you're an event organizer looking for speakers, a content creator looking for guests, or a student in a club looking for someone knowledgeable about software development, send me an email! I reply within the day. ",
+      "actions": [
+        { "label": "Send me an invitation", "url": "/speaking/information-for-event-organizers/", "isPrimary": true },
+        { "label": "Download assets for your pubmats", "url": "/press-kit/" }
+      ]
+    }
   },
   "projects": {
     "label": "Projects",

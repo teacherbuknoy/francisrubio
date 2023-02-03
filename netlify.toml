@@ -17,3 +17,8 @@
   from   = "/ar-mobile"
   to     = "/speaking/augmented-reality-mobile-apps/"
   status = 301
+
+[[redirects]]
+  from   = "/speaker-rider"
+  to     = "/speaking/information-for-event-organizers/"
+  status = 301
