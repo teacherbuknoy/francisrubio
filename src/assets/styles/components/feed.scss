@@ -31,8 +31,8 @@
 
 
 .entry {
-  background-color: hsl(0 0% 97%);
-  border          : 1px solid hsl(var(--fg-non-essential));
+  background-color: hsl(var(--bg-secondary) / 5%);
+  border          : 1px solid hsl(var(--bg-secondary));
   border-radius   : var(--radius-4);
   overflow        : hidden;
 
