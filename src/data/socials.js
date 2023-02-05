@@ -3,8 +3,8 @@ const EleventyFetch = require('@11ty/eleventy-fetch')
 const mastodon = {
   id: '109319595958763014',
   endpoints: {
-    profile: 'https://mstdn.party/api/v1/accounts/109319595958763014',
-    feed: 'https://mstdn.party/api/v1/accounts/109319595958763014/statuses/?limit=40&exclude_replies=true',
+    profile: 'https://masto.ai/api/v1/accounts/109319595958763014',
+    feed: 'https://masto.ai/api/v1/accounts/109319595958763014/statuses/?limit=40&exclude_replies=true',
   }
 }
 
