@@ -40,8 +40,8 @@
     },
     "mastodon": {
       "name": "Mastodon",
-      "identifier": "@teacherbuknoy@mstdn.party",
-      "url": "https://mstdn.party/@teacherbuknoy",
+      "identifier": "@teacherbuknoy@fosstodon.org",
+      "url": "https://fosstodon.org/@teacherbuknoy",
       "rel": "me"
     },
     "youtube": {
