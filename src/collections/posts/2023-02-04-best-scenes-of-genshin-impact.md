@@ -12,10 +12,10 @@ author: "teacherbuknoy"
 language: "en"
 seo:
   twitter:
-    url: "https://ik.imagekit.io/8jjzxcl9p/tr:f-png,h-0.5/posts/best-genshin-scenes/twitter.png"
+    url: "https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-0.5/posts/best-genshin-scenes/twitter.png"
     is_prefixed: false
   og:
-    url: "https://ik.imagekit.io/8jjzxcl9p/tr:f-png,h-0.5/posts/best-genshin-scenes/og.png"
+    url: "https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-0.5/posts/best-genshin-scenes/og.png"
     is_prefixed: false
 eleventyExcludeFromCollections: false
 ---
