@@ -21,12 +21,12 @@
     "type": "git",
     "url": "git+https://francis-hatchup@bitbucket.org/francis-hatchup/jujuroom-11ty.git"
   },
-  "author": "Francis Rubio <francis@hatchup.ca>",
+  "author": "Francis Rubio <francis@antaresph.dev>",
   "license": "SEE LICENSE IN LICENSE",
   "bugs": {
-    "url": "https://bitbucket.org/francis-hatchup/jujuroom-11ty/issues"
+    "url": "https://github.com/teacherbuknoy/francisrubio/"
   },
-  "homepage": "https://bitbucket.org/francis-hatchup/jujuroom-11ty#readme",
+  "homepage": "https://francisrubio.antaresph.dev",
   "dependencies": {
     "@11ty/eleventy": "^2.0.0-beta.1",
     "@11ty/eleventy-fetch": "^3.0.0",
