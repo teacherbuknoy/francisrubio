@@ -82,7 +82,7 @@ The top 1 for this year I think is me winning King of the Night for our company�
   </summary>
   <div class="content-warning__body">
     <p>I have been bullied for the way I look as early as my first memory. I’ve been berated by my peers for all kinds of things: that my lips were too thick, or that I had front teeth that looked like a rabbit, or that I was too thin, or that I didn’t look neat—the whole she-bang. And I handled it pretty well, I think. I just laughed those comments off, or I fought back and berated them for looking the way they look. But now that I am in a state of mind where I process everything, I found out that it’s affected me more than I realized. It gave me insecurities about my appearance that made me either not care at all about my appearance or be too worried about my look.</p>
-    <p>Like I also mentioned earlier, I had to be masculine enough to be accepted. And the problem is I lean more towards my feminine side. Most of the time, I failed to be masculine enough and people would hurl comments at me about how I was a closeted gay or that I am a <button class="slur" data-slur-details="Don't use in any context if you're not an LGBTQ+ person." data-slur>
+    <p>Like I also mentioned earlier, I had to be masculine enough to be accepted. And the problem is I lean more towards my feminine side. Most of the time, I failed to be masculine enough and people would hurl comments at me about how I was a closeted gay or that I am a <button class="slur" data-slur-details="Don't use in any context if you're not an LGBTQ+ person." data-slur="Slur">
       <span class="slur__content" data-slur-content>faggot</span>
     </button> or things like that.</p>
   </div>

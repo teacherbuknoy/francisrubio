@@ -163,7 +163,7 @@
     text-align      : left;
     transform       : translateX(-50%);
     transition      : transform 200ms, opacity 150ms;
-    width           : 200%;
+    width           : min(max(15ch, 100%), 200%);
   }
 
   &:not([aria-pressed=true])::after {
