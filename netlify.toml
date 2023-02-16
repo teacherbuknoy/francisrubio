@@ -22,3 +22,13 @@
   from   = "/speaker-rider"
   to     = "/speaking/information-for-event-organizers/"
   status = 301
+
+[[headers]]
+  for = "/teacherbuknoy"
+  [headers.values]
+    Content-Type = "application/activity+json"
+
+[[headers]]
+  for = "/.well-known/webfinger"
+  [headers.values]
+    Content-Type = "application/jrd+json"
