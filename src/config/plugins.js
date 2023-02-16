@@ -35,15 +35,4 @@ module.exports = {
       plugin: require('@11ty/eleventy-plugin-rss')
     }
   },
-  activitypub: function () {
-    return {
-      plugin: require('eleventy-plugin-activity-pub'),
-      options: {
-        domain: 'antaresph.dev',
-        username: 'teacherbuknoy',
-        displayName: 'Francis Rubio',
-        summary: 'My personal website, now discoverable on the Fediverse.'
-      }
-    }
-  }
 }
