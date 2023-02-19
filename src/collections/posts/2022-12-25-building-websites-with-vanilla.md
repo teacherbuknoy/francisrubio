@@ -7,7 +7,7 @@ cover:
   folder: build-with-vanilla
   filename: cover.png
   sizes: [500, 600, 700]
-  formats: ['png', 'webp', 'avif']
+  formats: ['png', 'webp']
 author: "teacherbuknoy"
 seo:
   twitter:

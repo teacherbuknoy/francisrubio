@@ -7,7 +7,7 @@ cover:
   filename: cover.png
   header: header.png
   sizes: [500, 600, 700, 1000, 1280]
-  formats: ['png', 'webp', 'avif']
+  formats: ['png', 'webp']
 author: "teacherbuknoy"
 language: "en"
 seo:

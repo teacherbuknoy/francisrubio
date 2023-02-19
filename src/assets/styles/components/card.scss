@@ -197,7 +197,7 @@
   font-variation-settings: 'wght'350;
   font-weight            : normal;
   margin                 : 0;
-  transition             : font-size 300ms 200ms, transform 300ms 200ms;
+  transition             : font-size 200ms, transform 200ms;
 }
 
 .post-card__description {
@@ -231,7 +231,7 @@
 @media (min-width: 720px) {
   .post-card__footer {
     max-height: 0;
-    transition: max-height 500ms 150ms;
+    transition: max-height 300ms;
   }
 
   .post-card:hover, .post-card:focus-visible {
@@ -334,7 +334,7 @@
     grid-row   : 1 / -1;
 
     @media (prefers-reduced-motion: no-preference) {
-      transition: transform 200ms, height 200ms 100ms;
+      transition: transform 200ms, height 200ms;
     }
   }
 
@@ -363,7 +363,7 @@
       transform: rotate(0);
 
       @media (prefers-reduced-motion: no-preference) {
-        transition: transform 200ms 100ms, height 200ms;
+        transition: transform 200ms, height 200ms;
       }
     }
 
@@ -391,7 +391,7 @@
       transform: rotate(0);
 
       @media (prefers-reduced-motion: no-preference) {
-        transition: transform 200ms 100ms, height 200ms;
+        transition: transform 200ms, height 200ms;
       }
     }
 
@@ -408,7 +408,7 @@
   .deck-card__description {
     max-height: 10rem;
     overflow  : hidden;
-    transition: max-height 200ms;
+    transition: max-height 300ms;
   }
 }
 

@@ -73,6 +73,10 @@
   transition      : background 200ms, color 200ms, outline-offset 100ms, outline 50ms 50ms;
   white-space     : nowrap;
 
+  &:is([class]):is(.navigation-link) {
+    display: flex;
+  }
+
   &:focus-visible {
     box-shadow      : none;
     background-color: hsl(var(--bg-accent) /20%);

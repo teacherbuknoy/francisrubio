@@ -5,7 +5,7 @@ cover:
     folder: christianity-and-homosexuality
     filename: cover.png
     sizes: [500, 700]
-    types: ['png', 'webp', 'avif']
+    types: ['png', 'webp']
 author: teacherbuknoy
 category: [opinion]
 language: en

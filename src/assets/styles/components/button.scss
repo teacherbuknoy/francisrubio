@@ -173,9 +173,11 @@ body.no-js {
 .navigation-link,
 .navigation-menu-link {
   &.icon-only {
-    padding: var(--space-xs);
+    aspect-ratio: 1/1;
+    padding     : var(--space-xs);
 
-    @media not (pointer: fine), (max-width: 720px) {
+    @media not (pointer: fine),
+    (max-width: 720px) {
       padding: var(--space-xs) !important;
     }
   }

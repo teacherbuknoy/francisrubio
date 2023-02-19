@@ -6,7 +6,7 @@ cover:
   folder: birthday-post-2023
   filename: cover.png
   sizes: [500, 600, 700, 1000, 1280]
-  formats: ['png', 'webp', 'avif']
+  formats: ['png', 'webp']
   focus: top -50px right 0
 author: "teacherbuknoy"
 language: "en"

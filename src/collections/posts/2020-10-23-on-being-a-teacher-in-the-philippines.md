@@ -7,7 +7,7 @@ cover:
   folder: on-being-a-teacher-in-the-philippines
   filename: cover.jpg
   sizes: [300, 500, 700]
-  formats: ['jpg', 'avif', 'webp']
+  formats: ['jpg', 'webp']
 ---
 
 Last year, I was hired as a teacher in a private school in Metro Manila. This was two months after I graduated from college. With my bachelor's degree in Computer Science, I tried sending out my résumés to tech companies, as a computer student would. I was also to fortunate to have been interviewed&mdash;and even considered for hiring&mdash;by these tech companies. But my life goal has always been to experience teaching.

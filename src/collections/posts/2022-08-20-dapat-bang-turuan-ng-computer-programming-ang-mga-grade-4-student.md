@@ -8,7 +8,7 @@ cover:
     filename: cover.png
     path: /assets/images/posts/senate-bill-79/optimized
     sizes: [500, 700]
-    types: ['png', 'webp', 'avif']
+    types: ['png', 'webp']
 author: "teacherbuknoy"
 language: "tl"
 seo:

@@ -6,7 +6,7 @@ cover:
   folder: coming-out
   filename: cover.jpeg
   sizes: [300, 500, 700]
-  formats: ['jpg', 'avif', 'webp']
+  formats: ['jpg', 'webp']
 aliases: 
   - /writing/coming-out/
 author: teacherbuknoy

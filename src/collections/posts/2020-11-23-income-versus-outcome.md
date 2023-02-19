@@ -5,7 +5,7 @@ cover:
   folder: income-versus-outcome
   filename: cover.jpeg
   sizes: [300, 500, 700]
-  formats: ['jpg', 'avif', 'webp']
+  formats: ['jpg', 'webp']
 author: teacherbuknoy
 category: [education]
 ---

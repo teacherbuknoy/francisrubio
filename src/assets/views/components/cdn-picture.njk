@@ -10,7 +10,11 @@
 {% endfor %}
 {% endset %}
 
-{% set defaultImageSource = cdnUrl + filename %}
+{% if thumbnail == null %}
+  {% set defaultImageSource = cdnUrl + filename %}
+{% else %}
+  {% set defaultImageSource = thumbnail %}
+{% endif %}
 {% set thumbnailSize = width / 4 %}
 {% set thumbnail = cdnUrl + 'tr:w-1,h-1:w-' + width + ',h-' + height + ',bl-5' + filename %}
 
@@ -18,7 +22,7 @@
   {% for format in formats | reverse %}
     {% set srcset %}
     {% for size in sizes %}
-      {{ cdnUrl }}/tr:f-{{ format }},w-{{ size }}/{{ filename }}
+      {{ cdnUrl }}tr:f-{{ format }},w-{{ size }}{{ filename }}
       {{ size }}w{{ ',' if not loop.last }}
     {% endfor %}
     {% endset %}
@@ -26,7 +30,7 @@
     <source
       srcset="{{ srcset }}"
       type="image/{{ format }}"
-      sizes="{{ sizesAttr }}"
+      {# sizes="{{ sizesAttr }}" #}
       width="{{ width }}"
       height="{{ height }}"
     >

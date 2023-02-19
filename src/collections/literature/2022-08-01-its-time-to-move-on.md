@@ -6,7 +6,7 @@ cover:
   folder: its-time-to-move-on
   filename: cover.png
   sizes: [300, 500, 700]
-  formats: ['jpg', 'avif', 'webp']
+  formats: ['jpg', 'webp']
 seo:
   og:
     src: /assets/images/literatures/its-time-to-move-on/og.png

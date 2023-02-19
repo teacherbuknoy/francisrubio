@@ -6,7 +6,7 @@ cover:
   folder: read-this-when-i-die
   filename: cover.png
   sizes: [300, 500, 700]
-  formats: ['jpg', 'avif', 'webp']
+  formats: ['jpg', 'webp']
 seo:
   og:
     src: /assets/images/literatures/read-this-when-i-die/og.png

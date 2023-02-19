@@ -5,7 +5,7 @@ cover:
   folder: why-css-hard
   filename: cover.jpg
   sizes: [300, 500, 700]
-  formats: ['jpg', 'avif', 'webp']
+  formats: ['jpg', 'webp']
 author: teacherbuknoy
 category: [opinion]
 language: en

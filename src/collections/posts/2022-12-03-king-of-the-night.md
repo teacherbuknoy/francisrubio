@@ -7,7 +7,7 @@ cover:
   folder: king-of-the-night
   filename: cover.png
   sizes: [500, 600, 700]
-  types: ['png', 'webp', 'avif']
+  types: ['png', 'webp']
 author: "teacherbuknoy"
 language: "en"
 seo:

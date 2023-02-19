@@ -4,6 +4,7 @@
 {% set formats = gallery.formats if gallery.formats else gallery.types %}
 {% set filename = '/gallery/' + gallery.folder + '/' + cover.key %}
 {% set defaultImageClass = "gallery-entry__cover-image" %}
+{% set thumbnail = 'tr:w-' + sizes[0] + '/gallery/' + gallery.folder + '/' + cover.key %}
 {% set width = cover.width %}
 {% set height = cover.height %}
 <a href="{{ item.url }}" class="gallery-entry-link">

@@ -8,7 +8,7 @@ cover:
     filename: cover.png
     path: /assets/images/posts/how-coming-out-changed-me/optimized
     sizes: [500, 700]
-    types: ['png', 'webp', 'avif']
+    types: ['png', 'webp']
 author: "teacherbuknoy"
 language: "en"
 seo:
