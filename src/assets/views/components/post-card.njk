@@ -6,7 +6,7 @@
     {% set width = 600 %}
     {% set height = 350 %}
     {% set formats = post.cover.types %}
-    {% set filename = postType + '/' + post.cover.folder + '/' + post.cover.filename %}
+    {% set filename = '/' + postType + '/' + post.cover.folder + '/' + post.cover.filename %}
     {% set defaultImageClass = "" %}
     {% include "components/cdn-picture.njk" %}
   </div>
