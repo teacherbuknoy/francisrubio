@@ -26,9 +26,6 @@ async function renderWebMentions() {
       })
     })
 
-  const likes = await wm.getLikes()
-  const reposts = await wm.getReposts()
-
   const likesAndReposts = (await wm.getAllMentions())
     .filter(item => item.type === 'like-of' || item.type === 'repost-of')
   console.log({ likesAndReposts })

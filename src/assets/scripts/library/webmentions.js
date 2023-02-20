@@ -226,8 +226,17 @@ class WebMentionResponse {
     this.type = data['wm-property']
     this.url = data.url
     this.id = data['wm-id']
-    this.timestamp = new Date(Date.parse(data['published']))
     this.publishLink = data['url']
+
+    const received = data['wm-received']
+    const published = data['published']
+    this.received = received
+    this.published = published
+
+    this.timestampString = this.published
+      ? this.published
+      : this.received
+    this.timestamp = new Date(Date.parse(this.timestampString))
   }
 
   /**
@@ -292,7 +301,7 @@ class WebMentionResponse {
       try {
         ts.setAttribute('datetime', this.timestamp.toISOString())
       } catch (e) {
-        console.log(this.timestamp)
+        console.log(this.timestampString)
       }
     })
 
