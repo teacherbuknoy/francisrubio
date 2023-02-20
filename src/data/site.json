@@ -44,6 +44,12 @@
       "url": "https://masto.ai/@teacherbuknoy",
       "rel": "me"
     },
+    "pixelfed": {
+      "name": "Pixelfed",
+      "identifier": "teacherbuknoy",
+      "url": "https://pixelfed.social/teacherbuknoy",
+      "rel": "me"
+    },
     "youtube": {
       "name": "YouTube",
       "identifier": "teacherbuknoy",
