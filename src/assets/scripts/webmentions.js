@@ -12,7 +12,7 @@ async function renderWebMentions() {
   await wm.getMentionsCount()
     .then(data => {
       const { type } = data
-      const monitoredKeys = ["like", "mention", "reply"]
+      const monitoredKeys = ["like", "repost", "reply"]
       const actualKeys = Object.keys(type).filter(i => monitoredKeys.includes(i))
 
       if (actualKeys.length <= 0)
