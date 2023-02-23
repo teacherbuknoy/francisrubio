@@ -17,9 +17,19 @@ class SearchDataProvider {
           const pattern = new RegExp(`\\b${term}\\b`, 'gmi')
           const titleMatch = item.title.match(pattern)
           const descriptionMatch = item.description.match(pattern)
+          let tagMatch = []
+
+          if (item.tags != null) {
+            tagMatch = item.tags.map(tag => {
+              const matches = tag.match(pattern)
+              return matches && matches.length > 0
+            }).filter(isMatch => isMatch == true)
+          }
+
           const matches = [
             titleMatch != null && titleMatch.length > 0,
-            descriptionMatch != null && descriptionMatch.length > 0
+            descriptionMatch != null && descriptionMatch.length > 0,
+            tagMatch != null && tagMatch.length > 0
           ]
 
           return matches.includes(true)
