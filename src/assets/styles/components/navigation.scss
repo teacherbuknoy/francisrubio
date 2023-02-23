@@ -215,9 +215,11 @@
 
 .navigation-list {
   display   : flex;
+  flex-wrap : wrap;
   list-style: none;
   margin    : 0;
   padding   : 0;
+  row-gap   : 1ch;
 }
 
 .navigation-list-item>* {
@@ -269,6 +271,7 @@
     display    : flex;
     align-items: center;
     gap        : 1ch;
+    flex-wrap  : wrap;
   }
 
   @at-root .dark & {
@@ -293,6 +296,8 @@
     font-size              : 1rem;
     font-variation-settings: 'wght'600;
     padding-inline-start   : 1ch;
+    text-align             : center;
+    flex                   : 1;
   }
 
   @supports (backdrop-filter: blur(10px)) {
