@@ -2,12 +2,22 @@ import { getUrlList, pingInternetArchive } from './functions/i-archive/archive.m
 
 async function beginArchive() {
   const urls = await getUrlList()
-  urls.forEach(async url => {
+  const errors = []
+  const statuses = urls.map(async url => {
     console.log("[ARCHIVE] Archiving URL:", url)
-    pingInternetArchive(url)
+    return pingInternetArchive(url)
       //.then(response => console.log('[RESPONSE]', response.body))
-      .catch(err => console.log('[ERROR]', err))
+      .catch(err => {
+        console.log('[ERROR]', url, err)
+        errors.push({ url, error: err })
+      })
   })
+
+  Promise.allSettled(statuses)
+    .then(data => {
+      console.log("[TOTAL URLS]", urls.length)
+      console.log("[TOTAL ERRORS]", errors.length)
+    })
 }
 
 beginArchive()

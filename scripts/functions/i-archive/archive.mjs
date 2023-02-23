@@ -4,11 +4,15 @@ import needle from 'needle'
 
 const require = createRequire(import.meta.url)
 const list = require('../../../public/links.json')
+const domain = require('../../../src/data/site.json').domains.find(d => d.isPreferred).value
 
 const API_ENDPOINT = "https://web.archive.org/save"
 
-function getUrlList() {
-  return list
+async function getUrlList() {
+  const url = `https://${domain}/links.json`
+  const links = await fetch(url)
+    .then(response => response.json())
+  return links
 }
 
 /**
@@ -21,7 +25,8 @@ function pingInternetArchive(url) {
   
   return new Promise((resolve, reject) => {
     needle.post(API_ENDPOINT, toFormData(data), {
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      method: "POST"
     }, (err, resp) => {
       if (err) {
         reject(err)
