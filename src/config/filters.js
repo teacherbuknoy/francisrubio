@@ -83,5 +83,6 @@ module.exports = {
   },
   removeNoAlias: collection => collection.filter(item => item.data.alias != null),
   values: obj => Object.values(obj),
-  keys: obj => Object.keys(obj)
+  keys: obj => Object.keys(obj),
+  firstParagraph: post => post.split(/\n/gm)[0].toString('utf8')
 }

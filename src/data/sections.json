@@ -51,5 +51,10 @@
     "label": "Gallery",
     "title": "My Life in Photos",
     "description": "Selfies. Blurry. Wacky. Photobombs. The whole she-bang."
+  },
+  "notes": {
+    "label": "Notes",
+    "title": "Scratchpad",
+    "description": "Short musings that don't warrant a longform article"
   }
 }

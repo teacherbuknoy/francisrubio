@@ -1,0 +1,96 @@
+{% extends 'layouts/base.njk' %}
+
+{% block content %}
+  <main style="width: min(100ch, 100%); margin-inline: auto;" class="h-entry padding--xl article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
+    <header class="article__header">
+      <div class="spaced cluster ai--center">
+        <nav class="breadcrumb" aria-label="Breadcrumbs">
+          <ol class="breadcrumb__list">
+            <li class="breadcrumb__list-item">
+              <a href="/" class="breadcrumb__link" data-animation="button">Frontpage</a>
+            </li>
+            <li class="breadcrumb__list-item">
+              <a href="/notes/" class="breadcrumb__link" data-animation="button">Notes</a>
+            </li>
+            <li class="breadcrumb__list-item">
+              <a aria-current="location" class="breadcrumb__link" data-animation="button">This page</a>
+            </li>
+          </ol>
+        </nav>
+        {% if translations != null %}
+          <p>
+            Read this in:
+            <span class="cluster cluster--inline gap--xs ai--center">
+              {% for lang in translations %}
+                <a href="{{ lang.url }}" class="button button--small">{{ lang.label }}</a>
+              {% endfor %}
+            </span>
+          </p>
+        {% endif %}
+      </div>
+      <h1 id="{{ title | slugify }}" class="p-name article__title margin--none responsive">{{ title | safe }}</h1>
+      <div class="spaced cluster ai--center">
+        <div>
+          {% set authorKey = author if author else 'teacherbuknoy' %}
+          by <a rel="author" class="p-author h-card" href="{{ authors[authorKey].url }}">
+            <span class="p-name">{{ authors[authorKey].name }}</span>
+            <img class="u-photo hidden" src="{{ authors[authorKey].photo }}"/>
+          </a>
+          
+          on <time class="dt-published" datetime="{{ page.date | machineReadableDate }}">
+            <a class="u-url" href="./">{{ page.date | humanReadableDate }}</a>
+          </time>
+        </div>
+        <div class="category-pill">
+          {% for item in category %}
+            <a href="/writing/categories/{{ item | slugify }}" class="p-category category-pill__inner category-pill__category">{{ item }}</a>
+          {% endfor %}
+          <div class="category-pill__inner category-pill__read-time">{{ content | timeToRead }}</div>
+        </div>
+      </div>
+    </header>
+    <div class="[ article__body font-sans ] e-content">
+      {{ content | safe }}
+    </div>
+    <footer class="stack padding--l">
+      <div class="content-wrapper margin--auto text-center">
+        <h2 class="fs-4">Share</h2>
+        <p>Found this helpful? Tell other people about it!</p>
+        <ul class="margin-top--m cluster margin-inline--auto jc-center padding--none" style="list-style: none;">
+          <li>
+            <a 
+            href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" 
+            target="_blank"
+            rel="noopener"
+            class="button no-arrow">
+              {% set feathericon = 'facebook' %}
+              {% include 'components/feathericon.njk' %}
+              <span>Share to Facebook</span>
+            </a>
+          </li>
+          <li>
+            <a 
+            href="https://twitter.com/intent/tweet?url={{ site.url }}{{ page.url }}" 
+            target="_blank"
+            rel="noopener"
+            class="button no-arrow">
+              {% set feathericon = 'twitter' %}
+              {% include 'components/feathericon.njk' %}
+              <span>Tweet this post</span>
+            </a>
+          </li>
+          <li>
+            <button class="button" data-copy="page-link" style="height: 100%;">
+              {% set feathericon = 'clipboard' %}
+              {% include 'components/feathericon.njk' %}
+              <span>Copy link</span>
+            </button>
+            <input type="text" id="page-link" value="{{ site.url }}{{ page.url }}" class="sr-only" aria-hidden="true">
+          </li>
+        </ul>
+      </div>
+      {% include 'components/webmentions.njk' %}
+    </footer>
+  </main>
+  {% include 'components/footer.njk' %}
+{% endblock %}

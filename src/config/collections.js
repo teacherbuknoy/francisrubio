@@ -83,5 +83,16 @@ module.exports = {
       "src/collections/videos/*.njk",
       "src/collections/videos/*.md",
     ]);
+  },
+  /**
+   * 
+   * @param {} collection 
+   */
+  notes: function (collection) {
+    return collection.getFilteredByGlob([
+      "src/collections/notes/*.html",
+      "src/collections/notes/*.njk",
+      "src/collections/notes/*.md",
+    ])
   }
 }

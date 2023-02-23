@@ -1,0 +1,34 @@
+---
+title: Notes - Francis Rubio
+description: Short musings that don't warrant a longform article
+pagination:
+  data: collections.notes
+  size: 8
+  reverse: true
+permalink: /notes/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html
+activePath: notes
+stylesheets:
+  - notes.css
+eleventyImport:
+  collections: ["notes"]
+---
+<section class="padding--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
+  <hgroup role="group" class="page__header">
+      <span aria-roledescription="subtitle" id="section-heading-4" class="uppercase ls-l font-sans">{{ sections.notes.label | safe }}</span>
+      <h2 class="font-serif responsive">{{ sections.notes.title | safe }}</h2>
+      <p>{{ sections.notes.description | safe }}. All writings here are subject to copyright.</p>
+  </hgroup>
+  <dl class="timeline timeline--notes">
+    {% for item in pagination.items %}
+      <div class="timeline__item">
+        <dt class="timeline__item__title">
+          <a href="{{ item.url }}" class="timeline__item__link">{{ item.data.title | safe }}</a>
+          <time class="timeline__item__date" datetime="{{ item.date | machineReadableDate }}">{{ item.date | humanReadableDate }}</time>
+        </dt>
+        <dd class="timeline__item__content">
+          {{ item.templateContent | firstParagraph | safe }}
+        </dd>
+      </div>
+    {% endfor %}
+  </dl>
+</section>
