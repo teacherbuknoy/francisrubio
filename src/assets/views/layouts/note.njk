@@ -1,6 +1,7 @@
 {% extends 'layouts/base.njk' %}
 
 {% block content %}
+  {% include 'components/navigation.njk' %}
   <main style="width: min(100ch, 100%); margin-inline: auto;" class="h-entry padding--xl article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
     <header class="article__header">
       <div class="spaced cluster ai--center">
@@ -38,7 +39,7 @@
           </a>
           
           on <time class="dt-published" datetime="{{ page.date | machineReadableDate }}">
-            <a class="u-url" href="./">{{ page.date | humanReadableDate }}</a>
+            <a class="u-url" href="{{ page.url }}">{{ page.date | humanReadableDate }}</a>
           </time>
         </div>
         <div class="category-pill">

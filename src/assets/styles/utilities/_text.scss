@@ -171,6 +171,29 @@ $line-heights: (xxxs: 0.5,
   figcaption::before {
     content: "— ";
   }
+
+  &.quotation--small {
+    border       : 0;
+    grid-column  : 2/3;
+    margin-inline: auto;
+    text-align   : start;
+    width        : 80%;
+
+    blockquote {
+      font-size              : 1em;
+      font-variation-settings: 'wght'350, 'SOFT'550, 'WONK'0;
+
+      i,
+      em,
+      cite {
+        font-family: var(--font-sans);
+      }
+    }
+
+    figcaption {
+      text-align: end;
+    }
+  }
 }
 
 @media(min-width: 75ch) {
@@ -333,4 +356,10 @@ hr {
       }
     }
   }
+}
+
+mark.mark {
+  background-color: hsl(var(--success-100));
+  color           : hsl(var(--fg-contrast));
+  padding-inline  : 0.25ch;
 }
