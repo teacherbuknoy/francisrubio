@@ -58,5 +58,30 @@ permalink: /site-data.json
       }
       {{ "," if loop.index < collection.length }}
     {% endfor %}
+  ],
+  "videos": [
+    {% set collection = collections.videos %}
+    {% for item in collection %}
+      {
+        "url" : {{ item.url | dump |safe }},
+        "title": {{ item.data.title | dump | safe }},
+        "description": "",
+        "image": "/assets/images{{ item.data.image | safe }}"
+      }
+      {{ "," if loop.index < collection.length }}
+    {% endfor %}
+  ],
+  "notes": [
+    {% set collection = collections.notes %}
+    {% for item in collection %}
+      {
+        "url" : {{ item.url | dump |safe }},
+        "title": {{ item.data.title | dump | safe }},
+        "description": "",
+        "image": "/assets/images{{ item.data.image | safe }}",
+        "tags": {{ item.data.tags | dump | safe }}
+      }
+      {{ "," if loop.index < collection.length }}
+    {% endfor %}
   ]
 }
