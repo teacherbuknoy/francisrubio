@@ -54,42 +54,7 @@
       {{ content | safe }}
     </div>
     <footer class="stack padding--l">
-      <div class="content-wrapper margin--auto text-center">
-        <h2 class="fs-4">Share</h2>
-        <p>Found this helpful? Tell other people about it!</p>
-        <ul class="margin-top--m cluster margin-inline--auto jc-center padding--none" style="list-style: none;">
-          <li>
-            <a 
-            href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" 
-            target="_blank"
-            rel="noopener"
-            class="button no-arrow">
-              {% set feathericon = 'facebook' %}
-              {% include 'components/feathericon.njk' %}
-              <span>Share to Facebook</span>
-            </a>
-          </li>
-          <li>
-            <a 
-            href="https://twitter.com/intent/tweet?url={{ site.url }}{{ page.url }}" 
-            target="_blank"
-            rel="noopener"
-            class="button no-arrow">
-              {% set feathericon = 'twitter' %}
-              {% include 'components/feathericon.njk' %}
-              <span>Tweet this post</span>
-            </a>
-          </li>
-          <li>
-            <button class="button" data-copy="page-link" style="height: 100%;">
-              {% set feathericon = 'clipboard' %}
-              {% include 'components/feathericon.njk' %}
-              <span>Copy link</span>
-            </button>
-            <input type="text" id="page-link" value="{{ site.url }}{{ page.url }}" class="sr-only" aria-hidden="true">
-          </li>
-        </ul>
-      </div>
+      {% include 'components/share.njk' %}
       {% include 'components/webmentions.njk' %}
     </footer>
   </main>

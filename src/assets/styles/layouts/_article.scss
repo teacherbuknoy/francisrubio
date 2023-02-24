@@ -45,17 +45,19 @@
 }
 
 .article__body {
-  display              : grid;
-  grid-auto-rows       : min-content;
-  grid-template-columns: 1fr min(65ch, 100%) 1fr;
-  gap                  : var(--space);
+  @media (min-width: 780px) {
+    display              : grid;
+    grid-auto-rows       : min-content;
+    grid-template-columns: 1fr min(65ch, 100%) 1fr;
+    gap                  : var(--space);
+
+    &>* {
+      margin-block: 0;
+    }
+  }
 
   dl dd+dt {
     margin-block-start: var(--space);
-  }
-
-  &>* {
-    margin-block: 0;
   }
 
   h1 {

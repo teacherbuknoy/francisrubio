@@ -2,7 +2,7 @@
   border-inline-start: 2px solid hsl(var(--bg-secondary));
   margin-block       : var(--space-xxxl);
   margin-inline      : auto;
-  width              : min(var(--content-width), 90%);
+  width              : min(calc((var(--content-width) / 5) * 4), 100%);
 
   &__item {
     padding-inline: var(--space);
