@@ -1,4 +1,4 @@
 {
   "layout": "note.njk",
-  "permalink": "/notes/{{ title | slugify }}"
+  "permalink": "/notes/{{ title | slugify }}/"
 }
