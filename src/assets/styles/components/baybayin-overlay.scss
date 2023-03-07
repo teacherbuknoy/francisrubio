@@ -1,0 +1,12 @@
+[data-baybayin] {
+  &::after {
+    content            : attr(data-baybayin);
+    color              : hsl(var(--fg-subtle));
+    font-family        : var(--font-baybayin);
+    margin-inline-start: 1ch;
+    inset              : 0;
+    transition         : color 500ms;
+    z-index            : 1;
+  }
+
+}
