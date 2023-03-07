@@ -244,6 +244,7 @@
   --font-body         : var(--font-serif);
   --font-ui           : var(--font-sans);
   --font-mono         : "Source Code Pro", monospace;
+  --font-cursive      : 'Matatas One', sans-serif;
 
   @supports (font-variation-settings: "wght"100) {
     --font-serif        : "Fraunces var", serif;

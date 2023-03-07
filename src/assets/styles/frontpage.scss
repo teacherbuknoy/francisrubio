@@ -48,6 +48,52 @@
   object-fit     : contain;
   object-position: center;
   padding        : var(--space-xl);
+
+  [data-baybayin-overlay] {
+    display: grid;
+
+    &>*,
+    &::before {
+      grid-row   : 1/2;
+      grid-column: 1/2;
+    }
+
+    &::before {
+      content           : attr(data-baybayin-overlay);
+      background-color  : #dfdfdf;
+      font-family       : var(--font-cursive);
+      inset             : 0;
+      line-height       : 0.7;
+      mask-image        : linear-gradient(to right, black 50%, transparent 50%);
+      mask-position     : -100%;
+      mask-size         : 200%;
+      transition        : mask-position 500ms;
+      z-index           : 1;
+      animation-name    : reveal-baybayin;
+      animation-duration: 2500ms;
+    }
+
+
+  }
+
+  &:hover {
+    [data-baybayin-overlay]::before {
+      mask-position: 0%;
+    }
+  }
+}
+
+@keyframes reveal-baybayin {
+  0%,
+  80% {
+    mask-position : 0%;
+    pointer-events: none;
+  }
+
+  100% {
+    mask-position : -100%;
+    pointer-events: all;
+  }
 }
 
 .banner-slogan {

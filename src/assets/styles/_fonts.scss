@@ -1,42 +1,42 @@
 @font-face {
-  font-family: "Fraunces var";
-  src: url("/assets/fonts/fraunces-var.ttf") format("truetype");
+  font-family : "Fraunces var";
+  src         : url("/assets/fonts/fraunces-var.ttf") format("truetype");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Fraunces var";
-  src: url("/assets/fonts/fraunces-italic-var.ttf") format("truetype");
+  font-family : "Fraunces var";
+  src         : url("/assets/fonts/fraunces-italic-var.ttf") format("truetype");
   font-display: swap;
-  font-style: italic;
+  font-style  : italic;
 }
 
 @font-face {
-  font-family: "Fraunces";
-  src: url("/assets/fonts/fraunces-regular.ttf") format("truetype");
+  font-family : "Fraunces";
+  src         : url("/assets/fonts/fraunces-regular.ttf") format("truetype");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Fraunces";
-  src: url("/assets/fonts/fraunces-italic.ttf") format("truetype");
+  font-family : "Fraunces";
+  src         : url("/assets/fonts/fraunces-italic.ttf") format("truetype");
   font-display: swap;
-  font-style: italic;
+  font-style  : italic;
 }
 
 @font-face {
-  font-family: "Fraunces";
-  src: url("/assets/fonts/fraunces-bold-italic.ttf") format("truetype");
+  font-family : "Fraunces";
+  src         : url("/assets/fonts/fraunces-bold-italic.ttf") format("truetype");
   font-display: swap;
-  font-style: italic;
-  font-weight: bold;
+  font-style  : italic;
+  font-weight : bold;
 }
 
 @font-face {
-  font-family: "Fraunces";
-  src: url("/assets/fonts/fraunces-bold.ttf") format("truetype");
+  font-family : "Fraunces";
+  src         : url("/assets/fonts/fraunces-bold.ttf") format("truetype");
   font-display: swap;
-  font-weight: bold;
+  font-weight : bold;
 }
 
 @font-face {
@@ -61,4 +61,10 @@
   font-display: swap;
   font-weight : 100 900;
   src         : url("/assets/fonts/Figtree-var.ttf") format("truetype");
+}
+
+@font-face {
+  font-family : "Matatas One";
+  font-display: swap;
+  src         : url("/assets/fonts/matatas_one.otf") format("opentype");
 }
