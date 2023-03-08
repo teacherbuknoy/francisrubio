@@ -9,6 +9,7 @@ class ScriptSourceMap {
       index: 'index.js',
       webmentions: 'webmentions.js',
       mastodon: 'mastodon.js',
+      frontpage: 'frontpage.js',
     }
   }
 

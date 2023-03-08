@@ -12,6 +12,7 @@ class Script {
       index: 'index.js',
       webmentions: 'webmentions.js',
       mastodon: 'mastodon.js',
+      frontpage: 'frontpage.js',
     }
   }
 

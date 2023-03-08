@@ -66,6 +66,7 @@
     &::before {
       animation-duration   : 2500ms;
       animation-name       : reveal-baybayin;
+      animation-play-state : paused;
       background-color     : #dfdfdf;
       content              : attr(data-baybayin-overlay);
       font-family          : var(--font-cursive);
@@ -80,6 +81,10 @@
       mask-size            : 200%;
       transition           : mask-position 500ms, -webkit-mask-position 500ms;
       z-index              : 1;
+
+      @at-root body:not(.no-js) & {
+        animation-play-state: running;
+      }
     }
 
 
@@ -171,4 +176,57 @@
 
 .tab-trigger:nth-child(3n + 2) {
   margin-top: 50%;
+}
+
+.characters {
+  display    : flex;
+  align-items: stretch;
+  font-family: 'Figtree', sans-serif;
+  font-size  : clamp(3rem, 13vw + 1rem, 10rem);
+}
+
+.character {
+  display      : grid;
+  justify-items: center;
+  align-items  : end;
+}
+
+.character * {
+  grid-row   : 1/2;
+  grid-column: 1/2;
+  transition : opacity 300ms 100ms, height 500ms 150ms, width 500ms 150ms;
+}
+
+.character .hidden {
+  opacity: 0;
+  display: revert;
+}
+
+.character__latin {
+  transition: opacity 300ms, height 300ms, width 300ms;
+}
+
+.character__latin.hidden {
+  transform : scale(0);
+  width     : 0;
+  transition: opacity 100ms 200ms, height 300ms, width 300ms, transform 300ms;
+}
+
+.character__baybayin {
+  align-self: center;
+  height    : 100%;
+  position  : relative;
+  transition: opacity 300ms 100ms, height 300ms, width 300ms;
+  width     : 1ch;
+}
+
+.character__baybayin.x {
+  top: 0.2ch;
+}
+
+.character__baybayin.hidden {
+  align-self: center;
+  width     : 0;
+  height    : 0;
+  transition: opacity 300ms 300ms, height 300ms, width 300ms;
 }
