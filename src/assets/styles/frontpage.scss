@@ -40,7 +40,7 @@
 .banner-site-title {
   align-content  : end;
   column-gap     : 0.6ch;
-  display        : flex;
+  display        : grid;
   flex-wrap      : wrap;
   font-family    : var(--font-sans);
   font-size      : clamp(3rem, 13vw + 1rem, 10rem);
@@ -53,6 +53,7 @@
   object-fit     : contain;
   object-position: center;
   padding        : var(--space-xl);
+  width          : 100%;
 
   [data-baybayin-overlay] {
     display: grid;
@@ -203,7 +204,7 @@
 }
 
 .character__latin {
-  transition: opacity 300ms, height 300ms, width 300ms;
+  transition: opacity 300ms, height 300ms, width 300ms, transform 300ms;
 }
 
 .character__latin.hidden {

@@ -1,22 +1,26 @@
 class BaybayinCharacter {
-  #latin;
-  #baybayin
+  #filters = {};
+  #elements = {};
   #state;
-  character;
-  CSS_HIDDEN = 'hidden';
 
   constructor(element) {
-    this.#latin = element.querySelector('.character__latin')
-    this.#baybayin = element.querySelector('.character__baybayin')
+    this.#filters.baybayin = document.getElementById('baybayin-distort')
+    this.#filters.latin = document.getElementById('latin-distort')
 
-    element.querySelector('.' + this.CSS_HIDDEN)?.classList.remove(this.CSS_HIDDEN)
-    this.#latin.classList.add(this.CSS_HIDDEN)
+    this.#elements.baybayin = element.querySelector('.character__baybayin')
+    this.#elements.latin = element.querySelector('.character__latin')
+
+    this.#elements.latin.classList.add('hidden')
     this.#state = 'baybayin'
 
-    this.character = this.#latin.innerText
+    console.log(this.#filters)
   }
 
-  toggle() {
+  get state() {
+    return this.#state
+  }
+
+  playAnimation() {
     if (this.#state === 'baybayin') {
       this.#hideBaybayin()
       this.#showLatin()
@@ -25,48 +29,70 @@ class BaybayinCharacter {
       this.#showBaybayin()
       this.#hideLatin()
       this.#state = 'baybayin'
-    } else {
-      console.error('[ERROR] Object of type BaybayinCharacter has unrecognized state:', this.#state)
     }
   }
 
   #showBaybayin() {
-    this.#baybayin.classList.remove(this.CSS_HIDDEN)
+    const filter = this.#filters.baybayin
+    const animator = this.#createAnimator(filter, { turbValue: 0, numOctaves: 1, scale: 10, factor: -0.25, limit: 0.5 })
+
+    this.#elements.baybayin.classList.remove('hidden')
+    //requestAnimationFrame(animator)
   }
 
   #hideBaybayin() {
-    this.#baybayin.classList.add(this.CSS_HIDDEN)
+    const filter = this.#filters.baybayin
+    const animator = this.#createAnimator(filter, { turbValue: 0, numOctaves: 1, scale: 10 })
+
+    this.#elements.baybayin.classList.add('hidden')
+    requestAnimationFrame(animator)
   }
 
   #showLatin() {
-    this.#latin.classList.remove(this.CSS_HIDDEN)
+    const filter = this.#filters.latin
+    const animator = this.#createAnimator(filter, { turbValue: 0, numOctaves: 1, scale: 10, factor: 0.2 })
+
+    this.#elements.latin.classList.remove('hidden')
+    //requestAnimationFrame(animator)
   }
 
   #hideLatin() {
-    this.#latin.classList.add(this.CSS_HIDDEN)
+    const filter = this.#filters.latin
+    const animator = this.#createAnimator(filter, { turbValue: 0, numOctaves: 1, scale: 10 })
+
+    this.#elements.latin.classList.add('hidden')
+    //requestAnimationFrame(animator)
+  }
+
+  #createAnimator(filter, { turbValue, numOctaves, scale, factor = 0.01, limit = 1 }) {
+    return () => { }
   }
 }
 
-const baybayinReveals = [...document.querySelectorAll('[data-baybayin-reveal]')]
-const characterSets = baybayinReveals.map(set => {
-  return [...set.querySelectorAll('.character')].reverse().map(c => new BaybayinCharacter(c))
+const character = new BaybayinCharacter(document.querySelector('.character'))
+
+const characters = document.querySelectorAll('.characters')
+const baybayinCharacters = []
+characters.forEach(characterSet => {
+  [...characterSet.querySelectorAll('.character')]
+    .forEach(c => baybayinCharacters.push(new BaybayinCharacter(c)))
+
 })
 
-function toggleBaybayinReveals() {
-  for (const set of characterSets) {
-    const delay = 150
-
-    set.reverse().forEach((character, index) => { 
-      console.log(character.character)
-      setTimeout(() => character.toggle(), index * delay)
-    })
-  }
+const mouseHandler = e => {
+  const delay = 50;
+  baybayinCharacters.forEach((character, index) => {
+    setTimeout(() => character.playAnimation(), index * delay)
+  })
 }
 
-const h1 = document.getElementById('site-name')
-document.fonts.ready.then(() => {
-  setTimeout(toggleBaybayinReveals, 2000)
+const h1 = document.querySelector('h1')
 
-  h1.addEventListener('mouseenter', toggleBaybayinReveals)
-  h1.addEventListener('mouseleave', toggleBaybayinReveals)
+document.fonts.ready.then(() => {
+  setTimeout(() => {
+    mouseHandler();
+
+    h1.addEventListener('mouseenter', mouseHandler)
+    h1.addEventListener('mouseleave', mouseHandler)
+  }, 3000)
 })
