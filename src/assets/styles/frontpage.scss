@@ -103,9 +103,9 @@
   }
 
   100% {
-    -webkit-mask-position : -100%;
-    mask-position : -100%;
-    pointer-events: all;
+    -webkit-mask-position: -100%;
+    mask-position        : -100%;
+    pointer-events       : all;
   }
 }
 
@@ -143,7 +143,9 @@
   pointer-events : none;
 
   @media (max-width: 570px) {
-    display: none;
+    grid-column   : 1/4;
+    opacity       : 0.5;
+    mix-blend-mode: overlay;
   }
 
   @media (min-width: 941px) and (max-width: 1020px) {
