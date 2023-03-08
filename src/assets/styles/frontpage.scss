@@ -64,19 +64,22 @@
     }
 
     &::before {
-      animation-duration: 2500ms;
-      animation-name    : reveal-baybayin;
-      background-color  : #dfdfdf;
-      content           : attr(data-baybayin-overlay);
-      font-family       : var(--font-cursive);
-      font-size         : 0.9em;
-      inset             : 0;
-      line-height       : 0.7;
-      mask-image        : linear-gradient(to right, black 50%, transparent 50%);
-      mask-position     : -100%;
-      mask-size         : 200%;
-      transition        : mask-position 500ms;
-      z-index           : 1;
+      animation-duration   : 2500ms;
+      animation-name       : reveal-baybayin;
+      background-color     : #dfdfdf;
+      content              : attr(data-baybayin-overlay);
+      font-family          : var(--font-cursive);
+      font-size            : 0.9em;
+      inset                : 0;
+      line-height          : 0.7;
+      -webkit-mask-image   : linear-gradient(to right, black 50%, transparent 50%);
+      -webkit-mask-position: -100%;
+      -webkit-mask-size    : 200%;
+      mask-image           : linear-gradient(to right, black 50%, transparent 50%);
+      mask-position        : -100%;
+      mask-size            : 200%;
+      transition           : mask-position 500ms, -webkit-mask-position 500ms;
+      z-index              : 1;
     }
 
 
@@ -84,7 +87,8 @@
 
   &:hover {
     [data-baybayin-overlay]::before {
-      mask-position: 0%;
+      -webkit-mask-position: 0%;
+      mask-position        : 0%;
     }
   }
 }
@@ -93,11 +97,13 @@
 
   0%,
   80% {
-    mask-position : 0%;
-    pointer-events: none;
+    -webkit-mask-position: 0%;
+    mask-position        : 0%;
+    pointer-events       : none;
   }
 
   100% {
+    -webkit-mask-position : -100%;
     mask-position : -100%;
     pointer-events: all;
   }
