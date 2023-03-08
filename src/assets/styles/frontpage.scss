@@ -7,12 +7,15 @@
     display              : grid;
     grid-template-columns: 3fr 3ch 2fr;
     grid-template-rows   : 1fr 4fr auto 1fr;
+    min-height           : 90vh;
+    padding-block-end    : var(--space-xxl);
 
     &::before {
       content         : "";
       background-color: hsl(var(--bg-accent) / 25%);
       grid-column     : 1 / -1;
       grid-row        : 2 / -1;
+      margin-block-end: calc(-1 * var(--space-xxl));
     }
 
     @media (max-width: 940px) {
@@ -35,6 +38,7 @@
 }
 
 .banner-site-title {
+  align-content  : end;
   column-gap     : 0.6ch;
   display        : flex;
   flex-wrap      : wrap;
@@ -43,6 +47,7 @@
   font-weight    : normal;
   grid-column    : 1/3;
   grid-row       : 2/3;
+  height         : 100%;
   line-height    : 1;
   margin         : auto;
   object-fit     : contain;
@@ -59,9 +64,12 @@
     }
 
     &::before {
-      content           : attr(data-baybayin-overlay);
+      animation-duration: 2500ms;
+      animation-name    : reveal-baybayin;
       background-color  : #dfdfdf;
+      content           : attr(data-baybayin-overlay);
       font-family       : var(--font-cursive);
+      font-size         : 0.9em;
       inset             : 0;
       line-height       : 0.7;
       mask-image        : linear-gradient(to right, black 50%, transparent 50%);
@@ -69,8 +77,6 @@
       mask-size         : 200%;
       transition        : mask-position 500ms;
       z-index           : 1;
-      animation-name    : reveal-baybayin;
-      animation-duration: 2500ms;
     }
 
 
@@ -127,6 +133,8 @@
   object-fit     : cover;
   object-position: left bottom;
   width          : 100%;
+  z-index        : 2;
+  pointer-events : none;
 
   @media (max-width: 570px) {
     display: none;
