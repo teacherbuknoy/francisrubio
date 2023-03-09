@@ -28,6 +28,7 @@ class BaybayinCharacter {
     } else if (this.#state === 'latin') {
       this.#showBaybayin()
       this.#hideLatin()
+      setTimeout(() => this.#hideLatin(false), 300)
       this.#state = 'baybayin'
     }
   }
@@ -53,14 +54,18 @@ class BaybayinCharacter {
     const animator = this.#createAnimator(filter, { turbValue: 0, numOctaves: 1, scale: 10, factor: 0.2 })
 
     this.#elements.latin.classList.remove('hidden')
+    this.#elements.latin.classList.remove('transparent')
     //requestAnimationFrame(animator)
   }
 
-  #hideLatin() {
+  #hideLatin(opacityOnly = true) {
     const filter = this.#filters.latin
     const animator = this.#createAnimator(filter, { turbValue: 0, numOctaves: 1, scale: 10 })
 
-    this.#elements.latin.classList.add('hidden')
+    if (opacityOnly)
+      this.#elements.latin.classList.add('transparent')
+    else
+      this.#elements.latin.classList.add('hidden')
     //requestAnimationFrame(animator)
   }
 
@@ -80,7 +85,7 @@ characters.forEach(characterSet => {
 })
 
 const mouseHandler = e => {
-  const delay = 50;
+  const delay = 30;
   baybayinCharacters.forEach((character, index) => {
     setTimeout(() => character.playAnimation(), index * delay)
   })

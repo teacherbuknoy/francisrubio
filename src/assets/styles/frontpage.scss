@@ -204,13 +204,18 @@
 }
 
 .character__latin {
-  transition: opacity 300ms, height 300ms, width 300ms, transform 300ms;
+  margin-left: 0;
+  transition : opacity 100ms 200ms, transform 100ms 200ms, margin-left 200ms
 }
 
 .character__latin.hidden {
-  transform : scale(0);
-  width     : 0;
-  transition: opacity 100ms 200ms, height 300ms, width 300ms, transform 300ms;
+  transform  : scale(0);
+  margin-left: -2ch;
+  transition : opacity 100ms, transform 100ms, margin-left 200ms 100ms;
+}
+
+.character__latin.transparent {
+  opacity: 0;
 }
 
 .character__baybayin {
