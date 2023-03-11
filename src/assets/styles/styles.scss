@@ -307,3 +307,12 @@ img {
   background-repeat  : no-repeat;
   background-size    : cover;
 }
+
+.animated-fallback {
+  display: none;
+}
+
+@media (prefers-reduced-motion) {
+  .animated-fallback { display: revert }
+  .animated { display: none }
+}

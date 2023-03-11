@@ -97,7 +97,6 @@ document.fonts.ready.then(() => {
   setTimeout(() => {
     mouseHandler();
 
-    h1.addEventListener('mouseenter', mouseHandler)
-    h1.addEventListener('mouseleave', mouseHandler)
+    h1.addEventListener('click', mouseHandler)
   }, 3000)
 })
