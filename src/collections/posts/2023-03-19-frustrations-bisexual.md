@@ -1,5 +1,5 @@
 ---
-title: "The Frustration of a Bisexual Man"
+title: "The Frustrations of a Bisexual Man"
 description: "In the world of the queers, it seems like the bisexual people are the black sheep."
 category: ["Life", "LGBTQIA+"]
 cover:
