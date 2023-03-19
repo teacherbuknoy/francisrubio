@@ -15,6 +15,17 @@
   }
 
   .feather {
+    width  : 1em;
+    height : 1em;
+    display: inline;
+  }
+
+  a[href] .feather {
+    color       : hsl(var(--primary-500));
+    stroke-width: 3px;
+  }
+
+  &>.feather {
     position: relative;
     bottom  : -0.4ch;
     color   : var(--icon-color, currentColor)
