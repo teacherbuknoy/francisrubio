@@ -1,0 +1,12 @@
+main {
+  display      : grid;
+  place-content: center;
+}
+
+.centrify {
+  display      : grid;
+  gap          : 1ch;
+  place-content: center;
+  place-items  : center;
+  text-align   : center;
+}

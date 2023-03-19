@@ -7,6 +7,7 @@ const ENTRY_POINTS = {
   frontpage: 'frontpage.scss',
   mastodon: 'mastodon.scss',
   notes: 'notes.scss',
+  s404: 's404.scss',
 }
 
 const path = require('path')
