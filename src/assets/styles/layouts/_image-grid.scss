@@ -1,14 +1,13 @@
 .image-grid {
-  --size               : 7.5ch;
-  display              : grid;
-  gap                  : 1ch;
-  grid-auto-flow       : dense;
-  grid-auto-rows       : calc(var(--size) * 1);
-  grid-template-columns: repeat(auto-fit, minmax(var(--size), 1fr));
+  --gap       : 1ch;
+  --size      : 25ch;
+  column-width: var(--size);
+  gap         : var(--gap);
 
   &__link {
-    display       : flex;
-    flex-direction: column;
+    display         : flex;
+    flex-direction  : column;
+    margin-block-end: var(--gap);
   }
 
   &__image {
