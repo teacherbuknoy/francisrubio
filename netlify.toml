@@ -22,3 +22,8 @@
   from   = "/speaker-rider"
   to     = "/speaking/information-for-event-organizers/"
   status = 301
+
+[[redirects]]
+  from    = "/profile-picture"
+  to      = "/assets/images/profile-picture/dp.jpg"
+  status  = 301
