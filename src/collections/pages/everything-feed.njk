@@ -1,7 +1,7 @@
 ---
 eleventyExcludeFromCollections: true
 layout: null
-permalink: /videos.xml
+permalink: /feed.xml
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"
@@ -34,7 +34,7 @@ permalink: /videos.xml
       <height>64</height>
     </image>
 
-    {% set feeds = [collections.videos] %}
+    {% set feeds = [collections.posts, collections.videos, collections.literature, collection.notes] %}
     {% for feed in feeds %}
       {% for post in feed %}
         {% set absolutePostUrl %}{{ site.url }}{{ post.url }}{% endset %}

@@ -3,60 +3,78 @@ eleventyExcludeFromCollections: true
 layout: null
 permalink: /blog.xml
 ---
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Blog Posts by Francis Rubio</title>
-  <subtitle>A glimpse of what it's like to be me.</subtitle>
-  <link href="{{ site.url }}/blog.xml" rel="self"/>
-  <updated>{{ generated }}</updated>
-  <author>
-    <name>{{ authors.teacherbuknoy.name }}</name>
-    <email>{{ authors.teacherbuknoy.email }}</email>
-    <uri>{{ authors.teacherbuknoy.url }}</uri>
-  </author>
-  <id>{{ site.domain }}</id>
-  <category term="blog"/>
-  <icon>/assets/root/favicon.svg</icon>
-  <rights>ⓒ {{ utils.currentYear }} Francis Rubio</rights>
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+  xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+  xmlns:georss="http://www.georss.org/georss"
+  xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
 
-  {% for post in collections.posts %}
-    {% set absolutePostUrl %}{{ site.url }}{{ post.url }}{% endset %}
-    <entry>
-      <title>{{ post.data.title }}</title>
-      <link href="{{ absolutePostUrl }}"/>
-      <updated>{{ post.date | dateToRfc3339 }}</updated>
-      <id>{{ absolutePostUrl }}</id>
-      {% set person = authors[post.data.author] %}
-      <author>
-        <name>{{ person.name }}</name>
-        {% if person.url %}
-          <uri>{{ person.url }}</uri>
-        {% endif %}
-        {% if person.email %}
-          <email>{{ person.email }}</email>
-        {% endif %}
-      </author>
-      {% if post.data.tags and post.data.tags.length > 0 %}
-        {% for tag in post.data.tags %}
-          <category term="{{ tag }}">
-          {% endfor %}
-        {% endif %}
+  {% set preferredDomain = site.domains | selectattr('isPreferred') | first %}
+  <channel>
+    <title>{{ site.title | safe }}</title>
+    <atom:link href="https://{{ preferredDomain.value | safe }}/feed.xml" rel="self" type="application/rss"/>
+    <link>https://{{ preferredDomain.value | safe }}/</link>
+    <description>{{ site.description | safe }}</description>
+    <lastBuildDate>{{ generated }}</lastBuildDate>
+    <language>en-US</language>
+    <sy:updatePeriod>hourly</sy:updatePeriod>
+    <sy:updateFrequency>1</sy:updateFrequency>
+    <generator>Eleventy v2.0.0</generator>
 
-        {% if post.data.contributors and post.data.contributors.length > 0 %}
-          {% for contributor in post.data.contributors %}
-            {% set person = authors[contributor] %}
-            <contributor>
-              <name>{{ person.name }}</name>
-              {% if person.url %}
-                <uri>{{ person.url }}</uri>
-              {% endif %}
-              {% if person.email %}
-                <email>{{ person.email }}</email>
-              {% endif %}
-            </contributor>
-          {% endfor %}
-        {% endif %}
-        <content type="html">{{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
-      </entry>
+    <image>
+      <url>https://ik.imagekit.io/8jjzxcl9p/tr:w-64/authors/teacherbuknoy.jpg?updatedAt=1672589182686</url>
+      <title>{{ site.title | safe }}</title>
+      <link>https://{{ preferredDomain.value | safe }}/</link>
+      <width>64</width>
+      <height>64</height>
+    </image>
+
+    {% set feeds = [collections.posts] %}
+    {% for feed in feeds %}
+      {% for post in feed %}
+        {% set absolutePostUrl %}{{ site.url }}{{ post.url }}{% endset %}
+        {% set person = authors[post.data.author] %}
+        <item>
+          <title>{{ post.data.title | safe }}</title>
+          <description>
+            <![CDATA[{{ post.data.description | safe }}]]>
+          </description>
+          {% if post.data.code %}
+            <link>https://youtu.be/{{ post.data.code }}</link>
+            <guid isPermaLink="true">https://youtu.be/{{ post.data.code }}</guid>
+          {% else %}
+            <link>{{ absolutePostUrl }}</link>
+            <guid isPermaLink="true">{{ absolutePostUrl }}</guid>
+          {% endif %}
+          <comments>{{ absolutePostUrl }}#webmention-replies</comments>
+          <dc:creator>
+            <![CDATA[{{ person.name }}]]>
+          </dc:creator>
+          <author>{{ person.email }}</author>
+          <pubDate>{{ post.date | dateToRfc822 }}</pubDate>
+          {% if post.data.tags and post.data.tags.length > 0 %}
+            {% for tag in post.data.tags %}
+              <category>
+                <![CDATA[{{ tag }}]]>
+              </category>
+            {% endfor %}
+          {% elif post.data.category and post.data.category.length > 0 %}
+            {% for tag in post.data.category %}
+              <category>
+                <![CDATA[{{ tag }}]]>
+              </category>
+            {% endfor %}
+          {% endif %}
+          <content:encoded>
+            <![CDATA[{{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) | safe }}]]>
+          </content:encoded>
+        </item>
+      {% endfor %}
     {% endfor %}
-  </feed>
+  </channel>
+</rss>

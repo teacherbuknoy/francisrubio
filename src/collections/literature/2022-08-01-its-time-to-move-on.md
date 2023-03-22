@@ -15,7 +15,6 @@ seo:
     src: /literatures/its-time-to-move-on/twitter.png
 author: teacherbuknoy
 type: literature
-category: literature
 language: en
 ---
 

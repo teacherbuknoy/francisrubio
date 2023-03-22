@@ -8,7 +8,6 @@ cover:
   sizes: [300, 500, 700]
   formats: ['jpg', 'webp']
 author: teacherbuknoy
-category: literature
 type: Poem
 class: poetry
 language: tl

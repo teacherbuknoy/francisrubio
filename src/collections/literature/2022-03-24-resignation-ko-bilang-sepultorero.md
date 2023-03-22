@@ -9,7 +9,6 @@ cover:
   formats: ['jpg', 'webp']
 author: teacherbuknoy
 type: Short Story
-category: literature
 language: tl
 ---
 

@@ -2,7 +2,6 @@
 title: "dichotomies"
 author: jaseyangala
 type: literature
-category: literature
 language: en
 eleventyExcludeFromCollections: true
 ---

@@ -15,7 +15,6 @@ seo:
     src: /literatures/read-this-when-i-die/twitter.png
 author: teacherbuknoy
 type: literature
-category: literature
 language: en
 ---
 
