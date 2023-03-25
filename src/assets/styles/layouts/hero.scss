@@ -1,0 +1,152 @@
+.hero {
+  --top-offset       : -7rem;
+  background-color   : #ffc5d1;
+  display            : grid;
+  margin-block-start : var(--top-offset);
+  min-height         : 100vh;
+  padding-block-start: calc(var(--top-offset) * -1);
+
+  &__inner {
+    display: grid;
+
+    &>* {
+      grid-column: 1/2;
+      grid-row   : 1/2;
+    }
+  }
+
+  &__body {
+    margin-block-start: 3vh;
+    margin-inline     : auto;
+    width             : 90%;
+    z-index           : 1;
+  }
+
+  &__graphic {
+    align-items       : end;
+    display           : flex;
+    margin-block-start: var(--top-offset);
+
+    img {
+      background-color: #ffc5d1;
+      height          : 100%;
+      object-fit      : cover;
+      object-position : bottom;
+      position        : absolute;
+      width           : 100%;
+    }
+
+    &--desktop {
+      display: none;
+    }
+  }
+
+  &__title {
+    color                  : hsl(var(--primary-500));
+    font-family            : var(--font-sans);
+    font-size              : calc(var(--type-size-1) * 1.25);
+    font-variation-settings: 'wght'800;
+    line-height            : 1;
+    margin                 : 0;
+
+    path {
+      fill: currentColor;
+    }
+  }
+
+  &__action {
+    display           : flex;
+    flex-wrap         : wrap;
+    gap               : var(--space);
+    margin-block-start: 3vh;
+    padding-block     : var(--space);
+  }
+
+  &__slogan {
+    align-items: center;
+    display    : flex;
+    flex-wrap  : wrap;
+    font-family: var(--font-sans);
+    gap        : 1ch;
+  }
+}
+
+.bullet {
+  background-color: hsl(var(--fg-default) / 50%);
+  border-radius   : 100%;
+  height          : 0.5ch;
+  width           : 0.5ch;
+}
+
+@media (min-width: 670px) {
+  .hero {
+    &__graphic {
+      &--desktop {
+        display: revert;
+      }
+
+      &--mobile {
+        display: none
+      }
+    }
+
+    &__body {
+      background-image: radial-gradient(circle at bottom left, #ffc5d1, #ffc5d100);
+      display         : flex;
+      flex-direction  : column;
+      height          : 100vh;
+      justify-content : end;
+      margin-top      : var(--top-offset);
+      padding-block   : 5vh;
+      padding-inline  : 5%;
+      width           : 100%;
+    }
+  }
+}
+
+@media (min-width: 1080px) {
+  .hero {
+    --top-offset: -5.7rem;
+
+    &__inner {
+      grid-template-columns: 0.2fr 3fr 2fr 0.2fr;
+      background-color     : #fff8;
+      border-radius        : var(--radius-5) var(--radius-5) 0 0;
+      width                : min(100ch, 90%);
+      margin-inline        : auto;
+      height               : 60ch;
+      align-self           : end;
+    }
+
+    &__body {
+      align-self      : center;
+      background-image: none;
+      grid-column     : 2/3;
+      height          : auto;
+      height          : fit-content;
+      margin-inline   : auto;
+      margin-top      : 0;
+      padding         : 0;
+      width           : 90%;
+    }
+
+    &__graphic {
+      align-self     : end;
+      display        : flex;
+      grid-column    : 3/5;
+      justify-content: end;
+      margin-block   : 0;
+      width          : calc(100% + var(--top-offset) * -0.7);
+
+      img {
+        background        : transparent;
+        height            : 70ch;
+        margin-block-start: -70%;
+        object-fit        : cover;
+        object-position   : top;
+        position          : static;
+        width             : 50ch;
+      }
+    }
+  }
+}
