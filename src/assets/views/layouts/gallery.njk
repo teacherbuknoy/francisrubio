@@ -39,6 +39,7 @@
           {% set filename = '/gallery/' + folder + '/' + image.key %}
           {% set width = image.width %}
           {% set height = image.height %}
+          {% set sizes = [200, 300, 400] %}
           <a class="gallery-card__link no-arrow" href="{{ site.api.images }}{{ filename }}" target="_blank">
             {% include "components/cdn-picture.njk" %}
           </a>
