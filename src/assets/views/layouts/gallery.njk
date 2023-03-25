@@ -31,7 +31,7 @@
         </div>
       </div>
     </header>
-    <div class="gallery-grid" style="width: min(120ch, 100%); margin-inline: auto;">
+    <div class="gallery-grid {{ "symmetrical" if symmetrical }}" style="width: min(120ch, 100%); margin-inline: auto;">
       {% for image in entries %}
         <figure class="gallery-card">
           {% set formats = formats if formats else 
@@ -39,7 +39,7 @@
           {% set filename = '/gallery/' + folder + '/' + image.key %}
           {% set width = image.width %}
           {% set height = image.height %}
-          {% set sizes = [200, 300, 400] %}
+          {% set sizes = [400, 500, 600] %}
           <a class="gallery-card__link no-arrow" href="{{ site.api.images }}{{ filename }}" target="_blank">
             {% include "components/cdn-picture.njk" %}
           </a>
