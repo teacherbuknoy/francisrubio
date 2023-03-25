@@ -1,5 +1,6 @@
 import { $, $$ } from '../utilities/dom'
 const navbars = $$('[data-navbar-animations]')
+const popoverWrapper = $$('[data-toggle-parent]')
 const popovers = $$('[data-navbar-popover-animations]')
 const main = $('[data-observer-trigger]')
 const observer = new IntersectionObserver(observationCallback, { threshold: 0 })
@@ -21,6 +22,14 @@ function changeNavbarAttachment(isAttached = false) {
       navbar.classList.add('attached')
     } else {
       navbar.classList.remove('attached')
+    }
+  })
+
+  popoverWrapper.forEach(wrapper => {
+    if (isAttached) {
+      wrapper.classList.add('attached')
+    } else {
+      wrapper.classList.remove('attached')
     }
   })
 
