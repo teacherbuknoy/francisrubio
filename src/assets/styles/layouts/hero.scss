@@ -5,6 +5,7 @@
   margin-block-start : var(--top-offset);
   min-height         : 100vh;
   padding-block-start: calc(var(--top-offset) * -1);
+  z-index            : 10;
 
   &__inner {
     display: grid;
@@ -78,7 +79,7 @@
   width           : 0.5ch;
 }
 
-@media (min-width: 670px) {
+@media (min-width: 670px) and (max-width: 1079px) {
   .hero {
     &__graphic {
       &--desktop {
@@ -91,15 +92,47 @@
     }
 
     &__body {
-      background-image: radial-gradient(circle at bottom left, #ffc5d1, #ffc5d100);
-      display         : flex;
-      flex-direction  : column;
-      height          : 100vh;
-      justify-content : end;
-      margin-top      : var(--top-offset);
-      padding-block   : 5vh;
-      padding-inline  : 5%;
-      width           : 100%;
+      align-items    : end;
+      display        : flex;
+      flex-direction : column;
+      height         : 100vh;
+      justify-content: end;
+      margin-top     : var(--top-offset);
+      padding-block  : 5vh;
+      padding-inline : 5%;
+      width          : 100%;
+    }
+
+    &__title {
+      align-items: end;
+      color      : hsl(var(--primary-100));
+      text-align : end;
+
+      .characters {
+        justify-content: end;
+      }
+    }
+
+    &__slogan {
+      color: hsl(var(--primary-100));
+
+      .bullet {
+        background-color: hsl(var(--primary-100) / 50%);
+      }
+    }
+
+
+    &__action {
+      .button:not(.primary) {
+        background-color: hsl(var(--primary-700) / 25%);
+        color           : hsl(var(--primary-100));
+      }
+    }
+
+    .hero__graphic {
+      img {
+        object-position: top;
+      }
     }
   }
 }
@@ -109,13 +142,13 @@
     --top-offset: -5.7rem;
 
     &__inner {
-      grid-template-columns: 0.2fr 3fr 2fr 0.2fr;
+      align-self           : end;
       background-color     : #fff8;
       border-radius        : var(--radius-5) var(--radius-5) 0 0;
-      width                : min(100ch, 90%);
-      margin-inline        : auto;
+      grid-template-columns: 0.2fr 3fr 2fr 0.2fr;
       height               : 60ch;
-      align-self           : end;
+      margin-inline        : auto;
+      width                : min(100ch, 90%);
     }
 
     &__body {
