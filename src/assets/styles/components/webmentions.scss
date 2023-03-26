@@ -185,15 +185,14 @@
     -webkit-line-clamp: 6;
     display           : -webkit-box;
     flex-direction    : column;
-    font-size         : var(--type-size-6);
     gap               : 1ch;
     line-clamp        : 6;
     margin            : var(--space);
     max-height        : 40ch;
     overflow          : hidden;
     padding           : 0;
-    text-align        : center;
     text-overflow     : ellipsis;
+    font-family       : var(--font-sans);
 
     h2,
     h3,
@@ -201,7 +200,6 @@
     h5,
     h6 {
       margin                 : 0;
-      font-family            : var(--font-sans);
       font-variation-settings: 'wght'700;
       text-align             : start;
     }
