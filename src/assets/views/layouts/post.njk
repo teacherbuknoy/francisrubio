@@ -92,6 +92,16 @@
       </div>
       <div class="article__body not-sidebar e-content">
         {{ content | safe }}
+
+        <!-- SYNDICATION -->
+        {% if syndication %}
+          <div class="hidden">
+            {% for item in syndication %}
+            <a href="{{ item }}" rel="syndication" class="u-syndication">{{ item }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+
       </div>
     </div>
     <footer class="stack padding--l">

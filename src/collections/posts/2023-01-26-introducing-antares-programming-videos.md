@@ -18,6 +18,8 @@ seo:
     url: "https://ik.imagekit.io/8jjzxcl9p/tr:f-png,h-0.5/posts/introducing-antares-programming-videos/og.png"
     is_prefixed: false
 eleventyExcludeFromCollections: false
+syndication:
+  - https://mstdn.party/@teacherbuknoy/109761064836695033/
 ---
 
 Antares Programming have been my passion project for about 4 years now. I have been inspired by a lot of content creators when I was still a student. I remember watching [MPJ](https://github.com/mpj)’s [Fun Fun Function](https://www.youtube.com/@funfunfunction) almost religiously as I prepare to go to school. [Layout Land](https://www.youtube.com/@LayoutLand) became my CSS companion and taught me a lot about progressive enhancement and fallbacks for the newest features. I also enjoyed a lot of talks that [An Event Apart](https://www.youtube.com/@AnEventApartLive) posted online. I enjoyed them so much that I eventually paid for my tickets to a similar conference several years later. (I recommend it, too. It’s a very rewarding experience)

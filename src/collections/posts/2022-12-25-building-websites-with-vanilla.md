@@ -17,6 +17,8 @@ seo:
     src: "/assets/images/posts/build-with-vanilla/og.png"
     is_prefixed: false
 eleventyExcludeFromCollections: false
+syndication:
+	- https://mstdn.party/@teacherbuknoy/109588727681128694
 ---
 I have recently started the 2023 redesign for [Antares Programming](https://redesign.antaresph.dev/). The old design is getting old, and the file organization is starting to get hard to deal with. Plus, theming with both light and dark color schemes are getting confusing, and since I plan to open a YouTube channel for it next year, I want my new videos to appear on the website’s frontpage, so the redesign will also have to deal with that.
 

@@ -18,6 +18,8 @@ seo:
     url: "https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-0.5/posts/frustrations-bisexual/og.png"
     is_prefixed: false
 eleventyExcludeFromCollections: false
+syndication:
+  - https://masto.ai/@teacherbuknoy/110048280314710927
 ---
 
 Before I came out of the closet, I always looked up to the LGBTQIA+ community. I always saw it as a safe haven of people who understood, or at least tried. To me, it was a progressive movement of people who just want to live their true selves, and help others do the same. They fight for their rights, and they fight hard. I still remember being in my first Pride March last year, and it was one of the most memorable moments of my life; it was when an intense sense of belonging draped over me, and I felt like I was where I was supposed to be.

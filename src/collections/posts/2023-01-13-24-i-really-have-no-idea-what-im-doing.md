@@ -18,6 +18,8 @@ seo:
     url: "https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-0.5/posts/birthday-post-2023/og.png"
     is_prefixed: false
 eleventyExcludeFromCollections: false
+syndication:
+  - https://mstdn.party/@teacherbuknoy/109679619021011612
 ---
 
 I’m finally 24 years old. And I don’t know how to feel about that. On one hand, it’s a glorious day to have another year on this wet floating rock we call Earth, and Kelly Clarkson said it’s awesome to be older. But at the same time, it feels like everyone’s going faster than me, and that I am lagging behind, sometimes a bit too much. And now that I am thinking about it, a lot of old people always say that 24 is really young, so now I am stressing about how I am not really enjoying my life at this young. It’s really stupid of me to be anxious that I am too old and too young at the same time.

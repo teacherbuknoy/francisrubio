@@ -17,6 +17,7 @@ seo:
     src: "/assets/images/posts/2022-retrospect/og.png"
     is_prefixed: false
 eleventyExcludeFromCollections: false
+syndication:
 ---
 
 The year 2022 is almost coming to an end. This year, I am grateful for a lot of things, and I want to look back and recall the good things (and bad) that happened. Join me as I list down the most remarkable moments of my life this year.
