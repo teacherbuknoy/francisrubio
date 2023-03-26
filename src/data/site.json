@@ -77,7 +77,8 @@
   ],
   "api": {
     "email": "https://form.taxi/s/egdwtcqq",
-    "images": "https://ik.imagekit.io/8jjzxcl9p/"
+    "images": "https://ik.imagekit.io/8jjzxcl9p/",
+    "webmentions": "https://webmention.io/francisrubio.antaresph.dev/webmention"
   },
   "publisher": {
     "@type": "Organization",

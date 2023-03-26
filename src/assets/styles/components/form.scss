@@ -19,7 +19,7 @@
     display      : grid;
     gap          : 0.25ch;
     margin-inline: auto;
-    width        : min(45ch, 100%);
+    width        : min(45ch, 95%);
 
     &>* {
       grid-column: 1/2;
