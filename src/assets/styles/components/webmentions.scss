@@ -196,3 +196,9 @@
 [data-webmention-entry=interaction-timestamp] {
   font-size: var(--type-size-7);
 }
+
+img[src*="custom_emojis"] {
+  display       : inline;
+  height        : 2ch;
+  vertical-align: bottom;
+}

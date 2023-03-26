@@ -205,6 +205,16 @@ scripts: ['frontpage.js']
     </div>
   </div>
 </section>
+<section class="padding-block--xxl bg-secondary" id="comments" aria-labelledby="comments-heading">
+  <div class="section__inner">
+    <hgroup class="stack-gap" role="group">
+      <p id="comments-heading" class="uppercase ls-l font-sans" data-baybayin="ᜊᜅ᜔ᜄᜒᜆ᜔ᜐᜉᜓᜆ᜔">Webmentions</p>
+      <h2 class="font-serif fs-1">Shoutouts from the interwebs</h2>
+    </hgroup>
+    <p style="width: min(75ch, 100%)">When I screamed into the void, the void screamed back. And these are what they had to say.</p>
+    {% include 'components/webmentions.njk' %}
+  </div>
+</section>
 
 {% include 'components/email-form.njk' %}
 
