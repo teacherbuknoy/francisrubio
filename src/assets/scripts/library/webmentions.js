@@ -350,6 +350,9 @@ class WebMentionResponse {
     const body = element.querySelector('[data-webmention-entry=interaction-body]')
     if (body) {
       body.innerHTML = this.content.html
+        ? this.content.html
+        : this.content.text
+          ? this.content.text : ""
     }
 
     return element
