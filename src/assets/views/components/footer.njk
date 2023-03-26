@@ -44,6 +44,7 @@
   {% include 'components/feathericon.njk' %}
   <span class="sr-only">Back to top</span>
 </a>
+{% set domain = site.domains | selectattr('isPreferred') | first %}
 <div class="h-card hidden">
   <span class="p-name">Francis Rubio</span>
   <span class="p-given-name">Francis</span>
@@ -51,9 +52,9 @@
   <span class="p-nickname">teacherbuknoy</span>
   <div class="p-org">Antares Programming</div>
   <div class="p-job-title">Software Developer</div>
-  <img alt="Francis Rubio" class="u-photo" src="https://ik.imagekit.io/8jjzxcl9p/tr:w-200/authors/teacherbuknoy.jpg"/>
-  <a class="u-url" href="https://francisrubio.antaresph.dev">w</a>,
-  <a class="u-email" href="{{ site.contact.email.url }}">e</a>
+  <img alt="Francis Rubio" class="u-photo" src="{{ site.photo }}"/>
+  <a class="u-url" href="{{ domain.value }}">{{ domain.value }}</a>,
+  <a class="u-email" href="{{ site.contact.email.url }}">{{ site.contact.email.identifier }}</a>
   <div class="p-tel">{{ site.contact.phone.identifier }}</div>
   <span class="p-locality">Metro Manila</span>,
   <div class="p-country-name">Philippines</div>
