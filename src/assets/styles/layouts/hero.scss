@@ -4,7 +4,9 @@
   display            : grid;
   margin-block-start : var(--top-offset);
   min-height         : 100vh;
+  overflow-x         : hidden;
   padding-block-start: calc(var(--top-offset) * -1);
+  position           : relative;
   z-index            : 10;
 
   &__inner {

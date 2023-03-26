@@ -80,15 +80,15 @@
   }
 
   &-control {
-    outline       : 1px solid hsl(var(--bg-accent) / 50%);
     border        : 0;
     border-radius : var(--ideal-radius);
-    font-size     : var(--type-size-6);
     font-family   : var(--font-sans);
+    font-size     : var(--type-size-6);
+    grid-row      : 3/4;
+    outline       : 1px solid hsl(var(--bg-accent) / 50%);
     padding-block : 0.5ch;
     padding-inline: 1ch;
     transition    : outline-offset 200ms, outline-color 300ms;
-    grid-row      : 3/4;
 
     &:invalid:not(:placeholder-shown) {
       background-color: hsl(var(--error-100));
