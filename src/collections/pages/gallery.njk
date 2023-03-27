@@ -9,18 +9,22 @@ permalink: /gallery/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber +
 activePath: gallery
 ---
 
-<section class="padding-block--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
-  <hgroup class="page__header">
-    <span id="section-heading-4" class="uppercase ls-l font-sans" data-baybayin="{{ sections.gallery.baybayin_label }}">{{ sections.gallery.label | safe }}</span>
-    <h1 class="h2 font-serif responsive">{{ sections.gallery.title | safe }}</h1>
-    <p>{{ sections.gallery.description | safe }}</p>
-  </hgroup>
-  <div class="padding-block--xl gap--l gallery-grid">
-    {% for item in pagination.items %}
-      <div>
-        {% include 'components/gallery-entry.njk' %}
-      </div>
-    {% endfor %}
+<section class="page" aria-labelledby="section-heading-4">
+  <div class="page__cover" style="--page-cover-image: url(https://ik.imagekit.io/8jjzxcl9p/index/cover--gallery.png?updatedAt=1679935082420)">
+    <hgroup class="page__header">
+      <span id="section-heading-4" class="uppercase ls-l font-sans" data-baybayin="{{ sections.gallery.baybayin_label }}">{{ sections.gallery.label | safe }}</span>
+      <h1 class="h2 font-serif responsive">{{ sections.gallery.title | safe }}</h1>
+      <p>{{ sections.gallery.description | safe }}</p>
+    </hgroup>
+  </div>
+  <div class="page__inner">
+    <div class="padding-block--xl gap--l symmetrical gallery-grid">
+      {% for item in pagination.items %}
+        <div>
+          {% include 'components/gallery-entry.njk' %}
+        </div>
+      {% endfor %}
+    </div>
   </div>
 </section>
 
@@ -51,15 +55,17 @@ activePath: gallery
 
 {% set preferredDomain = site.domains | selectattr('isPreferred') | first %}
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-        "name": "Navigation",
-  "itemListElement": [{
-    "@type": "ListItem",
-    "position": 1,
-    "name": "Gallery",
-    "item": "https://{{ preferredDomain.value }}/gallery/"
-  }]
-}
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "name": "Navigation",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Gallery",
+        "item": "https://{{ preferredDomain.value }}/gallery/"
+      }
+    ]
+  }
 </script>

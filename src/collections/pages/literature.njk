@@ -8,15 +8,19 @@ pagination:
 permalink: /literature/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html
 activePath: literature
 ---
-<section class="padding-block--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
-  <hgroup role="group" class="page__header">
+<section class="page" aria-labelledby="section-heading-4">
+  <header class="page__cover" style="--page-cover-image: url(https://ik.imagekit.io/8jjzxcl9p/index/cover--literature.png?updatedAt=1679837586088)">
+    <hgroup role="group" class="page__header">
       <span aria-roledescription="subtitle" id="section-heading-4" class="uppercase ls-l font-sans" data-baybayin="{{ sections.literature.baybayin_label }}">{{ sections.literature.label | safe }}</span>
       <h2 class="font-serif responsive">{{ sections.literature.title | safe }}</h2>
       <p>{{ sections.literature.description | safe }} All writings here are subject to copyright.</p>
-  </hgroup>
-  {% set postType = 'literature' %}
-  {% set collection = pagination.items %}
-  {% include 'components/post-grid.njk' %}
+    </hgroup>
+  </header>
+  <div class="page__inner">
+    {% set postType = 'literature' %}
+    {% set collection = pagination.items %}
+    {% include 'components/post-grid.njk' %}
+  </div>
 </section>
 
 <div class="center-justified cluster padding--l">
@@ -51,15 +55,17 @@ activePath: literature
 
 {% set preferredDomain = site.domains | selectattr('isPreferred') | first %}
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-        "name": "Navigation",
-  "itemListElement": [{
-    "@type": "ListItem",
-    "position": 1,
-    "name": "Literature",
-    "item": "https://{{ preferredDomain.value }}/literature/"
-  }]
-}
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "name": "Navigation",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Literature",
+        "item": "https://{{ preferredDomain.value }}/literature/"
+      }
+    ]
+  }
 </script>

@@ -9,33 +9,37 @@ pagination:
 permalink: /writing/categories/{{ category }}/
 activePath: writing
 ---
-<section class="padding-block--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
-  <div class="stack margin-bottom--xl">
-    <nav class="breadcrumb" aria-label="Breadcrumbs">
-      <ol class="breadcrumb__list">
-        <li class="breadcrumb__list-item">
-          <a href="/" class="breadcrumb__link" data-animation="button">Frontpage</a>
-        </li>
-        <li class="breadcrumb__list-item">
-          <a href="/writing/" class="breadcrumb__link" data-animation="button">Writing</a>
-        </li>
-        <li class="breadcrumb__list-item">
-          <a href="/writing/#categories" class="breadcrumb__link" data-animation="button">Categories</a>
-        </li>
-        <li class="breadcrumb__list-item">
-          <a aria-current="location" class="breadcrumb__link" data-animation="button">{{ category }}</a>
-        </li>
-      </ol>
-    </nav>
-    <h1 class="h2 font-serif responsive" id="section-heading-4">{{ sections.writing.title | safe }}</h1>
-    <p>{{ sections.writing.description | safe }}</p>
-  </div>
+<section class="page" aria-labelledby="section-heading-4" style="--page-cover-image: url(https://ik.imagekit.io/8jjzxcl9p/index/cover--writing.png?updatedAt=1679837586208)">
+  <header class="page__cover">
+    <div class="page__header">
+      <nav class="breadcrumb" aria-label="Breadcrumbs">
+        <ol class="breadcrumb__list">
+          <li class="breadcrumb__list-item">
+            <a href="/" class="breadcrumb__link" data-animation="button">Frontpage</a>
+          </li>
+          <li class="breadcrumb__list-item">
+            <a href="/writing/" class="breadcrumb__link" data-animation="button">Writing</a>
+          </li>
+          <li class="breadcrumb__list-item">
+            <a href="/writing/#categories" class="breadcrumb__link" data-animation="button">Categories</a>
+          </li>
+          <li class="breadcrumb__list-item">
+            <a aria-current="location" class="breadcrumb__link" data-animation="button">{{ category }}</a>
+          </li>
+        </ol>
+      </nav>
+      <h1 class="h2 font-serif responsive" id="section-heading-4">{{ sections.writing.title | safe }}</h1>
+      <p>{{ sections.writing.description | safe }}</p>
+    </div>
+  </header>
 
-  <div class="tag-scroller">
-    {% for item in collections.postTags %}
-      <a href="/writing/categories/{{ item }}/" class="tag {{ "active" if category === item }}" style="width: fit-content;">{{ item }}</a>
-    {% endfor %}
+  <div class="page__inner">
+    <div class="tag-scroller">
+      {% for item in collections.postTags %}
+        <a href="/writing/categories/{{ item }}/" class="tag {{ "active" if category === item }}" style="width: fit-content;">{{ item }}</a>
+      {% endfor %}
+    </div>
+    {% set collection = utils.filterByCategory(collections.posts, category) | reverse %}
+    {% include 'components/post-grid.njk' %}
   </div>
-  {% set collection = utils.filterByCategory(collections.posts, category) | reverse %}
-  {% include 'components/post-grid.njk' %}
 </section>

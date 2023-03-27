@@ -8,36 +8,40 @@ pagination:
 permalink: /speaking/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html
 activePath: speaking
 ---
-<hgroup class="page__header no-section" role="group" style="width: min(100ch, 90%); margin-inline: auto;">
-  <p aria-roledescription="subtitle" id="section-heading-4" class="margin--none uppercase ls-l font-sans" data-baybayin="{{ sections.talks.baybayin_label }}">{{ sections.talks.label | safe }}</p>
-  <h1 class="margin--none font-serif responsive">{{ sections.talks.title | safe }}</h1>
-  <p aria-roledescription="subtitle">{{ sections.talks.description | safe }}</p>
-</hgroup>
+<section class="page">
+  <header class="page__cover" style="--page-cover-image: url(https://ik.imagekit.io/8jjzxcl9p/index/cover--talks.png?updatedAt=1679837585185)">
+    <hgroup class="page__header" role="group">
+      <p aria-roledescription="subtitle" id="section-heading-4" class="margin--none uppercase ls-l font-sans" data-baybayin="{{ sections.talks.baybayin_label }}">{{ sections.talks.label | safe }}</p>
+      <h1 class="margin--none font-serif responsive">{{ sections.talks.title | safe }}</h1>
+      <p aria-roledescription="subtitle">{{ sections.talks.description | safe }}</p>
+    </hgroup>
+  </header>
 
-<div class="bg--secondary padding-block--l">
-  <section aria-labelledby="section-heading-2" class="ai--center stack padding--xl margin-inline--auto" style="width: min(90%, 100ch);">
-    <div style="width: min(80ch, 100%)" class="stack gap--xl">
-      <h2 id="section-heading-2" class="margin--none">Upcoming Talks</h2>
-      {% include 'components/upcoming-talks-grid.njk' %}
-    </div>
+  <div class="bg--secondary padding-block--l">
+    <section aria-labelledby="section-heading-2" class="ai--center stack padding--xl margin-inline--auto" style="width: min(90%, 100ch);">
+      <div style="width: min(80ch, 100%)" class="stack gap--xl">
+        <h2 id="section-heading-2" class="margin--none">Upcoming Talks</h2>
+        {% include 'components/upcoming-talks-grid.njk' %}
+      </div>
+    </section>
+  </div>
+
+  <section class="padding--xl margin-inline--auto" style="width: min(90%, 100ch); margin-inline: auto" aria-labelledby="section-heading-1">
+    <h2 id="section-heading-1">Past Talks</h2>
+    {% set collection = pagination.items %}
+    {% include 'components/talks-grid.njk' %}
   </section>
-</div>
 
-<section class="padding--xl margin-inline--auto" style="width: min(90%, 100ch); margin-inline: auto" aria-labelledby="section-heading-1">
-  <h2 id="section-heading-1">Past Talks</h2>
-  {% set collection = pagination.items %}
-  {% include 'components/talks-grid.njk' %}
+  <div class="center-justified cluster padding--l">
+    {% if pagination.href.previous %}
+      <a href="{{ pagination.href.previous }}" class="button">Previous</a>
+    {% endif %}
+
+    {% if pagination.href.next %}
+      <a href="{{ pagination.href.next }}" class="button">Next</a>
+    {% endif %}
+  </div>
 </section>
-
-<div class="center-justified cluster padding--l">
-  {% if pagination.href.previous %}
-    <a href="{{ pagination.href.previous }}" class="button">Previous</a>
-  {% endif %}
-
-  {% if pagination.href.next %}
-    <a href="{{ pagination.href.next }}" class="button">Next</a>
-  {% endif %}
-</div>
 
 {% set footer = sections.talks.footer %}
 <footer id="talks-footer" class="stack gap--xl m-block--xxxl" style="text-align: center; width: min(80ch, 90%); margin-inline: auto;">
@@ -49,7 +53,7 @@ activePath: speaking
   </div>
   <div class="cluster jc--center gap--s">
     {% for action in sections.talks.footer.actions %}
-    <a href="{{ action.url }}" class="{{ "primary" if action.isPrimary }} button">{{ action.label }}</a>
+      <a href="{{ action.url }}" class="{{ "primary" if action.isPrimary }} button">{{ action.label }}</a>
     {% endfor %}
   </div>
 </footer>

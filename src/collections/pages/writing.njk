@@ -8,19 +8,23 @@ pagination:
 permalink: /writing/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html
 activePath: writing
 ---
-<section class="padding-block--xl" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
-  <hgroup role="group" class="page__header">
-    <span aria-roledescription="subtitle" id="section-heading-4" class="uppercase ls-l font-sans" data-baybayin="{{ sections.writing.baybayin_label }}">{{ sections.writing.label | safe }}</span>
-    <h1 class="font-serif responsive">{{ sections.writing.title | safe }}</h1>
-    <p aria-roledescription="subtitle">{{ sections.writing.description | safe }}</p>
-  </hgroup>
-  <div class="tag-scroller">
-    {% for item in collections.postTags %}
-      <a href="/writing/categories/{{ item }}/" class="tag" style="width: fit-content;">{{ item }}</a>
-    {% endfor %}
+<section class="page" aria-labelledby="section-heading-4" style="--page-cover-image: url(https://ik.imagekit.io/8jjzxcl9p/index/cover--writing.png?updatedAt=1679837586208)">
+  <header class="page__cover">
+    <hgroup role="group" class="page__header">
+      <span aria-roledescription="subtitle" id="section-heading-4" class="uppercase ls-l font-sans" data-baybayin="{{ sections.writing.baybayin_label }}">{{ sections.writing.label | safe }}</span>
+      <h1 class="font-serif responsive">{{ sections.writing.title | safe }}</h1>
+      <p aria-roledescription="subtitle">{{ sections.writing.description | safe }}</p>
+    </hgroup>
+  </header>
+  <div class="page__inner">
+    <div class="tag-scroller">
+      {% for item in collections.postTags %}
+        <a href="/writing/categories/{{ item }}/" class="tag" style="width: fit-content;">{{ item }}</a>
+      {% endfor %}
+    </div>
+    {% set collection = pagination.items %}
+    {% include 'components/post-grid.njk' %}
   </div>
-  {% set collection = pagination.items %}
-  {% include 'components/post-grid.njk' %}
 </section>
 
 <div class="center-justified cluster padding--l">
@@ -53,18 +57,19 @@ activePath: writing
   </div>
 </footer>
 
-
 {% set preferredDomain = site.domains | selectattr('isPreferred') | first %}
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-        "name": "Navigation",
-  "itemListElement": [{
-    "@type": "ListItem",
-    "position": 1,
-    "name": "Writing",
-    "item": "https://{{ preferredDomain.value }}/writing/"
-  }]
-}
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "name": "Navigation",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Writing",
+        "item": "https://{{ preferredDomain.value }}/writing/"
+      }
+    ]
+  }
 </script>
