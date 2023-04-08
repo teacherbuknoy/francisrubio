@@ -6,9 +6,10 @@
   </section>
   <section class="footer__body">
     <div class="footer__section">
-      <div class="cluster ai--center">
-        <img src="/favicon-512.png" alt="Logo" width="50" height="50">
-        <h2 class="responsive fs-4" style="margin: 0;">Francis Rubio</h2>
+      <div class="cluster ai--center gap--m">
+        {% set logoClass = 'logo--large' %}
+        {% include "components/logo.njk" %}
+        <h2 class="responsive fs-4 font-sans weight-700 fg-primary-900" style="margin: 0;">Francis Rubio</h2>
       </div>
       <p style="margin: 0; font-family: var(--font-sans);">Web designer, developer, and educator from the Philippines.</p>
     </div>

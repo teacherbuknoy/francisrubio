@@ -9,7 +9,10 @@
       </button>
     </div>
     <div class="navigation-bar__section navigation-bar__section--center hide-on-medium">
-      <a href="/" style="text-decoration: none; " class="weight-300 fs-6">Francis Rubio</a>
+      <a href="/" style="text-decoration: none; " class="weight-300 fs-6">
+        <span class="sr-only">Francis Rubio</span>
+        {% include "components/logo.njk" %}
+      </a>
     </div>
     <div class="navigation-bar__section navigation-bar__section--end">
       <div class="cluster gap">
@@ -37,7 +40,10 @@
     <div class="navigation-bar__section navigation-bar__section--start">
       <ul class="navigation-list">
         <li class="navigation-list-item">
-          <a href="/" class="navigation-link weight-700">Francis Rubio</a>
+          <a href="/" class="navigation-link weight-700">
+            <span class="sr-only">Francis Rubio</span>
+            {% include "components/logo.njk" %}
+          </a>
         </li>
 
         {% for item in navigation | rejectattr("overflow") %}
@@ -135,7 +141,9 @@
           </a>
         </li>
       {% endfor %}
-      <li class="navigation-list-item"><a href="https://rss.com/blog/how-do-rss-feeds-work/" target="_blank" rel="noopener" class="navigation-link">How do I use this?</a></li>
+      <li class="navigation-list-item">
+        <a href="https://rss.com/blog/how-do-rss-feeds-work/" target="_blank" rel="noopener" class="navigation-link">How do I use this?</a>
+      </li>
     </ul>
   </nav>
 </div>

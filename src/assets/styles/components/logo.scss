@@ -1,0 +1,29 @@
+@mixin logo-light {
+  &__arc {
+    fill: hsl(var(--primary-300) / 35%);
+  }
+
+  &__coin {
+    fill: hsl(var(--primary-300) / 75%);
+  }
+}
+
+.logo {
+  height: var(--type-size-5);
+  width : var(--type-size-5);
+
+  &--large {
+    height: var(--type-size-3);
+    width : var(--type-size-3);
+  }
+
+  @at-root .light & {
+    @include logo-light;
+  }
+
+  @at-root .system & {
+    @media (prefers-color-scheme: light) {
+      @include logo-light;
+    }
+  }
+}
