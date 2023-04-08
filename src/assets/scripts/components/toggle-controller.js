@@ -33,7 +33,11 @@ class ToggleController {
         const togglerSelector = `#${togglerId}, #${togglerId} *`
         const popupSelector = `#${popupId}, #${popupId} *`
         const elementIDs = [...this.#toggles].map(t => `#${t.popup.getAttribute('id')}, #${t.popup.getAttribute('id')} *`).join(', ')
+        console.debug('[ToggleController] constructor():', 'togglerId:', togglerId)
         const selector = 'button[data-toggle], button[data-toggle] *, ' + elementIDs
+        console.debug('[ToggleController] constructor():', 'selector:', selector)
+        console.debug('[ToggleController] constructor():', 'elementIDs:', elementIDs)
+        console.debug('[ToggleController] constructor():', 'togglerSelector:', togglerSelector)
         if (!target.matches(togglerSelector) && !target.matches(popupSelector)) {
           this.hideAll()
         }
@@ -49,10 +53,13 @@ class ToggleController {
   }
 
   getOpenToggle() {
-    return this.#toggles.find(t => !t.hidden)
+    const openToggle = this.#toggles.find(t => !t.hidden);
+    console.debug('[ToggleController] getOpenToggle():', openToggle)
+    return openToggle
   }
 
   hideAll() {
+    console.debug('[ToggleController] hideAll()')
     this.#toggles.forEach(toggle => {
       toggle.hidden = true
     })

@@ -245,3 +245,8 @@
   height    : 0;
   transition: opacity 300ms 300ms, height 300ms, width 300ms;
 }
+
+.characters-button {
+  all   : inherit;
+  cursor: pointer;
+}

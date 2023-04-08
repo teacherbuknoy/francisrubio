@@ -203,7 +203,7 @@
 .post-card__description {
   font-size: var(--type-size-6);
   margin   : 0;
-  opacity  : 0.55;
+  opacity  : 0.85;
 }
 
 .post-card__link {
@@ -484,7 +484,7 @@
       }
 
       &__subtitle {
-        color: hsl(var(--fg-subtle));
+        color: hsl(var(--fg-default) / 75%);
 
         p {
           margin: 0;

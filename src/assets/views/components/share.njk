@@ -30,7 +30,7 @@
         {% include 'components/feathericon.njk' %}
         <span>Copy link</span>
       </button>
-      <input type="text" id="page-link" value="{{ site.url }}{{ page.url }}" class="sr-only" aria-hidden="true">
+      <input type="hidden" id="page-link" value="{{ site.url }}{{ page.url }}" class="sr-only">
     </li>
   </ul>
 </div>

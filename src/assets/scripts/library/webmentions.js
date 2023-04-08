@@ -285,7 +285,7 @@ class WebMentionResponse {
 
     const photo = element.querySelector('img[data-webmention-entry=photo]')
     photo.setAttribute('src', this.author.photo)
-    photo.setAttribute('alt', "Photo of" + this.author.name)
+    photo.setAttribute('alt', "Photo of " + this.author.name)
 
     const authorNames = element.querySelectorAll('[data-webmention-entry=author-name]')
     authorNames.forEach(authorName => {

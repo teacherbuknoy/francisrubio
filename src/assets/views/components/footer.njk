@@ -1,4 +1,3 @@
-
 <footer class="footer">
   <section class="footer__header">
     <p>&copy; {{ "" | year }} Francis Rubio. All rights reserved.</p>
@@ -23,7 +22,7 @@
         {% endfor %}
       </ul>
     </div>
-    <div class="footer__section" id="footer-contact">
+    <div class="footer__section" id="footer-press-kit">
       <h2 class="footer__section-title">Links</h2>
       <ul class="button-list">
         <li class="button-list__item">
@@ -40,11 +39,13 @@
     </div>
   </section>
 </footer>
-<a href="#top" class="primary button go-to-top" style="z-index: 9; position: fixed;bottom: 1rem;right: 1rem;margin-inline-start: auto;display: flex;margin-block-end: 1rem;margin-inline-end: 1rem;" style="font-size: var(--type-size-6)">
-  {% set feathericon = 'arrow-up' %}
-  {% include 'components/feathericon.njk' %}
-  <span class="sr-only">Back to top</span>
-</a>
+<section>
+  <a href="#top" class="primary button go-to-top" style="z-index: 9; position: fixed;bottom: 1rem;right: 1rem;margin-inline-start: auto;display: flex;margin-block-end: 1rem;margin-inline-end: 1rem;" style="font-size: var(--type-size-6)">
+    {% set feathericon = 'arrow-up' %}
+    {% include 'components/feathericon.njk' %}
+    <span class="sr-only">Back to top</span>
+  </a>
+</section>
 {% set domain = site.domains | selectattr('isPreferred') | first %}
 <div class="h-card hidden">
   <span class="p-name">Francis Rubio</span>

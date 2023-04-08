@@ -1,7 +1,7 @@
 [data-baybayin] {
   &::after {
     content            : attr(data-baybayin);
-    color              : hsl(var(--fg-subtle));
+    color              : hsl(var(--fg-default) / 74%);
     font-family        : var(--font-baybayin);
     margin-inline-start: 1ch;
     inset              : 0;

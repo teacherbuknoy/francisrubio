@@ -11,9 +11,9 @@ activePath: writing
 <section class="page" aria-labelledby="section-heading-4" style="--page-cover-image: url(https://ik.imagekit.io/8jjzxcl9p/index/cover--writing.png?updatedAt=1679837586208)">
   <header class="page__cover">
     <hgroup role="group" class="page__header">
-      <span aria-roledescription="subtitle" id="section-heading-4" class="uppercase ls-l font-sans" data-baybayin="{{ sections.writing.baybayin_label }}">{{ sections.writing.label | safe }}</span>
+      <span id="section-heading-4" class="uppercase ls-l font-sans" data-baybayin="{{ sections.writing.baybayin_label }}">{{ sections.writing.label | safe }}</span>
       <h1 class="font-serif responsive">{{ sections.writing.title | safe }}</h1>
-      <p aria-roledescription="subtitle">{{ sections.writing.description | safe }}</p>
+      <p>{{ sections.writing.description | safe }}</p>
     </hgroup>
   </header>
   <div class="page__inner">
@@ -23,6 +23,7 @@ activePath: writing
       {% endfor %}
     </div>
     {% set collection = pagination.items %}
+    {% set cardLevel = 2 %}
     {% include 'components/post-grid.njk' %}
   </div>
 </section>

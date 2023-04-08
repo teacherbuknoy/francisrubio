@@ -11,14 +11,15 @@ activePath: projects
 <section class="page" aria-labelledby="section-heading-4" style="--page-cover-image: url(https://ik.imagekit.io/8jjzxcl9p/index/cover--projects.png?updatedAt=1679837585643)">
   <header class="page__cover">
     <hgroup class="page__header">
-      <span aria-roledescription="summary" id="section-heading-4" class="uppercase ls-l font-sans" data-baybayin="{{ sections.projects.baybayin_label }}">{{ sections.projects.label | safe }}</span>
-      <h2 class="font-serif responsive">{{ sections.projects.title | safe }}</h2>
+      <span id="section-heading-4" class="uppercase ls-l font-sans" data-baybayin="{{ sections.projects.baybayin_label }}">{{ sections.projects.label | safe }}</span>
+      <h1 class="font-serif responsive">{{ sections.projects.title | safe }}</h1>
       <p>{{ sections.projects.description | safe }}</p>
     </hgroup>
   </header>
   <div class="page__inner">
     <div class="padding-block--xl gap--l" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(30ch, 100%), 1fr))">
       {% for item in pagination.items %}
+        {% set cardLevel = 2 %}
         {% include 'components/deck-card.njk' %}
       {% endfor %}
     </div>

@@ -1,9 +1,9 @@
-<div class="modal" id="modal__email" hidden>
+<div class="modal" id="modal__email" hidden aria-labelledby="heading-contact-form">
   <div class="modal__backdrop" data-dialog-hide></div>
   <div class="modal__content">
     <div class="modal__header">
-      <h2 class="modal__title">Contact Form</h2>
-      <button class="icon-only button" style="padding: var(--space-s)" data-dialog-hide>
+      <h2 class="modal__title" id="heading-contact-form">Contact Form</h2>
+      <button class="icon-only button" style="padding: var(--space-m)" data-dialog-hide>
         {% set feathericon = 'x' %}
         {% include "components/feathericon.njk" %}
         <span class="sr-only">Close dialog</span>

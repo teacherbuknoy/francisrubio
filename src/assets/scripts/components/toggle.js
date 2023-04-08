@@ -6,7 +6,7 @@ class Toggle {
   constructor(toggler) {
     this.#toggler = toggler
     const togglerId = `toggler-${Date.now()}`
-    this.#toggler.id = togglerId
+    this.#toggler.id = togglerId + + Math.floor(Math.random() * 99999)
 
     this.#events = {
       show: [],

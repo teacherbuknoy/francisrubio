@@ -91,7 +91,7 @@ const mouseHandler = e => {
   })
 }
 
-const h1 = document.querySelector('h1')
+const h1 = document.querySelector('h1 button')
 
 document.fonts.ready.then(() => {
   setTimeout(() => {

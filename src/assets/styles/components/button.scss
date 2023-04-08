@@ -1,5 +1,5 @@
 .button {
-  --button-padding       : var(--space-xs) var(--space-xl);
+  --button-padding       : var(--space-s) var(--space-l);
   -webkit-backdrop-filter: blur(10px);
 
   align-items            : center;
@@ -80,7 +80,7 @@
 
   &--small {
     font-size: 1rem;
-    padding  : var(--space-xxs) var(--space-m);
+    padding  : var(--space-xs) var(--space-m);
   }
 
   &-text--disabled {
@@ -174,7 +174,8 @@ body.no-js {
 .navigation-link,
 .navigation-menu-link {
   &.icon-only {
-    padding: var(--space-xs);
+    padding     : var(--space-xxs);
+    aspect-ratio: 1/1;
 
     @media not (pointer: fine),
     (max-width: 720px) {

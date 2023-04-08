@@ -68,7 +68,7 @@
   justify-content : center;
   line-height     : 1.5;
   outline         : 3px solid transparent;
-  padding         : var(--space-xxxs) var(--space);
+  padding         : var(--space-xxs) var(--space);
   text-decoration : none;
   transition      : background 200ms, color 200ms, outline-offset 100ms, outline 50ms 50ms;
   white-space     : nowrap;
@@ -84,10 +84,6 @@
     outline-offset  : 5px;
     outline-width   : 3px;
     transition      : background 200ms, color 200ms, outline-offset 100ms, outline 100ms;
-  }
-
-  &.icon-only {
-    padding: var(--space-xxxs);
   }
 
   &.active {
