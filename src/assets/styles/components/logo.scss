@@ -1,10 +1,10 @@
 @mixin logo-light {
   &__arc {
-    fill: hsl(var(--primary-300) / 35%);
+    fill: hsl(var(--primary-300) / 55%);
   }
 
   &__coin {
-    fill: hsl(var(--primary-300) / 75%);
+    fill: hsl(var(--primary-300));
   }
 }
 
