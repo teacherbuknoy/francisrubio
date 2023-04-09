@@ -1,5 +1,5 @@
 .hero {
-  --top-offset       : -7rem;
+  --top-offset       : -6rem;
   background-color   : #ffc5d1;
   display            : grid;
   margin-block-start : var(--top-offset);
@@ -141,7 +141,7 @@
 
 @media (min-width: 1080px) {
   .hero {
-    --top-offset: -5.7rem;
+    --top-offset: -6rem;
 
     &__inner {
       align-self           : end;
