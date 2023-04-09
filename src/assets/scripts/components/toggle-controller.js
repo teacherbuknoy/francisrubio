@@ -12,6 +12,10 @@ class ToggleController {
     this.#toggles = [...elements];
     this.#toggleParent = document.querySelector('[data-toggle-parent]')
 
+    /* Need to assign new ID for toggles to prevent duplicate IDs */
+    this.#toggles.forEach(toggle => {
+      toggle.id = `toggler-${Date.now()}`
+    })
 
     this.#toggles.forEach(toggle => {
       toggle.addEventListener('show', tg => {
@@ -39,7 +43,10 @@ class ToggleController {
         console.debug('[ToggleController] constructor():', 'elementIDs:', elementIDs)
         console.debug('[ToggleController] constructor():', 'togglerSelector:', togglerSelector)
         if (!target.matches(togglerSelector) && !target.matches(popupSelector)) {
+          console.debug('[ToggleController] constructor():', 'hideAll()?:', 'yes')
           this.hideAll()
+        } else {
+          console.debug('[ToggleController] constructor():', 'hideAll()?:', 'no')
         }
       }
     })

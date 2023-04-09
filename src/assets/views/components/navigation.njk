@@ -95,7 +95,7 @@
 </div>
 
 <div class="popup-wrapper hidden" data-toggle-parent>
-  <nav aria-label="More navigation" class="navigation-popup js--start" id="nav-overflow" hidden>
+  <nav data-popup aria-label="More navigation" class="navigation-popup js--start" id="nav-overflow" hidden>
     <ul class="navigation-list">
       {% for item in navigation | selectattr("overflow") %}
         <li class="navigation-list-item">
@@ -115,7 +115,7 @@
       {% endfor %}
     </ul>
   </nav>
-  <form class="navigation-popup detached js--end" data-navbar-popover-animations aria-label="Change color scheme" name="color-scheme" id="form-color-scheme" hidden>
+  <form data-popup class="navigation-popup detached js--end" data-navbar-popover-animations aria-label="Change color scheme" name="color-scheme" id="form-color-scheme" hidden>
     <div class="navigation-list gap-m">
       <div class="navigation-list-item navigation-list-radio">
         <input type="radio" id="desktop-colscheme-light" name="color-scheme" value="light">
@@ -131,7 +131,7 @@
       </div>
     </div>
   </form>
-  <nav aria-labelledby="list-rss__label" class="navigation-popup navigation-popup--bar detached js--end" id="list-rss" data-navbar-animations aria-label="RSS Feeds" hidden>
+  <nav data-popup aria-labelledby="list-rss__label" class="navigation-popup navigation-popup--bar detached js--end" id="list-rss" data-navbar-animations aria-label="RSS Feeds" hidden>
     <span id="list-rss__label" class="navigation-popup__label">RSS Feeds</span>
     <ul class="navigation-list">
       {% for item in site.feeds | values %}

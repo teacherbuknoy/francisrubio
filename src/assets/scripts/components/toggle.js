@@ -27,6 +27,14 @@ class Toggle {
     }
   }
 
+  set id(value) {
+    this.#toggler.id = value
+  }
+
+  get id() {
+    return this.#toggler.id
+  }
+
   addEventListener(eventKey, eventHandler) {
     this.#events[eventKey].push(eventHandler)
   }

@@ -9,6 +9,7 @@ import { $, $$ } from './utilities/dom'
 import { Tab, TabControl } from './components/TabControl'
 import { NotificationManager } from './components/NotificationManager'
 import { FormValidator } from './components/Forms'
+import { Popup, PopupController } from './components/Popup'
 import { ToggleComponent } from './components/ToggleComponent'
 import { Toggle } from './components/toggle'
 import { ToggleController } from "./components/toggle-controller";
@@ -77,8 +78,24 @@ document.querySelectorAll('button[data-slur]')
 //  .forEach(button => new ToggleComponent(button))
 
 
-const popupToggles = document.querySelectorAll('button[data-toggle]')
-const toggles = [...popupToggles].map(toggle => new Toggle(toggle))
-console.log({ toggles })
+// const popupToggles = document.querySelectorAll('button[data-toggle]')
+// const toggles = [...popupToggles].map(toggle => new Toggle(toggle))
+// console.log({ toggles })
+// 
+// const toggleController = new ToggleController(toggles)
 
-const toggleController = new ToggleController(toggles)
+const popups = [...document.querySelectorAll('[data-popup]')].map(p => new Popup(p))
+const popupContainer = document.querySelector('[data-toggle-parent]')
+popups.forEach(popup => {
+  popup.addEventListener('toggle', p => {
+    if (popup.isHidden) {
+      popupContainer.classList.add('hidden')
+    } else {
+      popupContainer.classList.remove('hidden')
+    }
+  })
+})
+
+const popupController = new PopupController(popups)
+popupController.addEventListener('oneopen', () => popupContainer.classList.remove('hidden'))
+popupController.addEventListener('allClose', () => popupContainer.classList.add('hidden'))
