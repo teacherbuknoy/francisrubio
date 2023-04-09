@@ -181,6 +181,15 @@ body.no-js {
     (max-width: 720px) {
       padding: var(--space-xs) !important;
     }
+
+    &--mobile {
+      aspect-ratio: auto;
+
+      @media (max-width: 720px) {
+        aspect-ratio: 1/1;
+        padding     : var(--space-xs) !important;
+      }
+    }
   }
 
   &.has-icon {
