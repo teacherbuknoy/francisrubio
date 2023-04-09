@@ -13,7 +13,7 @@
   padding              : var(--space-xs);
   position             : sticky;
   top                  : var(--space);
-  transition           : padding 300ms, box-shadow 300ms, max-width 200ms, border 200ms;
+  transition           : padding 300ms, box-shadow 300ms, max-width 200ms, border 200ms, background-color 200ms;
   z-index              : 998;
 
   &.attached {
@@ -136,6 +136,10 @@
     height      : auto;
     stroke-width: 1px;
     width       : 1.5em;
+  }
+
+  @at-root .navigation-bar:not(.attached) & {
+    mix-blend-mode: multiply;
   }
 }
 
@@ -385,4 +389,9 @@
   .hide-on-medium {
     display: none;
   }
+}
+
+.navigation-bar:not(.attached),
+.popup-wrapper:not(.attached) .navigation-popup {
+  background-color: hsl(var(--primary-100)/75%);
 }

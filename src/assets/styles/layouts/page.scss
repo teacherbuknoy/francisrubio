@@ -25,7 +25,8 @@
     }
 
     [data-baybayin]::after {
-      mix-blend-mode: color-burn;
+      mix-blend-mode: multiply;
+      color         : hsl(var(--primary-100));
     }
   }
 
@@ -42,8 +43,9 @@
     }
 
     &.no-section {
-      margin-block: var(--space-xxl);
-      width       : min(100ch, 90%);
+      margin-block : var(--space-xxl);
+      margin-inline: auto;
+      width        : min(100ch, 90%);
     }
   }
 }
