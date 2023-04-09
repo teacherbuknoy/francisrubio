@@ -1,79 +1,65 @@
 [
   {
     "category": "Front-end Development",
-    "experience": 5,
+    "experience": 6,
     "title": "HyperText Markup Language (HTML)",
-    "content": "I worked as freelance web developer for 5 years. I spent two of those years teaching it too. HTML is the foundation of a semantic website, helping it rank well on search results, and accessibility, helping your users regardless of age and abilities to use your webpage comfortably.",
+    "content": "I have been a web developer for about 6 years now, and I spent two of those years teaching web development as well. As such, I have grown to have advanced knowledge of HTML. I can identify common accessibility issues and how to resolve them. I can also write correct markup with appropriate semantics. I can also do Search Engine Optimization.",
     "icon": "html5"
   },
   {
     "category": "Front-end Development",
     "experience": 5,
     "title": "Cascading Stylesheets (CSS)",
-    "content": "Since I worked as a freelance web developer for 5 years now, and also doing web development full time for a couple of companies, I can say I can use CSS comfortably. For example, I wrote all of the styles for this website by hand with no help from existing CSS frameworks or libraries. I am well-versed in responsive design using modern techniques.",
+    "content": "I have an advanced knowledge of CSS. I can do responsive web design, progressive enhancement, and modern techniques. I have working knowledge on using CSS frameworks like bootstrap. I can also build you your own CSS framework and style our website from scratch.",
     "icon": "css3"
   },
   {
     "category": "Front-end Development",
     "experience": 5,
     "title": "JavaScript",
-    "content": "When building websites, I reach for JavaScript only when truly necessary. Just like with CSS, I try to write my own JavaScript code whenever possible. I can build client-side integrations with REST APIs, accessible UI components sans the frameworks, and a little more than just the basics.",
+    "content": "When building websites, I reach for JavaScript only when necessary. More focus should be on HTML so webpages work for as many people as possible. JavaScript comes in to enhance the experience. I can build client-side integrations with existing REST APIs. I can also build accessible UI components without using frameworks. And I can do more than just the basics of JavaScript.",
     "icon": "javascript"
   },
   {
     "category": "Front-end Development",
     "experience": 3,
     "title": "Sass (SCSS)",
-    "content": "Sass adds more fun and power in writing CSS styles. I am no Sass expert, but who needs to be? All of the websites I have developed since 2020 have styles that are written with SCSS.",
+    "content": "Sass adds more fun and power in writing CSS styles. I have worked on websites with Sass since 2020. A majority of my front-end projects use Sass.",
     "icon": "sass"
   },
   {
     "category": "Development Operations",
     "experience": 4,
     "title": "Git",
-    "content": "Git is a version control manager for code. It makes sure that code for your projects will not go mysteriously missing, or that if you break something, you can safely go back to a time when your code is working perfectly. A working knowledge with Git is something that I am proud of.",
+    "content": "Version control will save you and your business by always keeping a backup copy of code. When a new patch update breaks your website, Git can revert back to a working version. I have 6 years' worth of working knowledge with Git. I have also several years' worth of basic development operations  (<abbr>DevOps</abbr>)  to go with it.",
     "icon": "git"
   },
   {
     "category": "Back-end Development",
     "experience": 4,
     "title": "Node.js",
-    "content": "Although I mostly focus on building front ends for APIs, I am also very comfortable around building back end services. Node.js is my technology of choice when it comes to that.",
+    "content": "I focus on building front ends for APIs, but I am also very comfortable around building back end services. Node.js is my technology of choice when it comes to that.",
     "icon": "nodejs"
-  },
-  {
-    "category": "Development Operations",
-    "experience": 4,
-    "title": "Github",
-    "content": "Through the years, I have had several Github accounts. My web projects are mostly stored in git repositories hosted on Github. Its free hosting service, Github Pages, is also something that I have often used in the past before moving to Netlify. My knowledge with Github includes the basics, as well as creating organizations, organizing projects and timelines, managing and resolving bugs and issues, as well as tinkering with its security features.",
-    "icon": "github"
   },
   {
     "category": "Design",
     "experience": 4,
     "title": "Figma",
-    "content": "When it comes to prototyping, mockups, or even the occasional graphic design, Figma is my design tool of choice. When presenting designs and concepts to clients, I either send them a link to a Figma presentation or PNGs exported from it. My experience with Figma mostly focuses on prototyping, but my needs for social media cards and graphics also required me to learn more of the advanced side of the software.",
+    "content": "When it comes to prototyping, mockups, or even the occasional graphic design, Figma is my design tool of choice. When presenting designs and concepts to clients, I either send them a link to a Figma presentation, or files exported from it. My working experience with Figma mostlyy focuses on mockups and prototyping, brand design, social media cards, and infographics.",
     "icon": "figma"
   },
   {
     "category": "Authentication, Analytics, Cloud Storage",
     "experience": 4,
     "title": "Firebase",
-    "content": "Since I am building JAMStack sites more often than not, most of my backend needs are fulfilled by Firebase. I use this technology for authentication, user management, cloud storage, and analytics",
+    "content": "My work is around JavaScript, APIs, and markup  (<abbr>Jamstack</abbr>  sites) , and I use Firebase for my back end needs. I can build integrations that center around authentication and user management. I can also build integrations for cloud storage as well as analytics.",
     "icon": "firebase"
   },
   {
     "category": "Static Site Generator",
     "experience": 3,
     "title": "Eleventy",
-    "content": "For static site generation, I switched to Eleventy from Hexo and Jekyll. Eleventy gives me more control on how site pages are generated. All of my web projects sinces 2021, as well as some from 2020, are all made with Eleventy. I have working knowledge about creating templates, adding plugins, assembling a build system, as well as adding shortcodes, plugins, and filters.",
+    "content": "I switched to Eleventy from Hexo and Jekyll for static site generation. It gives me more and easier control on how site pages are generated. I can build templates, plugins, shortcodes, and filters. I can also assemble a build system within the Eleventy ecosystem. My templating language of choice is Nunjucks and Liquid (which is also used by shopify.",
     "icon": "eleventy"
-  },
-  {
-    "category": "Development Operations",
-    "experience": 5,
-    "title": "Bitbucket",
-    "content": "For private repositories, I use Bitbucket. Its features are pretty similar. For clients that commission sites that don't want to open source their sites, I store the source code in Bitbucket repositories.",
-    "icon": "bitbucket"
   }
 ]
