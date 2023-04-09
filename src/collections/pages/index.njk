@@ -54,7 +54,7 @@ scripts: ['frontpage.js']
                 <span class="uppercase ls-xs font-sans">{{ tech.experience }} years of experience</span>
               </div>
               <h3 class="margin--none" id="{{ tech.icon }}-heading">{{ tech.title }}</h3>
-              <div class="stack gap--s">{{ tech.content | safe }}</div>
+              <div class="stack gap--s"><p>{{ tech.content | safe }}</p></div>
             </section>
           {% endfor %}
         </div>
