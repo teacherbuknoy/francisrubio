@@ -5,7 +5,6 @@ async function renderWebMentions() {
   const wm = await WebMentionBuilder.build()
 
   if (wm.isEmpty()) {
-    console.log("[WebMentions]", "No WebMentions response found.")
     return
   }
 
@@ -28,7 +27,6 @@ async function renderWebMentions() {
 
   const likesAndReposts = (await wm.getAllMentions())
     .filter(item => item.type === 'like-of' || item.type === 'repost-of')
-  console.log({ likesAndReposts })
 
   likesAndReposts.forEach(interaction => {
     const rendered = new WebMentionResponse(interaction).render()
@@ -43,8 +41,6 @@ async function renderWebMentions() {
   await wm.getReplies()
     .then(data => {
       const responses = data.map(d => new WebMentionResponse(d).render())
-
-      console.log(data)
 
       document.querySelectorAll('[data-webmention-container=in-reply-to]')
         .forEach(container => {

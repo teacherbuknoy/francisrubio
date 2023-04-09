@@ -46,9 +46,6 @@ class FormValidator {
     const invalidEmail = !FormValidations.checkEmailValidity(input.value)
     const inputStatus = this.getOrCreateStatusElement(input)
 
-    console.log(inputStatus)
-    console.log({ invalidEmail })
-
     if (requiredButEmpty) {
       inputStatus.innerText = FormErrors.REQUIRED
     } else if (invalidEmail) {
@@ -65,9 +62,7 @@ class FormValidator {
    */
   getOrCreateStatusElement(input) {
     if (input.parentElement.matches('.form-group')) {
-      console.log('[STATUS] Parent matches')
       let inputStatus = input.parentElement.querySelector('.form-status')
-      console.log({ inputStatus })
       if (inputStatus == null) {
         inputStatus = document.createElement('p')
         inputStatus.classList.add('form-status')

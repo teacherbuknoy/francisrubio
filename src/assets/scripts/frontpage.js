@@ -12,8 +12,6 @@ class BaybayinCharacter {
 
     this.#elements.latin.classList.add('hidden')
     this.#state = 'baybayin'
-
-    console.log(this.#filters)
   }
 
   get state() {

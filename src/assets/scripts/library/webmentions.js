@@ -301,7 +301,7 @@ class WebMentionResponse {
       try {
         ts.setAttribute('datetime', this.timestamp.toISOString())
       } catch (e) {
-        console.log(this.timestampString)
+        console.error(e)
       }
     })
 

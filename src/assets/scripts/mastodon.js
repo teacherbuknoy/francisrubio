@@ -18,7 +18,6 @@ async function handleLoadLatest(e) {
   const btn = e.target
   btn.removeEventListener('click', handleLoadLatest)
   btn.classList.add('button--disabled')
-  console.log("LATEST", btn)
 
   await loadLatestPosts(feedContainer)
 
@@ -93,7 +92,6 @@ async function loadPosts(lastID, handler = (post) => post.render()) {
 }
 
 function organizePostReplies(arr) {
-  console.log("[ORGANIZE MASTODON REPLIES]", arr)
   arr.forEach(entry => {
     const { id } = entry
 
