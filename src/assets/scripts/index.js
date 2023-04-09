@@ -80,7 +80,6 @@ document.querySelectorAll('button[data-slur]')
 
 // const popupToggles = document.querySelectorAll('button[data-toggle]')
 // const toggles = [...popupToggles].map(toggle => new Toggle(toggle))
-// console.log({ toggles })
 // 
 // const toggleController = new ToggleController(toggles)
 
@@ -97,5 +96,9 @@ popups.forEach(popup => {
 })
 
 const popupController = new PopupController(popups)
-popupController.addEventListener('oneopen', () => popupContainer.classList.remove('hidden'))
-popupController.addEventListener('allClose', () => popupContainer.classList.add('hidden'))
+popupController.addEventListener('hasopen', () => {
+  popupContainer.classList.remove('hidden')
+})
+popupController.addEventListener('allclose', () => {
+  popupContainer.classList.add('hidden')
+})

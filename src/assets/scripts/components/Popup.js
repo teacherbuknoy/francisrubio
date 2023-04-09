@@ -1,5 +1,3 @@
-import { initialize } from "esbuild";
-
 class Popup {
   #element;
   #toggles = [];
@@ -36,13 +34,11 @@ class Popup {
     this.#element = popup
     const id = popup.id
     this.#toggles = [...document.querySelectorAll(`[data-toggle="${id}"]`)]
-    console.debug(this.#toggles)
 
     this.#toggles.forEach(toggle => {
       toggle.setAttribute('aria-controls', id)
       toggle.setAttribute('aria-expanded', false)
       toggle.addEventListener('click', e => {
-        console.debug('[Popup] constructor(): toggle clicked:', toggle)
         this.toggle()
       })
     })
@@ -105,7 +101,6 @@ class Popup {
    * @memberof Popup
    */
   close() {
-    console.debug('[Popup] close():', this.#element)
     this.#hidePopup(this.#element)
     this.#toggles.forEach(toggle => {
       toggle.setAttribute('aria-expanded', false)
@@ -119,7 +114,6 @@ class Popup {
    * @memberof Popup
    */
   open() {
-    console.debug('[Popup] open():', this.#element)
     this.#showPopup(this.#element)
     this.#toggles.forEach(toggle => {
       toggle.setAttribute('aria-expanded', true)
@@ -142,7 +136,6 @@ class Popup {
    * @memberof Popup
    */
   toggle() {
-    console.debug('[Popup] toggle(): this.isHidden:', this.isHidden)
     if (this.isHidden) {
       this.open()
     } else {
@@ -165,8 +158,14 @@ class Popup {
 }
 
 class PopupController {
+  /** @type {Popup[]} */
   #popups = []
-  #events
+  #events = {
+    allclose: [],
+    hasopen: []
+  }
+
+  static selector = '[data-toggle], [data-toggle] *, [data-popup], [data-popup] *'
 
   /**
    * Creates an instance of PopupController.
@@ -178,25 +177,44 @@ class PopupController {
     if (!(popups instanceof Array))
       throw Error("PopupController only accepts an array of Popup objects")
 
-    this.#events = {
-      allclose: [],
-      oneopen: [],
-    }
-
     this.#popups = popups
-    popups.forEach(popup => {
+    this.#initialize()
+
+    document.body.addEventListener('click', e => {
+      if (!e.target.matches(PopupController.selector)) {
+        this.closeAll()
+      }
+    })
+  }
+
+  #initialize() {
+    this.#popups.forEach(popup => {
       popup.addEventListener('open', () => {
-        popups
+        this.#popups
           .filter(p => p !== popup)
           .forEach(p => p.close())
 
-        this.#events['oneopen'].forEach(fn => fn(popup))
+        for (const fn of this.#events.hasopen) {
+          fn(popup)
+        }
+      })
+
+      popup.addEventListener('close', () => {
+        const openPopup = this.#popups.find(p => !p.isHidden)
+        if (openPopup == null) {
+          this.#events.allclose.forEach(fn => fn())
+        }
       })
     })
   }
 
-  addEventListener(eventType, fn = () => { }) {
-    this.#events[eventType] = fn
+  addEventListener(eventType = 'hasopen', fn = () => { }) {
+    const qualifiedEventType = eventType.toLowerCase()
+    if (Object.keys(this.#events).includes(qualifiedEventType)) {
+      this.#events[qualifiedEventType].push(fn)
+    } else {
+      throw Error(`Event ${eventType} is not supported for this object`)
+    }
   }
 
   closeAll() {
