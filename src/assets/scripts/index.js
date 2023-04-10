@@ -14,9 +14,7 @@ import { ToggleComponent } from './components/ToggleComponent'
 import { Toggle } from './components/toggle'
 import { ToggleController } from "./components/toggle-controller";
 
-window.addEventListener('load', e => {
-  document.body.classList.remove('no-js')
-})
+window.onJSLoadCallbacks = []
 
 let tabs = [...document.querySelectorAll('[data-tab]:is(button, a)')].map(
   tab => {
@@ -74,15 +72,6 @@ new FormValidator(document.getElementById('frm-email'))
 document.querySelectorAll('button[data-slur]')
   .forEach(button => new SlurToggle(button))
 
-//document.querySelectorAll('button[data-toggle]')
-//  .forEach(button => new ToggleComponent(button))
-
-
-// const popupToggles = document.querySelectorAll('button[data-toggle]')
-// const toggles = [...popupToggles].map(toggle => new Toggle(toggle))
-// 
-// const toggleController = new ToggleController(toggles)
-
 const popups = [...document.querySelectorAll('[data-popup]')].map(p => new Popup(p))
 const popupContainer = document.querySelector('[data-toggle-parent]')
 popups.forEach(popup => {
@@ -101,4 +90,9 @@ popupController.addEventListener('hasopen', () => {
 })
 popupController.addEventListener('allclose', () => {
   popupContainer.classList.add('hidden')
+})
+
+window.addEventListener('load', e => {
+  document.body.classList.remove('no-js')
+  window.onJSLoadCallbacks.forEach(fn => fn())
 })

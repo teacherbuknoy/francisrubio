@@ -186,11 +186,15 @@
   margin-top: 50%;
 }
 
+.characters,
+.animated-fallback {
+  font-size: clamp(3rem, 13vw + 1rem, 10rem);
+}
+
 .characters {
   display    : flex;
   align-items: stretch;
   font-family: 'Figtree', sans-serif;
-  font-size  : clamp(3rem, 13vw + 1rem, 10rem);
 }
 
 .character {
@@ -249,4 +253,20 @@
 .characters-button {
   all   : inherit;
   cursor: pointer;
+
+  &.animated {
+    @media (prefers-reduced-motion) {
+      display: none;
+    }
+  }
+}
+
+.no-js {
+  .animated {
+    display: none;
+  }
+
+  .animated-fallback {
+    display: revert;
+  }
 }

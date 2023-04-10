@@ -91,7 +91,8 @@ const mouseHandler = e => {
 
 const h1 = document.querySelector('h1 button')
 
-document.fonts.ready.then(() => {
+window.onJSLoadCallbacks.push(() => {
+  console.debug("JS CALLBACK: BAYBAYIN")
   setTimeout(() => {
     mouseHandler();
 
