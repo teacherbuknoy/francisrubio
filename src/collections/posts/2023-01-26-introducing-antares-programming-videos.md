@@ -17,7 +17,7 @@ seo:
   og:
     url: "https://ik.imagekit.io/8jjzxcl9p/tr:f-png,h-0.5/posts/introducing-antares-programming-videos/og.png"
     is_prefixed: false
-eleventyExcludeFromCollections: false
+eleventyExcludeFromCollections: true
 syndication:
   - https://mstdn.party/@teacherbuknoy/109761064836695033/
 ---
