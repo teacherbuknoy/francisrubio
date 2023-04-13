@@ -109,11 +109,11 @@
 
     &:focus {
       outline-offset: 2px;
-      outline       : 2px solid hsl(var(--primary-500));
+      outline       : 2px solid hsl(var(--primary-700));
       border-color  : transparent;
 
       &+.form-label {
-        color    : hsl(var(--primary-500));
+        color    : hsl(var(--primary-900));
         transform: none;
 
         &::before {

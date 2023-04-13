@@ -138,8 +138,18 @@
     width       : 1.5em;
   }
 
-  @at-root .navigation-bar:not(.attached) & {
-    mix-blend-mode: multiply;
+  @at-root .light {
+    .navigation-bar:not(.attached) & {
+      mix-blend-mode: multiply;
+    }
+  }
+
+  @at-root .system {
+    @media (prefers-color-scheme: light) {
+      .navigation-bar:not(.attached) & {
+        mix-blend-mode: multiply;
+      }
+    }
   }
 }
 

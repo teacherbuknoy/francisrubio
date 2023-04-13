@@ -183,6 +183,7 @@
 }
 
 @mixin dark-theme() {
+  color-scheme   : dark;
   --contrast     : var(--d-contrast);
   --default      : var(--d-default);
   --subtle       : var(--d-subtle);
@@ -245,7 +246,7 @@
   --font-ui           : var(--font-sans);
   --font-mono         : "Source Code Pro", monospace;
   --font-cursive      : 'Matatas One', sans-serif;
-  --font-baybayin      : 'Noto Sans Tagalog', 'Figtree', sans-serif;
+  --font-baybayin     : 'Noto Sans Tagalog', 'Figtree', sans-serif;
 
 
   @supports (font-variation-settings: "wght"100) {

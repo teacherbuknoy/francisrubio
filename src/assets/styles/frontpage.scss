@@ -251,8 +251,15 @@
 }
 
 .characters-button {
-  all   : inherit;
-  cursor: pointer;
+  all       : inherit;
+  cursor    : pointer;
+  transition: border-radius 300ms, filter 300ms;
+
+  &:focus-visible {
+    outline-offset: 0;
+    border-radius : var(--radius-1);
+    filter        : drop-shadow(0 0 15px hsl(var(--primary-300) / 50%));
+  }
 
   &.animated {
     @media (prefers-reduced-motion) {
