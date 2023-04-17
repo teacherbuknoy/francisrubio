@@ -59,7 +59,7 @@
     "category": "Static Site Generator",
     "experience": 3,
     "title": "Eleventy",
-    "content": "I switched to Eleventy from Hexo and Jekyll for static site generation. It gives me more and easier control on how site pages are generated. I can build templates, plugins, shortcodes, and filters. I can also assemble a build system within the Eleventy ecosystem. My templating language of choice is Nunjucks and Liquid (which is also used by shopify.",
+    "content": "I switched to Eleventy from Hexo and Jekyll for static site generation. It gives me more and easier control on how site pages are generated. I can build templates, plugins, shortcodes, and filters. I can also assemble a build system within the Eleventy ecosystem. My templating language of choice is Nunjucks and Liquid (which is also used by shopify).",
     "icon": "eleventy"
   }
 ]
