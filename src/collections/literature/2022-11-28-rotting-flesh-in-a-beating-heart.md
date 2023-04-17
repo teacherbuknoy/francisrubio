@@ -16,7 +16,7 @@ seo:
   og:
     src: "/literatures/rotting-flesh-beating-heart/og.png"
     is_prefixed: true
-eleventyExcludeFromCollections: false
+eleventyExcludeFromCollections: true
 ---
 
 I thought we were a stronghold. I thought what we have was a watchtower. We weathered countless storms and battled giant waves. We’ve given all we had to be as sturdy as any castle can be.
