@@ -1,68 +1,141 @@
 .profile {
-  background-color: hsl(var(--bg-secondary) / 25%);
-  border          : 1px solid hsl(var(--bg-secondary));
-  border-radius   : var(--radius-4);
-  display         : flex;
-  flex-direction  : column;
-  overflow        : hidden;
+  --card-bg        : hsl(var(--bg-primary));
+  display          : flex;
+  flex-direction   : column;
+  margin-block     : var(--space);
+  margin-inline    : auto;
+  padding-block-end: var(--space);
+  width            : min(65ch, 90%);
 
-  &__body {
-    display       : flex;
-    flex-direction: column;
-    font-family   : var(--font-sans);
-    gap           : var(--space);
-    padding       : var(--space);
+  &__header {
+    background-color: var(--card-bg);
+    box-shadow      : 0 4px 16px #0003;
+    border-radius   : var(--radius-5);
+    overflow        : hidden;
+
+    @at-root .dark & {
+      --card-bg: hsl(var(--bg-secondary) / 50%);
+    }
+
+    @at-root .system & {
+      @media (prefers-color-scheme: dark) {
+        --card-bg: hsl(var(--bg-secondary) / 50%);
+      }
+    }
   }
 
   &__avatar {
     aspect-ratio : 1/1;
-    border-radius: var(--radius-5);
-    height       : 6rem;
-    width        : auto;
+    border       : 4px solid white;
+    border-radius: var(--radius-2);
+    margin-inline: var(--space-l);
+    margin-top   : calc((var(--space-xxl)) * -1);
+    position     : relative;
+    width        : 96px;
+    z-index      : 9;
+  }
+
+  &__name,
+  &__identifier {
+    font-family  : var(--font-sans);
+    margin-block : 0;
+    margin-inline: var(--space-l);
+  }
+
+  &__field a,
+  &__link,
+  &__identifier {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   &__name {
-    font-size              : var(--type-size-5);
-    font-family            : var(--font-sans);
-    font-variation-settings: 'wght'600;
-  }
+    font-size              : var(--type-size-4);
+    font-variation-settings: 'wght'700;
 
-  &__link {
-    align-items    : center;
-    display        : flex;
-    gap            : 0.5ch;
-    text-decoration: none;
-  }
-
-  &__metadata {
-    display        : flex;
-    gap            : var(--space);
-    flex-wrap      : wrap;
-    justify-content: space-between;
-    padding        : var(--space);
+    .emoji {
+      aspect-ratio  : 1/1;
+      height        : 1ch;
+      vertical-align: middle;
+    }
   }
 
   &__identifier {
-    font-size: var(--type-size-6);
     color    : hsl(var(--fg-subtle));
-  }
-}
-
-.statistic {
-  align-items   : center;
-  display       : flex;
-  flex-direction: column;
-  margin        : 0;
-
-  &__figure {
-    font-size              : var(--type-size-5);
-    font-variation-settings: 'wght'600;
+    font-size: var(--type-size-6);
   }
 
-  &__label {
-    font-size     : var(--type-size-7);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-align    : center;
+  &__bio {
+    font-family  : var(--font-sans);
+    font-size    : var(--type-size-6);
+    margin-inline: var(--space-l);
+  }
+
+  &__fields {
+    margin     : var(--space-l);
+    font-family: var(--font-sans);
+  }
+
+  &__field {
+    --border-radius : var(--radius-2);
+    background-color: hsl(var(--bg-secondary) / 50%);
+    padding-block   : var(--space-xs);
+    padding-inline  : var(--space-s);
+
+    &:first-child {
+      border-top-left-radius : var(--border-radius);
+      border-top-right-radius: var(--border-radius);
+    }
+
+    &:last-child {
+      border-bottom-left-radius : var(--border-radius);
+      border-bottom-right-radius: var(--border-radius);
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid hsl(var(--bg-primary));
+    }
+
+    dt {
+      text-transform: uppercase;
+      font-size     : var(--type-size-6);
+      color         : hsl(var(--fg-subtle));
+    }
+
+    dd {
+      margin   : 0;
+      font-size: var(--type-size-6);
+    }
+
+    .invisible {
+      display: none;
+    }
+
+    a {
+      color: hsl(var(--primary-700));
+
+      &::after {
+        content: none !important;
+      }
+    }
+
+    &.verified {
+      background-color: hsl(var(--success-100) / 25%);
+      border          : solid 1px hsl(var(--success-500));
+
+      * {
+        color: hsl(var(--success-900));
+      }
+    }
+  }
+
+  &__feed {
+    display       : flex;
+    flex-direction: column;
+    gap           : var(--space);
+    margin-block  : var(--space-xl);
   }
 }

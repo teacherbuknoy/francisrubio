@@ -56,5 +56,9 @@ module.exports = {
         return finalString.replace(emojiMatch, img)
       }, str)
   },
-  isFutureDate: value => new Date().getTime() <= new Date(value).getTime()
+  isFutureDate: value => new Date().getTime() <= new Date(value).getTime(),
+  getFederatedUsername: (username, profileURL) => {
+    const url = new URL(profileURL).host
+    return `@${username}@${url}`
+  }
 }

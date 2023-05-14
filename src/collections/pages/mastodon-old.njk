@@ -1,0 +1,149 @@
+---
+title: Mastodon - Francis Rubio
+description: Check my most recent posts from Mastodon
+permalink: /socials/mastodon-old/
+activePath: socials
+stylesheets: ['mastodon.css']
+scripts: ['mastodon.js']
+---
+{% set mastodon = socials.mastodon %}
+{% set profile = mastodon.profile %}
+{% set feed = mastodon.feed %}
+<section class="page" aria-labelledby="section-heading-4" style="margin-inline: auto">
+  <hgroup class="page__header">
+    <span id="section-heading-4" class="uppercase ls-l font-sans">Social Feed</span>
+    <h2 class="font-serif responsive">Mastodon</h2>
+    <p>For things I have something to say but don't have a lot of words for.</p>
+  </hgroup>
+  <div class="feed-grid">
+    <article class="feed__profile profile">
+      <img src="{{ profile.header_static }}" alt="Header Image" class="profile__header" data-profile="header">
+      <div class="profile__body">
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space); align-items: center;">
+          <img src="{{ profile.avatar_static }}" alt="Avatar" width="400" height="400" class="profile__avatar" data-profile="avatar">
+          <div class="stack">
+            <h3 class="profile__name">
+              <a href="{{ profile.url | safe }}" class="profile__link">{{ utils.replaceMastodonEmoji(profile.display_name, profile.emojis) | safe }}</a>
+            </h3>
+            <span class="profile__identifier">{{ site.contact.mastodon.identifier }}</span>
+          </div>
+        </div>
+        <div class="profile__metadata">
+          <p class="statistic">
+            <span class="statistic__figure">{{ profile.followers_count }}</span>
+            <span class="statistic__label">Followers</span>
+          </p>
+          <p class="statistic">
+            <span class="statistic__figure">{{ profile.following_count }}</span>
+            <span class="statistic__label">Following</span>
+          </p>
+          <p class="statistic">
+            <span class="statistic__figure">{{ profile.statuses_count }}</span>
+            <span class="statistic__label">Posts</span>
+          </p>
+        </div>
+      </div>
+    </article>
+    <div class="feed__entries">
+      <div class="cluster jc--center ai--center">
+        <button class="button" data-feed-reload>
+          <span class="button-text--default">Load latest posts</span>
+          <span class="button-text--disabled">Loading…</span>
+        </button>
+      </div>
+      <div class="feed__entry-list" data-feed>
+      {% set lastPost = feed | last %}
+      {% for entry in feed %}
+        {% set isReplyToMe = entry.in_reply_to_account_id === mastodon.id %}
+        {% if entry.content.length > 0 and not isReplyToMe %}
+          {% include "components/mastodon-feed-entry.njk" %}
+        {% endif %}
+      {% endfor %}
+      </div>
+      <template id="mastodon-feed-entry">
+        <article class="entry">
+          <section class="entry__body" data-entry="entry">
+            <div class="entry__content" data-entry="content"></div>
+            <div class="entry__content-hidden-notice" data-entry="sensitive" hidden>
+              <button class="button entry__cw-toggle" data-toggle="">[Show content]</button>
+            </div>
+            <footer class="entry__footer">
+              <a class="no-arrow entry__post-time" target="_blank" rel="noopener" style="margin-right: auto;" data-entry="permalink">
+                <time data-entry="timestamp"></time>
+              </a>
+              <p class="statistic">
+                <span class="statistic__figure" data-entry="replies">0</span>
+                <span class="statistic__label">Replies</span>
+              </p>
+              <p class="statistic">
+                <span class="statistic__figure" data-entry="reblogs">0</span>
+                <span class="statistic__label">Reblogs</span>
+              </p>
+              <p class="statistic">
+                <span class="statistic__figure" data-entry="favorites">0</span>
+                <span class="statistic__label">Favorites</span>
+              </p>
+            </footer>
+          </section>
+        </article>
+      </template>
+      <template id="mastodon-feed-header">
+        <header class="entry__header">
+          <div class="cluster ai--center entry__sensitive" data-entry="sensitive" hidden>
+            <button data-entry="sensitive-toggle" class="button entry__cw-toggle" data-toggle="">
+              <div class="hide-on-pressed">
+                {{ "eye-off" | icon | safe }}
+                <span class="sr-only">Hide content</span>
+              </div>
+              <div class="hide-on-unpressed">
+                {{ "eye" | icon | safe }}
+                <span class="sr-only">Show content</span>
+              </div>
+            </button>
+            <span data-entry="spoiler-text" class="entry__reply"></span>
+          </div>
+          <span class="entry__reply" data-entry="reply" hidden>
+          In response to <a href="" data-entry="reply-link">this post</a>
+          </span>
+        </header>
+      </template>
+      <template id="mastodon-preview-card">
+        <article class="entry__preview-card seo-preview">
+          <a href="" class="preview__link" aria-labelledby="" data-preview="link"></a>
+          <img src="" alt="" class="preview__image" data-preview="image">
+          <div class="preview__body">
+            <h3 class="preview__title" data-preview="title"></h3>
+            <p class="preview__description" data-preview="description"></p>
+          </div>
+        </article>
+      </template>
+      <div class="cluster jc--center ai--center">
+        <button class="button" data-feed-reload data-feed-last-id="{{ lastPost.id }}">
+          <span class="button-text--default">Load older posts</span>
+          <span class="button-text--disabled">Loading…</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="stack gap--xl m-block--xxxl" style="text-align: center; margin-inline: auto; width: min(var(--content-width), 90%);">
+  <div class="section__header">
+    <hgroup role="group">
+      <h2 class="section__subtitle fs-3">I can do this all day.</h2>
+      <p style="text-align: left;">Follow me on the Fediverse to be updated on things I dare to have an opinion about.</p>
+    </hgroup>
+  </div>
+  <div class="stack ai--center gap--s">
+    <a href="{{ site.contact.mastodon.url }}" class="primary button" target="blank" rel="noopener">
+      {{ "user-plus" | icon | safe }}
+      <span>Follow me on Mastodon</span>
+    </a>
+  </div>
+</footer>
+<script>
+  window.MASTODON = {
+    accountIds: {{ socials.mastodon.accountIds | dump | safe }},
+    feed: `{{ socials.mastodon.endpoints.feed | safe}}`,
+    profile: `{{ socials.mastodon.profile.feed | safe }}`
+  }
+</script>
