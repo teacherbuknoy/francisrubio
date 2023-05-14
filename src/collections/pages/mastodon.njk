@@ -142,7 +142,7 @@ scripts: ['mastodon.js']
 </footer>
 <script>
   window.MASTODON = {
-    accountId: "{{ socials.mastodon.id }}",
+    accountIds: {{ socials.mastodon.accountIds | dump | safe }},
     feed: `{{ socials.mastodon.endpoints.feed | safe}}`,
     profile: `{{ socials.mastodon.profile.feed | safe }}`
   }

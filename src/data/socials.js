@@ -2,9 +2,13 @@ const EleventyFetch = require('@11ty/eleventy-fetch')
 
 const mastodon = {
   id: '109319595958763014',
+  accountIds: [
+    '109319595958763014',
+    '109810743922547925'
+  ],
   endpoints: {
     profile: 'https://masto.ai/api/v1/accounts/109810743922547925',
-    feed: 'https://masto.ai/api/v1/accounts/109810743922547925/statuses/?limit=40&exclude_replies=true',
+    feed: 'https://masto.ai/api/v1/accounts/109810743922547925/statuses/?limit=40',
   }
 }
 

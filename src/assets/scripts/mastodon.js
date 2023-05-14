@@ -95,7 +95,10 @@ function organizePostReplies(arr) {
   arr.forEach(entry => {
     const { id } = entry
 
-    if (entry.in_reply_to_account_id === MASTODON.accountId) {
+    if (id === '110357315499511102')
+      console.log(entry)
+
+    if(MASTODON.accountIds.includes(entry.in_reply_to_account_id)) {
       const { in_reply_to_id: inReplyToId } = entry
       const inReplyTo = arr.find(post => post.id === inReplyToId)
       if (inReplyTo != null) {
