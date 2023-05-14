@@ -16,7 +16,7 @@ class SocialPostMedia {
       .filter(item => item.type === 'image')
       .forEach(item => {
         const img = document.createElement('img')
-        img.setAttribute('src', item.preview_url)
+        img.setAttribute('src', item.url)
         img.setAttribute('alt', item.description)
         img.setAttribute('width', item.meta.small.width)
         img.setAttribute('height', item.meta.small.height)
