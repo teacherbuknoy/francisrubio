@@ -292,3 +292,13 @@
   --radius-4    : 10px;
   --radius-5    : 12px;
 }
+
+.invert-on-dark {
+  @media (prefers-color-scheme: dark) {
+    filter: invert(1);
+  }
+
+  @at-root .dark .invert-on-dark {
+    filter: invert(1);
+  }
+}

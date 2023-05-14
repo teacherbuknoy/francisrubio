@@ -405,3 +405,13 @@
 .popup-wrapper:not(.attached) .navigation-popup {
   background-color: hsl(var(--primary-100)/75%);
 }
+
+.mobile-nav {
+  gap           : var(--space-xs);
+  display       : flex;
+  flex-direction: column;
+
+  .navigation-menu-link {
+    width: 100%;
+  }
+}
