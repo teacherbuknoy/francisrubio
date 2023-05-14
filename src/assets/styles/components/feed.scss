@@ -163,7 +163,8 @@
     grid-template-columns: repeat(auto-fit, minmax(min(25ch, 100%), 1fr));
     overflow             : hidden;
 
-    img {
+    img,
+    video {
       height         : auto;
       object-fit     : cover;
       object-position: top;

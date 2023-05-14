@@ -12,24 +12,38 @@ class SocialPostMedia {
     const container = document.createElement('div')
     container.classList.add('entry__media')
 
-    images
-      .filter(item => item.type === 'image')
-      .forEach(item => {
-        const img = document.createElement('img')
-        img.setAttribute('src', item.url)
-        img.setAttribute('alt', item.description)
-        img.setAttribute('width', item.meta.small.width)
-        img.setAttribute('height', item.meta.small.height)
+    const video = images.find(v => v.type == 'video')
+    if (video == null) {
+      images
+        .filter(item => item.type === 'image')
+        .forEach(item => {
+          const img = document.createElement('img')
+          img.setAttribute('src', item.url)
+          img.setAttribute('alt', item.description)
+          img.setAttribute('width', item.meta.small.width)
+          img.setAttribute('height', item.meta.small.height)
 
-        const a = document.createElement('a')
-        a.setAttribute('href', item.url)
-        a.setAttribute('target', '_blank')
-        a.setAttribute('rel', 'noopener')
-        a.classList.add('entry__media-link')
+          const a = document.createElement('a')
+          a.setAttribute('href', item.url)
+          a.setAttribute('target', '_blank')
+          a.setAttribute('rel', 'noopener')
+          a.classList.add('entry__media-link')
 
-        a.appendChild(img)
-        container.appendChild(a)
-      })
+          a.appendChild(img)
+          container.appendChild(a)
+        })
+    } else {
+      const videoElement = document.createElement('video')
+      videoElement.setAttribute('src', video.url)
+      videoElement.setAttribute('aria-label', video.description)
+      videoElement.setAttribute('poster', video.preview_url)
+      videoElement.setAttribute('width', video.meta.original.width)
+      videoElement.setAttribute('width', video.meta.original.height)
+      videoElement.setAttribute('controls', '')
+
+      container.appendChild(videoElement)
+    }
+
 
     this.#element = container
   }
