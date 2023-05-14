@@ -156,18 +156,18 @@
   }
 
   &__media {
-    display              : grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(25ch, 100%), 1fr));
-    gap                  : 0.25ch;
-    grid-template-rows   : 25ch;
     border-radius        : var(--radius-3);
+    display              : grid;
+    gap                  : 0.25ch;
+    grid-auto-rows       : minmax(25ch, 100%);
+    grid-template-columns: repeat(auto-fit, minmax(min(25ch, 100%), 1fr));
     overflow             : hidden;
 
     img {
-      width          : 100%;
-      height         : 25ch;
+      height         : auto;
       object-fit     : cover;
       object-position: top;
+      width          : 100%;
     }
   }
 
@@ -185,6 +185,10 @@
       text-transform: none;
     }
   }
+
+  a {
+    color: hsl(var(--primary-900));
+  }
 }
 
 .mention {
@@ -192,7 +196,7 @@
   color                  : hsl(var(--primary-700));
   font-family            : var(--font-sans);
   font-size              : var(--type-size-6);
-  font-variation-settings: 'wght' 500;
+  font-variation-settings: 'wght'500;
   padding-block          : var(--space-xxs);
   text-decoration        : none;
 }
