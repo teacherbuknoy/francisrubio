@@ -12,7 +12,9 @@ btnFeedReload.forEach(btn => {
     btn.addEventListener('click', handleLoadLatest)
 })
 
-loadLatestPosts(feedContainer) // LOAD EVERYTHING ON LOAD IF THE BROWSER CAN DO IT
+if (feedContainer) {
+  loadLatestPosts(feedContainer)
+} // LOAD EVERYTHING ON LOAD IF THE BROWSER CAN DO IT
 
 async function handleLoadLatest(e) {
   const btn = e.target
