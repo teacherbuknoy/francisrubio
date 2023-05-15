@@ -28,7 +28,7 @@ scripts: ['mastodon.js']
     </h1>
     <a href="{{ profile.url | safe }}" target="_blank" class="profile__identifier no-arrow">{{ utils.getFederatedUsername(profile.username, profile.url) }}</a>
     <div class="profile__bio">
-      {{ profile.note | safe }}
+      {{ utils.replaceMastodonEmoji(profile.note, profile.emojis) | safe }}
     </div>
     <dl class="profile__fields">
       {% for field in profile.fields %}
