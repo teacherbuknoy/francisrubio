@@ -1,7 +1,7 @@
 <article class="entry">
   <header class="entry__header">
     {% if entry.sensitive %}
-      <div class="cluster ai--center">
+      <div class="entry__sensitive">
         <button class="button entry__cw-toggle" data-toggle="content-{{ entry.id }}">
           <div class="hide-on-pressed">{{ "eye-off" | icon | safe }}
             <span class="sr-only">Hide content</span></div>
@@ -62,7 +62,7 @@
         </span>
       </p>
       <p class="statistic">
-        {% set reblog = entry.reblog_count %}
+        {% set reblog = entry.reblogs_count %}
         <span class="statistic__figure">{{ reblog if reblog else '0' }}</span>
         <span class="statistic__label">
           {% set feathericon = 'repeat' %}

@@ -1,12 +1,19 @@
 const EleventyFetch = require('@11ty/eleventy-fetch')
 const { mastodon } = require('./site.json').variables
 const THREADS = [
-  "https://masto.ai/@teacherbuknoy/110368545872345527",
   "https://masto.ai/@teacherbuknoy/110084718692154094",
-  "https://masto.ai/@teacherbuknoy/110223713928400717",
   "https://masto.ai/@teacherbuknoy/110369962218101139",
   "https://masto.ai/@teacherbuknoy/110340182174714816",
   "https://masto.ai/@teacherbuknoy/110326075102504700",
+  "https://masto.ai/@teacherbuknoy/110348607727221821",
+  "https://masto.ai/@teacherbuknoy/110326075102504700",
+  "https://masto.ai/@teacherbuknoy/110231963480091629",
+  "https://masto.ai/@teacherbuknoy/110099591986175898",
+  "https://masto.ai/@teacherbuknoy/110096487405455823",
+  "https://masto.ai/@teacherbuknoy/110084633287634931",
+  "https://masto.ai/@teacherbuknoy/110071327496877258",
+  "https://masto.ai/@teacherbuknoy/109861759709188293",
+  "https://masto.ai/@teacherbuknoy/109833474488205411",
 ]
 
 const STATUS_API = 'https://masto.ai/api/v1/statuses/'

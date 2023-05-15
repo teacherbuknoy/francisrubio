@@ -55,3 +55,18 @@ scripts: ['mastodon.js']
     {% endfor %}
   </div>
 </section>
+
+<footer class="stack gap--xl m-block--xxxl" style="text-align: center; margin-inline: auto; width: min(var(--content-width), 90%);">
+  <div class="section__header">
+    <hgroup role="group">
+      <h2 class="section__subtitle fs-3">This is just the tip of the iceberg.</h2>
+      <p style="text-align: left;">I have more to say. That's why I'm on the fediverse. Follow me on there to be updated on things I dare to have an opinion about.</p>
+    </hgroup>
+  </div>
+  <div class="stack ai--center gap--s">
+    <a href="{{ site.contact.mastodon.url }}" class="primary button" target="blank" rel="noopener">
+      {{ "user-plus" | icon | safe }}
+      <span>Follow me on Mastodon</span>
+    </a>
+  </div>
+</footer>

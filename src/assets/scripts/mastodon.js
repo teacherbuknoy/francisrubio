@@ -1,4 +1,5 @@
 import { MastodonFeed } from "./components/SocialPost"
+import { ToggleComponent } from "./components/ToggleComponent"
 const mastodon = window.MASTODON
 window.MASTODON_POSTS = []
 
@@ -14,7 +15,14 @@ btnFeedReload.forEach(btn => {
 
 if (feedContainer) {
   loadLatestPosts(feedContainer)
-} // LOAD EVERYTHING ON LOAD IF THE BROWSER CAN DO IT
+} else {
+  hydrateToggleButtons()
+}
+
+function hydrateToggleButtons() {
+  const toggleButtons = document.querySelectorAll('button[data-toggle]')
+  toggleButtons.forEach(button => { try { new ToggleComponent(button) } catch (e) { console.error(e) } });
+}
 
 async function handleLoadLatest(e) {
   const btn = e.target
@@ -100,18 +108,18 @@ function organizePostReplies(arr) {
     if (id === '110357315499511102')
       console.log(entry)
 
-    if(MASTODON.accountIds.includes(entry.in_reply_to_account_id)) {
+    if (MASTODON.accountIds.includes(entry.in_reply_to_account_id)) {
       const { in_reply_to_id: inReplyToId } = entry
       const inReplyTo = arr.find(post => post.id === inReplyToId)
       if (inReplyTo != null) {
         if (inReplyTo.replyEntry == null)
           inReplyTo.replyEntry = []
-        
+
         inReplyTo.replyEntry.push(id)
       } else {
         console.warn('[ORGANIZE MASTODON REPLIES]', "Missing post", inReplyToId)
       }
-        
+
     }
   })
 
