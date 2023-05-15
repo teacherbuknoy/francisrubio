@@ -48,5 +48,13 @@ module.exports = async function () {
     }
   })
 
-  return (await Promise.allSettled(threads)).map(p => p.value)
+  const settledThreads = (await Promise.allSettled(threads)).map(p => p.value)
+  const sortedThreads = settledThreads.sort((currentThread, nextThread) => {
+    const currentPost = currentThread.context[0]
+    const nextPost = nextThread.context[0]
+
+    return new Date(nextPost.created_at) - new Date(currentPost.created_at)
+  })
+
+  return sortedThreads
 }
