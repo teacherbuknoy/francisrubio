@@ -124,6 +124,45 @@
       }
     }
   }
+
+  &--success {
+    color           : hsl(var(--success-900));
+    background-color: hsl(var(--success-100));
+
+    &:hover {
+      color: hsl(var(--success-900));
+    }
+
+    &::before {
+      background-image: radial-gradient(circle at center, hsl(var(--success-500)/25%), transparent 75%);
+    }
+  }
+
+  &--warning {
+    color           : hsl(var(--warning-900));
+    background-color: hsl(var(--warning-100));
+
+    &:hover {
+      color: hsl(var(--warning-900));
+    }
+
+    &::before {
+      background-image: radial-gradient(circle at center, hsl(var(--warning-500)/25%), transparent 75%);
+    }
+  }
+
+  &--error {
+    color           : hsl(var(--error-900));
+    background-color: hsl(var(--error-100));
+
+    &:hover {
+      color: hsl(var(--error-900));
+    }
+
+    &::before {
+      background-image: radial-gradient(circle at center, hsl(var(--error-500)/25%), transparent 75%);
+    }
+  }
 }
 
 body.no-js {

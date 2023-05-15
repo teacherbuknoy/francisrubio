@@ -54,7 +54,9 @@ scripts: ['frontpage.js']
                 <span class="uppercase ls-xs font-sans">{{ tech.experience }} years of experience</span>
               </div>
               <h3 class="margin--none" id="{{ tech.icon }}-heading">{{ tech.title }}</h3>
-              <div class="stack gap--s"><p>{{ tech.content | safe }}</p></div>
+              <div class="stack gap--s">
+                <p>{{ tech.content | safe }}</p>
+              </div>
             </section>
           {% endfor %}
         </div>
@@ -85,7 +87,7 @@ scripts: ['frontpage.js']
     </div>
   </div>
 </section>
-<section class="section padding-block--xxl" id="section-44" aria-labelledby="section-4-heading">
+{#<section class="section padding-block--xxl" id="section-44" aria-labelledby="section-4-heading">
   <div class="section__inner">
     <div class="stack gap--none">
       <hgroup role="group">
@@ -103,6 +105,18 @@ scripts: ['frontpage.js']
         <a href="/literature/" class="primary button">See all</a>
       </div>
     </div>
+  </div>
+</section>#}
+<section class="padding-block--xxl">
+  <div class="section__inner">
+    <aside class="callout callout--success">
+      {{ 'gift' | icon | safe }}
+      <p class="callout__body">
+        <strong>Feature rollout!</strong> I am rolling out my favorite threads that I posted somewhere else. Take a look at them!</p>
+      <div class="callout__footer">
+        <a href="/socials/mastodon/featured/" class="button button--success">See featured threads</a>
+      </div>
+    </aside>
   </div>
 </section>
 <section class="padding-block--xxl" id="section-5" aria-labelledby="section-5-heading">

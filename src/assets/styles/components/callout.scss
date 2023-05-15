@@ -1,17 +1,29 @@
 .callout {
   --callout-radius: var(--radius-3);
-  align-items     : first baseline;
+  align-items     : center;
   background-color: hsl(var(--bg-contrast) / 50%);
   border-radius   : var(--callout-radius);
   display         : flex;
+  flex-wrap       : wrap;
   gap             : 1ch;
+  justify-content : end;
   padding         : var(--space);
 
-  .callout__body {
+  &__body {
     flex       : 1;
     font-family: var(--font-sans);
     font-size  : var(--type-size-6);
     margin     : 0;
+
+    * {
+      color: inherit;
+    }
+  }
+
+  &__footer {
+    align-items: center;
+    display    : flex;
+    align-self : center;
   }
 
   .feather {
@@ -26,9 +38,8 @@
   }
 
   &>.feather {
+    color   : var(--icon-color, currentColor);
     position: relative;
-    bottom  : -0.4ch;
-    color   : var(--icon-color, currentColor)
   }
 
   &--info {
@@ -40,6 +51,12 @@
     --icon-color    : hsl(var(--warning-700));
     color           : hsl(var(--warning-900));
     background-color: hsl(var(--warning-100) / 25%);
+  }
+
+  &--success {
+    --icon-color    : hsl(var(--success-700));
+    color           : hsl(var(--success-900));
+    background-color: hsl(var(--success-100) / 25%);
   }
 
   &--left,
