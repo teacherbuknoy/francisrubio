@@ -79,7 +79,11 @@
   "api": {
     "email": "https://form.taxi/s/egdwtcqq",
     "images": "https://ik.imagekit.io/8jjzxcl9p/",
-    "webmentions": "https://webmention.io/francisrubio.antaresph.dev/webmention"
+    "webmentions": "https://webmention.io/francisrubio.antaresph.dev/webmention",
+    "mastodon": {
+      "profile": "https://masto.ai/api/v1/accounts/109810743922547925",
+      "feed": "https://masto.ai/api/v1/accounts/109810743922547925/statuses/?limit=40"
+    }
   },
   "publisher": {
     "@type": "Organization",
@@ -103,6 +107,14 @@
     "videos": {
       "label": "Videos",
       "url": "/videos.xml"
+    }
+  },
+  "variables": {
+    "mastodon": {
+      "accountIds": [
+        "109319595958763014",
+        "109810743922547925"
+      ]
     }
   }
 }

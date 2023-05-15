@@ -1,0 +1,57 @@
+---
+title: Featured Threads - Francis Rubio
+description: Check my featured threads from Mastodon
+permalink: /socials/mastodon/featured/
+activePath: socials
+stylesheets: ['mastodon.css']
+scripts: ['mastodon.js']
+---
+{% set mastodon = socials.mastodon %}
+{% set profile = mastodon.profile %}
+{% set feed = mastodon.feed %}
+<script>
+  window.MASTODON = {
+    accountIds: {{ socials.mastodon.accountIds | dump | safe }},
+    feed: `{{ socials.mastodon.endpoints.feed | safe}}`,
+    profile: `{{ socials.mastodon.profile.feed | safe }}`
+  }
+</script>
+
+<section class="profile" aria-labelledby="section-heading-1">
+  <header class="profile__header" >
+    <img src="{{ profile.header }}" alt="" class="profile__header-image" width="1296" height="495">
+    <img src="{{ profile.avatar }}" alt="" class="profile__avatar">
+    <h1 class="profile__name" id="section-heading-1">
+      <a href="{{ profile.url | safe }}" target="_blank" class="profile__link no-arrow">
+        {{ utils.replaceMastodonEmoji(profile.display_name, profile.emojis) | safe }}
+      </a>
+    </h1>
+    <a href="{{ profile.url | safe }}" target="_blank" class="profile__identifier no-arrow">{{ utils.getFederatedUsername(profile.username, profile.url) }}</a>
+    <div class="profile__bio">
+      {{ utils.replaceMastodonEmoji(profile.note, profile.emojis) | safe }}
+    </div>
+    <dl class="profile__fields">
+      {% for field in profile.fields %}
+        <div class="profile__field{{ " verified" if field.verified_at != null }}">
+          <dt>{{ field.name | safe }}</dt>
+          <dd>
+            {% if field.verified_at != null %}
+              {% set feathericon = 'check' %}
+              {% include "components/feathericon.njk" %}
+            {% endif %}
+            {{ field.value | safe }}
+          </dd>
+        </div>
+      {% endfor %}
+    </dl>
+  </header>
+
+  <div class="profile__feed">
+    {% for thread in threads %}
+      {% set context = thread.context %}
+      {% set entryIndex = 0 %}
+      {% set entry = context[entryIndex] %}
+      {% include "components/mastodon-feed-entry.njk" %}
+    {% endfor %}
+  </div>
+</section>

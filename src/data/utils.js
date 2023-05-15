@@ -26,6 +26,9 @@ module.exports = {
       .padStart(2, 0)}-${date.toString().padStart(2, 0)}`
   },
   humanReadableDate: obj => {
+    if (obj == null)
+      return ""
+
     const value = new Date(obj)
     let formatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' })
     return formatter.format(value)
@@ -48,7 +51,7 @@ module.exports = {
    */
   replaceMastodonEmoji: (str, emojis) => {
     const regex = /(<a?)?:\w+:(\d{18}>)?/gm
-    
+
     return str.match(regex)
       .reduce((finalString, emojiMatch) => {
         const emoji = emojis.find(e => e.shortcode === emojiMatch.replaceAll(':', ''))

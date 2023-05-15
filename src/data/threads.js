@@ -1,0 +1,52 @@
+const EleventyFetch = require('@11ty/eleventy-fetch')
+const { mastodon } = require('./site.json').variables
+const THREADS = [
+  "https://masto.ai/@teacherbuknoy/110368545872345527",
+  "https://masto.ai/@teacherbuknoy/110084718692154094",
+  "https://masto.ai/@teacherbuknoy/110223713928400717",
+  "https://masto.ai/@teacherbuknoy/110369962218101139",
+  "https://masto.ai/@teacherbuknoy/110340182174714816",
+  "https://masto.ai/@teacherbuknoy/110326075102504700",
+]
+
+const STATUS_API = 'https://masto.ai/api/v1/statuses/'
+
+async function getPost(id) {
+  const url = STATUS_API + id
+  const post = await EleventyFetch(url, { type: 'json', duration: '1d' })
+
+  return post
+}
+
+async function getPostWithContext(id) {
+  const url = STATUS_API + id + '/context'
+  const { accountIds } = mastodon
+
+  const context = await EleventyFetch(url, { type: 'json', duration: '1d' })
+  
+  const getRepliesToSelf = post => post.in_reply_to_account_id == null || accountIds.includes(post.in_reply_to_account_id)
+  const getPostsByMe = post => mastodon.accountIds.includes(post.account.id)
+
+  const ancestors = context.ancestors.filter(getRepliesToSelf).filter(getPostsByMe)
+  const descendants = context.descendants.filter(getRepliesToSelf).filter(getPostsByMe)
+  const post = await getPost(id)
+
+  return [ ...ancestors, post, ...descendants ]
+}
+
+function getPostId(id) {
+  const urlSplit = id.split('/')
+  return urlSplit[urlSplit.length - 1]
+}
+
+module.exports = async function () {
+
+  const threads = THREADS.map(async function (id) {
+    return {
+      id, 
+      context: await getPostWithContext(getPostId(id))
+    }
+  })
+
+  return (await Promise.allSettled(threads)).map(p => p.value)
+}

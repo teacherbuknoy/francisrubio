@@ -21,7 +21,7 @@ scripts: ['mastodon.js']
   <header class="profile__header" >
     <img src="{{ profile.header }}" alt="" class="profile__header-image" width="1296" height="495">
     <img src="{{ profile.avatar }}" alt="" class="profile__avatar">
-    <h1 class="profile__name">
+    <h1 class="profile__name" id="section-heading-1">
       <a href="{{ profile.url | safe }}" target="_blank" class="profile__link no-arrow">
         {{ utils.replaceMastodonEmoji(profile.display_name, profile.emojis) | safe }}
       </a>

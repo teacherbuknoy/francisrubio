@@ -3,8 +3,11 @@
     {% if entry.sensitive %}
       <div class="cluster ai--center">
         <button class="button entry__cw-toggle" data-toggle="content-{{ entry.id }}">
-          <div class="hide-on-pressed">{{ "eye-off" | icon | safe }} <span class="sr-only">Hide content</span></div>
-          <div class="hide-on-unpressed">{{ "eye" | icon | safe }} <div class="sr-only">Show content</div></div>
+          <div class="hide-on-pressed">{{ "eye-off" | icon | safe }}
+            <span class="sr-only">Hide content</span></div>
+          <div class="hide-on-unpressed">{{ "eye" | icon | safe }}
+            <div class="sr-only">Show content</div>
+          </div>
         </button>
         <span class="entry__reply">{{ entry.spoiler_text }}</span>
       </div>
@@ -16,7 +19,30 @@
     {% endif %}
   </header>
   <section class="entry__body" id="entry-{{ entry.id }}">
-    <div class="entry__content" id="content-{{ entry.id }}" {{ 'hidden' if entry.sensitive }}>{{ entry.content | safe }}</div>
+    <div class="entry__content" id="content-{{ entry.id }}" {{ 'hidden' if entry.sensitive }}>
+      {% if entry.emojis.length > 0 %}
+        {{ utils.replaceMastodonEmoji(entry.content, entry.emojis) | safe }}
+      {% else %}
+        {{ entry.content | safe }}
+      {% endif %}
+      {% if entry.media_attachments != null and entry.media_attachments.length > 0 %}
+        <div class="entry__media">
+          {% for media in entry.media_attachments %}
+            {% if media.type === 'image' %}
+              <a class="entry__media-link" href="{{ media.url }}" target="_blank" rel="noopener">
+                <img src="{{ media.url }}" alt="{{ media.description }}" width="{{ media.meta.original.width }}" height="{{ media.meta.original.height }}">
+              </a>
+            {% elif media.type === 'video' %}
+              <video src="{{ media.url }}" 
+                aria-label="{{ media.description }}" 
+                poster="{{ media.preview_url }}" 
+                controls="" 
+                width="{{ media.meta.original.width }}" height="{{ media.meta.original.height }}"></video>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
     {% if entry.sensitive %}
       <div class="entry__content-hidden-notice">
         <button class="button entry__cw-toggle" data-toggle="content-{{ entry.id }}">[Show content]</button>
@@ -58,5 +84,19 @@
   {% if entry.replyEntry != null %}
     {% set entry = mastodon.findReply(entry.replyEntry) %}
     {% include "components/mastodon-feed-entry.njk" %}
+  {% elif context != null %}
+    {% if entryIndex == null %}
+      {% set entryIndex = 1 %}
+      {# 1 as index of the second post #}
+    {% else %}
+      {% set entryIndex = entryIndex + 1 %}
+      {# 1 as index of the second post #}
+    {% endif %}
+    {% set entry = context[entryIndex] %}
+    {% set length = context | length %}
+
+    {% if entryIndex < length %}
+      {% include "components/mastodon-feed-entry.njk" %}
+    {% endif %}
   {% endif %}
 </article>
