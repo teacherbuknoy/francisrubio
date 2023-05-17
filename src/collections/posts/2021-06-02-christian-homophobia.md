@@ -7,7 +7,7 @@ cover:
   sizes: [300, 500, 700]
   formats: ['jpg', 'webp']
 author: teacherbuknoy
-category: [opinion]
+category: [opinion, religion]
 language: tl
 images: 
     path: /assets/images/posts/arsenokoitai/optimized

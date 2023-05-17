@@ -3,7 +3,7 @@ title: "The Struggle of Neutrality Under a Marcos Comeback"
 description: Neutrality has been a safe haven for those with no tolerance nor strength for the tough political battle. But under a dark future under another coming Marcos rule, how does neutrality hold against morality?
 image: /posts/homosexuality-wrong/cover.jpg
 author: teacherbuknoy
-category: [opinion]
+category: [opinion, politics]
 language: en
 eleventyExcludeFromCollections: true
 ---
