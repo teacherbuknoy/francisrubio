@@ -135,7 +135,8 @@ $line-heights: (xxxs: 0.5,
 /* #endregion */
 
 .quotation {
-  border-inline-end: 3px solid hsl(var(--primary-100));
+  --border: 3px solid hsl(var(--primary-100));
+  border-inline-end: var(--border);
   padding          : var(--space);
   margin           : 0;
   text-align       : end;
@@ -192,6 +193,20 @@ $line-heights: (xxxs: 0.5,
 
     figcaption {
       text-align: end;
+    }
+  }
+
+  @media(min-width: 75ch) {
+    &:is(.left, .right) {
+      border: none
+    }
+
+    &.right {
+      border-right: var(--border);
+    }
+
+    &.left {
+      border-left: var(--border);
     }
   }
 }

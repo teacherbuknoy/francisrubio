@@ -238,9 +238,9 @@
 
 /* FONTS */
 :root {
-  --font-sans         : "Figtree", sans-serif;
+  --font-sans         : "Figtree", "Noto Sans Tagalog", sans-serif;
   --font-serif        : "Fraunces", serif;
-  --font-display      : "Figtree", sans-serif;
+  --font-display      : "Figtree", "Noto Sans Tagalog", sans-serif;
   --font-display-serif: "Fraunces", serif;
   --font-body         : var(--font-serif);
   --font-ui           : var(--font-sans);
