@@ -17,14 +17,23 @@ permalink: /blog.xml
   {% set preferredDomain = site.domains | selectattr('isPreferred') | first %}
   <channel>
     <title>{{ site.title | safe }}</title>
-    <atom:link href="https://{{ preferredDomain.value | safe }}/feed.xml" rel="self" type="application/rss"/>
+    <atom:link href="https://{{ preferredDomain.value | safe }}/blog.xml" rel="self" type="application/rss"/>
     <link>https://{{ preferredDomain.value | safe }}/</link>
     <description>{{ site.description | safe }}</description>
     <lastBuildDate>{{ generated }}</lastBuildDate>
+    <pubDate>{{ generated }}</pubDate>
     <language>en-US</language>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
     <generator>Eleventy v2.0.0</generator>
+    <webMaster>{{ site.contact.email.identifier | safe }}</webMaster>
+    <docs>https://www.rssboard.org/rss-specification</docs>
+
+    <atom:author>
+      <atom:name>{{ site.title | safe }}</atom:name>
+      <atom:email>{{ site.contact.email.identifier }}</atom:email>
+      <atom:uri>https://{{ preferredDomain.value | safe }}</atom:uri>
+    </atom:author>
 
     <image>
       <url>https://ik.imagekit.io/8jjzxcl9p/tr:w-64/authors/teacherbuknoy.jpg?updatedAt=1672589182686</url>
@@ -55,7 +64,6 @@ permalink: /blog.xml
           <dc:creator>
             <![CDATA[{{ person.name }}]]>
           </dc:creator>
-          <author>{{ person.email }}</author>
           <pubDate>{{ post.date | dateToRfc822 }}</pubDate>
           {% if post.data.tags and post.data.tags.length > 0 %}
             {% for tag in post.data.tags %}
