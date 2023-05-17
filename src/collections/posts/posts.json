@@ -1,6 +1,6 @@
 {
   "layout": "post.njk",
-  "aliases": ["/writing/{{ title }}/"],
+  "aliases": ["/writing/{{ title | slugify }}/"],
   "permalink": "/writing/{{ language }}/{{ title | slugify }}/",
   "activePath": "writing",
   "author": "teacherbuknoy",
