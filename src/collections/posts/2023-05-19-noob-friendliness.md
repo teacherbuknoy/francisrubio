@@ -19,6 +19,8 @@ seo:
     url: "https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-0.5/posts/noob-friendly-world/og.png"
     is_prefixed: false
 eleventyExcludeFromCollections: false
+canonical:
+  - https://dev.to/teacherbuknoy/building-a-kinder-noob-friendly-world-1aef
 ---
 
 <aside class="callout callout--info">
