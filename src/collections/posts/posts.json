@@ -5,5 +5,7 @@
   "activePath": "writing",
   "author": "teacherbuknoy",
   "language": "en",
-  "seoType": "article"
+  "seoType": "article",
+  "stylesheets": ["mastodon.css"],
+  "scripts": ["mastodon.js"]
 }

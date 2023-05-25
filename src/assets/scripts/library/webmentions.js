@@ -334,6 +334,13 @@ class WebMentionResponse {
       name.innerText = this.author.name
     }
 
+    const identifier = element.querySelector('[data-webmention-entry=author-identifier]')
+    if (identifier) {
+      identifier.setAttribute('href', this.author.url)
+      const fediverseUsername = extractFediverseUsername(this.author.url)
+      identifier.innerText = fediverseUsername ? fediverseUsername : ''
+    }
+
     const responseLink = element.querySelector('[data-webmention-entry=interaction-link]')
     if (responseLink) {
       responseLink.setAttribute('href', this.publishLink)
@@ -394,5 +401,28 @@ class WebMentionResponse {
  * @property {string} photo the URL of the author's photo
  * @property {string} url the URL of the author's profile
  */
+
+/**
+ * @description Extracts a Fediverse username from an URL
+ * @author Francis Rubio
+ * @param {String} link
+ */
+function extractFediverseUsername(link) {
+  try {
+    const url = new URL(link)
+    const paths = url.pathname.split('/').filter(s => s.length > 0)
+
+    if (paths[0].startsWith('@')) {
+      const username = paths[0]
+      const domain = url.hostname
+
+      return `${username}@${domain}`
+    } else {
+      return null
+    }
+  } catch (e) {
+    return null
+  }
+}
 
 export { WebMentions, WebMentionResponse, WebMentionType, WebMentionBuilder }
