@@ -415,3 +415,29 @@
     width: 100%;
   }
 }
+
+/* New navigation */
+.navigation {
+
+  &--tabs {
+    margin-block-start: var(--space-xl);
+  }
+
+  &__list {
+    display: flex;
+    gap    : var(--space);
+  }
+
+  &__link {
+    @extend .button;
+
+    background-color: transparent;
+    text-transform  : none;
+
+    &[aria-current="page"] {
+      background-color: hsl(var(--primary-500));
+      box-shadow      : 0 6px 12px hsl(var(--primary-700) / 25%);
+      color           : hsl(var(--l-contrast));
+    }
+  }
+}

@@ -12,10 +12,11 @@ scripts: ['mastodon.js']
 <script>
   window.MASTODON = {
     accountIds: {{ socials.mastodon.accountIds | dump | safe }},
-    feed: `{{ socials.mastodon.endpoints.feed | safe}}`,
+  feed: `{{ socials.mastodon.endpoints.feed | safe}}`,
     profile: `{{ socials.mastodon.profile.feed | safe }}`
   }
 </script>
+{% include "components/social-post-templates.njk" %}
 
 <section class="profile" aria-labelledby="section-heading-1">
   <header class="profile__header" >
@@ -45,6 +46,17 @@ scripts: ['mastodon.js']
       {% endfor %}
     </dl>
   </header>
+
+  <nav class="navigation navigation--tabs">
+    <ul class="navigation__list">
+      <li class="navigation__listitem">
+        <a class="navigation__link" href="/socials/mastodon"  data-animation=button>Feed</a>
+      </li>
+      <li class="navigation__listitem">
+        <a class="navigation__link" href="/socials/mastodon/featured/" aria-current="page" data-animation=button>Featured Threads</a>
+      </li>
+    </ul>
+  </nav>
 
   <div class="profile__feed">
     {% for thread in threads %}
