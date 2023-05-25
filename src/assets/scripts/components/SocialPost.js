@@ -324,8 +324,8 @@ class MastodonFeed {
    */
   renderFeed() {
     const feed = this.#posts.map(post => this.#createFeedItem(post))
-    //const feedNoReplies = feed.filter(post => !post.isReply)
-    const finalFeed = feed.map(post => this.renderPost(post))
+    const feedNoRepliesToSelf = feed.filter(post => !post.isReplyToSelf)
+    const finalFeed = feedNoRepliesToSelf.map(post => this.renderPost(post))
 
     return finalFeed
   }
@@ -339,6 +339,7 @@ class MastodonFeed {
       id: post.id,
       replies: post.replyEntry,
       isReply: post.in_reply_to_id != null,
+      isReplyToSelf: MASTODON.accountIds.includes(post.in_reply_to_account_id),
       component: null,
       data: post
     }
