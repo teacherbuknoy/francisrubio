@@ -119,6 +119,20 @@ scripts: ['mastodon.js']
 </template>
 <template id="mastodon-feed-header">
   <header class="entry__header">
+    <span class="entry__reply" data-entry="reply" hidden>
+          In response to <a href="" data-entry="reply-link">this post</a>
+    </span>
+    <div class="entry__profile">
+      <div class="profile__header">
+        <img src="{{ profile.avatar }}" alt="" class="profile__avatar">
+        <b class="profile__name">
+          <a href="{{ profile.url | safe }}" target="_blank" class="profile__link no-arrow">
+            {{ utils.replaceMastodonEmoji(profile.display_name, profile.emojis) | safe }}
+          </a>
+        </b>
+        <a href="{{ profile.url | safe }}" target="_blank" class="profile__identifier no-arrow">{{ utils.getFederatedUsername(profile.username, profile.url) }}</a>
+      </div>
+    </div>
     <div class="entry__sensitive" data-entry="sensitive" hidden>
       <button data-entry="sensitive-toggle" class="button entry__cw-toggle" data-toggle="">
         <div class="hide-on-pressed">
@@ -132,9 +146,6 @@ scripts: ['mastodon.js']
       </button>
       <span data-entry="spoiler-text" class="entry__reply"></span>
     </div>
-    <span class="entry__reply" data-entry="reply" hidden>
-          In response to <a href="" data-entry="reply-link">this post</a>
-    </span>
   </header>
 </template>
 <template id="mastodon-preview-card">

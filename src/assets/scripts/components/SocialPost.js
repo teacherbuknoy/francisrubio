@@ -150,7 +150,7 @@ class SocialPostHeader {
     }
 
     const isReply = post.in_reply_to_id != null
-    const replyIndicator = header.querySelector('[data-entry=reply')
+    const replyIndicator = header.querySelector('[data-entry=reply]')
     if (isReply) {
       replyIndicator.removeAttribute('hidden')
 
@@ -158,10 +158,6 @@ class SocialPostHeader {
       replyLink.setAttribute('href', `#entry-${post.in_reply_to_id}`)
     } else {
       replyIndicator.remove()
-    }
-
-    if (!post.sensitive && !isReply) {
-      header.innerHTML = ''
     }
 
     this.#element = header

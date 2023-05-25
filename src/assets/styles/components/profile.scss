@@ -140,15 +140,19 @@
     margin-block  : var(--space-xl);
 
     &--scroll {
-      flex-direction: row;
-      overflow-x    : auto;
-      text-align    : initial;
+      flex-direction   : row;
+      overflow-x       : auto;
+      padding-block-end: var(--space-xxl);
+      padding-inline   : var(--space-l);
+      scroll-snap-type : x mandatory;
+      text-align       : initial;
 
       .entry {
-        min-width     : 45ch;
-        text-align    : initial;
-        display       : flex;
-        flex-direction: column;
+        display          : flex;
+        flex-direction   : column;
+        min-width        : 45ch;
+        scroll-snap-align: center;
+        text-align       : initial;
 
         &__media {
           display: none;

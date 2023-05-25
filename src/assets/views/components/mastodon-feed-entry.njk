@@ -1,5 +1,23 @@
 <article class="entry">
   <header class="entry__header">
+    {% if entry.in_reply_to_id != null and entry.in_reply_to_account_id !== mastodon.id %}
+      {% set replyToLink%}#entry-{{ entry.in_reply_to_id }}{% endset %}
+      <span class="entry__reply">In response to <a href="{{ replyToLink | safe }}">this post</a>
+      </span>
+    {% endif %}
+
+    <div class="entry__profile">
+      <div class="profile__header">
+        <img src="{{ profile.avatar }}" alt="" class="profile__avatar">
+        <b class="profile__name">
+          <a href="{{ profile.url | safe }}" target="_blank" class="profile__link no-arrow">
+            {{ utils.replaceMastodonEmoji(profile.display_name, profile.emojis) | safe }}
+          </a>
+        </b>
+        <a href="{{ profile.url | safe }}" target="_blank" class="profile__identifier no-arrow">{{ utils.getFederatedUsername(profile.username, profile.url) }}</a>
+      </div>
+    </div>
+
     {% if entry.sensitive %}
       <div class="entry__sensitive">
         <button class="button entry__cw-toggle" data-toggle="content-{{ entry.id }}">
@@ -11,11 +29,6 @@
         </button>
         <span class="entry__reply">{{ entry.spoiler_text }}</span>
       </div>
-    {% endif %}
-    {% if entry.in_reply_to_id != null and entry.in_reply_to_account_id !== mastodon.id %}
-      {% set replyToLink%}#entry-{{ entry.in_reply_to_id }}{% endset %}
-      <span class="entry__reply">In response to <a href="{{ replyToLink | safe }}">this post</a>
-      </span>
     {% endif %}
   </header>
   <section class="entry__body" id="entry-{{ entry.id }}">
