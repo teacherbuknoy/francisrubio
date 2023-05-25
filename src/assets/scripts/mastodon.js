@@ -93,7 +93,6 @@ async function loadPosts(lastID, handler = (post) => post.render()) {
   const data = organizePostReplies(rawdata)
     .filter(post => post.reblog == null)
   MASTODON_POSTS.push(...data)
-  //createMastodonFeed(data).forEach(socialPost => handler(socialPost))
   const feedManager = new MastodonFeed(data)
   feedManager.renderFeed()
     .forEach(sp => handler(sp))

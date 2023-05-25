@@ -324,8 +324,8 @@ class MastodonFeed {
    */
   renderFeed() {
     const feed = this.#posts.map(post => this.#createFeedItem(post))
-    const feedNoReplies = feed.filter(post => !post.isReply)
-    const finalFeed = feedNoReplies.map(post => this.renderPost(post))
+    //const feedNoReplies = feed.filter(post => !post.isReply)
+    const finalFeed = feed.map(post => this.renderPost(post))
 
     return finalFeed
   }
