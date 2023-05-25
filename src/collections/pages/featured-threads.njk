@@ -18,6 +18,23 @@ scripts: ['mastodon.js']
 </script>
 {% include "components/social-post-templates.njk" %}
 
+<nav class="breadcrumb" aria-label="Breadcrumbs" style="width: min(65ch, 90%); margin-inline: auto;">
+  <ol class="breadcrumb__list">
+    <li class="breadcrumb__list-item">
+      <a href="/" class="breadcrumb__link" data-animation="button">Frontpage</a>
+    </li>
+    <li class="breadcrumb__list-item">
+      <a class="breadcrumb__link" data-animation="button">Socials</a>
+    </li>
+    <li class="breadcrumb__list-item">
+      <a href="/socials/mastodon/" class="breadcrumb__link" data-animation="button">Mastodon</a>
+    </li>
+    <li class="breadcrumb__list-item">
+      <a aria-current="location" class="breadcrumb__link" data-animation="button">Featured Threads</a>
+    </li>
+  </ol>
+</nav>
+
 <section class="profile" aria-labelledby="section-heading-1">
   <header class="profile__header" >
     <img src="{{ profile.header }}" alt="" class="profile__header-image" width="1296" height="495">
