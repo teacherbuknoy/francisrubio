@@ -138,5 +138,22 @@
     flex-direction: column;
     gap           : var(--space);
     margin-block  : var(--space-xl);
+
+    &--scroll {
+      flex-direction: row;
+      overflow-x    : auto;
+      text-align    : initial;
+
+      .entry {
+        min-width     : 45ch;
+        text-align    : initial;
+        display       : flex;
+        flex-direction: column;
+
+        &__media {
+          display: none;
+        }
+      }
+    }
   }
 }

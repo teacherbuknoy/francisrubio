@@ -3,9 +3,21 @@ title: Francis Rubio
 description: Web developer, designer, and educator from the Philippines
 permalink: /
 activePath: frontpage
-stylesheets: ['frontpage.css']
-scripts: ['frontpage.js']
+stylesheets: ['frontpage.css', mastodon.css]
+scripts: ['frontpage.js', mastodon.js]
 ---
+
+{% set mastodon = socials.mastodon %}
+{% set profile = mastodon.profile %}
+{% set feed = mastodon.feed %}
+<script>
+  window.MASTODON = {
+    accountIds: {{ socials.mastodon.accountIds | dump | safe }},
+    feed: `{{ socials.mastodon.endpoints.feed | safe}}`,
+    profile: `{{ socials.mastodon.profile.feed | safe }}`
+  }
+</script>
+
 {% include "components/banners/home-banner.njk" %}
 <section class="section padding-block--xxl" id="section-2" aria-labelledby="section-2-heading">
   <div class="section__inner">
@@ -107,7 +119,7 @@ scripts: ['frontpage.js']
     </div>
   </div>
 </section>#}
-<section class="padding-block--xxl">
+{# <section class="padding-block--xxl">
   <div class="section__inner">
     <aside class="callout callout--success">
       {{ 'gift' | icon | safe }}
@@ -118,7 +130,7 @@ scripts: ['frontpage.js']
       </div>
     </aside>
   </div>
-</section>
+</section> #}
 <section class="padding-block--xxl" id="section-5" aria-labelledby="section-5-heading">
   <div class="section__inner">
     <hgroup role="group" class="stack gap">
@@ -170,18 +182,23 @@ scripts: ['frontpage.js']
 </section>
 <section class="padding-block--xxl bg--secondary" id="section-6" aria-labelledby="section-61-heading">
   <div class="section__inner jc--center stack gap text-center">
-    <p id="section-61-heading" class="uppercase ls-l font-sans"  data-baybayin="{{ sections.uses.baybayin_label }}">{{ sections.uses.label | safe }}</p>
-    <h2 class="font-serif fs-1">{{ sections.uses.title | safe }}</h2>
-    <p>{{ sections.uses.description | safe }}</p>
-    <div class="cluster jc--center padding">
-      <a href="/uses/" class="button">Things I use</a>
+    <p id="section-61-heading" class="uppercase ls-l font-sans"  data-baybayin="{{ sections.threads.baybayin_label }}">{{ sections.threads.label | safe }}</p>
+    <h2 class="font-serif fs-1">{{ sections.threads.title | safe }}</h2>
+    <p>{{ sections.threads.description | safe }}</p>
+    <div class="profile__feed profile__feed--scroll">
+      {% for thread in threads %}
+        {% if loop.index0 < 4 %}  
+          {% set context = thread.context %}
+          {% set entryIndex = 0 %}
+          {% set entry = context[entryIndex] %}
+          {% set noreply = true %}
+          {% include "components/mastodon-feed-entry.njk" %}
+        {% endif %}
+      {% endfor %}
     </div>
-    <p>
-      <small>
-        <sup>*</sup>
-        <i>Sick Picks</i> is a reference to the <a href="https://syntax.fm/show/306/sickpickisode-2020-web-developer-gift-guide" target="_blank" rel="noopener">Syntax.FM podcast</a>
-      </small>
-    </p>
+    <div class="cluster jc--center padding">
+      <a href="/socials/mastodon/" class="button">See my Mastodon posts</a>
+    </div>
   </div>
 </section>
 <section class="section padding-block--xxl" id="section-44a" aria-labelledby="section-4a-heading">

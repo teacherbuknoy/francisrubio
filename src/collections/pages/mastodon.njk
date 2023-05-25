@@ -85,36 +85,36 @@ scripts: ['mastodon.js']
       <div class="entry__content-hidden-notice" data-entry="sensitive" hidden>
         <button class="button entry__cw-toggle" data-toggle="">[Show content]</button>
       </div>
-      <footer class="entry__footer">
-        <a class="no-arrow entry__post-time" target="_blank" rel="noopener" style="margin-right: auto;" data-entry="permalink">
-          <time data-entry="timestamp"></time>
-        </a>
-        <p class="statistic">
-          <span class="statistic__figure" data-entry="replies">0</span>
-          <span class="statistic__label">
-            {% set feathericon = 'corner-up-left' %}
-            {% include "components/feathericon.njk" %}
-            <span class="sr-only">Replies</span>
-          </span>
-        </p>
-        <p class="statistic">
-          <span class="statistic__figure" data-entry="reblogs">0</span>
-          <span class="statistic__label">
-            {% set feathericon = 'repeat' %}
-            {% include "components/feathericon.njk" %}
-            <span class="sr-only">Reblogs</span>
-          </span>
-        </p>
-        <p class="statistic">
-          <span class="statistic__figure" data-entry="favorites">0</span>
-          <span class="statistic__label">
-            {% set feathericon = 'star' %}
-            {% include "components/feathericon.njk" %}
-            <span class="sr-only">Favorites</span>
-          </span>
-        </p>
-      </footer>
     </section>
+    <footer class="entry__footer" data-entry="footer">
+      <a class="no-arrow entry__post-time" target="_blank" rel="noopener" style="margin-right: auto;" data-entry="permalink">
+        <time data-entry="timestamp"></time>
+      </a>
+      <p class="statistic">
+        <span class="statistic__figure" data-entry="replies">0</span>
+        <span class="statistic__label">
+          {% set feathericon = 'corner-up-left' %}
+          {% include "components/feathericon.njk" %}
+          <span class="sr-only">Replies</span>
+        </span>
+      </p>
+      <p class="statistic">
+        <span class="statistic__figure" data-entry="reblogs">0</span>
+        <span class="statistic__label">
+          {% set feathericon = 'repeat' %}
+          {% include "components/feathericon.njk" %}
+          <span class="sr-only">Reblogs</span>
+        </span>
+      </p>
+      <p class="statistic">
+        <span class="statistic__figure" data-entry="favorites">0</span>
+        <span class="statistic__label">
+          {% set feathericon = 'star' %}
+          {% include "components/feathericon.njk" %}
+          <span class="sr-only">Favorites</span>
+        </span>
+      </p>
+    </footer>
   </article>
 </template>
 <template id="mastodon-feed-header">

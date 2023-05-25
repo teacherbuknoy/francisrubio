@@ -31,10 +31,12 @@
 
 
 .entry {
+  --card-bg       : var(--bg-primary);
   background-color: hsl(var(--card-bg));
   border          : 1px solid hsl(var(--fg-default) / 15%);
   border-radius   : var(--radius-4);
   box-shadow      : 0 4px 8px #0001;
+  overflow        : hidden;
 
   .entry {
     border             : none;
@@ -75,6 +77,7 @@
 
   &__body {
     display       : flex;
+    flex          : 1;
     flex-direction: column;
     gap           : var(--space);
     padding       : var(--space);
@@ -100,9 +103,11 @@
   }
 
   &__footer {
-    display  : flex;
-    gap      : var(--space);
-    flex-wrap: wrap;
+    display    : flex;
+    gap        : var(--space);
+    flex-wrap  : wrap;
+    padding    : var(--space-s) var(--space);
+    align-items: center;
   }
 
   &__cw-toggle {
@@ -143,6 +148,7 @@
     display        : flex;
     align-items    : center;
     justify-content: center;
+    height         : 100%;
   }
 
   &__content:not([hidden]) {

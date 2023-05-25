@@ -189,6 +189,7 @@ class SocialPost {
   #element
   #renderers = []
   #section
+  #footer
   #replies = []
 
   /**
@@ -207,6 +208,10 @@ class SocialPost {
     const section = entry.querySelector('[data-entry=entry]')
     section.setAttribute('id', `entry-${post.id}`)
     this.#section = section
+
+    const footer = entry.querySelector('[data-entry=footer]')
+    footer.setAttribute('id', `entry-footer-${post.id}`)
+    this.#footer = footer
 
     const content = entry.querySelector('[data-entry=content]')
     content.innerHTML = post.content
@@ -250,13 +255,13 @@ class SocialPost {
     timestamp.innerText = formatter.format(date)
     timestamp.setAttribute('datetime', date.toISOString())
 
-    const replies = entry.querySelector('[data-entry=replies')
+    const replies = entry.querySelector('[data-entry=replies]')
     replies.innerText = post.replies_count
 
-    const reblogs = entry.querySelector('[data-entry=reblogs')
+    const reblogs = entry.querySelector('[data-entry=reblogs]')
     reblogs.innerText = post.reblogs_count
 
-    const favorites = entry.querySelector('[data-entry=favorites')
+    const favorites = entry.querySelector('[data-entry=favorites]')
     favorites.innerText = post.favourites_count
 
     const header = new SocialPostHeader(post)
@@ -271,7 +276,7 @@ class SocialPost {
    * @param {SocialPost} post the reply post
    */
   addReply(post) {
-    this.#section.insertAdjacentElement('afterend', post.element)
+    this.#footer.insertAdjacentElement('afterend', post.element)
     this.#replies.push(post)
     this.#renderers.push(() => post.render())
   }

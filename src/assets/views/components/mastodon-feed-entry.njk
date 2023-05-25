@@ -48,55 +48,57 @@
         <button class="button entry__cw-toggle" data-toggle="content-{{ entry.id }}">[Show content]</button>
       </div>
     {% endif %}
-    <footer class="entry__footer">
-      <a href="{{ entry.url }}" class="no-arrow entry__post-time" target="_blank" rel="noopener" style="margin-right: auto;">
-        <time datetime="{{ entry.created_at }}">{{ utils.humanReadableDate(entry.created_at) }}</time>
-      </a>
-      <p class="statistic">
-        {% set replies = entry.replies_count %}
-        <span class="statistic__figure">{{ replies if replies else '0' }}</span>
-        <span class="statistic__label">
-          {% set feathericon = 'corner-up-left' %}
-          {% include "components/feathericon.njk" %}
-          <span class="sr-only">Replies</span>
-        </span>
-      </p>
-      <p class="statistic">
-        {% set reblog = entry.reblogs_count %}
-        <span class="statistic__figure">{{ reblog if reblog else '0' }}</span>
-        <span class="statistic__label">
-          {% set feathericon = 'repeat' %}
-          {% include "components/feathericon.njk" %}
-          <span class="sr-only">Reblogs</span>
-        </span>
-      </p>
-      <p class="statistic">
-        {% set likes = entry.favourites_count %}
-        <span class="statistic__figure">{{ likes if likes else '0' }}</span>
-        <span class="statistic__label">
-          {% set feathericon = 'star' %}
-          {% include "components/feathericon.njk" %}
-          <span class="sr-only">Favorites</span>
-        </span>
-      </p>
-    </footer>
   </section>
-  {% if entry.replyEntry != null %}
-    {% set entry = mastodon.findReply(entry.replyEntry) %}
-    {% include "components/mastodon-feed-entry.njk" %}
-  {% elif context != null %}
-    {% if entryIndex == null %}
-      {% set entryIndex = 1 %}
-      {# 1 as index of the second post #}
-    {% else %}
-      {% set entryIndex = entryIndex + 1 %}
-      {# 1 as index of the second post #}
-    {% endif %}
-    {% set entry = context[entryIndex] %}
-    {% set length = context | length %}
-
-    {% if entryIndex < length %}
+  <footer class="entry__footer">
+    <a href="{{ entry.url }}" class="no-arrow entry__post-time" target="_blank" rel="noopener" style="margin-right: auto;">
+      <time datetime="{{ entry.created_at }}">{{ utils.humanReadableDate(entry.created_at) }}</time>
+    </a>
+    <p class="statistic">
+      {% set replies = entry.replies_count %}
+      <span class="statistic__figure">{{ replies if replies else '0' }}</span>
+      <span class="statistic__label">
+        {% set feathericon = 'corner-up-left' %}
+        {% include "components/feathericon.njk" %}
+        <span class="sr-only">Replies</span>
+      </span>
+    </p>
+    <p class="statistic">
+      {% set reblog = entry.reblogs_count %}
+      <span class="statistic__figure">{{ reblog if reblog else '0' }}</span>
+      <span class="statistic__label">
+        {% set feathericon = 'repeat' %}
+        {% include "components/feathericon.njk" %}
+        <span class="sr-only">Reblogs</span>
+      </span>
+    </p>
+    <p class="statistic">
+      {% set likes = entry.favourites_count %}
+      <span class="statistic__figure">{{ likes if likes else '0' }}</span>
+      <span class="statistic__label">
+        {% set feathericon = 'star' %}
+        {% include "components/feathericon.njk" %}
+        <span class="sr-only">Favorites</span>
+      </span>
+    </p>
+  </footer>
+  {% if not noreply %}
+    {% if entry.replyEntry != null %}
+      {% set entry = mastodon.findReply(entry.replyEntry) %}
       {% include "components/mastodon-feed-entry.njk" %}
+    {% elif context != null %}
+      {% if entryIndex == null %}
+        {% set entryIndex = 1 %}
+        {# 1 as index of the second post #}
+      {% else %}
+        {% set entryIndex = entryIndex + 1 %}
+        {# 1 as index of the second post #}
+      {% endif %}
+      {% set entry = context[entryIndex] %}
+      {% set length = context | length %}
+
+      {% if entryIndex < length %}
+        {% include "components/mastodon-feed-entry.njk" %}
+      {% endif %}
     {% endif %}
   {% endif %}
 </article>
