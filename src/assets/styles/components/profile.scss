@@ -140,6 +140,7 @@
     margin-block  : var(--space-xl);
 
     &--scroll {
+      align-items      : start;
       flex-direction   : row;
       overflow-x       : auto;
       padding-block-end: var(--space-xxl);
@@ -153,12 +154,6 @@
         min-width        : 45ch;
         scroll-snap-align: center;
         text-align       : initial;
-
-        &__body {
-          max-height     : 14.5ch;
-          overflow       : auto;
-          scrollbar-color: hsl(var(--bg-accent)) hsl(var(--bg-secondary));
-        }
 
         &__media {
           display: none;
