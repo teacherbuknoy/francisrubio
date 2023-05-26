@@ -185,12 +185,13 @@ scripts: ['frontpage.js', mastodon.js]
     <p id="section-61-heading" class="uppercase ls-l font-sans"  data-baybayin="{{ sections.threads.baybayin_label }}">{{ sections.threads.label | safe }}</p>
     <h2 class="font-serif fs-1">{{ sections.threads.title | safe }}</h2>
     <p>{{ sections.threads.description | safe }}</p>
+    <script>
+      window.MASTODON.threads = {{ mastodon.feed | removeReblogs | removeReplies | dump | safe }}
+    </script>
     <div class="profile__feed profile__feed--scroll">
-      {% for thread in threads %}
-        {% if loop.index0 < 4 %}  
-          {% set context = thread.context %}
-          {% set entryIndex = 0 %}
-          {% set entry = context[entryIndex] %}
+      {% for thread in mastodon.feed | removeReblogs | removeReplies %}
+        {% if loop.index0 < 6 %}  
+          {% set entry = thread %}
           {% set noreply = true %}
           {% include "components/mastodon-feed-entry.njk" %}
         {% endif %}

@@ -84,5 +84,7 @@ module.exports = {
   removeNoAlias: collection => collection.filter(item => item.data.alias != null),
   values: obj => Object.values(obj),
   keys: obj => Object.keys(obj),
-  firstParagraph: post => post.split(/\n/gm)[0].toString('utf8')
+  firstParagraph: post => post.split(/\n/gm)[0].toString('utf8'),
+  removeReblogs: entries => entries.filter(entry => entry.reblog == null),
+  removeReplies: entries => entries.filter(entry => entry.in_reply_to_id == null)
 }

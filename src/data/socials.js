@@ -16,11 +16,11 @@ async function fetchMastodon() {
   return {
     ...mastodon,
     profile: await EleventyFetch(mastodon.endpoints.profile, { duration: '1d', type: 'json' }),
-    feed: assignMastodonReplies(await EleventyFetch(`${mastodon.endpoints.feed}`, { duration: '1d', type: 'json' }))
+    feed: assignMastodonReplies(await EleventyFetch(`${mastodon.endpoints.feed}`, { duration: '1s', type: 'json' }))
   }
 }
 
-/**
+/**s
  * 
  * @param {Object[]} arr 
  */
