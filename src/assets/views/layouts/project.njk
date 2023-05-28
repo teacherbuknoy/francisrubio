@@ -21,17 +21,22 @@
       <div class="stack">
         <h1 id="{{ title | slugify }}" class="article__title margin--none responsive">{{ title | safe }}</h1>
         <p class="fs-5 font-sans margin-block--none padding-block-end--l">{{ description | safe }}</p>
-        <time datetime="{{ page.date | machineReadableDate }}">{{ page.date | humanReadableDate }}</time>
-        <div class="filled cluster ai--center">
-          <div class="cluster gap--m ai--center">
-            {% for tag in tags %}
-              <span class="badge">{{ tag }}</span>
+        <div class="spaced cluster ai--center">
+          {% if links.length > 1 %}
+            <div class="cluster gap--m jc--end ai--center">
+              {% for link in links %}
+                <a href="{{ link.url }}" class="{{ "primary" if link.is_primary }} button button--small" target="_blank" rel="noopener noreferer nofollow">{{ link.text }}</a>
+              {% endfor %}
+            </div>
+          {% else  %}
+            {% set link = links[0] %}
+            <a href="{{ link.url }}" class="button button--small" target="_blank" rel="noopener noreferer nofollow">{{ link.text }}</a>
+          {% endif %}
+          <div class="category-pill">
+            {% for item in tags %}
+              <span class="p-category category-pill__inner category-pill__category">{{ item }}</span>
             {% endfor %}
-          </div>
-          <div class="cluster gap--m jc--end ai--center">
-            {% for link in links %}
-              <a href="{{ link.url }}" class="{{ "primary" if link.is_primary }} button" target="_blank" rel="noopener noreferer nofollow">{{ link.text }}</a>
-            {% endfor %}
+            <time class="category-pill__inner category-pill__read-time" datetime="{{ page.date | machineReadableDate }}">{{ page.date | humanReadableDate }}</time>
           </div>
         </div>
       </div>
@@ -87,15 +92,14 @@
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
-        "name": "Navigation",
+      "name": "Navigation",
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
           "name": "Projects",
           "item": "https://{{ preferredDomain.value }}/projects/"
-        },
-        {
+        }, {
           "@type": "ListItem",
           "position": 2,
           "name": "{{ title | safe }}",

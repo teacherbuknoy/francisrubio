@@ -1,8 +1,8 @@
 .badge {
-  font-family: var(--font-sans);
-  font-size: 0.9rem;
-  background-color: hsl(var(--fg-non-essential) / 75%);
-  padding: var(--space-xxs) var(--space-s);
-  border-radius: 100px;
-  border: 1px solid hsl(var(--fg-non-essential));
+  background-color: hsl(var(--bg-secondary)/50%);
+  border          : 1px solid hsl(var(--bg-secondary) / 50%);
+  border-radius   : 100px;
+  font-family     : var(--font-sans);
+  font-size       : 0.9rem;
+  padding         : var(--space-xxs) var(--space-s);
 }
