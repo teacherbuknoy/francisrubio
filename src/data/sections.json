@@ -72,5 +72,11 @@
     "baybayin_label": "ᜐᜓᜐ᜔ᜌᜎ᜔ ᜋᜒᜇ᜔ᜌ",
     "title": "Thoughts from the Void",
     "description":"Thoughts that I wanted to put out there but were too lazy to write longform. Opinions that would be otherwise too bland outside the confines of a character limit."
+  },
+  "webmentions": {
+    "label": "Webmentions",
+    "baybayin_label": "ᜊᜅ᜔ᜄᜒᜆ᜔ᜐᜉᜓᜆ᜔",
+    "title": "Shoutouts from the interwebs",
+    "description": "When I screamed into the void, the void screamed back. And these are what they had to say."
   }
 }
