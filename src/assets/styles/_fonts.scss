@@ -1,42 +1,14 @@
 @font-face {
-  font-family : "Fraunces var";
+  font-family : "Fraunces";
   src         : url("/assets/fonts/fraunces-var.ttf") format("truetype");
   font-display: swap;
 }
 
 @font-face {
-  font-family : "Fraunces var";
+  font-family : "Fraunces";
   src         : url("/assets/fonts/fraunces-italic-var.ttf") format("truetype");
   font-display: swap;
   font-style  : italic;
-}
-
-@font-face {
-  font-family : "Fraunces";
-  src         : url("/assets/fonts/fraunces-regular.ttf") format("truetype");
-  font-display: swap;
-}
-
-@font-face {
-  font-family : "Fraunces";
-  src         : url("/assets/fonts/fraunces-italic.ttf") format("truetype");
-  font-display: swap;
-  font-style  : italic;
-}
-
-@font-face {
-  font-family : "Fraunces";
-  src         : url("/assets/fonts/fraunces-bold-italic.ttf") format("truetype");
-  font-display: swap;
-  font-style  : italic;
-  font-weight : bold;
-}
-
-@font-face {
-  font-family : "Fraunces";
-  src         : url("/assets/fonts/fraunces-bold.ttf") format("truetype");
-  font-display: swap;
-  font-weight : bold;
 }
 
 @font-face {
@@ -64,8 +36,14 @@
 }
 
 @font-face {
-  font-family : "Matatas One";
+  font-family : "Lora";
+  src         : url("/assets/fonts/lora-var.ttf") format("truetype");
   font-display: swap;
-  font-weight : bold;
-  src         : url("/assets/fonts/matatas_one.otf") format("opentype");
+}
+
+@font-face {
+  font-family : "Lora";
+  src         : url("/assets/fonts/lora-italic-var.ttf") format("truetype");
+  font-display: swap;
+  font-style  : italic;
 }

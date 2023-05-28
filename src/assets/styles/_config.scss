@@ -239,20 +239,13 @@
 /* FONTS */
 :root {
   --font-sans         : "Figtree", "Noto Sans Tagalog", sans-serif;
-  --font-serif        : "Fraunces", serif;
+  --font-serif        : "Lora", serif;
   --font-display      : "Figtree", "Noto Sans Tagalog", sans-serif;
   --font-display-serif: "Fraunces", serif;
   --font-body         : var(--font-serif);
   --font-ui           : var(--font-sans);
   --font-mono         : "Source Code Pro", monospace;
-  --font-cursive      : 'Matatas One', sans-serif;
   --font-baybayin     : 'Noto Sans Tagalog', 'Figtree', sans-serif;
-
-
-  @supports (font-variation-settings: "wght"100) {
-    --font-serif        : "Fraunces var", serif;
-    --font-display-serif: "Fraunces var", serif;
-  }
 
   --type-size  : 1.2rem;
   --type-size-1: 4.209rem;
