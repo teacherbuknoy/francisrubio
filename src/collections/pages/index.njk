@@ -21,7 +21,7 @@ scripts: ['frontpage.js', mastodon.js]
 {% include "components/banners/home-banner.njk" %}
 <section class="section padding-block--xxl" id="section-2" aria-labelledby="section-2-heading">
   <div class="section__inner">
-    <h2 style="width: min(35ch, 100%);" class="fs-4 font-serif weight-300" id="section-2-heading">I specialize in creating <strong class="fg-primary-700 weight-bold">accessible front ends</strong> for web projects and integrating them with APIs and back-end processes.</h2>
+    <h2 style="width: min(35ch, 100%);" class="fs-4 weight-300" id="section-2-heading">I specialize in creating <strong class="fg-primary-700 weight-bold">accessible front ends</strong> for web projects and integrating them with APIs and back-end processes.</h2>
     <div class="scroll-snapper d-flex gap--m padding--xl">
       {% for feature in features %}
         <div class="feature-card snap-center" style="flex-basis: 30ch; flex-shrink: 0;">
@@ -41,7 +41,7 @@ scripts: ['frontpage.js', mastodon.js]
     <hgroup role="group" class="stack gap--none">
       <p id="section-3-heading" class="uppercase ls-l font-sans" data-baybayin="{{ sections.experience.baybayin_label }}">
         <span>{{ sections.experience.label | safe }}</span></p>
-      <h2 class="font-serif fs-1">{{ sections.experience.title | safe }}</h2>
+      <h2 class="fs-1">{{ sections.experience.title | safe }}</h2>
     </hgroup>
     <div class="with-sidebar padding-block--xl">
       <div class="sidebar padding-inline--m" style="flex-basis: 20ch;">
@@ -85,7 +85,7 @@ scripts: ['frontpage.js', mastodon.js]
     <div class="stack gap--none">
       <hgroup role="group">
         <p id="section-41-heading" class="uppercase ls-l font-sans" data-baybayin="{{ sections.writing.baybayin_label }}">{{ sections.writing.label | safe }}</p>
-        <h2 class="font-serif fs-1">{{ sections.writing.title | safe }}</h2>
+        <h2 class="fs-1">{{ sections.writing.title | safe }}</h2>
         <p>{{ sections.writing.description | safe }}</p>
       </hgroup>
       {% set postLimit = 4 %}
@@ -104,7 +104,7 @@ scripts: ['frontpage.js', mastodon.js]
     <div class="stack gap--none">
       <hgroup role="group">
         <p id="section-4-heading" class="uppercase ls-l font-sans"  data-baybayin="{{ sections.literature.baybayin_label }}">{{ sections.literature.label | safe }}</p>
-        <h2 class="font-serif fs-1">{{ sections.literature.title | safe }}</h2>
+        <h2 class="fs-1">{{ sections.literature.title | safe }}</h2>
         <p>{{ sections.literature.description | safe }}</p>
       </hgroup>
       {% set postLimit = 4 %}
@@ -135,7 +135,7 @@ scripts: ['frontpage.js', mastodon.js]
   <div class="section__inner">
     <hgroup role="group" class="stack gap">
       <p id="section-5-heading" class="uppercase ls-l font-sans"  data-baybayin="{{ sections.talks.baybayin_label }}">{{ sections.talks.label | safe }}</p>
-      <h2 class="font-serif fs-1">{{ sections.talks.title | safe }}</h2>
+      <h2 class="fs-1">{{ sections.talks.title | safe }}</h2>
       <p>{{ sections.talks.description | safe }}</p>
     </hgroup>
     <div class="margin-block--l">
@@ -158,7 +158,7 @@ scripts: ['frontpage.js', mastodon.js]
   <div class="section__inner">
     <hgroup role="group" class="stack gap">
       <p id="section-6-heading" class="uppercase ls-l font-sans"  data-baybayin="{{ sections.projects.baybayin_label }}">Projects</p>
-      <h2 class="font-serif fs-1">The Gallery</h2>
+      <h2 class="fs-1">The Gallery</h2>
       <p>My most notable projects. Things that I am proud I made, or was involved in making. Work that I would love to do more of.</p>
     </hgroup>
     {% set postLimit = 3 %}
@@ -183,7 +183,7 @@ scripts: ['frontpage.js', mastodon.js]
 <section class="padding-block--xxl bg--secondary" id="section-6" aria-labelledby="section-61-heading">
   <div class="section__inner jc--center stack gap text-center">
     <p id="section-61-heading" class="uppercase ls-l font-sans"  data-baybayin="{{ sections.threads.baybayin_label }}">{{ sections.threads.label | safe }}</p>
-    <h2 class="font-serif fs-1">{{ sections.threads.title | safe }}</h2>
+    <h2 class="fs-1">{{ sections.threads.title | safe }}</h2>
     <p>{{ sections.threads.description | safe }}</p>
     <script>
       window.MASTODON.threads = {{ mastodon.feed | removeReblogs | removeReplies | dump | safe }}
@@ -208,7 +208,7 @@ scripts: ['frontpage.js', mastodon.js]
     <div class="stack gap--none">
       <hgroup role="group">
         <p id="section-4a-heading" class="uppercase ls-l font-sans" data-baybayin="{{ sections.videos.baybayin_label }}">{{ sections.videos.label | safe }}</p>
-        <h2 class="font-serif fs-1">{{ sections.videos.title | safe }}</h2>
+        <h2 class="fs-1">{{ sections.videos.title | safe }}</h2>
         <p>{{ sections.videos.description | safe }}</p>
       </hgroup>
     </div>
@@ -227,7 +227,7 @@ scripts: ['frontpage.js', mastodon.js]
     <div class="stack gap">
       <hgroup role="group">
         <p id="footer-heading" class="uppercase ls-l font-sans"  data-baybayin="{{ sections.contact.baybayin_label }}">{{ sections.contact.label | safe }}</p>
-        <h2 class="font-serif fs-1">{{ sections.contact.title | safe }}</h2>
+        <h2 class="fs-1">{{ sections.contact.title | safe }}</h2>
       </hgroup>
       <p style="width: min(75ch, 100%)">{{ sections.contact.description | safe }}</p>
     </div>
@@ -241,10 +241,10 @@ scripts: ['frontpage.js', mastodon.js]
 <section class="padding-block--xxl bg-secondary" id="comments" aria-labelledby="comments-heading">
   <div class="section__inner">
     <hgroup class="stack-gap" role="group">
-      <p id="comments-heading" class="uppercase ls-l font-sans" data-baybayin="ᜊᜅ᜔ᜄᜒᜆ᜔ᜐᜉᜓᜆ᜔">Webmentions</p>
-      <h2 class="font-serif fs-1">Shoutouts from the interwebs</h2>
+      <p id="comments-heading" class="uppercase ls-l font-sans" data-baybayin="{{ sections.webmentions.baybayin_label }}">{{ sections.webmentions.label | safe }}</p>
+      <h2 class="fs-1">{{ sections.webmentions.title | safe }}</h2>
     </hgroup>
-    <p style="width: min(75ch, 100%)">When I screamed into the void, the void screamed back. And these are what they had to say.</p>
+    <p style="width: min(75ch, 100%)">{{ sections.contact.description | safe }}</p>
     {% include 'components/webmentions.njk' %}
   </div>
 </section>
