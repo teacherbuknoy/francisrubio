@@ -10,6 +10,7 @@ class ScriptSourceMap {
       webmentions: 'webmentions.js',
       mastodon: 'mastodon.js',
       frontpage: 'frontpage.js',
+      analytics: 'analytics.js',
     }
   }
 
