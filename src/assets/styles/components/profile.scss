@@ -151,7 +151,7 @@
       .entry {
         display          : flex;
         flex-direction   : column;
-        min-width        : 45ch;
+        min-width        : min(45ch, 100%);
         scroll-snap-align: center;
         text-align       : initial;
 
