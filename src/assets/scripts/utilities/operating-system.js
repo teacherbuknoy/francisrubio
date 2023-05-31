@@ -15,8 +15,11 @@ class OperatingSystem {
 
   static getDevice() {
     const device = uaParser.getDevice()
-    if (device.type != undefined)
+    if (device.vendor != undefined && device.model)
       return `${device.vendor} ${device.model}`
+    
+    if (device.type != undefined)
+      return `${device.type.charAt(0).toUpperCase()}${device.type.slice(1)}`
     
     return this.isMobileDevice() ? "Mobile" : "Desktop"
   }
