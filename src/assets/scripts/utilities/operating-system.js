@@ -1,23 +1,29 @@
-const { detect: detectBrowser } = require('detect-browser')
+const { UAParser } = require('ua-parser-js')
+
+const uaParser = new UAParser(navigator.userAgent)
 
 class OperatingSystem {
   static getBrowser() {
-    const browser = detectBrowser()
+    const browser = uaParser.getBrowser()
 
     if (!browser) return "Unknown Browser"
 
-    return browser.name.charAt(0).toUpperCase() + browser.name.slice(1)
+    const strBrowser = `${browser.name} ${browser.version}`
+
+    return strBrowser
+  }
+
+  static getDevice() {
+    const device = uaParser.getDevice()
+    if (device.type != undefined)
+      return `${device.vendor} ${device.model}`
+    
+    return this.isMobileDevice() ? "Mobile" : "Desktop"
   }
 
   static getName() {
-    let OSName = "Unknown OS"
-    if (OperatingSystem.isWindows()) OSName = "Windows"
-    if (OperatingSystem.isMac()) OSName = "macOS"
-    if (OperatingSystem.isUnix()) OSName = "UNIX"
-    if (OperatingSystem.isLinux()) OSName = "Linux"
-    if (OperatingSystem.isIos()) OSName = "iOS"
-
-    return OSName
+    const os = uaParser.getOS()
+    return `${os.name} ${os.version}`
   }
 
   static isMobileDevice() {

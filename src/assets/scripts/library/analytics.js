@@ -1,6 +1,12 @@
 const { v4: createUUID } = require('uuid')
 const { OperatingSystem } = require('../utilities/operating-system')
 
+const EVENT_KEYS = Object.freeze({
+  SITE_VISIT: 'SITE_VISIT',
+  SITE_LEAVE: 'SITE_LEAVE',
+  NAVIGATE: 'NAVIGATE'
+})
+
 function installAnalytics(url = "http://localhost:8888") {
   const uuid = createUUID()
   let analyticsEvents = []
@@ -62,20 +68,25 @@ function installAnalytics(url = "http://localhost:8888") {
 
   function getCurrentDateTime() {
     let currentDate = new Date()
-    return currentDate.toISOString()
+    let formatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'short', timeStyle: 'medium' })
+    return formatter.format(currentDate)
   }
 
-  function __createEventDetails(eventType) {
+  function __createEventDetails(eventType, customDataType, customData) {
     return {
       sessionId: uuid,
       eventType,
-      createdAt: getCurrentDateTime,
-      device: OperatingSystem.isMobileDevice() ? "Mobile" : "Desktop",
+      createdAt: getCurrentDateTime(),
+      device: OperatingSystem.getDevice(),
       userAgent: navigator.userAgent,
+      dateTime: new Date().toISOString(),
       browser: OperatingSystem.getBrowser(),
       os: OperatingSystem.getName(),
       language: navigator.language,
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      referrer: document.referrer,
+      customDataType,
+      customData,
       path:
         window.location.pathname == "/"
           ? window.location.pathname
@@ -87,8 +98,8 @@ function installAnalytics(url = "http://localhost:8888") {
 
   return {
     createEventDetails: __createEventDetails,
-    logEvent: /** @param {String} eventType  */ eventType => analyticsEvents.push(__createEventDetails(eventType)),
+    logEvent: /** @param {String} eventType  */ (eventType, customDataType, customData) => analyticsEvents.push(__createEventDetails(eventType, customDataType, customData)),
   }
 }
 
-export { installAnalytics }
+export { installAnalytics, EVENT_KEYS as AnalyticsEvents }

@@ -12,10 +12,8 @@ exports.handler = async (event, context, callback) => {
     const sheet = doc.sheetsByTitle['francisrub.io']
 
     const data = JSON.parse(event.body)
-    console.log(data)
     const rows = await sheet.addRows(data)
 
-    console.log(rows)
     return {
       statusCode: 200,
       body: JSON.stringify({ message: 'Data recorded.' })
