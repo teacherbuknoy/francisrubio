@@ -9,6 +9,8 @@
   }
 
   &__cover {
+    @extend .light;
+
     align-content      : end;
     background-color   : #f9b6c3;
     background-position: bottom right;
