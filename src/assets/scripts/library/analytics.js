@@ -4,7 +4,9 @@ const { OperatingSystem } = require('../utilities/operating-system')
 const EVENT_KEYS = Object.freeze({
   SITE_VISIT: 'SITE_VISIT',
   SITE_LEAVE: 'SITE_LEAVE',
-  NAVIGATE: 'NAVIGATE'
+  NAVIGATE: 'NAVIGATE',
+  CONFIG_CHANGE: 'CONFIG_CHANGE',
+  DOWNLOAD: 'DOWNLOAD'
 })
 
 function installAnalytics(url = "http://localhost:8888") {

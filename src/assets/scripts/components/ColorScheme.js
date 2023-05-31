@@ -1,4 +1,4 @@
-const COLOR_SCHEME_KEY = 'color-scheme'
+window.COLOR_SCHEME_KEY = 'color-scheme'
 
 /** @type {HTMLFormElement} */
 const colorSchemeSelector = document.forms['color-scheme']
@@ -16,4 +16,11 @@ colorSchemeSelector['color-scheme'].value = preferredColorScheme
 function applyColorScheme(colorScheme) {
   document.body.classList.remove('light', 'dark', 'system')
   document.body.classList.add(colorScheme)
+
+  let event = new CustomEvent('colorschemechange', {
+    bubbles: true, cancelable: false, detail: {
+      colorScheme
+    }
+  })
+  document.dispatchEvent(event)
 }
