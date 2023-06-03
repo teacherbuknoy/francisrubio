@@ -1,18 +1,34 @@
-const { GoogleSpreadsheet } = require('google-spreadsheet')
+const { query, Client } = require('faunadb')
+const { Create, Collection, Map, Lambda, Var } = query
 require('dotenv').config()
+const FAUNA_COLLECTION = "analytics-data"
 
 exports.handler = async (event, context, callback) => {
-  try {
-    const doc = new GoogleSpreadsheet('170OW7wdMrchhjngyEqhzzZQR5s3EWdrpS9NAMC_rD_E')
-    await doc.useServiceAccountAuth({
-      client_email: process.env.GCP_CLIENT_EMAIL,
-      private_key: process.env.GCP_PRIVATE_KEY
-    })
-    await doc.loadInfo()
-    const sheet = doc.sheetsByTitle['francisrub.io']
 
-    const data = JSON.parse(event.body)
-    const rows = await sheet.addRows(data)
+  try {
+
+    const client = new Client({
+      secret: process.env.FAUNADB_APIKEY,
+      endpoint: process.env.FAUNADB_ENDPOINT,
+    })
+    
+    const request = client.query(
+      Map(
+        JSON.parse(event.body),
+        Lambda(
+          'data',
+          Create(
+            Collection(FAUNA_COLLECTION),
+            { data: Var('data') }
+          )
+        )
+      )
+    )
+
+    await request.catch(e => {
+      console.log(e)
+      throw e
+    })
 
     return {
       statusCode: 200,
@@ -20,10 +36,9 @@ exports.handler = async (event, context, callback) => {
     }
   }
   catch (e) {
-    console.log(e.toString())
     return {
-      statusCode: e.response.status,
-      body: e.toString()
+      statusCode: 500,
+      body: JSON.stringify({ error: e.toString() })
     }
   }
 }

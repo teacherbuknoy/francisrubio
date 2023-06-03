@@ -49,6 +49,7 @@
     "eleventy-plugin-time-to-read": "^1.2.0",
     "eleventy-plugin-toc": "^1.1.5",
     "esbuild": "^0.14.3",
+    "faunadb": "^4.8.0",
     "feather-icons": "^4.28.0",
     "glob": "^8.0.3",
     "google-spreadsheet": "^3.3.0",
