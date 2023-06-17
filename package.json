@@ -10,7 +10,7 @@
     "build": "run-s subbuild",
     "production": "npm run build",
     "start": "npm run serve",
-    "serve": "cross-env ELEVENTY_ENV=development eleventy --serve",
+    "serve": "cross-env ELEVENTY_ENV=development eleventy --serve --incremental",
     "new-post": "node ./scripts/new-post.js",
     "images": "node ./scripts/images.js",
     "img-compress": "node ./scripts/compress-images.js",
@@ -28,7 +28,7 @@
   },
   "homepage": "https://francisrubio.antaresph.dev",
   "dependencies": {
-    "@11ty/eleventy": "^2.0.0-beta.1",
+    "@11ty/eleventy": "^2.0.1",
     "@11ty/eleventy-fetch": "^3.0.0",
     "@11ty/eleventy-img": "^1.1.0",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
