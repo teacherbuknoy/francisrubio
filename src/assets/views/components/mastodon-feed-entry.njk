@@ -38,22 +38,24 @@
       {% else %}
         {{ entry.content | safe }}
       {% endif %}
-      {% if entry.media_attachments != null and entry.media_attachments.length > 0 %}
-        <div class="entry__media">
-          {% for media in entry.media_attachments %}
-            {% if media.type === 'image' %}
-              <a class="entry__media-link" href="{{ media.url }}" target="_blank" rel="noopener">
-                <img src="{{ media.url }}" alt="{{ media.description }}" width="{{ media.meta.original.width }}" height="{{ media.meta.original.height }}">
-              </a>
-            {% elif media.type === 'video' %}
-              <video src="{{ media.url }}" 
+      {% if not disableMedia %}
+        {% if entry.media_attachments != null and entry.media_attachments.length > 0 %}
+          <div class="entry__media">
+            {% for media in entry.media_attachments %}
+              {% if media.type === 'image' %}
+                <a class="entry__media-link" href="{{ media.url }}" target="_blank" rel="noopener">
+                  <img src="{{ media.url }}" alt="{{ media.description }}" width="{{ media.meta.original.width }}" height="{{ media.meta.original.height }}">
+                </a>
+              {% elif media.type === 'video' %}
+                <video src="{{ media.url }}" 
                 aria-label="{{ media.description }}" 
                 poster="{{ media.preview_url }}" 
                 controls="" 
                 width="{{ media.meta.original.width }}" height="{{ media.meta.original.height }}"></video>
-            {% endif %}
-          {% endfor %}
-        </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
       {% endif %}
     </div>
     {% if entry.sensitive %}
