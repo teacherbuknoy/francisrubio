@@ -1,101 +1,69 @@
-class BaybayinCharacter {
-  #filters = {};
-  #elements = {};
-  #state;
+class BaybayinToggleButton {
+  button
 
-  constructor(element) {
-    this.#filters.baybayin = document.getElementById('baybayin-distort')
-    this.#filters.latin = document.getElementById('latin-distort')
-
-    this.#elements.baybayin = element.querySelector('.character__baybayin')
-    this.#elements.latin = element.querySelector('.character__latin')
-
-    this.#elements.latin.classList.add('hidden')
-    this.#state = 'baybayin'
+  /**
+   * Creates an instance of BaybayinToggleButton.
+   * @author Francis Rubio
+   * @param {HTMLButtonElement} button
+   * @memberof BaybayinToggleButton
+   */
+  constructor(button) {
+    this.button = button
   }
 
-  get state() {
-    return this.#state
+  assignMinWidth() {
+    const maxStringLength = Math.max(...this.getChildren().map(el => el.innerText.length))
+    const length = maxStringLength + 1
+    this.button.style.setProperty('min-width', `${length}ch`)
+
+    return this
   }
 
-  playAnimation() {
-    if (this.#state === 'baybayin') {
-      this.#hideBaybayin()
-      this.#showLatin()
-      this.#state = 'latin'
-    } else if (this.#state === 'latin') {
-      this.#showBaybayin()
-      this.#hideLatin()
-      setTimeout(() => this.#hideLatin(false), 300)
-      this.#state = 'baybayin'
+  press() {
+    this.button.setAttribute('aria-pressed', 'true')
+  }
+
+  unpress() {
+    this.button.setAttribute('aria-pressed', 'false')
+  }
+
+  getChildren() {
+    const children = []
+    for (let i = 0; i < this.button.childElementCount; i++) {
+      const element = this.button.children.item(i)
+      const furtherChildCount = element.childElementCount
+
+      if (furtherChildCount === 0) {
+        children.push(element)
+      }
     }
-  }
 
-  #showBaybayin() {
-    const filter = this.#filters.baybayin
-    const animator = this.#createAnimator(filter, { turbValue: 0, numOctaves: 1, scale: 10, factor: -0.25, limit: 0.5 })
-
-    this.#elements.baybayin.classList.remove('hidden')
-    //requestAnimationFrame(animator)
-  }
-
-  #hideBaybayin() {
-    const filter = this.#filters.baybayin
-    const animator = this.#createAnimator(filter, { turbValue: 0, numOctaves: 1, scale: 10 })
-
-    this.#elements.baybayin.classList.add('hidden')
-    requestAnimationFrame(animator)
-  }
-
-  #showLatin() {
-    const filter = this.#filters.latin
-    const animator = this.#createAnimator(filter, { turbValue: 0, numOctaves: 1, scale: 10, factor: 0.2 })
-
-    this.#elements.latin.classList.remove('hidden')
-    this.#elements.latin.classList.remove('transparent')
-    //requestAnimationFrame(animator)
-  }
-
-  #hideLatin(opacityOnly = true) {
-    const filter = this.#filters.latin
-    const animator = this.#createAnimator(filter, { turbValue: 0, numOctaves: 1, scale: 10 })
-
-    if (opacityOnly)
-      this.#elements.latin.classList.add('transparent')
-    else
-      this.#elements.latin.classList.add('hidden')
-    //requestAnimationFrame(animator)
-  }
-
-  #createAnimator(filter, { turbValue, numOctaves, scale, factor = 0.01, limit = 1 }) {
-    return () => { }
+    return children
   }
 }
 
-const character = new BaybayinCharacter(document.querySelector('.character'))
+/**
+ * @description Creates a togglebutton
+ * @author Francis Rubio
+ * @param {HTMLButtonElement} button
+ * @returns {BaybayinToggleButton}
+ */
+function createTogglebutton(button) {
+  if (!(button instanceof HTMLButtonElement)) {
+    throw Error("Element is not a button")
+  }
 
-const characters = document.querySelectorAll('.characters')
-const baybayinCharacters = []
-characters.forEach(characterSet => {
-  [...characterSet.querySelectorAll('.character')]
-    .forEach(c => baybayinCharacters.push(new BaybayinCharacter(c)))
-
-})
-
-const mouseHandler = e => {
-  const delay = 30;
-  baybayinCharacters.forEach((character, index) => {
-    setTimeout(() => character.playAnimation(), index * delay)
+  button.addEventListener('click', e => {
+    const pressed = button.getAttribute('aria-pressed') === 'true'
+    button.setAttribute('aria-pressed', !pressed)
   })
+
+  return new BaybayinToggleButton(button)
 }
 
-const h1 = document.querySelector('h1 button')
+function initialize() {
+  const baybayin = document.querySelectorAll('button.term[aria-pressed]')
+  const buttons = [...baybayin].map(button => createTogglebutton(button))
+}
 
-window.onJSLoadCallbacks.push(() => {
-  console.debug("JS CALLBACK: BAYBAYIN")
-  setTimeout(() => {
-    mouseHandler();
-
-    h1.addEventListener('click', mouseHandler)
-  }, 3000)
-})
+document.addEventListener("DOMContentLoaded", e => initialize())

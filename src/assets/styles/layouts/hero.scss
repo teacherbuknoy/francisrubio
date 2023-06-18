@@ -16,6 +16,7 @@ $h-small: 650px;
   display            : grid;
   margin-block-start : var(--top-offset);
   min-height         : max(100vh, 35ch);
+  overflow           : hidden;
   padding-block-start: calc(-1 * var(--top-offset));
   position           : relative;
   z-index            : 10;
@@ -24,6 +25,24 @@ $h-small: 650px;
     display      : grid;
     margin-inline: auto;
     width        : min(var(--page-width), 95%);
+
+    &::before {
+      content         : '';
+      aspect-ratio    : 1/1;
+      background-color: hsl(var(--banner-bg-3));
+      border-radius   : 100%;
+      filter          : blur(72ch);
+      height          : auto;
+      left            : 50%;
+      position        : absolute;
+      translate       : -50%;
+      width           : 100%;
+
+      @media (min-width: ($tablet + 1)) {
+        height: 100%;
+        width : auto;
+      }
+    }
 
     &>* {
       grid-row   : 1/2;
@@ -115,7 +134,7 @@ $h-small: 650px;
 
   &__caption {
     backdrop-filter : blur(1ch);
-    background-color: hsl(var(--banner-bg-3) / 50%);
+    background-color: hsl(var(--banner-bg-3) / 20%);
     border-radius   : var(--radius-5);
     display         : flex;
     flex-direction  : column;
@@ -242,9 +261,63 @@ $h-small: 650px;
         grid-row   : 6/7;
       }
 
-      &[aria-pressed="false"] .term__baybayin,
-      &[aria-pressed="true"] .term__latin {
-        display: none;
+      &:is(button) {
+        border          : none;
+        background-color: transparent;
+        cursor          : pointer;
+        position        : relative;
+
+        &[aria-pressed="true"] .term__baybayin,
+        &[aria-pressed="false"] .term__latin {
+          span {
+            opacity  : 0;
+            transform: translateY(var(--translate));
+          }
+        }
+
+        .term {
+
+          &__hidden {
+            opacity: 0;
+          }
+
+          &__baybayin,
+          &__latin {
+            font-style : normal;
+            left       : 50%;
+            position   : absolute;
+            top        : 50%;
+            translate  : -50% -50%;
+            white-space: nowrap;
+
+            span {
+              transition     : opacity 200ms, transform 200ms;
+              display        : inline-block;
+              --default-delay: 15ms;
+              $n-children    : 20;
+
+              @for $i from 2 through $n-children {
+                &:nth-child(#{$i}) {
+                  transition-delay: calc(var(--default-delay) * $i);
+                }
+              }
+
+              &:empty::before {
+                content: ' ';
+                display: inline-block;
+                width  : 0.5ch;
+              }
+            }
+          }
+
+          &__baybayin {
+            --translate: -100%;
+          }
+
+          &__latin {
+            --translate: 100%;
+          }
+        }
       }
     }
   }
