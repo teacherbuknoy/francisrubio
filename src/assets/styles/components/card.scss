@@ -81,6 +81,23 @@
 
   &.has-featured .post-card {
     &:nth-child(4n - 3) {
+      --scrim: linear-gradient(to right,
+          hsl(var(--d-contrast) / 0) 0%,
+          hsl(var(--d-contrast) / 0.013) 14.1%,
+          hsl(var(--d-contrast) / 0.049) 25.6%,
+          hsl(var(--d-contrast) / 0.104) 35.1%,
+          hsl(var(--d-contrast) / 0.175) 42.7%,
+          hsl(var(--d-contrast) / 0.259) 48.8%,
+          hsl(var(--d-contrast) / 0.352) 53.8%,
+          hsl(var(--d-contrast) / 0.45) 57.9%,
+          hsl(var(--d-contrast) / 0.55) 61.5%,
+          hsl(var(--d-contrast) / 0.648) 64.9%,
+          hsl(var(--d-contrast) / 0.741) 68.5%,
+          hsl(var(--d-contrast) / 0.825) 72.6%,
+          hsl(var(--d-contrast) / 0.896) 77.4%,
+          hsl(var(--d-contrast) / 0.951) 83.4%,
+          hsl(var(--d-contrast) / 0.987) 90.8%,
+          hsl(var(--d-contrast)) 100%);
       grid-column: 1/-1;
 
       @media (min-width: 700px) {
@@ -89,10 +106,6 @@
 
         &>* {
           grid-row: 1 / 1;
-        }
-
-        &::before {
-          background: linear-gradient(to left, hsl(var(--d-contrast)) 1%, transparent);
         }
 
         .post-card__image,
@@ -127,6 +140,8 @@
   height            : 30ch;
   transition        : box-shadow 500ms, outline 300ms, outline-offset 200ms, transform 200ms;
 
+  --scrim: linear-gradient(to top, hsl(var(--d-contrast)), transparent);
+
   &:focus-visible,
   &:hover {
     color: hsl(var(--fg-default));
@@ -147,7 +162,7 @@
     content      : "";
     grid-row     : 1/2;
     grid-column  : 1/2;
-    background   : linear-gradient(to top, hsl(var(--d-contrast)), transparent);
+    background   : var(--scrim, linear-gradient(to top, hsl(var(--d-contrast)), transparent));
     z-index      : 1;
     margin-bottom: -2px;
   }
