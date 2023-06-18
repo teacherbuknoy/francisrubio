@@ -220,7 +220,8 @@ $h-small: 650px;
   }
 
   &__baybayin {
-    display: none;
+    display       : none;
+    pointer-events: none;
 
     @media (min-width: ($tablet + 1)) {
       align-content        : center;
@@ -245,6 +246,7 @@ $h-small: 650px;
       font-style    : normal;
       font-family   : var(--font-sans);
       text-transform: uppercase;
+      pointer-events: all;
 
       &:first-child {
         grid-row   : 2/3;
