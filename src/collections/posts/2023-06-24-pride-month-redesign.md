@@ -3,9 +3,17 @@ title: "A new frontpage welcomes you"
 description: "In celebration of Pride Month, I redesigned my website banner. Here’s my process."
 permalink: "/writing/en/new-frontpage/"
 category: [design]
+theme:
+  scheme: dark
+  color: '#E93A4C'
+  style:
+    image:
+      '--img-object-fit': contain
+      '--img-object-position': left
+      '--post-image': linear-gradient(var(--theme-color), var(--theme-color))
 cover:
-  folder: noob-friendly-world
-  filename: cover.png
+  folder: new-frontpage
+  filename: cover-card.png
   header: header.png
   sizes: [500, 600, 700, 1000, 1280]
   formats: ['png', 'webp']
@@ -13,14 +21,12 @@ author: "teacherbuknoy"
 language: "en"
 seo:
   twitter:
-    url: "https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-0.5/posts/noob-friendly-world/twitter.png"
+    url: "https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-0.5/posts/new-frontpage/twitter.png"
     is_prefixed: false
   og:
-    url: "https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-0.5/posts/noob-friendly-world/og.png"
+    url: "https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-0.5/posts/new-frontpage/og.png"
     is_prefixed: false
 eleventyExcludeFromCollections: false
-canonical:
-  - https://dev.to/teacherbuknoy/building-a-kinder-noob-friendly-world-1aef
 ---
 
 This year is my second Pride Month. And while we do this every year in protest so people and governments around the world know that we exist and we deserve the same human rights afforded to others, it is also a celebration of diversity for the LGBTQIA+ community. And celebrations are an excuse to dress up, so I did! This redesign really started with the outfit I am going to wear to the Pride March. After seeing the photos, it was a revelation, and I felt my creative juices boiling over; it is indeed time for a redesign.
