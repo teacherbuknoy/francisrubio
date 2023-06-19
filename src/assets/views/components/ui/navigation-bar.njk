@@ -68,10 +68,12 @@
         {% endfor %}
 
         <li class="navigation-list-item">
-          <button class="navigation-link icon-only" data-opens="nav-overflow" >
+          {% set popupId = 'nav-overflow-desktop' %}
+          <button class="navigation-link icon-only" data-opens="{{ popupId }}" >
             {{ icon("more-horizontal") }}
             <span class="sr-only">More items</span>
           </button>
+          {% include "components/popups/overflow-links.njk" %}
         </li>
       </ul>
     </div>
