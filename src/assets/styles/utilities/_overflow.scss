@@ -11,3 +11,8 @@ $overflow: visible, auto, scroll, clip;
 .no-scroll {
   overflow: hidden;
 }
+
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed { position: fixed; }
+.sticky { position: sticky; }

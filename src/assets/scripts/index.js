@@ -10,9 +10,7 @@ import { Tab, TabControl } from './components/TabControl'
 import { NotificationManager } from './components/NotificationManager'
 import { FormValidator } from './components/Forms'
 import { Popup, PopupController } from './components/Popup'
-import { ToggleComponent } from './components/ToggleComponent'
-import { Toggle } from './components/toggle'
-import { ToggleController } from "./components/toggle-controller";
+import { attachDialogListener } from './webcomponents/HTMLDialogPopup'
 
 window.onJSLoadCallbacks = []
 
@@ -72,7 +70,7 @@ new FormValidator(document.getElementById('frm-email'))
 document.querySelectorAll('button[data-slur]')
   .forEach(button => new SlurToggle(button))
 
-const popups = [...document.querySelectorAll('[data-popup]')].map(p => new Popup(p))
+/* const popups = [...document.querySelectorAll('[data-popup]')].map(p => new Popup(p))
 const popupContainer = document.querySelector('[data-toggle-parent]')
 popups.forEach(popup => {
   popup.addEventListener('toggle', p => {
@@ -90,9 +88,19 @@ popupController.addEventListener('hasopen', () => {
 })
 popupController.addEventListener('allclose', () => {
   popupContainer.classList.add('hidden')
-})
+}) */
 
 window.addEventListener('load', e => {
   document.body.classList.remove('no-js')
   window.onJSLoadCallbacks.forEach(fn => fn())
 })
+
+/* HTML DIALOG POPUPS */
+document.querySelectorAll('button[data-opens]')
+  .forEach(button => {
+    try {
+      attachDialogListener(button)
+    } catch (e) {
+      console.error(e)
+    }
+  })

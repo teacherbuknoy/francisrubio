@@ -1,0 +1,19 @@
+<dialog id="{{ popupId }}" class="navigation-popup detached">
+  <form method="GET" name="color-scheme" class="navigation-list gap-m">
+    <div class="navigation-list-item navigation-list-radio">
+      <input type="radio" name="color-scheme" id="desktop-colscheme-light-{{ popupId }}" value="light">
+      <label for="desktop-colscheme-light-{{ popupId }}">Light</label>
+    </div>
+    
+    <div class="navigation-list-item navigation-list-radio">
+      <input type="radio" name="color-scheme" id="desktop-colscheme-dark-{{ popupId }}" value="dark">
+      <label for="desktop-colscheme-dark-{{ popupId }}">Dark</label>
+    </div>
+    
+    <div class="navigation-list-item navigation-list-radio">
+      <input type="radio" name="color-scheme" id="desktop-colscheme-system-{{ popupId }}" value="system">
+      <label for="desktop-colscheme-system-{{ popupId }}">Follow system theme</label>
+    </div>
+  </form>
+</dialog>
+{% set popupId = null %}

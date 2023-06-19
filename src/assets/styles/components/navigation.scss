@@ -77,6 +77,7 @@
     display: flex;
   }
 
+  &:focus,
   &:focus-visible {
     box-shadow      : none;
     background-color: hsl(var(--bg-accent) /20%);
@@ -277,7 +278,8 @@
   z-index         : -2;
   --brightness    : 0.7;
 
-  &:not([hidden]) {
+  &:not(dialog):not([hidden]),
+  &:is(dialog):is([open]) {
     display    : flex;
     align-items: center;
     gap        : 1ch;
@@ -338,10 +340,16 @@
 }
 
 .navigation-popup.detached {
-  z-index : 99;
-  position: absolute;
-  top     : calc(4rem + var(--space-s));
-  right   : 5%;
+  border    : 0;
+  box-shadow: 0 4px 8px hsl(var(--d-contrast) / 5%), 0 8px 16px hsl(var(--d-contrast) / 5%), 0 16px 32px hsl(var(--d-contrast) / 5%), 0 32px 64px hsl(var(--d-contrast) / 5%);
+  left      : auto;
+  margin    : 0;
+  position  : fixed;
+  right     : auto;
+  top       : calc(3rem + var(--space-s));
+  transform : translateX(-80%);
+  width     : max-content;
+  z-index   : 99;
 }
 
 .popup-wrapper {

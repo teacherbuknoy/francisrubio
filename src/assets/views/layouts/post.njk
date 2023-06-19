@@ -1,7 +1,8 @@
 {% extends 'layouts/base.njk' %}
 
 {% block content %}
-  {% include 'components/navigation.njk' %}
+  {# {% include 'components/navigation.njk' %} #}
+  {% include 'components/ui/navigation-bar.njk' %}
   <main style="width: min(100ch, 95%); margin-inline: auto;" class="h-entry padding-block--xl padding-inline--m article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
     <header class="article__header">
       {% set postType = postType if postType else 
