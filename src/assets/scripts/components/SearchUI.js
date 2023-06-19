@@ -63,6 +63,7 @@ class SearchUi {
     this.form.addEventListener('submit', e => {
       e.preventDefault()
       const term = this.form.term.value
+      keepDialogOpen(this.form.closest('dialog'))
 
       const results = provider.search({ term })
 
@@ -91,6 +92,7 @@ class SearchUi {
     }
 
     this.form.closest('.dialog--search').classList.remove('has-results')
+    keepDialogOpen(this.form.closest('dialog'))
   }
 
   renderSearchResultCount(count) {
@@ -131,6 +133,11 @@ async function initializeSearchData() {
       .catch(err => reject(err))
   })
 
+}
+
+function keepDialogOpen(dialog) {
+  if (!dialog.hasAttribute('open'))
+    dialog.showModal()
 }
 
 async function initialize() {
