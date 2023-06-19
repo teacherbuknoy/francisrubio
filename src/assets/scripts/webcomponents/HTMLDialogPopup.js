@@ -6,13 +6,22 @@ if (window.dialogs == null) {
 
 document.body.addEventListener('keydown', e => {
   if (e.code === "Escape") {
-    let lastPopup = document.createElement('dialog')
-    lastPopup = window.dialogs.pop()
-    
-    if (lastPopup != null)
-      lastPopup.close()
+    closeLastPopup()
   }
 })
+
+document.body.addEventListener('click', e => {
+  if (!e.target.matches('dialog, dialog *, button[data-opens], button[data-opens] *')  && e.target) {
+    closeLastPopup()
+  }
+})
+
+function closeLastPopup() {
+  let lastPopup = window.dialogs.pop()
+
+  if (lastPopup != null)
+    lastPopup.close()
+}
 
 /** @param {HTMLDialogElement} openPopup */
 function closeAllPopups(openPopup) {
