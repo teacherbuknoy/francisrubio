@@ -15,11 +15,19 @@ $h-small: 650px;
   background-color   : hsl(var(--banner-bg-1));
   display            : grid;
   margin-block-start : var(--top-offset);
-  min-height         : max(100vh, 35ch);
+  min-height         : max(100svh, 35ch);
   overflow           : hidden;
   padding-block-start: calc(-1 * var(--top-offset));
   position           : relative;
   z-index            : 10;
+
+  @media (min-width: 720px) {
+    --top-offset: -7rem;
+  }
+
+  @media (min-width: ($tablet)) {
+    --top-offset: -6rem;
+  }
 
   &__inner {
     display      : grid;
