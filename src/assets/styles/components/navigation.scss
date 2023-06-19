@@ -280,11 +280,23 @@
   height          : auto;
   padding         : var(--space-xs);
   position        : absolute;
-  right           : 0;
-  top             : calc(100% + var(--space-s));
   transition      : transform 200ms, box-shadow 300ms, opacity 200ms 75ms;
   z-index         : -2;
   --brightness    : 0.7;
+  right           : 0;
+  top             : calc(100% + var(--space-s));
+
+  @media (max-width: 961px) {
+    &.detached[open] {
+      inset        : auto;
+      left         : 50%;
+      right        : unset;
+      margin-inline: auto;
+      position     : fixed;
+      top          : 6ch;
+      transform    : translateX(-50%);
+    }
+  }
 
   &:not(dialog):not([hidden]),
   &:is(dialog):is([open]) {
