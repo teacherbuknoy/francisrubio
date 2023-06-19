@@ -11,7 +11,7 @@ document.body.addEventListener('keydown', e => {
 })
 
 document.body.addEventListener('click', e => {
-  if (!e.target.matches('dialog, dialog *, button[data-opens], button[data-opens] *')  && e.target) {
+  if (!e.target.matches('dialog, dialog *, button[data-opens], button[data-opens] *') && e.target) {
     closeLastPopup()
   }
 })
@@ -71,6 +71,17 @@ function __attachEventListener(button) {
       dialog.show()
     }
   })
+
+  if (button.dataset.isModal === 'true') {
+    dialog.addEventListener('click', function (event) {
+      var rect = dialog.getBoundingClientRect();
+      var isInDialog = (rect.top <= event.clientY && event.clientY <= rect.top + rect.height
+        && rect.left <= event.clientX && event.clientX <= rect.left + rect.width);
+      if (!isInDialog) {
+        dialog.close();
+      }
+    });
+  }
 }
 
 /**
