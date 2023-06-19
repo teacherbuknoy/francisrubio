@@ -9,7 +9,13 @@ permalink: /literature/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumbe
 activePath: literature
 ---
 <section class="page" aria-labelledby="section-heading-4">
-  <header class="page__cover" style="--page-cover-image: url(https://ik.imagekit.io/8jjzxcl9p/index/cover-pride-literature.png)">
+  <header class="page__cover" style="
+    --page-cover-image: image-set(
+      url('https://ik.imagekit.io/8jjzxcl9p/tr:f-avif/index/cover-pride-literature.png') type('image/avif'),
+      url('https://ik.imagekit.io/8jjzxcl9p/tr:f-webp/index/cover-pride-literature.png') type('image/webp'),
+      url('https://ik.imagekit.io/8jjzxcl9p/tr:f-png/index/cover-pride-literature.png') type('image/png')
+      )
+    ">
     <hgroup role="group" class="page__header">
       <span id="section-heading-4" class="uppercase ls-l font-sans" data-baybayin="{{ sections.literature.baybayin_label }}">{{ sections.literature.label | safe }}</span>
       <h2 class="responsive">{{ sections.literature.title | safe }}</h2>

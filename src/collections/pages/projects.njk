@@ -8,7 +8,11 @@ pagination:
 permalink: /projects/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html
 activePath: projects
 ---
-<section class="page" aria-labelledby="section-heading-4" style="--page-cover-image: url(https://ik.imagekit.io/8jjzxcl9p/index/cover-pride-projects.png)">
+<section class="page" aria-labelledby="section-heading-4" style="--page-cover-image: image-set(
+  url(https://ik.imagekit.io/8jjzxcl9p/tr:f-avif/index/cover-pride-projects.png) type('image/avif'),
+  url(https://ik.imagekit.io/8jjzxcl9p/tr:f-webp/index/cover-pride-projects.png) type('image/webp'),
+  url(https://ik.imagekit.io/8jjzxcl9p/tr:f-png/index/cover-pride-projects.png) type('image/png')
+)">
   <header class="page__cover" style="background-position: top calc(var(--offset) * -0.5) left;background-size: cover;">
     <hgroup class="page__header">
       <span id="section-heading-4" class="uppercase ls-l font-sans" data-baybayin="{{ sections.projects.baybayin_label }}">{{ sections.projects.label | safe }}</span>

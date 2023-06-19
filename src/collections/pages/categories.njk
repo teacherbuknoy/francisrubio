@@ -9,7 +9,13 @@ pagination:
 permalink: /writing/categories/{{ category }}/
 activePath: writing
 ---
-<section class="page" aria-labelledby="section-heading-4" style="--page-cover-image: url(https://ik.imagekit.io/8jjzxcl9p/index/cover-pride-musings.png)">
+<section class="page" aria-labelledby="section-heading-4" style="
+  --page-cover-image: image-set(
+    url(https://ik.imagekit.io/8jjzxcl9p/tr:f-avif/index/cover-pride-musings.png) type('image/avif'),
+    url(https://ik.imagekit.io/8jjzxcl9p/tr:f-webp/index/cover-pride-musings.png) type('image/webp'),
+    url(https://ik.imagekit.io/8jjzxcl9p/tr:f-png/index/cover-pride-musings.png) type('image/png')
+  )
+  ">
   <header class="page__cover">
     <hgroup role="group" class="page__header">
       <span id="section-heading-4" class="uppercase ls-l font-sans" data-baybayin="{{ sections.writing.baybayin_label }}">{{ sections.writing.label | safe }}</span>

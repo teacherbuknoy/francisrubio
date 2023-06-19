@@ -9,7 +9,11 @@ permalink: /speaking/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber 
 activePath: speaking
 ---
 <section class="page">
-  <header class="page__cover" style="--page-cover-image: url(https://ik.imagekit.io/8jjzxcl9p/index/cover-pride-talks.png);background-size: cover;background-position: bottom right;">
+  <header class="page__cover" style="--page-cover-image: image-set(
+    url(https://ik.imagekit.io/8jjzxcl9p/tr:f-avif/index/cover-pride-talks.png) type('image/avif'),
+    url(https://ik.imagekit.io/8jjzxcl9p/tr:f-webp/index/cover-pride-talks.png) type('image/webp'),
+    url(https://ik.imagekit.io/8jjzxcl9p/tr:f-png/index/cover-pride-talks.png) type('image/png')
+  );background-size: cover;background-position: bottom right;">
     <hgroup class="page__header" role="group">
       <p id="section-heading-4" class="margin--none uppercase ls-l font-sans" data-baybayin="{{ sections.talks.baybayin_label }}">{{ sections.talks.label | safe }}</p>
       <h1 class="margin--none responsive">{{ sections.talks.title | safe }}</h1>
