@@ -344,10 +344,11 @@
   box-shadow: 0 4px 8px hsl(var(--d-contrast) / 5%), 0 8px 16px hsl(var(--d-contrast) / 5%), 0 16px 32px hsl(var(--d-contrast) / 5%), 0 32px 64px hsl(var(--d-contrast) / 5%);
   left      : auto;
   margin    : 0;
-  position  : fixed;
+  max-width : 85vw;
+  position  : absolute;
   right     : auto;
   top       : calc(3rem + var(--space-s));
-  transform : translateX(-80%);
+  transform : translateX(-95%);
   width     : max-content;
   z-index   : 99;
 }
