@@ -1,7 +1,7 @@
 {% extends 'layouts/base.njk' %}
 
 {% block content %}
-  {% include 'components/navigation.njk' %}
+  {% include 'components/ui/navigation-bar.njk' %}
   <main class="padding--xl article" id="main" style="width: min(100ch, 100%); margin-inline: auto;" tabindex="-1" aria-labelledby="{{ title | slugify }}">
     <header style="width: min(100ch, 100%); --" class="article__header ai--center margin-inline--auto">
       <img src="{{ cover.src }}" alt="{{ cover.alt }}" class="article__image" width="{{ cover.width }}" height="{{ cover.height }}">
