@@ -5,6 +5,10 @@ if (window.dialogs == null) {
 }
 
 document.body.addEventListener('keydown', e => {
+  console.log(TAG, e.code, e)
+  if (e.code === 'Enter')
+    return
+
   if (e.code === "Escape") {
     closeLastPopup()
   }
@@ -38,13 +42,8 @@ function closeAllPopups(openPopup) {
   window.dialogs.push(openPopup)
 }
 
-/** @param {HTMLButtonElement} button */
 function __attachEventListener(button) {
   const dialogID = button.dataset.opens
-
-  console.log("[attachDialogListener]", { button, dialogID })
-
-  /** @type {HTMLDialogElement} */
   const dialog = document.getElementById(dialogID)
 
   if (dialog == null) {
@@ -65,7 +64,6 @@ function __attachEventListener(button) {
       window.dialogs.pop()
     } else if (isModal) {
       dialog.showModal()
-      closeAllPopups(dialog)
     } else {
       closeAllPopups(dialog)
       dialog.show()
@@ -81,6 +79,17 @@ function __attachEventListener(button) {
         dialog.close();
       }
     });
+
+    const dialogInteriors = dialog.querySelectorAll(':scope > *')
+    console.log(TAG, { dialogInteriors })
+    dialogInteriors.forEach(element => element.addEventListener('keydown', e => {
+      const closeIsNotAllowed = e.target.matches('a, form:not([method=get]) button, input, select, textarea')
+      
+      if (e.code === 'Enter' && closeIsNotAllowed) {
+        e.stopImmediatePropagation()
+        console.log(TAG, "Prevented dialog closing via enter")
+      }
+    }))
   }
 }
 

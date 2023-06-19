@@ -69,6 +69,10 @@
     aspect-ratio: 1/1;
   }
 
+  &.transparent {
+    background: transparent;
+  }
+
   &.go-to-top {
     @extend .square;
     @extend .primary;

@@ -231,6 +231,14 @@
   margin    : 0;
   padding   : 0;
   row-gap   : 1ch;
+
+  &--vertical {
+    flex-direction: column;
+
+    .navigation-menu-link {
+      width: 100%;
+    }
+  }
 }
 
 .navigation-list-item>* {
