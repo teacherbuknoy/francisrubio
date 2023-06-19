@@ -9,30 +9,14 @@ pagination:
 permalink: /writing/categories/{{ category }}/
 activePath: writing
 ---
-<section class="page" aria-labelledby="section-heading-4" style="--page-cover-image: url(https://ik.imagekit.io/8jjzxcl9p/index/cover--writing.png?updatedAt=1679837586208)">
+<section class="page" aria-labelledby="section-heading-4" style="--page-cover-image: url(https://ik.imagekit.io/8jjzxcl9p/index/cover-pride-musings.png)">
   <header class="page__cover">
-    <div class="page__header">
-      <nav class="breadcrumb" aria-label="Breadcrumbs">
-        <ol class="breadcrumb__list">
-          <li class="breadcrumb__list-item">
-            <a href="/" class="breadcrumb__link" data-animation="button">Frontpage</a>
-          </li>
-          <li class="breadcrumb__list-item">
-            <a href="/writing/" class="breadcrumb__link" data-animation="button">Writing</a>
-          </li>
-          <li class="breadcrumb__list-item">
-            <a href="/writing/#categories" class="breadcrumb__link" data-animation="button">Categories</a>
-          </li>
-          <li class="breadcrumb__list-item">
-            <a aria-current="location" class="breadcrumb__link" data-animation="button">{{ category }}</a>
-          </li>
-        </ol>
-      </nav>
-      <h1 class="h2 responsive" id="section-heading-4">{{ sections.writing.title | safe }}</h1>
+    <hgroup role="group" class="page__header">
+      <span id="section-heading-4" class="uppercase ls-l font-sans" data-baybayin="{{ sections.writing.baybayin_label }}">{{ sections.writing.label | safe }}</span>
+      <h1 class="responsive">{{ sections.writing.title | safe }}</h1>
       <p>{{ sections.writing.description | safe }}</p>
-    </div>
+    </hgroup>
   </header>
-
   <div class="page__inner">
     <div class="tag-scroller">
       {% for item in collections.postTags %}
