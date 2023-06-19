@@ -58,8 +58,8 @@ function __attachEventListener(button) {
       dialog.showModal()
       closeAllPopups(dialog)
     } else {
-      dialog.show()
       closeAllPopups(dialog)
+      dialog.show()
     }
   })
 }
