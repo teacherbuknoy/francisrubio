@@ -9,7 +9,6 @@ import { $, $$ } from './utilities/dom'
 import { Tab, TabControl } from './components/TabControl'
 import { NotificationManager } from './components/NotificationManager'
 import { FormValidator } from './components/Forms'
-import { Popup, PopupController } from './components/Popup'
 import { attachDialogListener } from './webcomponents/HTMLDialogPopup'
 
 window.onJSLoadCallbacks = []

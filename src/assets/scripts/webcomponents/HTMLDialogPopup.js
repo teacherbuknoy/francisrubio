@@ -4,6 +4,16 @@ if (window.dialogs == null) {
   window.dialogs = []
 }
 
+document.body.addEventListener('keydown', e => {
+  if (e.code === "Escape") {
+    let lastPopup = document.createElement('dialog')
+    lastPopup = window.dialogs.pop()
+    
+    if (lastPopup != null)
+      lastPopup.close()
+  }
+})
+
 /** @param {HTMLDialogElement} openPopup */
 function closeAllPopups(openPopup) {
   // close all popups except the param
