@@ -81,28 +81,29 @@
 
   &.has-featured .post-card {
     &:nth-child(4n - 3) {
-      --scrim: linear-gradient(to right,
-          hsl(var(--d-contrast) / 0) 0%,
-          hsl(var(--d-contrast) / 0.013) 14.1%,
-          hsl(var(--d-contrast) / 0.049) 25.6%,
-          hsl(var(--d-contrast) / 0.104) 35.1%,
-          hsl(var(--d-contrast) / 0.175) 42.7%,
-          hsl(var(--d-contrast) / 0.259) 48.8%,
-          hsl(var(--d-contrast) / 0.352) 53.8%,
-          hsl(var(--d-contrast) / 0.45) 57.9%,
-          hsl(var(--d-contrast) / 0.55) 61.5%,
-          hsl(var(--d-contrast) / 0.648) 64.9%,
-          hsl(var(--d-contrast) / 0.741) 68.5%,
-          hsl(var(--d-contrast) / 0.825) 72.6%,
-          hsl(var(--d-contrast) / 0.896) 77.4%,
-          hsl(var(--d-contrast) / 0.951) 83.4%,
-          hsl(var(--d-contrast) / 0.987) 90.8%,
-          hsl(var(--d-contrast)) 100%);
       grid-column: 1/-1;
 
       @media (min-width: 700px) {
         grid-template-rows   : 1fr;
         grid-template-columns: 1fr 1fr;
+
+        --scrim: linear-gradient(to right,
+            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0) 0%,
+            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.013) 14.1%,
+            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.049) 25.6%,
+            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.104) 35.1%,
+            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.175) 42.7%,
+            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.259) 48.8%,
+            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.352) 53.8%,
+            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.45) 57.9%,
+            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.55) 61.5%,
+            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.648) 64.9%,
+            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.741) 68.5%,
+            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.825) 72.6%,
+            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.896) 77.4%,
+            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.951) 83.4%,
+            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.987) 90.8%,
+            hsl(var(--theme-color-hsl, var(--d-contrast))) 100%);
 
         &>* {
           grid-row: 1 / 1;
@@ -140,7 +141,7 @@
   height            : 30ch;
   transition        : box-shadow 500ms, outline 300ms, outline-offset 200ms, transform 200ms;
 
-  --scrim: linear-gradient(to top, hsl(var(--d-contrast)), transparent);
+  --scrim: linear-gradient(to top, var(--theme-color, hsl(var(--d-contrast))), transparent);
 
   &:focus-visible,
   &:hover {
@@ -198,12 +199,12 @@
 }
 
 .post-card__body {
+  align-content   : end;
+  background-color: var(--theme-color, hsl(var(--d-contrast)));;
   grid-row        : 2/3;
   padding         : var(--space-xl);
-  background-color: hsl(var(--d-contrast));
   padding-top     : var(--space);
   position        : relative;
-  align-content   : end;
 }
 
 .post-card__title {

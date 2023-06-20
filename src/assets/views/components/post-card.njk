@@ -1,5 +1,5 @@
 <a class="post-card{{ " themed" if post.theme }}" href="{{ postURL }}"
-    {% if post.theme %}style="--theme-color: {{ post.theme.color }};"{% endif %}>
+    {% if post.theme %}style="--theme-color: {{ post.theme.color }}; --theme-color-hsl: {{ post.theme['color-hsl'] }};"{% endif %}>
   <div class="post-card__image" {% if post.theme.style.image %}
     style="
       {% for key, value in post.theme.style.image %}

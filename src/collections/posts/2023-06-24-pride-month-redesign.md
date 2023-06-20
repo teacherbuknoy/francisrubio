@@ -6,10 +6,11 @@ category: [design]
 theme:
   scheme: dark
   color: '#E93A4C'
+  color-hsl: '354 80% 57%'
   style:
     image:
       '--img-object-fit': contain
-      '--img-object-position': left
+      '--img-object-position': left bottom
       '--post-image': linear-gradient(var(--theme-color), var(--theme-color))
 cover:
   folder: new-frontpage
