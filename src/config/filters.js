@@ -86,5 +86,8 @@ module.exports = {
   keys: obj => Object.keys(obj),
   firstParagraph: post => post.split(/\n/gm)[0].toString('utf8'),
   removeReblogs: entries => entries.filter(entry => entry.reblog == null),
-  removeReplies: entries => entries.filter(entry => entry.in_reply_to_id == null)
+  removeReplies: entries => entries.filter(entry => entry.in_reply_to_id == null),
+  toDate: str => new Date(Date.parse(str)),
+  removeFuturePosts: posts => [...posts].filter(post => Date.parse(post.date) <= Date.now()),
+  log: value => console.log("[LOG]", value)
 }
