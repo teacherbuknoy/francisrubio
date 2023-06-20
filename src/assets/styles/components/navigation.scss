@@ -1,7 +1,9 @@
 .navigation-bar {
+  --padding            : var(--space-xs);
+  --link-radius        : var(--radius-3);
   align-items          : center;
   background-color     : hsl(var(--bg-secondary));
-  border-radius        : calc(var(--ideal-radius) * 1.35);
+  border-radius        : calc(var(--link-radius) + var(--padding));
   display              : flex;
   font-family          : var(--font-sans);
   grid-template-columns: repeat(auto-fit, minmax(min(6ch, 100%), 1fr));
@@ -10,7 +12,7 @@
   margin               : var(--space);
   margin-inline        : auto;
   max-width            : 100ch;
-  padding              : var(--space-xs);
+  padding              : var(--padding);
   position             : sticky;
   top                  : var(--space);
   transition           : padding 300ms, box-shadow 300ms, max-width 200ms, border 200ms, background-color 200ms;
@@ -57,7 +59,7 @@
   align-items     : center;
   background-color: transparent;
   border          : 0;
-  border-radius   : var(--ideal-radius);
+  border-radius   : var(--link-radius);
   color           : hsl(var(--fg-default));
   cursor          : pointer;
   display         : flex;
