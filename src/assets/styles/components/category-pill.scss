@@ -56,13 +56,13 @@
   padding         : var(--space-xxxs) var(--space-s);
   text-decoration : none;
   white-space     : nowrap;
-  color           : hsl(var(--primary-700));
-  background-color: hsl(var(--primary-100) / 10%);
+  color           : hsl(var(--primary-900));
+  background-color: hsl(var(--primary-100) / 25%);
 
   &::before {
     content                : '#';
     font-variation-settings: 'wght'700;
-    color                  : hsl(var(--primary-500));
+    color                  : hsl(var(--primary-700));
   }
 
   &.active {
