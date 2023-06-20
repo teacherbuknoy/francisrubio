@@ -34,35 +34,91 @@
         </div>
       </div>
     </header>
-    
-    <div class="article__body">
+
+    <div class="article__body gallery__body">
       {{ content | safe }}
     </div>
 
-    <div class="gallery-grid {{ "symmetrical" if symmetrical }}" style="width: min(120ch, 100%); margin-inline: auto;">
-      {% for image in entries %}
-        <figure class="gallery-card">
-          {% set formats = formats if formats else 
-            types %}
-          {% set filename = '/gallery/' + folder + '/' + image.key %}
-          {% set width = image.width %}
-          {% set height = image.height %}
-          {% set sizes = [400, 500, 600] %}
-          <a class="gallery-card__link no-arrow" href="{{ site.api.images }}{{ filename }}" target="_blank">
-            {% include "components/cdn-picture.njk" %}
-          </a>
-          {% if image.caption %}
-            <figcaption class="gallery-card__caption">
-              <p>{{ image.caption | safe }}</p>
-            </figcaption>
-          {% elif image.credits %}
-            <figcaption class="gallery-card__caption gallery-card__caption--credits">
-              <p>{{ image.credits | safe }}</p>
-            </figcaption>
-          {% endif %}
-        </figure>
-      {% endfor %}
-    </div>
+    {% if statements == null or statements.length == 0 %}
+      <div class="gallery-grid {{ "symmetrical" if symmetrical }}" style="width: min(120ch, 100%); margin-inline: auto;">
+        {% for image in entries %}
+          <figure class="gallery-card">
+            {% set formats = formats if formats else 
+              types %}
+            {% set filename = '/gallery/' + folder + '/' + image.key %}
+            {% set width = image.width %}
+            {% set height = image.height %}
+            {% set sizes = [400, 500, 600] %}
+            <a class="gallery-card__link no-arrow" href="{{ site.api.images }}{{ filename }}" target="_blank">
+              {% include "components/cdn-picture.njk" %}
+            </a>
+            {% if image.caption %}
+              <figcaption class="gallery-card__caption">
+                <p>{{ image.caption | safe }}</p>
+              </figcaption>
+            {% elif image.credits %}
+              <figcaption class="gallery-card__caption gallery-card__caption--credits">
+                <p>{{ image.credits | safe }}</p>
+              </figcaption>
+            {% endif %}
+          </figure>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="gallery__body">
+        {% set imageCount = count_per_statement %}
+        {% if imageCount == null %}
+          {% set imageCount = 8 %}
+        {% endif %}
+
+        {% for statement in statements %}
+          <div class="statement">
+            {{ statement | markdown | safe }}
+          </div>
+
+          {% set start = imageCount * loop.index0 %}
+          {% set end = start + imageCount %}
+          <div class="gallery-grid">
+            {% for idx in range(start, end) %}
+              {% set image = entries[idx] %}
+              {% if image != null %}
+                {% set imageStyle %}
+                {% for key, value in image.style %}
+                  {{ key }} : {{ value }};
+                {% endfor %}
+                {% endset %}
+                <figure class="gallery-card" {% if image.style %}style="{{ imageStyle }}"{% endif %}>
+                  {% set formats = formats if formats else 
+                    types %}
+                  {% set filename = '/gallery/' + folder + '/' + image.key %}
+                  {% set width = image.width %}
+                  {% set height = image.height %}
+                  {% set sizes = [400, 500, 600] %}
+                  <a class="gallery-card__link no-arrow" href="{{ site.api.images }}{{ filename }}" target="_blank">
+                    {% include "components/cdn-picture.njk" %}
+                  </a>
+                  {% if image.caption %}
+                    <figcaption class="gallery-card__caption">
+                      <p>{{ image.caption | safe }}</p>
+                    </figcaption>
+                  {% elif image.credits %}
+                    <figcaption class="gallery-card__caption gallery-card__caption--credits">
+                      <p>{{ image.credits | safe }}</p>
+                    </figcaption>
+                  {% endif %}
+                </figure>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endfor %}
+
+        {% set totalStatements = statements.length %}
+        {% set imageCountPerStatement = imageCount %}
+        {% set usedImageCount = imageCountPerStatement * totalStatements %}
+        {% set imagesLeft = entries.length - usedImageCount %}
+        {# TODO: Include excess images #}
+      </div>
+    {% endif %}
 
     <footer class="stack gap--xl m-block--xxxl" style="text-align: center; margin-inline: auto; width: min(var(--content-width), 90%);">
       <div class="section__header">

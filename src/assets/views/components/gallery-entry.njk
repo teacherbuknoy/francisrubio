@@ -1,7 +1,7 @@
 {% set gallery = item.data %}
 
 {% set entries = gallery.entries %}
-{% if entries == null %}
+{% if entries == null and gallery.enum != null %}
   {% set entries = gallery.enum | enumToGalleryEntry %}
 {% endif %}
 

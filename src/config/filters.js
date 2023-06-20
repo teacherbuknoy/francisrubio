@@ -1,3 +1,14 @@
+const markdownIt = require('markdown-it')
+
+const md = markdownIt({ html: true, linkify: true, typographer: true })
+  .use(require('markdown-it-deflist'))
+  .use(require('markdown-it-abbr'))
+  .use(require('markdown-it-footnote'))
+  .use(require('markdown-it-attrs'))
+  .use(require('markdown-it-sup'))
+  .disable('code')
+
+
 module.exports = {
   markdown: function (value) {
     let markdown = require('markdown-it')({
@@ -91,7 +102,7 @@ module.exports = {
   removeFuturePosts: posts => [...posts].filter(post => Date.parse(post.date) <= Date.now()),
   log: value => console.log("[LOG]", value),
   enumToGalleryEntry: value => {
-    const { start, end, filetype, size, except, alt } = value
+    const { start, end, filetype, size, except, alt, style } = value
     const entries = []
 
     for (let i = start; i <= end; i++) {
@@ -99,17 +110,29 @@ module.exports = {
         key: `${i}.${filetype}`,
         alt: alt != null ? alt : '',
         width: size.width,
-        height: size.height
+        height: size.height,
+        style,
+        fileIndex: i
       })
     }
 
-    const overrides = []
-    Object.keys(except).forEach(key => overrides[key] = except[key])
+    if (except != null) {
+      except.forEach(exc => {
+        const { overrideKey } = exc
+        const keyIndex = entries.findIndex(entry => entry.fileIndex === overrideKey)
 
-    overrides.forEach((entry, index) => {
-      entries[index] = { ...entries[index], ...entry }
-    })
+        if (keyIndex > -1) {
+          delete exc.key
+          const override = { ...entries[keyIndex], ...exc }
 
+          entries[keyIndex] = override
+        }
+      })
+    }
+
+    console.log("[GALLERY] ENTRIES", entries)
+    console.log("[GALLERY] OVERRIDES", except)
     return entries
-  }
+  },
+  markdown: string => md.render(string)
 }
