@@ -135,7 +135,7 @@
   @extend .dark;
   display           : grid;
   text-decoration   : none;
-  border-radius     : var(--ideal-radius);
+  border-radius     : var(--radius-5);
   overflow          : hidden;
   grid-template-rows: 2fr 1fr;
   height            : 30ch;
