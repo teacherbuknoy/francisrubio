@@ -34,6 +34,11 @@
         </div>
       </div>
     </header>
+    
+    <div class="article__body">
+      {{ content | safe }}
+    </div>
+
     <div class="gallery-grid {{ "symmetrical" if symmetrical }}" style="width: min(120ch, 100%); margin-inline: auto;">
       {% for image in entries %}
         <figure class="gallery-card">
