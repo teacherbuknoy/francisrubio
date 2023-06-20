@@ -315,10 +315,10 @@ details {
 
   .gallery {
     &-grid {
-      --row-size           : 25ch;
+      --row-size           : 35ex;
       display              : grid;
       grid-auto-flow       : dense;
-      grid-auto-rows       : var(--row-size);
+      grid-auto-rows       : calc(var(--row-size) + 4ex);
       grid-template-columns: repeat(auto-fit, minmax(min(var(--row-size), 100%), 1fr));
       margin-inline        : auto;
       width                : min(120ch, 98%);
