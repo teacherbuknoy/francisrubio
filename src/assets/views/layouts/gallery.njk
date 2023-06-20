@@ -81,7 +81,7 @@
           <div class="gallery-grid">
             {% for idx in range(start, end) %}
               {% set image = entries[idx] %}
-              {% if image != null %}
+              {% if image != null and not image.ignore %}
                 {% set imageStyle %}
                 {% for key, value in image.style %}
                   {{ key }} : {{ value }};
