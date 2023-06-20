@@ -83,19 +83,19 @@ function __attachEventListener(button) {
     const dialogInteriors = dialog.querySelectorAll(':scope > *')
     console.log(TAG, { dialogInteriors })
     dialogInteriors.forEach(element => element.addEventListener('keydown', e => {
-      const closeIsNotAllowed = e.target.matches('a, form:not([method=get]) button, input, select, textarea')
-      
+      const closeIsNotAllowed = e.target.matches('a, form:not([method=get]) button, input, select, textarea, button[data-search], button[data-search] *')
+
       if (e.code === 'Enter' && closeIsNotAllowed) {
         e.stopImmediatePropagation()
         console.log(TAG, "Prevented dialog closing via enter")
       }
     }))
 
-    dialogInteriors.forEach(element => element.addEventListener('click', e => {
+    dialog.addEventListener('click', e => {
       if (!e.target.matches('.dialog__header, .dialog__header *, .dialog__body, .dialog__body *, .dialog__footer, .dialog__footer *')) {
         dialog.close()
       }
-    }))
+    })
   }
 }
 
