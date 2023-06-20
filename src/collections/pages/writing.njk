@@ -22,13 +22,16 @@ activePath: writing
   </header>
   <div class="page__inner">
     <div class="tag-scroller">
+      <a href="#musings-grid" class="tag skip-link" style="width: fit-content;">Skip to posts</a>
       {% for item in collections.postTags %}
         <a href="/writing/categories/{{ item }}/" class="tag" style="width: fit-content;">{{ item }}</a>
       {% endfor %}
     </div>
-    {% set collection = pagination.items %}
-    {% set cardLevel = 2 %}
-    {% include 'components/post-grid.njk' %}
+    <div id="musings-grid">
+      {% set collection = pagination.items %}
+      {% set cardLevel = 2 %}
+      {% include 'components/post-grid.njk' %}
+    </div>
   </div>
 </section>
 

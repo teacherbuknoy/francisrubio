@@ -30,13 +30,14 @@
 }
 
 .tag-scroller {
+  -webkit-mask-image: linear-gradient(to right, #0000, #000 5%, #000 95%, #0000);
   display           : flex;
   gap               : 1ch;
-  -webkit-mask-image: linear-gradient(to right, #0000, #000 5%, #000 95%, #0000);
   mask-image        : linear-gradient(to right, #0000, #000 5%, #000 95%, #0000);
   overflow          : auto;
   padding           : var(--space-s);
   padding-inline    : 5%;
+  position          : relative;
   scrollbar-width   : thin;
   transition        : scrollbar-color 200ms;
 
