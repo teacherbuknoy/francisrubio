@@ -120,8 +120,14 @@
     color           : hsl(var(--primary-900));
   }
 
+  &:focus-visible,
   &:hover {
     background-color: hsl(var(--bg-accent) / 50%);
+
+    @at-root .navigation-bar:not(.attached) & {
+      background-color: hsl(var(--primary-500)/ 25%);
+      color           : hsl(var(--l-contrast));
+    }
   }
 
   &.square {
@@ -288,6 +294,10 @@
   right           : 0;
   top             : calc(100% + var(--space-s));
 
+  @at-root .navigation-bar:not(.attached) & {
+    background-color: hsl(var(--primary-100));
+  }
+
   @media (max-width: 961px) {
     &.detached[open] {
       inset        : auto;
@@ -338,6 +348,9 @@
     background-color: hsl(var(--bg-primary) / 70%);
     backdrop-filter : blur(10px) brightness(var(--brightness, 1));
 
+    @at-root .navigation-bar:not(.attached) & {
+      background-color: hsl(var(--primary-100) / 75%);
+    }
 
 
     &::after,
