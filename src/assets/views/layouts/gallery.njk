@@ -1,6 +1,9 @@
 {% extends 'layouts/main.njk' %}
 {% block content %}
   {% include 'components/ui/navigation-bar.njk' %}
+  {% if entries == null %}
+    {% set entries = enum | enumToGalleryEntry %}
+  {% endif %}
   <main id="main" class="padding--l article gallery-layout" tabindex="-1" aria-labelledby="{{ title | slugify }}">
     <header class="article__header" style="width: min(100ch, 100%); margin-inline: auto;">
       <nav class="breadcrumb" aria-label="Breadcrumbs">
@@ -81,7 +84,7 @@
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
-        "name": "Navigation",
+      "name": "Navigation",
       "itemListElement": [
         {
           "@type": "ListItem",

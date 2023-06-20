@@ -89,5 +89,27 @@ module.exports = {
   removeReplies: entries => entries.filter(entry => entry.in_reply_to_id == null),
   toDate: str => new Date(Date.parse(str)),
   removeFuturePosts: posts => [...posts].filter(post => Date.parse(post.date) <= Date.now()),
-  log: value => console.log("[LOG]", value)
+  log: value => console.log("[LOG]", value),
+  enumToGalleryEntry: value => {
+    const { start, end, filetype, size, except, alt } = value
+    const entries = []
+
+    for (let i = start; i <= end; i++) {
+      entries.push({
+        key: `${i}.${filetype}`,
+        alt: alt != null ? alt : '',
+        width: size.width,
+        height: size.height
+      })
+    }
+
+    const overrides = []
+    Object.keys(except).forEach(key => overrides[key] = except[key])
+
+    overrides.forEach((entry, index) => {
+      entries[index] = { ...entries[index], ...entry }
+    })
+
+    return entries
+  }
 }
