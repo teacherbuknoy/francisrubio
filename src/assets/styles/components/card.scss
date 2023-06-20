@@ -150,16 +150,19 @@
   }
 
   &:focus-visible {
-    --focus-color: color-mix(in hsl, var(--theme-color), hsl(var(--primary-900)) 30%);
-    outline-color: var(--focus-color, hsl(var(--fg-contrast)));
-    animation    : throb-outline 1000ms infinite alternate ease;
-    z-index      : 2;
+    animation: throb-outline 1000ms infinite alternate ease;
+    z-index  : 2;
 
     @keyframes throb-outline {
       to {
         outline-offset: 1ch;
       }
     }
+  }
+
+  &.themed:focus-visible {
+    --focus-color: color-mix(in hsl, var(--theme-color), hsl(var(--primary-900)) 30%);
+    outline-color: var(--focus-color, hsl(var(--fg-contrast)));
   }
 
   &:hover {
