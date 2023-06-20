@@ -3,9 +3,9 @@ title: "Best Scenes of Genshin Impact"
 description: "Spoilers for version version 3.3."
 category: ["Genshin Impact", "Game"]
 theme:
-  scheme: dark
-  color: '#4276b0'
-  color-hsl: '212 45% 47%'
+  scheme: light
+  color: '#83dcf3'
+  color-hsl: '192 82% 73%'
 cover:
   folder: best-genshin-scenes
   filename: cover.png
