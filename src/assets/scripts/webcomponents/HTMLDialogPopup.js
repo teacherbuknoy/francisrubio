@@ -90,6 +90,12 @@ function __attachEventListener(button) {
         console.log(TAG, "Prevented dialog closing via enter")
       }
     }))
+
+    dialogInteriors.forEach(element => element.addEventListener('click', e => {
+      if (!e.target.matches('.dialog__header, .dialog__header *, .dialog__body, .dialog__body *, .dialog__footer, .dialog__footer *')) {
+        dialog.close()
+      }
+    }))
   }
 }
 
