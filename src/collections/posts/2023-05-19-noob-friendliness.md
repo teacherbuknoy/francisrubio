@@ -3,6 +3,10 @@ title: "Building a kinder, noob-friendly world"
 description: "If we can consider the feelings and experiences of our users, why can't we consider the feelings and experiences of our fellow developers?"
 permalink: "/writing/en/noob-friendly-world/"
 category: [technology, people]
+theme:
+  scheme: dark
+  color: '#748cc1'
+  color-hsl: '221 41% 35%'
 cover:
   folder: noob-friendly-world
   filename: cover.png

@@ -2,6 +2,10 @@
 title: "2022: The Year in Retrospect"
 description: "In this post, I will list down the Top 10 most significant events in my year as we look forward to the coming year."
 category: [Life, Year-End Special]
+theme:
+  scheme: dark
+  color: '#2b1a24'
+  color-hsl: '325 25% 14%'
 cover:
   folder: 2022-retrospect
   filename: cover.png

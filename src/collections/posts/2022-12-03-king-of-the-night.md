@@ -3,6 +3,10 @@ title: "King of the Night"
 description: "How I was crowned King of the Night 9 years after high school"
 category: [Life, Workplace]
 image: "/assets/images/posts/king-of-the-night/cover.png"
+theme:
+  scheme: dark
+  color: '#102a3c'
+  color-hsl: '205 58% 15%'
 cover:
   folder: king-of-the-night
   filename: cover.png

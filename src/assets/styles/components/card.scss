@@ -141,11 +141,25 @@
   height            : 30ch;
   transition        : box-shadow 500ms, outline 300ms, outline-offset 200ms, transform 200ms;
 
-  --scrim: linear-gradient(to top, var(--theme-color, hsl(var(--d-contrast))), transparent);
+  --theme-color: hsl(var(--d-contrast));
+  --scrim      : linear-gradient(to top, var(--theme-color, hsl(var(--d-contrast))), transparent);
 
   &:focus-visible,
   &:hover {
     color: hsl(var(--fg-default));
+  }
+
+  &:focus-visible {
+    --focus-color: color-mix(in hsl, var(--theme-color), hsl(var(--primary-900)) 30%);
+    outline-color: var(--focus-color, hsl(var(--fg-contrast)));
+    animation    : throb-outline 1000ms infinite alternate ease;
+    z-index      : 2;
+
+    @keyframes throb-outline {
+      to {
+        outline-offset: 1ch;
+      }
+    }
   }
 
   &:hover {
@@ -174,6 +188,7 @@
 }
 
 .post-card__image {
+  --post-image: linear-gradient(var(--theme-color), var(--theme-color));
   background-image:
     var(--post-image, linear-gradient(transparent, transparent)),
     radial-gradient(ellipse at bottom right, hsl(var(--primary-500)), hsl(var(--primary-300) / 0%)),
@@ -200,11 +215,12 @@
 
 .post-card__body {
   align-content   : end;
-  background-color: var(--theme-color, hsl(var(--d-contrast)));;
-  grid-row        : 2/3;
-  padding         : var(--space-xl);
-  padding-top     : var(--space);
-  position        : relative;
+  background-color: var(--theme-color, hsl(var(--d-contrast)));
+  ;
+  grid-row   : 2/3;
+  padding    : var(--space-xl);
+  padding-top: var(--space);
+  position   : relative;
 }
 
 .post-card__title {

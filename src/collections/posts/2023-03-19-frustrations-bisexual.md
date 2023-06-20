@@ -2,6 +2,10 @@
 title: "The Frustrations of a Bisexual Man"
 description: "In the world of the queers, it seems like the bisexual people are the black sheep."
 category: ["Life", "LGBTQIA+"]
+theme:
+  scheme: dark
+  color: '#762F83'
+  color-hsl: '291 47% 35%'
 cover:
   folder: frustrations-bisexual
   filename: cover.png

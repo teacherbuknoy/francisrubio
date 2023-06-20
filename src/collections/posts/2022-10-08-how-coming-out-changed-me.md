@@ -2,6 +2,10 @@
 title: "How coming out changed me"
 description: "Having the freedom to be who I actually am"
 category: ["Life", "LGBTQIA+"]
+theme:
+  scheme: dark
+  color: '#03645a'
+  color-hsl: '174 94% 20%'
 image: "/posts/how-coming-out-changed-me/cover.png"
 cover: 
     folder: how-coming-out-changed-me

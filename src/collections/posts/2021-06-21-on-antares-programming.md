@@ -1,6 +1,10 @@
 ---
 title: "Antares Programming: My Best Project Yet"
 description: What it is like to work on a project to educate Filipinos.
+theme:
+  scheme: light
+  color: '#f9c440'
+  color-hsl: '43 94% 61%'
 cover:
   folder: on-antares-programming
   filename: cover.png

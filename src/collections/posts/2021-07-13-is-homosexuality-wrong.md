@@ -1,6 +1,10 @@
 ---
 title: "Is Homosexuality Wrong?"
 description: An analysis of Jehovah's Witnesses' stand against homosexuality
+theme:
+  scheme: dark
+  color: '#514a40'
+  color-hsl: '35 12% 28%'
 cover:
   folder: homosexuality-wrong
   filename: cover.jpg
