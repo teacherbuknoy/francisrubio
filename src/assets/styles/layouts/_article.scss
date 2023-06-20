@@ -345,16 +345,40 @@ details {
 
   .statement {
     --column-width         : calc((var(--content-width) / 5) * 2);
+    --margin-factor        : 5;
     font-family            : var(--font-serif);
     font-size              : var(--type-size-6);
     font-variation-settings: "wght"350, "WONK"0, "SOFT"100;
     gap                    : var(--space-xxl);
-    margin-block           : calc(var(--space-xxxl) * 5);
+    margin-block           : calc(var(--space-xxxl) * var(--margin-factor));
     margin-inline          : auto;
     orphans                : 3;
     text-align             : justify;
     widows                 : 3;
-    width                  : calc(var(--column-width) * 3);
+    width                  : min(calc(var(--column-width) * 3), 98%);
+
+    &::after,
+    &::before {
+      content            : '';
+      background-image   : url("data:image/svg+xml,%3Csvg width='408' height='23' viewBox='0 0 408 23' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M178.484 11.5L203.984 2L229.484 11.5L203.984 21L178.484 11.5Z' fill='black'/%3E%3Cpath d='M0.314453 12.122H150.044L156.264 5.9024L162.484 12.122L157.508 17.0976L154.398 13.9878M407.653 12.122H257.923L251.703 5.9024L245.484 12.122L250.459 17.0976L253.569 13.9878M178.484 11.5L203.984 2L229.484 11.5L203.984 21L178.484 11.5Z' stroke='black' stroke-width='2.48782'/%3E%3C/svg%3E%0A");
+      background-position: center;
+      background-repeat  : no-repeat;
+      background-size    : auto 100%;
+      display            : block;
+      height             : 1ch;
+      margin-inline      : auto;
+      width              : 100%;
+    }
+
+    &::before {
+      margin-block-start: calc(var(--space-xxxl) * calc(var(--margin-factor)) / -2);
+      margin-block-end  : calc(var(--space-xxxl) * calc(var(--margin-factor)) / 2);
+    }
+
+    &::after {
+      margin-block-start: calc(var(--space-xxxl) * calc(var(--margin-factor)) / 2);
+      margin-block-end  : calc(var(--space-xxxl) * calc(var(--margin-factor)) / -2);
+    }
 
     *+* {
       margin-block-start: var(--space);
@@ -364,8 +388,8 @@ details {
       margin-block-start: 0;
     }
 
-    &:first-child {
+    /* &:first-child {
       margin-block-start: 0;
-    }
+    } */
   }
 }
