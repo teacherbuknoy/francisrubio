@@ -11,7 +11,7 @@ cover:
     sizes: [500, 700]
     types: ['png', 'webp']
 author: teacherbuknoy
-category: [opinion, religion, LGBTQIA+]
+category: [opinion, religion, LGBTQIA]
 language: en
 seo:
     twitter:
