@@ -53,20 +53,13 @@ enum: # define filenames by number (e.g. 2.jpg, 3.jpg, etc.)
         "--img-object-position": top
         grid-column: 
     - overrideKey: 29
-      style:
-        "--row-span": 1
-        grid-column: 2
-        "--img-object-position": bottom
+      ignore: true
     - overrideKey: 31
-      style:
-        "--row-span": 1
-        "--img-object-position": top
-        grid-column: 
+      ignore: true
     - overrideKey: 30
-      style:
-        "--row-span": 1
-        grid-column: 2
-        "--img-object-position": bottom
+      ignore: true
+    - overrideKey: 20
+      ignore: true
 count_per_statement: 7
 statements:
   - |
@@ -81,5 +74,8 @@ statements:
     The <i lang="tl">diwata</i> are nature spirits who both guided and punished the people. They exist both in the material and spiritual world. They were revered, feared, and treated with respect. In modern times, the word commonly refers to female nature spirits, but in many cultures, the word also refers to spirits in general, particularly in animism. The images you see here are partly inspired by the <i lang="tl">diwata</i>, taking in their feminine energies and channeling it outward.
 
     The bakunawa is another mythical creature from the Philippine mythology. It is a serpent-like dragon commonly thought to live in the seas, but other cultures also believed it lived either in the underworld or in the skies. The bakunawa is closely tied to the babaylan in that the bakunawa is used in geomancy, a divination ritual involving sands, rocks, and loose soil. The bakunawa is believed to have devoured six out of the seven moons of the earth, and eclipses are believed to be the bakunawa trying to devour the seventh and final moon. It was by pure coincidence that the mesh shirt I am wearing underneath the floral jacket resembles snake scales at first glance, and upon seeing the photos, it was a switch that opened a light; the bakunawa was staring me right in the eye.
-  - Since I came out, I feel more drawn towards female energies. Perhaps it is the years of longing that my body has had for a freedom that was yet to be mine. To safeguard myself, I tried hard (and often failed) to suppress my femininity. But in reality, we were created in the image of the divine, whose energies masculine and feminine freely flow around and beyond. It is my belief that we have been doing our best to suppress the feminine for the male, and the masculine for the female, so much so that we harrass, and we kill, and we abuse, and we legislate against any and all who break out of the status quo. My brothers and sisters in the community are dying. They are people with bright minds and enormous power to create, and they are being killed, physically, mentally, and emotionally. The Pride March is a protest, so the governments listen, that they may oblige to protect us from the systems in place that try to hurt us. The Pride March is also a celebration, so the society hears that we are complete people too, no different than them or you, people with entire lives, feelings, thoughts, and opinions—people who matter.
+  - |
+    Since I came out, I feel more drawn towards female energies. Perhaps it is the years of longing that my body has had for a freedom that was yet to be mine. To safeguard myself, I tried hard (and often failed) to suppress my femininity. But in reality, we were created in the image of the divine, whose energies masculine and feminine freely flow around and beyond. It is my belief that we have been doing our best to suppress the feminine for the male, and the masculine for the female, so much so that we harrass, and we kill, and we abuse, and we legislate against any and all who break out of the status quo. 
+  
+    My brothers and sisters in the community are dying. They are people with bright minds and enormous power to create, and they are being killed, physically, mentally, and emotionally. The Pride March is a protest, so the governments listen, that they may oblige to protect us from the systems in place that try to hurt us. The Pride March is also a celebration, so the society hears that we are complete people too, no different than them or you, people with entire lives, feelings, thoughts, and opinions—people who matter.
 ---
