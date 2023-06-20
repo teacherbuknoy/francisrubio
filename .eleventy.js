@@ -91,7 +91,7 @@ module.exports = function (eleventyConfig) {
       .disable('code')
   )
 
-/*   eleventyConfig.addTransform('prettier', function (content, outputPath) {
+  eleventyConfig.addTransform('prettier', function (content, outputPath) {
     const extname = path.extname(outputPath)
     switch (extname) {
       case ".html":
@@ -103,7 +103,7 @@ module.exports = function (eleventyConfig) {
         return content
     }
   })
- */
+
   // Always return
   return {
     dir: {
