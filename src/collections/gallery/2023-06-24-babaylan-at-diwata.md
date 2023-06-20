@@ -1,6 +1,6 @@
 ---
 title: "Rosas, Hiyas, at Perlas"
-description: A celebration of queerness
+description: A celebration of the femininity
 sizes: [200, 500, 700]
 types: [jpeg, webp, avif]
 folder: pride-2023
