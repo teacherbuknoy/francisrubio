@@ -130,8 +130,6 @@ module.exports = {
       })
     }
 
-    console.log("[GALLERY] ENTRIES", entries)
-    console.log("[GALLERY] OVERRIDES", except)
     return entries
   },
   markdown: string => md.render(string)
