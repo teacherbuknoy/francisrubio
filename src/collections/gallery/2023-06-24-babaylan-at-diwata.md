@@ -7,10 +7,10 @@ folder: pride-2023
 symmetrical: false
 seo:
   twitter:
-    url: https://ik.imagekit.io/8jjzxcl9p/gallery/new-years-2023/twitter.png
+    url: https://ik.imagekit.io/8jjzxcl9p/gallery/pride-2023/twitter.png
     is_prefixed: false
   og:
-    url: https://ik.imagekit.io/8jjzxcl9p/gallery/new-years-2023/og.png
+    url: https://ik.imagekit.io/8jjzxcl9p/gallery/pride-2023/og.png
     is_prefixed: false
 cover_images:
   index: 3
