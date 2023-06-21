@@ -57,7 +57,7 @@
     color           : hsl(var(--l-contrast));
 
     &::before {
-      background-image: radial-gradient(circle at center, hsl(var(--l-contrast) / 25%), transparent 75%);
+      background-image: radial-gradient(circle at center, hsl(var(--l-contrast) / 10%), transparent 75%);
     }
 
     &:focus-visible {
