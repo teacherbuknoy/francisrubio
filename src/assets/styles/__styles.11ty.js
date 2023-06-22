@@ -117,12 +117,9 @@ module.exports = class {
       const result = await this.minify(css)
       return result
     } catch (err) {
-      // if things go wrong
       if (isProd) {
-        // throw and abort in production
         throw new Error(err)
       } else {
-        // otherwise display the error overlay
         console.error(err)
         const msg = err.formatted || err.message
         return this.renderError(msg)
