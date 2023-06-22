@@ -158,9 +158,9 @@ scripts: ['frontpage.js', mastodon.js]
 <section class="padding-block--xxl" id="section-56" aria-labelledby="section-6-heading">
   <div class="section__inner">
     <hgroup role="group" class="stack gap">
-      <p id="section-6-heading" class="uppercase ls-l font-sans"  data-baybayin="{{ sections.projects.baybayin_label }}">Projects</p>
-      <h2 class="fs-1">The Gallery</h2>
-      <p>My most notable projects. Things that I am proud I made, or was involved in making. Work that I would love to do more of.</p>
+      <p id="section-6-heading" class="uppercase ls-l font-sans"  data-baybayin="{{ sections.projects.baybayin_label }}">{{ sections.projects.label }}</p>
+      <h2 class="fs-1">{{ sections.projects.title }}</h2>
+      <p>{{ sections.projects.description }}</p>
     </hgroup>
     {% set postLimit = 3 %}
     {% set collection = collections.projects | reverse %}
