@@ -22,3 +22,11 @@
     transition      : opacity 300ms;
   }
 }
+
+.elevated {
+  --elevation-shadow: 0 2px 4px hsl(var(--shadow-color) / var(--shadow-alpha)), 0 4px 8px hsl(var(--shadow-color) / var(--shadow-alpha)), 0 8px 16px hsl(var(--shadow-color) / var(--shadow-alpha)), 0 16px 32px hsl(var(--shadow-color) / var(--shadow-alpha));
+  --glow-color      : 0 0% 100%;
+  --shadow-alpha    : 3%;
+  --shadow-color    : 0 0% 0%;
+  box-shadow        : 0 0 1px hsl(var(--shadow-color) / 20%), inset 0 0 1px hsl(var(--glow-color) / 20%), inset 0 1px 1px hsl(var(--glow-color) / 20%), var(--elevation-shadow);
+}
