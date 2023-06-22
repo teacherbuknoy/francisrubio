@@ -11,6 +11,7 @@
     "production": "npm run build",
     "start": "npm run serve",
     "serve": "cross-env ELEVENTY_ENV=development eleventy --serve --incremental",
+    "prodserve": "cross-env ELEVENTY_ENV=production eleventy --serve --incremental",
     "new-post": "node ./scripts/new-post.js",
     "images": "node ./scripts/images.js",
     "img-compress": "node ./scripts/compress-images.js",
