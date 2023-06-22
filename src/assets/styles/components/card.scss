@@ -344,8 +344,9 @@
   display         : flex;
   gap             : var(--space-xl);
   overflow        : auto;
-  scroll-snap-type: x mandatory;
+  padding         : var(--space);
   scroll-behavior : smooth;
+  scroll-snap-type: x mandatory;
   transition      : scrollbar-color 100ms;
 
   .deck-card {
