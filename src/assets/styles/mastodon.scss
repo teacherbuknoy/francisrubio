@@ -1,3 +1,7 @@
 @import "components/profile";
 @import "components/feed.scss";
 @import "components/preview-card.scss";
+
+body {
+  background-color: hsl(var(--bg-secondary));
+}

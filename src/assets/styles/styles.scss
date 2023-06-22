@@ -65,6 +65,11 @@ body {
 }
 
 :root {
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+:root {
   --fg-contrast     : var(--d-contrast);
   --fg-default      : var(--d-default);
   --fg-subtle       : var(--d-subtle);
