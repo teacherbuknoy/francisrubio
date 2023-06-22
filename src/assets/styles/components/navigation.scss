@@ -19,7 +19,6 @@
   z-index              : 998;
 
   &.attached {
-    box-shadow: 0 10px 25px #0003;
     max-width : min(75ch, 100%);
   }
 
@@ -346,7 +345,7 @@
 
   @supports (backdrop-filter: blur(10px)) {
     background-color: hsl(var(--bg-primary) / 70%);
-    backdrop-filter : blur(10px) brightness(var(--brightness, 1));
+    backdrop-filter : blur(10px);
 
     @at-root .navigation-bar:not(.attached) & {
       background-color: hsl(var(--primary-100) / 75%);
