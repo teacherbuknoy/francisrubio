@@ -214,13 +214,14 @@ $h-small: 650px;
   }
 
   &__actions {
+    --padding       : var(--space-xs);
     backdrop-filter : blur(1ch);
-    background-color: hsl(var(--fg-contrast) / 15%);
-    border-radius   : var(--radius-5);
+    background-color: hsl(var(--fg-contrast)/15%);
+    border-radius   : calc(var(--ideal-radius) + var(--padding));
     display         : flex;
     flex-wrap       : wrap;
     gap             : var(--space-xs);
-    padding         : var(--space-xs);
+    padding         : var(--padding);
 
     @media (min-width: ($mobile + 1)) {
       max-width    : 35ch;
