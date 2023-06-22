@@ -139,7 +139,7 @@ class SocialPostHeader {
       this.#renderers.push(() => {
         try { new ToggleComponent(tglSensitive) }
         catch (e) {
-          console.error(tglSensitive); throw e;
+          throw e;
         }
       })
 
@@ -236,7 +236,7 @@ class SocialPost {
       tglSensitive.setAttribute('data-toggle', postId)
       this.#renderers.push(() => {
         try { new ToggleComponent(tglSensitive) }
-        catch (e) { console.error(tglSensitive); throw e; }
+        catch (e) { throw e; }
       })
 
       content.setAttribute('hidden', '')

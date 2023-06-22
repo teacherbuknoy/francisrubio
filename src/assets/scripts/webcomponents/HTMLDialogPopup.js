@@ -5,7 +5,6 @@ if (window.dialogs == null) {
 }
 
 document.body.addEventListener('keydown', e => {
-  console.log(TAG, e.code, e)
   if (e.code === 'Enter')
     return
 
@@ -55,7 +54,6 @@ function __attachEventListener(button) {
   }
 
   button.addEventListener("click", e => {
-    console.log(TAG, "Click event", button, dialog)
     const isModal = button.dataset.isModal === 'true'
     const isOpen = dialog.hasAttribute('open')
 
@@ -81,13 +79,11 @@ function __attachEventListener(button) {
     });
 
     const dialogInteriors = dialog.querySelectorAll(':scope > *')
-    console.log(TAG, { dialogInteriors })
     dialogInteriors.forEach(element => element.addEventListener('keydown', e => {
       const closeIsNotAllowed = e.target.matches('a, form:not([method=get]) button, input, select, textarea, button[data-search], button[data-search] *')
 
       if (e.code === 'Enter' && closeIsNotAllowed) {
         e.stopImmediatePropagation()
-        console.log(TAG, "Prevented dialog closing via enter")
       }
     }))
 

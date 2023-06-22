@@ -100,6 +100,6 @@ document.querySelectorAll('button[data-opens]')
     try {
       attachDialogListener(button)
     } catch (e) {
-      console.error(e)
+      console.debug(e)
     }
   })
