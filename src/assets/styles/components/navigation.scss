@@ -19,7 +19,7 @@
   z-index              : 998;
 
   &.attached {
-    max-width : min(75ch, 100%);
+    max-width: min(75ch, 100%);
   }
 
   @supports (backdrop-filter: blur(10px)) {
@@ -88,10 +88,21 @@
     transition      : background 200ms, color 200ms, outline-offset 100ms, outline 100ms;
   }
 
+  &.new::after {
+    content                : 'New';
+    font-size              : var(--type-size-7);
+    background-color       : hsl(var(--warning-100));
+    padding-inline         : 1ch;
+    border-radius          : var(--radius-1);
+    font-weight            : bold;
+    font-variation-settings: 'wght'700;
+    color                  : hsl(var(--fg-contrast));
+  }
+
   &.active {
     position: relative;
 
-    &::after {
+    &::before {
       content         : '';
       background-color: hsl(var(--primary-500));
       border-radius   : 100px;
@@ -107,7 +118,7 @@
 
     &:hover,
     &:focus-visible {
-      &::after {
+      &::before {
         height: 4px;
         width : 90%;
       }

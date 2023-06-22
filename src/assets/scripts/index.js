@@ -89,10 +89,6 @@ popupController.addEventListener('allclose', () => {
   popupContainer.classList.add('hidden')
 }) */
 
-window.addEventListener('load', e => {
-  document.body.classList.remove('no-js')
-  window.onJSLoadCallbacks.forEach(fn => fn())
-})
 
 /* HTML DIALOG POPUPS */
 document.querySelectorAll('button[data-opens]')
@@ -103,3 +99,30 @@ document.querySelectorAll('button[data-opens]')
       console.debug(e)
     }
   })
+
+function addNotifNewGalleryEntry() {
+  // Check if new post is already seen
+  const gallerySeen = localStorage.getItem('gallery-seen') === 'true'
+
+  if (!gallerySeen) {
+    const galleryNav = document.querySelector('.navigation-bar a[href="/gallery/"]')
+    galleryNav.classList.add('new')
+  }
+}
+
+function removeNotifNewgalleryEntry() {
+  const pageIsNewGalleryEntry = new URL(window.location).pathname === '/gallery/rosas-hiyas-at-perlas/'
+  
+  if (pageIsNewGalleryEntry) {
+    localStorage.setItem('gallery-seen', true)
+  }
+}
+
+window.onJSLoadCallbacks.push(removeNotifNewgalleryEntry)
+window.onJSLoadCallbacks.push(addNotifNewGalleryEntry)
+
+
+window.addEventListener('load', e => {
+  document.body.classList.remove('no-js')
+  window.onJSLoadCallbacks.forEach(fn => fn())
+})
