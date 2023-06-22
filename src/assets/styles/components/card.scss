@@ -159,6 +159,12 @@
         outline-offset: 1ch;
       }
     }
+
+    @keyframes throb-outline-inverse {
+      to {
+        outline-offset: -1ch;
+      }
+    }
   }
 
   &.themed:focus-visible {

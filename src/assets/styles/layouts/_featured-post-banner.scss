@@ -1,6 +1,7 @@
 .featured-post-banner {
-  --width: min(100ch, 90%);
-  margin : var(--space) var(--space-xl);
+  --width   : min(100ch, 90%);
+  margin    : var(--space) var(--space-xl);
+  transition: opacity 200ms;
 
   .post-card {
     height: 40ch;
@@ -59,4 +60,8 @@
     }
 
   }
+}
+
+.featured-post--focus-wrapper:focus-within .featured-post-banner:not(:focus-within) {
+  opacity: 0.25;
 }
