@@ -190,7 +190,7 @@ scripts: ['frontpage.js', mastodon.js]
     <script>
       window.MASTODON.threads = {{ mastodon.feed | removeReblogs | removeReplies | dump | safe }}
     </script>
-    <div class="profile__feed profile__feed--scroll">
+    <div class="profile__feed profile__feed--scroll masked-overflow--inline">
       {% for thread in mastodon.feed | removeReblogs | removeReplies %}
         {% if loop.index0 < 6 %}
           {% set entry = thread %}
