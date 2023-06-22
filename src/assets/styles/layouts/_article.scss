@@ -380,6 +380,14 @@ details {
       margin-block-end  : calc(var(--space-xxxl) * calc(var(--margin-factor)) / -2);
     }
 
+    &:first-child {
+      margin-block-start: 0;
+
+      &::before {
+        margin-block-start: 0;
+      }
+    }
+
     *+* {
       margin-block-start: var(--space);
     }
