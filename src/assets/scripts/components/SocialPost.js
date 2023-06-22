@@ -20,6 +20,7 @@ class SocialPostMedia {
           const img = document.createElement('img')
           img.setAttribute('src', item.url)
           img.setAttribute('alt', item.description)
+          img.setAttribute('loading', 'lazy')
           img.setAttribute('width', item.meta.small.width)
           img.setAttribute('height', item.meta.small.height)
 
