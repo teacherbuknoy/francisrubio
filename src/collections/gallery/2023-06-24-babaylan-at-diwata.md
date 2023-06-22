@@ -5,6 +5,20 @@ sizes: [200, 500, 700]
 types: [jpeg, webp, avif]
 folder: pride-2023
 symmetrical: false
+theme:
+  scheme: dark
+  color: '#fe4c66'
+  color-hsl: '351 99% 65%'
+  style:
+    image:
+      '--img-object-fit': cover
+      '--img-object-position': left bottom
+      '--post-image': linear-gradient(var(--theme-color), var(--theme-color))
+cover:
+  folder: pride-2023
+  filename: cover.png
+  sizes: [500, 600, 700, 1000, 1280]
+  formats: ['png', 'webp', 'avif']
 seo:
   twitter:
     url: https://ik.imagekit.io/8jjzxcl9p/gallery/pride-2023/twitter.png

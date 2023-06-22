@@ -19,11 +19,12 @@ scripts: ['frontpage.js', mastodon.js]
 </script>
 
 {% include "components/banners/home-banner.njk" %}
+{% include "components/banners/redesign-notice-banner.njk" %}
 
 <section class="section padding-block--xxl" id="section-2" aria-labelledby="section-2-heading">
   <div class="section__inner">
     <h2 style="width: min(35ch, 100%);" class="fs-4 weight-300" id="section-2-heading">I specialize in creating <strong class="fg-primary-700 weight-bold">accessible front ends</strong> for web projects and integrating them with APIs and back-end processes.</h2>
-    <div class="scroll-snapper d-flex gap--m padding--xl">
+    <div class="scroll-snapper d-flex gap--m padding-block--xl">
       {% for feature in features %}
         <div class="feature-card snap-center" style="flex-basis: 30ch; flex-shrink: 0;">
           <button data-popover data-aria-hide data-disclosure class="feature-card__header">{{ feature.title }}</button>

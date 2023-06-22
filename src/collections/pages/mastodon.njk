@@ -6,6 +6,11 @@ activePath: socials
 stylesheets: ['mastodon.css']
 scripts: ['mastodon.js']
 ---
+<style>
+  body {
+    background-color: hsl(var(--bg-secondary));
+  }
+</style>
 {% set mastodon = socials.mastodon %}
 {% set profile = mastodon.profile %}
 {% set feed = mastodon.feed %}

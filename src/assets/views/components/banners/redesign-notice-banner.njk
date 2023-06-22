@@ -1,0 +1,16 @@
+<section class="section padding-block--xxl" aria-labelledby="redesign-notice-heading">
+  <div class="section__inner padding-block-start--xl overflow-visible">
+    <hgroup role="group" class="stack gap--none m-block-end--xxl">
+      <h2 class="fs-3" id="redesign-notice-heading">Like the new design?</h2>
+      <p class="font-sans">Read more about my website's new look and the photos that inspired it.</p>
+    </hgroup>
+    {% set postLimit = 1 %}
+    {% set collection = collections.posts | reverse %}
+    {% include 'components/post-grid.njk' %}
+
+    {% set postLimit = 1 %}
+    {% set postType = 'gallery' %}
+    {% set collection = collections.gallery | reverse %}
+    {% include 'components/post-grid.njk' %}
+  </div>
+</section>

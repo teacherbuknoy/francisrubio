@@ -1,51 +1,53 @@
-@import 'layouts/hero.scss';
+@layer reset {
+  @import 'layouts/hero.scss';
 
-#section-1 {
-  display        : grid;
-  justify-content: center;
-  align-items    : end;
+  #section-1 {
+    display        : grid;
+    justify-content: center;
+    align-items    : end;
 
-  .section__inner {
-    display              : grid;
-    grid-template-columns: 3fr 3ch 2fr;
-    grid-template-rows   : 1fr 4fr auto 1fr;
-    min-height           : 90vh;
-    padding-block-end    : var(--space-xxl);
+    .section__inner {
+      display              : grid;
+      grid-template-columns: 3fr 3ch 2fr;
+      grid-template-rows   : 1fr 4fr auto 1fr;
+      min-height           : 90vh;
+      padding-block-end    : var(--space-xxl);
 
-    &::before {
-      content         : "";
-      background-color: hsl(var(--bg-accent) / 25%);
-      grid-column     : 1 / -1;
-      grid-row        : 2 / -1;
-      margin-block-end: calc(-1 * var(--space-xxl));
-    }
+      &::before {
+        content         : "";
+        background-color: hsl(var(--bg-accent) / 25%);
+        grid-column     : 1 / -1;
+        grid-row        : 2 / -1;
+        margin-block-end: calc(-1 * var(--space-xxl));
+      }
 
-    @media (max-width: 940px) {
-      grid-template-rows   : 0fr 1fr auto 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
-    }
+      @media (max-width: 940px) {
+        grid-template-rows   : 0fr 1fr auto 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
 
-    @media (max-width: 570px) {
-      &>* {
-        grid-column: 1 / -1 !important;
+      @media (max-width: 570px) {
+        &>* {
+          grid-column: 1 / -1 !important;
+        }
       }
     }
   }
-}
 
-.section__inner {
-  width         : min(100ch, 90%);
-  margin-inline : auto;
-  overflow      : hidden;
-  padding-inline: var(--space-xs);
-}
-
-#technologies-tabpanels {
-  [hidden] {
-    display: none;
+  .section__inner {
+    width         : min(100ch, 90%);
+    margin-inline : auto;
+    overflow      : hidden;
+    padding-inline: var(--space-xs);
   }
-}
 
-.tab-trigger:nth-child(3n + 2) {
-  margin-top: 50%;
+  #technologies-tabpanels {
+    [hidden] {
+      display: none;
+    }
+  }
+
+  .tab-trigger:nth-child(3n + 2) {
+    margin-top: 50%;
+  }
 }
