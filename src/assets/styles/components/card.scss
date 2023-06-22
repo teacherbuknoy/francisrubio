@@ -79,54 +79,55 @@
   gap                  : var(--space);
   padding-block        : var(--space);
 
-  &.has-featured .post-card {
-    &:nth-child(4n - 3) {
-      grid-column: 1/-1;
+}
 
-      @media (min-width: 700px) {
-        grid-template-rows   : 1fr;
-        grid-template-columns: 1fr 1fr;
+.has-featured .post-card {
+  &:nth-child(4n - 3) {
+    grid-column: 1/-1;
 
-        --scrim: linear-gradient(to right,
-            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0) 0%,
-            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.013) 14.1%,
-            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.049) 25.6%,
-            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.104) 35.1%,
-            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.175) 42.7%,
-            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.259) 48.8%,
-            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.352) 53.8%,
-            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.45) 57.9%,
-            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.55) 61.5%,
-            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.648) 64.9%,
-            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.741) 68.5%,
-            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.825) 72.6%,
-            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.896) 77.4%,
-            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.951) 83.4%,
-            hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.987) 90.8%,
-            hsl(var(--theme-color-hsl, var(--d-contrast))) 100%);
+    @media (min-width: 700px) {
+      grid-template-rows   : 1fr;
+      grid-template-columns: 1fr 1fr;
 
-        &>* {
-          grid-row: 1 / 1;
-        }
+      --scrim: linear-gradient(to right,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0) 0%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.013) 14.1%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.049) 25.6%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.104) 35.1%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.175) 42.7%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.259) 48.8%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.352) 53.8%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.45) 57.9%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.55) 61.5%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.648) 64.9%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.741) 68.5%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.825) 72.6%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.896) 77.4%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.951) 83.4%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.987) 90.8%,
+          hsl(var(--theme-color-hsl, var(--d-contrast))) 100%);
 
-        .post-card__image,
-        &::before {
-          grid-column: 1 / 1;
-        }
-
-        .post-card__body {
-          grid-column: 2 / 3;
-        }
+      &>* {
+        grid-row: 1 / 1;
       }
 
-      .post-card__title {
-        font-size: var(--type-size-3);
-        font-size: clamp(var(--type-size-5), 3vw, var(--type-size-3));
+      .post-card__image,
+      &::before {
+        grid-column: 1 / 1;
       }
 
-      .post-card__footer {
-        max-height: none;
+      .post-card__body {
+        grid-column: 2 / 3;
       }
+    }
+
+    .post-card__title {
+      font-size: var(--type-size-3);
+      font-size: clamp(var(--type-size-5), 3vw, var(--type-size-3));
+    }
+
+    .post-card__footer {
+      max-height: none;
     }
   }
 }

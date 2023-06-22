@@ -1,16 +1,27 @@
 <section class="section padding-block--xxl" aria-labelledby="redesign-notice-heading">
   <div class="section__inner padding-block-start--xl overflow-visible">
-    <hgroup role="group" class="stack gap--none m-block-end--xxl">
+    <hgroup role="group" class="stack gap--none m-block-end--xxxl">
       <h2 class="fs-3" id="redesign-notice-heading">Like the new design?</h2>
       <p class="font-sans">Read more about my website's new look and the photos that inspired it.</p>
     </hgroup>
-    {% set postLimit = 1 %}
-    {% set collection = collections.posts | reverse %}
-    {% include 'components/post-grid.njk' %}
+  </div>
 
-    {% set postLimit = 1 %}
+  <div class="reversed featured-post-banner has-featured" style="--theme-color: #e93a4c; --theme-color-hsl: 354 80% 57%">
+    {% set hasFeatured = true %}
+    {% set collection = collections.posts | reverse %}
+    {% set item = collection[0] %}
+    {% set postURL = item.url %}
+    {% set post = item.data %}
+    {% include 'components/post-card.njk' %}
+  </div>
+
+  <div class="featured-post-banner has-featured" style="--theme-color: #fe4c66; --theme-color-hsl: 351 99% 65%">
+    {% set hasFeatured = true %}
     {% set postType = 'gallery' %}
     {% set collection = collections.gallery | reverse %}
-    {% include 'components/post-grid.njk' %}
+    {% set item = collection[0] %}
+    {% set postURL = item.url %}
+    {% set post = item.data %}
+    {% include 'components/post-card.njk' %}
   </div>
 </section>

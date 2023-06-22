@@ -1,0 +1,62 @@
+.featured-post-banner {
+  --width: min(100ch, 90%);
+  margin : var(--space) var(--space-xl);
+
+  .post-card {
+    height: 40ch;
+  }
+
+  @media (min-width: 700px) {
+    background-color: var(--theme-color);
+    margin          : 0;
+
+    .post-card {
+      border-radius: 0;
+      height       : 25ch;
+
+      &__body {
+        padding-inline: calc((100vw - var(--width)) / 2);
+      }
+
+      &:hover {
+        box-shadow: none;
+        transform : none
+      }
+    }
+
+    &:not(.reversed) {
+      .post-card__body {
+        padding-inline-start: 0;
+      }
+    }
+
+    &.reversed {
+
+      .post-card {
+        &__body {
+          padding-inline-end: 0;
+        }
+
+        &::before {
+          transform: rotate(180deg)
+        }
+
+        &::before,
+        &__image {
+          grid-column: -1/-2;
+        }
+
+        &__image {
+          img {
+            --img-object-position: right bottom;
+          }
+        }
+
+        &__body {
+          grid-column: 1/2;
+        }
+      }
+    }
+
+  }
+}
