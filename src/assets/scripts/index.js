@@ -69,26 +69,6 @@ new FormValidator(document.getElementById('frm-email'))
 document.querySelectorAll('button[data-slur]')
   .forEach(button => new SlurToggle(button))
 
-/* const popups = [...document.querySelectorAll('[data-popup]')].map(p => new Popup(p))
-const popupContainer = document.querySelector('[data-toggle-parent]')
-popups.forEach(popup => {
-  popup.addEventListener('toggle', p => {
-    if (popup.isHidden) {
-      popupContainer.classList.add('hidden')
-    } else {
-      popupContainer.classList.remove('hidden')
-    }
-  })
-})
-
-const popupController = new PopupController(popups)
-popupController.addEventListener('hasopen', () => {
-  popupContainer.classList.remove('hidden')
-})
-popupController.addEventListener('allclose', () => {
-  popupContainer.classList.add('hidden')
-}) */
-
 
 /* HTML DIALOG POPUPS */
 document.querySelectorAll('button[data-opens]')
