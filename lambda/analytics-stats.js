@@ -20,7 +20,7 @@ exports.handler = async (event) => {
   })
   const { queryStringParameters: queries } = event
   const options = {
-    size: queries?.size != null ? queries.size : 400,
+    size: queries?.size != null ? queries.size : 700,
     after: queries?.nextId != null ? Ref(Collection(FAUNA_COLLECTION), queries.nextId) : []
   }
 
