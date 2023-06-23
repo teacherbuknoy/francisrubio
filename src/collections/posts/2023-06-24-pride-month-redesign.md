@@ -61,7 +61,7 @@ Off the bat, I wanted the theme to be red. This is a transition to a darker vibe
     <source
       srcset="https://ik.imagekit.io/8jjzxcl9p/tr:f-webp,w-880/posts/new-frontpage/ethereal.jpg"
       type="image/webp">
-    <img src="https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-880/posts/new-frontpage/ethereal.jpg" alt="Me wearing strings of gold chains across my forehead. Pearl stickers decorate my glimmering eyelids." width="880" height="587">
+    <img src="https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-880/posts/new-frontpage/ethereal.jpg" alt="Me wearing strings of gold chains across my forehead. Pearl stickers decorate my glimmering eyelids." width="638" height="957">
   </picture>
   <figcaption>One of my favorite photos from the shoot that inspired this redesign.</figcaption>
 </figure>
@@ -126,7 +126,7 @@ The cover also changes its layout depending on the viewport width. I know, that'
       <source
         srcset="https://ik.imagekit.io/8jjzxcl9p/tr:f-webp,w-880/posts/new-frontpage/layout-mobile.png"
         type="image/webp">
-      <img src="https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-880/posts/new-frontpage/layout-mobile.png" alt="Mobile layout" width="880" height="1017">
+      <img src="https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-880/posts/new-frontpage/layout-mobile.png" alt="Mobile layout" width="558" height="1060">
     </picture>
   </div>
   <figcaption>
@@ -158,7 +158,7 @@ But also, I also want to give a shoutout to every queer and trans kid all over t
       <source
         srcset="https://ik.imagekit.io/8jjzxcl9p/tr:f-webp,w-880/posts/new-frontpage/previous-design.png"
         type="image/webp">
-      <img src="https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-880/posts/new-frontpage/previous-design.png" alt="The previous layout" width="880" height="1017">
+      <img src="https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-880/posts/new-frontpage/previous-design.png" alt="The previous layout" width="1562" height="1050">
     </picture>
     <picture>
       <source
@@ -167,7 +167,7 @@ But also, I also want to give a shoutout to every queer and trans kid all over t
       <source
         srcset="https://ik.imagekit.io/8jjzxcl9p/tr:f-webp,w-880/posts/new-frontpage/layout-desktop.png"
         type="image/webp">
-      <img src="https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-880/posts/new-frontpage/layout-desktop.png" alt="The current layout" width="880" height="1017">
+      <img src="https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-880/posts/new-frontpage/layout-desktop.png" alt="The current layout" width="1540" height="1046">
     </picture>
   </div>
   <figcaption>
