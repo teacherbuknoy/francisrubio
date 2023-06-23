@@ -1,0 +1,14 @@
+<dialog id="{{ popupId }}" class="navigation-popup detached" aria-labelledby="nav-popup-header-rss">
+  <span id="nav-popup-header-rss" class="navigation-popup__label">RSS Feeds</span>
+  <ul class="navigation-list">
+    {% for item in site.feeds | values %}
+      <li class="navigation-list-item">
+        <a href="{{ item.url }}" class="navigation-link">{{ item.label }}</a>
+      </li>
+    {% endfor %}
+
+    <li class="navigation-list-item">
+      <a href="https://rss.com/blog/how-do-rss-feeds-work/" target="_blank" rel="noopener" class="navigation-link">How do I use this?</a>
+    </li>
+  </ul>
+</dialog>

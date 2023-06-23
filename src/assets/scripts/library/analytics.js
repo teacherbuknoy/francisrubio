@@ -37,13 +37,10 @@ function installAnalytics(url = "http://localhost:8888") {
   function __clearAnalytics() {
     analyticsEvents = []
     sendingAnalyticsData = false
-    console.log("[ANALYTICS] Data sent and cleared from state")
   }
 
   function __sendBeacon(data) {
     if (analyticsEvents.length > 0) {
-      console.log("[ANALYTICS] Sending analytics data")
-      console.log(analyticsEvents)
 
       const beacon = window.navigator.sendBeacon(url, data)
 
@@ -60,8 +57,7 @@ function installAnalytics(url = "http://localhost:8888") {
       }
       fetch(url, options)
         .then(response => response.text())
-        .then(response => console.log(response))
-        .catch(e => console.error(e))
+        .catch(e => console.debug(e))
         .finally(() => __clearAnalytics())
     } else {
       console.debug("[ANALYTICS] No event to send. Skipping.")

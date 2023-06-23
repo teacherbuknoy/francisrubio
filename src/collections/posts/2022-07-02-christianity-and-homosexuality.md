@@ -1,13 +1,17 @@
 ---
 title: "Your Biblical Argument Against Homosexuality Tells Something About You"
 description: You’d be surprised it’s not good.
+theme:
+  scheme: dark
+  color: '#806c5a'
+  color-hsl: '28 17% 43%'
 cover: 
     folder: christianity-and-homosexuality
     filename: cover.png
     sizes: [500, 700]
     types: ['png', 'webp']
 author: teacherbuknoy
-category: [opinion, religion, LGBTQIA+]
+category: [opinion, religion, LGBTQIA]
 language: en
 seo:
     twitter:

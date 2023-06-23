@@ -1,5 +1,16 @@
 {% set gallery = item.data %}
-{% set cover = gallery.entries[0] %}
+
+{% set entries = gallery.entries %}
+{% if entries == null and gallery.enum != null %}
+  {% set entries = gallery.enum | enumToGalleryEntry %}
+{% endif %}
+
+{% set coverIdx = gallery.cover_images.index %}
+{% if coverIdx == null %}
+  {% set coverIdx = 0 %} 
+{% endif %}
+
+{% set cover = entries[coverIdx] %}
 {% set sizes = gallery.sizes %}
 {% set formats = gallery.formats if gallery.formats else gallery.types %}
 {% set filename = '/gallery/' + gallery.folder + '/' + cover.key %}

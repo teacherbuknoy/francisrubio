@@ -77,42 +77,57 @@
   display              : grid;
   grid-template-columns: repeat(auto-fill, minmax(min(25ch, 100%), 1fr));
   gap                  : var(--space);
-  padding              : var(--space);
+  padding-block        : var(--space);
 
-  &.has-featured .post-card {
-    &:nth-child(4n - 3) {
-      grid-column: 1/-1;
+}
 
-      @media (min-width: 700px) {
-        grid-template-rows   : 1fr;
-        grid-template-columns: 1fr 1fr;
+.has-featured .post-card {
+  &:nth-child(4n - 3) {
+    grid-column: 1/-1;
 
-        &>* {
-          grid-row: 1 / 1;
-        }
+    @media (min-width: 700px) {
+      grid-template-rows   : 1fr;
+      grid-template-columns: 1fr 1fr;
 
-        &::before {
-          background: linear-gradient(to left, hsl(var(--d-contrast)) 1%, transparent);
-        }
+      --scrim: linear-gradient(to right,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0) 0%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.013) 14.1%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.049) 25.6%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.104) 35.1%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.175) 42.7%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.259) 48.8%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.352) 53.8%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.45) 57.9%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.55) 61.5%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.648) 64.9%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.741) 68.5%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.825) 72.6%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.896) 77.4%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.951) 83.4%,
+          hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.987) 90.8%,
+          hsl(var(--theme-color-hsl, var(--d-contrast))) 100%);
 
-        .post-card__image,
-        &::before {
-          grid-column: 1 / 1;
-        }
-
-        .post-card__body {
-          grid-column: 2 / 3;
-        }
+      &>* {
+        grid-row: 1 / 1;
       }
 
-      .post-card__title {
-        font-size: var(--type-size-3);
-        font-size: clamp(var(--type-size-5), 3vw, var(--type-size-3));
+      .post-card__image,
+      &::before {
+        grid-column: 1 / 1;
       }
 
-      .post-card__footer {
-        max-height: none;
+      .post-card__body {
+        grid-column: 2 / 3;
       }
+    }
+
+    .post-card__title {
+      font-size: var(--type-size-3);
+      font-size: clamp(var(--type-size-5), 3vw, var(--type-size-3));
+    }
+
+    .post-card__footer {
+      max-height: none;
     }
   }
 }
@@ -121,15 +136,40 @@
   @extend .dark;
   display           : grid;
   text-decoration   : none;
-  border-radius     : var(--ideal-radius);
+  border-radius     : var(--radius-5);
   overflow          : hidden;
   grid-template-rows: 2fr 1fr;
   height            : 30ch;
   transition        : box-shadow 500ms, outline 300ms, outline-offset 200ms, transform 200ms;
 
+  --theme-color: hsl(var(--d-contrast));
+  --scrim      : linear-gradient(to top, var(--theme-color, hsl(var(--d-contrast))), transparent);
+
   &:focus-visible,
   &:hover {
     color: hsl(var(--fg-default));
+  }
+
+  &:focus-visible {
+    animation: throb-outline 1000ms infinite alternate ease;
+    z-index  : 2;
+
+    @keyframes throb-outline {
+      to {
+        outline-offset: 1ch;
+      }
+    }
+
+    @keyframes throb-outline-inverse {
+      to {
+        outline-offset: -1ch;
+      }
+    }
+  }
+
+  &.themed:focus-visible {
+    --focus-color: color-mix(in hsl, var(--theme-color), hsl(var(--primary-900)) 30%);
+    outline-color: var(--focus-color, hsl(var(--fg-contrast)));
   }
 
   &:hover {
@@ -144,11 +184,11 @@
   }
 
   &::before {
-    content    : "";
-    grid-row   : 1/2;
-    grid-column: 1/2;
-    background : linear-gradient(to top, hsl(var(--d-contrast)), transparent);
-    z-index    : 1;
+    content      : "";
+    grid-row     : 1/2;
+    grid-column  : 1/2;
+    background   : var(--scrim, linear-gradient(to top, hsl(var(--d-contrast)), transparent));
+    z-index      : 1;
     margin-bottom: -2px;
   }
 }
@@ -158,6 +198,7 @@
 }
 
 .post-card__image {
+  --post-image: linear-gradient(var(--theme-color), var(--theme-color));
   background-image:
     var(--post-image, linear-gradient(transparent, transparent)),
     radial-gradient(ellipse at bottom right, hsl(var(--primary-500)), hsl(var(--primary-300) / 0%)),
@@ -171,23 +212,25 @@
   width              : 100%;
 
   img {
-    object-fit  : cover;
-    height      : 100%;
-    width       : 100%;
-    aspect-ratio: 16/9;
-    position    : absolute;
-    top         : 0;
-    left        : 0;
+    object-fit     : var(--img-object-fit, cover);
+    object-position: var(--img-object-position, center);
+    height         : 100%;
+    width          : 100%;
+    aspect-ratio   : 16/9;
+    position       : absolute;
+    top            : 0;
+    left           : 0;
   }
 }
 
 .post-card__body {
-  grid-row        : 2/3;
-  padding         : var(--space-xl);
-  background-color: hsl(var(--d-contrast));
-  padding-top     : var(--space);
-  position        : relative;
   align-content   : end;
+  background-color: var(--theme-color, hsl(var(--d-contrast)));
+  ;
+  grid-row   : 2/3;
+  padding    : var(--space-xl);
+  padding-top: var(--space);
+  position   : relative;
 }
 
 .post-card__title {
@@ -234,7 +277,8 @@
     transition: max-height 300ms;
   }
 
-  .post-card:hover, .post-card:focus-visible {
+  .post-card:hover,
+  .post-card:focus-visible {
     .post-card__title {
       transform       : scale(0.8) translateX(-12%);
       transition-delay: 0ms;
@@ -307,8 +351,9 @@
   display         : flex;
   gap             : var(--space-xl);
   overflow        : auto;
-  scroll-snap-type: x mandatory;
+  padding         : var(--space);
   scroll-behavior : smooth;
+  scroll-snap-type: x mandatory;
   transition      : scrollbar-color 100ms;
 
   .deck-card {

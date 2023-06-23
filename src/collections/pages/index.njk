@@ -19,10 +19,13 @@ scripts: ['frontpage.js', mastodon.js]
 </script>
 
 {% include "components/banners/home-banner.njk" %}
+{% include "components/banners/redesign-notice-banner.njk" %}
+
 <section class="section padding-block--xxl" id="section-2" aria-labelledby="section-2-heading">
   <div class="section__inner">
     <h2 style="width: min(35ch, 100%);" class="fs-4 weight-300" id="section-2-heading">I specialize in creating <strong class="fg-primary-700 weight-bold">accessible front ends</strong> for web projects and integrating them with APIs and back-end processes.</h2>
-    <div class="scroll-snapper d-flex gap--m padding--xl">
+    <div class="scroll-snapper d-flex gap--m padding--xl relative">
+      <a href="#section-3" class="button skip-link">Skip to next section</a>
       {% for feature in features %}
         <div class="feature-card snap-center" style="flex-basis: 30ch; flex-shrink: 0;">
           <button data-popover data-aria-hide data-disclosure class="feature-card__header">{{ feature.title }}</button>
@@ -45,7 +48,8 @@ scripts: ['frontpage.js', mastodon.js]
     </hgroup>
     <div class="with-sidebar padding-block--xl">
       <div class="sidebar padding-inline--m" style="flex-basis: 20ch;">
-        <div data-tablist style="gap: 0.5ch; display: grid; grid-template-columns: repeat(auto-fit, minmax(4ch, 1fr));" role="tablist">
+        <div data-tablist style="position:relative; gap: 0.5ch; display: grid; grid-template-columns: repeat(auto-fit, minmax(4ch, 1fr));" role="tablist">
+          <a href="#section-4" class="button skip-link">Skip to next section</a>
           {% for tech in technologies %}
             <a aria-label="{{ tech.title }}" href="#tabpanel-{{ tech.icon }}" id="tab-{{ tech.icon }}" data-tab class="button square tab-trigger">
               <svg>
@@ -90,6 +94,7 @@ scripts: ['frontpage.js', mastodon.js]
       </hgroup>
       {% set postLimit = 4 %}
       {% set collection = collections.posts | reverse %}
+      {% set nextSectionLink = '#section-5' %}
       {% include 'components/post-grid.njk' %}
     </div>
     <div class="stack ai--center text-center gap--s padding--xl">
@@ -139,6 +144,7 @@ scripts: ['frontpage.js', mastodon.js]
       <p>{{ sections.talks.description | safe }}</p>
     </hgroup>
     <div class="margin-block--l">
+      {% set nextSectionLink = '#section-56' %}
       {% set postLimit = 3 %}
       {% set hasFeatured = false %}
       {% set isReversed = true %}
@@ -157,13 +163,14 @@ scripts: ['frontpage.js', mastodon.js]
 <section class="padding-block--xxl" id="section-56" aria-labelledby="section-6-heading">
   <div class="section__inner">
     <hgroup role="group" class="stack gap">
-      <p id="section-6-heading" class="uppercase ls-l font-sans"  data-baybayin="{{ sections.projects.baybayin_label }}">Projects</p>
-      <h2 class="fs-1">The Gallery</h2>
-      <p>My most notable projects. Things that I am proud I made, or was involved in making. Work that I would love to do more of.</p>
+      <p id="section-6-heading" class="uppercase ls-l font-sans"  data-baybayin="{{ sections.projects.baybayin_label }}">{{ sections.projects.label }}</p>
+      <h2 class="fs-1">{{ sections.projects.title }}</h2>
+      <p>{{ sections.projects.description }}</p>
     </hgroup>
     {% set postLimit = 3 %}
     {% set collection = collections.projects | reverse %}
-    <span class="deck-card-container m-block-start--xxxl">
+    <span class="deck-card-container m-block-start--xxxl relative">
+      <a href="#section-6" class="button skip-link">Skip to next section</a>
       {% set limit = postLimit if collection.length > postLimit else 
         collection.length %}
       {% for i in range(0, limit) %}
@@ -188,18 +195,20 @@ scripts: ['frontpage.js', mastodon.js]
     <script>
       window.MASTODON.threads = {{ mastodon.feed | removeReblogs | removeReplies | dump | safe }}
     </script>
-    <div class="profile__feed profile__feed--scroll">
+    <div class="profile__feed profile__feed--scroll masked-overflow--inline relative">
+      <a href="#section-44a" class="button skip-link">Skip to next section</a>
       {% for thread in mastodon.feed | removeReblogs | removeReplies %}
-        {% if loop.index0 < 6 %}  
+        {% if loop.index0 < 6 %}
           {% set entry = thread %}
+          {% set disableMedia = true %}
           {% set noreply = true %}
           {% include "components/mastodon-feed-entry.njk" %}
         {% endif %}
       {% endfor %}
     </div>
     <div class="cluster jc--center padding">
-      <a href="/socials/mastodon/" class="primary button">See all of my Mastodon posts</a>
-      <a href="/socials/mastodon/" class="button">See my featured Mastodon posts</a>
+      <a href="/socials/mastodon/" class="button">See all of my Mastodon posts</a>
+      <a href="/socials/mastodon/featured/" class="primary button">See my featured Mastodon posts</a>
     </div>
   </div>
 </section>
@@ -212,6 +221,7 @@ scripts: ['frontpage.js', mastodon.js]
         <p>{{ sections.videos.description | safe }}</p>
       </hgroup>
     </div>
+    {% set nextSectionLink = '#contact-footer' %}
     {% set postLimit = 3 %}
     {% set collection = collections.videos | reverse %}
     {% include 'components/video-grid.njk' %}
@@ -222,7 +232,7 @@ scripts: ['frontpage.js', mastodon.js]
     </div>
   </div>
 </section>
-<section class="section padding-block--xxl bg-secondary" id="footer" aria-labelledby="footer-heading">
+<section class="section padding-block--xxl bg-secondary" id="contact-footer" aria-labelledby="footer-heading">
   <div class="section__inner">
     <div class="stack gap">
       <hgroup role="group">
@@ -245,6 +255,7 @@ scripts: ['frontpage.js', mastodon.js]
       <h2 class="fs-1">{{ sections.webmentions.title | safe }}</h2>
     </hgroup>
     <p style="width: min(75ch, 100%)">{{ sections.contact.description | safe }}</p>
+    {% set nextSectionLink = '#main-footer' %}
     {% include 'components/webmentions.njk' %}
   </div>
 </section>

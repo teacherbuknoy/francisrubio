@@ -1,80 +1,58 @@
-@import "reset";
 @import "mixins";
-@import "fonts";
-@import "config";
 
-/* LAYOUTS */
-@import "layouts/article";
-@import "layouts/box";
-@import "layouts/center";
-@import "layouts/cluster";
-@import "layouts/flow";
-@import "layouts/footer";
-@import "layouts/image-grid";
-@import "layouts/sidebar";
-@import "layouts/stack";
-@import "layouts/talk-grid";
-@import "layouts/page.scss";
+@layer reset {
+  @import "reset";
+  @import "fonts";
+  @import "config";
 
-/* COMPONENTS */
-@import "components/badge";
-@import "components/button";
-@import "components/breadcrumb.scss";
-@import "components/card";
-@import "components/category-pill";
-@import "components/content-warning";
-@import "components/code";
-@import "components/embeds";
-@import "components/form.scss";
-@import "components/gallery";
-@import "components/image-scroller";
-@import "components/menu";
-@import "components/modal";
-@import "components/navigation";
-@import "components/notification";
-@import "components/scroll-snapper";
-@import "components/search-modal";
-@import "components/skip-link";
-@import "components/tab-control";
-@import "components/toggle-control";
-@import "components/tooltip";
-@import "components/uses";
-@import "components/webmentions";
-@import "components/callout.scss";
-@import "components/baybayin-overlay.scss";
-@import "components/logo.scss";
 
-/* UTILITIES */
-@import "utilities/alignment";
-@import "utilities/border";
-@import "utilities/color";
-@import "utilities/cursors";
-@import "utilities/display";
-@import "utilities/gap";
-@import "utilities/margin";
-@import "utilities/overflow";
-@import "utilities/padding";
-@import "utilities/sizes";
-@import "utilities/text";
-@import "utilities/visibility";
+  body {
+    // Animate transition from dark to light color scheme
+    transition: color 200ms, background 200ms;
+  }
 
-body {
-  // Animate transition from dark to light color scheme
-  transition: color 200ms, background 200ms;
-}
+  :root {
+    overflow-x: hidden;
+    overflow-x: clip;
+  }
 
-:root {
-  --fg-contrast     : var(--d-contrast);
-  --fg-default      : var(--d-default);
-  --fg-subtle       : var(--d-subtle);
-  --fg-non-essential: var(--d-non-essential);
+  :root {
+    --fg-contrast     : var(--d-contrast);
+    --fg-default      : var(--d-default);
+    --fg-subtle       : var(--d-subtle);
+    --fg-non-essential: var(--d-non-essential);
 
-  --bg-primary  : var(--l-contrast);
-  --bg-secondary: var(--l-default);
-  --bg-accent   : var(--l-subtle);
-  --bg-exception: var(--l-non-essential);
+    --bg-primary  : var(--l-contrast);
+    --bg-secondary: var(--l-default);
+    --bg-accent   : var(--l-subtle);
+    --bg-exception: var(--l-non-essential);
 
-  @media (prefers-color-scheme: dark) {
+    @media (prefers-color-scheme: dark) {
+      --fg-contrast     : var(--l-contrast);
+      --fg-default      : var(--l-default);
+      --fg-subtle       : var(--l-subtle);
+      --fg-non-essential: var(--l-non-essential);
+
+      --bg-primary  : var(--d-default);
+      --bg-secondary: var(--d-contrast);
+      --bg-accent   : var(--d-subtle);
+      --bg-exception: var(--d-non-essential);
+    }
+  }
+
+  .light {
+    --fg-contrast     : var(--d-contrast);
+    --fg-default      : var(--d-default);
+    --fg-subtle       : var(--d-subtle);
+    --fg-non-essential: var(--d-non-essential);
+
+    --bg-primary  : var(--l-contrast);
+    --bg-secondary: var(--l-default);
+    --bg-accent   : var(--l-subtle);
+    --bg-exception: var(--l-non-essential);
+  }
+
+  .dark {
     --fg-contrast     : var(--l-contrast);
     --fg-default      : var(--l-default);
     --fg-subtle       : var(--l-subtle);
@@ -85,241 +63,278 @@ body {
     --bg-accent   : var(--d-subtle);
     --bg-exception: var(--d-non-essential);
   }
-}
 
-.light {
-  --fg-contrast     : var(--d-contrast);
-  --fg-default      : var(--d-default);
-  --fg-subtle       : var(--d-subtle);
-  --fg-non-essential: var(--d-non-essential);
-
-  --bg-primary  : var(--l-contrast);
-  --bg-secondary: var(--l-default);
-  --bg-accent   : var(--l-subtle);
-  --bg-exception: var(--l-non-essential);
-}
-
-.dark {
-  --fg-contrast     : var(--l-contrast);
-  --fg-default      : var(--l-default);
-  --fg-subtle       : var(--l-subtle);
-  --fg-non-essential: var(--l-non-essential);
-
-  --bg-primary  : var(--d-default);
-  --bg-secondary: var(--d-contrast);
-  --bg-accent   : var(--d-subtle);
-  --bg-exception: var(--d-non-essential);
-}
-
-.light,
-.dark,
-body {
-  color: hsl(var(--fg-contrast) / 80%);
-}
-
-:root {
-  scroll-padding-top: 9rem;
-  scroll-behavior   : smooth;
-}
-
-body {
-  background-color       : hsl(var(--bg-primary));
-  font-family            : var(--font-body);
-  font-size              : var(--type-size);
-  font-variation-settings: "SOFT"100, "WONK"0, 'wght'350;
-  min-height             : 100vh;
-  scroll-behavior        : smooth;
-  font-weight            : 350;
-}
-
-body {
-  display       : flex;
-  flex-direction: column;
-
-  @at-root #main {
-    flex-grow: 1;
-  }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color                  : hsl(var(--fg-contrast));
-  font-family            : var(--font-display-serif);
-  font-weight            : normal;
-  font-variation-settings: "SOFT"100, "WONK"0, 'wght'350;
-}
-
-@for $size from 1 through 5 {
-  h#{$size} {
-    font-size: var(--type-size-#{$size});
+  .light,
+  .dark,
+  body {
+    color: hsl(var(--fg-contrast) / 80%);
   }
 
-  h#{$size}.responsive {
-    font-size: clamp(var(--type-size-#{$size + 1}), #{10 - $size}vw, var(--type-size-#{$size}));
-  }
-}
-
-.feathericon {
-  display        : inline-block;
-  width          : 1.25em;
-  height         : 1.25em;
-  fill           : none;
-  stroke         : currentColor;
-  stroke-width   : 1px;
-  stroke-linejoin: unset;
-  stroke-linecap : round;
-}
-
-a {
-  box-decoration-break: clone;
-  color               : hsl(var(--fg-default));
-  text-decoration     : underline solid hsl(var(--primary-500));
-  outline             : var(--ideal-radius) solid;
-  outline-color       : hsl(var(--primary-500) / 0);
-  outline-offset      : var(--ideal-radius);
-  transition          : outline 200ms, outline-offset 200ms;
-
-  &:not([href]) {
-    text-decoration: none;
+  :root {
+    scroll-padding-top: 9rem;
+    scroll-behavior   : smooth;
   }
 
-  &:not([class]) {
-    border-radius: var(--ideal-radius);
+  body {
+    background-color       : hsl(var(--bg-primary));
+    font-family            : var(--font-body);
+    font-size              : var(--type-size);
+    font-variation-settings: "SOFT"100, "WONK"0, 'wght'350;
+    min-height             : 100vh;
+    scroll-behavior        : smooth;
+    font-weight            : 350;
   }
 
-  &:not(.no-arrow)[target="_blank"] {
-    display: inline-flex;
-    gap    : 1ch;
+  body {
+    display       : flex;
+    flex-direction: column;
 
-    &::after {
-      align-self         : baseline;
-      content            : "🡥";
-      margin-inline-start: auto;
+    @at-root #main {
+      flex-grow: 1;
     }
   }
 
-  &:where([href]):hover {
-    color                : hsl(var(--primary-900));
-    text-decoration-color: hsl(var(--fg-default));
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color                  : hsl(var(--fg-contrast));
+    font-family            : var(--font-display-serif);
+    font-weight            : normal;
+    font-variation-settings: "SOFT"100, "WONK"0, 'wght'350;
   }
 
-  &:focus-visible {
-    color           : hsl(var(--primary-900));
-    background-color: hsl(var(--primary-100));
-    outline-color   : hsl(var(--primary-500) / 1);
-    outline-offset  : 0;
-  }
-}
+  @for $size from 1 through 5 {
+    h#{$size} {
+      font-size: var(--type-size-#{$size});
+    }
 
-button {
-  cursor: pointer;
-}
-
-:target {
-  animation      : notify 300ms;
-  animation-delay: 1000ms;
-}
-
-@keyframes notify {
-  from {
-    outline       : 5px solid hsl(var(--primary-500));
-    outline-offset: 0;
+    h#{$size}.responsive {
+      font-size: clamp(var(--type-size-#{$size + 1}), #{10 - $size}vw, var(--type-size-#{$size}));
+    }
   }
 
-  to {
-    outline       : 5px solid hsl(var(--primary-500) / 0%);
-    outline-offset: 1rem;
+  .feathericon {
+    display        : inline-block;
+    width          : 1.25em;
+    height         : 1.25em;
+    fill           : none;
+    stroke         : currentColor;
+    stroke-width   : 1px;
+    stroke-linejoin: unset;
+    stroke-linecap : round;
   }
-}
 
-code,
-var,
-samp {
-  font-family            : var(--font-mono);
-  font-variation-settings: "MONO"1, "CASL"0, "CRSV"0;
-  font-weight            : 390;
-}
+  a {
+    box-decoration-break: clone;
+    color               : hsl(var(--fg-default));
+    text-decoration     : underline solid hsl(var(--primary-500));
+    outline             : var(--ideal-radius) solid;
+    outline-color       : hsl(var(--primary-500) / 0);
+    outline-offset      : var(--ideal-radius);
+    transition          : outline 200ms, outline-offset 200ms;
 
-:root {
-  scrollbar-color: hsl(var(--bg-accent)) hsl(var(--bg-primary));
-}
+    &:not([href]) {
+      text-decoration: none;
+    }
 
-*::-webkit-scrollbar {
-  width : 0.75em;
-  height: 0.75em;
-}
+    &:not([class]) {
+      border-radius: var(--ideal-radius);
+    }
 
-::-webkit-scrollbar-thumb {
-  background-color: hsl(var(--bg-accent));
-  border          : 3px solid hsl(var(--bg-primary));
-  border-radius   : 100px;
-}
+    &:not(.no-arrow)[target="_blank"] {
+      display: inline-flex;
+      gap    : 1ch;
 
-::-webkit-scrollbar-track {
-  background-color: hsl(var(--bg-primary));
-  border-radius   : var(--ideal-radius);
-}
+      &::after {
+        align-self         : baseline;
+        content            : "🡥";
+        margin-inline-start: auto;
+      }
+    }
 
-.no-list {
-  list-style: none;
-  margin    : 0;
-  padding   : 0;
+    &:where([href]):hover {
+      color                : hsl(var(--primary-900));
+      text-decoration-color: hsl(var(--fg-default));
+    }
 
-  li:before {
-    content : "\200B";
-    position: absolute;
+    &:focus-visible {
+      color           : hsl(var(--primary-900));
+      background-color: hsl(var(--primary-100));
+      outline-color   : hsl(var(--primary-500) / 1);
+      outline-offset  : 0;
+    }
   }
-}
 
-.footnote-ref {
-  font-family: var(--font-sans);
-}
+  button {
+    cursor: pointer;
+  }
 
-del {
-  text-decoration      : line-through;
-  text-decoration-color: hsl(var(--error-500));
-  color                : hsl(var(--fg-subtle));
-}
+  :target {
+    animation      : notify 300ms;
+    animation-delay: 1000ms;
+  }
 
-ins {
-  text-decoration: none;
-  color          : hsl(var(--success-900));
-}
+  @keyframes notify {
+    from {
+      outline       : 5px solid hsl(var(--primary-500));
+      outline-offset: 0;
+    }
 
-b,
-strong {
-  font-weight            : bold;
-  font-variation-settings: 'wght'700;
-}
+    to {
+      outline       : 5px solid hsl(var(--primary-500) / 0%);
+      outline-offset: 1rem;
+    }
+  }
 
-em,
-strong,
-em *,
-strong * {
-  color: hsl(var(--fg-contrast));
-}
+  code,
+  var,
+  samp {
+    font-family            : var(--font-mono);
+    font-variation-settings: "MONO"1, "CASL"0, "CRSV"0;
+    font-weight            : 390;
+  }
 
-img {
-  background-image   : var(--thumbnail);
-  background-position: center;
-  background-repeat  : no-repeat;
-  background-size    : cover;
-}
+  :root {
+    scrollbar-color: hsl(var(--bg-accent)) hsl(var(--bg-primary));
+  }
 
-.animated-fallback {
-  display: none;
-}
+  *::-webkit-scrollbar {
+    width : 0.75em;
+    height: 0.75em;
+  }
 
-@media (prefers-reduced-motion) {
+  ::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--bg-accent));
+    border          : 3px solid hsl(var(--bg-primary));
+    border-radius   : 100px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: hsl(var(--bg-primary));
+    border-radius   : var(--ideal-radius);
+  }
+
+  .no-list {
+    list-style: none;
+    margin    : 0;
+    padding   : 0;
+
+    li:before {
+      content : "\200B";
+      position: absolute;
+    }
+  }
+
+  .footnote-ref {
+    font-family: var(--font-sans);
+  }
+
+  del {
+    text-decoration      : line-through;
+    text-decoration-color: hsl(var(--error-500));
+    color                : hsl(var(--fg-subtle));
+  }
+
+  ins {
+    text-decoration: none;
+    color          : hsl(var(--success-900));
+  }
+
+  b,
+  strong {
+    font-weight            : bold;
+    font-variation-settings: 'wght'700;
+  }
+
+  em,
+  strong,
+  em *,
+  strong * {
+    color: hsl(var(--fg-contrast));
+  }
+
+  img {
+    background-image   : var(--thumbnail);
+    background-position: center;
+    background-repeat  : no-repeat;
+    background-size    : cover;
+  }
+
   .animated-fallback {
-    display: revert
+    display: none;
   }
 
-  .animated {
-    display: none
+  @media (prefers-reduced-motion) {
+    .animated-fallback {
+      display: revert
+    }
+
+    .animated {
+      display: none
+    }
   }
+}
+
+@layer layouts {
+  @import "layouts/article";
+  @import "layouts/box";
+  @import "layouts/center";
+  @import "layouts/cluster";
+  @import "layouts/flow";
+  @import "layouts/footer";
+  @import "layouts/image-grid";
+  @import "layouts/sidebar";
+  @import "layouts/stack";
+  @import "layouts/talk-grid";
+  @import "layouts/page.scss";
+}
+
+@layer components {
+  /* COMPONENTS */
+  @import "components/badge";
+  @import "components/button";
+  @import "components/breadcrumb.scss";
+  @import "components/card";
+  @import "components/category-pill";
+  @import "components/content-warning";
+  @import "components/code";
+  @import "components/embeds";
+  @import "components/form.scss";
+  @import "components/gallery";
+  @import "components/image-scroller";
+  @import "components/menu";
+  @import "components/modal";
+  @import "components/navigation";
+  @import "components/notification";
+  @import "components/scroll-snapper";
+  @import "components/search-modal";
+  @import "components/skip-link";
+  @import "components/tab-control";
+  @import "components/toggle-control";
+  @import "components/tooltip";
+  @import "components/uses";
+  @import "components/webmentions";
+  @import "components/callout.scss";
+  @import "components/baybayin-overlay.scss";
+  @import "components/logo.scss";
+  @import "components/spotlight.scss";
+}
+
+@layer utilities {
+  /* UTILITIES */
+  @import "utilities/alignment";
+  @import "utilities/border";
+  @import "utilities/color";
+  @import "utilities/cursors";
+  @import "utilities/display";
+  @import "utilities/gap";
+  @import "utilities/margin";
+  @import "utilities/overflow";
+  @import "utilities/padding";
+  @import "utilities/sizes";
+  @import "utilities/text";
+  @import "utilities/visibility";
 }

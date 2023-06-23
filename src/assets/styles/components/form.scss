@@ -80,6 +80,7 @@
   }
 
   &-control {
+    background-color: hsl(var(--bg-secondary) / 50%);
     border        : 0;
     border-radius : var(--ideal-radius);
     font-family   : var(--font-sans);

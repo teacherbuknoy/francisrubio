@@ -14,7 +14,7 @@
     "icon": "css3"
   },
   {
-    "category": "Front-end Development",
+    "category": "Language",
     "experience": 5,
     "title": "JavaScript",
     "content": "When building websites, I reach for JavaScript only when necessary. More focus should be on HTML so webpages work for as many people as possible. JavaScript comes in to enhance the experience. I can build client-side integrations with existing REST APIs. I can also build accessible UI components without using frameworks. And I can do more than just the basics of JavaScript.",
@@ -61,5 +61,19 @@
     "title": "Eleventy",
     "content": "I switched to Eleventy from Hexo and Jekyll for static site generation. It gives me more and easier control on how site pages are generated. I can build templates, plugins, shortcodes, and filters. I can also assemble a build system within the Eleventy ecosystem. My templating language of choice is Nunjucks and Liquid (which is also used by shopify).",
     "icon": "eleventy"
+  },
+  {
+    "category": "Language",
+    "experience": 2,
+    "title": "Java",
+    "content": "This is the first language I fell in love with and became proficient with. I used this in professional capacity for Android apps and back-end server programs in conjunction with the Spring Boot framework.",
+    "icon": "java"
+  },
+  {
+    "category": "Back-end Development",
+    "experience": 1,
+    "title": "Spring Boot",
+    "content": "My experience with Spring Boot involved maintaining internal web applications for a government agency, creating a standard project boilerplate repository for use by internal developers when creating servers for a new project. I also compiled a learning plan for Spring Boot used by developers looking to transition into Spring Boot development.",
+    "icon": "springboot"
   }
 ]

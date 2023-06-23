@@ -8,7 +8,11 @@ pagination:
 permalink: /writing/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html
 activePath: writing
 ---
-<section class="page" aria-labelledby="section-heading-4" style="--page-cover-image: url(https://ik.imagekit.io/8jjzxcl9p/index/cover--writing.png?updatedAt=1679837586208)">
+<section class="page" aria-labelledby="section-heading-4" style="--page-cover-image: image-set(
+  url(https://ik.imagekit.io/8jjzxcl9p/tr:f-avif/index/cover-pride-musings.png) type('image/avif'),
+  url(https://ik.imagekit.io/8jjzxcl9p/tr:f-webp/index/cover-pride-musings.png) type('image/webp'),
+  url(https://ik.imagekit.io/8jjzxcl9p/tr:f-png/index/cover-pride-musings.png) type('image/png')
+)">
   <header class="page__cover">
     <hgroup role="group" class="page__header">
       <span id="section-heading-4" class="uppercase ls-l font-sans" data-baybayin="{{ sections.writing.baybayin_label }}">{{ sections.writing.label | safe }}</span>
@@ -18,13 +22,16 @@ activePath: writing
   </header>
   <div class="page__inner">
     <div class="tag-scroller">
-      {% for item in collections.postTags %}
+      <a href="#musings-grid" class="tag skip-link" style="width: fit-content;">Skip to posts</a>
+      {% for item in collections.postTags | sort %}
         <a href="/writing/categories/{{ item }}/" class="tag" style="width: fit-content;">{{ item }}</a>
       {% endfor %}
     </div>
-    {% set collection = pagination.items %}
-    {% set cardLevel = 2 %}
-    {% include 'components/post-grid.njk' %}
+    <div id="musings-grid">
+      {% set collection = pagination.items %}
+      {% set cardLevel = 2 %}
+      {% include 'components/post-grid.njk' %}
+    </div>
   </div>
 </section>
 

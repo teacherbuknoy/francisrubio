@@ -1,29 +1,34 @@
 [build]
-  command   = "npm run production"
-  publish   = "public"
-  functions = "lambda"
+  command       = "npm run production"
+  publish       = "public"
+  functions     = "lambda"
 
 [[redirects]]
-  from   = "/blog"
-  to     = "/writing"
-  status = 301
+  from          = "/blog"
+  to            = "/writing"
+  status        = 301
 
 [[redirects]]
-  from   = "/blog/*"
-  to     = "/writing/:splat"
-  status = 301
+  from          = "/blog/*"
+  to            = "/writing/:splat"
+  status        = 301
 
 [[redirects]]
-  from   = "/ar-mobile"
-  to     = "/speaking/augmented-reality-mobile-apps/"
-  status = 301
+  from          = "/ar-mobile"
+  to            = "/speaking/augmented-reality-mobile-apps/"
+  status        = 301
 
 [[redirects]]
-  from   = "/speaker-rider"
-  to     = "/speaking/information-for-event-organizers/"
-  status = 301
+  from          = "/speaker-rider"
+  to            = "/speaking/information-for-event-organizers/"
+  status        = 301
 
 [[redirects]]
-  from    = "/profile-picture"
-  to      = "/assets/images/profile-picture/dp.jpg"
-  status  = 301
+  from          = "/profile-picture"
+  to            = "/assets/images/profile-picture/dp.jpg"
+  status        = 301
+
+[[redirects]]
+  from          = "/talks/"
+  to            = "/speaking/"
+  status        = 301

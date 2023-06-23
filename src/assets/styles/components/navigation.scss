@@ -1,7 +1,9 @@
 .navigation-bar {
+  --padding            : var(--space-xs);
+  --link-radius        : var(--radius-3);
   align-items          : center;
   background-color     : hsl(var(--bg-secondary));
-  border-radius        : calc(var(--ideal-radius) * 1.35);
+  border-radius        : calc(var(--link-radius) + var(--padding));
   display              : flex;
   font-family          : var(--font-sans);
   grid-template-columns: repeat(auto-fit, minmax(min(6ch, 100%), 1fr));
@@ -10,15 +12,14 @@
   margin               : var(--space);
   margin-inline        : auto;
   max-width            : 100ch;
-  padding              : var(--space-xs);
+  padding              : var(--padding);
   position             : sticky;
   top                  : var(--space);
   transition           : padding 300ms, box-shadow 300ms, max-width 200ms, border 200ms, background-color 200ms;
   z-index              : 998;
 
   &.attached {
-    box-shadow: 0 10px 25px #0003;
-    max-width : min(75ch, 100%);
+    max-width: min(75ch, 100%);
   }
 
   @supports (backdrop-filter: blur(10px)) {
@@ -57,7 +58,7 @@
   align-items     : center;
   background-color: transparent;
   border          : 0;
-  border-radius   : var(--ideal-radius);
+  border-radius   : var(--link-radius);
   color           : hsl(var(--fg-default));
   cursor          : pointer;
   display         : flex;
@@ -77,6 +78,7 @@
     display: flex;
   }
 
+  &:focus,
   &:focus-visible {
     box-shadow      : none;
     background-color: hsl(var(--bg-accent) /20%);
@@ -86,10 +88,21 @@
     transition      : background 200ms, color 200ms, outline-offset 100ms, outline 100ms;
   }
 
+  &.new::after {
+    content                : 'New';
+    font-size              : var(--type-size-7);
+    background-color       : hsl(var(--warning-100));
+    padding-inline         : 1ch;
+    border-radius          : var(--radius-1);
+    font-weight            : bold;
+    font-variation-settings: 'wght'700;
+    color                  : hsl(var(--fg-contrast));
+  }
+
   &.active {
     position: relative;
 
-    &::after {
+    &::before {
       content         : '';
       background-color: hsl(var(--primary-500));
       border-radius   : 100px;
@@ -105,7 +118,7 @@
 
     &:hover,
     &:focus-visible {
-      &::after {
+      &::before {
         height: 4px;
         width : 90%;
       }
@@ -117,8 +130,14 @@
     color           : hsl(var(--primary-900));
   }
 
+  &:focus-visible,
   &:hover {
     background-color: hsl(var(--bg-accent) / 50%);
+
+    @at-root .navigation-bar:not(.attached) & {
+      background-color: hsl(var(--primary-500)/ 25%);
+      color           : hsl(var(--l-contrast));
+    }
   }
 
   &.square {
@@ -230,6 +249,14 @@
   margin    : 0;
   padding   : 0;
   row-gap   : 1ch;
+
+  &--vertical {
+    flex-direction: column;
+
+    .navigation-menu-link {
+      width: 100%;
+    }
+  }
 }
 
 .navigation-list-item>* {
@@ -271,13 +298,30 @@
   height          : auto;
   padding         : var(--space-xs);
   position        : absolute;
-  right           : 0;
-  top             : calc(100% + var(--space-s));
   transition      : transform 200ms, box-shadow 300ms, opacity 200ms 75ms;
   z-index         : -2;
   --brightness    : 0.7;
+  right           : 0;
+  top             : calc(100% + var(--space-s));
 
-  &:not([hidden]) {
+  @at-root .navigation-bar:not(.attached) & {
+    background-color: hsl(var(--primary-100));
+  }
+
+  @media (max-width: 961px) {
+    &.detached[open] {
+      inset        : auto;
+      left         : 50%;
+      right        : unset;
+      margin-inline: auto;
+      position     : fixed;
+      top          : 6ch;
+      transform    : translateX(-50%);
+    }
+  }
+
+  &:not(dialog):not([hidden]),
+  &:is(dialog):is([open]) {
     display    : flex;
     align-items: center;
     gap        : 1ch;
@@ -312,8 +356,11 @@
 
   @supports (backdrop-filter: blur(10px)) {
     background-color: hsl(var(--bg-primary) / 70%);
-    backdrop-filter : blur(10px) brightness(var(--brightness, 1));
+    backdrop-filter : blur(10px);
 
+    @at-root .navigation-bar:not(.attached) & {
+      background-color: hsl(var(--primary-100) / 75%);
+    }
 
 
     &::after,
@@ -337,11 +384,18 @@
   }
 }
 
-.navigation-popup.detached {
-  z-index : 99;
-  position: absolute;
-  top     : calc(4rem + var(--space-s));
-  right   : 5%;
+.navigation-popup {
+  border    : 0;
+  box-shadow: 0 4px 8px hsl(var(--d-contrast) / 5%), 0 8px 16px hsl(var(--d-contrast) / 5%), 0 16px 32px hsl(var(--d-contrast) / 5%), 0 32px 64px hsl(var(--d-contrast) / 5%);
+  left      : auto;
+  margin    : 0;
+  max-width : 85vw;
+  position  : absolute;
+  right     : auto;
+  top       : calc(3rem + var(--space-s));
+  transform : translateX(-95%);
+  width     : max-content;
+  z-index   : 99;
 }
 
 .popup-wrapper {

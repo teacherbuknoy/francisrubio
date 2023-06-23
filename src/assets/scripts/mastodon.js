@@ -21,7 +21,7 @@ if (feedContainer) {
 
 function hydrateToggleButtons() {
   const toggleButtons = document.querySelectorAll('button[data-toggle]')
-  toggleButtons.forEach(button => { try { new ToggleComponent(button) } catch (e) { console.error(e) } });
+  toggleButtons.forEach(button => { try { new ToggleComponent(button) } catch (e) { console.debug(e) } });
 }
 
 async function handleLoadLatest(e) {
@@ -88,7 +88,7 @@ async function loadPosts(lastID, handler = (post) => post.render()) {
 
   const rawdata = await fetch(ENDPOINT.toString())
     .then(response => response.json())
-    .catch(e => console.error(e))
+    .catch(e => console.debug(e))
 
   const data = organizePostReplies(rawdata)
     .filter(post => post.reblog == null)
@@ -103,9 +103,6 @@ async function loadPosts(lastID, handler = (post) => post.render()) {
 function organizePostReplies(arr) {
   arr.forEach(entry => {
     const { id } = entry
-
-    if (id === '110357315499511102')
-      console.log(entry)
 
     if (MASTODON.accountIds.includes(entry.in_reply_to_account_id)) {
       const { in_reply_to_id: inReplyToId } = entry

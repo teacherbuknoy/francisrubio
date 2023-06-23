@@ -11,8 +11,12 @@
 
   <p class="font-sans margin-top--xl">Don't have a website? Send a response via <a href="https://commentpara.de"><b>commentpara.de</b></a>! Copy and paste the <abbr>URL</abbr> of this webpage, and paste it on there along with your response. Comments can be anonymous, too!</p>
 </form>
-<div class="content-wrapper margin--auto hidden" data-webmention-container>
+<div class="content-wrapper margin--auto hidden relative" data-webmention-container>
   <h2 class="font-sans uppercase fs-5 weight-700" id="webmention-likes-repost">Likes and reposts</h2>
+  {% if nextSectionLink != null %}
+    <a href="{{ nextSectionLink }}" class="button skip-link">Skip to next section</a>
+    {% set nextSectionLink = null %}
+  {% endif %}
   <ul data-webmention-container="likes" class="webmention-container likes">
     <template id="webmention-like-entry">
       <li class="webmention__entry" id="">
@@ -39,7 +43,7 @@
     </template>
   </ul>
 </div>
-<div class="content-wrapper margin--auto hidden" data-webmention-container>
+<div class="content-wrapper margin--auto hidden padding" data-webmention-container>
   <h2 class="font-sans uppercase fs-5 weight-700" id="webmention-replies">Replies</h2>
   <div data-webmention-container="in-reply-to" class="webmention-container replies">
     <template id="webmention-reply-entry">

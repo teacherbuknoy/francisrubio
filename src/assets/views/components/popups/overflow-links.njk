@@ -1,0 +1,23 @@
+{% from "components/ui/utils.njk" import icon %}
+
+<dialog class="navigation-popup" id="{{ popupId }}" aria-label="More navigation links">
+  <ul class="navigation-list">
+    {% for item in navigation | selectattr("overflow") %}
+      <li class="navigation-list-item">
+        <a href="{{ item.url }}" class="navigation-link">
+          {% if item.text %}
+            <span class="navigation-link-text">{{ item.text }}</span>
+          {% endif %}
+
+          {% if item.feathericon %}
+            {{ icon(feathericon) }}
+          {% endif %}
+
+          {% if item.label %}
+            <span class="navigation-link-label">{{ item.label }}</span>
+          {% endif %}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</dialog>

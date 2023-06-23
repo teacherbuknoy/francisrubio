@@ -1,0 +1,5 @@
+{% macro icon(name, class) %}
+  <svg class="feather {{ class }}" aria-hidden="true">
+    <use href="/assets/images/feather-sprite.svg#{{ name }}"/>
+  </svg>
+{% endmacro %}

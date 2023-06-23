@@ -20,6 +20,7 @@ class SocialPostMedia {
           const img = document.createElement('img')
           img.setAttribute('src', item.url)
           img.setAttribute('alt', item.description)
+          img.setAttribute('loading', 'lazy')
           img.setAttribute('width', item.meta.small.width)
           img.setAttribute('height', item.meta.small.height)
 
@@ -139,7 +140,7 @@ class SocialPostHeader {
       this.#renderers.push(() => {
         try { new ToggleComponent(tglSensitive) }
         catch (e) {
-          console.error(tglSensitive); throw e;
+          throw e;
         }
       })
 
@@ -236,7 +237,7 @@ class SocialPost {
       tglSensitive.setAttribute('data-toggle', postId)
       this.#renderers.push(() => {
         try { new ToggleComponent(tglSensitive) }
-        catch (e) { console.error(tglSensitive); throw e; }
+        catch (e) { throw e; }
       })
 
       content.setAttribute('hidden', '')

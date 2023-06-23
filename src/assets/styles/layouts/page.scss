@@ -1,5 +1,4 @@
 .page {
-  padding-block: var(--space-xl);
 
   &__inner,
   &__header {
@@ -9,20 +8,21 @@
   }
 
   &__cover {
-    @extend .light;
+    @extend .dark;
 
+    --offset           : calc(-5.7rem - 10vh);
     align-content      : end;
-    background-color   : #f9b6c3;
-    background-position: bottom right;
+    background-color   : #d82b3b;
+    background-position: top right;
     background-repeat  : no-repeat;
-    background-size    : auto 100%;
+    background-size    : cover;
     display            : grid;
     justify-content    : start;
-    margin-block-start : calc(-5.7rem - 10vh);
-    min-height         : min(70vh, 978px);
+    margin-block-start : var(--offset);
+    min-height         : 50ch;
 
     @media (min-width: 920px) {
-      background-image     : linear-gradient(to right, #f9b6c3, #f9b6c300 25%), var(--page-cover-image);
+      background-image     : var(--page-cover-image);
       grid-template-columns: 1fr min(90%, 100ch) 1fr;
     }
 

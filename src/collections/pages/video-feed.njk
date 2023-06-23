@@ -17,14 +17,15 @@ permalink: /videos.xml
   {% set preferredDomain = site.domains | selectattr('isPreferred') | first %}
   <channel>
     <title>{{ site.title | safe }}</title>
-    <atom:link href="https://{{ preferredDomain.value | safe }}/feed.xml" rel="self" type="application/rss"/>
+    <atom:link href="https://{{ preferredDomain.value | safe }}/feed.xml" rel="self" type="application/rss+xml"/>
     <link>https://{{ preferredDomain.value | safe }}/</link>
     <description>{{ site.description | safe }}</description>
-    <lastBuildDate>{{ generated }}</lastBuildDate>
+    <lastBuildDate>{{ generated | toDate | dateToRfc822 }}</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
     <generator>Eleventy v2.0.0</generator>
+    <managingEditor>{{ site.contact.email.identifier }} ({{ site.title }})</managingEditor>
 
     <image>
       <url>https://ik.imagekit.io/8jjzxcl9p/tr:w-64/authors/teacherbuknoy.jpg?updatedAt=1672589182686</url>
@@ -52,10 +53,6 @@ permalink: /videos.xml
             <guid isPermaLink="true">{{ absolutePostUrl }}</guid>
           {% endif %}
           <comments>{{ absolutePostUrl }}#webmention-replies</comments>
-          <dc:creator>
-            <![CDATA[{{ person.name }}]]>
-          </dc:creator>
-          <author>{{ person.email }}</author>
           <pubDate>{{ post.date | dateToRfc822 }}</pubDate>
           {% if post.data.tags and post.data.tags.length > 0 %}
             {% for tag in post.data.tags %}

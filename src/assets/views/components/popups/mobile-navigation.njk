@@ -1,0 +1,29 @@
+<dialog class="dialog dialog--navigation" id="nav-mobile-menu">
+  <form method="dialog" class="dialog__header">
+    <a href="/" class="navigation-link weight-700">Francis Rubio</a>
+    <button class="transparent icon-only button">
+      {{ icon('x') }}
+      <span class="sr-only">Close this dialog</span>
+    </button>
+  </form>
+  <div class="dialog__body">
+    <ul class="navigation-list navigation-list--vertical">
+      {% for item in navigation %}
+        <li class="navigation-list-item" style="--delay-factor: {{ (loop.length - loop.index0) / 2 }}">
+          <a href="{{ item.url }}" class="navigation-menu-link">
+            {% if item.text %}
+              <span class="navigation-menu-link-text">{{ item.text }}</span>
+            {% endif %}
+            {% if item.feathericon %}
+              {% set feathericon = item.feathericon %}
+              {% include "components/feathericon.njk" %}
+            {% endif %}
+            {% if item.label %}
+              <span class="navigation-menu-link-label">{{ item.label }}</span>
+            {% endif %}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</dialog>

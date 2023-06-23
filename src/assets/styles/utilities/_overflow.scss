@@ -1,4 +1,7 @@
-$overflow: visible, auto, scroll, clip;
+$overflow: visible,
+auto,
+scroll,
+clip;
 
 .overflow {
   @each $o in $overflow {
@@ -10,4 +13,32 @@ $overflow: visible, auto, scroll, clip;
 
 .no-scroll {
   overflow: hidden;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.sticky {
+  position: sticky;
+}
+
+.masked-overflow {
+  &--inline {
+    -webkit-mask-image: linear-gradient(to left, transparent, black 5% 95%, transparent);
+    mask-image        : linear-gradient(to left, transparent, black 5% 95%, transparent);
+  }
+
+  &--block {
+    -webkit-mask-image: linear-gradient(to top, transparent, black 5% 95%, transparent);
+    mask-image        : linear-gradient(to top, transparent, black 5% 95%, transparent);
+  }
 }

@@ -140,13 +140,13 @@
     margin-block  : var(--space-xl);
 
     &--scroll {
-      align-items      : start;
-      flex-direction   : row;
-      overflow-x       : auto;
-      padding-block-end: var(--space-xxl);
-      padding-inline   : var(--space-l);
-      scroll-snap-type : x mandatory;
-      text-align       : initial;
+      align-items       : start;
+      flex-direction    : row;
+      overflow-x        : auto;
+      padding-block     : var(--space-xxl);
+      padding-inline    : var(--space-xxl);
+      scroll-snap-type  : x mandatory;
+      text-align        : initial;
 
       .entry {
         display          : flex;

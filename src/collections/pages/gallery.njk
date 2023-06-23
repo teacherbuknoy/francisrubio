@@ -10,7 +10,11 @@ activePath: gallery
 ---
 
 <section class="page" aria-labelledby="section-heading-4">
-  <div class="page__cover" style="--page-cover-image: url(https://ik.imagekit.io/8jjzxcl9p/index/cover--gallery.png?updatedAt=1679935082420)">
+  <div class="page__cover" style="--page-cover-image: image-set(
+    url(https://ik.imagekit.io/8jjzxcl9p/tr:f-avif/index/cover-pride-gallery.png) type('image/avif'),
+    url(https://ik.imagekit.io/8jjzxcl9p/tr:f-webp/index/cover-pride-gallery.png) type('image/webp'),
+    url(https://ik.imagekit.io/8jjzxcl9p/tr:f-png/index/cover-pride-gallery.png) type('image/png')
+  )">
     <hgroup class="page__header">
       <span id="section-heading-4" class="uppercase ls-l font-sans" data-baybayin="{{ sections.gallery.baybayin_label }}">{{ sections.gallery.label | safe }}</span>
       <h1 class="h2 responsive">{{ sections.gallery.title | safe }}</h1>

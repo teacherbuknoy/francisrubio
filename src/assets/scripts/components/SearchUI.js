@@ -52,10 +52,18 @@ class SearchUi {
     this.form = document.forms.search
     this.template = $('#search-result-listitem-template')
     this.resultsCount = $('[data-search=count]')
+    this.resultsClearTrigger = $('[data-search=clear]')
+
+    if (this.resultsClearTrigger != null) {
+      this.resultsClearTrigger.addEventListener('click', e => {
+        this.resetSearchResults()
+      })
+    } 
 
     this.form.addEventListener('submit', e => {
       e.preventDefault()
       const term = this.form.term.value
+      keepDialogOpen(this.form.closest('dialog'))
 
       const results = provider.search({ term })
 
@@ -65,6 +73,7 @@ class SearchUi {
       // 2. Render the new search results
       const resultsArray = this.resultsToArray(results)
       resultsArray.forEach(data => this.renderSearchResultItem(data))
+      this.form.closest('.dialog--search').classList.add('has-results')
 
       // 3. Display total result count
       this.renderSearchResultCount(resultsArray.length)
@@ -81,6 +90,9 @@ class SearchUi {
     while (this.container.lastChild) {
       this.container.removeChild(this.container.lastChild)
     }
+
+    this.form.closest('.dialog--search').classList.remove('has-results')
+    keepDialogOpen(this.form.closest('dialog'))
   }
 
   renderSearchResultCount(count) {
@@ -121,6 +133,11 @@ async function initializeSearchData() {
       .catch(err => reject(err))
   })
 
+}
+
+function keepDialogOpen(dialog) {
+  if (!dialog.hasAttribute('open'))
+    dialog.showModal()
 }
 
 async function initialize() {

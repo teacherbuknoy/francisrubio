@@ -29,18 +29,19 @@
   &::before {
     content         : "";
     aspect-ratio    : 1;
-    background-image: radial-gradient(circle at center, hsl(var(--primary-500) / 25%), transparent 75%);
-    height          : 250%;
+    background-image: radial-gradient(circle at center, hsl(var(--primary-500)/10%), transparent 75%);
+    height          : 500%;
     left            : var(--hover-left, 0);
     opacity         : 0;
     position        : absolute;
     top             : var(--hover-top, 0);
     transform       : translate(-50%, -50%);
-    transition      : opacity 300ms;
+    transition      : opacity .3s
   }
 
   &:hover {
     text-decoration: none;
+    color          : hsl(var(--fg-default));
 
     &::before {
       opacity: 1;
@@ -57,7 +58,7 @@
     color           : hsl(var(--l-contrast));
 
     &::before {
-      background-image: radial-gradient(circle at center, hsl(var(--l-contrast) / 25%), transparent 75%);
+      background-image: radial-gradient(circle at center, hsl(var(--l-contrast) / 10%), transparent 75%);
     }
 
     &:focus-visible {
@@ -67,6 +68,10 @@
 
   &.square {
     aspect-ratio: 1/1;
+  }
+
+  &.transparent {
+    background: transparent;
   }
 
   &.go-to-top {

@@ -35,4 +35,9 @@ module.exports = {
       plugin: require('@11ty/eleventy-plugin-rss')
     }
   },
+  render: function () {
+    return {
+      plugin: require('@11ty/eleventy').EleventyRenderPlugin
+    }
+  }
 }

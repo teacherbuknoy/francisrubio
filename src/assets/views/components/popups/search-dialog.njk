@@ -1,0 +1,37 @@
+{% from "components/ui/utils.njk" import icon %}
+
+<dialog class="dialog dialog--search" id="nav-search-menu" aria-labelledby="search-nav-heading">
+  <div class="dialog__header">
+    <span class="sr-only" id="search-nav-heading">Search</span>
+    <form method="GET" name="search" aria-labelledby="search-label" class="search-container search-form">
+      <div class="search-form-control">
+        <input type="text" name="term" id="term" placeholder=" " />
+        <label id="search-label" for="term">Search the site</label>
+    </div>
+    <button class="button padding--m">
+      {{icon('search')}}
+      <span class="sr-only">Search</span>
+    </button>
+  </form>
+</div>
+<div class="dialog__body">
+  <div class="results-count">
+    <p data-search="count"></p>
+    <button class="button button--small" data-search="clear">
+      {{ icon('x') }}
+      Clear results
+    </button>
+  </div>
+  <ul class="results-container" id="search-results-list" aria-label="Search results"></ul>
+  <template id="search-result-listitem-template">
+    <li>
+      <a class="result-item" href="#!">
+        <img data-result="image" class="result-image" alt="">
+        <span data-result="title" class="result-title"></span>
+        <span data-result="subtitle" class="result-subtitle"></span>
+        <time data-result="date" class="result-date" datetime="2021-04-11"></time>
+      </a>
+    </li>
+  </template>
+</div>
+</dialog>

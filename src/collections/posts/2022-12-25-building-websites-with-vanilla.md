@@ -3,6 +3,10 @@ title: "Building Websites with Vanilla"
 description: "No, vanilla is not a framework."
 category: ["Web Development"]
 language: "en"
+theme:
+  scheme: dark
+  color: '#002a59'
+  color-hsl: '212 100% 17%'
 cover:
   folder: build-with-vanilla
   filename: cover.png

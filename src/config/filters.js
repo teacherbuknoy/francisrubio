@@ -1,3 +1,14 @@
+const markdownIt = require('markdown-it')
+
+const md = markdownIt({ html: true, linkify: true, typographer: true })
+  .use(require('markdown-it-deflist'))
+  .use(require('markdown-it-abbr'))
+  .use(require('markdown-it-footnote'))
+  .use(require('markdown-it-attrs'))
+  .use(require('markdown-it-sup'))
+  .disable('code')
+
+
 module.exports = {
   markdown: function (value) {
     let markdown = require('markdown-it')({
@@ -86,5 +97,40 @@ module.exports = {
   keys: obj => Object.keys(obj),
   firstParagraph: post => post.split(/\n/gm)[0].toString('utf8'),
   removeReblogs: entries => entries.filter(entry => entry.reblog == null),
-  removeReplies: entries => entries.filter(entry => entry.in_reply_to_id == null)
+  removeReplies: entries => entries.filter(entry => entry.in_reply_to_id == null),
+  toDate: str => new Date(Date.parse(str)),
+  removeFuturePosts: posts => [...posts].filter(post => Date.parse(post.date) <= Date.now()),
+  log: value => console.log("[LOG]", value),
+  enumToGalleryEntry: value => {
+    const { start, end, filetype, size, except, alt, style } = value
+    const entries = []
+
+    for (let i = start; i <= end; i++) {
+      entries.push({
+        key: `${i}.${filetype}`,
+        alt: alt != null ? alt : '',
+        width: size.width,
+        height: size.height,
+        style,
+        fileIndex: i
+      })
+    }
+
+    if (except != null) {
+      except.forEach(exc => {
+        const { overrideKey } = exc
+        const keyIndex = entries.findIndex(entry => entry.fileIndex === overrideKey)
+
+        if (keyIndex > -1) {
+          delete exc.key
+          const override = { ...entries[keyIndex], ...exc }
+
+          entries[keyIndex] = override
+        }
+      })
+    }
+
+    return entries
+  },
+  markdown: string => md.render(string)
 }

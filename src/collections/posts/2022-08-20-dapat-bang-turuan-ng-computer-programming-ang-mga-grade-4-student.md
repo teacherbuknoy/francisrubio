@@ -2,6 +2,10 @@
 title: "Dapat bang turuan ng computer programming ang mga grade 4 student?"
 description: "Mga opinyon ko tungkol sa Senate Bill No. 79 o Philippine Computer Programming Education Act."
 category: ["opinion", technology]
+theme:
+  scheme: dark
+  color: '#73755d'
+  color-hsl: '65 11% 41%'
 image: "/posts/senate-bill-79/cover.png"
 cover: 
     folder: senate-bill-79

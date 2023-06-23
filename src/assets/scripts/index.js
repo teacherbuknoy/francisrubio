@@ -9,10 +9,7 @@ import { $, $$ } from './utilities/dom'
 import { Tab, TabControl } from './components/TabControl'
 import { NotificationManager } from './components/NotificationManager'
 import { FormValidator } from './components/Forms'
-import { Popup, PopupController } from './components/Popup'
-import { ToggleComponent } from './components/ToggleComponent'
-import { Toggle } from './components/toggle'
-import { ToggleController } from "./components/toggle-controller";
+import { attachDialogListener } from './webcomponents/HTMLDialogPopup'
 
 window.onJSLoadCallbacks = []
 
@@ -72,25 +69,38 @@ new FormValidator(document.getElementById('frm-email'))
 document.querySelectorAll('button[data-slur]')
   .forEach(button => new SlurToggle(button))
 
-const popups = [...document.querySelectorAll('[data-popup]')].map(p => new Popup(p))
-const popupContainer = document.querySelector('[data-toggle-parent]')
-popups.forEach(popup => {
-  popup.addEventListener('toggle', p => {
-    if (popup.isHidden) {
-      popupContainer.classList.add('hidden')
-    } else {
-      popupContainer.classList.remove('hidden')
+
+/* HTML DIALOG POPUPS */
+document.querySelectorAll('button[data-opens]')
+  .forEach(button => {
+    try {
+      attachDialogListener(button)
+    } catch (e) {
+      console.debug(e)
     }
   })
-})
 
-const popupController = new PopupController(popups)
-popupController.addEventListener('hasopen', () => {
-  popupContainer.classList.remove('hidden')
-})
-popupController.addEventListener('allclose', () => {
-  popupContainer.classList.add('hidden')
-})
+function addNotifNewGalleryEntry() {
+  // Check if new post is already seen
+  const gallerySeen = localStorage.getItem('gallery-seen') === 'true'
+
+  if (!gallerySeen) {
+    const galleryNav = document.querySelector('.navigation-bar a[href="/gallery/"]')
+    galleryNav.classList.add('new')
+  }
+}
+
+function removeNotifNewgalleryEntry() {
+  const pageIsNewGalleryEntry = new URL(window.location).pathname === '/gallery/rosas-hiyas-at-perlas/'
+  
+  if (pageIsNewGalleryEntry) {
+    localStorage.setItem('gallery-seen', true)
+  }
+}
+
+window.onJSLoadCallbacks.push(removeNotifNewgalleryEntry)
+window.onJSLoadCallbacks.push(addNotifNewGalleryEntry)
+
 
 window.addEventListener('load', e => {
   document.body.classList.remove('no-js')

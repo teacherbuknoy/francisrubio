@@ -4,7 +4,7 @@ description: Press kit for when I appear in front of people
 permalink: /press-kit/
 activePath: press-kit
 ---
-
+{% from "components/ui/utils.njk" import icon %}
 <hgroup role="group" class="page__header no-section">
   <nav class="breadcrumb" aria-label="Breadcrumbs">
     <ol class="breadcrumb__list">
@@ -17,7 +17,11 @@ activePath: press-kit
     </ol>
   </nav>
   <h1 id="section-heading-1" class="responsive">Press Kit</h1>
-  <p>The following information is provided as a free copy-and-paste resource for media publishers and conference organizers. Please don't hesitate to use it as-is without asking for my permission. For more details, please refer to <a href="/speaker-rider/">my speaker rider</a>. For further questions, feel free to <a href="{{ site.contact.email.url }}">contact me via email</a>.</p>
+  <p>For more details, please refer to <a href="/speaker-rider/">my speaker rider</a>. For further questions, feel free to <a href="{{ site.contact.email.url }}">contact me via email</a>.</p>
+  <aside class="callout callout--warning m-block-start--xl fs-4 margin-inline--auto">
+    {{ icon('alert-triangle') }}
+    <p class="callout__body">The following details <strong>should be used as-is</strong> to avoid misrepresenting me in your pubmats.</p>
+  </aside>
 </hgroup>
 <section aria-labelledby="section-heading-2" class="padding--xl gap--l content-wrapper margin-inline--auto">
   <h2 id="section-heading-2">Biography</h2>
@@ -40,7 +44,7 @@ activePath: press-kit
     <dt>Company</dt>
     <dd>DICE205 Digital Corporation</dd>
     <dd>
-      <small>Unless otherwise stated, I do not represent this company in any speaking engagements or media appearances. My affiliation with this company should not be disclosed or announced to the public without my knowledge.</small>
+      <small>Unless otherwise stated, <strong>I do not represent this company</strong> in any speaking engagements or media appearances. My affiliation with this company <strong>should not be disclosed or announced to the public</strong> without my consent.</small>
     </dd>
 
     <dt>Job Title</dt>
@@ -83,6 +87,9 @@ activePath: press-kit
     <a style="grid-row: span 2;grid-column: span 2;" download="francis-rubio.jpg" target="_blank" href="https://ik.imagekit.io/8jjzxcl9p/gallery/a-studios-shoot-03-26-2023/DSCF0112.JPG" class="image-grid__link no-arrow">
       <img src="https://ik.imagekit.io/8jjzxcl9p/tr:w-600/gallery/a-studios-shoot-03-26-2023/DSCF0112.JPG" alt="Francis Rubio, taken in a pink room and he's wearing a crown" class="image-grid__image">
     </a>
+    <a style="grid-row: span 2;grid-column: span 2;" download="francis-rubio-rhp-4.jpg" target="_blank" href="https://ik.imagekit.io/8jjzxcl9p/gallery/pride-2023/4.jpg" class="image-grid__link no-arrow">
+      <img src="https://ik.imagekit.io/8jjzxcl9p/gallery/pride-2023/4.jpg" alt="Francis Rubio, in his Rosas, Hiyas, at Perlas outfit." class="image-grid__image">
+    </a>
     <a style="grid-row: span 2;grid-column: span 2;" download="francis-rubio-faculty.jpg" target="_blank" href="/assets/images/press-kit/francis-rubio-faculty.jpg" class="image-grid__link no-arrow">
       <img src="/assets/images/press-kit/francis-rubio-faculty.jpg" alt="Francis Rubio wearing a blue faculty shirt." class="image-grid__image">
     </a>
@@ -92,14 +99,11 @@ activePath: press-kit
     <a style="grid-row: span 4; grid-column: span 3" download="francis-rubio-formal.png" target="_blank" href="/assets/images/press-kit/francis-rubio-formal.png" class="image-grid__link no-arrow">
       <img src="/assets/images/press-kit/francis-rubio-formal.png" alt="Francis Rubio wearing a black long-sleeves shirt." class="image-grid__image">
     </a>
-    <a style="grid-row: span 2;grid-column: span 4;" download="francis-rubio-pink.jpg" target="_blank" href="/assets/images/press-kit/francis-rubio-pink.jpg" class="image-grid__link no-arrow">
-      <img src="/assets/images/press-kit/francis-rubio-pink.jpg" alt="Francis Rubio on a pink background" class="image-grid__image">
-    </a>
     <a style="grid-row: span 2;grid-column: span 2;" download="francis-rubio-street.jpg" target="_blank" href="/assets/images/press-kit/francis-rubio-street.jpg" class="image-grid__link no-arrow">
       <img src="/assets/images/press-kit/francis-rubio-street.jpg" alt="Francis Rubio, taken on a street with trees" class="image-grid__image">
     </a>
-    <a style="grid-row: span 2;grid-column: span 2;" download="francis-rubio-alt.jpg" target="_blank" href="https://ik.imagekit.io/8jjzxcl9p/gallery/a-studios-shoot-03-26-2023/DSCF0303.JPG" class="image-grid__link no-arrow">
-      <img src="https://ik.imagekit.io/8jjzxcl9p/tr:w-600/gallery/a-studios-shoot-03-26-2023/DSCF0303.JPG" alt="Francis Rubio, taken in a pink room" class="image-grid__image">
+    <a style="grid-row: span 4;grid-column: span 2;" download="francis-rubio-rhp-6.jpg" target="_blank" href="https://ik.imagekit.io/8jjzxcl9p/gallery/pride-2023/6.jpg" class="image-grid__link no-arrow">
+      <img src="https://ik.imagekit.io/8jjzxcl9p/gallery/pride-2023/6.jpg" alt="Francis Rubio, in his Rosas, Hiyas, at Perlas outfit." class="image-grid__image">
     </a>
   </div>
 </section>

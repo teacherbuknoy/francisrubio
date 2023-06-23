@@ -1,4 +1,8 @@
-<div class="talks-grid">
+<div class="talks-grid relative">
+  {% if nextSectionLink != null %}
+    <a href="{{ nextSectionLink }}" class="button skip-link">Skip to next section</a>
+    {% set nextSectionLink = null %}
+  {% endif %}
   {% if postLimit != null %}
     {% set limit = postLimit if collection.length > postLimit else 
       collection.length %}
