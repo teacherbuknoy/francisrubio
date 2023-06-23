@@ -5,3 +5,8 @@
 .full-vh {
   min-height: 100vh;
 }
+
+.container {
+  width: min(var(--content-width), 95%);
+  margin-inline: auto;
+}

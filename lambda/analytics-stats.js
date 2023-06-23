@@ -20,16 +20,14 @@ exports.handler = async (event) => {
   })
   const { queryStringParameters: queries } = event
   const options = {
-    size: queries?.size != null ? queries.size : 200,
+    size: queries?.size != null ? queries.size : 400,
     after: queries?.nextId != null ? Ref(Collection(FAUNA_COLLECTION), queries.nextId) : []
   }
 
   try {
     if (event.httpMethod === 'GET') {
-      console.log(options)
 
       const request = await getStats(client, options)
-      console.log(request)
       return {
         statusCode: 200,
         body: JSON.stringify(request)

@@ -83,3 +83,33 @@
  * @property {SocialPost} component
  * @property {MastodonPost} data
  */
+
+/**
+ * @typedef {Object} FaunaResponse
+ * @property {[Object, String]} after
+ * @property {[Object, String]} before
+ * @property {FaunaDocument[]} data
+ */
+
+/**
+ * @typedef {Object} FaunaDocument
+ * @property {[Object, String]} ref
+ * @property {number} ts
+ * @property {AnalyticRecord} data
+ */
+
+/**
+ * @typedef {Object} AnalyticRecord
+ * @property {string} browser
+ * @property {string} createdAt
+ * @property {string} dateTime
+ * @property {string} device
+ * @property {string} eventType
+ * @property {string} language
+ * @property {string} os
+ * @property {string} path
+ * @property {string} referrer
+ * @property {string} sessionId
+ * @property {string} timezone
+ * @property {string} userAgent
+ */
