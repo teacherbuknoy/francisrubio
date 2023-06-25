@@ -46,10 +46,10 @@ scripts: ['frontpage.js', mastodon.js]
         <span>{{ sections.experience.label | safe }}</span></p>
       <h2 class="fs-1">{{ sections.experience.title | safe }}</h2>
     </hgroup>
-    <div class="with-sidebar padding-block--xl">
+    <div class="with-sidebar padding-block--xl relative">
+      <a href="#section-4" class="button skip-link">Skip to next section</a>
       <div class="sidebar padding-inline--m" style="flex-basis: 20ch;">
-        <div data-tablist style="position:relative; gap: 0.5ch; display: grid; grid-template-columns: repeat(auto-fit, minmax(4ch, 1fr));" role="tablist">
-          <a href="#section-4" class="button skip-link">Skip to next section</a>
+        <div data-tablist style="position:relative; gap: var(--space-l); display: grid; grid-template-columns: repeat(auto-fit, minmax(4ch, 1fr));" role="tablist">
           {% for tech in technologies %}
             <a aria-label="{{ tech.title }}" href="#tabpanel-{{ tech.icon }}" id="tab-{{ tech.icon }}" data-tab class="button square tab-trigger">
               <svg>
@@ -76,11 +76,12 @@ scripts: ['frontpage.js', mastodon.js]
             </section>
           {% endfor %}
         </div>
-        <div class="stack fill-reset ai--center text-center gap--s padding--xl">
-          <span class="fs-4 weight-300">Ready to give me a shot?</span>
-          <button class="primary button" data-dialog="modal__email">Connect with me</button>
-        </div>
       </div>
+    </div>
+
+    <div class="stack fill-reset ai--center text-center gap--s padding--xl">
+      <span class="fs-4 weight-300">Ready to give me a shot?</span>
+      <button class="primary button" data-dialog="modal__email">Connect with me</button>
     </div>
   </div>
 </section>
