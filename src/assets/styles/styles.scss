@@ -150,8 +150,14 @@
 
       &::after {
         align-self         : baseline;
-        content            : "🡥";
+        align-self         : center;
+        background-image   : url('/assets/images/external-link.svg');
+        background-size    : cover;
+        content            : "";
+        height             : 1em;
         margin-inline-start: auto;
+        opacity            : 0.5;
+        width              : 1em;
       }
     }
 
