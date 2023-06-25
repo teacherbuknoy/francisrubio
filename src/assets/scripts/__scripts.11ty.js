@@ -14,6 +14,7 @@ class Script {
       mastodon: 'mastodon.js',
       frontpage: 'frontpage.js',
       analytics: 'analytics.js',
+      'analytics-page': 'analytics-page.js',
     }
   }
 

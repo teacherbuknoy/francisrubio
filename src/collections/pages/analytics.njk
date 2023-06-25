@@ -1,0 +1,33 @@
+---
+title: Analytics - Francis Rubio
+description: My blog posts, sorted by categories.
+permalink: /analytics/
+scripts: [analytics-page.js]
+---
+{% from "components/ui/utils.njk" import icon %}
+<hgroup class="padding--xl ai--center" role="group" style="width: min(100ch, 90%); margin-inline: auto;">
+  <nav class="breadcrumb" aria-label="Breadcrumbs">
+    <ol class="breadcrumb__list">
+      <li class="breadcrumb__list-item">
+        <a href="/" class="breadcrumb__link" data-animation="button">Analytics</a>
+      </li>
+      <li class="breadcrumb__list-item">
+        <a aria-current="location" class="breadcrumb__link" data-animation="button">This page</a>
+      </li>
+    </ol>
+  </nav>
+  <h1 class="margin--none responsive">Open Analytics</h1>
+  <p>A rudimentary analytics graph of people who visit this website.</p>
+  <div class="callout callout--success m-block--xl">
+    {{ icon('info') }}
+    <p class="callout__body">Cookies are not stored in your browser when visiting my website. All of the data here are not traceable to any individual. They are also not shared with third parties. Data is stored in my private FaunaDB store.</p>
+  </div>
+</hgroup>
+
+<div class="container">
+  <h2>Most viewed pages</h2>
+  <canvas id="most-viewed"></canvas>
+
+  <h2>By browser use</h2>
+  <canvas id="browser-use"></canvas>
+</div>
