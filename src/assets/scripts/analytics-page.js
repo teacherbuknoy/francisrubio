@@ -16,7 +16,8 @@ async function loadData() {
 function render(data) {
   const datasets = {
     byBrowser: AnalyticStats.byBrowser(data),
-    byPageView: AnalyticStats.byPageVisit(data)
+    byPageView: AnalyticStats.byPageVisit(data),
+    byReferrer: AnalyticStats.byReferrer(data)
   }
 
   const configs = {
@@ -49,12 +50,28 @@ function render(data) {
       options: {
         animation: true
       }
+    },
+    byReferrer: {
+      type: 'bar',
+      data: {
+        labels: datasets.byReferrer.labels,
+        datasets: [
+          {
+            label: 'Where people are coming from',
+            data: datasets.byReferrer.stats
+          }
+        ]
+      },
+      options: {
+        animation: true
+      }
     }
   }
 
   const charts = {
     byBrowser: new Chart(document.getElementById('browser-use'), configs.byBrowser),
-    byPageView: new Chart(document.getElementById('most-viewed'), configs.byPageView)
+    byPageView: new Chart(document.getElementById('most-viewed'), configs.byPageView),
+    byReferrer: new Chart(document.getElementById('most-referrer'), configs.byReferrer)
   }
 }
 

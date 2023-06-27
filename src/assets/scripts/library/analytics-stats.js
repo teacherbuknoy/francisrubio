@@ -51,9 +51,9 @@ class AnalyticStats {
       label: browser,
       value: data.filter(row => row.browser.split(browserSplitter)[0] === browser).length
     })).sort((a, b) => a.value - b.value)
-    
+
     statsArray.forEach(item => stats[item.label] = item.value)
-    
+
     return { stats, labels: uniqueBrowsers }
   }
 
@@ -70,6 +70,30 @@ class AnalyticStats {
     statsArray.forEach(item => stats[item.label] = item.value)
 
     return { stats, labels: uniquePaths }
+  }
+
+  /** @param {AnalyticRecord[]} data */
+  static byReferrer(data) {
+    const domains = [
+      'francisrubio.antaresph.dev',
+      'pride-march-2023--teacherbuknoy.netlify.app',
+      'localhost',
+      'analytics-fauna--teacherbuknoy.netlify.app'
+    ]
+    const uniqueReferrers = [...new Set(data.map(record => record.referrer))]
+      .filter(referrer => referrer != null && referrer.length > 0)
+      .filter(referrer => domains.find(domain => new URL(referrer).hostname === domain) == null)
+    const stats = {}
+
+    const statsArray = uniqueReferrers.map(path => ({
+      label: path,
+      value: data.filter(row => row.referrer === path).length
+    }))
+
+    statsArray.forEach(item => stats[item.label] = item.value)
+    console.log({ stats, uniqueReferrers })
+
+    return { stats, labels: uniqueReferrers }
   }
 }
 
