@@ -106,3 +106,11 @@ window.addEventListener('load', e => {
   document.body.classList.remove('no-js')
   window.onJSLoadCallbacks.forEach(fn => fn())
 })
+
+document.addEventListener('colorschemechange', e => {
+  const scheme = e.detail.colorScheme
+  document.querySelectorAll('webring-banner')
+    .forEach(banner => {
+      banner.setAttribute('scheme', scheme)
+    })
+})
