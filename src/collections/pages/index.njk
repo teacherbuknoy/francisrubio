@@ -213,7 +213,7 @@ scripts: ['frontpage.js', mastodon.js]
     </div>
   </div>
 </section>
-{# <section class="section padding-block--xxl" id="section-44a" aria-labelledby="section-4a-heading">
+<section class="section padding-block--xxl" id="section-44a" aria-labelledby="section-4a-heading">
   <div class="section__inner">
     <div class="stack gap--none">
       <hgroup role="group">
@@ -232,30 +232,7 @@ scripts: ['frontpage.js', mastodon.js]
       </div>
     </div>
   </div>
-</section> #}
-<div class="section padding-block--xxl">
-  <div class="section__inner">
-    <webring-banner class="margin-inline--auto content-wrapper" theme="bading">
-      <p class="uppercase ls-l font-sans">Webring</p>
-      <h2 class="fs-1 margin--none">Pinoy Bloggers</h2>
-      <p class="content-wrapper"><a href="https://webringdemo.netlify.com">Pinoy Bloggers</a> is a webring of Filipino people with blogs. Your blog can be about anything. It can be about design, development, architecture, medicine, cross-stitching, knitting, puzzles, travelling—anything!</p>
-      <div class="cluster">
-        <a class="button" href="https://webring.antaresph.dev/previous">
-          {{ icon('chevron-left') }}
-          Previous website
-        </a>
-        <a class="button" href="https://webring.antaresph.dev/random">
-          {{ icon('shuffle') }}
-          Random website
-        </a>
-        <a class="button" href="https://webring.antaresph.dev/next">
-          Next website
-          {{ icon('chevron-right') }}
-        </a>
-      </div>
-    </webring-banner>
-  </div>
-</div>
+</section>
 <section class="section padding-block--xxl bg-secondary" id="contact-footer" aria-labelledby="footer-heading">
   <div class="section__inner">
     <div class="stack gap">
@@ -272,7 +249,31 @@ scripts: ['frontpage.js', mastodon.js]
     </div>
   </div>
 </section>
-<section class="padding-block--xxl bg-secondary" id="comments" aria-labelledby="comments-heading">
+
+<div class="section padding-block--xxl">
+  <div class="section__inner">
+    <webring-banner class="margin-inline--auto content-wrapper" theme="bading">
+      <p class="uppercase ls-l font-sans">Webring</p>
+      <h2 class="fs-1 margin--none">Pinoy Bloggers</h2>
+      <p class="content-wrapper"><a href="https://webringdemo.netlify.com">Pinoy Bloggers</a> is a webring of Filipino people with blogs. Your blog can be about anything. It can be about design, development, architecture, medicine, cross-stitching, knitting, puzzles, travelling—anything!</p>
+      <div class="cluster jc--center">
+        <a class="button" href="https://webring.antaresph.dev/previous">
+          {{ icon('chevron-left') }}
+          Previous website
+        </a>
+        <a class="button" href="https://webring.antaresph.dev/random">
+          {{ icon('shuffle') }}
+          Random website
+        </a>
+        <a class="button" href="https://webring.antaresph.dev/next">
+          Next website
+          {{ icon('chevron-right') }}
+        </a>
+      </div>
+    </webring-banner>
+  </div>
+</div>
+{# <section class="padding-block--xxl bg-secondary" id="comments" aria-labelledby="comments-heading">
   <div class="section__inner">
     <hgroup class="stack-gap" role="group">
       <p id="comments-heading" class="uppercase ls-l font-sans" data-baybayin="{{ sections.webmentions.baybayin_label }}">{{ sections.webmentions.label | safe }}</p>
@@ -282,7 +283,7 @@ scripts: ['frontpage.js', mastodon.js]
     {% set nextSectionLink = '#main-footer' %}
     {% include 'components/webmentions.njk' %}
   </div>
-</section>
+</section> #}
 
 {% include 'components/email-form.njk' %}
 
