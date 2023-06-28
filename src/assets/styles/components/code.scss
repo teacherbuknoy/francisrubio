@@ -75,6 +75,10 @@ pre[class^=language] {
     --pre-language: "JavaScript"
   }
 
+  &.language-json {
+    --pre-language: "JSON"
+  }
+
   .token {
 
     &.selector,
