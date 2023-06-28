@@ -158,6 +158,14 @@
         margin-inline-start: auto;
         opacity            : 0.5;
         width              : 1em;
+
+        @at-root .theme-dark & {
+          filter: invert(1);
+        }
+
+        @media (prefers-color-scheme: dark) {
+          filter: invert(1);
+        }
       }
     }
 

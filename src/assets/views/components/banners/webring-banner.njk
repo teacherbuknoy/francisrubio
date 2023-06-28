@@ -1,0 +1,21 @@
+{% from "components/ui/utils.njk" import icon as icon %}
+<webring-banner class="margin-inline--auto content-wrapper" theme="bading">
+  <p class="uppercase ls-l font-sans">Webring</p>
+  <h2 class="fs-1 margin--none">Pinoy Bloggers</h2>
+  <p class="content-wrapper">
+    <a href="https://webringdemo.netlify.com">Pinoy Bloggers</a> is a webring of Filipino people with blogs. Your blog can be about anything. It can be about design, development, architecture, medicine, cross-stitching, knitting, puzzles, travelling—anything!</p>
+  <div class="cluster jc--center">
+    <a class="button" href="https://webring.antaresph.dev/previous">
+      {{ icon('chevron-left') }}
+          Previous website
+        </a>
+    <a class="button" href="https://webring.antaresph.dev/random">
+      {{ icon('shuffle') }}
+          Random website
+        </a>
+    <a class="button" href="https://webring.antaresph.dev/next">
+          Next website
+          {{ icon('chevron-right') }}
+    </a>
+  </div>
+</webring-banner>

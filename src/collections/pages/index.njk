@@ -6,7 +6,6 @@ activePath: frontpage
 stylesheets: ['frontpage.css', mastodon.css]
 scripts: ['frontpage.js', mastodon.js]
 ---
-
 {% set mastodon = socials.mastodon %}
 {% set profile = mastodon.profile %}
 {% set feed = mastodon.feed %}
@@ -249,7 +248,13 @@ scripts: ['frontpage.js', mastodon.js]
     </div>
   </div>
 </section>
-<section class="padding-block--xxl bg-secondary" id="comments" aria-labelledby="comments-heading">
+
+<div class="section padding-block--xxl">
+  <div class="section__inner">
+    {% include "components/banners/webring-banner.njk" %}
+  </div>
+</div>
+{# <section class="padding-block--xxl bg-secondary" id="comments" aria-labelledby="comments-heading">
   <div class="section__inner">
     <hgroup class="stack-gap" role="group">
       <p id="comments-heading" class="uppercase ls-l font-sans" data-baybayin="{{ sections.webmentions.baybayin_label }}">{{ sections.webmentions.label | safe }}</p>
@@ -259,7 +264,7 @@ scripts: ['frontpage.js', mastodon.js]
     {% set nextSectionLink = '#main-footer' %}
     {% include 'components/webmentions.njk' %}
   </div>
-</section>
+</section> #}
 
 {% include 'components/email-form.njk' %}
 
