@@ -22,10 +22,10 @@ author: "teacherbuknoy"
 language: "en"
 seo:
   twitter:
-    url: "https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-0.5/posts/new-frontpage/twitter.png"
+    url: "https://ik.imagekit.io/8jjzxcl9p/posts/ph-webring/twitter.png"
     is_prefixed: false
   og:
-    url: "https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-0.5/posts/new-frontpage/og.png"
+    url: "https://ik.imagekit.io/8jjzxcl9p/posts/ph-webring/og.png"
     is_prefixed: false
 eleventyExcludeFromCollections: false
 ---
