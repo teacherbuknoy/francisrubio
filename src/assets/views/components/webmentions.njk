@@ -1,7 +1,7 @@
 {% set preferredDomain = site.domains | selectattr('isPreferred') | first %}
 <form class="form content-wrapper margin--auto margin-block--xxxl" action="{{ site.api.webmentions }}" method="POST">
   <h2 class="margin-block--none font-sans uppercase fs-5 weight-700" id="response-heading">Send a shoutout!</h2>
-  <p class="margin-block--none">Did you post a response to this in your own website? send me a <a href="http://indiewebcamp.com/webmention">webmention</a>!</p>
+  <p class="margin-block--none">Did you post a response to this in your own website? Send me a <a href="http://indiewebcamp.com/webmention">webmention</a>!</p>
   <input class="form-control" name="target" type="hidden" value="https://{{ preferredDomain.value }}{{ page.url }}">
   <div class="form-group margin--none">
     <label for="source" class="form-label">Your response's <abbr>URL</abbr></label>
