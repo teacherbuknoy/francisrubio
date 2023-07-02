@@ -167,19 +167,34 @@
     }
   }
 
-  &.themed:focus-visible {
-    --focus-color: color-mix(in hsl, var(--theme-color), hsl(var(--primary-900)) 30%);
-    outline-color: var(--focus-color, hsl(var(--fg-contrast)));
+  &.themed {
+    --shadow-color: color-mix(in hsl, hsl(var(--theme-color-hsl) / var(--shadow-alpha, 5%)), hsl(0 0% 0% / calc(var(--shadow-alpha, 5%))));
+    --shadow-alpha: 10%;
+
+    @at-root .dark & {
+      --shadow-alpha: 30%;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      @at-root .system & {
+        --shadow-alpha: 30%;
+      }
+    }
+
+    &:focus-visible {
+      --focus-color: color-mix(in hsl, var(--theme-color), hsl(var(--primary-900)) 30%);
+      outline-color: var(--focus-color, hsl(var(--fg-contrast)));
+    }
   }
 
   &:hover {
     box-shadow:
-      0 4px 4px #0001,
-      0 8px 8px #0001,
-      0 16px 16px #0001,
-      0 32px 32px #0001,
-      0 32px 32px #0001,
-      0 64px 64px #0001;
+      0 4px 4px var(--shadow-color, #0001),
+      0 8px 8px var(--shadow-color, #0001),
+      0 16px 16px var(--shadow-color, #0001),
+      0 32px 32px var(--shadow-color, #0001),
+      0 32px 32px var(--shadow-color, #0001),
+      0 64px 64px var(--shadow-color, #0001);
     transform: scale(1.005);
   }
 
