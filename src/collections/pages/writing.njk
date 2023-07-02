@@ -7,6 +7,8 @@ pagination:
   reverse: true
 permalink: /writing/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html
 activePath: writing
+eleventyImport:
+  collections: ["posts"]
 ---
 <section class="page" aria-labelledby="section-heading-4" style="--page-cover-image: image-set(
   url(https://ik.imagekit.io/8jjzxcl9p/tr:f-avif/index/cover-pride-musings.png) type('image/avif'),
