@@ -2,7 +2,7 @@
 title: "A new frontpage welcomes you"
 description: "In celebration of Pride Month, I redesigned my website banner. Here’s my process."
 permalink: "/writing/en/new-frontpage/"
-category: [design, lgbtqia]
+category: [design, LGBTQIA+]
 theme:
   scheme: dark
   color: '#E93A4C'

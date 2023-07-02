@@ -10,7 +10,7 @@
     <div class="reversed featured-post-banner has-featured" style="--theme-color: #e93a4c; --theme-color-hsl: 354 80% 57%">
       {% set hasFeatured = true %}
       {% set collection = collections.posts | reverse %}
-      {% set item = collection[1] %}
+      {% set item = collection[2] %}
       {% set postURL = item.url %}
       {% set post = item.data %}
       {% include 'components/post-card.njk' %}
