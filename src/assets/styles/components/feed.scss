@@ -139,6 +139,8 @@
     gap           : var(--space-xs);
     padding       : var(--space-xs);
     text-transform: none;
+    white-space   : pre-line;
+    width         : fit-content;
 
     &[aria-pressed="true"] {
       background-color: hsl(var(--primary-100));
