@@ -1,4 +1,5 @@
 import { ToggleComponent } from "./ToggleComponent"
+import { replaceMastodonEmoji } from "../../../data/utils"
 const CONTENT_PREFIX = 'content'
 
 class SocialPostMedia {
@@ -211,7 +212,7 @@ class SocialPost {
     this.#footer = footer
 
     const content = entry.querySelector('[data-entry=content]')
-    content.innerHTML = post.content
+    content.innerHTML = post.emojis.length > 0 ? replaceMastodonEmoji(post.content, post.emojis) : post.content
     content.setAttribute('id', postId)
     content.setAttribute('lang', post.language)
 
