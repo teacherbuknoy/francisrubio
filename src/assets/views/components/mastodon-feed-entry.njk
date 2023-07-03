@@ -60,7 +60,7 @@
     </div>
     {% if entry.sensitive %}
       <div class="entry__content-hidden-notice">
-        <button class="button entry__cw-toggle" data-toggle="content-{{ entry.id }}">[Show content]</button>
+        <button class="button entry__cw-toggle" data-toggle="content-{{ entry.id }}">{{ entry.spoiler_text }}</button>
       </div>
     {% endif %}
   </section>

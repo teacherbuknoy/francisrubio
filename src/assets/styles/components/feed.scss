@@ -261,3 +261,7 @@
   padding-block          : var(--space-xxs);
   text-decoration        : none;
 }
+
+.entry__cw-toggle[aria-pressed="false"]+[data-entry="spoiler-text"] {
+  display: none;
+}

@@ -235,6 +235,7 @@ class SocialPost {
       const tglSensitive = sensitive.querySelector('button[data-toggle]')
       tglSensitive.dataset.toggle = postId
       tglSensitive.setAttribute('data-toggle', postId)
+      tglSensitive.innerText = post.spoiler_text
       this.#renderers.push(() => {
         try { new ToggleComponent(tglSensitive) }
         catch (e) { throw e; }
