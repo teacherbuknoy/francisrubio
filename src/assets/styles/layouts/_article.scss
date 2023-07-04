@@ -45,14 +45,25 @@
 }
 
 .article__body {
-  @media (min-width: 780px) {
-    display              : grid;
+  display              : grid;
+  gap                  : var(--space);
+  grid-template-columns: min(65ch, 100%);
+  justify-content      : center;
+
+  &>* {
+    margin-block: 0;
+
+    @media (max-width: 1419px) {
+      grid-column: 1/2;
+    }
+  }
+
+  @media (min-width: 1420px) {
     grid-auto-rows       : min-content;
     grid-template-columns: 1fr min(65ch, 100%) 1fr;
-    gap                  : var(--space);
 
     &>* {
-      margin-block: 0;
+      grid-column: 2/3;
     }
 
     &>div>p:first-of-type {
@@ -151,6 +162,12 @@
   }
 }
 
+.article__body,
+.article__header {
+  width        : min(120ch, 95%);
+  margin-inline: auto;
+}
+
 .article__header {
   margin-bottom: var(--space-xxl);
 }
@@ -159,12 +176,8 @@
   width: min(25ch, 100%);
 }
 
-.article__body>* {
-  grid-column: 2/3;
-}
-
 .article__body>figure {
-  grid-column: 1/-1;
+  /* grid-column: 1/-1; */
 }
 
 .article__body>blockquote {
@@ -399,5 +412,56 @@ details {
     /* &:first-child {
       margin-block-start: 0;
     } */
+  }
+}
+
+.sidenote,
+.callout {
+  grid-column: -1/-2;
+  grid-row   : span 3;
+  align-self : start;
+}
+
+.article__body {
+  counter-reset: sidenotes;
+}
+
+.sidenote {
+  counter-increment: sidenotes;
+  display          : flex;
+  font-family      : var(--font-sans);
+  font-size        : var(--type-size-6);
+  gap              : 1ch;
+
+  &::before {
+    content                : counter(sidenotes, sidenote-counter);
+    font-family            : var(--font-serif);
+    font-size              : var(--type-size-6);
+    font-variation-settings: 'wght'700;
+    font-weight            : bold;
+  }
+
+  p,
+  ul,
+  ol,
+  dl {
+    margin: 0;
+  }
+}
+
+@counter-style sidenote-counter {
+  system  : symbolic;
+  suffix  : ' ';
+  speak-as: bullets;
+  symbols : '*''#''†''‡''§''‖''¶';
+}
+
+.article__sidebar {
+  position: static;
+
+  @media (min-width: 1420px) {
+    grid-column: 1/2;
+    grid-row   : 1/span 10;
+    position   : relative;
   }
 }

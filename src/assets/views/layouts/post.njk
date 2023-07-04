@@ -3,7 +3,7 @@
 {% block content %}
   {# {% include 'components/ui/navigation-bar.njk' %} #}
   {% include 'components/ui/navigation-bar.njk' %}
-  <main style="width: min(100ch, 95%); margin-inline: auto;" class="h-entry padding-block--xl padding-inline--m article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
+  <main class="h-entry padding-block--xl padding-inline--m article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
     <header class="article__header">
       {% set postType = postType if postType else 
         'post' %}
@@ -67,7 +67,7 @@
         </div>
       </div>
     </header>
-    <div class="with-sidebar float-on-mobile">
+    <div class="article__body not-sidebar e-content">
       <div class="sidebar article__sidebar border--none margin--none" style="--sidebar-width: 20ch">
         {{ content | toc | safe }}
         <div class="webmentions webmentions--summary hidden" aria-label="Web Mentions Summary" data-webmention-container>
@@ -91,27 +91,25 @@
           </a>
         </div>
       </div>
-      <div class="article__body not-sidebar e-content">
-        {{ content | safe }}
+      {{ content | safe }}
 
-        <!-- FURTHER READINGS -->
-        {% if further_reading != null %}
-          <h2 id="further-reading">Further reading</h2>
-          {% for link in further_reading %}
-            {% unfurl link %}
+      <!-- FURTHER READINGS -->
+      {% if further_reading != null %}
+        <h2 id="further-reading">Further reading</h2>
+        {% for link in further_reading %}
+          {% unfurl link %}
+        {% endfor %}
+      {% endif %}
+
+      <!-- SYNDICATION -->
+      {% if syndication %}
+        <div class="hidden">
+          {% for item in syndication %}
+            <a href="{{ item }}" rel="syndication" class="u-syndication">{{ item }}</a>
           {% endfor %}
-        {% endif %}
+        </div>
+      {% endif %}
 
-        <!-- SYNDICATION -->
-        {% if syndication %}
-          <div class="hidden">
-            {% for item in syndication %}
-              <a href="{{ item }}" rel="syndication" class="u-syndication">{{ item }}</a>
-            {% endfor %}
-          </div>
-        {% endif %}
-
-      </div>
     </div>
     <footer class="stack padding--l">
       {% include 'components/share.njk' %}

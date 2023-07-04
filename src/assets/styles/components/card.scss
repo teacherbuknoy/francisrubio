@@ -107,6 +107,10 @@
           hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.987) 90.8%,
           hsl(var(--theme-color-hsl, var(--d-contrast))) 100%);
 
+      &::before {
+        content: none;
+      }
+
       &>* {
         grid-row: 1 / 1;
       }
@@ -118,6 +122,13 @@
 
       .post-card__body {
         grid-column: 2 / 3;
+        background : transparent;
+      }
+
+      .post-card__image {
+        --mask-image      : linear-gradient(to right, black, transparent 90%);
+        -webkit-mask-image: var(--mask-image);
+        mask-image        : var(--mask-image);
       }
     }
 
@@ -134,6 +145,7 @@
 
 .post-card {
   @extend .dark;
+  background-color  : var(--theme-color);
   display           : grid;
   text-decoration   : none;
   border-radius     : var(--radius-5);
@@ -168,7 +180,7 @@
   }
 
   &.themed {
-    --shadow-color: color-mix(in hsl, hsl(var(--theme-color-hsl) / var(--shadow-alpha, 5%)), hsl(0 0% 0% / calc(var(--shadow-alpha, 5%))));
+    --shadow-color: color-mix(in srgb, hsl(var(--theme-color-hsl) / var(--shadow-alpha, 5%)), hsl(0 0% 0% / calc(var(--shadow-alpha, 5%))));
     --shadow-alpha: 10%;
 
     @at-root .dark & {
@@ -241,11 +253,10 @@
 .post-card__body {
   align-content   : end;
   background-color: var(--theme-color, hsl(var(--d-contrast)));
-  ;
-  grid-row   : 2/3;
-  padding    : var(--space-xl);
-  padding-top: var(--space);
-  position   : relative;
+  grid-row        : 2/3;
+  padding         : var(--space-xl);
+  padding-top     : var(--space);
+  position        : relative;
 }
 
 .post-card__title {
@@ -341,7 +352,7 @@
 
     a {
       text-decoration: none;
-      transition: none;
+      transition     : none;
 
       &:hover {
         color: inherit;

@@ -48,6 +48,7 @@
         }
 
         &__image {
+          --mask-image: linear-gradient(to left, black, transparent 90%);
           img {
             --img-object-position: right bottom;
           }
