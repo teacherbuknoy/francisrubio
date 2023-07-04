@@ -132,5 +132,6 @@ module.exports = {
 
     return entries
   },
-  markdown: string => md.render(string)
+  markdown: string => md.render(string),
+  footnote: key => `[*](#${key}){id=ref-${key}}{.footnote-ref}{aria-label=Footnote}`
 }

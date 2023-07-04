@@ -12,8 +12,11 @@ require('dotenv').config()
 
 module.exports = function (eleventyConfig) {
   Object.keys(shortcodes).forEach(key => {
-    console.log('[SHORTCODE]', key)
-    eleventyConfig.addShortcode(key, shortcodes[key])
+    if (shortcodes[key].isPaired) {
+      eleventyConfig.addPairedShortcode(key, shortcodes[key].shortcode)
+    } else {
+      eleventyConfig.addShortcode(key, shortcodes[key])
+    }
   })
 
   // Get passthroughs from /src/config/passthroughs.js
