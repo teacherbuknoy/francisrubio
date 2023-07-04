@@ -229,6 +229,12 @@ figure.image {
   }
 }
 
+.article__scroller {
+  grid-column   : 1/2;
+  grid-row-start: 1;
+  grid-row-end  : var(--row-end);
+}
+
 .article__toc,
 .article__sidebar {
   --sidebar-width : 20ch;
@@ -241,11 +247,6 @@ figure.image {
 
   dl {
     margin-top: 1ch;
-  }
-
-  @media (min-width: 920px) {
-    position: sticky;
-    top     : calc(var(--space-xxl) * 2.4);
   }
 }
 
@@ -462,6 +463,7 @@ details {
   @media (min-width: 1420px) {
     grid-column: 1/2;
     grid-row   : 1/span 10;
-    position   : relative;
+    position   : sticky;
+    top        : calc(var(--space-xxxl) * 2);
   }
 }

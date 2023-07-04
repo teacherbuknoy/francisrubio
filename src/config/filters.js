@@ -1,3 +1,6 @@
+const jsdom = require("jsdom")
+const { JSDOM } = jsdom
+
 const markdownIt = require('markdown-it')
 
 const md = markdownIt({ html: true, linkify: true, typographer: true })
@@ -133,5 +136,10 @@ module.exports = {
     return entries
   },
   markdown: string => md.render(string),
-  footnote: key => `[*](#${key}){id=ref-${key}}{.footnote-ref}{aria-label=Footnote}`
+  footnote: key => `[*](#${key}){id=ref-${key}}{.footnote-ref}{aria-label=Footnote}`,
+  countElements: htmlString => {
+    const dom = new JSDOM(htmlString).window.document
+    const nodes = dom.querySelectorAll('body > *')
+    return [...nodes].length
+  }
 }
