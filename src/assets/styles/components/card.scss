@@ -338,6 +338,31 @@
     font-size  : var(--type-size-3);
     line-height: 1;
     margin     : 0;
+
+    a {
+      text-decoration: none;
+      transition: none;
+
+      &:hover {
+        color: inherit;
+      }
+
+      &:focus-visible {
+        outline   : 0;
+        background: revert;
+        color     : inherit;
+      }
+
+      &::before {
+        content : '';
+        position: absolute;
+        inset   : 0;
+
+        @at-root .deck-card:hover & {
+          top: -9.5rem;
+        }
+      }
+    }
   }
 
   &__description {
@@ -405,7 +430,8 @@
     height    : 100%;
   }
 
-  &:hover {
+  &:hover,
+  &:focus-within {
     background-color  : transparent;
     box-shadow        : none;
     grid-template-rows: minmax(5rem, 1fr) 0 1fr;
@@ -432,7 +458,8 @@
     }
   }
 
-  &:focus-visible {
+  &:focus-visible,
+  &:focus-within {
     background-color  : transparent;
     box-shadow        : none;
     grid-template-rows: minmax(5rem, 1fr) 0 1fr;
@@ -460,7 +487,8 @@
     }
   }
 
-  &:focus-visible {
+  &:focus-visible,
+  &:focus-within {
     outline       : 5px solid hsl(var(--primary-500));
     outline-offset: 0;
   }
