@@ -52,7 +52,7 @@
         <div>
           by <a rel="author" class="p-author h-card" href="{{ authors[author].url }}">
             <span class="p-name">{{ authors[author].name }}</span>
-            <img class="u-photo hidden" src="{{ authors[author].photo }}"/>
+            <img class="u-photo hidden" src="{{ authors[author].photo }}" alt="{{ authors[author].name }}'s photo"/>
           </a>
           
           on <time class="dt-published" datetime="{{ page.date | machineReadableDate }}">
