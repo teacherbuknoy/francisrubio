@@ -1,5 +1,5 @@
 ---
-title: "Pretention and Delusion"
+title: "Pretension and Delusion"
 description: "…are the cure to a meaningless life."
 category: [Life]
 theme:
