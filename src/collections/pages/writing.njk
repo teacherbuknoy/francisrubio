@@ -17,7 +17,7 @@ eleventyImport:
 )">
   <header class="page__cover">
     <hgroup role="group" class="page__header">
-      <span id="section-heading-4" class="uppercase ls-l font-sans" data-baybayin="{{ sections.writing.baybayin_label }}">{{ sections.writing.label | safe }}</span>
+      <p id="section-heading-4" class="uppercase ls-l font-sans" data-baybayin="{{ sections.writing.baybayin_label }}">{{ sections.writing.label | safe }}</p>
       <h1 class="responsive">{{ sections.writing.title | safe }}</h1>
       <p>{{ sections.writing.description | safe }}</p>
     </hgroup>
@@ -55,7 +55,7 @@ eleventyImport:
 {% include "components/banners/webring-banner.njk" %}
 
 
-<footer class="stack gap--xl m-block--xxxl" style="text-align: center; margin-inline: auto; width: min(var(--content-width), 90%);">
+<footer class="stack gap--xl m-block--xxxl content-wrapper" style="text-align: center; margin-inline: auto;">
   <div class="section__header">
     <hgroup role="group">
       <h2 class="section__subtitle fs-3">Follow me on the Fediverse</h2>

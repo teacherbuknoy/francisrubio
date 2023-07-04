@@ -169,7 +169,7 @@ scripts: ['frontpage.js', mastodon.js]
     </hgroup>
     {% set postLimit = 3 %}
     {% set collection = collections.projects | reverse %}
-    <span class="deck-card-container m-block-start--xxxl relative">
+    <div class="deck-card-container m-block-start--xxxl relative">
       <a href="#section-6" class="button skip-link">Skip to next section</a>
       {% set limit = postLimit if collection.length > postLimit else 
         collection.length %}
@@ -177,7 +177,7 @@ scripts: ['frontpage.js', mastodon.js]
         {% set item = collection[i] %}
         {% include 'components/deck-card.njk' %}
       {% endfor %}
-    </span>
+    </div>
     <div class="stack ai--center text-center gap--s padding--xl">
       <span class="fs-4 weight-300">Building a similar project?</span>
       <div class="cluster center-align center-justified">

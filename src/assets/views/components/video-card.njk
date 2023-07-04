@@ -11,7 +11,7 @@
     </h{{headingLevel if headingLevel != null else 3}}>
     <div class="card__subtitle">{{ item.templateContent | safe | truncate(45) }}</div>
     <div class="card__metadata">
-      <time class="card__pubdate">{{ item.date | humanReadableDate }}</time>
+      <time class="card__pubdate" datetime="{{ item.date | machineReadableDate }}">{{ item.date | humanReadableDate }}</time>
     </div>
   </div>
 </article>

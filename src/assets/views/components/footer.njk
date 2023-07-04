@@ -1,9 +1,9 @@
 <footer class="footer" id="main-footer">
-  <section class="footer__header font-sans">
+  <div class="footer__header font-sans">
     <p>&copy; {{ "" | year }} Francis Rubio. All rights reserved.</p>
     <p>Powered by <a href="https://11ty.dev">Eleventy</a> and <a href="https://netlify.com">Netlify</a>.</p>
-  </section>
-  <section class="footer__body">
+  </div>
+  <div class="footer__body">
     <div class="footer__section">
       <div class="cluster ai--center gap--m">
         {% set logoClass = 'logo--large' %}
@@ -36,15 +36,15 @@
         </li>
       </ul>
     </div>
-  </section>
+  </div>
 </footer>
-<section>
-  <a href="#top" class="primary button go-to-top" style="z-index: 9; position: fixed;bottom: 1rem;right: 1rem;margin-inline-start: auto;display: flex;margin-block-end: 1rem;margin-inline-end: 1rem;" style="font-size: var(--type-size-6)">
+<div>
+  <a href="#top" class="primary button go-to-top" style="z-index: 9; position: fixed;bottom: 1rem;right: 1rem;margin-inline-start: auto;display: flex;margin-block-end: 1rem;margin-inline-end: 1rem; font-size: var(--type-size-6)">
     {% set feathericon = 'arrow-up' %}
     {% include 'components/feathericon.njk' %}
     <span class="sr-only">Back to top</span>
   </a>
-</section>
+</div>
 {% set domain = site.domains | selectattr('isPreferred') | first %}
 <div class="h-card hidden">
   <span class="p-name">Francis Rubio</span>
