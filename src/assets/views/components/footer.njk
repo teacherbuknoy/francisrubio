@@ -36,6 +36,39 @@
         </li>
       </ul>
     </div>
+    <noscript class="footer__section" id="footer-overflow-menu">
+      <h2 class="footer__section-title">On this site</h2>
+      <ul class="button-list">
+        {% for item in navigation | selectattr("overflow") %}
+          <li class="button-list__item">
+            <a href="{{ item.url }}" class="button button--small">
+              {% if item.feathericon %}
+                {{ icon(feathericon) }}
+              {% endif %}
+
+              {% if item.text %}
+                <span class="navigation-link-text">{{ item.text }}</span>
+              {% elif item.label %}
+                <span class="navigation-link-label">{{ item.label }}</span>
+              {% endif %}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </noscript>
+    <noscript class="footer__section" id="footer-rss">
+      <h2 class="footer__section-title">RSS Feeds</h2>
+      <ul class="button-list">
+        {% for item in site.feeds | values %}
+          <li class="button-list__item">
+            <a href="{{ item.url }}" class="button button--small">{{ item.label }}</a>
+          </li>
+        {% endfor %}
+        <li class="button-list__item">
+          <a href="https://rss.com/blog/how-do-rss-feeds-work/" target="_blank" rel="noopener" class="button button--small">How do I use this?</a>
+        </li>
+      </ul>
+    </noscript>
   </div>
 </footer>
 <div>
