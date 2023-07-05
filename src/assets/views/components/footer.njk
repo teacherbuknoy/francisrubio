@@ -1,3 +1,25 @@
+<noscript>
+  <nav class="navigation-bar__section padding gap--m" style="flex-direction: column;" id="noscript-nav">
+    <h2 style="text-transform: uppercase;font-variation-settings: 'wght' 700;" class="margin--none fs-6 font-sans">Navigation</h2>
+    <ul class="navigation-list gap--m">
+      {% for item in navigation | rejectattr("overflow") %}
+        <li class="navigation-list-item">
+          <a href="{{ item.url }}" class="button button--small">
+            {% if item.feathericon %}
+              {{ icon(feathericon) }}
+            {% endif %}
+
+            {% if item.text %}
+              <span>{{ item.text }}</span>
+            {% elif item.label %}
+              <span>{{ item.label }}</span>
+            {% endif %}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</noscript>
 <noscript class="no-js__warning">
   <p>JavaScript is not enabled on the browser you're using. Some features won't work.</p>
 </noscript>
