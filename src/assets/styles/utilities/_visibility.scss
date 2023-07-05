@@ -27,6 +27,30 @@
   }
 }
 
-.no-js .hide-on-noscript {
-  display: none;
+.no-js__warning {
+  background-color: hsl(var(--warning-100));
+  color           : hsl(var(--warning-900));
+  display         : flex;
+  flex-direction  : column;
+  font-family     : var(--font-sans);
+  font-size       : var(--type-size-6);
+  padding         : var(--space-xxs) var(--space);
+
+  bottom  : 0;
+  position: sticky;
+  z-index : 9;
+
+  &> :is(p, ul, ol, dl, table) {
+    margin: 0;
+  }
+}
+
+.no-js {
+  .hide-on-noscript {
+    display: none;
+  }
+
+  .no-js__warning {
+    display: flex;
+  }
 }
