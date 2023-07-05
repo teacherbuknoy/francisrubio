@@ -23,8 +23,8 @@
   text-decoration        : none;
   text-transform         : lowercase;
   transition             : background-image 200ms, outline 200ms, outline-offset 200ms;
-  white-space            : nowrap;
-  width                  : min-content;
+  width                  : -moz-fit-content;
+  width                  : fit-content;
 
   &::before {
     content         : "";
@@ -269,15 +269,8 @@ body.no-js {
   flex-wrap : wrap;
 }
 
-.go-to-top {
-  @extend .square;
-  @extend .primary;
-  bottom  : 1rem;
-  position: fixed;
-  right   : 1rem;
-  z-index : 8;
-
+/* .go-to-top {
   @at-root .no-js & {
     bottom: 3rem;
   }
-}
+} */

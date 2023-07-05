@@ -37,10 +37,6 @@
   padding         : var(--space-xxs) var(--space);
   text-align      : center;
 
-  bottom  : 0;
-  position: sticky;
-  z-index : 9;
-
   &> :is(p, ul, ol, dl, table) {
     margin: 0;
   }
