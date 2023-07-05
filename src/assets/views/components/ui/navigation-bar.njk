@@ -4,18 +4,18 @@
 <div class="navbar-wrapper" data-navbar-animations>
   {# MOBILE NAVIGATION #}
   <nav class="navigation-bar show-on-mobile" aria-label="Site" data-navbar-animations>
-    <div class="navigation-bar__section navigation-bar__section--start">
+    <div class="navigation-bar__section navigation-bar__section--start hide-on-noscript">
       <button class="navigation-link icon-only--mobile" data-opens="nav-mobile-menu" data-is-modal="true">
         {{ icon("menu") }}
         <span class="navigation-link-text">Menu</span>
       </button>
     </div>
-    <div class="navigation-bar__section navigation-bar__section--center">
+    <div class="navigation-bar__section navigation-bar__section--center margin-inline--auto padding-block--xxs">
       <a href="/" class="weight-300 fs-6" style="text-decoration: none">
         <span>Francis Rubio</span>
       </a>
     </div>
-    <div class="navigation-bar__section navigation-bar__section--end">
+    <div class="navigation-bar__section navigation-bar__section--end hide-on-noscript">
       <div class="cluster gap">
         <button class="navigation-link icon-only--mobile" data-opens="nav-search-menu" data-is-modal="true">
           {{ icon('search') }}
@@ -67,7 +67,7 @@
           </li>
         {% endfor %}
 
-        <li class="navigation-list-item">
+        <li class="navigation-list-item hide-on-noscript">
           {% set popupId = 'nav-overflow-desktop' %}
           <button class="navigation-link icon-only" data-opens="{{ popupId }}" >
             {{ icon("more-horizontal") }}
@@ -78,7 +78,7 @@
       </ul>
     </div>
 
-    <div class="navigation-bar__section navigation-bar__section--start">
+    <div class="navigation-bar__section navigation-bar__section--start hide-on-noscript">
       <div class="cluster gap">
         <button class="navigation-link icon-only--mobile" data-opens="nav-search-menu" data-is-modal="true">
           {{ icon('search') }}
