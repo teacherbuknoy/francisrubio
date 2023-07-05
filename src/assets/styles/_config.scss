@@ -38,7 +38,7 @@
   --l-warning-300: 27 100% 66%;
   --l-warning-500: 22 89% 56%;
   --l-warning-700: 17 98% 40%;
-  --l-warning-900: 12 100% 33%;
+  --l-warning-900: 12 100% 13%;
 
   --d-error-900: 5 100% 75%;
   --d-error-700: 0 81% 63%;
@@ -56,7 +56,7 @@
   --d-warning-700: 27 100% 66%;
   --d-warning-500: 22 89% 56%;
   --d-warning-300: 17 98% 40%;
-  --d-warning-100: 12 100% 33%;
+  --d-warning-100: 12 100% 13%;
 
   --d-primary-100: 335 100% 14%;
   --d-primary-300: 335 100% 24%;
@@ -101,11 +101,11 @@
   --success-700: var(--l-success-700);
   --success-900: var(--l-success-900);
 
-  --warning-100: var(--d-warning-100);
-  --warning-300: var(--d-warning-300);
-  --warning-500: var(--d-warning-500);
-  --warning-700: var(--d-warning-700);
-  --warning-900: var(--d-warning-900);
+  --warning-100: var(--l-warning-100);
+  --warning-300: var(--l-warning-300);
+  --warning-500: var(--l-warning-500);
+  --warning-700: var(--l-warning-700);
+  --warning-900: var(--l-warning-900);
 
   @media (prefers-color-scheme: dark) {
     --contrast     : var(--d-contrast);
