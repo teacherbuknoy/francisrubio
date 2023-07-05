@@ -80,7 +80,7 @@ document.querySelectorAll('button[data-opens]')
     }
   })
 
-function addNotifNewGalleryEntry() {
+/* function addNotifNewGalleryEntry() {
   // Check if new post is already seen
   const gallerySeen = localStorage.getItem('gallery-seen') === 'true'
 
@@ -99,7 +99,7 @@ function removeNotifNewgalleryEntry() {
 }
 
 window.onJSLoadCallbacks.push(removeNotifNewgalleryEntry)
-window.onJSLoadCallbacks.push(addNotifNewGalleryEntry)
+window.onJSLoadCallbacks.push(addNotifNewGalleryEntry) */
 
 
 window.addEventListener('load', e => {
