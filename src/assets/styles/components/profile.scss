@@ -140,18 +140,19 @@
     margin-block  : var(--space-xl);
 
     &--scroll {
-      align-items       : start;
-      flex-direction    : row;
-      overflow-x        : auto;
-      padding-block     : var(--space-xxl);
-      padding-inline    : var(--space-xxl);
-      scroll-snap-type  : x mandatory;
-      text-align        : initial;
+      align-items         : start;
+      flex-direction      : row;
+      overflow-x          : auto;
+      padding-block       : var(--space-xxl);
+      padding-inline      : var(--space);
+      padding-inline-start: var(--space-xxxl);
+      scroll-snap-type    : x mandatory;
+      text-align          : initial;
 
       .entry {
         display          : flex;
         flex-direction   : column;
-        min-width        : min(45ch, 100%);
+        min-width        : min(45ch, 95%);
         scroll-snap-align: center;
         text-align       : initial;
 
@@ -161,4 +162,8 @@
       }
     }
   }
+}
+
+.no-js .entry:has(.entry__sensitive) {
+  display: none;
 }

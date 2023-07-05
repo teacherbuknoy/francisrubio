@@ -410,6 +410,7 @@
   .deck-card {
     scroll-snap-align: center;
     flex-shrink      : 0;
+    max-width        : 75%;
   }
 }
 
