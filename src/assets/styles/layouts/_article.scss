@@ -428,30 +428,19 @@ details {
 }
 
 .article__body {
-  counter-reset: sidenotes;
+  counter-reset: footnote;
+  counter-reset: footnoteref;
 }
 
 .sidenote {
-  counter-increment: sidenotes;
   display          : flex;
+  counter-increment: footnote;
   font-family      : var(--font-sans);
   font-size        : var(--type-size-6);
   gap              : 1ch;
   margin-block     : var(--space-l);
   margin-inline    : auto;
   width            : 95%;
-
-  &::before {
-    border-inline-end      : 2px solid hsl(var(--fg-non-essential) / 50%);
-    color                  : hsl(var(--primary-500));
-    content                : counter(sidenotes, sidenote-counter);
-    font-family            : var(--font-serif);
-    font-size              : var(--type-size-5);
-    font-variation-settings: "wght"900;
-    font-weight            : bold;
-    line-height            : 1;
-    padding-inline-end     : 1ch;
-  }
 
   p,
   ul,
@@ -461,11 +450,40 @@ details {
   }
 }
 
+.footnote-ref {
+  color                  : hsl(var(--primary-500));
+  counter-increment      : footnoteref;
+  font-family            : var(--font-serif);
+  font-size              : var(--type-size-5);
+  font-variation-settings: "wght"900;
+  font-weight            : bold;
+  line-height            : 1;
+  padding-inline-end     : 1ch;
+  position               : relative;
+  text-decoration        : none;
+  top                    : -0.5ch;
+}
+
+.footnote-ref {
+  &::before {
+    content: counter(footnoteref, sidenote-counter);
+  }
+
+  @at-root .sidenote & {
+    padding-inline-end: 0;
+    position          : static;
+
+    &::before {
+      content           : counter(footnote, sidenote-counter);
+    }
+  }
+}
+
 @counter-style sidenote-counter {
   system  : symbolic;
   suffix  : ' ';
   speak-as: bullets;
-  symbols : '*''#''†''‡''§''‖''¶';
+  symbols : '*''†''‡''#''§''‖''¶';
 }
 
 .article__sidebar {

@@ -14,10 +14,7 @@ const md = markdownIt({ html: true, linkify: true, typographer: true })
 
 module.exports = {
   markdown: function (value) {
-    let markdown = require('markdown-it')({
-      html: true
-    })
-    return markdown.render(value)
+    return md.render(value)
   },
   icon: function (value) {
     return `<svg class="feather" aria-hidden="true"><use href="/assets/images/feather-sprite.svg#${value}" /></svg>`
@@ -136,7 +133,7 @@ module.exports = {
     return entries
   },
   markdown: string => md.render(string),
-  footnote: key => `[*](#${key}){id=ref-${key}}{.footnote-ref}{aria-label=Footnote}`,
+  footnote: key => `<a href="#${key}" id="ref-${key}" class="footnote-ref" aria-label="Footnote"></a>`,
   countElements: htmlString => {
     const dom = new JSDOM(htmlString).window.document
     const nodes = dom.querySelectorAll('body > *')
