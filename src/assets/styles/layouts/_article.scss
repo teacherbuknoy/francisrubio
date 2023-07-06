@@ -433,13 +433,20 @@ details {
   font-family      : var(--font-sans);
   font-size        : var(--type-size-6);
   gap              : 1ch;
+  margin-block     : var(--space-l);
+  margin-inline    : auto;
+  width            : 95%;
 
   &::before {
+    border-inline-end      : 2px solid hsl(var(--fg-non-essential) / 50%);
+    color                  : hsl(var(--primary-500));
     content                : counter(sidenotes, sidenote-counter);
     font-family            : var(--font-serif);
-    font-size              : var(--type-size-6);
-    font-variation-settings: 'wght'700;
+    font-size              : var(--type-size-5);
+    font-variation-settings: "wght"900;
     font-weight            : bold;
+    line-height            : 1;
+    padding-inline-end     : 1ch;
   }
 
   p,
