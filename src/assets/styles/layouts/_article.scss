@@ -423,18 +423,19 @@ details {
 .sidenote,
 .callout {
   grid-column: -1/-2;
-  grid-row   : span 3;
+  grid-row   : span 10;
   align-self : start;
 }
 
 .article__body {
   counter-reset: footnote;
-  counter-reset: footnoteref;
+  counter-set  : footnoteref 1;
 }
 
 .sidenote {
-  display          : flex;
+  align-items      : start;
   counter-increment: footnote;
+  display          : flex;
   font-family      : var(--font-sans);
   font-size        : var(--type-size-6);
   gap              : 1ch;
@@ -448,33 +449,44 @@ details {
   dl {
     margin: 0;
   }
+
+  .footnote-ref {
+    counter-increment: footnoteref;
+  }
 }
 
 .footnote-ref {
   color                  : hsl(var(--primary-500));
-  counter-increment      : footnoteref;
   font-family            : var(--font-serif);
   font-size              : var(--type-size-5);
   font-variation-settings: "wght"900;
   font-weight            : bold;
   line-height            : 1;
-  padding-inline-end     : 1ch;
+  margin-inline-end     : 0.5ch;
   position               : relative;
   text-decoration        : none;
   top                    : -0.5ch;
 }
 
 .footnote-ref {
+  border-radius: var(--ideal-radius);
+
   &::before {
-    content: counter(footnoteref, sidenote-counter);
+    content: counter(footnoteref);
+  }
+
+  &:focus-visible {
+    background    : transparent;
+    outline-offset: 5px;
+    outline-width : 3px;
   }
 
   @at-root .sidenote & {
-    padding-inline-end: 0;
+    margin-inline-end: 0;
     position          : static;
 
     &::before {
-      content           : counter(footnote, sidenote-counter);
+      content: counter(footnote);
     }
   }
 }

@@ -131,7 +131,7 @@
     box-decoration-break: clone;
     color               : hsl(var(--fg-default));
     text-decoration     : underline solid hsl(var(--primary-500));
-    outline             : var(--ideal-radius) solid;
+    outline             : var(--radius-1) solid;
     outline-color       : hsl(var(--primary-500) / 0);
     outline-offset      : var(--ideal-radius);
     transition          : outline 200ms, outline-offset 200ms;
@@ -176,9 +176,8 @@
 
     &:focus-visible {
       color           : hsl(var(--primary-900));
-      background-color: hsl(var(--primary-100));
       outline-color   : hsl(var(--primary-500) / 1);
-      outline-offset  : 0;
+      outline-offset  : var(--radius-2);
     }
   }
 
