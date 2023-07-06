@@ -45,8 +45,8 @@
   }
 
   &--info {
-    --icon-color    : hsl(var(--fg-default));
-    background-color: hsl(var(--fg-contrast) / 5%);
+    --icon-color    : hsl(var(--info-900));
+    background-color: hsl(var(--info-100) / 5%);
   }
 
   &--warning {
