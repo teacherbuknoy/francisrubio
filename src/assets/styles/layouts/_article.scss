@@ -232,7 +232,11 @@ figure.image {
 .article__scroller {
   grid-column   : 1/2;
   grid-row-start: 1;
-  grid-row-end  : var(--row-end);
+  grid-row-end  : 2;
+
+  @media (min-width: 1420px) {
+    grid-row-end: var(--row-end);
+  }
 }
 
 .article__toc,
