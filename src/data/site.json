@@ -45,6 +45,12 @@
       "url": "https://masto.ai/@teacherbuknoy",
       "rel": "me"
     },
+    "socialantaresphdev": {
+      "name": "Antares Social",
+      "identifier": "@teacherbuknoy@social.antaresph.dev",
+      "url": "https://social.antaresph.dev/@teacherbuknoy",
+      "rel": "me"
+    },
     "pixelfed": {
       "name": "Pixelfed",
       "identifier": "teacherbuknoy",
