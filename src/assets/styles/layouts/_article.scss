@@ -472,7 +472,7 @@ details {
   border-radius: var(--ideal-radius);
 
   &::before {
-    content: counter(footnoteref);
+    content: attr(data-refcount);
   }
 
   &:focus-visible {

@@ -12,6 +12,8 @@ const md = markdownIt({ html: true, linkify: true, typographer: true })
   .disable('code')
 
 
+let footnoteRefs = []
+
 module.exports = {
   markdown: function (value) {
     return md.render(value)
@@ -133,7 +135,6 @@ module.exports = {
     return entries
   },
   markdown: string => md.render(string),
-  footnote: key => `<a href="#${key}" id="ref-${key}" class="footnote-ref" aria-label="Footnote"></a>`,
   countElements: htmlString => {
     const dom = new JSDOM(htmlString).window.document
     const nodes = dom.querySelectorAll('body > *')
