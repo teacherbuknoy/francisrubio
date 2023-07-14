@@ -4,24 +4,14 @@
   <ul class="margin-top--m cluster margin-inline--auto jc-center padding--none" style="list-style: none;">
     <li>
       <a 
-          href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" 
+          href="https://mastodonshare.com/?text={{ title }}&url={{ site.url }}{{ page.url }}"
           target="_blank"
           rel="noopener"
           class="button no-arrow">
-        {% set feathericon = 'facebook' %}
-        {% include 'components/feathericon.njk' %}
-        <span>Share to Facebook</span>
-      </a>
-    </li>
-    <li>
-      <a 
-        href="https://twitter.com/intent/tweet?url={{ site.url }}{{ page.url }}" 
-        target="_blank"
-        rel="noopener"
-        class="button no-arrow">
-        {% set feathericon = 'twitter' %}
-        {% include 'components/feathericon.njk' %}
-        <span>Tweet this post</span>
+        <svg class="feather" aria-hidden="true">
+          <use href="/assets/images/technologies.svg#mastodon"></use>
+        </svg>
+        <span>Toot this post</span>
       </a>
     </li>
     <li>
