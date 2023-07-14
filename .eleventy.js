@@ -4,6 +4,7 @@ const filters = require('./src/config/filters')
 const watchtargets = require('./src/config/watchtargets')
 const plugins = require('./src/config/plugins')
 const shortcodes = require('./src/config/shortcodes')
+const { loadFilters } = require('./src/config/scopedFilters')
 
 const path = require('path')
 const prettier = require('prettier')
@@ -29,10 +30,13 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addCollection(collectionName, collections[collectionName])
   })
 
-  // Create filers from /src/config/filters.js
+  // Create filters from /src/config/filters.js
   Object.keys(filters).forEach(filterName => {
     eleventyConfig.addFilter(filterName, filters[filterName])
   })
+
+  // Create scoped filters from /src/config/scopedFilters.js
+  loadFilters(eleventyConfig)
 
   // Watch these files for changes from /src/config/watchTargets.js
   Object.keys(watchtargets).forEach(watchtargetName => {
