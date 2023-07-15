@@ -162,6 +162,19 @@ class SocialPostHeader {
       replyIndicator.remove()
     }
 
+    const profile = post.account
+
+    const displayName = header.querySelector('[data-profile=display-name]')
+    displayName.innerHTML = replaceMastodonEmoji(profile.display_name, profile.emojis)
+    displayName.href = profile.url
+
+    const avatar = header.querySelector('[data-profile=avatar]')
+    avatar.src = profile.avatar
+
+    const username = header.querySelector('[data-profile=username]')
+    username.href = profile.url
+    username.innerText = `@${profile.acct}@${new URL(post.url).host}`
+
     this.#element = header
   }
 

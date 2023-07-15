@@ -42,12 +42,14 @@ function installAnalytics(url = "http://localhost:8888") {
   function __sendBeacon(data) {
     if (analyticsEvents.length > 0) {
 
-      const beacon = window.navigator.sendBeacon(url, data)
+      try {
+        const beacon = window.navigator.sendBeacon(url, data)
 
-      if (beacon) {
-        __clearAnalytics()
-        return
-      }
+        if (beacon) {
+          __clearAnalytics()
+          return
+        }
+      } catch(e) { console.error(e) }
 
       const options = {
         method: 'POST',

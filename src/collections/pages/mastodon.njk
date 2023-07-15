@@ -13,7 +13,7 @@ scripts: ['mastodon.js']
   window.MASTODON = {
     accountIds: {{ socials.mastodon.accountIds | dump | safe }},
     feed: `{{ socials.mastodon.endpoints.feed | safe}}`,
-    feeds: `{{ socials.mastodon.endpoints.feeds | safe}}`,
+    feeds: {{ socials.mastodon.endpoints.feeds | dump | safe}},
     profile: `{{ socials.mastodon.profile.feed | safe }}`
   }
 </script>
