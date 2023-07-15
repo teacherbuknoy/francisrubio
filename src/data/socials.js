@@ -4,23 +4,35 @@ const mastodon = {
   id: '109319595958763014',
   accountIds: [
     '109319595958763014',
-    '109810743922547925'
+    '109810743922547925',
+    '110673367912097624'
   ],
   endpoints: {
-    profile: 'https://masto.ai/api/v1/accounts/109810743922547925',
+    profile: 'https://social.antaresph.dev/api/v1/accounts/110673367912097624',
     feed: 'https://masto.ai/api/v1/accounts/109810743922547925/statuses/?limit=40',
+    feeds: [
+      'https://masto.ai/api/v1/accounts/109810743922547925/statuses/?limit=40',
+      'https://social.antaresph.dev/api/v1/accounts/110673367912097624/statuses?limit=40'
+    ]
   }
 }
 
 async function fetchMastodon() {
+  const fetchFeed = async url => await EleventyFetch(`${url}`, { duration: '1s', type: 'json' })
+  const feeds = (await Promise.all(mastodon.endpoints.feeds.map(fetchFeed))).flat()
+  console.log(feeds)
   return {
     ...mastodon,
     profile: await EleventyFetch(mastodon.endpoints.profile, { duration: '1d', type: 'json' }),
-    feed: assignMastodonReplies(await EleventyFetch(`${mastodon.endpoints.feed}`, { duration: '1s', type: 'json' }))
+    feed: assignMastodonReplies(sortPosts(feeds))
   }
 }
 
-/**s
+function sortPosts(arr) {
+  return arr.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+}
+
+/**
  * 
  * @param {Object[]} arr 
  */
@@ -28,7 +40,7 @@ function assignMastodonReplies(arr) {
   arr.forEach(entry => {
     const { id } = entry
 
-    if (entry.in_reply_to_account_id === mastodon.id) {
+    if (mastodon.accountIds.includes(entry.in_reply_to_account_id)) {
       // Get entry that receives this reply
       const { in_reply_to_id: inReplyToId } = entry
       const inReplyTo = arr.find(post => post.id === inReplyToId)
