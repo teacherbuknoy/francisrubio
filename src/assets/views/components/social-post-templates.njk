@@ -44,13 +44,13 @@
     </span>
     <div class="entry__profile">
       <div class="profile__header">
-        <img src="{{ profile.avatar }}" alt="" class="profile__avatar">
+        <img src="{{ profile.avatar }}" alt="" class="profile__avatar" data-profile="avatar">
         <b class="profile__name">
-          <a href="{{ profile.url | safe }}" target="_blank" class="profile__link no-arrow">
+          <a href="{{ profile.url | safe }}" target="_blank" class="profile__link no-arrow" data-profile="display-name">
             {{ utils.replaceMastodonEmoji(profile.display_name, profile.emojis) | safe }}
           </a>
         </b>
-        <a href="{{ profile.url | safe }}" target="_blank" class="profile__identifier no-arrow">{{ utils.getFederatedUsername(profile.username, profile.url) }}</a>
+        <a href="{{ profile.url | safe }}" target="_blank" class="profile__identifier no-arrow" data-profile="username">{{ utils.getFederatedUsername(profile.username, profile.url) }}</a>
       </div>
     </div>
     <div class="entry__sensitive" data-entry="sensitive" hidden>

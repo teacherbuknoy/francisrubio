@@ -37,7 +37,7 @@ async function handleLoadLatest(e) {
 
 async function loadLatestPosts(container) {
   const posts = []
-  const data = await loadPosts(null, sp => posts.push(sp))
+  const data = await loadAllFeeds(sp => posts.push(sp))
 
   if (posts.length > 0) {
     const oldEntries = container.querySelectorAll(':scope > .entry') // direct .entry children only
@@ -78,6 +78,35 @@ async function loadOlderPosts(container, lastID) {
     post.render()
   })
 
+  return data
+}
+
+async function loadAllFeeds(handler = (post) => post.render()) {
+  const feeds = (await Promise.all(mastodon.feeds.map(url => loadFeed(url, null, handler))))
+    .flat()
+    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+  
+  MASTODON_POSTS.push(feeds)
+  const feedManager = new MastodonFeed(feeds)
+  feedManager.renderFeed()
+    .forEach(post => handler(post))
+
+  return feeds
+}
+
+async function loadFeed(url, lastID, handler = (post) => post.render()) {
+  const endpoint = new URL(url)
+  if (lastID != null) {
+    endpoint.searchParams.append('max_id', lastID)
+  }
+
+  const rawdata = await fetch(endpoint.toString())
+    .then(response => response.json())
+    .catch(e => console.debug(e))
+  
+  const data = organizePostReplies(rawdata)
+    .filter(post => post.reblog == null)
+  
   return data
 }
 

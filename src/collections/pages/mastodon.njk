@@ -13,10 +13,13 @@ scripts: ['mastodon.js']
   window.MASTODON = {
     accountIds: {{ socials.mastodon.accountIds | dump | safe }},
     feed: `{{ socials.mastodon.endpoints.feed | safe}}`,
+    feeds: {{ socials.mastodon.endpoints.feeds | dump | safe}},
     profile: `{{ socials.mastodon.profile.feed | safe }}`
   }
 </script>
 {% include "components/social-post-templates.njk" %}
+
+{% highlight "json" %}{{ feed | dump | safe }}{% endhighlight %}
 
 <nav class="breadcrumb" aria-label="Breadcrumbs" style="width: min(65ch, 90%); margin-inline: auto;">
   <ol class="breadcrumb__list">
