@@ -1,6 +1,6 @@
 exports.handler = async (event, context, callback) => {
   const { parameters } = JSON.parse(event.body)
-  const url = new URL('https://genuine-beignet-1e6bb4.netlify.app/')
+  const url = new URL('https://oracle-recaptcha.netlify.app/')
   parameters.forEach(param => url.searchParams.append(param.key, param.value))
 
   return {
