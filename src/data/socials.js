@@ -18,9 +18,8 @@ const mastodon = {
 }
 
 async function fetchMastodon() {
-  const fetchFeed = async url => await EleventyFetch(`${url}`, { duration: '1s', type: 'json' })
+  const fetchFeed = async url => await EleventyFetch(`${url}`, { duration: '1d', type: 'json' })
   const feeds = (await Promise.all(mastodon.endpoints.feeds.map(fetchFeed))).flat()
-  console.log(feeds)
   return {
     ...mastodon,
     profile: await EleventyFetch(mastodon.endpoints.profile, { duration: '1d', type: 'json' }),
