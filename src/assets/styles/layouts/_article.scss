@@ -422,9 +422,13 @@ details {
 
 .sidenote,
 .callout {
-  grid-column: -1/-2;
-  grid-row   : span 10;
-  align-self : start;
+
+  @media screen and (min-width: 1420px) {
+    grid-column: -1/-2;
+    grid-row   : span 10;
+    align-self : start;
+  }
+
 }
 
 .article__body {
@@ -462,7 +466,7 @@ details {
   font-variation-settings: "wght"900;
   font-weight            : bold;
   line-height            : 1;
-  margin-inline-end     : 0.5ch;
+  margin-inline-end      : 0.5ch;
   position               : relative;
   text-decoration        : none;
   top                    : -0.5ch;
@@ -483,7 +487,7 @@ details {
 
   @at-root .sidenote & {
     margin-inline-end: 0;
-    position          : static;
+    position         : static;
 
     &::before {
       content: counter(footnote);

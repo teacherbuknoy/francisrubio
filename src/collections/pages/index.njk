@@ -5,6 +5,8 @@ permalink: /
 activePath: frontpage
 stylesheets: ['frontpage.css', mastodon.css]
 scripts: ['frontpage.js', mastodon.js]
+eleventyImport:
+  collections: ["posts"]
 ---
 {% set mastodon = socials.mastodon %}
 {% set profile = mastodon.profile %}

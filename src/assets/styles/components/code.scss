@@ -48,7 +48,7 @@ pre[class^=language] {
   background-size      : 50px 100%, 50px 1100%, 25px 100%, 25px 100%;
 
   &::before {
-    background-color       : hsl(var(--primary-300));
+    background-color       : hsl(var(--bg-secondary));
     content                : var(--pre-language, "");
     font-family            : var(--font-sans);
     font-size              : var(--type-size-6);
@@ -77,6 +77,11 @@ pre[class^=language] {
 
   &.language-json {
     --pre-language: "JSON"
+  }
+
+  &.language-sh,
+  &.language-bash {
+    --pre-language: "Shell"
   }
 
   .token {
