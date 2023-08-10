@@ -50,10 +50,12 @@ enum: # define filenames by number (e.g. 2.jpg, 3.jpg, etc.)
         "--row-span": 1
         "--img-object-position": top -30px right 
     - overrideKey: 15
+      ignore: true
       style:
         "--row-span": 1
         "--img-object-position": top -50px left 0px
     - overrideKey: 17
+      ignore: true
       style:
         "--row-span": 1
         "--img-object-position": top -90px left 0px
@@ -66,6 +68,8 @@ enum: # define filenames by number (e.g. 2.jpg, 3.jpg, etc.)
         "--row-span": 1
         "--img-object-position": top
         grid-column: 
+    - overrideKey: 24
+      ignore: true
     - overrideKey: 29
       ignore: true
     - overrideKey: 31
