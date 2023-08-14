@@ -12,7 +12,7 @@ const mastodon = {
     feed: 'https://masto.ai/api/v1/accounts/109810743922547925/statuses/?limit=40',
     feeds: [
       'https://masto.ai/api/v1/accounts/109810743922547925/statuses/?limit=40',
-      'https://social.antaresph.dev/api/v1/accounts/110673367912097624/statuses?limit=40'
+      //'https://social.antaresph.dev/api/v1/accounts/110673367912097624/statuses?limit=40'
     ]
   }
 }
