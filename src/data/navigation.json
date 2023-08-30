@@ -7,5 +7,6 @@
   { "overflow": true, "text": "Notes", "url": "/notes/" },
   { "overflow": true, "text": "Videos", "url": "/videos/" },
   { "overflow": true, "text": "What I Use", "url": "/uses/" },
-  { "overflow": true, "text": "Press Kit", "url": "/press-kit/" }
+  { "overflow": true, "text": "Press Kit", "url": "/press-kit/" },
+  { "overflow": true, "text": "Feels", "url": "/feels/" }
 ]
