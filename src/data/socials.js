@@ -8,12 +8,12 @@ const mastodon = {
     '110673367912097624'
   ],
   endpoints: {
-    //profile: 'https://social.antaresph.dev/api/v1/accounts/110673367912097624',
-    profile: 'https://masto.ai/api/v1/accounts/109810743922547925',
+    profile: 'https://social.antaresph.dev/api/v1/accounts/110673367912097624',
+    //profile: 'https://masto.ai/api/v1/accounts/109810743922547925',
     feed: 'https://masto.ai/api/v1/accounts/109810743922547925/statuses/?limit=40',
     feeds: [
       'https://masto.ai/api/v1/accounts/109810743922547925/statuses/?limit=40',
-      //'https://social.antaresph.dev/api/v1/accounts/110673367912097624/statuses?limit=40'
+      'https://social.antaresph.dev/api/v1/accounts/110673367912097624/statuses?limit=40'
     ]
   }
 }
