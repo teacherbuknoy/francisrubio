@@ -100,6 +100,7 @@ module.exports = {
   firstParagraph: post => post.split(/\n/gm)[0].toString('utf8'),
   removeReblogs: entries => entries.filter(entry => entry.reblog == null),
   removeReplies: entries => entries.filter(entry => entry.in_reply_to_id == null),
+  removeEmpty: entries => entries.filter(entry => entry.content != null && entry.content.length > 0),
   toDate: str => new Date(Date.parse(str)),
   removeFuturePosts: posts => [...posts].filter(post => Date.parse(post.date) <= Date.now()),
   log: value => console.log("[LOG]", value),

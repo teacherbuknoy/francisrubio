@@ -198,7 +198,7 @@ eleventyImport:
     </script>
     <div class="profile__feed profile__feed--scroll masked-overflow--inline relative">
       <a href="#section-44a" class="button skip-link">Skip to next section</a>
-      {% for thread in mastodon.feed | removeReblogs | removeReplies %}
+      {% for thread in mastodon.feed | removeReblogs | removeReplies | removeEmpty %}
         {% if loop.index0 < 6 %}
           {% set entry = thread %}
           {% set disableMedia = true %}
