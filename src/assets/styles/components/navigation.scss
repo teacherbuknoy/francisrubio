@@ -474,24 +474,30 @@
 .navigation {
 
   &--tabs {
+    --tab-radius      : var(--radius-3);
+    --tabbar-padding  : var(--space-xs);
+    background-color  : hsl(var(--bg-secondary));
+    border-radius     : calc(var(--tab-radius) + (var(--tabbar-padding) / 2));
     margin-block-start: var(--space-xl);
+    padding           : var(--tabbar-padding);
   }
 
   &__list {
     display: flex;
     gap    : var(--space);
+    margin : 0;
   }
 
   &__link {
     @extend .button;
 
     background-color: transparent;
+    border-radius   : var(--tab-radius);
+    padding-block   : var(--space-xs);
     text-transform  : none;
 
     &[aria-current="page"] {
-      background-color: hsl(var(--primary-500));
-      box-shadow      : 0 6px 12px hsl(var(--primary-700) / 25%);
-      color           : hsl(var(--l-contrast));
+      background-color: hsl(var(--bg-accent) / 25%);
     }
   }
 }

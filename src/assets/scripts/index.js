@@ -10,8 +10,12 @@ import { Tab, TabControl } from './components/TabControl'
 import { NotificationManager } from './components/NotificationManager'
 import { FormValidator } from './components/Forms'
 import { attachDialogListener } from './webcomponents/HTMLDialogPopup'
+import { copyLink } from './components/ClipboardButton'
 
 window.onJSLoadCallbacks = []
+
+const container = $('[data-notification-container]')
+const notifications = new NotificationManager(container)
 
 let tabs = [...document.querySelectorAll('[data-tab]:is(button, a)')].map(
   tab => {
@@ -39,29 +43,27 @@ if (tabs != null && tabs.length > 0) {
 
 $$('button[data-copy]').forEach(button => {
   if (button.dataset.copy && button.dataset.copy.length > 0) {
-    button.addEventListener('click', e => copyText(button.dataset.copy))
+    button.addEventListener('click', async e => {
+      copyLink()
+        .then(() => {
+          notifications.showStatus({
+            title: 'Copied!',
+            message: 'You copied the link to this page.',
+            feathericon: 'check-circle',
+            type: 'success'
+          }, 5000)
+        })
+        .catch(e => {
+          notifications.showStatus({
+            title: 'Failed to copy link',
+            message: e.message,
+            feathericon: 'alert-triangle',
+            type: 'error'
+          })
+        })
+    })
   }
 })
-
-const container = $('[data-notification-container]')
-const notifications = new NotificationManager(container)
-
-
-function copyText(textboxID) {
-  const textbox = document.getElementById(textboxID)
-
-  textbox.select()
-  textbox.setSelectionRange(0, 99999)
-
-  document.execCommand('copy')
-
-  notifications.showStatus({
-    title: 'Copied!',
-    message: 'The details are now in your clipboard.',
-    feathericon: 'check-circle',
-    type: 'success'
-  })
-}
 
 
 new FormValidator(document.getElementById('frm-email'))
@@ -80,7 +82,7 @@ document.querySelectorAll('button[data-opens]')
     }
   })
 
-function addNotifNewGalleryEntry() {
+/* function addNotifNewGalleryEntry() {
   // Check if new post is already seen
   const gallerySeen = localStorage.getItem('gallery-seen') === 'true'
 
@@ -99,10 +101,18 @@ function removeNotifNewgalleryEntry() {
 }
 
 window.onJSLoadCallbacks.push(removeNotifNewgalleryEntry)
-window.onJSLoadCallbacks.push(addNotifNewGalleryEntry)
+window.onJSLoadCallbacks.push(addNotifNewGalleryEntry) */
 
 
 window.addEventListener('load', e => {
   document.body.classList.remove('no-js')
   window.onJSLoadCallbacks.forEach(fn => fn())
+})
+
+document.addEventListener('colorschemechange', e => {
+  const scheme = e.detail.colorScheme
+  document.querySelectorAll('webring-banner')
+    .forEach(banner => {
+      banner.setAttribute('scheme', scheme)
+    })
 })

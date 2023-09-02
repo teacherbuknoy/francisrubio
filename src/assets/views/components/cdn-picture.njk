@@ -6,7 +6,7 @@
 
 {% set sizesAttr %}
 {% for size in sizes %}
-    (max-width: {{ size }}px) {{ size }}w{{ ", " if not loop.last }}
+    (max-width: {{ size }}px) {{ size }}px{{ ", " if not loop.last }}
 {% endfor %}
 {% endset %}
 
@@ -30,7 +30,7 @@
     <source
       srcset="{{ srcset }}"
       type="image/{{ format }}"
-      {# sizes="{{ sizesAttr }}" #}
+      sizes="{{ sizesAttr }}"
       width="{{ width }}"
       height="{{ height }}"
     >

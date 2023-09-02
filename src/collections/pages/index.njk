@@ -5,8 +5,9 @@ permalink: /
 activePath: frontpage
 stylesheets: ['frontpage.css', mastodon.css]
 scripts: ['frontpage.js', mastodon.js]
+eleventyImport:
+  collections: ["posts"]
 ---
-
 {% set mastodon = socials.mastodon %}
 {% set profile = mastodon.profile %}
 {% set feed = mastodon.feed %}
@@ -19,7 +20,6 @@ scripts: ['frontpage.js', mastodon.js]
 </script>
 
 {% include "components/banners/home-banner.njk" %}
-{% include "components/banners/redesign-notice-banner.njk" %}
 
 <section class="section padding-block--xxl" id="section-2" aria-labelledby="section-2-heading">
   <div class="section__inner">
@@ -170,7 +170,7 @@ scripts: ['frontpage.js', mastodon.js]
     </hgroup>
     {% set postLimit = 3 %}
     {% set collection = collections.projects | reverse %}
-    <span class="deck-card-container m-block-start--xxxl relative">
+    <div class="deck-card-container m-block-start--xxxl relative">
       <a href="#section-6" class="button skip-link">Skip to next section</a>
       {% set limit = postLimit if collection.length > postLimit else 
         collection.length %}
@@ -178,7 +178,7 @@ scripts: ['frontpage.js', mastodon.js]
         {% set item = collection[i] %}
         {% include 'components/deck-card.njk' %}
       {% endfor %}
-    </span>
+    </div>
     <div class="stack ai--center text-center gap--s padding--xl">
       <span class="fs-4 weight-300">Building a similar project?</span>
       <div class="cluster center-align center-justified">
@@ -198,7 +198,7 @@ scripts: ['frontpage.js', mastodon.js]
     </script>
     <div class="profile__feed profile__feed--scroll masked-overflow--inline relative">
       <a href="#section-44a" class="button skip-link">Skip to next section</a>
-      {% for thread in mastodon.feed | removeReblogs | removeReplies %}
+      {% for thread in mastodon.feed | removeReblogs | removeReplies | removeEmpty %}
         {% if loop.index0 < 6 %}
           {% set entry = thread %}
           {% set disableMedia = true %}
@@ -249,7 +249,13 @@ scripts: ['frontpage.js', mastodon.js]
     </div>
   </div>
 </section>
-<section class="padding-block--xxl bg-secondary" id="comments" aria-labelledby="comments-heading">
+
+<div class="section padding-block--xxl">
+  <div class="section__inner">
+    {% include "components/banners/webring-banner.njk" %}
+  </div>
+</div>
+{# <section class="padding-block--xxl bg-secondary" id="comments" aria-labelledby="comments-heading">
   <div class="section__inner">
     <hgroup class="stack-gap" role="group">
       <p id="comments-heading" class="uppercase ls-l font-sans" data-baybayin="{{ sections.webmentions.baybayin_label }}">{{ sections.webmentions.label | safe }}</p>
@@ -259,7 +265,7 @@ scripts: ['frontpage.js', mastodon.js]
     {% set nextSectionLink = '#main-footer' %}
     {% include 'components/webmentions.njk' %}
   </div>
-</section>
+</section> #}
 
 {% include 'components/email-form.njk' %}
 

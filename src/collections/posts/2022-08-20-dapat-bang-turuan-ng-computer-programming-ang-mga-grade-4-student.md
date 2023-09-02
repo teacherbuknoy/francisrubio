@@ -58,7 +58,11 @@ Bilang isang dating teacher ng computer programming sa grade school at high scho
 Bukod pa rito, talaga bang maaasahan nating maituturo ng mga kasalukuyang guro ang computer programming nang tama? Marami sa mga guro natin ang walang skill sa paggamit ng computer. At higit sa lahat, sa maraming kaso, hindi pa sapat ang apat na taon sa pagkuha ng degree sa IT o Computer Science para maging epektibong programmer. Sapat kaya ang ilang buwan lang na training sa mga guro para ituro ang computer programming? At sapat din kaya ang matatanggap nilang pasahod kung kailangan nilang mag-upskill kada taon kapag nirerebisa ang mga learning material at textbooks na gamit nila? Dahil laging nagbabago ang teknolohiya, kailangan nilang sumabay kung gusto nilang maituro nang tama ang klaseng ito.
 
 ### Mga equipment 
-Kung magtuturo ka ng computer programming, siyempre dapat may maipapagamit na computers sa *lahat* ng mga mag-aaràl. Totoo, baka hindi pa kailangan ito para sa mga mas maaagang bahagi ng topic, dahil gaya ng rekomendasyon ng [code.org][code], puwedeng ituro ang mga pangunang konsepto ng programming gamit lang ang papel at panulat, o mga group activities. [^1] Pero kung target ng bill na ito na magkaroon ng interes ang mga estudyante sa programming, hindi uubra ang 4:1 o higit pang ratio ng estudyante sa mga computer, na nagkukumpulan ang apat o higit pang mga bata sa iisang computer at halos mag-agawan na kung sino ang magta-type sa keyboard at gagalaw ng mouse. Hindi mapupukaw ang interes ng bata sa pagpo-program kung hindi man lamang ito makakahawak ng computer. Hangga't maaari, dapat ay limitado sa 1:1, or at least 2:1, ang ratio ng bata sa computer para maranasan ng lahat na isulat ang code para sa naiisip nilang program at makita ito na gumagana.
+Kung magtuturo ka ng computer programming, siyempre dapat may maipapagamit na computers sa *lahat* ng mga mag-aaràl. Totoo, baka hindi pa kailangan ito para sa mga mas maaagang bahagi ng topic, dahil gaya ng rekomendasyon ng [code.org][code], puwedeng ituro ang mga pangunang konsepto ng programming gamit lang ang papel at panulat, o mga group activities. {{ 'unplugged' | footnote }} Pero kung target ng bill na ito na magkaroon ng interes ang mga estudyante sa programming, hindi uubra ang 4:1 o higit pang ratio ng estudyante sa mga computer, na nagkukumpulan ang apat o higit pang mga bata sa iisang computer at halos mag-agawan na kung sino ang magta-type sa keyboard at gagalaw ng mouse. Hindi mapupukaw ang interes ng bata sa pagpo-program kung hindi man lamang ito makakahawak ng computer. Hangga't maaari, dapat ay limitado sa 1:1, or at least 2:1, ang ratio ng bata sa computer para maranasan ng lahat na isulat ang code para sa naiisip nilang program at makita ito na gumagana.
+
+{% footnote 'unplugged' %}
+Tinatawag ito ng [code.org](https://code.org/) na mga <i lang="en=US">unplugged activity</i>.
+{% endfootnote %}
 
 Sa maraming paaralan, hindi na nagagamit ang mga computer dahil hindi naman gumagana. Kaya bukod sa initial na gastos ng pagbili ng mga equipment, kailangan ding gastusan ang pagkukumpuni sa mga ito. At batay din sa naging karanasan ko noong nagtuturo ako, hindi maiiwasan, lalo na sa mga mas batang mga mag-aaral, na masira ang mga gamit dahil sa malilikot at makukulit na bata. Kaya hindi lang kada quarter, buwan, o taon ang kakailanganing mga repair; kung minsan, kakailanganin itong gawin kada linggo o kada araw pa nga.
 
@@ -73,7 +77,5 @@ Tiwala ako na kaya itong magawa nang epektibo. Marami tayong mga magagaling na p
 *[DepEd]: Department of Education
 *[TLE]: Technology and Livelihood Education
 *[NGO]: Non-government organization
-
-[^1]: Tinatawag ito ng [code.org][code] na mga <i lang="en=US">unplugged activity</i>
 
 [code]: https://code.org

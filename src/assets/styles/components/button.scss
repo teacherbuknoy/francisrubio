@@ -23,8 +23,8 @@
   text-decoration        : none;
   text-transform         : lowercase;
   transition             : background-image 200ms, outline 200ms, outline-offset 200ms;
-  white-space            : nowrap;
-  width                  : min-content;
+  width                  : -moz-fit-content;
+  width                  : fit-content;
 
   &::before {
     content         : "";
@@ -77,10 +77,15 @@
   &.go-to-top {
     @extend .square;
     @extend .primary;
-    border-radius: 100%;
-    height       : 5ch;
-    padding      : 0;
-    box-shadow   : 0 4px 25px hsl(var(--primary-500) / 50%);
+    border-radius      : 100%;
+    box-shadow         : 0 4px 25px hsl(var(--primary-500) / 50%);
+    display            : flex;
+    font-size          : var(--type-size-6);
+    height             : 5ch;
+    margin-block-end   : 1rem;
+    margin-inline-end  : 1rem;
+    margin-inline-start: auto;
+    padding            : 0;
   }
 
   &--small {
@@ -263,3 +268,9 @@ body.no-js {
   gap       : 1ch;
   flex-wrap : wrap;
 }
+
+/* .go-to-top {
+  @at-root .no-js & {
+    bottom: 3rem;
+  }
+} */

@@ -1,4 +1,5 @@
 import { ToggleComponent } from "./ToggleComponent"
+import { replaceMastodonEmoji } from "../../../data/utils"
 const CONTENT_PREFIX = 'content'
 
 class SocialPostMedia {
@@ -161,6 +162,19 @@ class SocialPostHeader {
       replyIndicator.remove()
     }
 
+    const profile = post.account
+
+    const displayName = header.querySelector('[data-profile=display-name]')
+    displayName.innerHTML = replaceMastodonEmoji(profile.display_name, profile.emojis)
+    displayName.href = profile.url
+
+    const avatar = header.querySelector('[data-profile=avatar]')
+    avatar.src = profile.avatar
+
+    const username = header.querySelector('[data-profile=username]')
+    username.href = profile.url
+    username.innerText = `@${profile.acct}@${new URL(post.url).host}`
+
     this.#element = header
   }
 
@@ -211,7 +225,7 @@ class SocialPost {
     this.#footer = footer
 
     const content = entry.querySelector('[data-entry=content]')
-    content.innerHTML = post.content
+    content.innerHTML = post.emojis.length > 0 ? replaceMastodonEmoji(post.content, post.emojis) : post.content
     content.setAttribute('id', postId)
     content.setAttribute('lang', post.language)
 
@@ -235,6 +249,7 @@ class SocialPost {
       const tglSensitive = sensitive.querySelector('button[data-toggle]')
       tglSensitive.dataset.toggle = postId
       tglSensitive.setAttribute('data-toggle', postId)
+      tglSensitive.innerText = post.spoiler_text
       this.#renderers.push(() => {
         try { new ToggleComponent(tglSensitive) }
         catch (e) { throw e; }

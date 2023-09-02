@@ -2,7 +2,7 @@
 title: "A new frontpage welcomes you"
 description: "In celebration of Pride Month, I redesigned my website banner. Here’s my process."
 permalink: "/writing/en/new-frontpage/"
-category: [design, lgbtqia]
+category: [design, LGBTQIA+]
 theme:
   scheme: dark
   color: '#E93A4C'
@@ -80,7 +80,15 @@ I also wanted to contextualize my career roles. In this design, I broke up the t
 
 For the calls to action, I put them at the bottom of the screen. In this design, I am channeling the macOS dock, which is a piece of UI component that I've always been in love with since the day I first saw it. I always emulate it in all the Linux distros I've tried, and now, I am emulating it in my website.
 
-If you are viewing the banner in a wide-enough screen, you will see that I included a bunch of words written in an unusual script. If you are Filipino, you will recognize that these are [Baybayin](https://en.wikipedia.org/wiki/Baybayin) characters, an orthography used by pre-colonial Filipinos, particularly those in Luzon area. This orthography has seen a renewed popularity with the Gen Z, and I am definitely riding the hype. As I mentioned previously, I wanted to channel the <i lang="tl">diwata</i> and the <i lang="tl">babaylan</i>, treating them as personal icons of queerness. I added these words as a reference to magical and protective runes used in witchcraft and sorcery[^1]. They actually mean something: <i lang="tl">kalayaan</i> (liberty), <i lang="tl">pagkakapantay-pantay</i> (equality), and <i lang="tl">karapatang pantao</i> (human rights). These are beautiful things, and I added them here to do exactly that—to make things beautiful. I am also treating it as a manifestation of sorts, especially with the Pride Month happening, these three are the things I want the most for everyone, especially for my people.[^2]
+If you are viewing the banner in a wide-enough screen, you will see that I included a bunch of words written in an unusual script. If you are Filipino, you will recognize that these are [Baybayin](https://en.wikipedia.org/wiki/Baybayin) characters, an orthography used by pre-colonial Filipinos, particularly those in Luzon area. This orthography has seen a renewed popularity with the Gen Z, and I am definitely riding the hype. As I mentioned previously, I wanted to channel the <i lang="tl">diwata</i> and the <i lang="tl">babaylan</i>, treating them as personal icons of queerness. I added these words as a reference to magical and protective runes used in witchcraft and sorcery.{{ "witchcraft" | footnote }} They actually mean something: <i lang="tl">kalayaan</i> (liberty), <i lang="tl">pagkakapantay-pantay</i> (equality), and <i lang="tl">karapatang pantao</i> (human rights). These are beautiful things, and I added them here to do exactly that—to make things beautiful. I am also treating it as a manifestation of sorts, especially with the Pride Month happening, these three are the things I want the most for everyone, especially for my people.{{ "runes" | footnote }}
+
+{% footnote 'witchcraft' %}
+While this indeed references magical runes from witchcraft, I do not intend it ot be a magical artifact of any sort. It is here purely as a design chocie with respect to all practicing witches, ancestral or otherwise.
+{% endfootnote %}
+
+{% footnote 'runes' %}
+These Baybayin runes can be interacted with (click or tap) to reveal how they are written in a Latin alphabet. What they are, programmatically, are toggle buttons. I closely followed the guide from [Inclusive Components](https://inclusive-components.design/toggle-button/) on how to build an accessible toggle button. In the event that JavaScript does not work, these toggle buttons are swapped with plain `<span>`s that show the words in Filipino orthography instead of Baybayin characters.
+{% endfootnote %}
 
 <figure class="image">
   <picture>
@@ -174,8 +182,3 @@ But also, I also want to give a shoutout to every queer and trans kid all over t
     <p>A side-by-side look at the previous and current design.</p>
   </figcaption>
 </figure>
-
-
-[^1]: While this was indeed inspired and referencing magical runes from witchcraft, I do not intend it to be a magical artifact of any sort. It is here purely as a design choice with respect to all practicing witches, ancestral or otherwise.
-
-[^2]: These Baybayin runes can be interacted with (click or tap) to reveal how they are written in a Latin alphabet. What they are, programmatically, are toggle buttons. I closely followed the guide from [Inclusive Components](https://inclusive-components.design/toggle-button/) on how to build an accessible toggle button. In the event that JavaScript does not work, these toggle buttons are swapped with plain `<span>`s that show the words in Filipino orthography instead of Baybayin characters.

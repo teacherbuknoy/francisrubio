@@ -6,11 +6,6 @@ activePath: socials
 stylesheets: ['mastodon.css']
 scripts: ['mastodon.js']
 ---
-<style>
-  body {
-    background-color: hsl(var(--bg-secondary));
-  }
-</style>
 {% set mastodon = socials.mastodon %}
 {% set profile = mastodon.profile %}
 {% set feed = mastodon.feed %}
@@ -18,6 +13,7 @@ scripts: ['mastodon.js']
   window.MASTODON = {
     accountIds: {{ socials.mastodon.accountIds | dump | safe }},
     feed: `{{ socials.mastodon.endpoints.feed | safe}}`,
+    feeds: {{ socials.mastodon.endpoints.feeds | dump | safe}},
     profile: `{{ socials.mastodon.profile.feed | safe }}`
   }
 </script>

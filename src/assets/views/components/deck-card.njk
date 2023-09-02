@@ -1,4 +1,4 @@
-<a href="{{ item.url }}" class="deck-card">
+<div class="deck-card">
   {% if item.data.cover %}
     <img src="{{ item.data.cover.src }}"
        alt="{{ item.data.cover.alt }}"
@@ -31,8 +31,8 @@
     </span>
     <h{{ cardLevel if cardLevel != null else 3 }}
       class="deck-card__title">
-      {{ item.data.title | safe }}
+      <a href="{{ item.url }}">{{ item.data.title | safe }}</a>
     </h{{ cardLevel if cardLevel != null else 3 }}>
     <p class="deck-card__description">{{ item.data.description | safe }}</p>
   </div>
-</a>
+</div>

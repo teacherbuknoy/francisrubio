@@ -1,7 +1,7 @@
 ---
 title: "How coming out changed me"
 description: "Having the freedom to be who I actually am"
-category: ["Life", "LGBTQIA"]
+category: ["Life", "LGBTQIA+"]
 theme:
   scheme: dark
   color: '#03645a'

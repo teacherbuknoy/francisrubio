@@ -6,7 +6,7 @@ category: [technology, people]
 theme:
   scheme: dark
   color: '#748cc1'
-  color-hsl: '221 41% 35%'
+  color-hsl: '221 38% 61%'
 cover:
   folder: noob-friendly-world
   filename: cover.png

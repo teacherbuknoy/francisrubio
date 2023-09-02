@@ -1,3 +1,6 @@
+const jsdom = require("jsdom")
+const { JSDOM } = jsdom
+
 const markdownIt = require('markdown-it')
 
 const md = markdownIt({ html: true, linkify: true, typographer: true })
@@ -9,12 +12,11 @@ const md = markdownIt({ html: true, linkify: true, typographer: true })
   .disable('code')
 
 
+let footnoteRefs = []
+
 module.exports = {
   markdown: function (value) {
-    let markdown = require('markdown-it')({
-      html: true
-    })
-    return markdown.render(value)
+    return md.render(value)
   },
   icon: function (value) {
     return `<svg class="feather" aria-hidden="true"><use href="/assets/images/feather-sprite.svg#${value}" /></svg>`
@@ -98,6 +100,7 @@ module.exports = {
   firstParagraph: post => post.split(/\n/gm)[0].toString('utf8'),
   removeReblogs: entries => entries.filter(entry => entry.reblog == null),
   removeReplies: entries => entries.filter(entry => entry.in_reply_to_id == null),
+  removeEmpty: entries => entries.filter(entry => entry.content != null && entry.content.length > 0),
   toDate: str => new Date(Date.parse(str)),
   removeFuturePosts: posts => [...posts].filter(post => Date.parse(post.date) <= Date.now()),
   log: value => console.log("[LOG]", value),
@@ -132,5 +135,10 @@ module.exports = {
 
     return entries
   },
-  markdown: string => md.render(string)
+  markdown: string => md.render(string),
+  countElements: htmlString => {
+    const dom = new JSDOM(htmlString).window.document
+    const nodes = dom.querySelectorAll('body > *')
+    return [...nodes].length
+  }
 }

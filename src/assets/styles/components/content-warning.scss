@@ -100,11 +100,11 @@
   }
 
   &--info {
-    --bg-content-warning               : var(--primary-100);
+    --bg-content-warning               : var(--info-100);
     --bg-content-warning-opacity       : 0.25;
-    --bg-content-warning-accent        : var(--primary-300);
+    --bg-content-warning-accent        : var(--info-300);
     --bg-content-warning-accent-opacity: 0.25;
-    --fg-content-warning               : var(--primary-900);
+    --fg-content-warning               : var(--info-900);
   }
 }
 

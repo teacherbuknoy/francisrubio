@@ -10,7 +10,7 @@ cover:
 aliases: 
   - /writing/coming-out/
 author: teacherbuknoy
-category: [life, LGBTQIA]
+category: [life, LGBTQIA+]
 ---
 
 Since I started this blog, and multiple iterations of it on Tumblr, I have contemplated a lot about writing this blog entry. It is painful, but liberating I think. I am bisexual. And this is how I want to come out to the world.

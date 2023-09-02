@@ -39,5 +39,6 @@ module.exports = {
     return {
       plugin: require('@11ty/eleventy').EleventyRenderPlugin
     }
-  }
+  },
+  unfurl: () => ({ plugin: require("eleventy-plugin-unfurl") })
 }

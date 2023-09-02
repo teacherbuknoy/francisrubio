@@ -107,6 +107,10 @@
           hsl(var(--theme-color-hsl, var(--d-contrast)) / 0.987) 90.8%,
           hsl(var(--theme-color-hsl, var(--d-contrast))) 100%);
 
+      &::before {
+        content: none;
+      }
+
       &>* {
         grid-row: 1 / 1;
       }
@@ -118,6 +122,13 @@
 
       .post-card__body {
         grid-column: 2 / 3;
+        background : transparent;
+      }
+
+      .post-card__image {
+        --mask-image      : linear-gradient(to right, black, transparent 90%);
+        -webkit-mask-image: var(--mask-image);
+        mask-image        : var(--mask-image);
       }
     }
 
@@ -134,6 +145,7 @@
 
 .post-card {
   @extend .dark;
+  background-color  : var(--theme-color);
   display           : grid;
   text-decoration   : none;
   border-radius     : var(--radius-5);
@@ -167,19 +179,34 @@
     }
   }
 
-  &.themed:focus-visible {
-    --focus-color: color-mix(in hsl, var(--theme-color), hsl(var(--primary-900)) 30%);
-    outline-color: var(--focus-color, hsl(var(--fg-contrast)));
+  &.themed {
+    --shadow-color: color-mix(in srgb, hsl(var(--theme-color-hsl) / var(--shadow-alpha, 5%)), hsl(0 0% 0% / calc(var(--shadow-alpha, 5%))));
+    --shadow-alpha: 10%;
+
+    @at-root .dark & {
+      --shadow-alpha: 30%;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      @at-root .system & {
+        --shadow-alpha: 30%;
+      }
+    }
+
+    &:focus-visible {
+      --focus-color: color-mix(in hsl, var(--theme-color), hsl(var(--primary-900)) 30%);
+      outline-color: var(--focus-color, hsl(var(--fg-contrast)));
+    }
   }
 
   &:hover {
     box-shadow:
-      0 4px 4px #0001,
-      0 8px 8px #0001,
-      0 16px 16px #0001,
-      0 32px 32px #0001,
-      0 32px 32px #0001,
-      0 64px 64px #0001;
+      0 4px 4px var(--shadow-color, #0001),
+      0 8px 8px var(--shadow-color, #0001),
+      0 16px 16px var(--shadow-color, #0001),
+      0 32px 32px var(--shadow-color, #0001),
+      0 32px 32px var(--shadow-color, #0001),
+      0 64px 64px var(--shadow-color, #0001);
     transform: scale(1.005);
   }
 
@@ -226,11 +253,10 @@
 .post-card__body {
   align-content   : end;
   background-color: var(--theme-color, hsl(var(--d-contrast)));
-  ;
-  grid-row   : 2/3;
-  padding    : var(--space-xl);
-  padding-top: var(--space);
-  position   : relative;
+  grid-row        : 2/3;
+  padding         : var(--space-xl);
+  padding-top     : var(--space);
+  position        : relative;
 }
 
 .post-card__title {
@@ -323,6 +349,31 @@
     font-size  : var(--type-size-3);
     line-height: 1;
     margin     : 0;
+
+    a {
+      text-decoration: none;
+      transition     : none;
+
+      &:hover {
+        color: inherit;
+      }
+
+      &:focus-visible {
+        outline   : 0;
+        background: revert;
+        color     : inherit;
+      }
+
+      &::before {
+        content : '';
+        position: absolute;
+        inset   : 0;
+
+        @at-root .deck-card:hover & {
+          top: -9.5rem;
+        }
+      }
+    }
   }
 
   &__description {
@@ -359,6 +410,7 @@
   .deck-card {
     scroll-snap-align: center;
     flex-shrink      : 0;
+    max-width        : 75%;
   }
 }
 
@@ -390,7 +442,8 @@
     height    : 100%;
   }
 
-  &:hover {
+  &:hover,
+  &:focus-within {
     background-color  : transparent;
     box-shadow        : none;
     grid-template-rows: minmax(5rem, 1fr) 0 1fr;
@@ -417,7 +470,8 @@
     }
   }
 
-  &:focus-visible {
+  &:focus-visible,
+  &:focus-within {
     background-color  : transparent;
     box-shadow        : none;
     grid-template-rows: minmax(5rem, 1fr) 0 1fr;
@@ -445,7 +499,8 @@
     }
   }
 
-  &:focus-visible {
+  &:focus-visible,
+  &:focus-within {
     outline       : 5px solid hsl(var(--primary-500));
     outline-offset: 0;
   }

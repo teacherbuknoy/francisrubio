@@ -1,9 +1,41 @@
+<noscript>
+  <nav class="show-on-mobile navigation-bar__section padding gap--m" style="flex-direction: column;" id="noscript-nav">
+    <h2 style="text-transform: uppercase;font-variation-settings: 'wght' 700;" class="margin--none fs-6 font-sans">Navigation</h2>
+    <ul class="navigation-list gap--m">
+      {% for item in navigation | rejectattr("overflow") %}
+        <li class="navigation-list-item">
+          <a href="{{ item.url }}" class="button button--small">
+            {% if item.feathericon %}
+              {{ icon(feathericon) }}
+            {% endif %}
+
+            {% if item.text %}
+              <span>{{ item.text }}</span>
+            {% elif item.label %}
+              <span>{{ item.label }}</span>
+            {% endif %}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</noscript>
+<div class="bottom-fixed">
+  <a href="#top" class="primary button go-to-top" style="">
+    {% set feathericon = 'arrow-up' %}
+    {% include 'components/feathericon.njk' %}
+    <span class="sr-only">Back to top</span>
+  </a>
+  <noscript class="no-js__warning">
+    <p>JavaScript is not enabled on the browser you're using. Some features won't work.</p>
+  </noscript>
+</div>
 <footer class="footer" id="main-footer">
-  <section class="footer__header">
+  <div class="footer__header font-sans">
     <p>&copy; {{ "" | year }} Francis Rubio. All rights reserved.</p>
     <p>Powered by <a href="https://11ty.dev">Eleventy</a> and <a href="https://netlify.com">Netlify</a>.</p>
-  </section>
-  <section class="footer__body">
+  </div>
+  <div class="footer__body">
     <div class="footer__section">
       <div class="cluster ai--center gap--m">
         {% set logoClass = 'logo--large' %}
@@ -31,21 +63,46 @@
         <li class="button-list__item">
           <a href="/press-kit/" class="button button--small">Press kit</a>
         </li>
+        <li class="button-list__item">
+          <a href="https://webring.antaresph.dev/" target="_blank" rel="noopener" class="button button--small">Pinoy Websites</a>
+        </li>
       </ul>
     </div>
-    <div id="footer-acknowledgements" class="footer__section">
-      <h2 class="footer__section-title">Colophon</h2>
-      <p class="margin--none font-sans">Baybayin graphic in the frontpage uses <a href="https://www.behance.net/gallery/67528161/FREE-FONT-Baybayin-SISIL-Brush-Style-Font" target="_blank" rel="noopener">BAYBAYIN SISIL</a> by <a href="https://lloydiecat.carrd.co/" target="_blank" rel="noopener">Lloydiecat</a>.</p>
-    </div>
-  </section>
+    <noscript class="footer__section" id="footer-overflow-menu">
+      <h2 class="footer__section-title">On this site</h2>
+      <ul class="button-list">
+        {% for item in navigation | selectattr("overflow") %}
+          <li class="button-list__item">
+            <a href="{{ item.url }}" class="button button--small">
+              {% if item.feathericon %}
+                {{ icon(feathericon) }}
+              {% endif %}
+
+              {% if item.text %}
+                <span>{{ item.text }}</span>
+              {% elif item.label %}
+                <span>{{ item.label }}</span>
+              {% endif %}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </noscript>
+    <noscript class="footer__section" id="footer-rss">
+      <h2 class="footer__section-title">RSS Feeds</h2>
+      <ul class="button-list">
+        {% for item in site.feeds | values %}
+          <li class="button-list__item">
+            <a href="{{ item.url }}" class="button button--small">{{ item.label }}</a>
+          </li>
+        {% endfor %}
+        <li class="button-list__item">
+          <a href="https://rss.com/blog/how-do-rss-feeds-work/" target="_blank" rel="noopener" class="button button--small">How do I use this?</a>
+        </li>
+      </ul>
+    </noscript>
+  </div>
 </footer>
-<section>
-  <a href="#top" class="primary button go-to-top" style="z-index: 9; position: fixed;bottom: 1rem;right: 1rem;margin-inline-start: auto;display: flex;margin-block-end: 1rem;margin-inline-end: 1rem;" style="font-size: var(--type-size-6)">
-    {% set feathericon = 'arrow-up' %}
-    {% include 'components/feathericon.njk' %}
-    <span class="sr-only">Back to top</span>
-  </a>
-</section>
 {% set domain = site.domains | selectattr('isPreferred') | first %}
 <div class="h-card hidden">
   <span class="p-name">Francis Rubio</span>

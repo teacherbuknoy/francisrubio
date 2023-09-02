@@ -2,9 +2,7 @@
   &--summary {
     display         : flex;
     justify-content : space-between;
-    padding         : 1rem 0.5ch;
     gap             : 2ch;
-    background-color: hsl(var(--bg-primary));
     z-index         : 3;
     position        : relative;
   }

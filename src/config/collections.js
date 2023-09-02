@@ -62,7 +62,7 @@ module.exports = {
     posts.forEach(item => {
       const { category } = item.data
       const formattedCategories = category.map(tag => {
-        return tag.toLowerCase().replaceAll(/\W|_/g, "-")
+        return tag.toLowerCase().replaceAll(/\s|_/g, "-")
       })
 
       categories.push(...formattedCategories)

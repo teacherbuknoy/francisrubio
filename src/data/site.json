@@ -1,7 +1,7 @@
 {
   "title": "Francis Rubio",
   "description": "Web developer, designer, and educator",
-  "url": "https://teacherbuknoy.netlify.app",
+  "url": "https://francisrubio.antaresph.dev",
   "photo": "https://ik.imagekit.io/8jjzxcl9p/tr:w-300/authors/teacherbuknoy.jpg?updatedAt=1679810276132",
   "seo": {
     "fb_image": "/assets/images/fb_image.png",
@@ -43,6 +43,12 @@
       "name": "Mastodon",
       "identifier": "@teacherbuknoy@masto.ai",
       "url": "https://masto.ai/@teacherbuknoy",
+      "rel": "me"
+    },
+    "socialantaresphdev": {
+      "name": "Antares Social",
+      "identifier": "@teacherbuknoy@social.antaresph.dev",
+      "url": "https://social.antaresph.dev/@teacherbuknoy",
       "rel": "me"
     },
     "pixelfed": {

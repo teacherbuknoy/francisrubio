@@ -1,6 +1,6 @@
 .callout {
   --callout-radius: var(--radius-3);
-  align-items     : center;
+  align-items     : baseline;
   background-color: hsl(var(--bg-contrast) / 50%);
   border-radius   : var(--callout-radius);
   display         : flex;
@@ -27,9 +27,11 @@
   }
 
   .feather {
-    width  : 1em;
-    height : 1em;
-    display: inline;
+    bottom  : -0.5ch;
+    display : inline;
+    height  : 1em;
+    position: relative;
+    width   : 1em;
   }
 
   a[href] .feather {
@@ -43,8 +45,8 @@
   }
 
   &--info {
-    --icon-color    : hsl(var(--fg-default));
-    background-color: hsl(var(--fg-contrast) / 5%);
+    --icon-color    : hsl(var(--info-900));
+    background-color: hsl(var(--info-100) / 5%);
   }
 
   &--warning {

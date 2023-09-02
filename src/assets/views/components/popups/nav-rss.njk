@@ -1,5 +1,5 @@
-<dialog id="{{ popupId }}" class="navigation-popup detached" aria-labelledby="nav-popup-header-rss">
-  <span id="nav-popup-header-rss" class="navigation-popup__label">RSS Feeds</span>
+<dialog id="{{ popupId }}" class="navigation-popup detached" aria-labelledby="nav-popup-header-rss__{{ popupId }}">
+  <span id="nav-popup-header-rss__{{ popupId }}" class="navigation-popup__label">RSS Feeds</span>
   <ul class="navigation-list">
     {% for item in site.feeds | values %}
       <li class="navigation-list-item">

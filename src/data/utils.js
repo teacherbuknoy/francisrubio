@@ -38,7 +38,7 @@ module.exports = {
   },
   filterByCategory: (array, tag) => array.filter(item => {
     const { category } = item.data
-    const slugifiedCategories = category.map(tag => tag.toLowerCase().replaceAll(/\W|_/g, "-"))
+    const slugifiedCategories = category.map(tag => tag.toLowerCase().replaceAll(/\s|_/g, "-"))
 
     return slugifiedCategories.includes(tag)
   }),
