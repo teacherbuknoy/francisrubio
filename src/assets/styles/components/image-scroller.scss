@@ -40,6 +40,12 @@
       margin-block-end: 1ch;
     }
   }
+
+  &--grid {
+    display              : grid;
+    grid-template-columns: repeat(auto-fit, minmax(10ch, 1fr));
+    gap                  : 1ch;
+  }
 }
 
 .image-card {
