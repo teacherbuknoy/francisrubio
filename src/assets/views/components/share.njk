@@ -2,9 +2,11 @@
   <h2 class="fs-4 weight-700 font-sans m-block-end--none">Share</h2>
   <p class="font-sans m-block-start--none m-block-end--xl">Was this good? Make me famous, give me clout!</p>
   <ul class="margin-top--m cluster margin-inline--auto jc-center padding--none" style="list-style: none;">
+    {% set writer = authors[author].name %}
+    {% set shareText %}{{ writer }} wrote:%0A%0A{{ title }}%0A“{{ description }}”.{% endset %}
     <li>
       <a 
-          href="https://mastodonshare.com/?text={{ title }}&url={{ site.url }}{{ page.url }}"
+          href="https://mastodonshare.com/?text={{ shareText }}&url={{ site.url }}{{ page.url }}"
           target="_blank"
           rel="noopener"
           class="button no-arrow">
