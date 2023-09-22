@@ -7,4 +7,18 @@
   {% endfor %}
 {% endif %}
 
-<script src="/assets/scripts/analytics.js"></script>
+<script src="/ackee-tracker.js"
+  data-ackee-server="https://analytics.antaresph.dev"
+  data-ackee-domain-id="3ed62e32-707b-4b34-8a19-3828c77eb97c"
+  data-ackee-opts='{ "ignoreLocalhost": false, "detailed": true }'
+></script>
+<!--script>
+  window.DOMAIN_ID = '3ed62e32-707b-4b34-8a19-3828c77eb97c'
+  window.ackee = ackeeTracker
+    .create('https://analytics.antaresph.dev')
+</!--script>
+<script-- >
+  const ackee = window.ackee
+  
+  ackee.action(DOMAIN_ID, { key: 'Visit', value: 1 })
+</script---->
