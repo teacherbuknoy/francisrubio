@@ -8,8 +8,11 @@ const mastodon = {
     '110673367912097624'
   ],
   endpoints: {
-    profile: 'https://social.antaresph.dev/api/v1/accounts/110673367912097624',
-    //profile: 'https://masto.ai/api/v1/accounts/109810743922547925',
+    profile: 'https://masto.ai/api/v1/accounts/109810743922547925',
+    profiles: [
+      'https://social.antaresph.dev/api/v1/accounts/110673367912097624',
+      'https://masto.ai/api/v1/accounts/109810743922547925'
+    ],
     feed: 'https://masto.ai/api/v1/accounts/109810743922547925/statuses/?limit=40',
     feeds: [
       'https://masto.ai/api/v1/accounts/109810743922547925/statuses/?limit=40',
@@ -19,13 +22,25 @@ const mastodon = {
 }
 
 async function fetchMastodon() {
-  const fetchFeed = async url => await EleventyFetch(`${url}`, { duration: '1d', type: 'json' })
+  const fetchFeed = async url => await fetchFirstOkayProfile()
   const feeds = (await Promise.all(mastodon.endpoints.feeds.map(fetchFeed))).flat()
   return {
     ...mastodon,
     profile: await EleventyFetch(mastodon.endpoints.profile, { duration: '1d', type: 'json' }),
     feed: assignMastodonReplies(sortPosts(feeds))
   }
+}
+
+/**
+ * @description Fetches profile from the first Mastodon profile URL that doesn't throw an error
+ * @author Francis Rubio
+ * @param {number} [index=0]
+ * @returns {Promise}  
+ */
+async function fetchFirstOkayProfile(index = 0) {
+  const url = mastodon.endpoints.profiles[index]
+  return EleventyFetch(url, { duration: '1d', type: 'json' })
+    .catch(e => fetchFirstOkayProfile(index + 1))
 }
 
 function sortPosts(arr) {
