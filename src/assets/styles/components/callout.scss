@@ -46,7 +46,7 @@
 
   &--info {
     --icon-color    : hsl(var(--info-900));
-    background-color: hsl(var(--info-100) / 5%);
+    background-color: hsl(var(--info-300) / 15%);
   }
 
   &--warning {
@@ -88,5 +88,9 @@
     &--right {
       float: right;
     }
+  }
+
+  &--inline {
+    grid-column: 2;
   }
 }
