@@ -16,7 +16,7 @@ module.exports = {
     isPaired: true,
     shortcode: (content, id) => `<aside class="sidenote" id="${id}">
   <a href="#ref-${id}" class="footnote-ref"><span class="sr-only">Back to text</span></a>
-  <div class="stack">
+  <div class="stack gap--xs">
     ${md.render(content)}
   </div>
 </aside>`
