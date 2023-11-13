@@ -87,9 +87,10 @@
     @extend .responsive;
     align-items       : center;
     display           : flex;
+    flex-wrap         : wrap;
     gap               : var(--space-xs);
-    position          : relative;
     padding-inline-end: var(--space-xl);
+    position          : relative;
 
     &:not(:first-child) {
       margin-top: 1ch;

@@ -9,6 +9,9 @@
   padding         : var(--space);
 
   &__body {
+    @extend .stack;
+    @extend .gap--xs;
+
     flex       : 1;
     font-family: var(--font-sans);
     font-size  : var(--type-size-6);
@@ -16,6 +19,10 @@
 
     * {
       color: inherit;
+    }
+
+    &>* {
+      margin-block: 0;
     }
   }
 
@@ -89,6 +96,12 @@
   }
 
   &--inline {
-    grid-column: 2;
+    @media (max-width: 1419px) {
+      grid-column: 1/2;
+    }
+
+    @media (min-width: 1420px) {
+      grid-column: 2/3;
+    }
   }
 }
