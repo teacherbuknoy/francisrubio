@@ -1,6 +1,5 @@
 .callout {
   --callout-radius: var(--radius-3);
-  align-items     : baseline;
   background-color: hsl(var(--bg-contrast) / 50%);
   border-radius   : var(--callout-radius);
   display         : flex;
@@ -27,7 +26,6 @@
   }
 
   .feather {
-    bottom  : -0.5ch;
     display : inline;
     height  : 1em;
     position: relative;
