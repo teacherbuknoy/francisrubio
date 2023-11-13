@@ -8,7 +8,7 @@ const ENTRY_POINTS = {
   mastodon: 'mastodon.scss',
   notes: 'notes.scss',
   s404: 's404.scss',
-  noteEntry: 'note-entry.scss',
+  'note-entry': 'note-entry.scss',
 }
 
 const path = require('path')
