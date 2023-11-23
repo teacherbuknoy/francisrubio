@@ -44,7 +44,6 @@
     border-top-left-radius : 0;
     border-top-right-radius: 0;
     box-shadow             : none !important;
-    margin                 : 1px;
 
     @at-root .dark & {
       background-color: hsl(var(--card-bg) / 15%);
