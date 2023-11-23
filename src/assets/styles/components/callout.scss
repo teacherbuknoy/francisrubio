@@ -12,6 +12,7 @@
     @extend .stack;
     @extend .gap--xs;
 
+    align-self : center;
     flex       : 1;
     font-family: var(--font-sans);
     font-size  : var(--type-size-6);

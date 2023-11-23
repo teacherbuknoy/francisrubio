@@ -4,6 +4,10 @@
   &.end-justified {
     justify-content: flex-end;
   }
+
+  &__expand {
+    flex: 1;
+  }
 }
 
 $display: block, inline, inline-block, flex, inline-flex, grid, inline-grid;
