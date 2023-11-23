@@ -8,6 +8,7 @@ const { loadFilters } = require('./src/config/scopedFilters')
 
 const path = require('path')
 const prettier = require('prettier')
+const yaml = require('yaml')
 
 require('dotenv').config()
 
@@ -64,6 +65,8 @@ module.exports = function (eleventyConfig) {
       }
     }
   })
+
+  eleventyConfig.addDataExtension("yaml, yml", contents => yaml.parse(contents))
 
   // Latest build date, for feed.xml
   eleventyConfig.addGlobalData('generated', () => {
