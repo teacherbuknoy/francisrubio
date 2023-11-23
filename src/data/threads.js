@@ -1,6 +1,7 @@
 const EleventyFetch = require('@11ty/eleventy-fetch')
 const { mastodon } = require('./site.json').variables
 const THREADS = [
+  "https://masto.ai/@teacherbuknoy/110671603523280432",
   "https://masto.ai/@teacherbuknoy/110084718692154094",
   "https://masto.ai/@teacherbuknoy/110369962218101139",
   "https://masto.ai/@teacherbuknoy/110340182174714816",
