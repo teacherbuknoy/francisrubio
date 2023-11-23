@@ -47,3 +47,41 @@
     }
   }
 }
+
+@keyframes parallax {
+  to {
+    transform: translateY(calc(var(--animation-speed, 1) * 200px))
+  }
+}
+
+@keyframes hide-baybayin {
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(calc(var(--translate-speed, 1) * 200px));
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+  .hero__baybayin .term,
+  .hero__image,
+  .hero__caption {
+    animation         : parallax linear;
+    animation-timeline: scroll(root);
+  }
+
+  .hero__image {
+    --animation-speed: 20;
+  }
+
+  .hero__caption {
+    --animation-speed: -5;
+  }
+
+  .hero__baybayin .term {
+    --animation-speed: 25;
+  }
+}
