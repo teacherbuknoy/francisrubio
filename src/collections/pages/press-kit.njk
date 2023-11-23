@@ -20,19 +20,37 @@ activePath: press-kit
   <p>For more details, please refer to <a href="/speaker-rider/">my speaker rider</a>. For further questions, feel free to <a href="{{ site.contact.email.url }}">contact me via email</a>.</p>
   <aside class="callout callout--warning m-block-start--xl fs-4 margin-inline--auto">
     {{ icon('alert-triangle') }}
-    <p class="callout__body">The following details <strong>should be used as-is</strong> to avoid misrepresenting me in your pubmats.</p>
+    <div class="callout__body">
+      <p>The following details <strong>should be used as-is</strong> to avoid misrepresenting me in your pubmats.</p>
+    </div>
   </aside>
 </hgroup>
 <section aria-labelledby="section-heading-2" class="padding--xl gap--l content-wrapper margin-inline--auto">
   <h2 id="section-heading-2">Biography</h2>
-  <h3 id="section-heading-3">Short</h3>
-  <p>Francis Rubio is a web developer, designer, and educator. He created Antares Programming, a project aiming to make web development more accessible to Filipino developers.</p>
-  <h3 id="section-heading-4">Long</h3>
-  <p>Francis Rubio is a web developer, designer, and educator.</p>
-  <p>He has created Antares Programming, a project aiming to make web development more accessible to Filipino developers. This project, started in 2018, has now helped thousands of Filipino developers learn HTML and CSS through blog posts and infographics posted on both the project's website and social media accounts.</p>
-  <p>Francis has also given talks and workshops for several schools about web development, particularly in front-end web development. He has worked as a teacher for 2 years where he helped high school students learn to program and create their first websites.</p>
-  <p>He has completed a bachelor's degree in Computer Science at the University of Caloocan City in 2019. Since then, he has worked on many websites. His latest creation is working on the official website of the Philippine Consulate General of Calgary, Canada.</p>
-  <p>Francis is recently launched a Youtube Channel as a for Antares Programming. His videos talking about web development have been watched by many Filipinos, hopefully helping them learn web development in a language they speak and understand fluently.</p>
+  <div class="flex ai--center">
+    <h3 id="section-heading-3" class="flex__expand">Short</h3>
+    <button class="button" data-clipboard="bio-short">
+      {% set feathericon = 'clipboard' %}
+      {% include 'components/feathericon.njk' %}
+      <span>Copy text</span>
+    </button>
+  </div>
+  <p id="bio-short">Francis Rubio is a web developer, designer, and educator. He created Antares Programming, a project aiming to make web development more accessible to Filipino developers.</p>
+  <div class="flex ai--center">
+    <h3 id="section-heading-4" class="flex__expand">Long</h3>
+    <button class="button" data-clipboard="bio-long">
+      {% set feathericon = 'clipboard' %}
+      {% include 'components/feathericon.njk' %}
+      <span>Copy text</span>
+    </button>
+  </div>
+  <div id="bio-long">
+    <p>Francis Rubio is a web developer, designer, and educator.</p>
+    <p>He has created Antares Programming, a project aiming to make web development more accessible to Filipino developers. This project, started in 2018, has now helped thousands of Filipino developers learn HTML and CSS through blog posts and infographics posted on both the project's website and social media accounts.</p>
+    <p>Francis has also given talks and workshops for several schools about web development, particularly in front-end web development. He has worked as a teacher for 2 years where he helped high school students learn to program and create their first websites.</p>
+    <p>He has completed a bachelor's degree in Computer Science at the University of Caloocan City in 2019. Since then, he has worked on many websites. His latest creation is working on the official website of the Philippine Consulate General of Calgary, Canada.</p>
+    <p>Francis is recently launched a Youtube Channel as a for Antares Programming. His videos talking about web development have been watched by many Filipinos, hopefully helping them learn web development in a language they speak and understand fluently.</p>
+  </div>
 </section>
 <section aria-labelledby="section-heading-5" class="padding--xl gap--l content-wrapper margin-inline--auto">
   <h2 id="section-heading-5">Details</h2>

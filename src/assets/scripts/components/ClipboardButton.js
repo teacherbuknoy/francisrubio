@@ -2,6 +2,11 @@ function copyLink() {
   return copyToClipboard(window.location.toString())
 }
 
+function copyInnerText(nodeId) {
+  const node = document.getElementById(nodeId)
+  return copyToClipboard(node.innerText)
+}
+
 async function copyToClipboard(str) {
   if (await isClipboardAvailable()) {
     return navigator.clipboard.writeText(str)
@@ -27,4 +32,4 @@ async function isClipboardAvailable() {
   })
 }
 
-export { copyLink, isClipboardAvailable, copyToClipboard }
+export { copyLink, isClipboardAvailable, copyToClipboard, copyInnerText }

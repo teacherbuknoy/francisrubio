@@ -10,7 +10,7 @@ import { Tab, TabControl } from './components/TabControl'
 import { NotificationManager } from './components/NotificationManager'
 import { FormValidator } from './components/Forms'
 import { attachDialogListener } from './webcomponents/HTMLDialogPopup'
-import { copyLink } from './components/ClipboardButton'
+import { copyLink, copyInnerText } from './components/ClipboardButton'
 
 window.onJSLoadCallbacks = []
 
@@ -63,6 +63,31 @@ $$('button[data-copy]').forEach(button => {
         })
     })
   }
+})
+
+$$('button[data-clipboard]').forEach(button => {
+  button.addEventListener('click', e => {
+    if (button.dataset.clipboard && button.dataset.clipboard.length > 0) {
+      console.log(copyInnerText)
+      copyInnerText(button.dataset.clipboard)
+        .then(() => {
+          notifications.showStatus({
+            title: 'Copied!',
+            message: 'The text is now in your clipboard',
+            feathericon: 'check-circle',
+            type: 'success'
+          }, 5000)
+        })
+        .catch(e => {
+          notifications.showStatus({
+            title: 'Failed to copy text',
+            message: e.message,
+            feathericon: 'alert-triangle',
+            type: 'error'
+          })
+        })
+    }
+  })
 })
 
 
