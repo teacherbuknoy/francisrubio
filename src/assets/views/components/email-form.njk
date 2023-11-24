@@ -11,14 +11,17 @@
     </div>
     <form id="frm-email" action="{{ site.api.email }}" class="modal__body form" method="POST">
       <div class="form-group">
-        <input placeholder=" " class="form-control" type="text" name="name" id="frm-email__name" required aria-describedby="frm-email__name-status">
+        <input placeholder=" " class="form-control" type="text" name="name" id="frm-email__name" aria-describedby="frm-address__message-comment" required
+          aria-describedby="frm-name__message-status">
         <label for="frm-email__name" class="form-label">Your Name</label>
+        <p class="form-comment" id="frm-name__message-comment">So I know how to address you in my reply.</p>
         <p class="form-status" id="frm-email__name-status">This field cannot be empty</p>
       </div>
       <div class="form-group">
-        <input placeholder=" " class="form-control" type="email" name="email" id="frm-email__email" required>
+        <input placeholder=" " class="form-control" type="email" name="email" id="frm-email__email" aria-describedby="frm-address__message-comment" required />
         <label for="frm-email__email" class="form-label">Your Email</label>
-    </div>
+        <p class="form-comment" id="frm-address__message-comment">So I can reply to your message.</p>
+      </div>
     <div class="form-group">
       <textarea placeholder=" " class="form-control" name="message" id="frm-email__message" aria-describedby="frm-email__message-description" required></textarea>
         <label for="frm-email__message" class="form-label">Message</label>
