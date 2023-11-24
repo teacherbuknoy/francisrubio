@@ -8,6 +8,8 @@ scripts: ['frontpage.js', mastodon.js]
 eleventyImport:
   collections: ["posts"]
 ---
+{% from "components/ui/utils.njk" import emailButton %}
+
 {% set mastodon = socials.mastodon %}
 {% set profile = mastodon.profile %}
 {% set feed = mastodon.feed %}
@@ -35,7 +37,7 @@ eleventyImport:
     </div>
     <div class="stack ai--center text-center gap--s padding--xl">
       <span class="fs-4 weight-300">Ready to give me a shot?</span>
-      <button class="primary button" data-dialog="modal__email">Connect with me</button>
+      {{ emailButton('Connect with me') }}
     </div>
   </div>
 </section>
@@ -81,7 +83,7 @@ eleventyImport:
 
     <div class="stack fill-reset ai--center text-center gap--s padding--xl">
       <span class="fs-4 weight-300">Ready to give me a shot?</span>
-      <button class="primary button" data-dialog="modal__email">Connect with me</button>
+      {{ emailButton('Connect with me') }}
     </div>
   </div>
 </section>
@@ -183,7 +185,7 @@ eleventyImport:
       <span class="fs-4 weight-300">Building a similar project?</span>
       <div class="cluster center-align center-justified">
         <a href="/projects/" class="button">See all of my projects</a>
-        <button class="primary button" data-dialog="modal__email">Bring me to your team</button>
+        {{ emailButton('Bring me to your team') }}
       </div>
     </div>
   </div>

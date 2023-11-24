@@ -3,3 +3,10 @@
     <use href="/assets/images/feather-sprite.svg#{{ name }}"/>
   </svg>
 {% endmacro %}
+
+{% macro emailButton(innerText) %}
+  <button class="primary button hide-on-noscript" data-dialog="modal__email">{{ innerText }}</button>
+  <noscript>
+    <a href="/contact/" class="primary button">{{ innerText }}</a>
+  </noscript>
+{% endmacro %}

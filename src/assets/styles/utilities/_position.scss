@@ -21,4 +21,9 @@ sticky;
   gap           : var(--space);
   position      : sticky;
   z-index       : 8;
+  pointer-events: none;
+
+  * {
+    pointer-events: all;
+  }
 }
