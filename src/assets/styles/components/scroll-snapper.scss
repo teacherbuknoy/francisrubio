@@ -1,8 +1,22 @@
+@keyframes scroll-in {
+  from {
+    transform: scale(75%) translateX(-25%);
+    opacity  : 0;
+  }
+
+  50% {
+    transform: scale(100%);
+    opacity  : 1;
+  }
+}
+
 .scroll-snapper {
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
+  //scroll-snap-type: x mandatory;
+  overflow-x     : auto;
+  padding-inline : 25ch !important;
   scroll-behavior: smooth;
-  transition: scrollbar-color 100ms;
+  scroll-timeline: --scroll-snapper inline;
+  transition     : scrollbar-color 100ms;
 
   &:not(:hover) {
     scrollbar-color: transparent transparent;
@@ -11,9 +25,27 @@
       visibility: hidden;
     }
   }
+
+  @supports not (animation-timeline: view(inline)) {
+    scroll-snap-type: x mandatory;
+  }
+
+  .feature-card {
+    animation         : scroll-in linear;
+    animation-range   : entry-crossing 0% contain 100%;
+    animation-timeline: view(inline);
+  }
+
+  @at-root .section__inner & {
+    width         : 100vw;
+    margin-inline : calc((100vw - min(100ch, 98vw)) / -2);
+    padding-inline: 40vw !important;
+  }
 }
 
-$snap-alignments: start, end, center;
+$snap-alignments: start,
+end,
+center;
 
 .snap {
   @each $a in $snap-alignments {
@@ -23,7 +55,7 @@ $snap-alignments: start, end, center;
   }
 
   &-item {
-    flex-basis: var(--snap-item-size, 30ch);
+    flex-basis : var(--snap-item-size, 30ch);
     flex-shrink: 0;
   }
 }
