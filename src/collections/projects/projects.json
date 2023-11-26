@@ -1,5 +1,6 @@
 {
   "layout": "project.njk",
   "permalink": "/projects/{{ title | slugify }}/",
-  "activePath": "projects"
+  "activePath": "projects",
+  "stylesheets": ["project.css"]
 }

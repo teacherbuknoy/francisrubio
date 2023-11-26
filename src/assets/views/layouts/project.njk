@@ -2,9 +2,8 @@
 
 {% block content %}
   {% include 'components/ui/navigation-bar.njk' %}
-  <main class="padding--xl article" id="main" style="width: min(100ch, 100%); margin-inline: auto;" tabindex="-1" aria-labelledby="{{ title | slugify }}">
-    <header style="width: min(100ch, 100%); --" class="article__header ai--center margin-inline--auto">
-      <img src="{{ cover.src }}" alt="{{ cover.alt }}" class="article__image" width="{{ cover.width }}" height="{{ cover.height }}">
+  <main class="padding--xl project" id="main" style="width: min(100ch, 100%); margin-inline: auto;" tabindex="-1" aria-labelledby="{{ title | slugify }}">
+    <header class="project__header">
       <nav class="breadcrumb" aria-label="Breadcrumbs">
         <ol class="breadcrumb__list">
           <li class="breadcrumb__list-item">
@@ -19,51 +18,71 @@
         </ol>
       </nav>
       <div class="stack">
-        <h1 id="{{ title | slugify }}" class="article__title margin--none responsive">{{ title | safe }}</h1>
-        <p class="fs-5 font-sans margin-block--none padding-block-end--l">{{ description | safe }}</p>
-        <div class="spaced cluster ai--center">
+        <h1 id="{{ title | slugify }}" class="project__title">{{ title | safe }}</h1>
+        <p class="project__summary">{{ description | safe }}</p>
+        <div class="project__meta">
           {% if links.length > 1 %}
             <div class="cluster gap--m jc--end ai--center">
               {% for link in links %}
-                <a href="{{ link.url }}" class="{{ "primary" if link.is_primary }} button button--small" target="_blank" rel="noopener noreferer nofollow">{{ link.text }}</a>
+                <a href="{{ link.url }}" class="{{ "primary" if link.is_primary }} button" target="_blank" rel="noopener noreferer nofollow">{{ link.text }}</a>
               {% endfor %}
             </div>
           {% else  %}
             {% set link = links[0] %}
-            <a href="{{ link.url }}" class="button button--small" target="_blank" rel="noopener noreferer nofollow">{{ link.text }}</a>
+            <a href="{{ link.url }}" class="button" target="_blank" rel="noopener noreferer nofollow">{{ link.text }}</a>
           {% endif %}
-          <div class="category-pill">
-            {% for item in tags %}
-              <span class="p-category category-pill__inner category-pill__category">{{ item }}</span>
-            {% endfor %}
-            <time class="category-pill__inner category-pill__read-time" datetime="{{ page.date | machineReadableDate }}">{{ page.date | humanReadableDate }}</time>
-          </div>
+          <dl class="project__details">
+            <div class="project__detail-item">
+              <dt>Made for</dt>
+              <dd>{{ customer | safe }}</dd>
+            </div>
+            <div class="project__detail-item" style="--animation-speed: 2">
+              <dt>I worked as</dt>
+              <dd>{{ role | safe }}</dd>
+            </div>
+            <div class="project__detail-item" style="--animation-speed: 3">
+              <dt>Duration</dt>
+              <dd>{{ duration | safe }}</dd>
+            </div>
+          </dl>
         </div>
       </div>
     </header>
-    {% if details != null or details.length > 0 %}
-      <div class="with-sidebar">
-        <aside class="article__sidebar sidebar" style="--sidebar-width: 25ch;">
-          <details open>
-            <summary class="margin--none padding-block--xs article__sidebar__title">Technical Details</summary>
-            <dl class="stacked">
-              {% for item in details %}
-                <dt>{{ item.key | safe }}</dt>
-                {% for value in item.values %}
-                  <dd>{{ value | safe }}</dd>
-                {% endfor %}
-              {% endfor %}
-            </dl>
-          </details>
-        </aside>
-        <div class="article__body not-sidebar">
-          {{ content | safe }}
-        </div>
-      </div>
+
+    {% if image != null %}
+      {% set filename = '/projects/' + image.folder + '/' + image.filename %}
+      {% set defaultImageClass = 'project__image' %}
+      {% set sizes = image.sizes %}
+      {% set alt = image.alt %}
+      {% include "components/cdn-picture.njk" %}
     {% else %}
-      <div class="article__body">
-        {{ content | safe }}
-      </div>
+      <img src="{{ cover.src }}" alt="{{ cover.alt }}" class="project__image" width="{{ cover.width }}" height="{{ cover.height }}">
+    {% endif %}
+
+    <section class="project__section">
+      {# {% if challenge != null %}
+      {{ challenge | markdown | safe }}
+      {% endif %} #}
+      {{ content | safe }}
+    </section>
+
+    {% if gallery %}
+      <section class="project__gallery">
+        {% for figure in gallery %}
+          <figure class="project__gallery-item">
+            {% for image in figure.images %}
+              {% set filename = '/projects/' + figure.folder + '/' + image.filename %}
+              {% set defaultImageClass = 'project__gallery-image' %}
+              {% set sizes = figure.sizes %}
+              {% set alt = image.alt %}
+              {% include "components/cdn-picture.njk" %}
+            {% endfor %}
+            <figcaption class="project__gallery-item__caption">
+              {{ figure.caption | markdown | safe }}
+            </figcaption>
+          </figure>
+        {% endfor %}
+      </section>
     {% endif %}
 
     <footer class="stack gap--xl m-block--xxxl" style="text-align: center; margin-inline: auto; width: min(var(--content-width), 90%);">

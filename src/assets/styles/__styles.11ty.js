@@ -9,6 +9,7 @@ const ENTRY_POINTS = {
   notes: 'notes.scss',
   s404: 's404.scss',
   'note-entry': 'note-entry.scss',
+  project: 'project.scss'
 }
 
 const path = require('path')
