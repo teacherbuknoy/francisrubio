@@ -1,7 +1,10 @@
 ---
 title: Quantarks
-description: An augmented reality app for Android devices that serves interactive representations of elements in the periodic table.
+description: Revolutionizing education with augmented reality
 date: 2017-09-04
+customer: University of Caloocan City as part of our thesis project
+role: Researcher, project manager, lead developer
+duration: 2018 - 2019
 tags:
   - Android
   - Unity 3D
@@ -19,6 +22,12 @@ cover:
   alt: Quantarks
   width: 1200
   height: 630
+image:
+  alt: Quantarks
+  folder: quantarks
+  filename: cover.png
+  sizes: [500, 1000, 1500, 1920]
+  formats: ['png', 'webp', 'avif']
 details:
   - key: Technologies used
     values:

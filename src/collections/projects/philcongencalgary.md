@@ -1,7 +1,10 @@
 ---
 title: Philippine Consulate General
-description: The official website of the Philippine Consulate General in Calgary, Alberta, Canada.
+description: A website revamp for the people
 date: 2022-02-25
+customer: Philippine Consulate General, Calgary, Alberta, Canada
+role: Web designer and developer
+duration: January to March 2022
 tags:
   - Web Development
 links:
@@ -15,15 +18,44 @@ logo:
   height: 1080
 cover:
   src: "/assets/images/projects/philcongencalgary/cover.png"
-  alt: Philippine Consulate General - Calgary
   width: 1200
   height: 630
+image:
+  alt: Philippine Consulate General - Calgary
+  folder: philcongencalgary
+  filename: cover.png
+  sizes: [500, 1000, 1500, 1920]
+  formats: ['png', 'webp', 'avif']
 details:
   - key: Technologies used
     values:
       - Eleventy, Nunjucks, NodeJS
       - Figma (for graphic design)
       - Vanilla HTML, CSS, JavaScript
+gallery:
+  - caption: The new website adapts to the user's system dark color scheme.
+    folder: philcongencalgary
+    images:
+      - filename: new-1.png
+        alt: Screenshot of the new website in dark mode
+      - filename: new-2.png
+        alt: Screenshot of the new website in light mode
+    sizes: [500, 700, 1000, 1428]
+    formats: ['png', 'webp', 'avif']
+  - caption: The new website organizes the links into sensible groups in the navigation menu.
+    folder: philcongencalgary
+    images:
+      - filename: new-3.png
+        alt: Screenshot of the new website's navigation menu that opens into a dialog
+    sizes: [500, 700, 1000, 1428]
+    formats: ['png', 'webp', 'avif']
+  - caption: Because of the new CMS, press releases are easier to create to the new site. New press releases are also easier to find because of the new press release previews in the front page.
+    folder: philcongencalgary
+    images:
+      - filename: new-4.png
+        alt: Screenshot of the new website's press releases
+    sizes: [500, 700, 1000, 1428]
+    formats: ['png', 'webp', 'avif']
 ---
 
 ## Problem
@@ -51,27 +83,6 @@ To make it fast, I opted into making it a static site using [Eleventy][eleventy]
 
 The new website follows the design language of most of the Philippine government sites. On top of that, the site is now more responsive. The site also suffered from having too many links, and one of the most efforts we put into was in the information architecture of the site. It also adapts to the user's system dark color scheme.
 
-<figure class="image margin-top--xl">
-  <div class="cluster gap--m">
-    <img style="width: min(35ch, 100%); flex-basis: 35ch;" src="/assets/images/projects/philcongencalgary/new-1.png" alt="Screenshot of the new website in dark mode">
-    <img style="width: min(35ch, 100%); flex-basis: 35ch;" src="/assets/images/projects/philcongencalgary/new-2.png" alt="Screenshot of the new website in light mode">
-  </div>
-  <figcaption>
-    <strong>Figure 2</strong>: The new website adapts to the user's system dark color scheme.
-  </figcaption>
-</figure>
-<figure class="image margin-top--xl" style="width: min(90ch, 100%); margin-inline: auto;">
-  <img src="/assets/images/projects/philcongencalgary/new-3.png" alt="Screenshot of the new website in dark mode">
-  <figcaption>
-    <strong>Figure 3</strong>: The new website organizes the links into sensible groups in the navigation menu.
-  </figcaption>
-</figure>
-<figure class="image margin-top--xl" style="width: min(90ch, 100%); margin-inline: auto;">
-  <img src="/assets/images/projects/philcongencalgary/new-4.png" alt="Screenshot of the new website's press releases">
-  <figcaption>
-    <strong>Figure 4</strong>: Because of the new CMS, press releases are easier to create to the new site. New press releases are also easier to find because of the new press release previews in the front page.
-  </figcaption>
-</figure>
 
 *[CMS]: Content Management System
 *[CSS]: Cascading Style Sheets.

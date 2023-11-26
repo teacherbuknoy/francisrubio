@@ -1,7 +1,10 @@
 ---
 title: Antares Programming
-description: A project that aims to bridge the gap between Filipino developers and accessible learning resources about web development by sharing knowledge and using the Filipino language as its medium.
+description: Empowering Filipinos in web development
 date: 2019-11-28
+customer: The public
+role: Writer, designer, and developer
+duration: November 2018 to present
 tags:
   - Web Development
 links:
@@ -18,6 +21,12 @@ cover:
   alt: Antares Programming
   width: 1200
   height: 630
+image:
+  alt: Antares Programming
+  folder: antaresprogramming
+  filename: cover.png
+  sizes: [500, 1000, 1500, 1920]
+  formats: ['png', 'webp', 'avif']
 details:
   - key: Technologies used
     values:
