@@ -48,6 +48,7 @@
 
   &__detail-item {
     font-size: 1rem;
+    min-width: min(15ch, 30vw);
 
     @supports (animation-timeline: scroll(root)) {
       --animation-speed : 1;
@@ -136,6 +137,7 @@
       gap             : 1ch;
       display         : grid;
 
+
       item__caption {
         font-size: var(--type-size-6);
       }
@@ -149,17 +151,17 @@
 
 @keyframes project-image {
   from {
-    object-position: center 80%;
+    object-position: 35% 35%;
   }
 
   to {
-    object-position: center 100%;
+    object-position: 65% 65%;
   }
 }
 
 @keyframes move-sideways {
   to {
-    transform: translateX(calc(4rem * var(--animation-speed)));
+    transform: translateX(calc(25ch * var(--animation-speed)));
     opacity  : 0;
   }
 }
