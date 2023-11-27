@@ -85,12 +85,13 @@
   h5,
   h6 {
     @extend .responsive;
-    align-items       : center;
-    display           : flex;
-    flex-wrap         : wrap;
-    gap               : var(--space-xs);
-    padding-inline-end: var(--space-xl);
-    position          : relative;
+    align-items            : center;
+    display                : flex;
+    flex-wrap              : wrap;
+    font-variation-settings: 'wght'500, 'SOFT'100, 'WONK'100, 'opsz'60;
+    gap                    : var(--space-xs);
+    padding-inline-end     : var(--space-xl);
+    position               : relative;
 
     &:not(:first-child) {
       margin-top: 1ch;
@@ -511,5 +512,15 @@ details {
     grid-row   : 1/span 10;
     position   : sticky;
     top        : calc(var(--space-xxxl) * 2);
+  }
+}
+
+.article {
+  &__title {
+    font-variation-settings: 'wght'500, 'SOFT'100, 'WONK'100, 'opsz'60;
+  }
+
+  .p-summary {
+    font-variation-settings: 'SOFT'100, 'WONK'1, 'opsz'100, 'wght'370;
   }
 }
