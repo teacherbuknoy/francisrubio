@@ -5,7 +5,15 @@
   "photo": "https://ik.imagekit.io/8jjzxcl9p/tr:w-300/authors/teacherbuknoy.jpg?updatedAt=1679810276132",
   "seo": {
     "fb_image": "/assets/images/fb_image.png",
-    "twitter_image": "/assets/images/twitter_image.png"
+    "twitter_image": "/assets/images/twitter_image.png",
+    "twitter": {
+      "url": "https://ik.imagekit.io/8jjzxcl9p/twitter_image.png",
+      "alt": "Francis Rubio"
+    },
+    "og": {
+      "url": "https://ik.imagekit.io/8jjzxcl9p/fb_image.png",
+      "alt": "Francis Rubio"
+    }
   },
   "contact": {
     "phone": {
@@ -73,6 +81,11 @@
     {
       "name": "Google Domains",
       "value": "francisrubio.antaresph.dev",
+      "isPreferred": false
+    },
+    {
+      "name": "Cloudflare",
+      "value": "francisrub.io",
       "isPreferred": true
     }
   ],

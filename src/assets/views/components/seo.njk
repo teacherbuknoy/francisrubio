@@ -40,7 +40,7 @@
 
 {% if not twitter_image %}
   {% set twitter_image %}
-  {% if not twitter_image %}{{ 'https://' + preferredDomain.value }}/{{ site.seo.twitter_image }}
+  {% if not twitter_image %}{{ site.seo.twitter.url }}
   {% endif %}{% endset %}
 {% endif %}
 
