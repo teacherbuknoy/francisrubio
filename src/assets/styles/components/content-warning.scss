@@ -153,10 +153,14 @@
     padding-block          : 0.2ch;
   }
 
+  &[aria-pressed=true]::after {
+    content: attr(data-slur-details);
+  }
+
   &::after {
     background-color: hsl(var(--warning-100));
     bottom          : calc(100% + var(--space-xs));
-    content         : attr(data-slur-details);
+    content         : '';
     left            : 50%;
     padding         : var(--space-xs);
     position        : absolute;
