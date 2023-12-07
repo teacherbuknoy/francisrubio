@@ -242,6 +242,11 @@
     height       : auto;
     object-fit   : cover;
     width        : 10ch;
+
+    &[src=null],
+    &:not([src]) {
+      visibility: hidden;
+    }
   }
 
   &-title {
