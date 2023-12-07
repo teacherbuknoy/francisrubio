@@ -29,7 +29,7 @@ eleventyImport:
     <div class="scroll-snapper d-flex gap--m padding--xl relative">
       <a href="#section-3" class="button skip-link">Skip to next section</a>
       {% for feature in features %}
-        <div class="feature-card snap-center" style="flex-basis: 30ch; flex-shrink: 0;">
+        <div class="feature-card snap-center" style="flex-basis: 30ch; flex-shrink: 0; z-index: {{ loop.revindex0 }};">
           <button data-popover data-aria-hide data-disclosure class="feature-card__header">{{ feature.title }}</button>
           <div class="feature-card__content">{{ feature.content }}</div>
         </div>

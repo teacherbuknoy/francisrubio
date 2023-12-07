@@ -3,7 +3,7 @@
   gap               : var(--space);
   grid-template-rows: auto 1fr;
   height            : 35ch;
-  max-width         : 95%;
+  max-width         : min(35ch, 90vw);
   transition        : grid-template-rows 100ms ease, gap 100ms;
 
   &:not([data-open]) {
