@@ -68,7 +68,7 @@
   flex-grow       : 999;
   padding         : var(--space);
   border-radius   : var(--ideal-radius);
-  background-color: hsl(var(--bg-accent) / 25%);
+  background-color: hsl(var(--bg-secondary));
   overflow        : auto;
   transition      : padding 300ms;
 }
