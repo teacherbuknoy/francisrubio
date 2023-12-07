@@ -31,17 +31,21 @@
   }
 
   &--search {
-    background-color: transparent;
-    border-radius   : 0;
-    gap             : var(--space-xl);
-    height          : 100vh;
-    overflow        : visible;
-    padding         : var(--space);
-    transition      : height 200ms;
-    width           : min(var(--page-width), 98%);
+    align-content     : center;
+    background-color  : transparent;
+    border-radius     : 0;
+    display           : grid;
+    gap               : var(--space-xl);
+    grid-template-rows: min-content 1fr;
+    height            : 100vh;
+    overflow          : visible;
+    padding           : var(--space);
+    transition        : grid-template-rows 200ms;
+    width             : min(var(--page-width), 98%);
 
     &:not(.has-results) {
-      height: 30ch;
+      grid-template-rows: min-content 0fr;
+      transition        : grid-template-rows 200ms;
     }
 
     .dialog {
@@ -231,6 +235,13 @@
     &:hover {
       background-color: hsl(var(--bg-secondary));
     }
+  }
+
+  &-subtitle {
+    -webkit-line-clamp: 2;
+    display           : -webkit-box;
+    overflow          : hidden;
+    -webkit-box-orient: vertical;
   }
 
   &-image {

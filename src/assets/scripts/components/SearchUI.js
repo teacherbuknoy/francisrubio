@@ -106,9 +106,12 @@ class SearchUi {
 
     li.querySelector('[data-result=title]').innerText = data.title != null
       ? data.title : ""
-
-    li.querySelector('[data-result=subtitle]').innerText = data.description != null
+    
+    const descriptionSanitizer = document.createElement('div')
+    descriptionSanitizer.innerHTML = data.description != null
       ? data.description : ""
+
+    li.querySelector('[data-result=subtitle]').innerText = descriptionSanitizer.innerText
 
     this.container.appendChild(li)
   }
