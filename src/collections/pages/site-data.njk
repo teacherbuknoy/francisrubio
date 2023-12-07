@@ -65,7 +65,7 @@ permalink: /site-data.json
       {
         "url" : {{ item.url | dump |safe }},
         "title": {{ item.data.title | dump | safe }},
-        "description": "",
+        "description": {{ item.content | dump | safe }},
         "image": "https://i.ytimg.com/vi/{{ item.data.code }}/hqdefault.jpg"
       }
       {{ "," if loop.index < collection.length }}
@@ -77,7 +77,7 @@ permalink: /site-data.json
       {
         "url" : {{ item.url | dump |safe }},
         "title": {{ item.data.title | dump | safe }},
-        "description": "",
+        "description": {{ item.content | dump | safe }},
         "image": null,
         "tags": {{ item.data.tags | dump | safe }}
       }
