@@ -7,9 +7,9 @@
 <link rel="canonical" href="https://{{ domain.value }}{{ page.url }}">
 
 <link rel="manifest" href="/manifest.webmanifest">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico?{{ utils.currentTimestamp() }}" sizes="any">
+<link rel="icon" href="/favicon.svg?{{ utils.currentTimestamp() }}" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?{{ utils.currentTimestamp() }}">
 
 <link rel="preconnect" href="{{ site.api.images }}">
 

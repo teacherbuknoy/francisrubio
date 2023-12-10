@@ -63,5 +63,6 @@ module.exports = {
   getFederatedUsername: (username, profileURL) => {
     const url = new URL(profileURL).host
     return `@${username}@${url}`
-  }
+  },
+  currentTimestamp: () => Date.now()
 }
