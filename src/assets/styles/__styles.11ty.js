@@ -1,17 +1,7 @@
 // This file handles the CSS build.
 // It will run Sass and compile all styles defined in the main entry file.
 
-// main entry point name
-const ENTRY_POINTS = {
-  styles: 'styles.scss',
-  frontpage: 'frontpage.scss',
-  mastodon: 'mastodon.scss',
-  notes: 'notes.scss',
-  s404: 's404.scss',
-  'note-entry': 'note-entry.scss',
-  project: 'project.scss'
-}
-
+const ENTRY_POINTS = require('./styles.json')
 const path = require('path')
 const sass = require('sass')
 const CleanCSS = require('clean-css')
