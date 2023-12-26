@@ -1,5 +1,7 @@
 @import "mixins";
 
+@layer reset, layouts, components, utilities, print;
+
 @layer reset {
   @import "reset";
   @import "fonts";

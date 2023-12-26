@@ -135,7 +135,7 @@ $line-heights: (xxxs: 0.5,
 /* #endregion */
 
 .quotation {
-  --border: 3px solid hsl(var(--primary-100));
+  --border         : 3px solid hsl(var(--primary-100));
   border-inline-end: var(--border);
   padding          : var(--space);
   margin           : 0;
@@ -174,11 +174,15 @@ $line-heights: (xxxs: 0.5,
   }
 
   &.quotation--small {
-    border       : 0;
-    grid-column  : 2/3;
+    border: 0;
+
     margin-inline: auto;
     text-align   : start;
     width        : 80%;
+
+    &:not(.quotation--unfloated) {
+      grid-column: 2/3;
+    }
 
     blockquote {
       font-size              : 1em;
