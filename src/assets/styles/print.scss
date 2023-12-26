@@ -3,8 +3,11 @@
   div:has(> webring-banner),
   webring-banner,
   form,
+  .footer,
   .skip-link,
-  .bottom-fixed {
+  .bottom-fixed,
+  .navbar-wrapper,
+  .article__sidebar {
     display: none;
   }
 
@@ -14,29 +17,13 @@
     filter : grayscale(1);
   }
 
-  .navbar-wrapper {
-    margin-block-end: 0;
-    position        : static;
-    width           : calc(min(120ch, 100%) - (var(--space-xxl) * 2));
-  }
+  .hero {
+    --top-offset: 0;
+    padding-top : var(--space-xl);
 
-  .navigation-bar {
-    justify-content: center;
-
-    &.attached {
-      max-width     : none;
-      width         : fit-content;
-      padding-inline: var(--space-xxl);
+    &__actions {
+      display: none;
     }
-  }
-
-  .navigation-list-item:not(:has(.logo)),
-  .navigation-bar__section.hide-on-noscript {
-    display: none;
-  }
-
-  .hero__actions {
-    display: none;
   }
 
   .feature-card {
@@ -101,16 +88,130 @@
     max-width: none;
   }
 
-  .footer {
-    background-color: transparent;
+  .h-entry {
+    padding-block-start: 0;
+  }
 
-    &__header {
-      background-color: transparent;
-      border-block    : 1px solid hsl(var(--bg-secondary));
+  .feature-card,
+  hgroup,
+  :is(h1, h2, h3, h4, h5, h6) {
+    break-inside: avoid-page;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1;
+  }
+
+  .callout__body {
+    font-size: var(--type-size);
+  }
+
+  .sidenote {
+    font-size: var(--type-size-8);
+  }
+
+  .article__body {
+    column-count: 2;
+    column-gap  : var(--space-l);
+    display     : block;
+
+    &> :is(p, ul, ol) {
+      margin-block: var(--space);
     }
   }
 
-  .h-entry {
-    padding-block-start: 0;
+  ul:not([class]) {
+    padding-inline: var(--space);
+  }
+
+  .callout {
+    break-inside: avoid-column;
+  }
+
+  .article__image {
+    height: 6rem;
+  }
+
+  figure {
+    column-span: all;
+    float      : none;
+    width      : 100%;
+  }
+
+  :is(.quotation) blockquote p {
+    font-size: var(--type-size-3);
+  }
+}
+
+@layer print {
+  .statement {
+    --statement-gap: var(--space-xl);
+    break-before   : avoid;
+    margin-block   : var(--space-xl);
+    margin-inline  : auto;
+
+    &::before,
+    &::after {
+      content: none;
+    }
+
+    p {
+      widows : 2;
+      orphans: 2;
+    }
+  }
+
+  .gallery-grid {
+    break-after          : avoid;
+    break-before         : page;
+    break-inside         : avoid;
+    column-width         : 15ch;
+    display              : block;
+    grid-auto-rows       : auto;
+    grid-template-columns: repeat(auto-fill, minmax(15ch, 1fr));
+  }
+
+  .gallery__body {
+    columns: 2;
+    display: block;
+  }
+}
+
+@layer print {
+  :root {
+    --type-size  : 12pt;
+    --type-size-1: 24.33pt;
+    --type-size-2: 21.62pt;
+    --type-size-3: 19.22pt;
+    --type-size-4: 17.09pt;
+    --type-size-5: 15.19pt;
+    --type-size-6: 13.5pt;
+    --type-size-7: 12pt;
+    --type-size-8: 10.67pt;
+    --type-size-9: 9.48pt;
+
+    --vtype-size  : var(--type-size);
+    --vtype-size-1: var(--type-size-1);
+    --vtype-size-2: var(--type-size-2);
+    --vtype-size-3: var(--type-size-3);
+    --vtype-size-4: var(--type-size-4);
+    --vtype-size-5: var(--type-size-5);
+    --vtype-size-6: var(--type-size-6);
+    --vtype-size-7: var(--type-size-7);
+    --vtype-size-8: var(--type-size-8);
+    --vtype-size-9: var(--type-size-9);
+  }
+}
+
+@page {
+
+  /* margin box at top right showing page number */
+  @bottom-right {
+    content: counter(pageNumber);
   }
 }
