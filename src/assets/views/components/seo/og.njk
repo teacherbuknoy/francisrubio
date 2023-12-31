@@ -24,7 +24,6 @@
 <meta property="og:image" content="{{ fb_image if fb_image else site.seo.fb_image }}">
 <meta property="og:site_name" content="{{ site.title }}">
 <meta property="og:published_time" content="{{ page.date | machineReadableDate }}">
-<meta property="og:author" content="https://{{ preferredDomain.value }}/profile/">
 
 {% if ['article', 'book'].includes(seoType) %}
   {% for tag in category %}
