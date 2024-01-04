@@ -92,7 +92,7 @@
   "api": {
     "email": "https://form.taxi/s/egdwtcqq",
     "images": "https://ik.imagekit.io/8jjzxcl9p/",
-    "webmentions": "https://webmention.io/francisrubio.antaresph.dev/webmention",
+    "webmentions": "https://webmention.io/francisrub.io/webmention",
     "mastodon": {
       "profile": "https://masto.ai/api/v1/accounts/109810743922547925",
       "feed": "https://masto.ai/api/v1/accounts/109810743922547925/statuses/?limit=40"
