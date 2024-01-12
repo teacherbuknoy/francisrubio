@@ -5,6 +5,7 @@
   align-items            : center;
   backdrop-filter        : blur(10px);
   background-color       : hsl(var(--primary-500) / 15%);
+  background-color       : color-mix(in lch, var(--primary-500) 25%, transparent);
   background-repeat      : no-repeat;
   border                 : 0;
   border-radius          : var(--ideal-radius);
@@ -16,7 +17,7 @@
   gap                    : var(--space);
   justify-content        : center;
   line-height            : 1;
-  outline                : 0px solid hsl(var(--primary-500) / 0%);
+  outline                : 0px solid transparent;
   overflow               : hidden;
   padding                : var(--button-padding);
   position               : relative;
@@ -29,7 +30,7 @@
   &::before {
     content         : "";
     aspect-ratio    : 1;
-    background-image: radial-gradient(circle at center, hsl(var(--primary-500)/10%), transparent 75%);
+    background-image: radial-gradient(circle at center, color-mix(in lch, var(--l-primary-500) 15%, transparent), transparent 75%);
     height          : 500%;
     left            : var(--hover-left, 0);
     opacity         : 0;
@@ -49,16 +50,16 @@
   }
 
   &:focus-visible {
-    outline       : 5px solid hsl(var(--primary-500));
+    outline       : 5px solid var(--primary-500);
     outline-offset: 3px;
   }
 
   &.primary {
-    background-color: hsl(var(--primary-500));
+    background-color: var(--primary-500);
     color           : hsl(var(--l-contrast));
 
     &::before {
-      background-image: radial-gradient(circle at center, hsl(var(--l-contrast) / 10%), transparent 75%);
+      background-image: radial-gradient(circle at center, color-mix(in lch, var(--primary-700) 20%, transparent), transparent 75%);
     }
 
     &:focus-visible {
