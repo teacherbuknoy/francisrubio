@@ -523,3 +523,11 @@ details {
     font-variation-settings: 'SOFT'100, 'WONK'1, 'opsz'100, 'wght'370;
   }
 }
+
+.floated-image {
+  float        : var(--float, left);
+  shape-outside: var(--shape-outside);
+  width        : min(45ch, 50%);
+  shape-margin : 1ch;
+  margin-top   : 4ch;
+}
