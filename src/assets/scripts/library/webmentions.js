@@ -39,12 +39,26 @@ const WebMentionType = Object.freeze({
  */
 class WebMentions {
   /**
+   * @description The web mentions data
+   * @type {WMEntry[]}
+   * @author Francis Rubio
+   * @memberof WebMentions
+   */
+  data;
+
+  /**
+   * @type {WMStatistics}
+   */
+  #statistics;
+
+  /**
    * Creates an instance of WebMentions.
    * @author Francis Rubio
    * @param {string} url the URL of the page that receives the likes, reposts, etc.
    * @memberof WebMentions
    */
   constructor(url) {
+    this.#statistics = null;
     this.url = url == null
       ? TESTING
         ? TEST_URL
@@ -52,11 +66,16 @@ class WebMentions {
       : url
   }
 
+  initializeCount() {
+    this.#statistics = this.getCount()
+  }
+
   /**
    * @description Gets the total count of WebMention responses received by this page
    * @author Francis Rubio
    * @returns {Promise<WMStatistics>}
    * @memberof WebMentions
+   * @deprecated
    */
   async getMentionsCount() {
     const API = new URL('https://webmention.io/api/count')
@@ -68,16 +87,34 @@ class WebMentions {
     return data
   }
 
+  async getCount() {
+    if (this.data == null) {
+      throw new Error("WebMentions data is null. Use the WebMentionBuilder class to create this object so it is initialized correctly.")
+    }
+
+    /** @type {WMStatistics} */
+    const stats = {
+      count: this.data.length,
+      type: {
+        like: this.data.filter(item => item.type === WebMentionType.LIKE || WebMentions.isFacebookReact(item)).length,
+        reply: this.data.filter(item => item.type === WebMentionType.REPLY && !WebMentions.isFacebookReact(item)).length,
+        repost: this.data.filter(item => item.type === WebMentionType.REPOST).length
+      }
+    }
+
+    return stats
+  }
+
   /**
    * @description Gets all responses that have content (i.e. mention-of, in-reply-to)
    * @author Francis Rubio
    * @returns {Promise<WMEntry[]>}
-   * @throws Will throw an error if the data property is null. Use WebMentionsBuilder to avoid.
+   * @throws Will throw an error if the data property is null. Use WebMentionBuilder to avoid.
    * @memberof WebMentions
    */
   async getResponses() {
     if (this.data == null) {
-      throw new Error("WebMentions data is null. Did you use the WebMentionsBuilder class to create this object?")
+      throw new Error("WebMentions data is null. Did you use the WebMentionBuilder class to create this object?")
     }
 
     const monitoredKeys = ['mention-of', 'in-reply-to']
@@ -90,12 +127,12 @@ class WebMentions {
    * @description Gets all WebMentions responses
    * @author Francis Rubio
    * @returns {Promise<WMEntry[]>}
-   * @throws Will throw an error if the data property is null. Use WebMentionsBuilder to avoid.
+   * @throws Will throw an error if the data property is null. Use WebMentionBuilder to avoid.
    * @memberof WebMentions
    */
   async getAllMentions() {
     if (this.data == null) {
-      throw new Error("WebMentions data is null. Did you use the WebMentionsBuilder class to create this object?")
+      throw new Error("WebMentions data is null. Did you use the WebMentionBuilder class to create this object?")
     }
 
     return this.data
@@ -105,27 +142,27 @@ class WebMentions {
    * @description Gets all `like-of` responses
    * @author Francis Rubio
    * @returns {Promise<WMEntry[]>}
-   * @throws Will throw an error if the data property is null. Use WebMentionsBuilder to avoid.
+   * @throws Will throw an error if the data property is null. Use WebMentionBuilder to avoid.
    * @memberof WebMentions
    */
   async getLikes() {
     if (this.data == null) {
-      throw new Error("WebMentions data is null. Did you use the WebMentionsBuilder class to create this object?")
+      throw new Error("WebMentions data is null. Did you use the WebMentionBuilder class to create this object?")
     }
 
-    return this.data.filter(i => i['wm-property'] === 'like-of')
+    return this.data.filter(i => i['wm-property'] === 'like-of' && WebMentions.isFacebookReact(i))
   }
 
   /**
    * @description Gets all `repost-of` responses
    * @author Francis Rubio
    * @returns {Promise<WMEntry[]>}
-   * @throws Will throw an error if the data property is null. Use WebMentionsBuilder to avoid.
+   * @throws Will throw an error if the data property is null. Use WebMentionBuilder to avoid.
    * @memberof WebMentions
    */
   async getReposts() {
     if (this.data == null) {
-      throw new Error("WebMentions data is null. Did you use the WebMentionsBuilder class to create this object?")
+      throw new Error("WebMentions data is null. Did you use the WebMentionBuilder class to create this object?")
     }
 
     return this.data.filter(i => i['wm-property'] === 'repost-of')
@@ -135,15 +172,15 @@ class WebMentions {
    * @description Gets all `in-reply-to` responses
    * @author Francis Rubio
    * @returns {Promise<WMEntry[]>}
-   * @throws Will throw an error if the data property is null. Use WebMentionsBuilder to avoid.
+   * @throws Will throw an error if the data property is null. Use WebMentionBuilder to avoid.
    * @memberof WebMentions
    */
   async getReplies() {
     if (this.data == null) {
-      throw new Error("WebMentions data is null. Did you use the WebMentionsBuilder class to create this object?")
+      throw new Error("WebMentions data is null. Did you use the WebMentionBuilder class to create this object?")
     }
 
-    return this.data.filter(i => i['wm-property'] === 'in-reply-to')
+    return this.data.filter(i => i['wm-property'] === 'in-reply-to' && !WebMentions.isFacebookReact(i))
   }
 
   /**
@@ -154,6 +191,20 @@ class WebMentions {
    */
   isEmpty() {
     return this.data.length <= 0
+  }
+
+  /**
+   * @description Returns true if the item is a Facebook reaction instead of an in-reply-to item
+   * @author Francis Rubio
+   * @static
+   * @param {WMEntry} item
+   * @memberof WebMentions
+   * @returns {Boolean}
+   */
+  static isFacebookReact(item) {
+    return item.type === WebMentionType.REPLY
+      && item.url.includes('facebook.com')
+      && item.content.html == null
   }
 }
 
@@ -196,6 +247,7 @@ async function fetchWebMentions() {
       return dateA - dateB
     })
     .filter(item => item.author.name && item.author.name.length > 0)
+  this.initializeCount()
   return data
 }
 class WebMentionBuilder {

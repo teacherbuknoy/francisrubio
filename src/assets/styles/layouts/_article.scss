@@ -526,8 +526,10 @@ details {
 
 .floated-image {
   float        : var(--float, left);
+  margin-top   : 4ch;
+  position     : relative;
+  shape-margin : 1ch;
   shape-outside: var(--shape-outside);
   width        : min(45ch, 50%);
-  shape-margin : 1ch;
-  margin-top   : 4ch;
+  z-index      : 5;
 }

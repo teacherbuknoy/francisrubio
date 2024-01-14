@@ -9,7 +9,7 @@ async function renderWebMentions() {
     return
   }
 
-  await wm.getMentionsCount()
+  await wm.getCount()
     .then(data => {
       const { type } = data
       const monitoredKeys = ["like", "repost", "reply"]
@@ -25,7 +25,7 @@ async function renderWebMentions() {
           })
       })
     })
-
+  
   const likesAndReposts = (await wm.getAllMentions())
     .filter(item => item.type === 'like-of' || item.type === 'repost-of' || (item.type === 'in-reply-to' && item.url.includes('facebook.com') && item.content.html == null))
 
