@@ -43,18 +43,8 @@ async function renderWebMentions() {
     .then(data => {
       const webmentions = data
         .filter(item => {
-          item.type === 'in-reply-to' && item.url.includes('facebook.com') && item.content.html != null
-
-          if (item.type === 'in-reply-to') {
-            const isFbReact = item.url.includes('facebook.com') && item.content.html == null
-            if (isFbReact) {
-              return false
-            }
-
-            return true
-          }
-
-          return false
+          const isFbReact = item.type === 'in-reply-to' && item.url.includes('facebook.com') && item.content.html == null
+          return !isFbReact
         })
 
       console.log(webmentions)
