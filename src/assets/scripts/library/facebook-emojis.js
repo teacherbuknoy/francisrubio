@@ -5,7 +5,8 @@ const EMOJIS = {
   "/images/emoji.php/v9/t6d/1/16/1f973.png": "🥳",
   "/images/emoji.php/v9/t55/1/16/1f607.png": "😇",
   "/images/emoji.php/v9/tb4/1/16/1f38a.png": "🎊",
-  "/images/emoji.php/v9/t49/1/16/1faf6.png": "🫶"
+  "/images/emoji.php/v9/t49/1/16/1faf6.png": "🫶",
+  "/images/emoji.php/v9/tea/1/16/1f970.png": "🥰",
 }
 
 function selectEmojiByImageUrl(url) {

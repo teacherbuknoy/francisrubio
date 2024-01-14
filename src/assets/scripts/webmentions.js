@@ -71,15 +71,11 @@ async function renderWebMentions() {
  */
 function renderFacebookEmoji(emoji) {
   const backgroundImage = getComputedStyle(emoji).backgroundImage
-  console.log(emoji)
-  console.log({ backgroundImage, fromFb: backgroundImage.includes('fbcdn') })
   if (backgroundImage.includes('fbcdn')) {
     const url = backgroundImage.slice(4, -1).replace(/"/g, "")
     const emojiChar = selectEmojiByImageUrl(url)
-    emoji.innerText = emojiChar
+    emoji.innerText = emojiChar != null ? emojiChar : '????'
     emoji.setAttribute('style', '')
-  } else {
-    emoji.remove()
   }
 }
 
