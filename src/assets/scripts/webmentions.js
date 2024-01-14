@@ -30,13 +30,17 @@ async function renderWebMentions() {
     .filter(item => item.type === 'like-of' || item.type === 'repost-of' || (item.type === 'in-reply-to' && item.url.includes('facebook.com') && item.content.html == null))
 
   likesAndReposts.forEach(interaction => {
-    const rendered = new WebMentionResponse(interaction).render()
+    try {
+      const rendered = new WebMentionResponse(interaction).render()
 
-    document.querySelectorAll('[data-webmention-container=likes]:is(ul, ol)')
-      .forEach(container => {
-        const clone = rendered.cloneNode(true)
-        container.appendChild(clone)
-      })
+      document.querySelectorAll('[data-webmention-container=likes]:is(ul, ol)')
+        .forEach(container => {
+          const clone = rendered.cloneNode(true)
+          container.appendChild(clone)
+        })
+    } catch (e) {
+      console.error(e)
+    }
   })
 
   await wm.getReplies()
@@ -47,24 +51,26 @@ async function renderWebMentions() {
           return !isFbReact
         })
 
-      console.log(webmentions)
-      const responses = webmentions
-        .map(d => new WebMentionResponse(d).render())
+      try {
+        const responses = webmentions
+          .map(d => new WebMentionResponse(d).render())
 
-      console.log(responses.map(response => response.innerText))
-      document.querySelectorAll('[data-webmention-container=in-reply-to]')
-        .forEach(container => {
-          responses.forEach(element => {
-            const clone = element.cloneNode(true)
-            container.appendChild(clone)
+        document.querySelectorAll('[data-webmention-container=in-reply-to]')
+          .forEach(container => {
+            responses.forEach(element => {
+              const clone = element.cloneNode(true)
+              container.appendChild(clone)
 
-            const body = clone.querySelector('[data-webmention-entry=interaction-body')
+              const body = clone.querySelector('[data-webmention-entry=interaction-body')
 
-            /* Render Facebook emojis */
-            body.querySelectorAll('[style*=fbcdn]')
-              .forEach(emoji => renderFacebookEmoji(emoji))
+              /* Render Facebook emojis */
+              body.querySelectorAll('[style*=fbcdn]')
+                .forEach(emoji => renderFacebookEmoji(emoji))
+            })
           })
-        })
+      } catch (e) {
+        console.error(e)
+      }
     })
 
   document.querySelectorAll('.hidden[data-webmention-container]')

@@ -169,7 +169,7 @@ async function fetchWebMentions() {
 
   params.append("target", this.url)
   params.append("wm-property", 'like-of')
-  params.append("per-page", 100)
+  params.append("per-page", 1000)
   params.append("page", 0)
 
   const likes = (await fetch(API.toString()).then(data => data.json())).children
@@ -195,6 +195,7 @@ async function fetchWebMentions() {
 
       return dateA - dateB
     })
+    .filter(item => item.author.name && item.author.name.length > 0)
   return data
 }
 class WebMentionBuilder {
@@ -328,12 +329,14 @@ class WebMentionResponse {
       photo.setAttribute('src', this.author.photo)
       photo.setAttribute('alt', "Photo of " + this.author.name)
       return photo
-    } else {
+    } else if (this.author.name && this.author.name.length > 0) {
       const placeholder = document.createElement('div')
       placeholder.innerText = this.author.name.match(/\b(\w)/g).join('').substring(0, 2)
       placeholder.setAttribute('data-webmention-entry', 'placeholder')
       photo.replaceWith(placeholder)
       return placeholder
+    } else {
+      return photo
     }
   }
 
@@ -385,9 +388,11 @@ class WebMentionResponse {
     const body = element.querySelector('[data-webmention-entry=interaction-body]')
     if (body) {
       body.innerHTML = this.content.html
-        ? this.content.html
+        ? this.url.includes('facebook.com')
+          ? `<p>${this.content.html}</p>`
+          : this.content.html
         : this.content.text
-          ? this.content.text : ""
+          ? this.content.text : ''
     }
 
     return element
