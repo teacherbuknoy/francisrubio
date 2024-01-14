@@ -41,10 +41,27 @@ async function renderWebMentions() {
 
   await wm.getReplies()
     .then(data => {
-      const responses = data
-        .filter(item => item.type === 'in-reply-to' && item.url.includes('facebook.com') && item.content.html != null)
+      const webmentions = data
+        .filter(item => {
+          item.type === 'in-reply-to' && item.url.includes('facebook.com') && item.content.html != null
+
+          if (item.type === 'in-reply-to') {
+            const isFbReact = item.url.includes('facebook.com') && item.content.html == null
+            if (isFbReact) {
+              return false
+            }
+
+            return true
+          }
+
+          return false
+        })
+
+      console.log(webmentions)
+      const responses = webmentions
         .map(d => new WebMentionResponse(d).render())
 
+      console.log(responses.map(response => response.innerText))
       document.querySelectorAll('[data-webmention-container=in-reply-to]')
         .forEach(container => {
           responses.forEach(element => {

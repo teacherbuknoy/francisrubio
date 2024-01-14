@@ -170,6 +170,7 @@ async function fetchWebMentions() {
   params.append("target", this.url)
   params.append("wm-property", 'like-of')
   params.append("per-page", 100)
+  params.append("page", 0)
 
   const likes = (await fetch(API.toString()).then(data => data.json())).children
   data.push(...likes)
