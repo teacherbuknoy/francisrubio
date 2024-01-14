@@ -1,3 +1,4 @@
+import { selectEmojiByImageUrl } from './library/facebook-emojis'
 import { WebMentionBuilder, WebMentionResponse, WebMentionType } from './library/webmentions'
 
 
@@ -73,12 +74,10 @@ function renderFacebookEmoji(emoji) {
   console.log(emoji)
   console.log({ backgroundImage, fromFb: backgroundImage.includes('fbcdn') })
   if (backgroundImage.includes('fbcdn')) {
-    const img = document.createElement('img')
-    img.src = backgroundImage.slice(4, -1).replace(/"/g, "")
-    img.alt = ""
-    img.width = 16
-    img.height = 16
-    emoji.replaceWith(img)
+    const url = backgroundImage.slice(4, -1).replace(/"/g, "")
+    const emojiChar = selectEmojiByImageUrl(url)
+    emoji.innerText = emojiChar
+    emoji.setAttribute('style', '')
   } else {
     emoji.remove()
   }
