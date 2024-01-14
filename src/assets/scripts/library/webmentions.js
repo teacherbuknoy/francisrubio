@@ -237,6 +237,19 @@ class WebMentionResponse {
       ? this.published
       : this.received
     this.timestamp = new Date(Date.parse(this.timestampString))
+
+    this.__validateFacebookMentionType()
+  }
+
+  /**
+   * @description For webmentions from Facebook, post reactions are rendered as replies instead of likes, so this function fixes that
+   * @author Francis Rubio
+   * @memberof WebMentionResponse
+   */
+  __validateFacebookMentionType() {
+    if (this.url.includes('facebook.com') && this.type === WebMentionType.REPLY && this.content.html == null) {
+      this.type = WebMentionType.LIKE
+    }
   }
 
   /**
@@ -282,10 +295,9 @@ class WebMentionResponse {
 
     const photoLink = element.querySelector('a[data-webmention-entry=author-link]')
     photoLink.setAttribute('href', this.author.url)
+    photoLink.setAttribute('title', this.author.name)
 
-    const photo = element.querySelector('img[data-webmention-entry=photo]')
-    photo.setAttribute('src', this.author.photo)
-    photo.setAttribute('alt', "Photo of " + this.author.name)
+    this.#renderAuthorAvatar(element)
 
     const authorNames = element.querySelectorAll('[data-webmention-entry=author-name]')
     authorNames.forEach(authorName => {
@@ -308,6 +320,21 @@ class WebMentionResponse {
     return element
   }
 
+  #renderAuthorAvatar(element) {
+    const photo = element.querySelector('img[data-webmention-entry=photo]')
+    if (this.author.photo && this.author.photo.length > 0) {
+      photo.setAttribute('src', this.author.photo)
+      photo.setAttribute('alt', "Photo of " + this.author.name)
+      return photo
+    } else {
+      const placeholder = document.createElement('div')
+      placeholder.innerText = this.author.name.match(/\b(\w)/g).join('').substring(0, 2)
+      placeholder.setAttribute('data-webmention-entry', 'placeholder')
+      photo.replaceWith(placeholder)
+      return placeholder
+    }
+  }
+
   /**
    * @description Creates an HTML element out of this object's data if
    *  it is an `in-reply-to` entry
@@ -322,10 +349,9 @@ class WebMentionResponse {
     element.setAttribute('id', `wmr-${this.id}`)
     element.setAttribute('data-webmention-type', this.type)
 
-    const photo = element.querySelector('[data-webmention-entry=photo]')
-    if (photo) {
-      photo.setAttribute('src', this.author.photo)
-      photo.setAttribute('alt', `Photo of ${this.author.name}`)
+    const avatar = this.#renderAuthorAvatar(element)
+    if (avatar.getAttribute('data-webmention-entry') === 'placeholder') {
+      avatar.classList.add('profile__avatar')
     }
 
     const name = element.querySelector('[data-webmention-entry=author-name]')
@@ -417,7 +443,11 @@ function extractFediverseUsername(link) {
       const domain = url.hostname
 
       return `${username}@${domain}`
-    } else {
+    }
+    else if (url.hostname.includes('facebook.com')) {
+      return `@${paths[0]}@facebook.com`
+    }
+    else {
       return null
     }
   } catch (e) {

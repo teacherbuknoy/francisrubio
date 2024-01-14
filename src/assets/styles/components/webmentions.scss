@@ -1,10 +1,10 @@
 .webmentions {
   &--summary {
-    display         : flex;
-    justify-content : space-between;
-    gap             : 2ch;
-    z-index         : 3;
-    position        : relative;
+    display        : flex;
+    justify-content: space-between;
+    gap            : 2ch;
+    z-index        : 3;
+    position       : relative;
   }
 }
 
@@ -73,6 +73,7 @@
   display    : flex;
   gap        : 1ch;
 
+  [data-webmention-entry=placeholder],
   &-photo {
     --photo-size : 5ch;
     aspect-ratio : 1;
@@ -172,6 +173,7 @@
     font-family    : var(--font-sans);
     padding-bottom : 0;
 
+    [data-webmention-entry=placeholder],
     .webmention__author-photo {
       --photo-size : 3ch;
       border-radius: 100%;
@@ -250,4 +252,21 @@ img[src*="custom_emojis"] {
   height        : 2ch;
   vertical-align: bottom;
   width         : auto;
+}
+
+[data-webmention-entry="placeholder"] {
+  align-items            : center;
+  background-color       : hsl(var(--primary-300));
+  color                  : hsl(var(--l-contrast));
+  display                : flex;
+  font-family            : var(--font-ui);
+  font-variation-settings: 'wght'700;
+  justify-content        : center;
+  outline                : 2px solid hsl(var(--primary-100));
+
+  &.profile__avatar {
+    border       : none;
+    width        : 3em;
+    outline-width: 4px;
+  }
 }

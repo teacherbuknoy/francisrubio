@@ -26,7 +26,7 @@ async function renderWebMentions() {
     })
 
   const likesAndReposts = (await wm.getAllMentions())
-    .filter(item => item.type === 'like-of' || item.type === 'repost-of')
+    .filter(item => item.type === 'like-of' || item.type === 'repost-of' || (item.type === 'in-reply-to' && item.url.includes('facebook.com') && item.content.html == null))
 
   likesAndReposts.forEach(interaction => {
     const rendered = new WebMentionResponse(interaction).render()
@@ -40,19 +40,48 @@ async function renderWebMentions() {
 
   await wm.getReplies()
     .then(data => {
-      const responses = data.map(d => new WebMentionResponse(d).render())
+      const responses = data
+        .filter(item => item.type === 'in-reply-to' && item.url.includes('facebook.com') && item.content.html != null)
+        .map(d => new WebMentionResponse(d).render())
 
       document.querySelectorAll('[data-webmention-container=in-reply-to]')
         .forEach(container => {
           responses.forEach(element => {
             const clone = element.cloneNode(true)
             container.appendChild(clone)
+
+            const body = clone.querySelector('[data-webmention-entry=interaction-body')
+
+            /* Render Facebook emojis */
+            body.querySelectorAll('[style*=fbcdn]')
+              .forEach(emoji => renderFacebookEmoji(emoji))
           })
         })
     })
 
   document.querySelectorAll('.hidden[data-webmention-container]')
     .forEach(el => el.classList.remove('hidden'))
+}
+
+
+/** 
+ * @description Renders Facebook emoji
+ * @param {HTMLElement} emoji
+ */
+function renderFacebookEmoji(emoji) {
+  const backgroundImage = getComputedStyle(emoji).backgroundImage
+  console.log(emoji)
+  console.log({ backgroundImage, fromFb: backgroundImage.includes('fbcdn') })
+  if (backgroundImage.includes('fbcdn')) {
+    const img = document.createElement('img')
+    img.src = backgroundImage.slice(4, -1).replace(/"/g, "")
+    img.alt = ""
+    img.width = 16
+    img.height = 16
+    emoji.replaceWith(img)
+  } else {
+    emoji.remove()
+  }
 }
 
 
