@@ -79,6 +79,7 @@
 
     &.webmention {
       flex-direction: row;
+      flex-wrap     : wrap;
     }
 
     &:empty {
@@ -250,7 +251,9 @@
     }
 
     &__identifier {
-      align-self: start;
+      align-self   : start;
+      overflow     : hidden;
+      text-overflow: ellipsis;
     }
   }
 }
