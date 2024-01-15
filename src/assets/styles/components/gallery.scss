@@ -3,14 +3,26 @@
    columns: 25ch;
 
    &.symmetrical {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(25ch, 100%), 1fr));
+     display              : grid;
+     grid-template-columns: repeat(auto-fill, minmax(min(25ch, 100%), 1fr));
+     grid-auto-rows       : 1fr auto;
+
+     &>div:not([class]) {
+       display: contents;
+     }
    }
  }
 
  .gallery-entry-link {
-   outline        : none;
-   text-decoration: none;
+   outline           : none;
+   text-decoration   : none;
+   display           : grid;
+   grid-template-rows: subgrid;
+   grid-row          : span 2;
+
+   .gallery-entry {
+     display: contents;
+   }
 
    .gallery-entry__cover-image {
      outline       : 5px solid hsl(var(--primary-700) / 0);
