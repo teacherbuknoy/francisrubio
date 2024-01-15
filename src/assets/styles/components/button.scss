@@ -1,33 +1,35 @@
 .button {
-  --button-padding       : var(--space-s) var(--space-l);
-  -webkit-backdrop-filter: blur(10px);
-
-  align-items            : center;
-  backdrop-filter        : blur(10px);
-  background-color       : hsl(var(--primary-500) / 15%);
-  background-repeat      : no-repeat;
-  border                 : 0;
-  border-radius          : var(--ideal-radius);
-  color                  : hsl(var(--fg-default));
-  display                : inline-flex;
-  font-family            : var(--font-sans);
-  font-size              : 1em;
-  font-variation-settings: "wght"500;
-  gap                    : var(--space);
-  justify-content        : center;
-  line-height            : 1;
-  outline                : 0px solid hsl(var(--primary-500) / 0%);
-  overflow               : hidden;
-  padding                : var(--button-padding);
-  position               : relative;
-  text-decoration        : none;
-  text-transform         : lowercase;
-  transition             : background-image 200ms, outline 200ms, outline-offset 200ms;
-  width                  : -moz-fit-content;
-  width                  : fit-content;
+  --button-padding         : var(--space-s) var(--space-l);
+  --gradience-color        : var(--primary-500) / 0;
+  --gradience-outline-color: var(--d-primary-900);
+  --gradience-outline-size : 2px;
+  -webkit-backdrop-filter  : blur(10px);
+  align-items              : center;
+  backdrop-filter          : blur(10px);
+  background-color         : hsl(var(--d-primary-700)/15%);
+  background-repeat        : no-repeat;
+  border-radius            : var(--ideal-radius);
+  border                   : none;
+  box-sizing               : border-box;
+  color                    : hsl(var(--fg-contrast));
+  display                  : inline-flex;
+  font-family              : var(--font-sans);
+  font-size                : 1em;
+  font-variation-settings  : "wght"500;
+  gap                      : var(--space);
+  justify-content          : center;
+  line-height              : 1;
+  outline                  : 0px solid hsl(var(--primary-500)/0%);
+  padding                  : var(--button-padding);
+  position                 : relative;
+  text-decoration          : none;
+  text-transform           : lowercase;
+  transition               : background-image 200ms, outline 200ms, outline-offset 200ms;
+  width                    : -moz-fit-content;
+  width                    : fit-content;
 
   &::before {
-    content         : "";
+    content         : none;
     aspect-ratio    : 1;
     background-image: radial-gradient(circle at center, hsl(var(--primary-500)/10%), transparent 75%);
     height          : 500%;
@@ -39,10 +41,47 @@
     transition      : opacity .3s
   }
 
+  &::after {
+    --mask            : radial-gradient(circle at var(--x, 0) var(--y, 0), #000 1%, transparent 50%);
+    --x               : var(--hover-left);
+    --y               : var(--hover-top);
+    -webkit-mask-image: var(--mask);
+    align-items       : center;
+    background-color  : hsl(var(--gradience-color) / 15%);
+    border-radius     : calc(var(--gradience-radius, var(--ideal-radius)) - var(--gradience-outline-size));
+    box-sizing        : border-box;
+    content           : var(--gradience-content, "");
+    display           : flex;
+    inset             : 0;
+    justify-content   : center;
+    mask-image        : var(--mask);
+    opacity           : 0;
+    outline           : var(--gradience-actual-outline-size, var(--gradience-outline-size)) solid hsl(var(--gradience-outline-color, 0 0% 0%));
+    outline-offset    : calc(var(--gradience-outline-size) * -1);
+    position          : absolute;
+    transition        : mask-image 200ms, opacity 200ms;
+    z-index           : 10;
+  }
+
+  @at-root .no-js & {
+    &:hover {
+      background-color: hsl(var(--button-hover-color, var(--primary-100)));
+      color           : hsl(var(--primary-700));
+    }
+
+    &::after {
+      content: none;
+    }
+  }
+
+  &:is(button)::after {
+    --gradience-actual-outline-size: calc(var(--gradience-outline-size) + 1px);
+  }
+
   &:hover {
     text-decoration: none;
-    color          : hsl(var(--fg-default));
 
+    &::after,
     &::before {
       opacity: 1;
     }
@@ -54,8 +93,10 @@
   }
 
   &.primary {
-    background-color: hsl(var(--primary-500));
-    color           : hsl(var(--l-contrast));
+    --gradience-color       : hsl(var(--d-primary-700));
+    --gradience-outline-size: 2px;
+    background-color        : hsl(var(--primary-500));
+    color                   : hsl(var(--l-contrast));
 
     &::before {
       background-image: radial-gradient(circle at center, hsl(var(--l-contrast) / 10%), transparent 75%);
@@ -77,6 +118,9 @@
   &.go-to-top {
     @extend .square;
     @extend .primary;
+
+    --gradience-radius : 100%;
+    --gradience-content: "" !important;
     border-radius      : 100%;
     box-shadow         : 0 4px 25px hsl(var(--primary-500) / 50%);
     display            : flex;
@@ -136,10 +180,13 @@
   }
 
   &--success {
-    color           : hsl(var(--success-900));
-    background-color: hsl(var(--success-100));
+    --button-hover-color     : var(--l-success-500) / 50%;
+    --gradience-color        : var(--l-success-500);
+    --gradience-outline-color: var(--success-500);
+    background-color         : hsl(var(--l-success-100));
+    color                    : hsl(var(--l-success-900));
 
-    &:hover {
+    @at-root .no-js &:hover {
       color: hsl(var(--success-900));
     }
 
@@ -149,10 +196,13 @@
   }
 
   &--warning {
-    color           : hsl(var(--warning-900));
-    background-color: hsl(var(--warning-100));
+    --button-hover-color     : var(--l-warning-700) / 50%;
+    --gradience-color        : var(--l-warning-500);
+    --gradience-outline-color: var(--l-warning-500);
+    background-color         : hsl(var(--l-warning-100));
+    color                    : hsl(var(--l-warning-900));
 
-    &:hover {
+    @at-root .no-js &:hover {
       color: hsl(var(--warning-900));
     }
 
@@ -162,10 +212,13 @@
   }
 
   &--error {
-    color           : hsl(var(--error-900));
-    background-color: hsl(var(--error-100));
+    --button-hover-color     : var(--l-error-700) / 25%;
+    --gradience-color        : var(--l-error-500);
+    --gradience-outline-color: var(--l-error-500);
+    background-color         : hsl(var(--l-error-100));
+    color                    : hsl(var(--l-error-900));
 
-    &:hover {
+    @at-root .no-js &:hover {
       color: hsl(var(--error-900));
     }
 

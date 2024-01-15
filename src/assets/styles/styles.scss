@@ -146,7 +146,7 @@
       border-radius: var(--ideal-radius);
     }
 
-    &:not(.no-arrow)[target="_blank"] {
+    &:not(.no-arrow):not(.button)[target="_blank"] {
       display: inline-flex;
       gap    : 1ch;
 
