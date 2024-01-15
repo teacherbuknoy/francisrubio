@@ -8,6 +8,3 @@ document.addEventListener('mousemove', e => {
     button.style.setProperty('--hover-left', `${offsetX}px`)
   }
 })
-
-document.querySelectorAll(selButton)
-  .forEach(button => button.style.setProperty('--gradience-content', `'${button.innerText}'`))
