@@ -46,6 +46,7 @@
             {% set formats = formats if formats else 
               types %}
             {% set filename = '/gallery/' + folder + '/' + image.key %}
+            {% set alt = image.alt %}
             {% set width = image.width %}
             {% set height = image.height %}
             {% set sizes = [400, 500, 600] %}
