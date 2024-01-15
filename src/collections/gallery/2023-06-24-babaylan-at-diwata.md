@@ -69,15 +69,15 @@ enum: # define filenames by number (e.g. 2.jpg, 3.jpg, etc.)
         "--img-object-position": top
         grid-column: 
     - overrideKey: 24
-      ignore: true
+      ignore: false
     - overrideKey: 29
-      ignore: true
+      ignore: false
     - overrideKey: 31
-      ignore: true
+      ignore: false
     - overrideKey: 30
-      ignore: true
+      ignore: false
     - overrideKey: 20
-      ignore: true
+      ignore: false
 count_per_statement: 7
 statements:
   - |
