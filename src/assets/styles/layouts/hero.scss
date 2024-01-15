@@ -141,17 +141,20 @@ $h-small: 650px;
   }
 
   &__caption {
-    backdrop-filter : blur(1ch);
-    background-color: hsl(var(--banner-bg-3) / 20%);
-    border-radius   : var(--radius-5);
-    display         : flex;
-    flex-direction  : column;
-    font-family     : var(--font-sans);
-    font-size       : var(--type-size-6);
-    gap             : 0;
-    padding         : var(--space-s);
-    text-transform  : uppercase;
-    width           : fit-content;
+    --gradience-color        : var(--banner-bg-2) / 25%;
+    --gradience-outline-color: var(--banner-bg-1) / 50%;
+    --gradience-outline-size : 1px;
+    backdrop-filter          : blur(1ch);
+    background-color         : hsl(var(--banner-bg-3)/20%);
+    border-radius            : var(--radius-5);
+    display                  : flex;
+    flex-direction           : column;
+    font-family              : var(--font-sans);
+    font-size                : var(--type-size-6);
+    gap                      : 0;
+    padding                  : var(--space-s);
+    text-transform           : uppercase;
+    width                    : fit-content;
 
     &:first-child {
       grid-column    : 1/3;
