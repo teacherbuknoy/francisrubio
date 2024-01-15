@@ -49,6 +49,7 @@
 
         &__image {
           --mask-image: linear-gradient(to left, black, transparent 90%);
+
           img {
             --img-object-position: right bottom;
           }
@@ -65,4 +66,51 @@
 
 .featured-post--focus-wrapper:focus-within .featured-post-banner:not(:focus-within) {
   opacity: 0.25;
+}
+
+.banner--literature {
+  align-content        : end;
+  display              : grid;
+  grid-template-columns: minmax(2ch, 1fr) 50fr minmax(2ch, 1fr);
+  grid-template-rows   : minmax(15ch, 1fr) repeat(3, auto) 3ch;
+  justify-content      : end;
+  text-align           : end;
+
+  &>* {
+    grid-column: 2/3
+  }
+
+  .banner {
+    &__image {
+      aspect-ratio: 1920/506;
+      filter      : brightness(20%);
+      grid-column : 1/4;
+      grid-row    : 1/6;
+      height      : 100%;
+      object-fit  : cover;
+      z-index     : -1;
+    }
+
+    &__title {
+      font-size         : clamp(var(--type-size-4), 10vw + 1rem, var(--type-size-1));
+      grid-row          : 3/4;
+      margin            : 0;
+      margin-block-start: 1rem;
+      text-shadow       : 0 1px 1px rgba(0, 0, 0, 0.3333333333), 0 1px 2px rgba(0, 0, 0, 0.0666666667), 0 2px 4px rgba(0, 0, 0, 0.0666666667), 0 4px 8px rgba(0, 0, 0, 0.0666666667), 0 8px 16px rgba(0, 0, 0, 0.0666666667);
+
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .category-pill__inner.category-pill__category {
+    grid-row    : 2/3;
+    align-self  : end;
+    justify-self: end;
+  }
+
+  .cluster {
+    grid-row: 4/5;
+  }
 }
