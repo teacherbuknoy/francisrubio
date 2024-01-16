@@ -7,5 +7,5 @@
   "note-entry": "note-entry.scss",
   "project": "project.scss",
   "print": "print.scss",
-  "fonts": "fonts.scss"
+  "font-stack": "font-stack.scss"
 }
