@@ -6,5 +6,6 @@
   "s404": "s404.scss",
   "note-entry": "note-entry.scss",
   "project": "project.scss",
-  "print": "print.scs"
+  "print": "print.scss",
+  "fonts": "fonts.scss"
 }
