@@ -1,6 +1,6 @@
 .tab-panel {
   margin-inline: auto;
-  width: min(70ch, 100%);
+  width        : min(70ch, 100%);
 }
 
 .tab-panel:not([role="tabpanel"]):not(:target) {
@@ -8,7 +8,7 @@
 }
 
 .tab-panel[role="tabpanel"][hidden] {
-  display: block !important;
+  display   : block !important;
   visibility: hidden;
 }
 
@@ -17,20 +17,21 @@
 
   &>* {
     grid-column: 1/2;
-    grid-row: 1/2;
+    grid-row   : 1/2;
   }
 }
 
 .tab-trigger {
   background-color: transparent;
-  width: 5ch;
-  padding: var(--space-xs);
+  width           : 5ch;
+  padding         : var(--space-xs);
 
   svg {
-    width: 5ch;
-    fill: hsl(var(--fg-default) / 50%);
-    stroke: hsl(var(--primary-500) / 0%);
-    transition: fill 200ms;
+    aspect-ratio: 1/1;
+    fill        : hsl(var(--fg-default) / 50%);
+    stroke      : hsl(var(--primary-500) / 0%);
+    transition  : fill 200ms;
+    width       : 5ch;
   }
 
   &[aria-selected="true"] {
