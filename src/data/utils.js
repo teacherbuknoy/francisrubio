@@ -51,13 +51,18 @@ module.exports = {
    */
   replaceMastodonEmoji: (str, emojis) => {
     const regex = /(<a?)?:\w+:(\d{18}>)?/gm
+    const matches = str.match(regex)
 
-    return str.match(regex)
-      .reduce((finalString, emojiMatch) => {
+    if (matches) {
+      return matches.reduce((finalString, emojiMatch) => {
         const emoji = emojis.find(e => e.shortcode === emojiMatch.replaceAll(':', ''))
         const img = `<img src="${emoji.url}" alt="${emoji.shortcode}" width="16" height="16" class="emoji">`
         return finalString.replace(emojiMatch, img)
       }, str)
+    }
+
+    return str
+      
   },
   isFutureDate: value => new Date().getTime() <= new Date(value).getTime(),
   getFederatedUsername: (username, profileURL) => {
