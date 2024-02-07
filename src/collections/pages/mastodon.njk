@@ -52,7 +52,7 @@ scripts: ['mastodon.js']
           <dt>{{ field.name | safe }}</dt>
           <dd>
             {% if field.verified_at != null %}
-              {{ 'check' | icon }}
+              {{ 'check' | icon | safe }}
             {% endif %}
             {{ field.value | safe }}
           </dd>

@@ -3,7 +3,7 @@
   <nav class="navigation-bar show-on-mobile" data-navbar-animations aria-label="Site">
     <div class="navigation-bar__section navigation-bar__section--start">
       <button class="navigation-link icon-only--mobile" data-dialog="nav-menu">
-        {{ 'menu' | icon }}
+        {{ 'menu' | icon | safe }}
         <span class="navigation-link-text">Menu</span>
       </button>
     </div>
@@ -16,15 +16,15 @@
     <div class="navigation-bar__section navigation-bar__section--end">
       <div class="cluster gap">
         <button class="navigation-link icon-only--mobile" data-dialog="search-menu">
-          {{ 'search' | icon }}
+          {{ 'search' | icon | safe }}
           <span class="navigation-link-text">Search</span>
         </button>
         <button class="navigation-link icon-only" data-toggle="form-color-scheme" data-aria-hide data-disclosure data-scroll-into-view="false">
-          {{ 'moon' | icon }}
+          {{ 'moon' | icon | safe }}
           <span class="navigation-link-text sr-only">Change color Scheme</span>
         </button>
         <button class="navigation-link icon-only" data-toggle="list-rss" data-aria-hide data-disclosure data-scroll-into-view="false">
-          {{ 'rss' | icon }}
+          {{ 'rss' | icon | safe }}
           <span class="navigation-link-text sr-only">RSS Feeds</span>
         </button>
       </div>
@@ -49,7 +49,7 @@
                 <span class="navigation-link-text">{{ item.text }}</span>
               {% endif %}
               {% if item.feathericon %}
-                {{ item.feathericon | icon }}
+                {{ item.feathericon | icon | safe }}
               {% endif %}
               {% if item.label %}
                 <span class="navigation-link-label">{{ item.label }}</span>
@@ -60,7 +60,7 @@
 
         <li class="navigation-list-item">
           <button class="navigation-link icon-only" data-toggle="nav-overflow" data-aria-hide>
-            {{ 'more-horizontal' | icon }}
+            {{ 'more-horizontal' | icon | safe }}
             <span class="sr-only">More items</span>
           </button>
         </li>
@@ -69,15 +69,15 @@
     <div class="navigation-bar__section navigation-bar__section--end">
       <div class="cluster gap">
         <button class="navigation-link has-icon--start" data-dialog="search-menu">
-          {{ 'search' | icon }}
+          {{ 'search' | icon | safe }}
           <span class="navigation-link-text">Search</span>
         </button>
         <button class="navigation-link icon-only" data-toggle="form-color-scheme" data-aria-hide data-disclosure data-scroll-into-view="false">
-          {{ 'moon' | icon }}
+          {{ 'moon' | icon | safe }}
           <span class="navigation-link-text sr-only">Change color Scheme</span>
         </button>
         <button class="navigation-link icon-only" data-toggle="list-rss" data-aria-hide data-disclosure data-scroll-into-view="false">
-          {{ 'rss' | icon }}
+          {{ 'rss' | icon | safe }}
           <span class="navigation-link-text sr-only">RSS Feeds</span>
         </button>
       </div>
@@ -95,7 +95,7 @@
               <span class="navigation-link-text">{{ item.text }}</span>
             {% endif %}
             {% if item.feathericon %}
-              {{ item.feathericon | icon }}
+              {{ item.feathericon | icon | safe }}
             {% endif %}
             {% if item.label %}
               <span class="navigation-link-label">{{ item.label }}</span>
@@ -144,7 +144,7 @@
     <div class="spaced cluster ai--center padding-inline--xxl padding-block--l">
       <a href="/" class="weight-300 font-sans navigation-menu-link">Francis Rubio</a>
       <button class="navigation-link has-icon--start icon-only" data-dialog-hide>
-        {{ 'x' | icon }}
+        {{ 'x' | icon | safe }}
         <span class="navigation-link-text">Close menu</span>
       </button>
     </div>
@@ -155,7 +155,7 @@
             <span class="navigation-menu-link-text">{{ item.text }}</span>
           {% endif %}
           {% if item.feathericon %}
-            {{ item.feathericon | icon }}
+            {{ item.feathericon | icon | safe }}
           {% endif %}
           {% if item.label %}
             <span class="navigation-menu-link-label">{{ item.label }}</span>
@@ -175,7 +175,7 @@
         <label id="search-label" for="term">Search the site</label>
     </div>
     <button class="primary button padding--m">
-      {{ 'search' | icon }}
+      {{ 'search' | icon | safe }}
       <span class="sr-only">Hanapin</span>
     </button>
   </form>

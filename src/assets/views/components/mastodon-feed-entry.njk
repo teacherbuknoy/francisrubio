@@ -73,7 +73,7 @@
       {% set replies = entry.replies_count %}
       <span class="statistic__figure">{{ replies if replies else '0' }}</span>
       <span class="statistic__label">
-        {{ 'corner-up-left' | icon }}
+        {{ 'corner-up-left' | icon | safe }}
         <span class="sr-only">Replies</span>
       </span>
     </p>
@@ -81,7 +81,7 @@
       {% set reblog = entry.reblogs_count %}
       <span class="statistic__figure">{{ reblog if reblog else '0' }}</span>
       <span class="statistic__label">
-        {{ 'repeat' | icon }}
+        {{ 'repeat' | icon | safe }}
         <span class="sr-only">Reblogs</span>
       </span>
     </p>
@@ -89,7 +89,7 @@
       {% set likes = entry.favourites_count %}
       <span class="statistic__figure">{{ likes if likes else '0' }}</span>
       <span class="statistic__label">
-        {{ 'star' | icon }}
+        {{ 'star' | icon | safe }}
         <span class="sr-only">Favorites</span>
       </span>
     </p>

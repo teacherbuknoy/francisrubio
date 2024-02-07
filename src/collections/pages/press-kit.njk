@@ -30,7 +30,7 @@ activePath: press-kit
   <div class="flex ai--center">
     <h3 id="section-heading-3" class="flex__expand">Short</h3>
     <button class="button" data-clipboard="bio-short">
-      {{ 'clipboard' | icon }}
+      {{ 'clipboard' | icon | safe }}
       <span>Copy text</span>
     </button>
   </div>
@@ -38,7 +38,7 @@ activePath: press-kit
   <div class="flex ai--center">
     <h3 id="section-heading-4" class="flex__expand">Long</h3>
     <button class="button" data-clipboard="bio-long">
-      {{ 'clipboard' | icon }}
+      {{ 'clipboard' | icon | safe }}
       <span>Copy text</span>
     </button>
   </div>

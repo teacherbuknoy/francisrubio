@@ -73,17 +73,17 @@
           {{ content | toc | safe }}
           <div class="webmentions webmentions--summary hidden" aria-label="Web Mentions Summary" data-webmention-container>
             <a href="#webmention-likes-repost" class="webmention__statistic">
-              {{ 'heart' | icon }}
+              {{ 'heart' | icon | safe }}
               <span data-webmention="like"></span>
               <span class="webmention__statistic-label">Likes</span>
             </a>
             <a href="#webmention-likes-repost" class="webmention__statistic">
-              {{ 'refresh-cw' | icon }}
+              {{ 'refresh-cw' | icon | safe }}
               <span data-webmention="repost"></span>
               <span class="webmention__statistic-label">Reposts</span>
             </a>
             <a href="#webmention-replies" class="webmention__statistic">
-              {{ 'message-circle' | icon }}
+              {{ 'message-circle' | icon | safe }}
               <span data-webmention="reply"></span>
               <span class="webmention__statistic-label">Replies</span>
             </a>

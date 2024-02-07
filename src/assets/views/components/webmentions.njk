@@ -24,10 +24,10 @@
           <a href="" class="webmention__photo-link" data-webmention-entry="author-link">
             <img data-webmention-entry="photo" src="" alt="" class="webmention__author-photo">
             <div class="webmention__photo-icon" data-webmention-type="like">
-              {{ 'heart' | icon }}
+              {{ 'heart' | icon | safe }}
             </div>
             <div class="webmention__photo-icon" data-webmention-type="repost">
-              {{ 'rotate-cw' | icon }}
+              {{ 'rotate-cw' | icon | safe }}
             </div>
           </a>
           <div class="webmention__author-details">
