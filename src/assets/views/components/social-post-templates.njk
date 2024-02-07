@@ -13,24 +13,21 @@
       <p class="statistic">
         <span class="statistic__figure" data-entry="replies">0</span>
         <span class="statistic__label">
-          {% set feathericon = 'corner-up-left' %}
-          {% include "components/feathericon.njk" %}
+          {{ 'corner-up-left' | icon }}
           <span class="sr-only">Replies</span>
         </span>
       </p>
       <p class="statistic">
         <span class="statistic__figure" data-entry="reblogs">0</span>
         <span class="statistic__label">
-          {% set feathericon = 'repeat' %}
-          {% include "components/feathericon.njk" %}
+          {{ 'repeat' | icon }}
           <span class="sr-only">Reblogs</span>
         </span>
       </p>
       <p class="statistic">
         <span class="statistic__figure" data-entry="favorites">0</span>
         <span class="statistic__label">
-          {% set feathericon = 'star' %}
-          {% include "components/feathericon.njk" %}
+          {{ 'start' | icon }}
           <span class="sr-only">Favorites</span>
         </span>
       </p>

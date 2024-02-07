@@ -22,8 +22,7 @@
 </noscript>
 <div class="bottom-fixed">
   <a href="#top" class="primary button go-to-top" style="">
-    {% set feathericon = 'arrow-up' %}
-    {% include 'components/feathericon.njk' %}
+    {{ 'arrow-up' | icon }}
     <span class="sr-only">Back to top</span>
   </a>
   <noscript class="no-js__warning">

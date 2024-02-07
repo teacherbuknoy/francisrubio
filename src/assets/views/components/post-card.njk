@@ -25,8 +25,7 @@
         <span>{{ item.date | humanReadableDate }}</span>
         <span class="post-card__link margin-left--auto">
         Read More
-        {% set feathericon = 'arrow-right' %}
-          {% include 'components/feathericon.njk' %}
+        {{ 'arrow-right' | icon }}
         </span>
       </div>
     </div>

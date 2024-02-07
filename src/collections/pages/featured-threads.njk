@@ -54,8 +54,7 @@ scripts: ['mastodon.js']
           <dt>{{ field.name | safe }}</dt>
           <dd>
             {% if field.verified_at != null %}
-              {% set feathericon = 'check' %}
-              {% include "components/feathericon.njk" %}
+              {{ 'check' | icon }}
             {% endif %}
             {{ field.value | safe }}
           </dd>

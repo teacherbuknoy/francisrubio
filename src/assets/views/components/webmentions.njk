@@ -24,12 +24,10 @@
           <a href="" class="webmention__photo-link" data-webmention-entry="author-link">
             <img data-webmention-entry="photo" src="" alt="" class="webmention__author-photo">
             <div class="webmention__photo-icon" data-webmention-type="like">
-              {% set feathericon = 'heart' %}
-              {% include 'components/feathericon.njk' %}
+              {{ 'heart' | icon }}
             </div>
             <div class="webmention__photo-icon" data-webmention-type="repost">
-              {% set feathericon = 'rotate-cw' %}
-              {% include 'components/feathericon.njk' %}
+              {{ 'rotate-cw' | icon }}
             </div>
           </a>
           <div class="webmention__author-details">

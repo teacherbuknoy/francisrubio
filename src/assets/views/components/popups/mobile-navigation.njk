@@ -15,8 +15,7 @@
               <span class="navigation-menu-link-text">{{ item.text }}</span>
             {% endif %}
             {% if item.feathericon %}
-              {% set feathericon = item.feathericon %}
-              {% include "components/feathericon.njk" %}
+              {{ item.feathericon | icon }}
             {% endif %}
             {% if item.label %}
               <span class="navigation-menu-link-label">{{ item.label }}</span>

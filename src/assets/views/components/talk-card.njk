@@ -2,8 +2,7 @@
   <h3 class="talk-card__title {{ 'upcoming' if post.tentativeDate != null or utils.isFutureDate(post.date) }}">{{ post.title | safe }}</h3>
   <p class="talk-card__description">{{ post.description | safe }}</p>
   <p class="talk-card__time">
-    {% set feathericon = 'calendar' %}
-    {% include 'components/feathericon.njk' %}
+    {{ 'calendar' | icon }}
     {% if post.tentativeDate != null %}
       {% set tDate = post.tentativeDate %}
       {% set talkDate = utils.tentativeDate(tDate.year, tDate.month, tDate.day) %}
@@ -15,8 +14,7 @@
     {% endif %}
   </p>
   <p class="talk-card__location">
-    {% set feathericon = 'map-pin' %}
-    {% include 'components/feathericon.njk' %}
+    {{ 'map-pin' | icon }}
     {{ post.location | safe }}
   </p>
 </a>

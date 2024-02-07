@@ -7,6 +7,6 @@
     <h2 class="use-card__title">{{ use.title | safe }}</h2>
     <p class="use-card__description">{{ use.description | safe }}</p>
     {% set feathericon = 'star' %}
-    <span class="use-card__rating">{{ use.rating }}{% include 'components/feathericon.njk' %}</span>
+    <span class="use-card__rating">{{ use.rating }}{{ feathericon | icon }}</span>
   </article>
 </a>
