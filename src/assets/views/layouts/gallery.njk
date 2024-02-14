@@ -1,8 +1,10 @@
 {% extends 'layouts/main.njk' %}
 {% block content %}
   {% include 'components/ui/navigation-bar.njk' %}
-  {% if entries == null %}
+  {% if entries == null and enum != null %}
     {% set entries = enum | enumToGalleryEntry %}
+  {% else %}
+    {% set entries = [] %}
   {% endif %}
   <main id="main" class="padding--l article gallery-layout" tabindex="-1" aria-labelledby="{{ title | slugify }}">
     <header class="article__header" style="width: min(100ch, 100%); margin-inline: auto;">

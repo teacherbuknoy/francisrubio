@@ -18,7 +18,6 @@ seo:
     url: "https://ik.imagekit.io/8jjzxcl9p/tr:w-1200/posts/sarsuwela/og.png"
     is_prefixed: false
 eleventyExcludeFromCollections: false
-featured: true
 ---
 
 Sabi nila sining ang buhay. Hindi lang ito maganda, kundi pinagdikit-dikit na tipak ng mga sandaling mapait, matamis, mahirap, puno ng hapis, at pag-ibig.
