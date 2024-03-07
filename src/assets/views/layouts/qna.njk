@@ -1,0 +1,182 @@
+{% extends 'layouts/base.njk' %}
+
+{% block content %}
+  {# {% include 'components/ui/navigation-bar.njk' %} #}
+  {% include 'components/ui/navigation-bar.njk' %}
+  <main class="h-entry padding-block--xl padding-inline--m article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
+    <header class="article__header">
+      {% set postType = postType if postType else 
+        'post' %}
+      {% set sizes = cover.sizes %}
+      {% set alt = "" %}
+      {% set width = 600 %}
+      {% set height = 350 %}
+      {% set formats = cover.types %}
+
+      {% set filename = '/posts/' + cover.folder + '/' + cover.filename %}
+      {% if cover.header %}
+        {% set filename = '/posts/' + cover.folder + '/' + cover.header %}
+      {% endif %}
+
+      {% set defaultImageClass = "article__image" %}
+      {% set focus = cover.focus %}
+      {% include "components/cdn-picture.njk" %}
+      <div class="spaced cluster ai--center">
+        <nav class="breadcrumb" aria-label="Breadcrumbs">
+          <ol class="breadcrumb__list">
+            <li class="breadcrumb__list-item">
+              <a href="/" class="breadcrumb__link" data-animation="button">Frontpage</a>
+            </li>
+            <li class="breadcrumb__list-item">
+              <a href="/writing/" class="breadcrumb__link" data-animation="button">Writing</a>
+            </li>
+            <li class="breadcrumb__list-item">
+              <a aria-current="location" class="breadcrumb__link" data-animation="button">This page</a>
+            </li>
+          </ol>
+        </nav>
+        {% if translations != null %}
+          <p>
+            Read this in:
+            <span class="cluster cluster--inline gap--xs ai--center">
+              {% for lang in translations %}
+                <a href="{{ lang.url }}" class="button button--small">{{ lang.label }}</a>
+              {% endfor %}
+            </span>
+          </p>
+        {% endif %}
+      </div>
+      <h1 id="{{ title | slugify }}" class="p-name article__title margin--none responsive">{{ title | safe }}</h1>
+      <p class="p-summary responsive fs-4 weight-300">{{ description }}</p>
+      <div class="spaced cluster ai--center">
+        <div>
+          by <a rel="author" class="p-author h-card" href="{{ authors[author].url }}">
+            <span class="p-name">{{ authors[author].name }}</span>
+            <img class="u-photo hidden" src="{{ authors[author].photo }}" alt="{{ authors[author].name }}'s photo"/>
+          </a>
+          
+          on <time class="dt-published" datetime="{{ page.date | machineReadableDate }}">
+            <a class="u-url" href="{{ page.url }}">{{ page.date | humanReadableDate }}</a>
+          </time>
+        </div>
+        <div class="category-pill">
+          {% for item in category %}
+            <a href="/writing/categories/{{ item | slugify }}" class="p-category category-pill__inner category-pill__category">{{ item }}</a>
+          {% endfor %}
+          <div class="category-pill__inner category-pill__read-time">{{ content | timeToRead }}</div>
+        </div>
+      </div>
+    </header>
+    <div class="article__body not-sidebar e-content">
+      <div class="article__scroller" style="--row-end: {{ content | countElements }}">
+        <div class="sidebar article__sidebar border--none margin--none" style="--sidebar-width: 20ch">
+          {{ content | toc | safe }}
+          <div class="webmentions webmentions--summary hidden" aria-label="Web Mentions Summary" data-webmention-container>
+            <a href="#webmention-likes-repost" class="webmention__statistic">
+              {{ 'heart' | icon | safe }}
+              <span data-webmention="like"></span>
+              <span class="webmention__statistic-label">Likes</span>
+            </a>
+            <a href="#webmention-likes-repost" class="webmention__statistic">
+              {{ 'refresh-cw' | icon | safe }}
+              <span data-webmention="repost"></span>
+              <span class="webmention__statistic-label">Reposts</span>
+            </a>
+            <a href="#webmention-replies" class="webmention__statistic">
+              {{ 'message-circle' | icon | safe }}
+              <span data-webmention="reply"></span>
+              <span class="webmention__statistic-label">Replies</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      {{ introduction | markdown | safe }}
+      <h2 id="the-questions" tabindex="-1">
+        The Questions
+        <a class="header-anchor" href="#the-questions" aria-label="Link to this header">
+          <svg class="feather" aria-hidden="true">
+            <use href="/assets/images/feather-sprite.svg#link-2"></use>
+          </svg>
+        </a>
+      </h2>
+      <div class="qna">
+        {% for item in entries %}
+          {% if item.question %}
+            <h3>{{ item.question | markdown | safe }}</h3>
+            {% set answer = item.answer if item.answer else 
+              "" %}
+            {{ answer | markdown | safe }}
+          {% elif item.banner %}
+            <div class="qna__banner">
+              {% set formats = ['jpg', 'webp', 'avif'] %}
+              <picture>
+                {% set folder %}posts/{{ cover.folder }}{% endset %}
+                {% for format in formats | reverse %}
+                  <source media="(max-width: 360px)" width="{{ dimensions.portrait.width }}" height="{{ dimensions.portrait.height }}" srcset="{{ site.api.images }}tr:w-420,f-{{ format }}/{{ folder }}/{{ item.banner.portrait }}" loading="lazy">
+                  <source media="(max-width: 960px)" width="{{ dimensions.portrait.width }}" height="{{ dimensions.portrait.height }}" srcset="{{ site.api.images }}tr:w-960,f-{{ format }}/{{ folder }}/{{ item.banner.portrait }}" loading="lazy">
+                  <source media="(min-width: 961px)" width="{{ dimensions.landscape.width }}" height="{{ dimensions.landscape.height }}" srcset="{{ site.api.images }}tr:w-1920,f-{{ format }}/{{ folder }}/{{ item.banner.landscape }}" loading="lazy">
+                {% endfor %}
+                <img src="{{ site.api.images }}{{ folder }}/{{ item.banner.portrait }}" alt="{{ item.banner.alt }}" loading="lazy">
+              </picture>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <!-- FURTHER READINGS -->
+      {% if further_reading != null %}
+        <h2 id="further-reading">Further reading</h2>
+        {% for link in further_reading %}
+          {% unfurl link %}
+        {% endfor %}
+      {% endif %}
+
+      <!-- SYNDICATION -->
+      {% if syndication %}
+        <div class="hidden">
+          {% for item in syndication %}
+            <a href="{{ item }}" rel="syndication" class="u-syndication">{{ item }}</a>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+    </div>
+    <footer class="stack padding--l">
+      {% include 'components/share.njk' %}
+      <div class="margin-block--xxxl">
+        {% include "components/banners/webring-banner.njk" %}
+      </div>
+      {% include 'components/webmentions.njk' %}
+    </footer>
+  </main>
+  {% include 'components/footer.njk' %}
+{% endblock %}
+
+{% block scripts %}
+  {% set preferredDomain = site.domains | selectattr('isPreferred') | first %}
+  <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "name": "Navigation",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Writing",
+            "item": "https://{{ preferredDomain.value }}/writing/"
+          }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "{{ title | safe }}",
+            "item": "https://{{ preferredDomain.value }}{{ page.url }}"
+          }
+        ]
+      },
+      {% include "components/seo/structure/blogposting.njk" %},
+      {% include "components/seo/structure/website.njk" %}
+    ]
+  </script>
+  <a href="https://brid.gy/publish/mastodon" class="hidden"></a>
+{% endblock %}

@@ -1,6 +1,10 @@
 @import "mixins";
 
-@layer reset, layouts, components, utilities, print;
+@layer reset,
+layouts,
+components,
+utilities,
+print;
 
 @layer reset {
   @import "reset";
@@ -177,9 +181,9 @@
     }
 
     &:focus-visible {
-      color           : hsl(var(--primary-900));
-      outline-color   : hsl(var(--primary-500) / 1);
-      outline-offset  : var(--radius-2);
+      color         : hsl(var(--primary-900));
+      outline-color : hsl(var(--primary-500) / 1);
+      outline-offset: var(--radius-2);
     }
   }
 
