@@ -15,12 +15,40 @@
 {% set formats = gallery.formats if gallery.formats else gallery.types %}
 {% set filename = '/gallery/' + gallery.folder + '/' + cover.key %}
 {% set defaultImageClass = "gallery-entry__cover-image" %}
+{% set imageClass = "gallery-entry__cover-image" %}
 {% set thumbnail = 'tr:w-' + sizes[0] + '/gallery/' + gallery.folder + '/' + cover.key %}
 {% set width = cover.width %}
 {% set height = cover.height %}
+{% set image = {
+  imageClass: "gallery-entry__cover-image",
+  width: cover.width,
+  height: cover.height,
+  filename: filename,
+  defaultWidth: 400
+} %}
 <a href="{{ item.url }}" class="gallery-entry-link">
   <article class="gallery-entry">
-    {% include "components/cdn-picture.njk" %}
+    <picture>
+      <source
+        type="image/avif"
+        srcset="
+          {{ site.api.images }}/tr:w-360,f-avif/{{ filename }} 300w,
+          {{ site.api.images }}/tr:w-400,f-avif/{{ filename }} 400w,
+          {{ site.api.images }}/tr:w-500,f-avif/{{ filename }} 500w,
+          {{ site.api.images }}/tr:w-710,f-avif/{{ filename }} 710w"
+        sizes="
+          (max-width: 300px) 300px,
+          (max-width: 400px) 400px,
+          (max-width: 700px) 700px,
+          (min-width: 700px) 400px
+        "
+      >
+      <img src="{{ site.api.images }}/tr:w-400/{{ filename }}"
+        alt="{{ cover.alt }}"
+        width="{{ cover.width }}"
+        height="{{ cover.height }}"
+        class="gallery-entry__cover-image">
+    </picture>
     <div class="gallery-entry__body">
       <h2 class="gallery-entry__headline">{{ item.data.title | safe }}</h2>
       <p class="gallery-entry__subtitle">{{ item.data.description | safe }}</p>

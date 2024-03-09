@@ -1,0 +1,27 @@
+{# {% set api = site.api.images %}
+{% if formats == null %}
+  {% set formats = ['avif', 'webp', 'png'] %}
+{% endif %} #}
+
+{# <picture>
+  <img src="{{ api }}/{{ imagePath }}" alt="{{ alt }}" 
+    width="{{ imageWidth }}" height="{{ imageHeight }}"
+    class="{{ imageClass }}">
+</picture> #}
+
+<script>
+  console.log(`{{ image | dump | safe }}`)
+</script>
+
+{% set api = site.api.images %}
+{% if image.formats == null %}
+  {% set formats = ['avif', 'webp', 'png'] %}
+{% endif %}
+
+<picture>
+  <img src="{{ api }}/tr:w-{{ image.defaultWidth if image.defaultWidth else image.width }}/{{ image.filename }}"
+    alt="{{ image.alt }}"
+    width="{{ image.width }}"
+    height="{{ image.height }}"
+    class="{{ image.imageClass }}">
+</picture>
