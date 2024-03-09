@@ -7,12 +7,13 @@
 
 {% set coverIdx = gallery.cover_images.index %}
 {% if coverIdx == null %}
-  {% set coverIdx = 0 %} 
+  {% set coverIdx = 0 %}
 {% endif %}
 
 {% set cover = entries[coverIdx] %}
 {% set sizes = gallery.sizes %}
-{% set formats = gallery.formats if gallery.formats else gallery.types %}
+{% set formats = gallery.formats if gallery.formats else 
+  gallery.types %}
 {% set filename = '/gallery/' + gallery.folder + '/' + cover.key %}
 {% set defaultImageClass = "gallery-entry__cover-image" %}
 {% set imageClass = "gallery-entry__cover-image" %}
@@ -28,21 +29,26 @@
 } %}
 <a href="{{ item.url }}" class="gallery-entry-link">
   <article class="gallery-entry">
+    {# {% set formats = ['avif', 'webp', 'jpg'] %} #}
+    {% set formats = ['avif', 'webp', 'jpg'] %}
+    {% set quality = 90 %}
     <picture>
-      <source
-        type="image/avif"
-        srcset="
-          {{ site.api.images }}/tr:w-360,f-avif/{{ filename }} 300w,
-          {{ site.api.images }}/tr:w-400,f-avif/{{ filename }} 400w,
-          {{ site.api.images }}/tr:w-500,f-avif/{{ filename }} 500w,
-          {{ site.api.images }}/tr:w-710,f-avif/{{ filename }} 710w"
-        sizes="
-          (max-width: 300px) 300px,
-          (max-width: 400px) 400px,
-          (max-width: 700px) 700px,
-          (min-width: 700px) 400px
-        "
-      >
+      {% for format in formats %}
+        <source
+            type="image/{{ format }}"
+            srcset="
+              {{ site.api.images }}/tr:w-360,q-{{ quality }},f-{{ format }}/{{ filename }} 300w,
+              {{ site.api.images }}/tr:w-400,q-{{ quality }},f-{{ format }}/{{ filename }} 400w,
+              {{ site.api.images }}/tr:w-500,q-{{ quality }},f-{{ format }}/{{ filename }} 500w,
+              {{ site.api.images }}/tr:w-710,q-{{ quality }},f-{{ format }}/{{ filename }} 710w"
+            sizes="
+              (max-width: 300px) 300px,
+              (max-width: 400px) 400px,
+              (max-width: 700px) 700px,
+              (min-width: 700px) 400px
+            "
+          >
+      {% endfor %}
       <img src="{{ site.api.images }}/tr:w-400/{{ filename }}"
         alt="{{ cover.alt }}"
         width="{{ cover.width }}"
@@ -52,7 +58,9 @@
     <div class="gallery-entry__body">
       <h2 class="gallery-entry__headline">{{ item.data.title | safe }}</h2>
       <p class="gallery-entry__subtitle">{{ item.data.description | safe }}</p>
-      <p class="gallery-entry__metadata"><time datetime="{{ item.date | machineReadableDate }}">{{ item.date | humanReadableDate }}</time></p>
+      <p class="gallery-entry__metadata">
+        <time datetime="{{ item.date | machineReadableDate }}">{{ item.date | humanReadableDate }}</time>
+      </p>
     </div>
   </article>
 </a>
