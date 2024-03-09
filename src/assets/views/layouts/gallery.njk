@@ -43,15 +43,22 @@
       <div class="gallery-grid {{ "symmetrical" if symmetrical }}" style="width: min(120ch, 100%); margin-inline: auto;">
         {% for image in entries %}
           <figure class="gallery-card">
-            {% set formats = formats if formats else 
-              types %}
+            {% set formats = ['avif', 'webp', 'jpeg'] %}
             {% set filename = '/gallery/' + folder + '/' + image.key %}
             {% set alt = image.alt %}
             {% set width = image.width %}
             {% set height = image.height %}
             {% set sizes = [400, 500, 600] %}
             <a class="gallery-card__link no-arrow" href="{{ site.api.images }}{{ filename }}" target="_blank">
-              {% include "components/cdn-picture.njk" %}
+              <picture>
+                {% for format in formats %}
+                  <source type="image/{{ format }}" srcset="{{ site.api.images }}/tr:w-500,q-85,f-{{ format }}/{{ filename }}">
+                {% endfor %}
+                <img 
+                  src="{{ site.api.images }}/tr:w-500/{{ filename }}" alt="{{ image.alt }}"
+                  width="{{ width }}" height="{{ height }}"
+                >
+              </picture>
             </a>
             {% if image.caption %}
               <figcaption class="gallery-card__caption">
@@ -89,14 +96,20 @@
                 {% endfor %}
                 {% endset %}
                 <figure class="gallery-card" {% if image.style %}style="{{ imageStyle }}"{% endif %}>
-                  {% set formats = formats if formats else 
-                    types %}
-                  {% set filename = '/gallery/' + folder + '/' + image.key %}
+                  {% set formats = ['avif', 'webp', 'jpeg'] %}
+                  {% set filename = 'gallery/' + folder + '/' + image.key %}
                   {% set width = image.width %}
                   {% set height = image.height %}
-                  {% set sizes = [400, 500, 600] %}
                   <a class="gallery-card__link no-arrow" href="{{ site.api.images }}{{ filename }}" target="_blank">
-                    {% include "components/cdn-picture.njk" %}
+                    <picture>
+                      {% for format in formats %}
+                        <source type="image/{{ format }}" srcset="{{ site.api.images }}/tr:w-500,q-85,f-{{ format }}/{{ filename }}">
+                      {% endfor %}
+                      <img 
+                        src="{{ site.api.images }}/tr:w-500/{{ filename }}" alt="{{ image.alt }}"
+                        width="{{ width }}" height="{{ height }}"
+                      >
+                    </picture>
                   </a>
                   {% if image.caption %}
                     <figcaption class="gallery-card__caption">
