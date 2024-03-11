@@ -102,7 +102,7 @@
       <div class="qna">
         {% for item in entries %}
           {% if item.question %}
-            <h3>{{ item.question | markdown | safe }}</h3>
+            <h3>{{ item.question | safe }}</h3>
             {% set answer = item.answer if item.answer else 
               "" %}
             {{ answer | markdown | safe }}
