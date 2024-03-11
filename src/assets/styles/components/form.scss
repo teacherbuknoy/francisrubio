@@ -81,15 +81,16 @@
 
   &-control {
     background-color: hsl(var(--bg-secondary) / 50%);
-    border        : 0;
-    border-radius : var(--ideal-radius);
-    font-family   : var(--font-sans);
-    font-size     : var(--type-size-6);
-    grid-row      : 3/4;
-    outline       : 1px solid hsl(var(--bg-accent) / 50%);
-    padding-block : 0.5ch;
-    padding-inline: 1ch;
-    transition    : outline-offset 200ms, outline-color 300ms;
+    border          : 0;
+    border-radius   : var(--ideal-radius);
+    color           : hsl(var(--fg-default));
+    font-family     : var(--font-sans);
+    font-size       : var(--type-size-6);
+    grid-row        : 3/4;
+    outline         : 1px solid hsl(var(--bg-accent) / 50%);
+    padding-block   : 0.5ch;
+    padding-inline  : 1ch;
+    transition      : outline-offset 200ms, outline-color 300ms;
 
     &:invalid:not(:placeholder-shown) {
       background-color: hsl(var(--error-100));
