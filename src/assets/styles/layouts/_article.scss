@@ -563,10 +563,10 @@ details {
     display      : flex;
     grid-column  : 1/-1;
     margin-inline: calc((var(--c-width) - 100vw) / 2);
+    margin-block : calc(var(--space-xxxl) * 2);
     width        : 100vw;
 
-    @media screen and (min-width: 690px) {
-    }
+    @media screen and (min-width: 690px) {}
 
     img {
       flex-grow: 1;
