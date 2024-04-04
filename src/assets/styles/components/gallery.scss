@@ -132,3 +132,23 @@
      }
    }
  }
+
+ @keyframes appear {
+  from {
+    opacity: 0;
+    scale: 0.8;
+    translate: 0 20%;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1;
+    translate: 0 0;
+  }
+ }
+
+ .gallery-card {
+  animation: appear linear both;
+  animation-timeline: view();
+  animation-range: entry 25% cover 35%;
+ }
