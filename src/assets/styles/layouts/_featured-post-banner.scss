@@ -77,7 +77,8 @@
   text-align           : end;
 
   &>* {
-    grid-column: 2/3
+    grid-column: 2/3;
+    z-index:3;
   }
 
   .banner {
@@ -88,7 +89,7 @@
       grid-row    : 1/6;
       height      : 100%;
       object-fit  : cover;
-      z-index     : -1;
+      z-index     : 1;
     }
 
     &__title {
@@ -100,6 +101,22 @@
 
       a {
         text-decoration: none;
+      }
+    }
+  }
+
+  &[style*='--theme-color'] {
+    &::after {
+      content    : '';
+      grid-column: 1/-1;
+      grid-row   : 1/-1;
+      background : radial-gradient(circle at right, hsl(var(--theme-color-hsl)/100%) 20%, hsl(var(--theme-color-hsl)/0%));
+      z-index    : 2;
+    }
+
+    .banner {
+      &__image {
+        filter: none;
       }
     }
   }

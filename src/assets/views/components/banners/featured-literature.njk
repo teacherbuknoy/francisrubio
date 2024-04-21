@@ -1,6 +1,16 @@
 {% set post = collections.literature | featured %}
 {% set entry = post.data %}
-<article class="banner banner--literature dark">
+{% set scheme %}
+{% if entry.theme.scheme %}{{ entry.theme.scheme }}{% else %}dark{% endif %}  
+{% endset %}
+
+{% if entry.theme.color %}
+  {% set themeColors %}
+    --theme-color: {{ entry.theme.color }};
+    --theme-color-hsl: {{ entry.theme['color-hsl'] }};
+  {% endset %}
+{% endif %}
+<article class="banner banner--literature {{ scheme }}" style="{{ themeColors }}">
   {% set postType = 'post' %}
   {% set sizes = entry.cover.sizes %}
   {% set width = 1920 %}
