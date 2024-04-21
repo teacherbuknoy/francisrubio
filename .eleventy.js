@@ -98,6 +98,7 @@ module.exports = function (eleventyConfig) {
       .use(require('markdown-it-footnote'))
       .use(require('markdown-it-attrs'))
       .use(require('markdown-it-sup'))
+      .use(require('markdown-it-container'), '')
       .disable('code')
   )
 

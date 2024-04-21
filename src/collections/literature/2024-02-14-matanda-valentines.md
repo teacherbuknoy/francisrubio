@@ -18,7 +18,7 @@ seo:
     url: "https://ik.imagekit.io/8jjzxcl9p/literature/bading-sa-valentines/og.png"
     is_prefixed: true
 eleventyExcludeFromCollections: false
-featured: true
+featured: false
 ---
 
 Kanina, bumili ako ng dalawang bote ng soya milk na strawberry flavor sa 7-Eleven. Dahil nga araw ng mga puso, inasahan ko na ang hagikhikan ng mga babaeng tumanggap ng bulaklak mula sa mga lalaking bumihag sa kanilang mga puso o nagbabalak bumihag nito. Nagagayakan ng pula ang buong tindahan. Pagkakataon na lang na kulay ng kabaklaan ang iniinom ko; dyahe nga naman ding uminom ng hilaw na strawberry para lang hindi maging kakulay ng Valentine's.

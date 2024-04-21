@@ -227,13 +227,17 @@ figure.image {
 
 .literature__body {
   &>* {
-    width        : min(65ch, 90%);
+    width        : min(var(--body-width, 65ch), 90%);
     margin-inline: auto;
 
 
     &+* {
       margin-block-start: var(--space-xl);
     }
+  }
+
+  ruby {
+    line-height: 2.5;
   }
 }
 
@@ -571,5 +575,98 @@ details {
     img {
       flex-grow: 1;
     }
+  }
+}
+
+.poetry {
+  &:is(table) {
+    border-collapse: collapse;
+
+    tr {
+      border-radius: var(--radius-2);
+      margin       : 0;
+      transition   : background 200ms;
+
+      td {
+        padding: var(--space-xxxs) var(--space-s);
+      }
+
+      @media screen and (max-width: 890px) {
+        display         : grid;
+        gap             : var(--space-xxs);
+        padding         : var(--space-xxxs) var(--space-s);
+        margin-block-end: var(--space);
+
+        td {
+          padding      : 0;
+          border-radius: 0;
+        }
+      }
+    }
+
+    thead {
+      font-family            : var(--font-sans);
+      font-size              : var(--type-size-6);
+      font-variation-settings: 'wght'700;
+      font-weight            : 700;
+      text-transform         : uppercase;
+
+      th {
+        padding-block-end: var(--space);
+      }
+
+      @media screen and (max-width: 890px) {
+        display: none;
+      }
+    }
+
+    tbody {
+      tr:not(:has(td[colspan])):hover {
+        background-color: hsl(var(--bg-secondary));
+      }
+    }
+
+    td {
+      font-family: var(--font-sans);
+
+      &[colspan="2"] {
+        &::before {
+          content: '';
+          display: block;
+          height : 1rem;
+        }
+      }
+
+      &[lang=en] {
+        font-size: var(--type-size-6);
+      }
+
+      &:first-child {
+        border-top-left-radius   : var(--radius-2);
+        border-bottom-left-radius: var(--radius-2);
+        font-weight              : 700;
+        font-variation-settings  : 'wght'700;
+      }
+
+      &:last-child {
+        border-top-right-radius   : var(--radius-2);
+        border-bottom-right-radius: var(--radius-2);
+      }
+
+      &:has(ruby) {
+        margin-block-start: var(--space-xxs);
+      }
+    }
+
+    ruby {
+      margin-inline-end: var(--space-xxs);
+      font-size        : var(--type-size-6);
+    }
+
+    rt {
+      font-family: var(--font-sans);
+      font-size  : var(--type-size-7);
+    }
+
   }
 }

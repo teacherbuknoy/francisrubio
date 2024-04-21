@@ -20,5 +20,9 @@ module.exports = {
     ${md.render(content)}
   </div>
 </aside>`
+  },
+  markdown: {
+    isPaired: true,
+    shortcode: (content) => md.render(content)
   }
 }
