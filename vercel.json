@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/speaker-rider/",
+      "destination": "/speaking/information-for-event-organizers/",
+      "statusCode": 301
+    },
+    {
+      "source": "/instagram/",
+      "destination": "/links/",
+      "statusCode": 301
+    }
+  ]
+}

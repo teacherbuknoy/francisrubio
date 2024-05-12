@@ -26,10 +26,10 @@ eleventyImport:
 <section class="section padding-block--xxl" id="section-2" aria-labelledby="section-2-heading">
   <div class="section__inner">
     <h2 style="width: min(35ch, 100%);" class="fs-4 weight-300" id="section-2-heading">I specialize in creating <strong class="fg-primary-700 weight-bold">accessible front ends</strong> for web projects and integrating them with APIs and back-end processes.</h2>
-    <div class="scroll-snapper d-flex gap--m padding--xl relative">
+    <div class="scroll-snapper d-flex gap--m relative padding--m">
       <a href="#section-3" class="button skip-link">Skip to next section</a>
       {% for feature in features %}
-        <div class="feature-card snap-center" style="flex-basis: 30ch; flex-shrink: 0;">
+        <div class="feature-card snap-center" style="flex-basis: 30ch; flex-shrink: 0; z-index: {{ loop.revindex0 }};">
           <button data-popover data-aria-hide data-disclosure class="feature-card__header">{{ feature.title }}</button>
           <div class="feature-card__content">{{ feature.content }}</div>
         </div>
@@ -107,7 +107,7 @@ eleventyImport:
     </div>
   </div>
 </section>
-<section class="section padding-block--xxl" id="section-44" aria-labelledby="section-4-heading">
+{# <section class="section padding-block--xxl" id="section-44" aria-labelledby="section-4-heading">
   <div class="section__inner">
     <div class="stack gap--none">
       <hgroup role="group">
@@ -126,7 +126,8 @@ eleventyImport:
       </div>
     </div>
   </div>
-</section>
+</section> #}
+{% include "components/banners/featured-literature.njk" %}
 <section class="padding-block--xxl">
   <div class="section__inner">
     <aside class="callout callout--success">

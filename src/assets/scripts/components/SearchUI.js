@@ -102,15 +102,16 @@ class SearchUi {
   renderSearchResultItem(data) {
     const li = this.template.content.cloneNode(true).firstElementChild
     li.firstElementChild.href = data.url
-    li.querySelector('[data-result=image]').src = data.image.src != null
-      ? data.image.src
-      : data.image
+    li.querySelector('[data-result=image]').src = data.image
 
     li.querySelector('[data-result=title]').innerText = data.title != null
       ? data.title : ""
-
-    li.querySelector('[data-result=subtitle]').innerText = data.description != null
+    
+    const descriptionSanitizer = document.createElement('div')
+    descriptionSanitizer.innerHTML = data.description != null
       ? data.description : ""
+
+    li.querySelector('[data-result=subtitle]').innerText = descriptionSanitizer.innerText
 
     this.container.appendChild(li)
   }

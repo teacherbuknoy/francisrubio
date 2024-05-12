@@ -1,0 +1,31 @@
+{% set post = collections.literature | featured %}
+{% set entry = post.data %}
+{% set scheme %}
+{% if entry.theme.scheme %}{{ entry.theme.scheme }}{% else %}dark{% endif %}  
+{% endset %}
+
+{% if entry.theme.color %}
+  {% set themeColors %}
+    --theme-color: {{ entry.theme.color }};
+    --theme-color-hsl: {{ entry.theme['color-hsl'] }};
+  {% endset %}
+{% endif %}
+<article class="banner banner--literature {{ scheme }}" style="{{ themeColors }}">
+  {% set postType = 'post' %}
+  {% set sizes = entry.cover.sizes %}
+  {% set width = 1920 %}
+  {% set height = 506.23 %}
+  {% set formats = entry.cover.formats %}
+  {% set filename = '/literature/' + entry.cover.folder + '/' + entry.cover.header %}
+  {% set defaultImageClass = 'banner__image' %}
+  {% include "components/cdn-picture.njk" %}
+  <h2 class="category-pill__inner category-pill__category light">Featured Literature</h2>
+  <h3 class="banner__title"><a href="{{ post.url }}">{{ entry.title }}</a></h3>
+  <div class="cluster jc--end">
+    <span>written by {{ authors[entry.author].name }}</span>
+    <span class="dot"></span>
+    <time datetime="{{ post.date | machineReadableDate }}">
+      {{ post.date | humanReadableDate }}
+    </time>
+  </div>
+</article>

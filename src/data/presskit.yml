@@ -1,0 +1,58 @@
+- src:
+    folder: gallery/a-studios-shoot-03-26-2023
+    name: DSCF0112.JPG
+  filename: francis-rubio.jpg
+  alt: Francis Rubio, taken in a pink room and he's wearing a crown
+  size:
+      width: 4000
+      height: 6000
+- src:
+    name: francis-rubio-vlog.png
+  filename: francis-rubio-vlog.png
+  alt: A screenshot of Francis Rubio's vlog
+  size:
+      width: 3264
+      height: 1836
+- url: https://ik.imagekit.io/8jjzxcl9p/gallery/pride-2023/4.jpg
+  filename: francis-rubio-rhp-4.jpg
+  alt: Francis Rubio, in his Rosas, Hiyas, at Perlas outfit.
+  size:
+      width: 4000
+      height: 6000
+- src:
+    # folder: press-kit (default)
+    # sizes: [360, 720, 1280, 1920] (default)
+    # formats: [png, webp, avif]
+    name: francis-rubio-faculty.jpg
+  filename: francis-rubio-faculty.jpg
+  alt: Francis Rubio wearing a blue faculty shirt.
+  size:
+      width: 1080
+      height: 1083
+- src:
+    name: francis-rubio-speaker.jpg
+  filename: francis-rubio-speaker.jpg
+  alt: Francis Rubio giving a talk
+  size:
+      width: 2048
+      height: 1536
+- src:
+    name: francis-rubio-formal.png
+  filename: francis-rubio-formal.png
+  alt: Francis Rubio wearing a black long-sleeves shirt.
+  size:
+      width: 3000
+      height: 4000
+- src:
+    name: francis-rubio-street.jpg
+  filename: francis-rubio-street.jpg
+  alt: Francis Rubio, taken on a street with trees.
+  size:
+      width: 2604
+      height: 2604
+- url: https://ik.imagekit.io/8jjzxcl9p/gallery/pride-2023/6.jpg
+  filename: francis-rubio-rhp-6.jpg
+  alt: Francis Rubio, in his Rosas, Hiyas, at Perlas outfit.
+  size:
+      width: 4000
+      height: 6000

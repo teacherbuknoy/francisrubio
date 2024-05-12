@@ -79,6 +79,7 @@
 
     &.webmention {
       flex-direction: row;
+      flex-wrap     : wrap;
     }
 
     &:empty {
@@ -109,6 +110,7 @@
 
     &.webmention {
       padding-block-end: var(--space);
+      display          : block;
     }
   }
 
@@ -220,7 +222,7 @@
       background-color     : transparent;
       border-radius        : 0;
       box-shadow           : none;
-      column-gap           : var(--space-xs);
+      column-gap           : var(--space);
       display              : grid;
       grid-template-columns: auto 1fr;
       grid-template-rows   : 1fr 1fr;
@@ -249,7 +251,9 @@
     }
 
     &__identifier {
-      align-self: start;
+      align-self   : start;
+      overflow     : hidden;
+      text-overflow: ellipsis;
     }
   }
 }

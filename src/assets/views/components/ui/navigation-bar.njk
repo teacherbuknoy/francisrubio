@@ -52,7 +52,10 @@
     <div class="navigation-bar__section navigation-bar__section--start">
       <ul class="navigation-list">
         <li class="navigation-list-item">
-          <a href="/" class="navigation-link weight-700">Francis Rubio</a>
+          <a href="/" class="navigation-link weight-700">
+            {% include "components/logo.njk" %}
+            <span>Francis Rubio</span>
+          </a>
         </li>
 
         {% for item in navigation | rejectattr("overflow") %}
@@ -81,11 +84,20 @@
           </button>
           {% include "components/popups/overflow-links.njk" %}
         </li>
+
+        <noscript>
+          <li class="navigation-list-item">
+            <a href="#footer-overflow-menu" class="navigation-link icon-only">
+              {{ icon("more-horizontal") }}
+              <span class="sr-only">More items</span>
+            </a>
+          </li>
+        </noscript>
       </ul>
     </div>
 
-    <div class="navigation-bar__section navigation-bar__section--start hide-on-noscript">
-      <div class="cluster gap">
+    <div class="navigation-bar__section navigation-bar__section--start">
+      <div class="cluster gap hide-on-noscript">
         <button class="navigation-link icon-only--mobile" data-opens="nav-search-menu" data-is-modal="true">
           {{ icon('search') }}
           <span class="navigation-link-text">Search</span>
@@ -107,6 +119,12 @@
           {% include "components/popups/nav-rss.njk" %}
         </div>
       </div>
+      <noscript>
+        <a href="#footer-rss" class="navigation-link icon-only">
+          {{ icon("rss") }}
+          <span class="sr-only">RSS Feeds</span>
+        </a>
+      </noscript>
     </div>
   </nav>
 </div>

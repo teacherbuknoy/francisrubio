@@ -140,5 +140,7 @@ module.exports = {
     const dom = new JSDOM(htmlString).window.document
     const nodes = dom.querySelectorAll('body > *')
     return [...nodes].length
-  }
+  },
+  featured: collection => collection.find(item => item.data.featured),
+  log: str => console.log('[TEMPLATE]', str)
 }

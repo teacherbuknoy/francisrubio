@@ -11,18 +11,23 @@
 }
 
 .category-pill__inner {
-  border-radius: inherit;
+  border-radius: 100px;
   flex-grow    : 1;
+  font-family  : var(--font-sans);
+  font-size    : var(--type-size);
   padding      : var(--space-xxxs) var(--space-s);
   text-align   : center;
 }
 
 
 .category-pill__category {
-  background-color: hsl(var(--bg-primary));
-  font-weight     : bold;
-  text-transform  : capitalize;
-  text-decoration : none;
+  background-color       : hsl(var(--bg-primary));
+  font-variation-settings: "wght"500;
+  font-variation-settings: "wght"500;
+  font-weight            : bold;
+  margin                 : 0;
+  text-decoration        : none;
+  text-transform         : capitalize;
 }
 
 .category-pill__read-time {
@@ -78,4 +83,13 @@
       outline-color: hsl(var(--primary-700));
     }
   }
+}
+
+.dot {
+  align-self      : center;
+  aspect-ratio    : 1/1;
+  background-color: currentColor;
+  border-radius   : 100px;
+  display         : block;
+  width           : 0.5ch;
 }

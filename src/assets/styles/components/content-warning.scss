@@ -1,3 +1,4 @@
+.disclosure,
 .content-warning {
   --bg-content-warning: var(--bg-secondary);
   background-color    : hsl(var(--bg-content-warning) / var(--bg-content-warning-opacity, 1));
@@ -153,10 +154,14 @@
     padding-block          : 0.2ch;
   }
 
+  &[aria-pressed=true]::after {
+    content: attr(data-slur-details);
+  }
+
   &::after {
     background-color: hsl(var(--warning-100));
     bottom          : calc(100% + var(--space-xs));
-    content         : attr(data-slur-details);
+    content         : '';
     left            : 50%;
     padding         : var(--space-xs);
     position        : absolute;
