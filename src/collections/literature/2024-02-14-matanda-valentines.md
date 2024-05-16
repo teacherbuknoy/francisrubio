@@ -17,7 +17,7 @@ seo:
   og:
     url: "https://ik.imagekit.io/8jjzxcl9p/literature/bading-sa-valentines/og.png"
     is_prefixed: true
-eleventyExcludeFromCollections: false
+eleventyExcludeFromCollections: true
 featured: false
 ---
 
