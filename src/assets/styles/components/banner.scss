@@ -82,7 +82,7 @@
       white-space       : nowrap;
     }
 
-    noscript {
+    @at-root .no-js & noscript {
       display: contents;
     }
 
