@@ -28,7 +28,7 @@
 
     [data-baybayin]::after {
       mix-blend-mode: multiply;
-      color         : hsl(var(--primary-100));
+      color         : hsl(var(--primary-500)) !important;
     }
   }
 
