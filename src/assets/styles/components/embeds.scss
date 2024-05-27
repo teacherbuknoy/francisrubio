@@ -5,8 +5,17 @@
 
   &--youtube {
     background-color: black;
-    aspect-ratio: 16/9;
-    box-shadow  : 0 15px 28px #0005;
-    margin-block: var(--space-l);
+    aspect-ratio    : 16/9;
+    box-shadow      : 0 15px 28px #0005;
+    margin-block    : var(--space-l);
   }
+}
+
+figure.image video {
+  @extend .embed;
+  @extend .embed--youtube;
+
+  aspect-ratio: auto;
+  max-height  : 40ch;
+  width       : auto;
 }

@@ -6,7 +6,7 @@
   "scripts": {
     "subdev": "cross-env ELEVENTY_ENV=development eleventy --serve --incremental",
     "subbuild": "cross-env ELEVENTY_ENV=production eleventy",
-    "dev": "run-s subdev",
+    "dev": "npm run serve",
     "build": "run-s subbuild",
     "production": "npm run build",
     "start": "npm run serve",
