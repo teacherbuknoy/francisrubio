@@ -1,0 +1,82 @@
+.banner {
+  &--commissions {
+    --banner-bg-1        : 351 100% 66%;
+    --banner-bg-2        : 354 80% 57%;
+    --banner-bg-3        : 358 73% 44%;
+    --banner-fg-1        : 0 0% 100%;
+    align-items          : center;
+    background-color     : hsl(var(--banner-bg-1));
+    border-radius        : 1rem;
+    display              : grid;
+    grid-template-columns: 8fr 2fr 2ch 1fr;
+    margin               : 3rem;
+    min-height           : 10ch;
+    overflow             : hidden;
+
+    .banner__decorations {
+      display    : grid;
+      filter     : drop-shadow(2ch 0 0 hsl(var(--banner-bg-3) / 70%)) drop-shadow(4ch 0 0 hsl(var(--banner-bg-3) / 50%));
+      grid-column: 1/5;
+      grid-row   : 1/2;
+      height     : 100%;
+      width      : 100%;
+      z-index    : 2;
+
+      &::before {
+        background-color: hsl(var(--banner-bg-3));
+        clip-path       : polygon(0% 0%, 70% 0%, 95% 100%, 0% 100%);
+        content         : "";
+      }
+    }
+
+    * {
+      grid-row: 1;
+      z-index : 3;
+    }
+
+    .banner__image {
+      background-image   : var(--image-set);
+      background-position: left;
+      background-repeat  : no-repeat;
+      background-size    : cover;
+      grid-column        : -1/-2;
+      height             : 100%;
+      width              : 100%;
+    }
+
+    .banner__body {
+      padding-inline: 2ch;
+      margin-block  : 1ch;
+      grid-column   : 1/2;
+    }
+
+    .banner__summary,
+    .banner__title {
+      margin-block : 0;
+      margin-inline: 2rem;
+    }
+
+    .banner__title {
+      font-size              : var(--type-size-4);
+      font-variation-settings: "wght"600, "SOFT"100, "WONK"100;
+      line-height            : 1;
+    }
+
+    .banner__summary {
+      align-self : start;
+      font-family: var(--font-sans);
+      font-size  : var(--type-size-6);
+      grid-row   : 2/3;
+      line-height: 1.25;
+    }
+
+    .primary.button {
+      --gradience-radius: 100px;
+      align-self        : center;
+      background-color  : #000;
+      border-radius     : 100px;
+      grid-column       : 2/3;
+      width             : 100%;
+    }
+  }
+}
