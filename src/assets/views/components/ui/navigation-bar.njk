@@ -1,54 +1,7 @@
 {% from "components/ui/utils.njk" import icon %}
-
 <a href="#main" class="skip-link">Skip to content</a>
 <div class="navbar-wrapper" data-navbar-animations>
-  {# MOBILE NAVIGATION #}
-  <nav class="navigation-bar show-on-mobile" aria-label="Site" data-navbar-animations>
-    <div class="navigation-bar__section navigation-bar__section--start hide-on-noscript">
-      <button class="navigation-link icon-only--mobile" data-opens="nav-mobile-menu" data-is-modal="true">
-        {{ icon("menu") }}
-        <span class="navigation-link-text">Menu</span>
-      </button>
-    </div>
-    <noscript class="navigation-bar__section navigation-bar__section--start">
-      <a href="#noscript-nav" class="navigation-link icon-only--mobile">
-        {{ icon("menu") }}
-        <span class="navigation-link-text">Menu</span>
-      </a>
-    </noscript>
-    <div class="navigation-bar__section navigation-bar__section--center margin-inline--auto padding-block--xxs">
-      <a href="/" class="weight-300 fs-6" style="text-decoration: none">
-        <span>Francis Rubio</span>
-      </a>
-    </div>
-    <div class="navigation-bar__section navigation-bar__section--end hide-on-noscript">
-      <div class="cluster gap">
-        <button class="navigation-link icon-only--mobile" data-opens="nav-search-menu" data-is-modal="true">
-          {{ icon('search') }}
-          <span class="sr-only">Search</span>
-        </button>
-        <div class="relative">
-          {% set popupId = 'nav-color-scheme-mobile' %}
-          <button class="navigation-link icon-only" data-opens="{{ popupId }}" >
-            {{ icon('moon') }}
-            <span class="navigation-link-text sr-only">Change color scheme</span>
-          </button>
-          {% include "components/popups/color-scheme.njk" %}
-        </div>
-        <div class="relative">
-          {% set popupId = 'nav-rss-mobile' %}
-          <button class="navigation-link icon-only" data-opens="{{ popupId }}" >
-            {{ icon('rss') }}
-            <span class="navigation-link-text sr-only">RSS Feeds</span>
-          </button>
-          {% include "components/popups/nav-rss.njk" %}
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  {# DESKTOP NAVIGATION #}
-  <nav class="navigation-bar hide-on-mobile" aria-label="Site" data-navbar-animations>
+  <nav class="navigation-bar" aria-label="Site">
     <div class="navigation-bar__section navigation-bar__section--start">
       <ul class="navigation-list">
         <li class="navigation-list-item">
@@ -57,9 +10,8 @@
             <span>Francis Rubio</span>
           </a>
         </li>
-
         {% for item in navigation | rejectattr("overflow") %}
-          <li class="navigation-list-item">
+          <li class="navigation-list-item hide-on-mobile">
             <a href="{{ item.url }}" class="navigation-link{{ ' active' if utils.isActivePath(activePath, item.url) }}">
               {% if item.text %}
                 <span class="navigation-link-text">{{ item.text }}</span>
@@ -76,59 +28,60 @@
           </li>
         {% endfor %}
 
-        <li class="navigation-list-item hide-on-noscript">
+        <li class="navigation-list-item hide-on-noscript relative hide-on-mobile">
           {% set popupId = 'nav-overflow-desktop' %}
-          <button class="navigation-link icon-only" data-opens="{{ popupId }}" >
+          <button class="navigation-link icon-only" data-opens="{{ popupId }}">
             {{ icon("more-horizontal") }}
             <span class="sr-only">More items</span>
           </button>
           {% include "components/popups/overflow-links.njk" %}
         </li>
-
-        <noscript>
-          <li class="navigation-list-item">
-            <a href="#footer-overflow-menu" class="navigation-link icon-only">
-              {{ icon("more-horizontal") }}
-              <span class="sr-only">More items</span>
-            </a>
-          </li>
-        </noscript>
       </ul>
     </div>
 
-    <div class="navigation-bar__section navigation-bar__section--start">
-      <div class="cluster gap hide-on-noscript">
-        <button class="navigation-link icon-only--mobile" data-opens="nav-search-menu" data-is-modal="true">
-          {{ icon('search') }}
-          <span class="navigation-link-text">Search</span>
-        </button>
-        <div class="relative">
+    <div class="navigation-bar__section navigation-bar__section--end">
+      <ul class="navigation-list">
+        <li class="navigation-list-item hide-on-noscript">
+          <button class="navigation-link" data-opens="nav-search-menu" data-is-modal="true">
+            {{ icon('search') }}
+            <span class="navigation-link-text">Search</span>
+          </button>
+        </li>
+        <li class="navigation-list-item hide-on-noscript">
           {% set popupId = 'nav-color-scheme-desktop' %}
-          <button class="navigation-link icon-only" data-opens="{{ popupId }}" >
+          <button class="navigation-link icon-only" data-opens="{{ popupId }}">
             {{ icon('moon') }}
             <span class="navigation-link-text sr-only">Change color scheme</span>
           </button>
           {% include "components/popups/color-scheme.njk" %}
-        </div>
-        <div class="relative">
+        </li>
+        <li class="navigation-list-item hide-on-noscript relative">
           {% set popupId = 'nav-rss-desktop' %}
-          <button class="navigation-link icon-only" data-opens="{{ popupId }}" >
+          <button class="navigation-link icon-only" popovertarget="popover-rss" data-opens="{{ popupId }}">
             {{ icon('rss') }}
             <span class="navigation-link-text sr-only">RSS Feeds</span>
           </button>
           {% include "components/popups/nav-rss.njk" %}
-        </div>
-      </div>
-      <noscript>
-        <a href="#footer-rss" class="navigation-link icon-only">
-          {{ icon("rss") }}
-          <span class="sr-only">RSS Feeds</span>
-        </a>
-      </noscript>
+        </li>
+        <li class="navigation-list-item show-on-noscript">
+          <a href="#footer-rss" class="navigation-link icon-only">
+            {{ icon('rss') }}
+            <span class="navigation-link-text sr-only">
+              RSS Feeds
+            </span>
+          </a>
+        </li>
+        <li class="navigation-list-item show-on-mobile">
+          <button class="navigation-link" data-opens="nav-mobile-menu" data-is-modal="true">
+            {{ icon("menu") }}
+            <span class="navigation-link-text">Menu</span>
+          </button>
+        </li>
+      </ul>
     </div>
   </nav>
 </div>
 <div data-observer-trigger></div>
 
-{% include "components/popups/search-dialog.njk" %}
 {% include "components/popups/mobile-navigation.njk" %}
+{% include "components/popups/search-dialog.njk" %}

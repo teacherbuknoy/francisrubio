@@ -346,3 +346,8 @@ $h-small: 650px;
 body:not(.no-js) .animated-fallback {
   display: none;
 }
+
+.hero {
+  min-height: 100vh;
+  margin-top: 0;
+}

@@ -22,6 +22,13 @@
     max-width: min(75ch, 100%);
   }
 
+  @at-root .attached & {
+    box-shadow: 0 4px 8px hsl(var(--d-contrast) / 5%),
+      0 8px 16px hsl(var(--d-contrast) / 5%),
+      0 16px 32px hsl(var(--d-contrast) / 5%),
+      0 32px 64px hsl(var(--d-contrast) / 5%);
+  }
+
   @supports (backdrop-filter: blur(10px)) {
     background-color: transparent;
 
@@ -47,7 +54,8 @@
   }
 
   &__section {
-    display: flex;
+    display   : flex;
+    align-self: stretch;
 
     &--start {
       justify-content: start;
@@ -301,17 +309,16 @@
 }
 
 .navigation-popup {
-  background-color: hsl(var(--bg-secondary));
-  border-radius   : calc(var(--ideal-radius) * 1.35);
-  box-shadow      : 0 10px 25px -15px #0003;
-  height          : auto;
-  padding         : var(--space-xs);
-  position        : absolute;
-  transition      : transform 200ms, box-shadow 300ms, opacity 200ms 75ms;
-  z-index         : -2;
-  --brightness    : 0.7;
-  right           : 0;
-  top             : calc(100% + var(--space-s));
+  background-color   : hsl(var(--bg-secondary));
+  border-radius      : calc(var(--ideal-radius) * 1.35);
+  box-shadow         : 0 10px 25px -15px #0003;
+  height             : min-content;
+  padding            : var(--space-xs);
+  position           : absolute;
+  transition         : transform 200ms, box-shadow 300ms, opacity 200ms 75ms, display, overlay;
+  transition-behavior: allow-discrete;
+  z-index            : -2;
+  --brightness       : 0.7;
 
   @at-root .navigation-bar:not(.attached) & {
     background-color: hsl(var(--primary-100));
@@ -327,6 +334,10 @@
       top          : 6ch;
       transform    : translateX(-50%);
     }
+  }
+
+  &:not(:popover-open) {
+    display: none;
   }
 
   &:not(dialog):not([hidden]),
@@ -346,11 +357,12 @@
   }
 
   &[aria-hidden] {
-    transform     : translateY(calc(-50% - var(--space-s)));
-    box-shadow    : 0 0 0 transparent;
-    opacity       : 0;
-    pointer-events: none;
-    transition    : transform 200ms 75ms, box-shadow 300ms, opacity 200ms;
+    box-shadow         : 0 0 0 transparent;
+    opacity            : 0;
+    pointer-events     : none;
+    transform          : translateY(calc(-50% - var(--space-s)));
+    transition         : transform 200ms 75ms, box-shadow 300ms, opacity 200ms, display, overlay;
+    transition-behavior: allow-discrete;
   }
 
   &__label {
@@ -401,43 +413,22 @@
   max-width : 85vw;
   position  : absolute;
   right     : auto;
-  top       : calc(3rem + var(--space-s));
+  top       : calc(100% + var(--space-xs));
   transform : translateX(-95%);
   width     : max-content;
   z-index   : 99;
-}
 
-.popup-wrapper {
-  inset             : 0;
-  left              : 50%;
-  margin-block-start: calc(4.5rem + var(--space));
-  max-width         : 100ch;
-  position          : fixed;
-  right             : auto;
-  transform         : translateX(-50%);
-  transition        : max-width 200ms, left 200ms, right 200ms, transform 200ms;
-  width             : 90%;
-  z-index           : 9999;
-
-  &:not([hidden]):not(.hidden) {
-    display: grid;
-  }
-
-  .navigation-popup {
-    grid-column: 1/2;
-    grid-row   : 1/2;
-    height     : fit-content;
-    position   : static;
-    width      : fit-content;
+  &:not(:popover-open) {
+    display: none;
   }
 }
 
 .navbar-wrapper {
+  inset           : 0;
   margin-block-end: var(--space);
   margin-inline   : auto;
   max-width       : 100%;
-  position        : sticky;
-  top             : var(--space);
+  position        : fixed;
   transition      : max-width 200ms;
   width           : 90%;
   z-index         : 9999;
@@ -449,6 +440,14 @@
 
   @media (max-width: 800px) {
     margin-block: var(--space);
+  }
+
+  & {
+    pointer-events: none;
+
+    * {
+      pointer-events: initial;
+    }
   }
 }
 
@@ -509,4 +508,8 @@
       background-color: hsl(var(--bg-accent) / 25%);
     }
   }
+}
+
+.page {
+  padding-block-start: 10rem;
 }
