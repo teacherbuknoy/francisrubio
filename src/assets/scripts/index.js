@@ -16,6 +16,7 @@ window.onJSLoadCallbacks = []
 
 const container = $('[data-notification-container]')
 const notifications = new NotificationManager(container)
+window.notifications = notifications
 
 let tabs = [...document.querySelectorAll('[data-tab]:is(button, a)')].map(
   tab => {
