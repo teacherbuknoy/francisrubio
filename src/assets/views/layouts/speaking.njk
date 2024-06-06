@@ -20,13 +20,14 @@
       <h1 id="{{ title | slugify }}" class="article__title margin--none responsive">{{ title | safe }}</h1>
 
       {% if tentativeDate != null %}
-      {% set tDate = tentativeDate %}
-      {% set talkDate = utils.tentativeDate(tDate.year, tDate.month, tDate.day) %}
-      <time datetime="{{ utils.machineReadableDate(talkDate) }}">
-        {{ utils.extractMonth(talkDate) }} {{ tDate.day + ', ' if tDate.day }}{{ tDate.year }} (tentative)
+        {% set tDate = tentativeDate %}
+        {% set talkDate = utils.tentativeDate(tDate.year, tDate.month, tDate.day) %}
+        <time datetime="{{ utils.machineReadableDate(talkDate) }}">
+          {{ utils.extractMonth(talkDate) }}
+          {{ tDate.day + ', ' if tDate.day }}{{ tDate.year }} (tentative)
       </time>
       {% else %}
-      <time datetime="{{ page.date | machineReadableDate }}">{{ page.date | humanReadableDate }}</time>
+        <time datetime="{{ page.date | machineReadableDate }}">{{ page.date | humanReadableDate }}</time>
       {% endif %}
 
       <div class="cluster gap--m jc--end">
@@ -66,6 +67,16 @@
       </aside>
       <div class="not-sidebar article__body" style="grid-template-columns: 1fr min(75ch, 100%) 1fr">
         {{ content | safe }}
+        {% for section in resources %}
+          <h2>{{ section.heading }}</h2>
+          <div class="link-grid">
+            {% for url in section.links %}
+              {% setAsync "meta" %}{{ url | metatags | dump | safe }}{% endsetAsync %}
+              {% set metadata = utils.jsonify(meta) %}
+              {% include 'components/ui/link-preview-card.njk' %}
+            {% endfor %}
+          </div>
+        {% endfor %}
       </div>
     </div>
   </main>
@@ -73,21 +84,20 @@
 {% endblock %}
 
 {% block scripts %}
-  
+
   {% set preferredDomain = site.domains | selectattr('isPreferred') | first %}
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
-        "name": "Navigation",
+      "name": "Navigation",
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
           "name": "Speaking",
           "item": "https://{{ preferredDomain.value }}/speaking/"
-        },
-        {
+        }, {
           "@type": "ListItem",
           "position": 2,
           "name": "{{ title | safe }}",

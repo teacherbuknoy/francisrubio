@@ -1,0 +1,15 @@
+{% set shareCardHeadingLevel = shareCardHeadingLevel if shareCardHeadingLevel else 
+  "2" %}
+<article class="card card--social" aria-labelledby="heading-{{ metadata.title | slugify }}">
+  {% if metadata.image %}
+    <img src="{{ metadata.image }}" class="card__image" alt="" aria-hidden="true" width="1920" height="1080">
+  {% elif metadata.themeColor %}
+    <svg viewbox="0 0 100 100" class="card__image" aria-hidden="true"><rect fill="{{ metadata.themeColor }}" width="100" height="100"/></svg>
+  {% endif %}
+  <div class="card__body">
+    <h{{ shareCardHeadingLevel }} class="card__title" id="heading-{{ metadata.title | slugify }}">
+      <a class="card__link" href="{{ metadata.url }}" target="_blank" rel="noopener">{{ metadata.title | safe }}</a>
+    </h{{ shareCardHeadingLevel }}>
+    <p class="card__description">{{ metadata.description | safe }}</p>
+  </div>
+</article>

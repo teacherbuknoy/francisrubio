@@ -1,6 +1,7 @@
 const jsdom = require("jsdom")
 const { JSDOM } = jsdom
-
+const EleventyFetch = require('@11ty/eleventy-fetch')
+const parse = require("node-html-parser").parse
 const markdownIt = require('markdown-it')
 
 const md = markdownIt({ html: true, linkify: true, typographer: true })
@@ -142,5 +143,47 @@ module.exports = {
     return [...nodes].length
   },
   featured: collection => collection.find(item => item.data.featured),
-  log: str => console.log('[TEMPLATE]', str)
+  log: str => console.log('[TEMPLATE]', str),
+  metatags: async function (url) {
+    try {
+      const html = await EleventyFetch(url, { duration: '0s', type: 'text' })
+      const document = parse(html)
+      const rawMeta = {}
+      rawMeta.title = document.querySelector('title')?.innerText;
+
+      const metaTags = [...document.querySelectorAll('meta')]
+      metaTags.forEach(meta => {
+        if (meta.hasAttribute('name')) {
+          rawMeta[meta.getAttribute('name')] = meta.getAttribute('content')
+        }
+
+        if (meta.hasAttribute('property')) {
+          rawMeta[meta.getAttribute('property')] = meta.getAttribute('content')
+        }
+      })
+
+      metadata = {
+        title: rawMeta.title ? rawMeta.title : null,
+        description: rawMeta.description
+          ? rawMeta.description
+          : rawMeta['og:description']
+            ? rawMeta['og:description']
+            : rawMeta['twitter:description']
+              ? rawMeta['twitter:description']
+              : null,
+        url,
+        image: rawMeta['og:image']
+          ? rawMeta['og:image']
+          : rawMeta['twitter:image']
+            ? rawMeta['twitter:image']
+            : null,
+        themeColor: rawMeta['theme-color']
+      }
+
+      return metadata
+    } catch (e) {
+      console.error('[ERROR]', e)
+      return { url, title: '', description: null }
+    }
+  }
 }

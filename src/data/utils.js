@@ -69,5 +69,6 @@ module.exports = {
     const url = new URL(profileURL).host
     return `@${username}@${url}`
   },
-  currentTimestamp: () => Date.now()
+  currentTimestamp: () => Date.now(),
+  jsonify: jsonString => JSON.parse(jsonString)
 }
