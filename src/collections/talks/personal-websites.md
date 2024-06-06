@@ -1,7 +1,7 @@
 ---
 title: Personal Websites
 description: An overview of the personal website trend and how you can join in
-image: /talks/advanced-graphic-design/cover.jpeg
+image: https://ik.imagekit.io/8jjzxcl9p/tr:w-720,f-png/talks/personal-website/cover.png
 slug: personal-websites
 date: 2024-06-06
 link:
@@ -26,6 +26,9 @@ resources:
       - https://www.zachleat.com/
       - https://blog.darylsun.page/now
       - https://francisrub.io
+  - heading: Starting template
+    links:
+      - https://github.com/teacherbuknoy/eleventy-template
   - heading: Static Site Generators
     links:
       - https://www.11ty.dev/
