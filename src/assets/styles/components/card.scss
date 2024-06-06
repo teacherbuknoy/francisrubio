@@ -660,7 +660,7 @@
 .link-grid {
   display              : grid;
   gap                  : 1rem;
-  grid-auto-rows       : 15ch min-content;
+  grid-auto-rows       : min-content min-content;
   grid-template-columns: repeat(auto-fit, minmax(25ch, 1fr));
 
   .card--social {
@@ -674,9 +674,12 @@
     }
 
     .card__image {
-      grid-row  : 1/2;
-      height    : 100%;
-      object-fit: cover;
+      aspect-ratio: 1125/562;
+      grid-row    : 1/2;
+      height      : 100%;
+      height      : auto;
+      object-fit  : cover;
+      width       : 100%;
     }
 
     .card__body {
