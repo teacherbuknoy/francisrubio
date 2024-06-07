@@ -85,7 +85,10 @@
       </section>
     {% endif %}
 
-    <footer class="stack gap--xl m-block--xxxl" style="text-align: center; margin-inline: auto; width: min(var(--content-width), 90%);">
+    <footer>
+      {% include "components/banners/commissions-banner.njk" %}
+    </footer>
+    {# <footer class="stack gap--xl m-block--xxxl" style="text-align: center; margin-inline: auto; width: min(var(--content-width), 90%);">
       <div class="section__header">
         <hgroup role="group">
           <h2 class="section__subtitle fs-3">Building a similar project?</h2>
@@ -97,9 +100,8 @@
           {{ "mail" | icon | safe }}
           <span>Connect with me</span>
         </button>
-
       </div>
-    </footer>
+    </footer> #}
   </main>
   {% include 'components/email-form.njk' %}
   {% include 'components/footer.njk' %}
