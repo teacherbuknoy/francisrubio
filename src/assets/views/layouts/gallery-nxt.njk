@@ -1,0 +1,125 @@
+{% extends "layouts/main.njk" %}
+{% block content %}
+  {% include "components/ui/navigation-bar.njk" %}
+  <main id="main" class="padding--l article gallery-layout" tabindex="-1" aria-labelledby="{{ title | slugify }}">
+    <header class="article__header" style="width: min(100ch, 100%); margin-inline: auto">
+      <nav class="breadcrumb" aria-label="Breadcrumbs">
+        <ol class="breadcrumb__list">
+          <li class="breadcrumb__list-item">
+            <a href="/" class="breadcrumb__link" data-animation="button">Frontpage</a>
+          </li>
+          <li class="breadcrumb__list-item">
+            <a href="/gallery/" class="breadcrumb__link" data-animation="button">Gallery</a>
+          </li>
+          <li class="breadcrumb__list-item">
+            <a aria-current="location" class="breadcrumb__link" data-animation="button">This collection</a>
+          </li>
+        </ol>
+      </nav>
+      <h1 id="{{ title | slugify }}" class="pname article__title margin--none responsive">{{ title | safe }}</h1>
+      <p class="p-summary responsive fs-4 weight-300">{{ description | safe }}</p>
+      <div class="spaced cluster">
+        <div>
+          Curated by <a rel="author" class="p-author h-card" href="{{ authors[author].url }}">
+            <span class="p-name">{{ authors[author].name }}</span>
+            <img class="u-photo hidden" src="{{ authors[author].photo }}"/>
+          </a>
+          on <time class="dt-published" datetime="{{ page.date | machineReadableDate }}">
+            <a class="u-url" href="{{ page.url }}">{{ page.date | humanReadableDate }}</a>
+          </time>
+        </div>
+      </div>
+    </header>
+
+    <div class="article__body gallery__body">
+      {{ content | safe }}
+    </div>
+
+    <div class="gallery__body">
+      {% for section in parts %}
+        <section>
+          {% if section.statement %}
+            <div class="statement">
+              {{ section.statement | markdown | safe }}
+            </div>
+          {% endif %}
+          {% if section.images %}
+            <div class="gallery-grid">
+              {% for image in section.images %}
+                {% set filename %}gallery/{{ settings.folder }}/{{ image.filename }}{% endset %}
+                {% if image.style %}
+                  {% set style %}{% for key,value in image.style %}{{ key }} : {{ value }};{% endfor %}{% endset %}
+                {% endif %}
+                <figure class="gallery-card" {% if image.style %}
+                  style="{{ style }}"
+                {% endif %}>
+                  <a href="{{ site.api.images }}{{ filename }}" class="gallery-card__link no-arrow" target="_blank">
+                    <picture>
+                      <source type="image/avif" srcset="{{ site.api.images }}tr:w-0.5,f-avif/{{ filename }}">
+                      <source type="image/webp" srcset="{{ site.api.images }}tr:w-0.5,f-webp/{{ filename }}">
+                      <source type="image/jpg" srcset="{{ site.api.images }}tr:w-0.5,f-jpg/{{ filename }}">
+                      <img src="{{ site.api.images }}tr:w-0.5" alt="{{ image.alt }}"
+                          width="{{ image.width if image.width else '720' }}"
+                          height="{{ image.height if image.height else '1280' }}">
+                    </picture>
+                  </a>
+                  {% if image.caption %}
+                    <figcaption class="gallery-card__caption">
+                      <p>{{ image.caption | safe }}</p>
+                    </figcaption>
+                  {% elif image.credits %}
+                    <figcaption class="gallery-card__caption gallery-card__caption--credits">
+                      <p>{{ image.credits | safe }}</p>
+                    </figcaption>
+                  {% endif %}
+                </figure>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </section>
+      {% endfor %}
+    </div>
+
+    <footer class="stack gap--xl m-block--xxxl" style="text-align: center; margin-inline: auto; width: min(var(--content-width), 90%);">
+      <div class="section__header">
+        <hgroup role="group">
+          <h2 class="section__subtitle fs-3">I also serve visuals somewhere else.</h2>
+          <p style="text-align: left;">Drag, make up, outfits, places, and moments. I post most of them on Instagram.</p>
+        </hgroup>
+      </div>
+
+      <div class="stack ai--center gap--s">
+        <a href="{{ site.contact.instagram.url }}" class="primary button" target="blank" rel="noopener">
+          {{ "instagram" | icon | safe }}
+          <span>Follow me on Instagram</span>
+        </a>
+      </div>
+    </footer>
+  </main>
+  {% include 'components/footer.njk' %}
+{% endblock %}
+
+{% block scripts %}
+
+  {% set preferredDomain = site.domains | selectattr('isPreferred') | first %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "name": "Navigation",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Gallery",
+          "item": "https://{{ preferredDomain.value }}/gallery/"
+        }, {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{{ title | safe }}",
+          "item": "https://{{ preferredDomain.value }}{{ page.url }}"
+        }
+      ]
+    }
+  </script>
+{% endblock %}
