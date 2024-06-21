@@ -35,10 +35,6 @@
       </div>
     </header>
 
-    <div class="article__body gallery__body">
-      {{ content | safe }}
-    </div>
-
     {% if statements == null or statements.length == 0 %}
       <div class="gallery-grid {{ "symmetrical" if symmetrical }}" style="width: min(120ch, 100%); margin-inline: auto;">
         {% for image in entries %}
@@ -133,6 +129,10 @@
         {# TODO: Include excess images #}
       </div>
     {% endif %}
+
+    <div class="article__body gallery__body">
+      {{ content | safe }}
+    </div>
 
     <footer class="stack gap--xl m-block--xxxl" style="text-align: center; margin-inline: auto; width: min(var(--content-width), 90%);">
       <div class="section__header">
