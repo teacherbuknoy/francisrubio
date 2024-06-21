@@ -24,9 +24,18 @@ activePath: gallery
   <div class="page__inner">
     <div class="padding-block--xl gap--l symmetrical gallery-grid">
       {% for item in pagination.items %}
-        <div>
-          {% include 'components/gallery-entry.njk' %}
-        </div>
+        {% if item.data.professional %}
+          <div>
+            {% include 'components/gallery-entry.njk' %}
+          </div>
+        {% endif %}
+      {% endfor %}
+      {% for item in pagination.items %}
+        {% if not item.data.professional %}
+          <div>
+            {% include 'components/gallery-entry.njk' %}
+          </div>
+        {% endif %}
       {% endfor %}
     </div>
   </div>

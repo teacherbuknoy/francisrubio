@@ -1,6 +1,7 @@
 ---
 title: "Rosas, Hiyas, at Perlas"
 description: Keeping in touch with my feminine side as a queer person
+professional: true
 sizes: [200, 500, 700]
 types: [jpeg, webp, avif]
 folder: pride-2023
