@@ -9,6 +9,26 @@
       "source": "/instagram/",
       "destination": "/links/",
       "statusCode": 301
+    },
+    {
+      "source": "/ar-mobile",
+      "destination": "/speaking/augmented-reality-mobile-apps/",
+      "statusCode": 301
+    },
+    {
+      "source": "/speaker-rider",
+      "destination": "/speaking/information-for-event-organizers/",
+      "statusCode": 301
+    },
+    {
+      "source": "/profile-picture",
+      "destination": "/assets/images/profile-picture/dp.jpg",
+      "statusCode": 301
+    },
+    {
+      "source": "/talks/",
+      "destination": "/speaking/",
+      "statusCode": 301
     }
   ]
 }
