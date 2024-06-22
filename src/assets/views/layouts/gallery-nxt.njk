@@ -30,12 +30,12 @@
         </div>
       </div>
     </header>
-
-    <div class="article__body gallery__body">
-      {{ content | safe }}
-    </div>
-
     <div class="gallery__body">
+
+      <div class="font-sans text-align--center">
+        {{ content | safe }}
+      </div>
+
       {% for section in parts %}
         <section>
           {% if section.statement %}
@@ -48,7 +48,8 @@
               {% for image in section.images %}
                 {% set filename %}gallery/{{ settings.folder }}/{{ image.filename }}{% endset %}
                 {% if image.style %}
-                  {% set style %}{% for key,value in image.style %}{{ key }} : {{ value }};{% endfor %}{% endset %}
+                  {% set style %}
+                  {% for key, value in image.style %}{{ key }} : {{ value }};{% endfor %}{% endset %}
                 {% endif %}
                 <figure class="gallery-card" {% if image.style %}
                   style="{{ style }}"

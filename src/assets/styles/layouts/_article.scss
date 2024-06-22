@@ -355,25 +355,18 @@ details {
       --width              : min(120ch, 98%);
       display              : grid;
       grid-auto-flow       : dense;
-      grid-auto-rows       : calc(var(--width) / var(--columns));
-      grid-template-columns: repeat(var(--columns), 1fr);
+      grid-auto-rows       : minmax(30ch, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
       height               : min-content;
       margin-inline        : auto;
       width                : var(--width);
-
-      @container (width > 50ch) {
-        --columns: 2;
-      }
-
-      @container (width > 75ch) {
-        --columns: 3;
-      }
     }
 
     &-card {
+      --row-span: 2;
       grid-row  : span var(--row-span);
       height    : 100%;
-      --row-span: 2;
+      width     : 100%;
 
       &__link {
         display : flex;
@@ -688,6 +681,6 @@ details {
 }
 
 .article__body.gallery__body {
-  font-family: var(--font-sans);
+  font-family     : var(--font-sans);
   margin-block-end: var(--space-xxl);
 }
