@@ -12,7 +12,7 @@
 {% endif %}
 <article class="banner banner--literature banner--gallery {{ scheme }}" style="{{ themeColors }}">
   {% set postType = 'post' %}
-  {% set sizes = entry.cover.sizes %}
+  {% set sizes = [1280, 2560] %}
   {% set width = 1920 %}
   {% set height = 506.23 %}
   {% set formats = entry.cover.formats %}

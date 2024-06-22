@@ -4,7 +4,7 @@
   {% if entries == null and enum != null %}
     {% set entries = enum | enumToGalleryEntry %}
   {% endif %}
-  <main id="main" class="padding--l article gallery-layout" tabindex="-1" aria-labelledby="{{ title | slugify }}">
+  <main id="main" class="page padding--l article gallery-layout" tabindex="-1" aria-labelledby="{{ title | slugify }}">
     <header class="article__header" style="width: min(100ch, 100%); margin-inline: auto;">
       <nav class="breadcrumb" aria-label="Breadcrumbs">
         <ol class="breadcrumb__list">
@@ -99,11 +99,12 @@
                   <a class="gallery-card__link no-arrow" href="{{ site.api.images }}{{ filename }}" target="_blank">
                     <picture>
                       {% for format in formats %}
-                        <source type="image/{{ format }}" srcset="{{ site.api.images }}/tr:w-500,q-85,f-{{ format }}/{{ filename }}">
+                        <source type="image/{{ format }}" srcset="{{ site.api.images }}/tr:w-500,q-85,f-{{ format }}/{{ filename }}" loading="lazy">
                       {% endfor %}
                       <img 
                         src="{{ site.api.images }}/tr:w-500/{{ filename }}" alt="{{ image.alt }}"
                         width="{{ width }}" height="{{ height }}"
+                        loading="lazy"
                       >
                     </picture>
                   </a>

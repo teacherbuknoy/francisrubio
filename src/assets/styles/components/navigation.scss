@@ -510,6 +510,6 @@
   }
 }
 
-main.page:not(:has(header.hero)) {
+main:is(.page, .article):not(:has(header.hero)) {
   padding-block-start: 10rem !important;
 }
