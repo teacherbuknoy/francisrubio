@@ -105,6 +105,13 @@
     }
   }
 
+  &.banner--gallery {
+    .banner__image {
+      aspect-ratio: 2560/978;
+      filter: brightness(80%)
+    }
+  }
+
   &[style*='--theme-color'] {
     &::after {
       content    : '';
