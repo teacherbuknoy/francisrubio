@@ -41,10 +41,16 @@
 
     <div class="navigation-bar__section navigation-bar__section--end">
       <ul class="navigation-list">
-        <li class="navigation-list-item hide-on-noscript">
+        <li class="navigation-list-item hide-on-noscript hide-on-mobile">
           <button class="navigation-link" data-opens="nav-search-menu" data-is-modal="true">
             {{ icon('search') }}
             <span class="navigation-link-text">Search</span>
+          </button>
+        </li>
+        <li class="navigation-list-item hide-on-noscript show-on-mobile">
+          <button class="navigation-link icon-only" data-opens="nav-search-menu" data-is-modal="true">
+            {{ icon('search') }}
+            <span class="navigation-link-text sr-only">Search</span>
           </button>
         </li>
         <li class="navigation-list-item hide-on-noscript">
@@ -72,9 +78,9 @@
           </a>
         </li>
         <li class="navigation-list-item show-on-mobile">
-          <button class="navigation-link" data-opens="nav-mobile-menu" data-is-modal="true">
+          <button class="navigation-link icon-only" data-opens="nav-mobile-menu" data-is-modal="true">
             {{ icon("menu") }}
-            <span class="navigation-link-text">Menu</span>
+            <span class="navigation-link-text sr-only">Menu</span>
           </button>
         </li>
       </ul>
