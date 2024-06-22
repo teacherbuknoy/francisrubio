@@ -46,6 +46,19 @@ $h-small: 650px;
       width           : 100%;
       bottom          : 50%;
 
+      @media (max-width: ($tablet)) {
+        bottom          : auto;
+        top             : 0;
+        background-color: hsl(331 100% 80% / 0.3);
+        aspect-ratio    : 1/1;
+        translate       : -50% -50%;
+        width           : 200%;
+
+        .hero__title {
+          opacity: 0;
+        }
+      }
+
       @media (min-width: ($tablet + 1)) {
         height: 200%;
         width : auto;
@@ -86,6 +99,10 @@ $h-small: 650px;
     width          : 100%;
     z-index        : 2;
 
+    @media (max-width: ($mobile)) {
+      filter: drop-shadow(0 0px 6px hsl(331 100% 80% / 0.4));
+    }
+
     @media (min-width: ($mobile + 1)) {
       height         : 100%;
       object-position: center;
@@ -96,7 +113,7 @@ $h-small: 650px;
       height       : calc(100% + var(--top-offset));
       margin-inline: auto;
       width        : auto;
-      filter       : drop-shadow(0 -7px 13px hsl(330 100% 90% / 10%))
+      filter       : drop-shadow(0 -7px 13px hsl(330 100% 90% / 10%));
     }
   }
 
