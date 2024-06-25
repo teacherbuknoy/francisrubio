@@ -49,9 +49,21 @@
   }
 
   &.replies {
-    display       : flex;
-    flex-direction: column;
-    gap           : 1ch;
+    background-color: hsl(var(--bg-secondary)/25%);
+    border-radius   : var(--ideal-radius);
+    display         : flex;
+    flex-direction  : column;
+    gap             : 1ch;
+  }
+
+  .entry {
+    --card-bg      : var(--bg-secondary) / 0%;
+    --outline-alpha: 30%;
+    box-shadow     : none;
+
+    .profile__avatar {
+      border: 3px solid hsl(var(--bg-primary) / 0);
+    }
   }
 }
 

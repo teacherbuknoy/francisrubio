@@ -190,8 +190,8 @@
     overflow             : hidden;
 
     &[data-webmention-entry] {
-      margin       : 0;
-      border-radius: 0;
+      margin            : var(--space);
+      margin-block-start: 0;
     }
 
     img,

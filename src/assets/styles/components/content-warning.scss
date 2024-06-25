@@ -53,11 +53,7 @@
     }
 
     &.webmentions--summary {
-      &::after {
-        content: none;
-      }
-
-      :first-child {
+      :last-child {
         margin-inline-end: auto;
       }
 
