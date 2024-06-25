@@ -12,6 +12,12 @@
 <link rel="stylesheet" href="/assets/styles/styles.css">
 <link rel="stylesheet" href="/assets/styles/print.css" media="print">
 
+{% if layoutStylesheets %}
+  {% for sheet in layoutStylesheets %}
+    <link rel="stylesheet" href="/assets/styles/{{ sheet }}">
+  {% endfor %}
+{% endif %}
+
 {% if stylesheets %}
   {% for sheet in stylesheets %}
     <link rel="stylesheet" href="/assets/styles/{{ sheet }}">

@@ -1,4 +1,5 @@
-{% extends 'layouts/main.njk' %}
+{% set layoutStylesheets = ['mastodon.css'] %}
+{% extends 'layouts/base.njk' %}
 {% block content %}
   {% include 'components/ui/navigation-bar.njk' %}
   {% if entries == null and enum != null %}
@@ -135,10 +136,10 @@
       {{ content | safe }}
     </div>
 
-    <footer class="stack gap--xl m-block--xxxl" style="text-align: center; margin-inline: auto; width: min(var(--content-width), 90%);">
+    <section aria-labelledby="section-ig-title" class="stack gap--xl m-block--xxxl" style="text-align: center; margin-inline: auto; width: min(var(--content-width), 90%);">
       <div class="section__header">
         <hgroup role="group">
-          <h2 class="section__subtitle fs-3">I also serve visuals somewhere else.</h2>
+          <h2 id="section-ig-title" class="section__subtitle fs-3">I also serve visuals somewhere else.</h2>
           <p style="text-align: left;">Drag, make up, outfits, places, and moments. I post most of them on Instagram.</p>
         </hgroup>
       </div>
@@ -148,6 +149,13 @@
           <span>Follow me on Instagram</span>
         </a>
       </div>
+    </section>
+
+    <footer class="stack padding--l">
+      <div class="margin-block--xxxl">
+        {% include 'components/email-form.njk' %}
+      </div>
+      {% include 'components/webmentions.njk' %}
     </footer>
   </main>
   {% include 'components/footer.njk' %}
