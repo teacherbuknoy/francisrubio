@@ -684,3 +684,9 @@ details {
   font-family     : var(--font-sans);
   margin-block-end: var(--space-xxl);
 }
+
+:is(.article__body, .gallery__body) {
+  :is(p, ul, ol) {
+    font-variation-settings: "wght"300, "SOFT"100, "WONK"0, "opsz"20;
+  }
+}
