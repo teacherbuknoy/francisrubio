@@ -4,45 +4,70 @@
   <p class="margin-block--none">Did you post a response to this in your own website? Send me a <a href="http://indiewebcamp.com/webmention">webmention</a>!</p>
   <input class="form-control" name="target" type="hidden" value="https://{{ preferredDomain.value }}{{ page.url }}">
   <div class="form-group margin--none">
-    <label for="source" class="form-label">Your response's <abbr>URL</abbr></label>
+    <label for="source" class="form-label">Your response's <abbr>URL</abbr>
+    </label>
     <input class="form-control" id="source" name="source" type="url" placeholder="https://your.example.site/posts/response-to-francis/">
   </div>
   <button type="submit" class="primary button">Send</button>
 
-  <p class="font-sans margin-top--xl">Don't have a website? Send a response via <a href="https://commentpara.de"><b>commentpara.de</b></a>! Copy and paste the <abbr>URL</abbr> of this webpage, and paste it on there along with your response. Comments can be anonymous, too!</p>
+  <p class="font-sans margin-top--xl">Don't have a website? Send a response via <a href="https://commentpara.de">
+      <b>commentpara.de</b>
+    </a>! Copy and paste the <abbr>URL</abbr> of this webpage, and paste it on there along with your response. Comments can be anonymous, too!</p>
 </form>
-<div class="content-wrapper margin--auto hidden relative" data-webmention-container>
-  <h2 class="font-sans uppercase fs-5 weight-700" id="webmention-likes-repost">Likes and reposts</h2>
-  {% if nextSectionLink != null %}
-    <a href="{{ nextSectionLink }}" class="button skip-link">Skip to next section</a>
-    {% set nextSectionLink = null %}
-  {% endif %}
-  <ul data-webmention-container="likes" class="webmention-container likes">
-    <template id="webmention-like-entry">
-      <li class="webmention__entry" id="">
-        <div class="webmention__author">
-          <a href="" class="webmention__photo-link" data-webmention-entry="author-link">
-            <img data-webmention-entry="photo" src="" alt="" class="webmention__author-photo">
-            <div class="webmention__photo-icon" data-webmention-type="like">
-              {{ 'heart' | icon | safe }}
-            </div>
-            <div class="webmention__photo-icon" data-webmention-type="repost">
-              {{ 'rotate-cw' | icon | safe }}
-            </div>
-          </a>
-          <div class="webmention__author-details">
-            <a data-webmention-entry="author-name" href="" class="webmention__author-name"></a>
-            <a data-webmention-entry="interaction-link" href="" class="webmention__timestamp-link">
-              <time data-webmention-entry="interaction-timestamp" class="webmention__timestamp" datetime=""></time>
+<div class="content-wrapper margin--auto relative">
+<details class="disclosure margin-block--l" id="webmentions">
+  <summary class="disclosure__notice webmentions webmentions--summary hidden" aria-label="Web Mentions Summary" data-webmention-container>
+    <span>Webmentions</span>
+    <span class="webmention__statistic">
+      {{ 'heart' | icon | safe }}
+      <span data-webmention="like"></span>
+      <span class="webmention__statistic-label">Likes</span>
+    </span>
+    <span class="webmention__statistic">
+      {{ 'refresh-cw' | icon | safe }}
+      <span data-webmention="repost"></span>
+      <span class="webmention__statistic-label">Reposts</span>
+    </span>
+    <span class="webmention__statistic">
+      {{ 'message-circle' | icon | safe }}
+      <span data-webmention="reply"></span>
+      <span class="webmention__statistic-label">Replies</span>
+    </span>
+  </summary>
+  <div class="hidden disclosure__body" data-webmention-container>
+    {# <h2 class="font-sans uppercase fs-5 weight-700" id="webmention-likes-repost">Likes and reposts</h2> #}
+    {% if nextSectionLink != null %}
+      <a href="{{ nextSectionLink }}" class="button skip-link">Skip to next section</a>
+      {% set nextSectionLink = null %}
+    {% endif %}
+    <ul data-webmention-container="likes" class="webmention-container likes margin--none">
+      <template id="webmention-like-entry">
+        <li class="webmention__entry" id="">
+          <div class="webmention__author">
+            <a href="" class="webmention__photo-link" data-webmention-entry="author-link">
+              <img data-webmention-entry="photo" src="" alt="" class="webmention__author-photo">
+              <div class="webmention__photo-icon" data-webmention-type="like">
+                {{ 'heart' | icon | safe }}
+              </div>
+              <div class="webmention__photo-icon" data-webmention-type="repost">
+                {{ 'rotate-cw' | icon | safe }}
+              </div>
             </a>
+            <div class="webmention__author-details">
+              <a data-webmention-entry="author-name" href="" class="webmention__author-name"></a>
+              <a data-webmention-entry="interaction-link" href="" class="webmention__timestamp-link">
+                <time data-webmention-entry="interaction-timestamp" class="webmention__timestamp" datetime=""></time>
+              </a>
+            </div>
           </div>
-        </div>
-      </li>
-    </template>
-  </ul>
+        </li>
+      </template>
+    </ul>
+  </div>
+</details>
 </div>
 <div class="content-wrapper margin--auto hidden relative" data-webmention-container>
-  <h2 class="font-sans uppercase fs-5 weight-700" id="webmention-replies">Replies</h2>
+  {# <h2 class="font-sans uppercase fs-5 weight-700" id="webmention-replies">Replies</h2> #}
   <div data-webmention-container="in-reply-to" class="webmention-container replies">
     <template id="webmention-reply-entry">
       <article class="entry">

@@ -51,6 +51,20 @@
         content: 'Select to close'
       }
     }
+
+    &.webmentions--summary {
+      &::after {
+        content: none;
+      }
+
+      :first-child {
+        margin-inline-end: auto;
+      }
+
+      .webmention__statistic-label {
+        display: none;
+      }
+    }
   }
 
   &__category {

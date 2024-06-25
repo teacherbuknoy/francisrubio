@@ -42,9 +42,10 @@
   list-style: none;
 
   &.likes {
-    display  : flex;
-    flex-wrap: wrap;
-    gap      : 1ch;
+    display     : flex;
+    flex-wrap   : wrap;
+    gap         : 1ch;
+    margin-block: var(--space-xxl);
   }
 
   &.replies {
