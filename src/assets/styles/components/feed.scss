@@ -189,6 +189,11 @@
     grid-template-columns: repeat(auto-fit, minmax(min(25ch, 100%), 1fr));
     overflow             : hidden;
 
+    &[data-webmention-entry] {
+      margin       : 0;
+      border-radius: 0;
+    }
+
     img,
     video {
       height         : auto;

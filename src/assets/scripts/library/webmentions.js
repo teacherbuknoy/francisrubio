@@ -282,6 +282,7 @@ class WebMentionResponse {
     this.url = data.url
     this.id = data['wm-id']
     this.publishLink = data['url']
+    this.video = data['video']
 
     const received = data['wm-received']
     const published = data['published']
@@ -445,6 +446,21 @@ class WebMentionResponse {
           : this.content.html
         : this.content.text
           ? this.content.text : ''
+    }
+
+    const media = element.querySelector('[data-webmention-entry=interaction-media]')
+    const hasMedia = this.video != null
+    console.log({ media, hasMedia })
+    if (media && hasMedia) {
+      this.video.map(source => {
+        const video = document.createElement('video')
+        video.setAttribute('src', source)
+        video.setAttribute('controls', '')
+
+        return video
+      }).forEach(video => media.appendChild(video))
+    } else if (media && !hasMedia) {
+      media.remove()
     }
 
     return element

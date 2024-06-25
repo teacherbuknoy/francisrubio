@@ -62,7 +62,6 @@ async function renderWebMentions() {
               container.appendChild(clone)
 
               const body = clone.querySelector('[data-webmention-entry=interaction-body]')
-              console.log(body.outerHTML)
 
               /* Render Facebook emojis */
               body.querySelectorAll('[style*=fbcdn]')
