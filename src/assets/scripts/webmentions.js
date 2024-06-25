@@ -61,11 +61,15 @@ async function renderWebMentions() {
               const clone = element.cloneNode(true)
               container.appendChild(clone)
 
-              const body = clone.querySelector('[data-webmention-entry=interaction-body')
+              const body = clone.querySelector('[data-webmention-entry=interaction-body]')
+              console.log(body.outerHTML)
 
               /* Render Facebook emojis */
               body.querySelectorAll('[style*=fbcdn]')
                 .forEach(emoji => renderFacebookEmoji(emoji))
+              
+              /* Remove unknown Mastodon emojis */
+              body.innerHTML = body.innerHTML.replaceAll('????', '')
             })
           })
       } catch (e) {
