@@ -78,7 +78,7 @@
 
   &>* {
     grid-column: 2/3;
-    z-index:3;
+    z-index    : 3;
   }
 
   .banner {
@@ -88,6 +88,7 @@
       grid-column : 1/4;
       grid-row    : 1/6;
       height      : 100%;
+      width       : 100%;
       object-fit  : cover;
       z-index     : 1;
     }
@@ -108,7 +109,7 @@
   &.banner--gallery {
     .banner__image {
       aspect-ratio: 2560/978;
-      filter: brightness(110%);
+      filter      : brightness(110%);
     }
   }
 
