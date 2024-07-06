@@ -61,6 +61,9 @@
 <meta property="twitter:description" content="{{ description if description else site.description }}">
 <meta property="twitter:image" content="{{ twitter_image if twitter_image else site.seo.twitter_image }}">
 
+{# Fediverse #}
+<meta name="fediverse:creator" content="{{ site.contact.mastodon.identifier }}">
+
 {# Feeds #}
 <link rel="alternate" type="application/rss+xml" title="All Posts - by Francis Rubio" href="/feed.xml">
 <link rel="alternate" type="application/rss+xml" title="Blog - by Francis Rubio" href="/blog.xml">
