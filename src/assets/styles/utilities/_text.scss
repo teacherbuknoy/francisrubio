@@ -135,11 +135,11 @@ $line-heights: (xxxs: 0.5,
 /* #endregion */
 
 .quotation {
-  --border         : 3px solid hsl(var(--primary-100));
-  border-inline-end: var(--border);
-  padding          : var(--space);
-  margin           : 0;
-  text-align       : end;
+  --border  : 3px solid hsl(var(--primary-100));
+  border    : none;
+  padding   : var(--space);
+  margin    : 0;
+  text-align: center;
 
   blockquote,
   &:is(blockquote) {
@@ -167,13 +167,15 @@ $line-heights: (xxxs: 0.5,
 
   figcaption {
     font-family: var(--font-sans);
+    text-align : end;
   }
 
   figcaption::before {
     content: "— ";
   }
 
-  &.quotation--small {
+  &.quotation--small,
+  &.quotation--medium {
     border: 0;
 
     margin-inline: auto;
@@ -200,6 +202,14 @@ $line-heights: (xxxs: 0.5,
     }
   }
 
+  &.quotation--medium {
+    width: 100%;
+
+    blockquote {
+      font-size: 1.25em;
+    }
+  }
+
   @media(min-width: 75ch) {
     &:is(.left, .right) {
       border: none
@@ -211,6 +221,21 @@ $line-heights: (xxxs: 0.5,
 
     &.left {
       border-left: var(--border);
+    }
+  }
+
+  &.quotation--wide {
+    --article-width      : min(120ch, 95%);
+    --padding-inline     : var(--space);
+    background-color     : hsl(var(--bg-secondary));
+    display              : grid;
+    grid-template-columns: subgrid;
+    grid-column          : 1/-1 !important;
+    width                : 100%;
+    margin-inline        : calc(-100vw + var(--article-width));
+
+    &>* {
+      grid-column: 2/3;
     }
   }
 }
