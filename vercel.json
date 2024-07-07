@@ -29,6 +29,11 @@
       "source": "/talks/",
       "destination": "/speaking/",
       "statusCode": 301
+    },
+    {
+      "source": "/writing/antares-programming-videos/",
+      "destination": "/writing/en/antares-programming-videos/",
+      "statusCode": 301
     }
   ]
 }
