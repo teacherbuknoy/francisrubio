@@ -21,10 +21,10 @@ author: "teacherbuknoy"
 language: "en"
 seo:
   twitter:
-    url: "https://ik.imagekit.io/8jjzxcl9p/tr:w-800/posts/birthday-post-2024/twitter.png"
+    url: "https://ik.imagekit.io/8jjzxcl9p/tr:w-800/posts/antares-videos/twitter.png"
     is_prefixed: false
   og:
-    url: "https://ik.imagekit.io/8jjzxcl9p/tr:w-1200/posts/birthday-post-2024/og.png"
+    url: "https://ik.imagekit.io/8jjzxcl9p/tr:w-1200/posts/antares-videos/og.png"
     is_prefixed: false
 eleventyExcludeFromCollections: false
 repostOf: https://francisrub.io/writing/en/antares-programming-my-best-project-yet/
