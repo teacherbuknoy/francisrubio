@@ -283,3 +283,28 @@ img[src*="custom_emojis"] {
     outline-width: 4px;
   }
 }
+
+.webmention__title {
+  font-family            : var(--font-sans);
+  font-weight            : bold;
+  font-variation-settings: 'wght'700;
+  margin                 : 0;
+  font-size              : var(--type-size-4);
+}
+
+[data-webmention-type="mention-of"] .entry__body {
+  padding: var(--space);
+}
+
+.webmention__type {
+  margin: 0;
+}
+
+.profile__meta {
+  line-height: 1;
+  align-self : end;
+}
+
+.profile__identifier {
+  color: hsl(var(--fg-default) / 70%);
+}

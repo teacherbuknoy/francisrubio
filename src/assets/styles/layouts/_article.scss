@@ -50,7 +50,8 @@
   grid-template-columns: 1fr min(65ch, 100%) 1fr;
   justify-content      : center;
 
-  &>* {
+  &>*,
+  &>.e-content>*:not(.sidenote, .callout) {
     margin-block: 0;
 
     @media (max-width: 1419px) {
@@ -61,7 +62,8 @@
   @media (min-width: 1420px) {
     grid-auto-rows: min-content;
 
-    &>* {
+    &>*,
+    &>.e-content>*:not(.sidenote, .callout) {
       grid-column: 2/3;
     }
 

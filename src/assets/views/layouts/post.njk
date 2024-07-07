@@ -67,7 +67,7 @@
         </div>
       </div>
     </header>
-    <div class="article__body not-sidebar e-content">
+    <div class="article__body not-sidebar">
       <div class="article__scroller" style="--row-end: {{ content | countElements }}">
         <div class="sidebar article__sidebar border--none margin--none" style="--sidebar-width: 20ch">
           {{ content | toc | safe }}
@@ -90,7 +90,9 @@
           </div>
         </div>
       </div>
-      {{ content | safe }}
+      <div style="display: contents" class="e-content">
+        {{ content | safe }}
+      </div>
 
       <!-- FURTHER READINGS -->
       {% if further_reading != null %}

@@ -25,9 +25,12 @@ async function renderWebMentions() {
           })
       })
     })
-  
-  const likesAndReposts = (await wm.getAllMentions())
-    .filter(item => item.type === 'like-of' || item.type === 'repost-of' || (item.type === 'in-reply-to' && item.url.includes('facebook.com') && item.content.html == null))
+
+  const likesAndReposts = (await wm.getAll())
+    .filter(item =>
+      item.type === 'like-of' ||
+      item.type === 'repost-of' ||
+      (item.type === 'in-reply-to' && item.url.includes('facebook.com') && item.content.html == null))
 
   likesAndReposts.forEach(interaction => {
     try {
@@ -48,7 +51,8 @@ async function renderWebMentions() {
       const webmentions = data
         .filter(item => {
           const isFbReact = item.type === 'in-reply-to' && item.url.includes('facebook.com') && item.content.html == null
-          return !isFbReact
+          const isMention = item.type === 'mention-of'
+          return !isFbReact || isMention
         })
 
       try {
@@ -66,9 +70,30 @@ async function renderWebMentions() {
               /* Render Facebook emojis */
               body.querySelectorAll('[style*=fbcdn]')
                 .forEach(emoji => renderFacebookEmoji(emoji))
-              
+
               /* Remove unknown Mastodon emojis */
               body.innerHTML = body.innerHTML.replaceAll('????', '')
+            })
+          })
+      } catch (e) {
+        console.error(e)
+      }
+    })
+
+  await wm.getMentions()
+    .then(data => {
+      const webmentions = data
+
+      try {
+        const responses = webmentions
+          .map(d => new WebMentionResponse(d).render())
+        console.log({ responses })
+
+        document.querySelectorAll('[data-webmention-container=in-reply-to]')
+          .forEach(container => {
+            responses.forEach(element => {
+              const clone = element.cloneNode(true)
+              container.appendChild(clone)
             })
           })
       } catch (e) {

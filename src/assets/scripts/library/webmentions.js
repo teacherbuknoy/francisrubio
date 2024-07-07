@@ -16,7 +16,8 @@ const PAGE_URL = new URL(document.URL).hostname == 'localhost'
  */
 const TEMPLATES = Object.freeze({
   LIKE: 'webmention-like-entry',
-  REPLY: 'webmention-reply-entry'
+  REPLY: 'webmention-reply-entry',
+  MENTION: 'webmention-mention-entry'
 })
 
 /** 
@@ -27,7 +28,8 @@ const WebMentionType = Object.freeze({
   LIKE: 'like-of',
   MENTION: 'mention-of',
   REPLY: 'in-reply-to',
-  REPOST: 'repost-of'
+  REPOST: 'repost-of',
+  MENTION: 'mention-of'
 })
 
 /**
@@ -129,8 +131,24 @@ class WebMentions {
    * @returns {Promise<WMEntry[]>}
    * @throws Will throw an error if the data property is null. Use WebMentionBuilder to avoid.
    * @memberof WebMentions
+   * @deprecated Use getAll() instead
    */
   async getAllMentions() {
+    if (this.data == null) {
+      throw new Error("WebMentions data is null. Did you use the WebMentionBuilder class to create this object?")
+    }
+
+    return this.data
+  }
+
+  /**
+   * @description Gets all WebMentions responses
+   * @author Francis Rubio
+   * @returns {Promise<WMEntry[]>}
+   * @throws Will throw an error if the data property is null. Use WebMentionBuilder to avoid.
+   * @memberof WebMentions
+   */
+  async getAll() {
     if (this.data == null) {
       throw new Error("WebMentions data is null. Did you use the WebMentionBuilder class to create this object?")
     }
@@ -181,6 +199,21 @@ class WebMentions {
     }
 
     return this.data.filter(i => i['wm-property'] === 'in-reply-to' && !WebMentions.isFacebookReact(i))
+  }
+  
+  /**
+   * @description Gets all `mention-of` responses
+   * @author Francis Rubio
+   * @returns {Promise<WMEntry[]>}
+   * @throws Will throw an error if the data property is null. Use WebMentionBuilder to avoid.
+   * @memberof WebMentions
+   */
+  async getMentions() {
+    if (this.data == null) {
+      throw new Error("WebMentions data is null. Did you use the WebMentionBuilder class to create this object?")
+    }
+
+    return this.data.filter(i => i['wm-property'] === 'mention-of')
   }
 
   /**
@@ -234,6 +267,10 @@ async function fetchWebMentions() {
   const replies = (await fetch(API.toString()).then(data => data.json())).children
   data.push(...replies)
 
+  params.set("wm-property", 'mention-of')
+  const mentions = (await fetch(API.toString()).then(data => data.json())).children
+  data.push(...mentions)
+
   this.data = data
     .map(item => ({ ...item, type: item['wm-property'] }))
     .sort((a, b) => {
@@ -283,6 +320,8 @@ class WebMentionResponse {
     this.id = data['wm-id']
     this.publishLink = data['url']
     this.video = data['video']
+    this.summary = data['summary']
+    this.name = data['name']
 
     const received = data['wm-received']
     const published = data['published']
@@ -329,8 +368,10 @@ class WebMentionResponse {
       case WebMentionType.LIKE:
       case WebMentionType.REPOST:
         return this.#renderLike();
-      case WebMentionType.REPLY:
-        return this.#renderReply();
+        case WebMentionType.REPLY:
+          return this.#renderReply();
+      case WebMentionType.MENTION:
+        return this.#renderMention();
       default: return;
     }
   }
@@ -461,6 +502,66 @@ class WebMentionResponse {
       }).forEach(video => media.appendChild(video))
     } else if (media && !hasMedia) {
       media.remove()
+    }
+
+    return element
+  }
+
+  /**
+   * @description Creates an HTML element out of this object's data if
+   *  it is an `mention-of` entry
+   * @author Francis Rubio
+   * @returns {HTMLLIElement}  
+   * @memberof WebMentionResponse
+   */
+  #renderMention() {
+    const template = document.getElementById(TEMPLATES.MENTION)
+    const element = template.content.firstElementChild.cloneNode(true)
+
+    element.setAttribute('id', `wmr-${this.id}`)
+    element.setAttribute('data-webmention-type', this.type)
+
+    const avatar = this.#renderAuthorAvatar(element)
+    if (avatar.getAttribute('data-webmention-entry') === 'placeholder') {
+      avatar.classList.add('profile__avatar')
+    }
+
+    const name = element.querySelector('[data-webmention-entry=author-name]')
+    if (name) {
+      name.setAttribute('href', this.author.url)
+      name.innerText = this.author.name
+    }
+
+    const identifier = element.querySelector('[data-webmention-entry=author-identifier]')
+    if (identifier) {
+      identifier.setAttribute('href', this.author.url)
+      const fediverseUsername = this.author.url.length > 0
+        ? (new URL(this.author.url)).host
+        : ''
+      identifier.innerText = fediverseUsername
+    }
+
+    const responseLink = element.querySelector('[data-webmention-entry=interaction-link]')
+    if (responseLink) {
+      responseLink.setAttribute('href', this.publishLink)
+    }
+
+    const timestamp = element.querySelector('[data-webmention-entry=interaction-timestamp]')
+    if (timestamp) {
+      timestamp.setAttribute('datetime', this.timestamp.toLocaleString())
+
+      const formatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'medium', timeStyle: 'short' })
+      timestamp.innerText = formatter.format(this.timestamp)
+    }
+
+    const title = element.querySelector('[data-webmention-entry=mention-title]')
+    if (title) {
+      title.innerHTML = `<a href="${this.publishLink}" data-webmention-entry="interaction-link">${this.name}</a>`
+    }
+
+    const body = element.querySelector('[data-webmention-entry=mention-summary]')
+    if (body) {
+      body.innerHTML = this.summary.value
     }
 
     return element
