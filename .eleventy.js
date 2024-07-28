@@ -5,6 +5,8 @@ const watchtargets = require('./src/config/watchtargets')
 const plugins = require('./src/config/plugins')
 const shortcodes = require('./src/config/shortcodes')
 const { loadFilters } = require('./src/config/scopedFilters')
+const scripts = require('./src/assets/scripts/__scripts')
+const esbuild = require('esbuild')
 
 const path = require('path')
 const prettier = require('prettier')
@@ -113,6 +115,17 @@ module.exports = function (eleventyConfig) {
       default:
         return content
     }
+  })
+
+  // Script bundler
+  console.log("[SCRIPT] Building scripts", scripts)
+  eleventyConfig.on('eleventy.before', async () => {
+    await esbuild.build({
+      entryPoints: scripts.map(s => `src/assets/scripts/${s}`),
+      bundle: true,
+      outdir: "public/assets/scripts/",
+      sourcemap: true,
+    })
   })
 
   // Always return
