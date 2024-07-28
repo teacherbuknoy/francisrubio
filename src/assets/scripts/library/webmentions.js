@@ -29,7 +29,6 @@ const WebMentionType = Object.freeze({
   MENTION: 'mention-of',
   REPLY: 'in-reply-to',
   REPOST: 'repost-of',
-  MENTION: 'mention-of'
 })
 
 /**
