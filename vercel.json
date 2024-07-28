@@ -34,6 +34,11 @@
       "source": "/writing/antares-programming-videos/",
       "destination": "/writing/en/antares-programming-videos/",
       "statusCode": 301
+    },
+    {
+      "source": "/gallery/mga-lamuymoy-talulot-at-iba-pang-mga-salitang-nakuha-ko-sa-tesauro/",
+      "destination": "/gallery/tagos-ng-silahis/",
+      "statusCode": 301
     }
   ]
 }
