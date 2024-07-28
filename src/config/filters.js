@@ -3,6 +3,7 @@ const { JSDOM } = jsdom
 const EleventyFetch = require('@11ty/eleventy-fetch')
 const parse = require("node-html-parser").parse
 const markdownIt = require('markdown-it')
+const ISO6391 = require('iso-639-1')
 
 const md = markdownIt({ html: true, linkify: true, typographer: true })
   .use(require('markdown-it-deflist'))
@@ -185,5 +186,6 @@ module.exports = {
       console.error('[ERROR]', e)
       return { url, title: '', description: null }
     }
-  }
+  },
+  languageCode: str => ISO6391.getName(str)
 }
