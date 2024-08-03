@@ -94,5 +94,15 @@ module.exports = {
       "src/collections/notes/*.njk",
       "src/collections/notes/*.md",
     ])
+  },
+
+  withAliases: function (collection) {
+    const posts = collection.getFilteredByGlob([
+      'src/collections/**/*.html',
+      'src/collections/**/*.njk',
+      'src/collections/**/*.md',
+    ])
+
+    return posts.filter(post => post.data.altUrls != null)
   }
 }

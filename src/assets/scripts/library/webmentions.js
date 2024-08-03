@@ -199,7 +199,7 @@ class WebMentions {
 
     return this.data.filter(i => i['wm-property'] === 'in-reply-to' && !WebMentions.isFacebookReact(i))
   }
-  
+
   /**
    * @description Gets all `mention-of` responses
    * @author Francis Rubio
@@ -237,6 +237,88 @@ class WebMentions {
     return item.type === WebMentionType.REPLY
       && item.url.includes('facebook.com')
       && item.content.html == null
+  }
+}
+
+class WebMentionCollection {
+  #webmentions;
+
+  /**
+   * Creates an instance of WebMentionCollection.
+   * @author Francis Rubio
+   * @param {WebMentions[]} wm
+   * @memberof WebMentionCollection
+   */
+  constructor(wm) {
+    if (wm == null || wm.length == null) {
+      this.#webmentions = []
+    }
+
+    this.#webmentions = wm
+  }
+
+  /**
+   * @description Adds a WebMention to the collection
+   * @author Francis Rubio
+   * @param {WebMentions} wm
+   * @memberof WebMentionCollection
+   */
+  addCollection(wm) {
+    this.#webmentions.push(wm)
+  }
+
+  isEmpty() {
+    const hasEntries = !!this.#webmentions.find(wm => !wm.isEmpty())
+    return !hasEntries
+  }
+
+  async getCount() {
+    const stats = {
+      count: 0,
+      type: {
+        like: 0,
+        reply: 0,
+        repost: 0
+      }
+    }
+
+    const counts = await Promise.allSettled(this.#webmentions.map(async wm => await wm.getCount()))
+    const wmCount = counts.map(count => count.value)
+    wmCount.forEach(count => {
+        stats.count += count.count
+        stats.type.like += count.type.like
+        stats.type.reply += count.type.reply
+        stats.type.repost += count.type.repost
+      })
+    
+    return stats
+  }
+
+  async getAll() {
+    const data = []
+    this.#webmentions.forEach(async wm => data.push(...(await wm.getAll())))
+    return data
+  }
+
+  async getReplies() {
+    const replies = []
+    this.#webmentions.forEach(async wm => replies.push(...(await wm.getReplies())))
+
+    return replies
+  }
+
+  async getMentions() {
+    const mentions = []
+    this.#webmentions.forEach(async wm => mentions.push(...(await wm.getMentions())))
+
+    return mentions
+  }
+
+  async getReposts() {
+    const reposts = []
+    this.#webmentions.forEach(async wm => reposts.push(...(await wm.getReposts())))
+
+    return reposts
   }
 }
 
@@ -291,15 +373,61 @@ class WebMentionBuilder {
    * @description Creates a new WebMentions object and initializes its `data` property.
    * @author Francis Rubio
    * @static
-   * @param {string} url the URL of the page that receives the likes, reposts, etc. 
+   * @param {string|string[]} url the URL of the page that receives the likes, reposts, etc. 
    * @returns {WebMentions}  
    * @memberof WebMentionBuilder
    */
   static async build(url) {
     const wm = new WebMentions(url)
     await fetchWebMentions.apply(wm)
-
     return wm
+  }
+
+  /**
+   * @description Similar to build(), but for pages with aliases
+   * @author Francis Rubio
+   * @static
+   * @param {string|string[]} url
+   * @returns {WebMentionCollection}  
+   * @memberof WebMentionBuilder
+   */
+  static async buildCollection(url) {
+    const aliases = await this.#getUrlAndAliases(url)
+    const webmentions = (await Promise.allSettled(aliases.map(async url => {
+      const link = new URL(`https://francisrub.io${url}`).toString()
+      const wm = new WebMentions(link)
+      await fetchWebMentions.apply(wm)
+      return wm
+    }))).map(item => item.value)
+
+    return new WebMentionCollection(webmentions)
+  }
+
+  static async #getUrlAndAliases(url) {
+    const link = url == null
+      ? TESTING
+        ? TEST_URL
+        : PAGE_URL
+      : url
+    const path = this.#createUrl(link).pathname
+
+    const aliasApi = "/aliases.json"
+    const aliases = await fetch(aliasApi).then(e => e.json())
+    if (aliases[path]) {
+      return [...aliases[path], path]
+    }
+
+    return [path]
+  }
+
+  static #createUrl(str) {
+    try {
+      return new URL(str)
+    } catch (e) {
+      const url = new URL('https://example.com/')
+      url.pathname = str
+      return url
+    }
   }
 }
 
@@ -367,8 +495,8 @@ class WebMentionResponse {
       case WebMentionType.LIKE:
       case WebMentionType.REPOST:
         return this.#renderLike();
-        case WebMentionType.REPLY:
-          return this.#renderReply();
+      case WebMentionType.REPLY:
+        return this.#renderReply();
       case WebMentionType.MENTION:
         return this.#renderMention();
       default: return;
@@ -490,7 +618,6 @@ class WebMentionResponse {
 
     const media = element.querySelector('[data-webmention-entry=interaction-media]')
     const hasMedia = this.video != null
-    console.log({ media, hasMedia })
     if (media && hasMedia) {
       this.video.map(source => {
         const video = document.createElement('video')

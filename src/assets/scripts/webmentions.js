@@ -1,9 +1,8 @@
 import { selectEmojiByImageUrl } from './library/facebook-emojis'
 import { WebMentionBuilder, WebMentionResponse, WebMentionType } from './library/webmentions'
 
-
 async function renderWebMentions() {
-  const wm = await WebMentionBuilder.build()
+  const wm = await WebMentionBuilder.buildCollection()
 
   if (wm.isEmpty()) {
     return
@@ -87,7 +86,6 @@ async function renderWebMentions() {
       try {
         const responses = webmentions
           .map(d => new WebMentionResponse(d).render())
-        console.log({ responses })
 
         document.querySelectorAll('[data-webmention-container=in-reply-to]')
           .forEach(container => {
