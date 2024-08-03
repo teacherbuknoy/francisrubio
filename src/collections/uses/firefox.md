@@ -1,6 +1,8 @@
 ---
 title: "Firefox"
 description: A privacy-focused browser.
+tags: 
+  - Browser
 links:
   - text: Official Website
     url: https://firefox.com/

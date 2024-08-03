@@ -1,12 +1,17 @@
 {% set use = item.data %}
 <a href="{{ item.url }}" class="use-card">
-  <article class="use-card__article">
-    {% if use.image %}
+  {% if use.image %}
     <img class="use-card__image" src="{{ use.image }}" alt="">
-    {% endif %}
+  {% endif %}
+  <div class="cluster ai--start">
     <h2 class="use-card__title">{{ use.title | safe }}</h2>
-    <p class="use-card__description">{{ use.description | safe }}</p>
-    {% set feathericon = 'star' %}
-    <span class="use-card__rating">{{ use.rating }}{{ feathericon | icon | safe }}</span>
-  </article>
+    <div class="use-card__tags">
+      {% for item in use.tags %}
+        <span class="use-card__tag">{{ item }}</span>
+      {% endfor %}
+    </div>
+  </div>
+  <p class="use-card__description">{{ use.description | safe }}</p>
+  {% set feathericon = 'star' %}
+  <span class="use-card__rating">{{ feathericon | icon | safe }}{{ use.rating }}</span>
 </a>
