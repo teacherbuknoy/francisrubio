@@ -7,6 +7,8 @@ pagination:
   reverse: true
 permalink: /speaking/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html
 activePath: speaking
+eleventyImport:
+  collections: ['talks']
 ---
 <section class="page">
   <header class="page__cover" style="--page-cover-image: image-set(

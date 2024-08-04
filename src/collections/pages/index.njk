@@ -6,7 +6,11 @@ activePath: frontpage
 stylesheets: ['frontpage.css', mastodon.css]
 scripts: ['frontpage.js', mastodon.js]
 eleventyImport:
-  collections: ["posts"]
+  collections:
+    - posts
+    - projects
+    - talks
+    - videos
 ---
 {% from "components/ui/utils.njk" import emailButton %}
 

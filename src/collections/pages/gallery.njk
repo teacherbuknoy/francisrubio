@@ -7,6 +7,8 @@ pagination:
   reverse: true
 permalink: /gallery/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html
 activePath: gallery
+eleventyImport:
+  collections: ["gallery"]
 ---
 
 <section class="page" aria-labelledby="section-heading-4">

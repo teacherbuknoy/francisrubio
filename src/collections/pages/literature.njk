@@ -7,6 +7,8 @@ pagination:
   reverse: true
 permalink: /literature/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html
 activePath: literature
+eleventyImport:
+  collections: ['literature']
 ---
 <section class="page" aria-labelledby="section-heading-4">
   <header class="page__cover" style="
