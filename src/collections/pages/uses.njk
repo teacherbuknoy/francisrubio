@@ -16,7 +16,7 @@ activePath: what-i-use
     <p>{{ sections.uses.description | safe }}</p>
   </hgroup>
   <div class="margin-bottom--xl uses-grid gap--s padding-top--l wide-wrapper margin-inline--auto padding-inline--l">
-    {% for item in collections.uses %}
+    {% for item in uses %}
       {% include 'components/use-card.njk' %}
     {% endfor %}
   </div>
