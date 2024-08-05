@@ -5,7 +5,6 @@ const THREADS = [
   "https://masto.ai/@teacherbuknoy/110084718692154094",
   "https://masto.ai/@teacherbuknoy/110369962218101139",
   "https://masto.ai/@teacherbuknoy/110340182174714816",
-  "https://masto.ai/@teacherbuknoy/110326075102504700",
   "https://masto.ai/@teacherbuknoy/110348607727221821",
   "https://masto.ai/@teacherbuknoy/110326075102504700",
   "https://masto.ai/@teacherbuknoy/110231963480091629",
@@ -15,6 +14,14 @@ const THREADS = [
   "https://masto.ai/@teacherbuknoy/110071327496877258",
   "https://masto.ai/@teacherbuknoy/109861759709188293",
   "https://masto.ai/@teacherbuknoy/109833474488205411",
+  "https://masto.ai/@teacherbuknoy/112884760940238456",
+  "https://masto.ai/@teacherbuknoy/112652691610740453",
+  "https://masto.ai/@teacherbuknoy/112853940201158483",
+  "https://masto.ai/@teacherbuknoy/112803221856879623",
+  "https://masto.ai/@teacherbuknoy/112777524105254267",
+  "https://masto.ai/@teacherbuknoy/112766603492904109",
+  "https://masto.ai/@teacherbuknoy/112765501335636715",
+  "https://masto.ai/@teacherbuknoy/112760499842968166"
 ]
 
 const STATUS_API = 'https://masto.ai/api/v1/statuses/'
