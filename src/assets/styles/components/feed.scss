@@ -220,6 +220,14 @@
 
   a {
     color: hsl(var(--primary-900));
+
+    &.u-mention {
+      font-family: var(--font-ui);
+
+      &:empty {
+        display: none;
+      }
+    }
   }
 
   .profile {

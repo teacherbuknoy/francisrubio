@@ -57,6 +57,7 @@
             {% set height = image.height %}
             {% set sizes = [400, 500, 600] %}
             <a class="gallery-card__link no-arrow" href="{{ site.api.images }}{{ filename }}" target="_blank">
+              <span class="sr-only">Open image in new tab</span>
               <picture>
                 {% for format in formats %}
                   <source type="image/{{ format }}" srcset="{{ site.api.images }}/tr:w-500,q-85,f-{{ format }}/{{ filename }}">
@@ -108,6 +109,7 @@
                   {% set width = image.width %}
                   {% set height = image.height %}
                   <a class="gallery-card__link no-arrow" href="{{ site.api.images }}{{ filename }}" target="_blank">
+                    <span class="sr-only">Open image in new tab</span>
                     <picture>
                       {% for format in formats %}
                         <source type="image/{{ format }}" srcset="{{ site.api.images }}/tr:w-500,q-85,f-{{ format }}/{{ filename }}" loading="lazy">

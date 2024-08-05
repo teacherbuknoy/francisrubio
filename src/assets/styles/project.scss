@@ -3,7 +3,7 @@
     font-family            : var(--font-sans);
     font-size              : 1.25rem;
     font-variation-settings: 'wght'600;
-    color                  : hsl(var(--primary-700));
+    color                  : hsl(var(--primary-900));
 
     @supports (animation-timeline: scroll(root)) {
       --animation-speed : -1;
@@ -59,7 +59,7 @@
     dt {
       font-family            : var(--font-sans);
       font-variation-settings: "wght"600;
-      color                  : hsl(var(--fg-subtle));
+      color                  : hsl(var(--fg-default));
       font-size              : var(--vtype-size-6);
     }
 

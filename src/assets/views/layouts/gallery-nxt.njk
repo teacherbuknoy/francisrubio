@@ -56,6 +56,7 @@
                   style="{{ style }}"
                 {% endif %}>
                   <a href="{{ site.api.images }}{{ filename }}" class="gallery-card__link no-arrow" target="_blank">
+                    <span class="sr-only">Open image in new tab</span>
                     <picture>
                       <source type="image/avif" srcset="{{ site.api.images }}tr:w-500,f-avif/{{ filename }}" loading="lazy">
                       <source type="image/webp" srcset="{{ site.api.images }}tr:w-500,f-webp/{{ filename }}" loading="lazy">

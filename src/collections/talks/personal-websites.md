@@ -56,4 +56,4 @@ resources:
 ---
 
 ## Presentation
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F48xX3AHsm7o3wYROGglZli%2FDICE205-Development-Team%3Fpage-id%3D55%253A2%26node-id%3D55-3%26viewport%3D-1867%252C138%252C0.11%26t%3DlsKtZFRwc5osMYN1-1%26scaling%3Dcontain" allowfullscreen></iframe>
+<iframe title="Personal Websites - Presentation by Francis Rubio" style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F48xX3AHsm7o3wYROGglZli%2FDICE205-Development-Team%3Fpage-id%3D55%253A2%26node-id%3D55-3%26viewport%3D-1867%252C138%252C0.11%26t%3DlsKtZFRwc5osMYN1-1%26scaling%3Dcontain" allowfullscreen></iframe>

@@ -73,7 +73,7 @@ print;
   .light,
   .dark,
   body {
-    color: hsl(var(--fg-contrast) / 80%);
+    color: hsl(var(--fg-contrast));
   }
 
   :root {
