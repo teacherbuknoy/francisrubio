@@ -159,7 +159,7 @@ Note that you will need to post the link of your video's page, <em>not</em> the 
 
 This is the video player page. I am embedding it on an `iframe`:
 
-<iframe src="https://antaresph.dev/player/feature-queries/" class="embed embed--youtube" frameborder="0"></iframe>
+<iframe title="Feature Queries - Antares Programming Videos" src="https://antaresph.dev/player/feature-queries/" class="embed embed--youtube" frameborder="0"></iframe>
 
 And this is what it looks like in the Mastodon web app:
 

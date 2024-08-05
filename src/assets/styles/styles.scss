@@ -187,6 +187,19 @@ print;
     }
   }
 
+  pre[class^=language] {
+    outline       : var(--radius-1) solid;
+    outline-color : hsl(var(--primary-500) / 0);
+    outline-offset: var(--ideal-radius);
+    transition    : outline 200ms, outline-offset 200ms;
+
+    &:focus-visible {
+      color         : hsl(var(--primary-900));
+      outline-color : hsl(var(--primary-500) / 1);
+      outline-offset: var(--radius-2);
+    }
+  }
+
   button {
     cursor: pointer;
   }

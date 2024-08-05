@@ -117,6 +117,15 @@ module.exports = function (eleventyConfig) {
     }
   })
 
+  eleventyConfig.addTransform('focusableCodeSnippets', function (content, outputPath) {
+    const extname = path.extname(outputPath)
+    if (extname === '.html') {
+      return content.replaceAll(/<pre\s*class="language/gm, '<pre tabindex="0" class="language')
+    }
+
+    return content
+  })
+
   // Script bundler
   console.log("[SCRIPT] Building scripts", scripts)
   eleventyConfig.on('eleventy.before', async () => {
