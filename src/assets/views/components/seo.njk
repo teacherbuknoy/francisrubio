@@ -8,7 +8,7 @@
 
 <!-- Primary Meta Tags -->
 <meta name="title" content="{{ title if title else site.title | striptags }}">
-<meta name="description" content="{{ summary }}">
+<meta name="description" content="{{ summary | trim }}">
 <meta name="generator" content="Eleventy v2.0.0">
 
 {% set domain = site.domains | selectattr('isPreferred') | first %}
@@ -58,8 +58,8 @@
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="{{ 'https://' + preferredDomain.value }}{{ page.url if page.url }}">
 <meta property="twitter:title" content="{{ title if title else site.title }}">
-<meta property="twitter:description" content="{{ description if description else site.description }}">
-<meta property="twitter:image" content="{{ twitter_image if twitter_image else site.seo.twitter_image }}">
+<meta property="twitter:description" content="{{ summary | trim }}">
+<meta property="twitter:image" content="{{ twitter_image | trim if twitter_image else site.seo.twitter_image | trim }}">
 
 {# Fediverse #}
 <meta name="fediverse:creator" content="{{ site.contact.mastodon.identifier }}">
