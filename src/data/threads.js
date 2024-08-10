@@ -23,6 +23,7 @@ const THREADS = [
   "https://masto.ai/@teacherbuknoy/112765501335636715",
   "https://masto.ai/@teacherbuknoy/112760499842968166",
   "https://masto.ai/@teacherbuknoy/112912981157804080",
+  'https://masto.ai/@teacherbuknoy/112937075331609843'
 ]
 
 const STATUS_API = 'https://masto.ai/api/v1/statuses/'
