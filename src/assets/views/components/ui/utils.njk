@@ -10,3 +10,13 @@
     <a href="/contact/" class="primary button">{{ innerText }}</a>
   </noscript>
 {% endmacro %}
+
+{% macro image(filename, image, postType, imgClass) %}
+  {% set sizes = image.sizes %}
+  {% set width = image.width %}
+  {% set height = image.height %}
+  {% set formats = image.formats %}
+  {% set filename = image.filename %}
+  {% set defaultImageClass = imgClass %}
+  {% include "components/cdn-picture.njk" %}
+{% endmacro %}

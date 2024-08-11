@@ -84,7 +84,8 @@ module.exports = function (eleventyConfig) {
     markdownIt({
       html: true,
       linkify: true,
-      typographer: true
+      typographer: true,
+      breaks: true
     })
       .use(markdownItAnchor, {
         slugify: s => slug(s),
@@ -104,7 +105,7 @@ module.exports = function (eleventyConfig) {
       .disable('code')
   )
 
-  eleventyConfig.addTransform('prettier', function (content, outputPath) {
+  /* eleventyConfig.addTransform('prettier', function (content, outputPath) {
     const extname = path.extname(outputPath)
     switch (extname) {
       case ".html":
@@ -115,7 +116,7 @@ module.exports = function (eleventyConfig) {
       default:
         return content
     }
-  })
+  }) */
 
   eleventyConfig.addTransform('focusableCodeSnippets', function (content, outputPath) {
     const extname = path.extname(outputPath)

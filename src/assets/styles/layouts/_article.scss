@@ -463,8 +463,8 @@ details {
   }
 }
 
-.sidenote,
-.callout {
+.sidenote--right,
+.callout--right {
 
   @media screen and (min-width: 1420px) {
     grid-column: -1/-2;
