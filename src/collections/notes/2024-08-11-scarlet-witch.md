@@ -104,7 +104,7 @@ This film shows Wanda emerging from the rubble of what used to be Wundagore, rev
 
 <div>
 
-<img src="https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-530/notes/scarlet-witch/nexus-alpha.png" alt="Wanda Maximoff, Doctor Strange, Wong, and Mordo" style="width: min(35em, 100vw + 10em);float: left;margin-inline-start: -10em;shape-outside: url('https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-50/notes/scarlet-witch/nexus-alpha.png');">
+<img src="https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-530/notes/scarlet-witch/nexus-alpha.png" alt="Wanda Maximoff, The Watcher, and America Chavez" style="width: min(35em, 100vw + 10em);float: left;margin-inline-start: -10em;shape-outside: url('https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-50/notes/scarlet-witch/nexus-alpha.png');">
 
 America Chavez arrives to Earth-616 and the evil Wanda variant that came with her attempts to kill Wanda the Scarlet Witch. She fails, and the Scarlet Witch ends up killing the Wanda variant. America Chavez explains that there is an even stronger Wanda variant out there who has taken her and this Wanda variant hostage. According to America, this even more evil variant is on the hunt to kill every Wanda Maximoff in the multiverse. She explains that the identity of the Scarlet Witch is a Nexus Being, that is, a being that only exists in one out of the infinite universes in the multiverse. In order to ensure she gets to be the Scarlet Witch, the Wanda variant has been using America to jump between universes, and the Wanda variant who just died to do the dirty work for her.
 
@@ -122,7 +122,7 @@ The mid credits scene shows the arrival of Loki the God of Stories from Loki Sea
 
 <div>
 
-<img src="https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-530/notes/scarlet-witch/secret-wars.png" alt="Wanda Maximoff, Doctor Strange, Wong, and Mordo" style="width: min(35em, 100vw + 10em);float: right;margin-inline-end: -10em;shape-outside: url('https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-50/notes/scarlet-witch/secret-wars.png');">
+<img src="https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-530/notes/scarlet-witch/secret-wars.png" alt="">
 
 After the events of the first Scarlet Witch movie, Wanda Maximoff is the last remaining variant of herself in the entire multiverse. In the comics, Doctor Doom uses a character called Molecule Man to siphon the powers of the Beyonders to preserve the Battleworld he created. In this film, he successfully nabs the Scarlet Witch instead as the entire multiverse collapses on itself. She eventually escapes and helps the Avengers defeat Doctor Doom. Battleworld collapses and a new prime universe emerges.
 
