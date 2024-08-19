@@ -1,3 +1,5 @@
+@import '../mixins';
+
 .disclosure,
 .content-warning {
   --bg-content-warning: var(--bg-secondary);
@@ -58,7 +60,7 @@
       }
 
       .webmention__statistic-label {
-        display: none;
+        @include visually-hidden();
       }
     }
   }

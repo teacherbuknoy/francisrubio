@@ -285,12 +285,12 @@ class WebMentionCollection {
     const counts = await Promise.allSettled(this.#webmentions.map(async wm => await wm.getCount()))
     const wmCount = counts.map(count => count.value)
     wmCount.forEach(count => {
-        stats.count += count.count
-        stats.type.like += count.type.like
-        stats.type.reply += count.type.reply
-        stats.type.repost += count.type.repost
-      })
-    
+      stats.count += count.count
+      stats.type.like += count.type.like
+      stats.type.reply += count.type.reply
+      stats.type.repost += count.type.repost
+    })
+
     return stats
   }
 
@@ -521,7 +521,7 @@ class WebMentionResponse {
     photoLink.setAttribute('href', this.author.url)
     photoLink.setAttribute('title', this.author.name)
 
-    this.#renderAuthorAvatar(element)
+    this.#renderAuthorAvatar(element, false)
 
     const authorNames = element.querySelectorAll('[data-webmention-entry=author-name]')
     authorNames.forEach(authorName => {
@@ -544,11 +544,15 @@ class WebMentionResponse {
     return element
   }
 
-  #renderAuthorAvatar(element) {
+  #renderAuthorAvatar(element, hasPrefix = true) {
     const photo = element.querySelector('img[data-webmention-entry=photo]')
     if (this.author.photo && this.author.photo.length > 0) {
+      const alt = hasPrefix
+        ? "Photo of " + this.author.name
+        : this.author.name
+
       photo.setAttribute('src', this.author.photo)
-      photo.setAttribute('alt', "Photo of " + this.author.name)
+      photo.setAttribute('alt', alt)
       return photo
     } else if (this.author.name && this.author.name.length > 0) {
       const placeholder = document.createElement('div')
@@ -575,16 +579,23 @@ class WebMentionResponse {
     element.setAttribute('id', `wmr-${this.id}`)
     element.setAttribute('data-webmention-type', this.type)
 
+    const label = element.querySelector('[data-webmention-entry=entry-label]')
+    if (label) {
+      const id = crypto.randomUUID()
+      label.setAttribute('id', id)
+      element.setAttribute('aria-labelledby', id)
+    }
+
     const avatar = this.#renderAuthorAvatar(element)
     if (avatar.getAttribute('data-webmention-entry') === 'placeholder') {
       avatar.classList.add('profile__avatar')
     }
 
-    const name = element.querySelector('[data-webmention-entry=author-name]')
-    if (name) {
+    const name = element.querySelectorAll('[data-webmention-entry=author-name]')
+    name.forEach(name => {
       name.setAttribute('href', this.author.url)
       name.innerText = this.author.name
-    }
+    })
 
     const identifier = element.querySelector('[data-webmention-entry=author-identifier]')
     if (identifier) {
@@ -598,13 +609,13 @@ class WebMentionResponse {
       responseLink.setAttribute('href', this.publishLink)
     }
 
-    const timestamp = element.querySelector('[data-webmention-entry=interaction-timestamp]')
-    if (timestamp) {
+    const timestamps = element.querySelectorAll('[data-webmention-entry=interaction-timestamp]')
+    timestamps.forEach(timestamp => {
       timestamp.setAttribute('datetime', this.timestamp.toLocaleString())
 
       const formatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'medium', timeStyle: 'short' })
       timestamp.innerText = formatter.format(this.timestamp)
-    }
+    })
 
     const body = element.querySelector('[data-webmention-entry=interaction-body]')
     if (body) {
