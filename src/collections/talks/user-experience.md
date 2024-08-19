@@ -1,10 +1,10 @@
 ---
-title: Personal Websites
-description: An overview of the personal website trend and how you can join in
+title: User Experience and Accessibility
+description: A primer on creating accessible software that's fun to use
 image: https://ik.imagekit.io/8jjzxcl9p/tr:w-720,f-png/talks/personal-website/cover.png
-category: Web Development
-slug: personal-websites
-date: 2024-06-06
+category: User Experience
+slug: ux-accessibility-primer
+date: 2024-09-30
 link:
   - text: See Presentation on Figma
     url: https://www.figma.com/proto/48xX3AHsm7o3wYROGglZli/DICE205-Development-Team?page-id=55%3A2&node-id=320-5740&viewport=-1867%2C138%2C0.11&t=lsKtZFRwc5osMYN1-1&scaling=contain

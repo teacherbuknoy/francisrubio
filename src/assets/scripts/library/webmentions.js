@@ -481,7 +481,7 @@ class WebMentionResponse {
    */
   #sanitizeName(name) {
     const regex = /\s*:\w*:/g
-    return name.replace(regex, '')
+    return name.replace(regex, '').replaceAll('????', '')
   }
 
   /**

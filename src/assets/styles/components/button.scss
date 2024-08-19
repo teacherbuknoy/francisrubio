@@ -1,72 +1,72 @@
 .button {
-  --button-padding         : var(--space-s) var(--space-l);
-  --gradience-color        : var(--primary-500) / 0;
+  --button-padding: var(--space-s) var(--space-l);
+  --gradience-color: var(--primary-500) / 0;
   --gradience-outline-color: var(--d-primary-900);
-  --gradience-outline-size : 2px;
-  -webkit-backdrop-filter  : blur(10px);
-  align-items              : center;
-  backdrop-filter          : blur(10px);
-  background-color         : hsl(var(--d-primary-700)/15%);
-  background-repeat        : no-repeat;
-  border-radius            : var(--ideal-radius);
-  border                   : none;
-  box-sizing               : border-box;
-  color                    : hsl(var(--fg-contrast));
-  display                  : inline-flex;
-  font-family              : var(--font-sans);
-  font-size                : 1em;
-  font-variation-settings  : "wght"500;
-  gap                      : var(--space);
-  justify-content          : center;
-  line-height              : 1;
-  outline                  : 0px solid hsl(var(--primary-500)/0%);
-  padding                  : var(--button-padding);
-  position                 : relative;
-  text-decoration          : none;
-  text-transform           : lowercase;
-  transition               : background-image 200ms, outline 200ms, outline-offset 200ms;
-  width                    : -moz-fit-content;
-  width                    : fit-content;
+  --gradience-outline-size: 2px;
+  -webkit-backdrop-filter: blur(10px);
+  align-items: center;
+  backdrop-filter: blur(10px);
+  background-color: hsl(var(--d-primary-700)/15%);
+  background-repeat: no-repeat;
+  border-radius: var(--ideal-radius);
+  border: none;
+  box-sizing: border-box;
+  color: hsl(var(--fg-contrast));
+  display: inline-flex;
+  font-family: var(--font-sans);
+  font-size: 1em;
+  font-variation-settings: "wght" 500;
+  gap: var(--space);
+  justify-content: center;
+  line-height: 1;
+  outline: 0px solid hsl(var(--primary-500)/0%);
+  padding: var(--button-padding);
+  position: relative;
+  text-decoration: none;
+  text-transform: lowercase;
+  transition: background-image 200ms, outline 200ms, outline-offset 200ms;
+  width: -moz-fit-content;
+  width: fit-content;
 
   &::before {
-    content         : none;
-    aspect-ratio    : 1;
+    content: none;
+    aspect-ratio: 1;
     background-image: radial-gradient(circle at center, hsl(var(--primary-500)/10%), transparent 75%);
-    height          : 500%;
-    left            : var(--hover-left, 0);
-    opacity         : 0;
-    position        : absolute;
-    top             : var(--hover-top, 0);
-    transform       : translate(-50%, -50%);
-    transition      : opacity .3s
+    height: 500%;
+    left: var(--hover-left, 0);
+    opacity: 0;
+    position: absolute;
+    top: var(--hover-top, 0);
+    transform: translate(-50%, -50%);
+    transition: opacity .3s
   }
 
   &::after {
-    --mask            : radial-gradient(circle at var(--x, 0) var(--y, 0), #000 1%, transparent 50%);
-    --x               : var(--hover-left);
-    --y               : var(--hover-top);
+    --mask: radial-gradient(circle at var(--x, 0) var(--y, 0), #000 1%, transparent 50%);
+    --x: var(--hover-left);
+    --y: var(--hover-top);
     -webkit-mask-image: var(--mask);
-    align-items       : center;
-    background-color  : hsl(var(--gradience-color) / 15%);
-    border-radius     : calc(var(--gradience-radius, var(--ideal-radius)) - var(--gradience-outline-size));
-    box-sizing        : border-box;
-    content           : var(--gradience-content, "");
-    display           : flex;
-    inset             : 0;
-    justify-content   : center;
-    mask-image        : var(--mask);
-    opacity           : 0;
-    outline           : var(--gradience-actual-outline-size, var(--gradience-outline-size)) solid hsl(var(--gradience-outline-color, 0 0% 0%));
-    outline-offset    : calc(var(--gradience-outline-size) * -1);
-    position          : absolute;
-    transition        : mask-image 200ms, opacity 200ms;
-    z-index           : 10;
+    align-items: center;
+    background-color: hsl(var(--gradience-color) / 15%);
+    border-radius: calc(var(--gradience-radius, var(--ideal-radius)) - var(--gradience-outline-size));
+    box-sizing: border-box;
+    content: var(--gradience-content, "");
+    display: flex;
+    inset: 0;
+    justify-content: center;
+    mask-image: var(--mask);
+    opacity: 0;
+    outline: var(--gradience-actual-outline-size, var(--gradience-outline-size)) solid hsl(var(--gradience-outline-color, 0 0% 0%));
+    outline-offset: calc(var(--gradience-outline-size) * -1);
+    position: absolute;
+    transition: mask-image 200ms, opacity 200ms;
+    z-index: 10;
   }
 
   @at-root .no-js & {
     &:hover {
       background-color: hsl(var(--button-hover-color, var(--primary-100)));
-      color           : hsl(var(--primary-700));
+      color: hsl(var(--primary-700));
     }
 
     &::after {
@@ -88,15 +88,15 @@
   }
 
   &:focus-visible {
-    outline       : 5px solid hsl(var(--primary-500));
+    outline: 5px solid hsl(var(--primary-500));
     outline-offset: 3px;
   }
 
   &.primary {
-    --gradience-color       : hsl(var(--d-primary-700));
+    --gradience-color: hsl(var(--d-primary-700));
     --gradience-outline-size: 2px;
-    background-color        : hsl(var(--primary-500));
-    color                   : hsl(var(--l-contrast));
+    background-color: hsl(var(--primary-500));
+    color: hsl(var(--l-contrast));
 
     &::before {
       background-image: radial-gradient(circle at center, hsl(var(--l-contrast) / 10%), transparent 75%);
@@ -119,22 +119,22 @@
     @extend .square;
     @extend .primary;
 
-    --gradience-radius : 100%;
+    --gradience-radius: 100%;
     --gradience-content: "" !important;
-    border-radius      : 100%;
-    box-shadow         : 0 4px 25px hsl(var(--primary-500) / 50%);
-    display            : flex;
-    font-size          : var(--type-size-6);
-    height             : 5ch;
-    margin-block-end   : 1rem;
-    margin-inline-end  : 1rem;
+    border-radius: 100%;
+    box-shadow: 0 4px 25px hsl(var(--primary-500) / 50%);
+    display: flex;
+    font-size: var(--type-size-6);
+    height: 5ch;
+    margin-block-end: 1rem;
+    margin-inline-end: 1rem;
     margin-inline-start: auto;
-    padding            : 0;
+    padding: 0;
   }
 
   &--small {
     font-size: 1rem;
-    padding  : var(--space-xs) var(--space-m);
+    padding: var(--space-xs) var(--space-m);
   }
 
   &-text--disabled {
@@ -143,7 +143,7 @@
 
   &--disabled {
     pointer-events: none;
-    cursor        : default;
+    cursor: default;
 
     .button-text {
       &--default {
@@ -157,13 +157,13 @@
   }
 
   &--social-media {
-    --bg-inner      : hsl(var(--primary-100) / 50%);
-    --bg-outer      : hsl(var(--bg-primary));
+    --bg-inner: hsl(var(--primary-100) / 50%);
+    --bg-outer: hsl(var(--bg-primary));
     background-color: var(--bg-inner);
-    border-radius   : var(--radius-3);
-    color           : hsl(var(--primary-900));
-    gap             : 0;
-    padding         : var(--space-xxs);
+    border-radius: var(--radius-3);
+    color: hsl(var(--primary-900));
+    gap: 0;
+    padding: var(--space-xxs);
 
     @at-root .social-media {
 
@@ -174,17 +174,17 @@
 
       &__identifier {
         background-color: var(--bg-outer);
-        border-radius   : var(--radius-2);
+        border-radius: var(--radius-2);
       }
     }
   }
 
   &--success {
-    --button-hover-color     : var(--l-success-500) / 50%;
-    --gradience-color        : var(--l-success-500);
+    --button-hover-color: var(--l-success-500) / 50%;
+    --gradience-color: var(--l-success-500);
     --gradience-outline-color: var(--success-500);
-    background-color         : hsl(var(--l-success-100));
-    color                    : hsl(var(--l-success-900));
+    background-color: hsl(var(--l-success-100));
+    color: hsl(var(--l-success-900));
 
     @at-root .no-js &:hover {
       color: hsl(var(--success-900));
@@ -196,11 +196,11 @@
   }
 
   &--warning {
-    --button-hover-color     : var(--l-warning-700) / 50%;
-    --gradience-color        : var(--l-warning-500);
+    --button-hover-color: var(--l-warning-700) / 50%;
+    --gradience-color: var(--l-warning-500);
     --gradience-outline-color: var(--l-warning-500);
-    background-color         : hsl(var(--l-warning-100));
-    color                    : hsl(var(--l-warning-900));
+    background-color: hsl(var(--l-warning-100));
+    color: hsl(var(--l-warning-900));
 
     @at-root .no-js &:hover {
       color: hsl(var(--warning-900));
@@ -212,11 +212,11 @@
   }
 
   &--error {
-    --button-hover-color     : var(--l-error-700) / 25%;
-    --gradience-color        : var(--l-error-500);
+    --button-hover-color: var(--l-error-700) / 25%;
+    --gradience-color: var(--l-error-500);
     --gradience-outline-color: var(--l-error-500);
-    background-color         : hsl(var(--l-error-100));
-    color                    : hsl(var(--l-error-900));
+    background-color: hsl(var(--l-error-100));
+    color: hsl(var(--l-error-900));
 
     @at-root .no-js &:hover {
       color: hsl(var(--error-900));
@@ -225,6 +225,17 @@
     &::before {
       background-image: radial-gradient(circle at center, hsl(var(--error-500)/25%), transparent 75%);
     }
+  }
+
+  &.link-like {
+    text-transform: none;
+    font-weight: normal;
+    font-variation-settings: 'wght' 400;
+    text-align: inherit;
+    background-color: transparent;
+    padding: var(--space-xs);
+    margin-inline: calc(var(--space-xs) * -1);
+    line-height: inherit;
   }
 }
 
@@ -243,27 +254,27 @@ body.no-js {
 }
 
 .file-button:is(a, button) {
-  align-items    : center;
-  border-radius  : var(--ideal-radius);
-  border         : 1px solid hsl(var(--fg-default) / 25%);
-  display        : flex;
-  flex-wrap      : nowrap;
-  font-family    : var(--font-sans);
-  gap            : var(--space);
-  line-height    : 1.25;
-  padding        : var(--space);
+  align-items: center;
+  border-radius: var(--ideal-radius);
+  border: 1px solid hsl(var(--fg-default) / 25%);
+  display: flex;
+  flex-wrap: nowrap;
+  font-family: var(--font-sans);
+  gap: var(--space);
+  line-height: 1.25;
+  padding: var(--space);
   text-decoration: none;
 }
 
 .file__image {
-  display      : grid;
+  display: grid;
   place-content: center;
 }
 
 .file__image {
-  aspect-ratio : 1;
-  display      : grid;
-  padding      : var(--space);
+  aspect-ratio: 1;
+  display: grid;
+  padding: var(--space);
   place-content: center;
 }
 
@@ -276,7 +287,7 @@ body.no-js {
 .navigation-link,
 .navigation-menu-link {
   &.icon-only {
-    padding     : var(--space-xxs);
+    padding: var(--space-xxs);
     aspect-ratio: 1/1;
 
     @media not (pointer: fine),
@@ -289,7 +300,7 @@ body.no-js {
 
       @media (max-width: 720px) {
         aspect-ratio: 1/1;
-        padding     : var(--space-xs) !important;
+        padding: var(--space-xs) !important;
       }
     }
   }
@@ -314,12 +325,12 @@ body.no-js {
 }
 
 .button-list {
-  margin    : 0;
-  padding   : 0;
+  margin: 0;
+  padding: 0;
   list-style: none;
-  display   : flex;
-  gap       : 1ch;
-  flex-wrap : wrap;
+  display: flex;
+  gap: 1ch;
+  flex-wrap: wrap;
 }
 
 /* .go-to-top {
