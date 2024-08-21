@@ -3,7 +3,7 @@
   href="{{ postURL }}"
 {% endset %}
 
-<{{ 'article' if isUpcoming else "a" }} {{ attributes if not isUpcoming }} class="talk-card" data-index="{% padStart index, 2, "0" %}">
+<{{ 'article' if isUpcoming else "a" }} {{ attributes | safe if not isUpcoming }} class="talk-card" data-index="{% padStart index, 2, "0" %}">
   <h3 class="talk-card__title {{ 'upcoming' if isUpcoming }}">{{ post.title | safe }}</h3>
   <p class="talk-card__description">{{ post.description | safe }}</p>
   <p class="talk-card__time">
