@@ -1,5 +1,10 @@
-<a href="{{ postURL }}" class="talk-card" data-index="{% padStart index, 2, "0" %}">
-  <h3 class="talk-card__title {{ 'upcoming' if post.tentativeDate != null or utils.isFutureDate(post.date) }}">{{ post.title | safe }}</h3>
+{% set isUpcoming = post.tentativeDate != null or utils.isFutureDate(post.date) %}
+{% set attributes %}
+  href="{{ postURL }}"
+{% endset %}
+
+<{{ 'article' if isUpcoming else "a" }} {{ attributes if not isUpcoming }} class="talk-card" data-index="{% padStart index, 2, "0" %}">
+  <h3 class="talk-card__title {{ 'upcoming' if isUpcoming }}">{{ post.title | safe }}</h3>
   <p class="talk-card__description">{{ post.description | safe }}</p>
   <p class="talk-card__time">
     {{ 'calendar' | icon | safe }}
@@ -17,4 +22,4 @@
     {{ 'map-pin' | icon | safe }}
     {{ post.location | safe }}
   </p>
-</a>
+</{{ 'article' if isUpcoming else "a" }}>

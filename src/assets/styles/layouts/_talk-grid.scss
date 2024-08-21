@@ -13,7 +13,7 @@
   column-gap           : 1ch;
   text-decoration      : none;
 
-  &:hover {
+  &:is(a):hover {
     color: hsl(var(--fg-default));
 
     .talk-card__title {

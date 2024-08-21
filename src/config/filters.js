@@ -78,6 +78,7 @@ module.exports = {
 
     return talks
   },
+  isUpcoming: item => item.date.getTime() >= new Date().getTime() || item.data.tentativeDate != null,
   youtube: function (embedCode) {
     return `<iframe 
   class="embed embed--youtube"
