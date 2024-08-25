@@ -18,7 +18,7 @@ eleventyImport:
       <h2 class="responsive">{{ sections.notes.title | safe }}</h2>
       <p>{{ sections.notes.description | safe }}. All writings here are subject to copyright.</p>
   </hgroup>
-  <dl class="timeline timeline--notes">
+  {# <dl class="timeline timeline--notes">
     {% for item in pagination.items %}
       <div class="timeline__item">
         <dt class="timeline__item__title">
@@ -26,11 +26,21 @@ eleventyImport:
           <time class="timeline__item__date" datetime="{{ item.date | machineReadableDate }}">{{ item.date | humanReadableDate }}</time>
         </dt>
         <dd class="timeline__item__content">
-          {{ item.templateContent | firstParagraph | safe }}
+          {{ item.templateContent | safe }}
         </dd>
       </div>
     {% endfor %}
-  </dl>
+  </dl> #}
+  <ol class="timeline timeline--notes">
+    {% for item in pagination.items %}
+      <li class="timeline__item">
+        <article class="timeline__item__title">
+          <a href="{{ item.url }}" class="timeline__item__link">{{ item.data.title | safe }}</a>
+          <time datetime="{{ item.date | machineReadableDate }}" class="timeline__item__date">{{ item.date | humanReadableDate }}</time>
+        </article>
+      </li>
+    {% endfor %}
+  </ol>
 </section>
 
 <div class="margin-block-end--xxl">
