@@ -37,20 +37,35 @@ eleventyImport:
   </div>
 </section>
 
-<div class="center-justified cluster padding--l">
+<ol class="pagination">
   {% if pagination.href.previous %}
-    <a href="{{ pagination.href.previous }}" class="button">Previous</a>
+    <li>
+      <a href="{{ pagination.href.previous }}" class="button icon-only">
+        <span class="sr-only">Previous</span>
+        {{ 'chevron-left' | icon | safe }}
+      </a>
+    </li>
   {% endif %}
+
+  {% for item in pagination.pages %}
+    {% set isCurrent = page.url === pagination.hrefs[loop.index0] %}
+    <li>
+      <a href="{{ pagination.hrefs[loop.index0] }}" class="button" {{ 'aria-current="page"' | safe if isCurrent }}>
+        <span class="sr-only">Page</span>
+        {{ loop.index }}
+      </a>
+    </li>
+  {% endfor %}
 
   {% if pagination.href.next %}
-    <a href="{{ pagination.href.next }}" class="button">Next</a>
+    <li class="item">
+      <a href="{{ pagination.href.next }}" class="button icon-only">
+        <span class="sr-only">Next</span>
+        {{ 'chevron-right' | icon | safe }}
+      </a>
+    </li>
   {% endif %}
-
-  <a href="{{ site.feeds.blog.url }}" class="{{ 'icon-only' if pagination.href.previous or pagination.href.next }} button" style="padding: var(--space-s);">
-    {{ 'rss' | icon | safe }}
-    <span class="{{ 'sr-only' if pagination.href.previous or pagination.href.next }}">RSS feed of all articles</span>
-  </a>
-</div>
+</ol>
 
 {% include "components/banners/commissions-banner.njk" %}
 {% include 'components/email-form.njk' %}
