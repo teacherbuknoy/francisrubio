@@ -224,6 +224,7 @@ figure.image {
   display       : flex;
   flex-direction: column;
   gap           : 1ch;
+  margin-block-end: var(--space-l);
 
   img,
   video {

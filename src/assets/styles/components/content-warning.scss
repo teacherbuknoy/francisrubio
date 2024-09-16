@@ -71,7 +71,7 @@
     background-color   : hsl(var(--bg-content-warning-accent) / var(--bg-content-warning-accent-opacity, 1));
     padding            : var(--space-xxs);
     padding-inline     : var(--space-xs);
-    border-radius      : var(--ideal-radius);
+    border-radius      : var(--radius-2);
     margin-inline-start: calc(-1 * var(--space-xs));
   }
 
