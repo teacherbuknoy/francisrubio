@@ -11,12 +11,8 @@
   </noscript>
 {% endmacro %}
 
-{% macro image(filename, image, postType, imgClass) %}
-  {% set sizes = image.sizes %}
-  {% set width = image.width %}
-  {% set height = image.height %}
-  {% set formats = image.formats %}
-  {% set filename = image.filename %}
-  {% set defaultImageClass = imgClass %}
-  {% include "components/cdn-picture.njk" %}
+{% macro image(image) %}
+  <responsive-picture src="{{ image.src }}" alt="{{ image.alt }}" height="{{ image.height }}" width="{{ image.width }}">
+    <img src="{{ site.api.images }}{{ image.src }}" alt="{{ image.alt }}" height="{{ image.height }}" width="{{ image.width }}">
+  </responsive-picture>
 {% endmacro %}
