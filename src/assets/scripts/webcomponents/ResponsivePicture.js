@@ -19,7 +19,6 @@ class ResponsivePicture extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    console.log('[ATTR_CHANGED]', { name, oldValue, newValue })
     switch (name) {
       case 'provider':
         this.provider = newValue
@@ -82,7 +81,6 @@ function createDefaultImage(picture) {
   img.alt = alt
   img.width = picture.width
   img.height = picture.height
-  console.log(img)
 
   if (picture.linked) {
     const a = document.createElement('a')
