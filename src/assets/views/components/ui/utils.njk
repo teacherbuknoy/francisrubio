@@ -8,7 +8,9 @@
 {% endmacro %}
 
 {% macro image(image) %}
-  <responsive-picture src="{{ image.src }}" alt="{{ image.alt }}" height="{{ image.height }}" width="{{ image.width }}">
+  <responsive-picture 
+    src="{{ image.src }}" alt="{{ image.alt }}" 
+    height="{{ image.height }}" width="{{ image.width }}" {{ "linked" if image.linked }}>
     <img src="{{ site.api.images }}{{ image.src }}" alt="{{ image.alt }}" height="{{ image.height }}" width="{{ image.width }}">
   </responsive-picture>
 {% endmacro %}

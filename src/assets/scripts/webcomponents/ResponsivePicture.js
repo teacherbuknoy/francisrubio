@@ -1,5 +1,5 @@
 class ResponsivePicture extends HTMLElement {
-  static observedAttributes = ["alt", "provider", "src", "sizes", "formats", "height", "width"]
+  static observedAttributes = ["alt", "provider", "src", "sizes", "formats", "height", "width", "linked"]
 
   constructor() {
     super()
@@ -11,6 +11,7 @@ class ResponsivePicture extends HTMLElement {
     this.width = 0
     this.alt = ''
     this.src = ''
+    this.linked = false
   }
 
   connectedCallback() {
@@ -41,6 +42,9 @@ class ResponsivePicture extends HTMLElement {
       case 'alt':
         this.alt = newValue
         break
+      case 'linked':
+        this.linked = newValue != null
+        break
     }
 
     this.render()
@@ -66,7 +70,7 @@ customElements.define("responsive-picture", ResponsivePicture)
  * @description Creates a default image for a ResponsivePicture
  * @author Francis Rubio
  * @param {ResponsivePicture} picture
- * @returns {HTMLImageElement}
+ * @returns {HTMLImageElement|HTMLAnchorElement}
  */
 function createDefaultImage(picture) {
   const img = document.createElement('img')
@@ -79,6 +83,16 @@ function createDefaultImage(picture) {
   img.width = picture.width
   img.height = picture.height
   console.log(img)
+
+  if (picture.linked) {
+    const a = document.createElement('a')
+    a.href = img.src
+    a.target = '_blank'
+    a.rel = 'noopener'
+
+    a.appendChild(img)
+    return a
+  }
 
   return img
 }
