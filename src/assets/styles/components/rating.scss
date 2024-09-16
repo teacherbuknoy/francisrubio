@@ -1,9 +1,16 @@
 .rating {
-  background-color: hsl(var(--bg-secondary));
-  border-radius: var(--ideal-radius);
   display: grid;
-  padding: var(--space);
-  place-content: center;
+  position: relative;
+  gap: var(--space);
+
+  .rating__inner {
+    background-color: hsl(var(--bg-secondary));
+    border-radius: var(--ideal-radius);
+    display: grid;
+    padding: var(--space);
+    place-content: center;
+    text-align: center;
+  }
 
   .rating__value {
     text-align: center;
@@ -31,6 +38,20 @@
     &::before {
       color: hsl(var(--warning-500) / 25%);
     }
+  }
+
+  .rating__product-link {
+    width: 100%;
+  }
+
+  .icon-shopee-logo--official-shop {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    height: 1rem;
+    width: 1rem;
+    fill: currentColor;
   }
 }
 
