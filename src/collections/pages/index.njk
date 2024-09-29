@@ -11,6 +11,28 @@ eleventyImport:
     - projects
     - talks
     - videos
+images:
+  front:
+    src: /index/bio-banner/bio-banner-image.png
+    class: banner__front-image
+    alt: ""
+    width: 400
+    height: 734
+  bgMobile:
+    src: /index/bio-banner/bio-banner-bg-mobile.png
+    alt: ""
+    width: 540
+    height: 960
+  bgDesktop:
+    src: /index/bio-banner/bio-banner-bg-desktop.png
+    alt: ""
+    width: 1920
+    height: 540
+  overlay:
+    src: /index/bio-banner/bio-banner-overlay-mobile.png
+    alt: ""
+    width: 540
+    height: 960
 ---
 {% from "components/ui/utils.njk" import emailButton %}
 
@@ -53,7 +75,7 @@ eleventyImport:
   </div>
 </section>
 
-<section class="section padding-block--xxl" id="section-3" aria-labelledby="section-3-heading">
+{# <section class="section padding-block--xxl" id="section-3" aria-labelledby="section-3-heading">
   <div class="section__inner">
     <hgroup role="group" class="stack gap--none">
       <p id="section-3-heading" class="uppercase ls-l font-sans" data-baybayin="{{ sections.experience.baybayin_label }}">
@@ -98,9 +120,9 @@ eleventyImport:
       {{ emailButton('Connect with me') }}
     </div>
   </div>
-</section>
+</section> #}
 
-{% include "components/banners/featured-gallery.njk" %}
+{% include "components/banners/biography-banner.njk" %}
 
 <section class="section padding-block--xxl" id="section-4" aria-labelledby="section-41-heading">
   <div class="section__inner">

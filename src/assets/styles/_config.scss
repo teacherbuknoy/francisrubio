@@ -289,12 +289,16 @@
 :root {
   --font-sans         : "Figtree", "Noto Sans Tagalog", sans-serif;
   --font-serif        : "Fraunces", serif;
-  --font-display      : "Figtree", "Noto Sans Tagalog", sans-serif;
+  --font-display      : "Inter", "Figtree", "Noto Sans Tagalog", sans-serif;
   --font-display-serif: "Fraunces", serif;
   --font-body         : var(--font-serif);
   --font-ui           : var(--font-sans);
   --font-mono         : "Source Code Pro", monospace;
   --font-baybayin     : 'Noto Sans Tagalog', 'Figtree', sans-serif;
+
+  @supports(font-variation-settings: normal) {
+    --font-display: "InterVariable", "Figtree", "Noto Sans Tagalog", sans-serif;
+  }
 
   --type-size  : 1.2rem;
   --type-size-1: 4.209rem;

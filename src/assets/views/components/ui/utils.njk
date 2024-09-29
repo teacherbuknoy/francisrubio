@@ -8,9 +8,12 @@
 {% endmacro %}
 
 {% macro image(image) %}
+  {% if image.class != null %}
+    {% set imgClass = 'class="' + image.class + '"' %}
+  {% endif %}
   <responsive-picture 
     src="{{ image.src }}" alt="{{ image.alt }}" 
     height="{{ image.height }}" width="{{ image.width }}" {{ "linked" if image.linked }}>
-    <img src="{{ site.api.images }}{{ image.src }}" alt="{{ image.alt }}" height="{{ image.height }}" width="{{ image.width }}">
+    <img {{ imgClass }} src="{{ site.api.images }}{{ image.src }}" alt="{{ image.alt }}" height="{{ image.height }}" width="{{ image.width }}">
   </responsive-picture>
 {% endmacro %}
