@@ -15,6 +15,10 @@
     justify-content : space-between;
     padding         : var(--space);
 
+    &.webring {
+      background: hsl(var(--bg-primary));
+    }
+
     p {
       margin: 0;
     }

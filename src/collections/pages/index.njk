@@ -197,7 +197,7 @@ eleventyImport:
   </div>
 </section>
 
-<section class="section padding-block--xxl bg-secondary" id="contact-footer" aria-labelledby="footer-heading">
+<section class="section auto-height padding-block--xxl bg-secondary" id="contact-footer" aria-labelledby="footer-heading">
   <div class="section__inner">
     <div class="stack gap">
       <hgroup role="group">
@@ -213,13 +213,7 @@ eleventyImport:
     </div>
   </div>
 </section>
-
-<div class="section padding-block--xxl">
-  <div class="section__inner">
-    {% include "components/banners/webring-banner.njk" %}
-  </div>
-</div>
-{% include 'components/webmentions.njk' %}
+{# {% include 'components/webmentions.njk' %} #}
 
 {% include 'components/email-form.njk' %}
 

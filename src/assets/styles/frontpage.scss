@@ -37,9 +37,12 @@
   }
 
   .section {
-    margin-block: var(--space-xxxl);
-    min-height: 100vh;
     align-content: center;
+    margin-block: var(--space-xxxl);
+
+    &:not(.auto-height) {
+      min-height: 100vh;
+    }
   }
 
   .section__inner {
