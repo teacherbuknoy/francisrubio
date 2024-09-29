@@ -1,4 +1,5 @@
 .dialog {
+  background-color: hsl(var(--bg-primary));
   border        : none;
   border-radius : calc(var(--ideal-radius) + (var(--space) / 2));
   display       : flex;
@@ -28,7 +29,7 @@
     background-color: inherit;
     display            : flex;
     justify-content    : space-between;
-    padding-block-start: var(--space);
+    padding: var(--space);
     position: sticky;
     top: 0;
     z-index: 2;

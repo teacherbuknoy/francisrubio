@@ -49,6 +49,8 @@
 
   textarea {
     margin-block-start: var(--space);
+    min-height: 7lh;
+    resize: block;
   }
 }
 
