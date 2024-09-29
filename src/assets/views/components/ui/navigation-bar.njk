@@ -84,7 +84,7 @@
           </button>
         </li>
         <li class="navigation-list-item hide-on-mobile">
-          <button class="primary button button--small padding-inline--l hide-on-noscript" data-dialog="modal__email">Hire Me</button>
+          <button class="primary button button--small padding-inline--l hide-on-noscript" onclick="emailDialog.showModal()">Hire Me</button>
           <noscript>
             <a href="/contact/" class="primary button button--small padding-inline--l">Hire Me</a>
           </noscript>
@@ -97,4 +97,5 @@
 
 {% include "components/popups/mobile-navigation.njk" %}
 {% include "components/popups/search-dialog.njk" %}
+{% include 'components/popups/email-dialog.njk' %}
 {% include 'components/email-form.njk' %}

@@ -11,7 +11,9 @@
 
   @if $inset {
     outline-offset: $inset-value * -1;
-  } @else {
+  }
+
+  @else {
     outline-offset: $inset-value;
   }
 }
@@ -44,13 +46,29 @@
   $shadow: 0 1px 2px $color;
 
   @for $i from 2 through $factor {
-    @if $i % $skipAmount == 0 {
+    @if $i % $skipAmount ==0 {
       $s: 0 #{$i}px #{$i * 2}px $color;
       $shadow: $shadow, $s;
     }
   }
 
   box-shadow: $shadow;
+}
+
+@mixin elevate() {
+  --elevation-shadow: 0 2px 4px hsl(var(--shadow-color) / var(--shadow-alpha)), 0 3px 8px hsl(var(--shadow-color) / var(--shadow-alpha)), 0 4px 16px hsl(var(--shadow-color) / var(--shadow-alpha)), 0 5px 32px hsl(var(--shadow-color) / var(--shadow-alpha)), 0 6px 64px hsl(var(--shadow-color) / var(--shadow-alpha));
+  --glow-alpha: 20%;
+  --glow-color: 0 0% 100%;
+  --glow: inset 0 0 1px hsl(var(--glow-color) / var(--glow-alpha));
+  --highlight-alpha: 10%;
+  --highlight-color: 0 0% 100%;
+  --highlight: inset 0 1px 1px hsl(var(--glow-color) / var(--highlight-alpha));
+  --outline-alpha: 30%;
+  --outline-color: 0 0% 0%;
+  --outline: 0 0 1px hsl(var(--outline-color) / var(--outline-alpha));
+  --shadow-alpha: 5%;
+  --shadow-color: 0 0% 0%;
+  box-shadow: var(--outline), var(--glow), var(--highlight), var(--elevation-shadow);
 }
 
 @mixin visually-hidden {

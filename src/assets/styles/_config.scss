@@ -46,6 +46,12 @@
   --l-info-700: 204 99% 76%;
   --l-info-900: 204 99% 96%;
 
+  --l-neutral-100: 0 0% 95%;
+  --l-neutral-300: 0 0% 81%;
+  --l-neutral-500: 0 0% 54%;
+  --l-neutral-700: 0 0% 23%;
+  --l-neutral-900: 0 0% 7%;
+
   --d-error-900: 5 100% 75%;
   --d-error-700: 0 81% 63%;
   --d-error-500: 357 68% 46%;
@@ -81,6 +87,12 @@
   --d-secondary-500: 233 80% 61%;
   --d-secondary-700: 233 50% 71%;
   --d-secondary-900: 233 50% 81%;
+
+  --d-neutral-900: 0 0% 95%;
+  --d-neutral-700: 0 0% 81%;
+  --d-neutral-500: 0 0% 54%;
+  --d-neutral-300: 0 0% 23%;
+  --d-neutral-100: 0 0% 7%;
 }
 
 :root {
@@ -185,7 +197,13 @@
   --secondary-300: var(--l-secondary-300);
   --secondary-500: var(--l-secondary-500);
   --secondary-700: var(--l-secondary-700);
-  --secondary-900: var(--l-secondary-900);
+
+  --neutral-100: var(--l-neutral-100);
+  --neutral-300: var(--l-neutral-300);
+  --neutral-500: var(--l-neutral-500);
+  --neutral-700: var(--l-neutral-700);
+  --neutral-900: var(--l-neutral-900);
+  --neutral-900: var(--l-neutral-900);
 
   --error-100: var(--l-error-100);
   --error-300: var(--l-error-300);
@@ -224,6 +242,13 @@
   --secondary-500: var(--d-secondary-500);
   --secondary-700: var(--d-secondary-700);
   --secondary-900: var(--d-secondary-900);
+
+  --neutral-100: var(--d-neutral-100);
+  --neutral-300: var(--d-neutral-300);
+  --neutral-500: var(--d-neutral-500);
+  --neutral-700: var(--d-neutral-700);
+  --neutral-900: var(--d-neutral-900);
+  --neutral-900: var(--d-neutral-900);
 
   --error-100: var(--d-error-100);
   --error-300: var(--d-error-300);
@@ -320,6 +345,8 @@
   --radius-3    : 8px;
   --radius-4    : 10px;
   --radius-5    : 12px;
+  --radius-6    : 14px;
+  --radius-7    : 16px;
 }
 
 .invert-on-dark {
