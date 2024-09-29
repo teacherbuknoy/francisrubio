@@ -188,5 +188,11 @@ module.exports = {
       return { url, title: '', description: null }
     }
   },
-  languageCode: str => ISO6391.getName(str)
+  languageCode: str => ISO6391.getName(str),
+  yearsFromToday: dateString => {
+    const today = new Date().getFullYear()
+    const past = new Date(dateString).getFullYear()
+
+    return today - past
+  }
 }

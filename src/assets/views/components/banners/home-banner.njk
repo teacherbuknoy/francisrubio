@@ -137,18 +137,12 @@
         </div>
       </div>
       <dl class="hero__captionlist" style="--spotlight-color: hsl(var(--banner-bg-3) / 20%)">
-        <div class="hero__caption">
-          <dt>Educator and Content Creator</dt>
-          <dd>6 years</dd>
-        </div>
-        <div class="hero__caption">
-          <dt>Web Designer</dt>
-          <dd>5 years</dd>
-        </div>
-        <div class="hero__caption">
-          <dt>Web Developer</dt>
-          <dd>5 years</dd>
-        </div>
+        {% for experience in site.experiences %}
+          <div class="hero__caption">
+            <dt>{{ experience.name }}</dt>
+            <dd>{{ experience.start | yearsFromToday }} years</dd>
+          </div>
+        {% endfor %}
       </dl>
       <div class="elevated hero__actions">
         <a href="{{ files.resume.path }}" download="{{ files.resume.filename }}" class="button">Download my résumé</a>
