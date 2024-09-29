@@ -215,8 +215,6 @@ eleventyImport:
 </section>
 {# {% include 'components/webmentions.njk' %} #}
 
-{% include 'components/email-form.njk' %}
-
 {% set preferredDomain = site.domains | selectattr('isPreferred') | first %}
 <script type="application/ld+json">
   [{% include "components/seo/structure/website.njk" %}]
