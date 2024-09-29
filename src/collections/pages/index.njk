@@ -29,15 +29,22 @@ eleventyImport:
 
 <section class="section padding-block--xxl" id="section-2" aria-labelledby="section-2-heading">
   <div class="section__inner">
-    <h2 style="width: min(35ch, 100%);" class="fs-4 weight-300" id="section-2-heading">I specialize in creating <strong class="fg-primary-700 weight-bold">accessible front ends</strong> for web projects and integrating them with APIs and back-end processes.</h2>
-    <div class="scroll-snapper d-flex gap--m relative padding--m" style="padding-inline: 25vw;">
-      <a href="#section-3" class="button skip-link">Skip to next section</a>
-      {% for feature in features %}
-        <div class="feature-card snap-center" style="flex-basis: 30ch; flex-shrink: 0; z-index: {{ loop.revindex0 }};">
-          <button data-popover data-aria-hide data-disclosure class="feature-card__header">{{ feature.title }}</button>
-          <div class="feature-card__content">{{ feature.content }}</div>
-        </div>
-      {% endfor %}
+    <div class="stack gap--none">
+      <hgroup role="group">
+        <p id="section-2-heading" class="uppercase ls-l font-sans" data-baybayin="{{ sections.services.baybayin_label }}">{{ sections.services.label | safe }}</p>
+        <h2 class="fs-1">{{ sections.services.title | safe }}</h2>
+        <p>{{ sections.services.description | safe }}</p>
+      </hgroup>
+      <div class="service-grid">
+        <a href="#section-3" class="button skip-link">Skip to next section</a>
+        {% for service in services %}
+          <article class="service-card">
+            <h3 class="title">{{ service.title }}</h3>
+            <i class="material-symbol" aria-hidden="true">{{ service.icon }}</i>
+            <p class="teaser">{{ service.teaser }}</p>
+          </article>
+        {% endfor %}
+      </div>
     </div>
     <div class="stack ai--center text-center gap--s padding--xl">
       <span class="fs-4 weight-300">Ready to give me a shot?</span>
@@ -45,6 +52,7 @@ eleventyImport:
     </div>
   </div>
 </section>
+
 <section class="section padding-block--xxl" id="section-3" aria-labelledby="section-3-heading">
   <div class="section__inner">
     <hgroup role="group" class="stack gap--none">

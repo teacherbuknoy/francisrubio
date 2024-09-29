@@ -133,6 +133,20 @@ print;
     stroke-linecap : round;
   }
 
+  .material-symbol,
+  .material-icon {
+    font-family: 'Material Symbols Rounded';
+    font-size: 1em;
+    font-style: normal;
+    font-weight: inherit;
+    user-select: none;
+    font-variation-settings:
+      'FILL' 0,
+      'wght' 200,
+      'GRAD' 0,
+      'opsz' 24
+  }
+
   a {
     box-decoration-break: clone;
     color               : hsl(var(--fg-default));

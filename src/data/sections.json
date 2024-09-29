@@ -1,4 +1,10 @@
 {
+  "services": {
+    "label": "Services",
+    "baybayin_label": "ᜋᜈ᜔ᜄ ᜐᜒᜍ᜔ᜊᜒᜐ᜔ᜌ᜔o",
+    "title": "What I can do for you",
+    "description": null
+  },
   "experience": {
     "label": "Experience",
     "baybayin_label": "ᜃᜍᜈᜐᜈ᜔",

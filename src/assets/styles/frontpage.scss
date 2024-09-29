@@ -1,6 +1,7 @@
 @layer component {
   @import 'layouts/hero.scss';
   @import 'layouts/featured-post-banner';
+  @import 'components/service-card';
 
   #section-1 {
     display        : grid;
