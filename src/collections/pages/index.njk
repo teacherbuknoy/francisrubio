@@ -122,39 +122,8 @@ eleventyImport:
     </div>
   </div>
 </section>
-{# <section class="section padding-block--xxl" id="section-44" aria-labelledby="section-4-heading">
-  <div class="section__inner">
-    <div class="stack gap--none">
-      <hgroup role="group">
-        <p id="section-4-heading" class="uppercase ls-l font-sans"  data-baybayin="{{ sections.literature.baybayin_label }}">{{ sections.literature.label | safe }}</p>
-        <h2 class="fs-1">{{ sections.literature.title | safe }}</h2>
-        <p>{{ sections.literature.description | safe }}</p>
-      </hgroup>
-      {% set postLimit = 4 %}
-      {% set postType = 'literature' %}
-      {% set collection = collections.literature | reverse %}
-      {% include 'components/post-grid.njk' %}
-    </div>
-    <div class="stack ai--center text-center gap--s padding--xl">
-      <div class="cluster center-align">
-        <a href="/literature/" class="primary button">See all</a>
-      </div>
-    </div>
-  </div>
-</section> #}
-{# <section class="padding-block--xxl">
-  <div class="section__inner">
-    <aside class="callout callout--success">
-      {{ 'gift' | icon | safe }}
-      <p class="callout__body">
-        <strong>Feature rollout!</strong> I am rolling out my favorite threads that I posted somewhere else. Take a look at them!</p>
-      <div class="callout__footer">
-        <a href="/socials/mastodon/featured/" class="button button--success">See featured threads</a>
-      </div>
-    </aside>
-  </div>
-</section> #}
-<section class="padding-block--xxl" id="section-5" aria-labelledby="section-5-heading">
+
+<section class="section padding-block--xxl" id="section-5" aria-labelledby="section-5-heading">
   <div class="section__inner">
     <hgroup role="group" class="stack gap">
       <p id="section-5-heading" class="uppercase ls-l font-sans"  data-baybayin="{{ sections.talks.baybayin_label }}">{{ sections.talks.label | safe }}</p>
@@ -178,7 +147,8 @@ eleventyImport:
     </div>
   </div>
 </section>
-<section class="padding-block--xxl" id="section-56" aria-labelledby="section-6-heading">
+
+<section class="section padding-block--xxl" id="section-56" aria-labelledby="section-6-heading">
   <div class="section__inner">
     <hgroup role="group" class="stack gap">
       <p id="section-6-heading" class="uppercase ls-l font-sans"  data-baybayin="{{ sections.projects.baybayin_label }}">{{ sections.projects.label }}</p>
@@ -205,31 +175,7 @@ eleventyImport:
     </div>
   </div>
 </section>
-{# <section class="padding-block--xxl bg--secondary" id="section-6" aria-labelledby="section-61-heading">
-  <div class="section__inner jc--center stack gap text-center">
-    <p id="section-61-heading" class="uppercase ls-l font-sans"  data-baybayin="{{ sections.threads.baybayin_label }}">{{ sections.threads.label | safe }}</p>
-    <h2 class="fs-1">{{ sections.threads.title | safe }}</h2>
-    <p>{{ sections.threads.description | safe }}</p>
-    <script>
-      window.MASTODON.threads = {{ mastodon.feed | removeReblogs | removeReplies | dump | safe }}
-    </script>
-    <div class="profile__feed profile__feed--scroll masked-overflow--inline relative">
-      <a href="#section-44a" class="button skip-link">Skip to next section</a>
-      {% for thread in mastodon.feed | removeReblogs | removeReplies | removeEmpty %}
-        {% if loop.index0 < 6 %}
-          {% set entry = thread %}
-          {% set disableMedia = true %}
-          {% set noreply = true %}
-          {% include "components/mastodon-feed-entry.njk" %}
-        {% endif %}
-      {% endfor %}
-    </div>
-    <div class="cluster jc--center padding">
-      <a href="/socials/mastodon/" class="button">See all of my Mastodon posts</a>
-      <a href="/socials/mastodon/featured/" class="primary button">See my featured Mastodon posts</a>
-    </div>
-  </div>
-</section> #}
+
 <section class="section padding-block--xxl" id="section-44a" aria-labelledby="section-4a-heading">
   <div class="section__inner">
     <div class="stack gap--none">
@@ -250,6 +196,7 @@ eleventyImport:
     </div>
   </div>
 </section>
+
 <section class="section padding-block--xxl bg-secondary" id="contact-footer" aria-labelledby="footer-heading">
   <div class="section__inner">
     <div class="stack gap">
@@ -273,17 +220,6 @@ eleventyImport:
   </div>
 </div>
 {% include 'components/webmentions.njk' %}
-{# <section class="padding-block--xxl bg-secondary" id="comments" aria-labelledby="comments-heading">
-  <div class="section__inner">
-    <hgroup class="stack-gap" role="group">
-      <p id="comments-heading" class="uppercase ls-l font-sans" data-baybayin="{{ sections.webmentions.baybayin_label }}">{{ sections.webmentions.label | safe }}</p>
-      <h2 class="fs-1">{{ sections.webmentions.title | safe }}</h2>
-    </hgroup>
-    <p style="width: min(75ch, 100%)">{{ sections.contact.description | safe }}</p>
-    {% set nextSectionLink = '#main-footer' %}
-    {% include 'components/webmentions.njk' %}
-  </div>
-</section> #}
 
 {% include 'components/email-form.njk' %}
 
