@@ -3,6 +3,11 @@ layout: random-video.njk
 eleventyComputed:
   title: "{{ video.title | safe }}"
   description: "{{ video.description }}"
+  seo:
+    twiter:
+      url: "{{ video.poster }}"
+    og:
+      url: "{{ video.poster }}"
 pagination:
   data: randomvideos
   size: 1
@@ -10,7 +15,9 @@ pagination:
 permalink: /videos/{{ video.title | slugify }}/
 ---
 
-<video class="player" controls crossorigin="anonymous" lang="video/{{ video.lang if video.lang else 'en' }}">
+<video class="player" controls crossorigin="anonymous" 
+  lang="{{ video.lang if video.lang else 'en' }}"
+  poster="{{ video.poster }}">
   <source
     src="{{ video.url }}" type="{{ video.type if video.type else "video/mp4" }}"
     width="{{ video.width if video.width else "1920" }}"
@@ -18,7 +25,7 @@ permalink: /videos/{{ video.title | slugify }}/
   <track
     default
     src="{{ video.vtt }}"
-    kind="subtitles"
+    kind="captions"
     srclang="{{ video.lang if video.lang else "en" }}"
     label="Subtitles ({{ video.lang if video.lang else "en" }})"
   />
