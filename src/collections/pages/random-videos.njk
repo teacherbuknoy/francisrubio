@@ -1,0 +1,25 @@
+---
+layout: random-video.njk
+eleventyComputed:
+  title: "{{ video.title | safe }}"
+  description: "{{ video.description }}"
+pagination:
+  data: randomvideos
+  size: 1
+  alias: video
+permalink: /videos/{{ video.title | slugify }}/
+---
+
+<video class="player" controls crossorigin="anonymous" lang="video/{{ video.lang if video.lang else 'en' }}">
+  <source
+    src="{{ video.url }}" type="{{ video.type if video.type else "video/mp4" }}"
+    width="{{ video.width if video.width else "1920" }}"
+    height="{{ video.height if video.height else "1080" }}"/>
+  <track
+    default
+    src="{{ video.vtt }}"
+    kind="subtitles"
+    srclang="{{ video.lang if video.lang else "en" }}"
+    label="Subtitles ({{ video.lang if video.lang else "en" }})"
+  />
+</video>
