@@ -11,8 +11,11 @@
   {% if image.class != null %}
     {% set imgClass = 'class="' + image.class + '"' %}
   {% endif %}
+  {% if image.sizes != null %}
+    {% set sizes = 'sizes="' + sizes + '"' %}
+  {% endif %}
   <responsive-picture 
-    src="{{ image.src }}" alt="{{ image.alt }}" 
+    src="{{ image.src }}" alt="{{ image.alt }}" {{ sizes }}
     height="{{ image.height }}" width="{{ image.width }}" {{ "linked" if image.linked }}>
     <img {{ imgClass }} src="{{ site.api.images }}{{ image.src }}" alt="{{ image.alt }}" height="{{ image.height }}" width="{{ image.width }}">
   </responsive-picture>

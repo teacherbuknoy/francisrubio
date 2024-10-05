@@ -413,3 +413,32 @@ mark.mark {
   color           : hsl(var(--fg-contrast));
   padding-inline  : 0.25ch;
 }
+
+.list {
+
+  &,
+  &--error,
+  &--success {
+    li::marker {
+      margin-inline-end: 1ch;
+      font-size: 2rem;
+      line-height: 1rem;
+    }
+
+    li + li {
+      margin-block-start: 1rem;
+      margin-block-start: 1lh;
+    }
+  }
+
+  &--error li::marker {
+    content: '× ';
+    color: hsl(var(--error-900));
+  }
+
+  &--success li::marker {
+    content: '✓ ';
+    color: hsl(var(--success-900));
+    font-size: 1.5rem;
+  }
+}
