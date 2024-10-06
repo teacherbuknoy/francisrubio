@@ -163,6 +163,7 @@
       height: 100%;
       object-fit: cover;
       width: 100%;
+      mask-image: linear-gradient(to bottom, black 20%, transparent 50%);
     }
 
     .bio-title {
@@ -240,6 +241,7 @@
         max-width: 50dvh;
         object-fit: cover;
         object-position: right;
+        mask-image: none;
       }
 
       .bio-title,

@@ -8,8 +8,11 @@
   ">
   {% set image = images.front %}
   <responsive-picture 
-    src="{{ image.src }}" alt="{{ image.alt }}" sizes="540,720,1080,1440"
-    height="{{ image.height }}" width="{{ image.width }}" {{ "linked" if image.linked }}>
+    src="{{ image.src }}"
+    alt="{{ image.alt }}"
+    sizes="1440"
+    height="{{ image.height }}" 
+    width="{{ image.width }}" {{ "linked" if image.linked }}>
     <img class="banner__front-image" src="{{ site.api.images }}{{ image.src }}" alt="{{ image.alt }}" height="{{ image.height }}" width="{{ image.width }}">
   </responsive-picture>
 
