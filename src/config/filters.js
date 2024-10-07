@@ -157,7 +157,7 @@ export default {
         }
       })
 
-      metadata = {
+      const metadata = {
         title: rawMeta.title ? rawMeta.title : null,
         description: rawMeta.description
           ? rawMeta.description
