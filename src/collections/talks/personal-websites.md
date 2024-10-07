@@ -1,7 +1,7 @@
 ---
 title: Personal Websites
 description: An overview of the personal website trend and how you can join in
-image: https://ik.imagekit.io/8jjzxcl9p/tr:w-720,f-png/talks/personal-website/cover.png
+image: https://ik.imagekit.io/8jjzxcl9p/tr:w-1920,f-png/talks/personal-website/cover.png
 category: Web Development
 slug: personal-websites
 date: 2024-06-06
