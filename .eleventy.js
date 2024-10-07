@@ -80,7 +80,7 @@ export default function (eleventyConfig) {
 
   eleventyConfig.setLibrary('md', markdown)
 
-  /* eleventyConfig.addTransform('prettier', function (content, outputPath) {
+  eleventyConfig.addTransform('prettier', function (content, outputPath) {
     const extname = path.extname(outputPath)
     switch (extname) {
       case ".html":
@@ -91,7 +91,7 @@ export default function (eleventyConfig) {
       default:
         return content
     }
-  }) */
+  })
 
   eleventyConfig.addTransform('focusableCodeSnippets', function (content, outputPath) {
     const extname = path.extname(outputPath)
