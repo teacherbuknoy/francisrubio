@@ -9,7 +9,7 @@
 <!-- Primary Meta Tags -->
 <meta name="title" content="{{ title if title else site.title | striptags }}">
 <meta name="description" content="{{ summary | trim }}">
-<meta name="generator" content="Eleventy v2.0.0">
+<meta name="generator" content="{{ eleventy.generator }}">
 
 {% set domain = site.domains | selectattr('isPreferred') | first %}
 <link rel="canonical" href="https://{{ domain.value }}{{ page.url }}">
