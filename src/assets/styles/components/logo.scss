@@ -26,4 +26,14 @@
       @include logo-light;
     }
   }
+
+  &-type {
+    color: hsl(var(--primary-900));
+    font-weight: 800;
+    font-variation-settings: 'wght' 800;
+  }
+
+  &-dot {
+    color: hsl(var(--primary-700))
+  }
 }
