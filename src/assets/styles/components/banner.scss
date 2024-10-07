@@ -196,14 +196,14 @@
       }
 
       del {
-        color: hsl(var(--success-700) / 75%);
+        color: hsl(var(--secondary-700) / 75%);
         text-decoration-color: hsl(var(--primary-900));
       }
     }
 
     .bio-highlight,
     .bio-link {
-      color: hsl(var(--success-700));
+      color: hsl(var(--secondary-700));
       font-family: var(--font-display);
       font-style: italic;
       font-variation-settings: normal;
@@ -223,7 +223,7 @@
 
     @media (width > 690px) {
       background-image: var(--bg-image-desktop);
-      background-position: center left;
+      background-position: center;
       grid-template-columns: 1fr 2fr minmax(min(var(--content-width), 100%), 1fr) 2fr 1fr;
       grid-template-rows: 1fr min-content auto 1fr;
       min-height: 50dvh;
