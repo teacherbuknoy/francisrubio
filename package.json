@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "The official website of Francis Rubio",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "subdev": "cross-env ELEVENTY_ENV=development eleventy --serve --incremental",
     "subbuild": "cross-env ELEVENTY_ENV=production eleventy",
@@ -29,12 +30,12 @@
   },
   "homepage": "https://francisrubio.antaresph.dev",
   "dependencies": {
-    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy": "^3.0.0",
     "@11ty/eleventy-fetch": "^4.0.0",
     "@11ty/eleventy-img": "^3.1.0",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
-    "@11ty/eleventy-upgrade-help": "^2.0.5",
+    "@11ty/eleventy-upgrade-help": "^3.0.1",
     "@babel/plugin-transform-runtime": "^7.22.15",
     "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.22.15",

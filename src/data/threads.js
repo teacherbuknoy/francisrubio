@@ -1,5 +1,8 @@
-const EleventyFetch = require('@11ty/eleventy-fetch')
-const { mastodon } = require('./site.json').variables
+import EleventyFetch from '@11ty/eleventy-fetch'
+import { readFileSync } from 'fs'
+
+const site = JSON.parse(readFileSync('src/data/site.json').toString())
+const { mastodon } = site.variables
 const THREADS = [
   "https://masto.ai/@teacherbuknoy/110671603523280432",
   "https://masto.ai/@teacherbuknoy/110084718692154094",
@@ -41,7 +44,7 @@ async function getPostWithContext(id) {
   const { accountIds } = mastodon
 
   const context = await EleventyFetch(url, { type: 'json', duration: '1d' })
-  
+
   const getRepliesToSelf = post => post.in_reply_to_account_id == null || accountIds.includes(post.in_reply_to_account_id)
   const getPostsByMe = post => mastodon.accountIds.includes(post.account.id)
 
@@ -49,7 +52,7 @@ async function getPostWithContext(id) {
   const descendants = context.descendants.filter(getRepliesToSelf).filter(getPostsByMe)
   const post = await getPost(id)
 
-  return [ ...ancestors, post, ...descendants ]
+  return [...ancestors, post, ...descendants]
 }
 
 function getPostId(id) {
@@ -57,11 +60,11 @@ function getPostId(id) {
   return urlSplit[urlSplit.length - 1]
 }
 
-module.exports = async function () {
+export default async function () {
 
   const threads = THREADS.map(async function (id) {
     return {
-      id, 
+      id,
       context: await getPostWithContext(getPostId(id))
     }
   })

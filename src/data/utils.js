@@ -5,7 +5,7 @@
  * @property {string} static_url
  * @property {boolean} visible_in_picker
  */
-module.exports = {
+const utils = {
   currentYear: new Date().getFullYear(),
   tentativeDate: (year, month, day) => {
     return new Date(year, month, day ? day : 1)
@@ -72,3 +72,5 @@ module.exports = {
   currentTimestamp: () => Date.now(),
   jsonify: jsonString => JSON.parse(jsonString)
 }
+
+export default utils

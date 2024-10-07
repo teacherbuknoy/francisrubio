@@ -12,4 +12,4 @@ function loadFilters(eleventyConfig) {
   })
 }
 
-module.exports = { loadFilters }
+export { loadFilters }

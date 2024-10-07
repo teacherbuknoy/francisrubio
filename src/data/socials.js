@@ -1,4 +1,4 @@
-const EleventyFetch = require('@11ty/eleventy-fetch')
+import EleventyFetch from '@11ty/eleventy-fetch'
 
 const mastodon = {
   id: '109319595958763014',
@@ -70,7 +70,7 @@ function createFindReply(mastodon) {
   }
 }
 
-module.exports = async function () {
+export default async function () {
   const mastodon = await fetchMastodon()
   mastodon.findReply = createFindReply(mastodon)
 

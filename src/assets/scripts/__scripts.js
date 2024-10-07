@@ -1,4 +1,4 @@
-module.exports = [
+export default [
   'index.js',
   'webmentions.js',
   'mastodon.js',

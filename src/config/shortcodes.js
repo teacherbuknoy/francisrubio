@@ -1,15 +1,12 @@
-const markdownIt = require('markdown-it')
-const { icon } = require('./filters')
+import filters from './filters.js'
+import MarkdownIt from 'markdown-it'
+import markdown from './markdown.js'
 
-const md = markdownIt({ html: true, linkify: true, typographer: true })
-  .use(require('markdown-it-deflist'))
-  .use(require('markdown-it-abbr'))
-  .use(require('markdown-it-footnote'))
-  .use(require('markdown-it-attrs'))
-  .use(require('markdown-it-sup'))
-  .disable('code')
+const { icon } = filters
 
-module.exports = {
+const md = markdown
+
+export default {
   padStart: (string, length, filler) => (string + '').padStart(length, filler),
   padEnd: (string, length, filler) => (string + '').padEnd(length, filler),
   footnote: {

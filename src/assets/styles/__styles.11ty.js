@@ -1,14 +1,17 @@
 // This file handles the CSS build.
 // It will run Sass and compile all styles defined in the main entry file.
-
-const ENTRY_POINTS = require('./styles.json')
-const path = require('path')
-const sass = require('sass')
-const CleanCSS = require('clean-css')
-const cssesc = require('cssesc')
 const isProd = process.env.ELEVENTY_ENV === 'production'
+import ENTRY_POINTS from './styles.js'
+import path from 'path'
+import { render } from 'sass'
+import CleanCSS from 'clean-css'
+import cssesc from 'cssesc'
+import { fileURLToPath } from 'url'
 
-module.exports = class {
+const dirname = path.dirname
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+export default class {
   async data() {
     return {
       eleventyExcludeFromCollections: true,
@@ -33,7 +36,8 @@ module.exports = class {
         config.sourceMapEmbed = true
         config.outputStyle = 'expanded'
       }
-      return sass.render(config, (err, result) => {
+
+      return render(config, (err, result) => {
         if (err) {
           return reject(err)
         }

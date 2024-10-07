@@ -1,20 +1,28 @@
-const passthroughs = require('./src/config/passthroughs')
-const collections = require('./src/config/collections')
-const filters = require('./src/config/filters')
-const watchtargets = require('./src/config/watchtargets')
-const plugins = require('./src/config/plugins')
-const shortcodes = require('./src/config/shortcodes')
-const { loadFilters } = require('./src/config/scopedFilters')
-const scripts = require('./src/assets/scripts/__scripts')
-const esbuild = require('esbuild')
+import passthroughs from './src/config/passthroughs.js'
+import collections from './src/config/collections.js'
+import filters from './src/config/filters.js'
+import watchtargets from './src/config/watchtargets.js'
+import plugins from './src/config/plugins.js'
+import shortcodes from './src/config/shortcodes.js'
+import { loadFilters } from './src/config/scopedFilters.js'
+import scripts from './src/assets/scripts/__scripts.js'
 
-const path = require('path')
-const prettier = require('prettier')
-const yaml = require('yaml')
+import UpgradeHelper from '@11ty/eleventy-upgrade-help'
 
-require('dotenv').config()
+import esbuild from 'esbuild'
+import path from 'path'
+import prettier from 'prettier'
+import yaml from 'yaml'
+import { config } from 'dotenv'
 
-module.exports = function (eleventyConfig) {
+import markdown from './src/config/markdown.js'
+
+config()
+
+export default function (eleventyConfig) {
+
+  eleventyConfig.addPlugin(UpgradeHelper)
+
   Object.keys(shortcodes).forEach(key => {
     if (shortcodes[key].isPaired) {
       eleventyConfig.addPairedShortcode(key, shortcodes[key].shortcode)
@@ -75,35 +83,7 @@ module.exports = function (eleventyConfig) {
     return new Date().toISOString()
   })
 
-  const markdownIt = require('markdown-it')
-  const markdownItAnchor = require('markdown-it-anchor')
-  const slug = require('slug')
-
-  eleventyConfig.setLibrary(
-    'md',
-    markdownIt({
-      html: true,
-      linkify: true,
-      typographer: true,
-      breaks: true
-    })
-      .use(markdownItAnchor, {
-        slugify: s => slug(s),
-        permalink: markdownItAnchor.permalink.linkInsideHeader({
-          symbol: `
-            <svg class="feather" aria-hidden="true"><use href="/assets/images/feather-sprite.svg#link-2" /></svg>
-          `,
-          renderAttrs: slug => ({ 'aria-label': 'Link to this header' })
-        })
-      })
-      .use(require('markdown-it-deflist'))
-      .use(require('markdown-it-abbr'))
-      .use(require('markdown-it-footnote'))
-      .use(require('markdown-it-attrs'))
-      .use(require('markdown-it-sup'))
-      .use(require('markdown-it-container'), '')
-      .disable('code')
-  )
+  eleventyConfig.setLibrary('md', markdown)
 
   /* eleventyConfig.addTransform('prettier', function (content, outputPath) {
     const extname = path.extname(outputPath)

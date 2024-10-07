@@ -1,6 +1,4 @@
-const { default: createPromisesApi } = require("memfs/lib/promises");
-
-module.exports = {
+export default {
   pages: function (collection) {
     return collection.getFilteredByGlob([
       "src/collections/pages/*.html",

@@ -1,4 +1,4 @@
-{
+export default {
   "styles": "styles.scss",
   "frontpage": "frontpage.scss",
   "mastodon": "mastodon.scss",

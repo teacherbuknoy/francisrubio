@@ -1,22 +1,15 @@
-const jsdom = require("jsdom")
-const { JSDOM } = jsdom
-const EleventyFetch = require('@11ty/eleventy-fetch')
-const parse = require("node-html-parser").parse
-const markdownIt = require('markdown-it')
-const ISO6391 = require('iso-639-1')
+import { JSDOM } from "jsdom"
+import EleventyFetch from "@11ty/eleventy-fetch"
+import { parse } from "node-html-parser"
+import ISO6391 from "iso-639-1"
+import markdown from "./markdown.js"
 
-const md = markdownIt({ html: true, linkify: true, typographer: true })
-  .use(require('markdown-it-deflist'))
-  .use(require('markdown-it-abbr'))
-  .use(require('markdown-it-footnote'))
-  .use(require('markdown-it-attrs'))
-  .use(require('markdown-it-sup'))
-  .disable('code')
+const md = markdown
 
 
 let footnoteRefs = []
 
-module.exports = {
+export default {
   markdown: function (value) {
     return md.render(value)
   },
