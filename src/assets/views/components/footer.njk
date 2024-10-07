@@ -45,9 +45,10 @@
   <div class="footer__body">
     <div class="footer__section">
       <div class="cluster ai--center gap--m">
-        {% set logoClass = 'logo--large' %}
-        {% include "components/logo.njk" %}
-        <h2 class="responsive fs-4 font-sans weight-700 fg-primary-900" style="margin: 0;">Francis Rubio</h2>
+        <h2 class="responsive fs-4 font-sans weight-700 fg-primary-900" style="margin: 0;">
+          <span class="visually-hidden">Francis Rubio</span>
+          <span aria-hidden="true" class="logo-type">francisrub<span class="logo-dot">.</span>io</span>
+        </h2>
       </div>
       <p style="margin: 0; font-family: var(--font-sans);">Web designer, developer, and educator from the Philippines.</p>
       <img class="not-by-ai hide-on-dark" src="/assets/images/not-by-ai/black.png" alt="Content in this site is purely produced, written, and created by humans, not by artificial intelligence.">

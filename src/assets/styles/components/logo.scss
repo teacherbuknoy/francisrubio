@@ -31,11 +31,12 @@
     color: hsl(var(--primary-900));
     font-weight: 800;
     font-variation-settings: 'wght' 800;
+    user-select: none;
   }
 
   &-dot {
     color: hsl(var(--primary-700));
-    font-size: 2em;
-    line-height: 0;
+    /* font-size: 2em;
+    line-height: 0; */
   }
 }

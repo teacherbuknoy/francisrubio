@@ -7,7 +7,8 @@
         <li class="navigation-list-item">
           <a href="/" class="navigation-link weight-700">
             {# {% include "components/logo.njk" %} #}
-            <span class="logo-type">francisrub<span class="logo-dot">.</span>io</span>
+            <span class="visually-hidden">Francis Rubio</span>
+            <span aria-hidden="true" class="logo-type">francisrub<span class="logo-dot">.</span>io</span>
           </a>
         </li>
         {% for item in navigation | rejectattr("overflow") %}
