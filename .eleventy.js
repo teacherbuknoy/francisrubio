@@ -7,8 +7,6 @@ import shortcodes from './src/config/shortcodes.js'
 import { loadFilters } from './src/config/scopedFilters.js'
 import scripts from './src/assets/scripts/__scripts.js'
 
-import UpgradeHelper from '@11ty/eleventy-upgrade-help'
-
 import esbuild from 'esbuild'
 import path from 'path'
 import prettier from 'prettier'
@@ -20,9 +18,6 @@ import markdown from './src/config/markdown.js'
 config()
 
 export default function (eleventyConfig) {
-
-  eleventyConfig.addPlugin(UpgradeHelper)
-
   Object.keys(shortcodes).forEach(key => {
     if (shortcodes[key].isPaired) {
       eleventyConfig.addPairedShortcode(key, shortcodes[key].shortcode)
