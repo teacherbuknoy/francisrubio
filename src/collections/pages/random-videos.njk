@@ -22,11 +22,13 @@ permalink: /videos/{{ video.title | slugify }}/
     src="{{ video.url }}" type="{{ video.type if video.type else "video/mp4" }}"
     width="{{ video.width if video.width else "1920" }}"
     height="{{ video.height if video.height else "1080" }}"/>
-  <track
-    default
-    src="{{ video.vtt }}"
-    kind="captions"
-    srclang="{{ video.lang if video.lang else "en" }}"
-    label="Subtitles ({{ video.lang if video.lang else "en" }})"
-  />
+  {% if video.vtt %}
+    <track
+      default
+      src="{{ video.vtt }}"
+      kind="captions"
+      srclang="{{ video.lang if video.lang else "en" }}"
+      label="Subtitles ({{ video.lang if video.lang else "en" }})"
+    />
+  {% endif %}
 </video>

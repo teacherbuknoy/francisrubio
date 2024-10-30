@@ -40,3 +40,11 @@
   type: video/mp4
   vtt: https://cdn.francisrub.io/videos/slay-accla/slay-accla-zymba.vtt
   poster: https://ik.imagekit.io/8jjzxcl9p/randomvideos/slay-accla/slay-accla-zymba.jpg
+- title: Disease by Lady Gaga
+  description: A short video I made for Halloween 2024
+  lang: "en"
+  type: video/mp4
+  url: https://cdn.francisrub.io/videos/halloween-2024/arlecchino-disease-24.mp4
+  poster: https://cdn.francisrub.io/videos/halloween-2024/arlecchino-disease.jpg
+  width: 1080
+  height: 1920
