@@ -38,15 +38,16 @@
     {# {% set formats = ['avif', 'webp', 'jpg'] %} #}
     {% set formats = ['avif', 'webp', 'jpg'] %}
     {% set quality = 90 %}
+    {% set fixedSize = gallery.cover.fixedSize %}
     <picture>
       {% for format in formats %}
         <source
             type="image/{{ format }}"
             srcset="
-              {{ site.api.images }}/tr:w-360,q-{{ quality }},f-{{ format }}/{{ filename }} 300w,
-              {{ site.api.images }}/tr:w-400,q-{{ quality }},f-{{ format }}/{{ filename }} 400w,
-              {{ site.api.images }}/tr:w-500,q-{{ quality }},f-{{ format }}/{{ filename }} 500w,
-              {{ site.api.images }}/tr:w-710,q-{{ quality }},f-{{ format }}/{{ filename }} 710w"
+              {{ site.api.images }}/tr:w-{{ fixedSize if fixedSize else '360' }},q-{{ quality }},f-{{ format }}/{{ filename }} 300w,
+              {{ site.api.images }}/tr:w-{{ fixedSize if fixedSize else '400' }},q-{{ quality }},f-{{ format }}/{{ filename }} 400w,
+              {{ site.api.images }}/tr:w-{{ fixedSize if fixedSize else '500' }},q-{{ quality }},f-{{ format }}/{{ filename }} 500w,
+              {{ site.api.images }}/tr:w-{{ fixedSize if fixedSize else '710' }},q-{{ quality }},f-{{ format }}/{{ filename }} 710w"
             sizes="
               (max-width: 300px) 300px,
               (max-width: 400px) 400px,

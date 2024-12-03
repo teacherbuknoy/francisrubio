@@ -54,13 +54,13 @@
                 {% endif %}
                 <figure class="gallery-card" {% if image.style %}
                   style="{{ style }}"
-                {% endif %}>
+                {% endif %}> 
                   <a href="{{ site.api.images }}{{ filename }}" class="gallery-card__link no-arrow" target="_blank">
                     <span class="sr-only">Open image in new tab</span>
                     <picture>
-                      <source type="image/avif" srcset="{{ site.api.images }}tr:w-500,f-avif/{{ filename }}" loading="lazy">
-                      <source type="image/webp" srcset="{{ site.api.images }}tr:w-500,f-webp/{{ filename }}" loading="lazy">
-                      <source type="image/jpg" srcset="{{ site.api.images }}tr:w-500,f-jpg/{{ filename }}" loading="lazy">
+                      <source type="image/avif" srcset="{{ site.api.images }}tr:w-1080,f-avif/{{ filename }}" loading="lazy">
+                      <source type="image/webp" srcset="{{ site.api.images }}tr:w-1080,f-webp/{{ filename }}" loading="lazy">
+                      <source type="image/jpg" srcset="{{ site.api.images }}tr:w-1080,f-jpg/{{ filename }}" loading="lazy">
                       <img src="{{ site.api.images }}tr:w-0.5" alt="{{ image.alt }}"
                           width="{{ image.width if image.width else '720' }}" loading="lazy"
                           height="{{ image.height if image.height else '1280' }}">
