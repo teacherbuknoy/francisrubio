@@ -13,7 +13,7 @@
         </li>
         {% for item in navigation | rejectattr("overflow") %}
           <li class="navigation-list-item hide-on-mobile">
-            <a href="{{ item.url }}" class="navigation-link{{ ' active' if utils.isActivePath(activePath, item.url) }}">
+            <a href="{{ item.url }}" class="navigation-link{{ ' active' if utils.isActivePath(activePath, item.url) }}{{ ' new' if item.recentlyUpdated }}">
               {% if item.text %}
                 <span class="navigation-link-text">{{ item.text }}</span>
               {% endif %}

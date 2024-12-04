@@ -108,12 +108,12 @@
   &.new::after {
     content                : 'New';
     font-size              : var(--type-size-7);
-    background-color       : hsl(var(--warning-100));
+    background-color       : hsl(var(--primary-900));
     padding-inline         : 1ch;
     border-radius          : var(--radius-1);
     font-weight            : bold;
     font-variation-settings: 'wght'700;
-    color                  : hsl(var(--fg-contrast));
+    color                  : hsl(var(--primary-100));
   }
 
   &.active {
