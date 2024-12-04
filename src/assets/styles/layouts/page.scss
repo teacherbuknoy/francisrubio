@@ -5,6 +5,10 @@
     padding-block: var(--space-xl);
     width        : min(100ch, 90%);
     margin-inline: auto;
+
+    &:has(> .gallery-grid) {
+      width: min(120ch, 90%);
+    }
   }
 
   &__cover {
