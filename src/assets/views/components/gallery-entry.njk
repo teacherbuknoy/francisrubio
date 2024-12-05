@@ -34,7 +34,7 @@
 } %}
 
 <a href="{{ item.url }}" class="gallery-entry-link">
-  <article class="gallery-entry">
+  <article class="gallery-entry{{ ' new' if entryIsNew }}">
     {# {% set formats = ['avif', 'webp', 'jpg'] %} #}
     {% set formats = ['avif', 'webp', 'jpg'] %}
     {% set quality = 90 %}

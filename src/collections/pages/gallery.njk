@@ -26,6 +26,9 @@ eleventyImport:
   <div class="page__inner">
     <div class="padding-block--xl gap--l symmetrical gallery-grid">
       {% for item in pagination.items %}
+        {% set recentlyUpdated = true %}
+        {% set entryIsNew = loop.first %}
+
         {% if item.data.professional %}
           <div>
             {% include 'components/gallery-entry.njk' %}

@@ -152,3 +152,22 @@
   animation-timeline: view();
   animation-range: entry 25% cover 35%;
  } */
+
+ .gallery-entry-link:has(.gallery-entry.new)::before {
+   content: 'New';
+   grid-column: 1/2;
+   grid-row: 1/2;
+   z-index: 9;
+   background-color: hsl(var(--primary-500));
+   color: hsl(var(--l-primary-100));
+   font-weight: bold;
+   font-size: smaller;
+   padding: var(--space-xxs) var(--space-s);
+   border-radius: var(--radius-2);
+   align-self: start;
+   justify-self: end;
+   margin: var(--space-xs);
+   font-weight: bold;
+   font-variation-settings: 'wght' 900;
+   text-transform: uppercase;
+ }
