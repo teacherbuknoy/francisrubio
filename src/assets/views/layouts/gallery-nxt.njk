@@ -17,7 +17,7 @@
           </li>
         </ol>
       </nav>
-      <h1 id="{{ title | slugify }}" class="pname article__title margin--none responsive">{{ title | safe }}</h1>
+      <h1 style="view-transition-name: {{ title | slugify }};" id="{{ title | slugify }}" class="pname article__title margin--none responsive">{{ title | safe }}</h1>
       <p class="p-summary responsive fs-4 weight-300">{{ description | safe }}</p>
       <div class="spaced cluster">
         <div>
