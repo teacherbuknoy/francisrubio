@@ -1,7 +1,7 @@
 ---
 title: "Independence and Renaissance"
 description: "A 2023 retrospective"
-category: [Life]
+category: [Life, Year-End Special]
 theme:
   scheme: dark
   color: '#fb465d'
