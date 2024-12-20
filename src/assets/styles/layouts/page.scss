@@ -31,8 +31,8 @@
     }
 
     [data-baybayin]::after {
-      mix-blend-mode: multiply;
-      color         : hsl(var(--primary-500)) !important;
+      opacity: 0.75;
+      color: hsl(var(--secondary-900)) !important;
     }
   }
 

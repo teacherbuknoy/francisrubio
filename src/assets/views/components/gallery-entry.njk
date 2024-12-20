@@ -33,7 +33,7 @@
   defaultWidth: 400
 } %}
 
-<a href="{{ item.url }}" class="gallery-entry-link">
+<a href="{{ item.url }}" class="gallery-entry-link" style="view-transition-name: link-{{ item.data.title | safe }}">
   <article class="gallery-entry{{ ' new' if entryIsNew }}">
     {# {% set formats = ['avif', 'webp', 'jpg'] %} #}
     {% set formats = ['avif', 'webp', 'jpg'] %}
