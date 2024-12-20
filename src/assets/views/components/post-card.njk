@@ -18,7 +18,7 @@
     {% include "components/cdn-picture.njk" %}
   </div>
   <div class="post-card__body {{ post.theme.scheme }}">
-    <h{{ cardLevel if cardLevel != null else 3 }} class="post-card__title">{{ post.title | safe }}</h{{ cardLevel if cardLevel != null else 3 }}>
+    <h{{ cardLevel if cardLevel != null else 3 }} style="view-transition-name: {{ post.title | slugify }};" class="post-card__title">{{ post.title | safe }}</h{{ cardLevel if cardLevel != null else 3 }}>
     <div class="post-card__footer">
       <p class="post-card__description">{{ post.description | safe }}</p>
       <div class="spaced cluster font-sans fs-7 margin-top--m">

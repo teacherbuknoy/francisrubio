@@ -3,7 +3,7 @@
 {% block content %}
   {# {% include 'components/ui/navigation-bar.njk' %} #}
   {% include 'components/ui/navigation-bar.njk' %}
-  <main class="h-entry padding-block--xl padding-inline--m article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
+  <main id="view-transition-target" class="h-entry padding-block--xl padding-inline--m article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
     <header class="article__header">
       {% set postType = postType if postType else 
         'post' %}
@@ -20,6 +20,7 @@
 
       {% set defaultImageClass = "article__image" %}
       {% set focus = cover.focus %}
+      {# {% set viewTransitionName =  %} #}
       {% include "components/cdn-picture.njk" %}
       <div class="spaced cluster ai--center">
         <nav class="breadcrumb" aria-label="Breadcrumbs">
@@ -46,7 +47,7 @@
           </p>
         {% endif %}
       </div>
-      <h1 id="{{ title | slugify }}" class="p-name article__title margin--none responsive">{{ title | safe }}</h1>
+      <h1 id="{{ title | slugify }}" class="p-name article__title margin--none responsive" style="view-transition-name: {{ title | slugify }}">{{ title | safe }}</h1>
       <p class="p-summary responsive fs-4 weight-300">{{ description }}</p>
       <div class="spaced cluster ai--center">
         <div>
