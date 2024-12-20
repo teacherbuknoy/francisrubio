@@ -336,6 +336,10 @@ print;
   @import "layouts/stack";
   @import "layouts/talk-grid";
   @import "layouts/page.scss";
+
+  @view-transition {
+    navigation: auto;
+  }
 }
 
 @layer components {
