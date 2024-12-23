@@ -382,9 +382,3 @@ parts:
 
       I got into Tarot reading recently. I can say 2025 is giving me a lot to look forward to. I look forward to new opportunities. I have also recently opened myself up to dating again, which is brutal (as usual) for queer men like me. But I'm really mostly looking forward to what's coming next year. Cheers to a new year!
 ---
-
-## Closing thoughts
-
-Looking through these photos, I realize that—<em>damn</em>—2024 really was my year. I experienced so many new things. I couldn't remember any other year in the past where I felt more alive than I felt this year. The only things I cried about are hopecore Tiktoks and the Wicked Part 1 movie. In January, I officially transitioned into a higher position early this year. I got myself a new place that's entirely my own in April. Then I got a lot of things to be thankful for in the entire year.
-
-I got into Tarot reading recently. I can say 2025 is giving me a lot to look forward to. I look forward to new opportunities. I have also recently opened myself up to dating again, which is brutal (as usual) for queer men like me. But I'm really mostly looking forward to what's coming next year. Cheers to a new year!
