@@ -11,6 +11,10 @@
        display: contents;
      }
    }
+   
+   &.fixed-columns {
+      grid-template-columns: repeat(auto-fill, minmax(30ch, 1fr));
+  }
  }
 
  .gallery-entry-link {

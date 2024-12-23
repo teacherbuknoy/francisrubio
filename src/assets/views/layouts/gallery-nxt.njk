@@ -45,37 +45,53 @@
             </div>
           {% endif %}
           {% if section.images %}
-            <div class="gallery-grid">
+            <div class="gallery-grid{{ ' symmetrical' if section.symmetrical }}{{ ' fixed-columns' if section.fixedColumns }}">
               {% for image in section.images %}
-                {% set filename %}gallery/{{ settings.folder }}/{{ image.filename }}{% endset %}
+                {% set filename %}{{ settings.parent if settings.parent else 'gallery' }}/{{ settings.folder }}/{{ image.filename }}{% endset %}
                 {% if image.style %}
                   {% set style %}
                   {% for key, value in image.style %}{{ key }} : {{ value }};{% endfor %}{% endset %}
                 {% endif %}
-                <figure class="gallery-card" {% if image.style %}
-                  style="{{ style }}"
-                {% endif %}> 
-                  <a href="{{ site.api.images }}{{ filename }}" class="gallery-card__link no-arrow" target="_blank">
-                    <span class="sr-only">Open image in new tab</span>
-                    <picture>
-                      <source type="image/avif" srcset="{{ site.api.images }}tr:w-1080,f-avif/{{ filename }}" loading="lazy">
-                      <source type="image/webp" srcset="{{ site.api.images }}tr:w-1080,f-webp/{{ filename }}" loading="lazy">
-                      <source type="image/jpg" srcset="{{ site.api.images }}tr:w-1080,f-jpg/{{ filename }}" loading="lazy">
-                      <img src="{{ site.api.images }}tr:w-0.5" alt="{{ image.alt }}"
+                
+                {% if image.filename != null %}
+                  <figure class="gallery-card" {% if image.style %}style="{{ style }}"{% endif %}>
+                    <a href="{{ site.api.images }}{{ filename }}" class="gallery-card__link no-arrow" target="_blank">
+                      <span class="sr-only">Open image in new tab</span>
+                      <picture>
+                        <source type="image/avif" srcset="{{ site.api.images }}tr:w-1080,f-avif/{{ filename }}" loading="lazy">
+                        <source type="image/webp" srcset="{{ site.api.images }}tr:w-1080,f-webp/{{ filename }}" loading="lazy">
+                        <source type="image/jpg" srcset="{{ site.api.images }}tr:w-1080,f-jpg/{{ filename }}" loading="lazy">
+                        <img src="{{ site.api.images }}tr:w-0.5" alt="{{ image.alt }}"
                           width="{{ image.width if image.width else '720' }}" loading="lazy"
                           height="{{ image.height if image.height else '1280' }}">
-                    </picture>
-                  </a>
-                  {% if image.caption %}
-                    <figcaption class="gallery-card__caption">
-                      <p>{{ image.caption | safe }}</p>
-                    </figcaption>
-                  {% elif image.credits %}
-                    <figcaption class="gallery-card__caption gallery-card__caption--credits">
-                      <p>{{ image.credits | safe }}</p>
-                    </figcaption>
-                  {% endif %}
-                </figure>
+                      </picture>
+                    </a>
+                    {% if image.caption %}
+                      <figcaption class="gallery-card__caption">
+                        {{ image.caption | markdown | safe }}
+                      </figcaption>
+                    {% elif image.credits %}
+                      <figcaption class="gallery-card__caption gallery-card__caption--credits">
+                        <p>{{ image.credits | safe }}</p>
+                      </figcaption>
+                    {% endif %}
+                  </figure>
+                {% endif %}
+                
+                {% if image.embed %}
+                  <figure class="gallery-card" {% if image.style %}style="{{ style }}"{% endif %}>
+                    <iframe width="1080" height="1920" src="{{ image.embed }}" loading="lazy" style="border:0; width: 100%; height: 100%;" width="1080" height="1920" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe>
+                    {% if image.caption %}
+                      <figcaption class="gallery-card__caption">
+                        <p>{{ image.caption | safe }}</p>
+                      </figcaption>
+                    {% elif image.credits %}
+                      <figcaption class="gallery-card__caption gallery-card__caption--credits">
+                        <p>{{ image.credits | safe }}</p>
+                      </figcaption>
+                    {% endif %}
+                  </figure>
+                {% endif %}
               {% endfor %}
             </div>
           {% endif %}
