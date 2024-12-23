@@ -6,6 +6,7 @@ theme:
   scheme: dark
   color: '#fb465d'
   color-hsl: '352 96% 63%'
+  noMask: true
   style:
     image:
       '--img-object-fit': cover

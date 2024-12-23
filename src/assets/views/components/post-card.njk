@@ -5,7 +5,7 @@
       {% for key, value in post.theme.style.image %}
       {{ key }}: {{ value }};
       {% endfor %}
-    "
+    " 
   {% endif %}>
     {% set postType = postType if postType else 'posts' %}
     {% set sizes = post.cover.sizes %}

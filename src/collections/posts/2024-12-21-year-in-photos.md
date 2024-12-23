@@ -10,7 +10,7 @@ theme:
   style:
     image:
       '--img-object-fit': contain
-      '--img-object-position': right bottom
+      '--img-object-position': left bottom
       '--post-image': linear-gradient(var(--theme-color), var(--theme-color))
 cover:
   folder: 2024-year-in-photos
