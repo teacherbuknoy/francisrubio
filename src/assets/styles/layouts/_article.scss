@@ -111,6 +111,7 @@
     gap                    : var(--space-xs);
     padding-inline-end     : var(--space-xl);
     position               : relative;
+    margin-block-start: 2em !important;
 
     &:not(:first-child) {
       margin-top: 1ch;

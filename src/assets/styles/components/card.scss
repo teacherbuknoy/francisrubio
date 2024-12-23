@@ -124,12 +124,6 @@
         grid-column: 2 / 3;
         background: transparent;
       }
-
-      .post-card__image {
-        --mask-image: linear-gradient(to right, black, transparent 90%);
-        -webkit-mask-image: var(--mask-image);
-        mask-image: var(--mask-image);
-      }
     }
 
     .post-card__title {
@@ -140,6 +134,14 @@
     .post-card__footer {
       max-height: none;
     }
+  }
+
+  &:not(.no-mask) {
+    .post-card__image {
+        --mask-image: linear-gradient(to right, black, transparent 90%);
+        -webkit-mask-image: var(--mask-image);
+        mask-image: var(--mask-image);
+      }
   }
 }
 

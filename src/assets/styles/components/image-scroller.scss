@@ -30,6 +30,7 @@
     display       : block;
     flex-direction: column;
     gap           : 1ch;
+    grid-column   : 1/-1;
 
     @at-root &.image-scroller img,
     & .image-card {
@@ -38,6 +39,16 @@
       height          : auto;
       margin-block-end: 1ch;
     }
+
+  &:has(> :only-child) {
+    display: grid;
+    place-content: center;
+
+    .image-card {
+      width: min(calc(var(--content-width) / 2), 90%);
+      margin-inline: auto;
+    }
+  }
   }
 
   &--grid {
@@ -58,7 +69,7 @@
     cursor: zoom-in;
   }
 
-  &> :is(figcaption, a, img) {
+  &> :is(figcaption, a, img, iframe) {
     grid-column: 1/2;
     grid-row   : 1/2;
     height     : 100%;
@@ -81,6 +92,15 @@
 
     p {
       margin: 0;
+
+    }
+    
+    &:has(a, button) {
+      pointer-events: visible;
+
+      :is(a, button) {
+        cursor: pointer;
+      }
     }
   }
 }
