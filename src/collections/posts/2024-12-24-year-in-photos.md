@@ -38,9 +38,14 @@ parts:
 
       We're doing things a little differently this year. In the previous years, I have written a top 10 or whatever of memorable events of the year. This time, we are going to look through each month through photos I have taken. I figured that since I look through my photos for the year to remember things that happened and pinpoint their exact date, I might as well just put them into photos.
     images:
-      - filename: teacherbuknoy-december-2024.jpg
+      - filename: 1080-header.jpg
         width: 1080
         height: 1080
+        symmetric: true
+        fixedColumns: true
+        style:
+          '--col-span': 3
+          height: 350px
   - statement: |
       <b class="uppercase fg-primary-700">January.</b> My birthday this year was special. It’s been a while since I’ve allowed myself to celebrate birthdays. But this year’s was the first time I did it with my friends. It was a lot of firsts: the first birthday cake in a long time, the first party of sorts, the first birthday surprise (my friends surprised me), and a lot more.
 
