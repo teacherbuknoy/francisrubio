@@ -385,6 +385,10 @@ details {
       height               : min-content;
       margin-inline        : auto;
       width                : var(--width);
+
+      @media (width < 1440px) {
+        display: block;
+      }
     }
 
     &-card {
