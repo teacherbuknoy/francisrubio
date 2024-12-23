@@ -22,10 +22,10 @@ author: "teacherbuknoy"
 language: "en"
 seo:
   twitter:
-    url: "https://ik.imagekit.io/8jjzxcl9p/tr:w-947/tr:w-800/posts/2024-year-in-photos/twitter.png"
+    url: "https://ik.imagekit.io/8jjzxcl9p/tr:w-800/posts/2024-year-in-photos/twitter.png"
     is_prefixed: false
   og:
-    url: "https://ik.imagekit.io/8jjzxcl9p/tr:w-947/tr:w-1200/posts/2024-year-in-photos/og.png"
+    url: "https://ik.imagekit.io/8jjzxcl9p/tr:w-1200/posts/2024-year-in-photos/og.png"
     is_prefixed: false
 layout: gallery-nxt.njk
 settings:
