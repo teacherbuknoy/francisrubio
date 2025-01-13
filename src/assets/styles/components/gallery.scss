@@ -202,13 +202,27 @@
    grid-auto-rows: calc(100cqw / var(--grid-column-count));
    grid-auto-flow: dense;
 
+   div:has(> iframe) {
+    overflow: hidden;
+   }
+
+   iframe {
+     height: 100% !important;
+   }
+
    @media (width < 1080px) {
      display: block;
      columns: 3;
      column-gap: 0.6ch;
+
+     iframe {
+       height: auto;
+     }
    }
 
-   @media (width < 641px) {
+   @media (width < 720px) {
      columns: auto;
+     width: min(45ch, 100%);
+     margin-inline: auto;
    }
  }

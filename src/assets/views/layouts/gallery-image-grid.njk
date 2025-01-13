@@ -56,6 +56,8 @@
               {% for media in section.media %}
                 {% if media.type === 'image' %}
                   {% include "components/ui/gallery-card.njk" %}
+                {% elif media.type === 'embed' %}
+                  {% include "components/ui/gallery-embed.njk" %}
                 {% endif %}
               {% endfor %}
             </div>
