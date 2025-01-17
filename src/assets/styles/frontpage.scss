@@ -41,7 +41,7 @@
     margin-block: var(--space-xxxl);
 
     &:not(.auto-height) {
-      min-height: 100vh;
+      min-height: 100dvh;
     }
   }
 
