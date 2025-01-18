@@ -43,8 +43,8 @@
     }
 
     &::after {
-      backdrop-filter : blur(10px);
-      background-color: hsl(var(--bg-secondary) / 70%);
+      backdrop-filter : blur(20px);
+      background-color: hsl(var(--bg-secondary) / 20%);
       border-radius   : inherit;
       content         : '';
       inset           : 0;

@@ -287,18 +287,18 @@
 
 /* FONTS */
 :root {
-  --font-sans         : "Wix Madefor Text", "Noto Sans Tagalog", sans-serif;
-  --font-serif        : "Wix Madefor Text", sans-serif;
+  --font-sans         : "DM Sans", "Noto Sans Tagalog", sans-serif;
+  --font-serif        : "DM Sans", sans-serif;
   --font-display      : "Inter", "Wix Madefor Text", "Noto Sans Tagalog", sans-serif;
   --font-display-serif: "Fraunces", serif;
   --font-body         : var(--font-serif);
   --font-ui           : var(--font-sans);
   --font-mono         : "Source Code Pro", monospace;
-  --font-baybayin     : 'Noto Sans Tagalog', 'Wix Madefor Text', sans-serif;
+  --font-baybayin     : 'Noto Sans Tagalog', 'DM Sans', sans-serif;
 
   @supports(font-variation-settings: normal) {
-    --font-serif  : "Wix Madefor Text", sans-serif;
-    --font-display: "Wix Madefor Text", "Noto Sans Tagalog", sans-serif;
+    --font-serif  : "DM Sans", sans-serif;
+    --font-display: "DM Sans", "Noto Sans Tagalog", sans-serif;
   }
 
   --type-size  : 1.2rem;

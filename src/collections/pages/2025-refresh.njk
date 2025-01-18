@@ -1,0 +1,199 @@
+---
+title: Francis Rubio
+description: Web developer, designer, and educator from the Philippines
+permalink: /2025-refresh/
+activePath: frontpage
+eleventyImport:
+  collections: ['posts', 'projects', 'talks', 'videos']
+---
+
+{% from "components/ui/utils.njk" import emailButton %}
+
+<style>
+  ::root {
+    --bg-primary: 31 28% 77%;
+    --fg-default: 0 0 23%;
+  }
+
+  .fr-hero {
+    --bg-primary: 31 28% 77%;
+    --fg-default: 0 0 23%;
+    --font-sans: 'DM Sans', 'Noto Sans Tagalog', sans-serif;
+    --font-body: 'DM Sans', 'Noto Sans Tagalog', sans-serif;
+    --font-serif: var(--font-body);
+  }
+
+  .fr-hero {
+    height: 100dvh;
+    display: grid;
+    grid-template-rows: 1fr min-content min-content min-content;
+    margin-block-start: -10rem;
+    position: relative;
+    z-index: 10;
+    background-color: hsl(var(--bg-primary));
+    color: hsl(var(--fg-default));
+
+    & > * {
+      grid-column: 1/2;
+    }
+    
+    .image {
+      grid-row: 1/-1;
+      grid-column: 1/2;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: -1;
+      mask-image: radial-gradient(circle at bottom, transparent 40%, black 60%);
+      mask-size: contain;
+      mask-position: bottom;
+      mask-repeat: no-repeat;
+    }
+
+    h1 {
+      grid-row: 2/3;
+      font-family: var(--font-sans);
+      text-transform: lowercase;
+      margin-inline: 2rem;
+      margin-block: 0;
+      margin-block-end: 1rem;
+      color: hsl(var(--fg-default));
+
+      .subtitle {
+        font-size: var(--type-size-5);
+        font-size: clamp(var(--type-size-5), 5vw + 1rem, var(--type-size-4));
+        display: block;
+      }
+
+      .title {
+        display: block;
+        font-size: var(--type-size-2);
+        font-size: clamp(var(--type-size-4), 7vw + 1rem, var(--type-size-2));
+        font-variation-settings: 'wght' 700;
+        line-height: 100%;
+      }
+    }
+
+    p {
+      margin: 0;
+      margin-inline: 2rem;
+      grid-row: 3/4;
+      grid-column: 1/2;
+    }
+    
+    .hero__actions {
+      grid-column: 1/2;
+      grid-row: 4/5;
+      margin: 1rem;
+      padding: 0.25rem;
+      --padding: var(--space-xs);
+      backdrop-filter: blur(1ch);
+      background-color: hsl(var(--bg-primary)/15%);
+      border-radius: calc(var(--ideal-radius) + var(--padding));
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      padding: var(--padding);
+
+      .button {
+        flex: 1 1 auto;
+      }
+    }
+
+    @media screen and (width > 768px) {
+      grid-template-columns: 5fr 3fr;
+
+      .image {
+        grid-column: 1/3;
+        mask-image: radial-gradient(circle at bottom left, transparent 40%, black 60%);
+        mask-size: contain;
+        mask-position: bottom;
+        mask-repeat: no-repeat;
+        object-fit: contain;
+        object-position: right bottom;
+      }
+
+      h1 {
+        margin-inline: 3rem;
+        .title {
+          font-size: clamp(var(--type-size-3), 10vw + 1rem, var(--type-size-1));
+        }
+      }
+      
+      p {
+        margin-inline: 3rem;
+      }
+
+      .hero__actions {
+        margin-inline: 2rem;
+        margin-block-end: 3rem;
+      }
+    }
+
+    @media screen and (width > 1024px) {
+      grid-template-columns: calc((100vw - min(var(--page-width), 100%)) / 2) 5fr 2fr 3fr;
+      grid-template-rows: 1fr auto auto auto 1fr;
+
+      .image {
+        grid-column: -3/-1;
+        object-fit: cover;
+        object-position: top left;
+        mask-image: none;
+        z-index: 2;
+        user-select: none;
+      }
+
+      h1, p, .hero__actions {
+        grid-column: 2/4;
+      }
+
+      h1 {
+        grid-row: 2/3;
+      }
+
+      p {
+        grid-row: 3/4;
+      }
+
+      .hero__actions {
+        grid-row: 4/5;
+        z-index: 3;
+        justify-self: start;
+        box-shadow: none;
+        gap: 2ch;
+      }
+    }
+  }
+
+  
+
+</style>
+
+<header class="fr-hero">
+  <picture>
+    <source srcset="https://ik.imagekit.io/8jjzxcl9p/tr:f-avif,q-90,h-1080/index/2025-refresh/fr-hero-lop.png"
+      type="image/avif">
+    <source srcset="https://ik.imagekit.io/8jjzxcl9p/tr:f-webp,q-90,h-1080/index/2025-refresh/fr-hero-lop.png"
+      type="image/webp">
+    <img 
+      class="image"
+      src="https://ik.imagekit.io/8jjzxcl9p/tr:f-png,q-90/index/2025-refresh/fr-hero-lop.png" 
+      alt="Francis Rubio, smiling with his left eye winking. His face is painted with black tribal patterns, and he is adorned with earth-colored scarves and a wide-brimmed woven sun hat."
+      width="865" height="1080"
+    >
+  </picture>
+  <h1>
+    <span class="subtitle">Your favorite web developer's</span>
+    <span class="title">Favorite web developer</span>
+  </h1>
+  <p>
+    Web developer, UI/UX designer, and educator.<br>
+    Currently supervising IT operations at <a href="https://dice205.com/" class="no-arrow" target="_blank" rel="noopener">DICE205</a>.
+  </p>
+  
+  <div class="elevated hero__actions">
+    <a href="{{ files.resume.path }}" download="{{ files.resume.filename }}" class="button">Download my résumé</a>
+    {{ emailButton('Hire me') }}
+  </div>
+</header>
