@@ -15,9 +15,15 @@ eleventyImport:
     --fg-default: 0 0 23%;
   }
 
-  .fr-hero {
+  body {
     --bg-primary: 31 28% 77%;
     --fg-default: 0 0 23%;
+    --accent-color: 80 100% 27%;
+    color: hsl(var(--fg-default));
+    background-color: hsl(var(--bg-primary));
+  }
+
+  .fr-hero {
     --font-sans: 'DM Sans', 'Noto Sans Tagalog', sans-serif;
     --font-body: 'DM Sans', 'Noto Sans Tagalog', sans-serif;
     --font-serif: var(--font-body);
@@ -32,11 +38,12 @@ eleventyImport:
     z-index: 10;
     background-color: hsl(var(--bg-primary));
     color: hsl(var(--fg-default));
+    border-bottom: 1px solid #947D63;
 
     & > * {
       grid-column: 1/2;
     }
-    
+
     .image {
       grid-row: 1/-1;
       grid-column: 1/2;
@@ -81,7 +88,7 @@ eleventyImport:
       grid-row: 3/4;
       grid-column: 1/2;
     }
-    
+
     .hero__actions {
       grid-column: 1/2;
       grid-row: 4/5;
@@ -120,7 +127,7 @@ eleventyImport:
           font-size: clamp(var(--type-size-3), 10vw + 1rem, var(--type-size-1));
         }
       }
-      
+
       p {
         margin-inline: 3rem;
       }
@@ -144,7 +151,9 @@ eleventyImport:
         user-select: none;
       }
 
-      h1, p, .hero__actions {
+      .hero__actions,
+      h1,
+      p {
         grid-column: 2/4;
       }
 
@@ -166,8 +175,68 @@ eleventyImport:
     }
   }
 
-  
+  .section {
+    padding-block: var(--space-xxxl);
+    min-height: 100dvh;
+    display: grid;
+    place-content: center;
 
+    .section__inner {
+      width: min(75%, 90%);
+      margin-inline: auto;
+    }
+
+    .heading {
+      font-family: var(--font-sans);
+      font-variation-settings: 'wght' 700;
+      text-transform: lowercase;
+      color: inherit;
+    }
+  }
+
+  [data-baybayin]::after {
+    color: hsl(var(--accent-color));
+  }
+
+  .service-card {
+    display: grid;
+    font-family: var(--font-ui);
+    gap: var(--space-xxs);
+    grid-template-rows: min-content min-content auto;
+
+    .title {
+      font-family: var(--font-ui);
+      font-size: var(--type-size-5);
+      font-variation-settings: 'wght' 600;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .material-symbol {
+      color: hsl(var(--accent-color));
+      font-size: var(--type-size-3);
+      grid-row: 1;
+    }
+
+    .teaser {
+      font-size: var(--type-size-6);
+      margin: 0;
+    }
+  }
+
+  .service-grid {
+    column-gap: var(--space-xxxl);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: var(--space);
+    position: relative;
+    row-gap: var(--space);
+
+    .service-card {
+      flex: 0 1 25ch;
+    }
+  }
 </style>
 
 <header class="fr-hero">
@@ -191,9 +260,32 @@ eleventyImport:
     Web developer, UI/UX designer, and educator.<br>
     Currently supervising IT operations at <a href="https://dice205.com/" class="no-arrow" target="_blank" rel="noopener">DICE205</a>.
   </p>
-  
+
   <div class="elevated hero__actions">
     <a href="{{ files.resume.path }}" download="{{ files.resume.filename }}" class="button">Download my résumé</a>
     {{ emailButton('Hire me') }}
   </div>
 </header>
+
+<section class="section padding-block--xxl" id="section-2" aria-labelledby="section-2-heading">
+  <div class="section__inner">
+    <hgroup class="stack gap--none">
+      <p id="section-2-heading" class="uppercase ls-l font-sans" data-baybayin="{{ sections.services.baybayin_label }}">{{ sections.services.label | safe }}</p>
+      <h2 class="heading">{{ sections.services.title | safe }}</h2>
+    </hgroup>
+    <div class="service-grid">
+      <a href="#section-3" class="button skip-link">Skip to next section</a>
+      {% for service in services %}
+        <article class="service-card">
+          <h3 class="title">{{ service.title }}</h3>
+          <i class="material-symbol" aria-hidden="true">{{ service.icon }}</i>
+          <p class="teaser">{{ service.teaser }}</p>
+        </article>
+      {% endfor %}
+    </div>
+    <div class="stack ai--center text-center gap--s padding--xl">
+      <span class="fs-4 weight-300">Interested? Let's talk!</span>
+      {{ emailButton('Contact me!') }}
+    </div>
+  </div>
+</section>
