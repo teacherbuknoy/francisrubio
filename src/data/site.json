@@ -70,6 +70,12 @@
       "url": "https://friendica.world/profile/teacherbuknoy",
       "rel": "me"
     },
+    "sharkey": {
+      "name": "Sharkey",
+      "identifier": "teacherbuknoy",
+      "url": "https://ibe.social/@teacherbuknoy",
+      "rel": "me"
+    },
     "youtube": {
       "name": "YouTube",
       "identifier": "teacherbuknoy",
