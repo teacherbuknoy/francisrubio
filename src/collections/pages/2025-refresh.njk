@@ -237,6 +237,58 @@ eleventyImport:
       flex: 0 1 25ch;
     }
   }
+  
+  .theme-selector {
+    display: flex;
+    grid-auto-flow: column;
+    flex-direction: row;
+    gap: 1ch;
+    grid-column: -1/-2;
+    grid-row: -1/-2;
+    z-index: 3;
+    place-self: end;
+    margin: 1rem;
+    align-items: center;
+    justify-items: center;
+    min-height: 125px;
+    overflow: auto;
+    width: 100%;
+    padding-inline: 150px;
+    mask-image: linear-gradient(to right, transparent 2%, black 10%, black 90%, transparent 98%);
+    scroll-snap-type: x mandatory;
+
+    a, button {
+      scroll-snap-align: center;
+      border-radius: var(--radius-2);
+      align-self: center;
+      width: 100px;
+      transition: width 200ms;
+      flex-shrink: 0;
+      box-shadow:
+        inset 0 0 2px white,
+        inset 0 1px 2px white,
+        0 0 2px hsl(0 0 0 / 25%),
+        0 2px 4px hsl(0 0 0 / 5%),
+        0 4px 8px hsl(0 0 0 / 5%),
+        0 8px 16px hsl(0 0 0 / 5%);
+        
+
+      img {
+        border-radius: inherit;
+        display: block;
+        max-width: 100%;
+      }
+
+      &:focus,
+      &:hover {
+        width: 115px;
+      }
+
+      &.selected {
+        width: 125px;
+      }
+    }
+  }
 </style>
 
 <header class="fr-hero">
@@ -265,6 +317,38 @@ eleventyImport:
     <a href="{{ files.resume.path }}" download="{{ files.resume.filename }}" class="button">Download my résumé</a>
     {{ emailButton('Hire me') }}
   </div>
+
+  <article class="theme-selector" aria-labelledby="theme-selector-label">
+    <span class="visually-hidden" id="theme-selector-label">Select a theme</span>
+    <a href="#!" class="selected">
+      <img 
+        src="https://ik.imagekit.io/8jjzxcl9p/tr:h-300/index/2025-refresh/th-lop.jpg?updatedAt=1737169478615" 
+        alt="Lord of Pentacles"
+        width="200" height="200"
+      >
+    </a>
+    <a href="#!">
+      <img 
+        src="https://ik.imagekit.io/8jjzxcl9p/tr:h-300/index/2025-refresh/th-rol.jpg?updatedAt=1737169478615" 
+        alt="Ray of Light"
+        width="200" height="200"
+      >
+    </a>
+    <a href="#!">
+      <img 
+        src="https://ik.imagekit.io/8jjzxcl9p/tr:h-300/index/2025-refresh/th-rgp.jpg?updatedAt=1737169478615" 
+        alt="Roses, Gems, and Pearls"
+        width="200" height="200"
+      >
+    </a>
+    <a href="#!">
+      <img 
+        src="https://ik.imagekit.io/8jjzxcl9p/tr:h-300/index/2025-refresh/th-pink.jpg?updatedAt=1737169478615" 
+        alt="Don't be fooled by the pink"
+        width="200" height="200"
+      >
+    </a>
+  </article>
 </header>
 
 <section class="section padding-block--xxl" id="section-2" aria-labelledby="section-2-heading">
