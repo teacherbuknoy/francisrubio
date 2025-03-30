@@ -130,3 +130,162 @@
   <time class="dt-bday">1999-01-13</time>
   <div class="p-note">Creator of Antares Programming</div>
 </div>
+
+<svg id="glitch-filters-global" aria-hidden="true">
+  <defs>
+    <filter id="glitch">
+      <feTurbulence baseFrequency=".005,.005" numOctaves="3" seed="0" type="fractalNoise" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G" result="distorteda"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G" result="distortedb"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G" result="distortedc"/>
+      <feColorMatrix in="distorteda" type="matrix" values="1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0" result="r"/>
+      <feColorMatrix in="distortedb" type="matrix" values="0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0" result="g"/>
+      <feColorMatrix in="distortedc" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0" result="b"/>
+      <feBlend in="r" in2="g" mode="lighten" result="rg"/>
+      <feBlend in="rg" in2="b" mode="lighten"/>
+    </filter>
+    <filter id="distort">
+      <feTurbulence baseFrequency="0.01 0.01" numOctaves="1" type="fractalNoise" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="G" yChannelSelector="G" result="distortg"/>
+    </filter>
+    <filter id="image-distort">
+      <feTurbulence baseFrequency="0.01 0.01" numOctaves="1" type="fractalNoise" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="G" yChannelSelector="G" result="distortg"/>
+    </filter>
+    <filter id="image-distort-noanim">
+      <feTurbulence baseFrequency="0.01 0.01" numOctaves="1" type="fractalNoise" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="G" yChannelSelector="G" result="distortg"/>
+    </filter>
+
+    <filter
+            id="chromatic-aberration">
+      <feOffset
+                dx="-10"
+                dy="0"
+                id="feOffset22"
+                in="SourceGraphic"
+                result="result1"/>
+      <feOffset
+                dx="10"
+                dy="0"
+                id="feOffset24"
+                in="SourceGraphic"
+                result="result2"/>
+      <feOffset
+                dx="1"
+                dy="0"
+                id="feOffset26"
+                in="SourceGraphic"
+                result="result3"/>
+      <feColorMatrix
+                     id="feColorMatrix28"
+                     in="result1"
+                     values="1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 "
+                     result="result4"/>
+      <feColorMatrix
+                     id="feColorMatrix30"
+                     in="result2"
+                     values="0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 "
+                     result="result5"/>
+      <feColorMatrix
+                     id="feColorMatrix32"
+                     in="result3"
+                     values="0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 "
+                     result="result6"/>
+      <feBlend
+               mode="screen"
+               id="feBlend34"
+               in="result4"
+               in2="result5"
+               result="result7"/>
+      <feBlend
+               mode="screen"
+               id="feBlend36"
+               in="result6"
+               in2="result7"/>
+    </filter>
+    <filter
+            id="color-interpolation">
+      <feOffset
+                dx="-1"
+                dy="0"
+                id="feOffset16"
+                in="SourceGraphic"
+                result="result1"/>
+      <feOffset
+                dx="0"
+                dy="0"
+                id="feOffset18"
+                in="SourceGraphic"
+                result="result2"/>
+      <feOffset
+                dx="1"
+                dy="0"
+                id="feOffset20"
+                in="SourceGraphic"
+                result="result3"/>
+      <feColorMatrix
+                     id="feColorMatrix22"
+                     in="result1"
+                     values="1 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0 "
+                     result="result4"/>
+      <feColorMatrix
+                     id="feColorMatrix26"
+                     in="result2"
+                     values="0 0 0 0 1 0 1 0 0 0 0 0 0 0 1 0 0 0 1 0 "
+                     result="result5"/>
+      <feColorMatrix
+                     id="feColorMatrix29"
+                     in="result3"
+                     values="0 0 0 0 1 0 0 0 0 1 0 0 1 0 0 0 0 0 1 0 "
+                     result="result6"/>
+      <feBlend
+               mode="multiply"
+               id="feBlend31"
+               in="result4"
+               in2="result5"
+               result="result7"/>
+      <feBlend
+               mode="multiply"
+               id="feBlend33"
+               in="result6"
+               in2="result7"/>
+    </filter>
+
+    <filter id="threshold">
+      <feColorMatrix type="matrix" values="0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0"/>
+
+      <feConvolveMatrix order="3 3" preserveAlpha="true" divisor=".2" bias="-0.15" kernelMatrix="-1,-1,-1 -1,9,-1 -1,-1,-1"/>
+      <feComponentTransfer result="componentTransfert">
+        <feFuncR type="discrete" tableValues=" 0 1 1 1 1"/>
+        <feFuncG type="discrete" tableValues=" 0 1 1 1 1"/>
+        <feFuncB type="discrete" tableValues=" 0 1 1 1 1"/>
+      </feComponentTransfer>
+      <feBlend
+               mode="color-burn"
+               id="feBlend34"
+               in="componentTransfert"
+               in2="SourceGraphic"
+               result="result7"/>
+    </filter>
+    <filter id="noise-filter" color-interpolation-filters="linearRGB">
+      <feTurbulence type="turbulence" baseFrequency="0.902" numOctaves="4" seed="15" stitchTiles="stitch" result="turbulence"></feTurbulence>
+      <feSpecularLighting surfaceScale="15" specularConstant="0.75" specularExponent="20" lighting-color="#7957A8" in="turbulence" result="specularLighting">
+        <feDistantLight azimuth="3" elevation="100"></feDistantLight>
+      </feSpecularLighting>
+      <feBlend
+               mode="screen"
+               id="feBlend34"
+               in="SourceGraphic"
+               in2="specularLighting"
+               result="result7"/>
+    </filter>
+    <filter id="blurred">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="13" result="blurred"/>
+      <feComposite operator="atop" in="SourceGraphic" in2="blurred"/>
+    </filter>
+    <filter id="motion-blur">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2,0" />
+    </filter>
+  </defs>
+</svg>

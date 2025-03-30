@@ -6,6 +6,65 @@ components,
 utilities,
 print;
 
+@keyframes glitchify {
+  0% {
+    filter: none;
+  }
+
+  100% {
+    filter: url(#image-distort) url(#distort);
+  }
+}
+
+@keyframes image-glitch {
+  70% {
+    filter: none;
+  }
+
+  100% {
+    filter:
+      saturate(0) brightness(var(--fx-glitch-brightness)) url(#motion-blur) url(#threshold) url(#chromatic-aberration) url(#color-interpolation) url(#image-distort);
+  }
+}
+
+@keyframes image-glitch-alt {
+  90% {
+    filter: none;
+  }
+
+  100% {
+    filter:
+      saturate(3) brightness(var(--fx-glitch-brightness)) url(#motion-blur) url(#threshold) url(#chromatic-aberration) url(#color-interpolation) url(#distort);
+  }
+}
+
+@keyframes link-glitch-alt {
+  70% {
+    filter: none;
+  }
+
+  100% {
+    filter: saturate(0) url(#chromatic-aberration) url(#color-interpolation) url(#distort) url(#motion-blur) saturate(3);
+  }
+}
+
+@keyframes glitchify-color {
+  0% {
+    color: hsl(var(--neutral-900));
+    outline-color: hsl(var(--primary-500));
+  }
+
+  50% {
+    color: hsl(var(--secondary-500));
+    outline-color: hsl(var(--neutral-900));
+  }
+
+  100% {
+    color: hsl(var(--primary-500));
+    outline-color: hsl(var(--secondary-500));
+  }
+}
+
 @layer reset {
   @import "reset";
   @import "fonts";
@@ -380,6 +439,12 @@ print;
   @import "components/spotlight.scss";
   @import "components/unfurl.scss";
   @import "components/pagination.scss";
+
+  :is(a, button):is(:hover, :focus-visible) {
+    animation:
+      glitchify 1.5s infinite alternate,
+      link-glitch-alt 1.5s infinite alternate;
+  }
 }
 
 @layer utilities {

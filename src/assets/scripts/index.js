@@ -1,3 +1,4 @@
+import './animations/displacement'
 import './animations/navigation-bar'
 import './animations/button'
 import './components/Dialog'
