@@ -347,7 +347,7 @@
     }
   }
 
-  body:has(:is(a, button):is(:hover, :focus-visible)) .loading-screen {
+  body.show-loader:has(:is(a, button):is(:hover, :focus-visible)) .loading-screen {
     display: grid;
     opacity: 1;
     position: fixed;
@@ -375,6 +375,6 @@
 
 <div class="loading-screen" id="loader" aria-hidden="true">
   {% include "components/ui/logo.njk" %}
-  <p class="text-align--center">We'll be right back</p>
+  <p class="text-align--center">June 27, 2025</p>
   <div class="loading-container"></div>
 </div>

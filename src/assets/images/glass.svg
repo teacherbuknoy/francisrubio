@@ -2,7 +2,8 @@
   xmlns="http://www.w3.org/2000/svg">
   <style>
     :root {
-      --shimmer-duration: 5s;
+      --shimmer-duration: 2s;
+      opacity: 20%;
     }
 
     path[stroke-opacity="0.1"] {

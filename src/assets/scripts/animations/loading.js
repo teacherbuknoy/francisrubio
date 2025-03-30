@@ -1,11 +1,12 @@
 window.isHoveringInteractable = false
 
-document.body.addEventListener('mouseover', e => {
+document.addEventListener('DOMContentLoaded', e => {
+  beginRandomLoadingGlitches()
+
   return
-  
   const { target } = e
   const interactable = target.closest(':is(a, button):is(:hover, :focus-visible)')
-  
+
   window.isHoveringInteractable = interactable != null
   console.log({ isHoveringInteractable })
 
@@ -18,6 +19,19 @@ document.body.addEventListener('mouseover', e => {
     toggleLoadingScreen(false)
   }
 })
+
+function beginRandomLoadingGlitches() {
+  const SPLASH_WAIT_TIME_MS = generateRandomSplashWaitTimeMs()
+  console.log('SHOW LOADER ADDED', SPLASH_WAIT_TIME_MS)
+  document.body.classList.add('show-loader')
+
+  new Promise((resolve, reject) => setTimeout(() => {
+    console.log('SHOW LOADER REMOVED AFTER 300ms')
+    document.body.classList.remove('show-loader')
+    resolve()
+  }, 300))
+    .then(() => setTimeout(beginRandomLoadingGlitches, SPLASH_WAIT_TIME_MS))
+}
 
 function generateRandomSplashWaitTimeMs() {
   const minMS = 2000
