@@ -3,7 +3,12 @@
   <style>
     :root {
       --shimmer-duration: 2s;
-      opacity: 20%;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        opacity: 20%;
+      }
     }
 
     path[stroke-opacity="0.1"] {
