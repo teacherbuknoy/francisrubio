@@ -285,7 +285,89 @@
       <feComposite operator="atop" in="SourceGraphic" in2="blurred"/>
     </filter>
     <filter id="motion-blur">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="2,0" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2,0"/>
     </filter>
   </defs>
 </svg>
+
+<style>
+
+  body:has(.loading-screen.shown) {
+    overflow: hidden;
+  }
+
+  .loading-screen {
+    position: fixed;
+    background-color: hsl(var(--neutral-100));
+    inset: 0;
+    display: grid;
+    visibility: collapsed;
+    place-content: center;
+    gap: 1rem;
+    transition: opacity 300ms, scale 700ms, visibility 300ms 700ms, z-index 300ms 700ms, transform 0 700ms;
+    pointer-events: none;
+    z-index: 9999;
+
+    position: absolute;
+    opacity: 0;
+    scale: 2;
+    z-index: -1;
+    transform: translateX(-100%);
+  }
+
+  .loading-container {
+    display: grid;
+    gap: 1rem;
+    transition: opacity 300ms;
+    container-type: inline-size;
+
+    &::after,
+    &::before {
+      content: '';
+      aspect-ratio: 1/1;
+      height: 1rem;
+      background-color: hsl(var(--primary-500));
+      grid-row: 2/3;
+      grid-column: 1/2;
+      animation: loading 2s infinite alternate;
+      transition: scale 300ms;
+    }
+
+    &::after {
+      justify-self: end;
+      background-color: hsl(var(--secondary-500));
+      animation-name: loading-reverse;
+    }
+  }
+
+  body:has(:is(a, button):is(:hover, :focus-visible)) .loading-screen {
+    position: fixed;
+    opacity: 1;
+    visibility: visible;
+    scale: 1;
+    display: grid;
+    z-index: 99999;
+    transform: none;
+    transition: opacity 300ms 300ms, scale 700ms 300ms, visibility 300ms 700ms, z-index 300ms 700ms, transform 0 700ms;
+  }
+
+  @keyframes loading {
+    to {
+      translate: 80cqw;
+      rotate: 180deg;
+    }
+  }
+
+  @keyframes loading-reverse {
+    to {
+      translate: -80cqw;
+      rotate: -180deg;
+    }
+  }
+</style>
+
+<div class="loading-screen" id="loader" aria-hidden="true">
+  {% include "components/ui/logo.njk" %}
+  <p class="text-align--center">We'll be right back</p>
+  <div class="loading-container"></div>
+</div>

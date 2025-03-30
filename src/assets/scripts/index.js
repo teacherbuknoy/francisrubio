@@ -1,5 +1,6 @@
 import './animations/displacement'
 import './animations/navigation-bar'
+import './animations/loading'
 import './animations/button'
 import './components/Dialog'
 import './components/PopOver'

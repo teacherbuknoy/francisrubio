@@ -445,6 +445,18 @@ print;
       glitchify 1.5s infinite alternate,
       link-glitch-alt 1.5s infinite alternate;
   }
+
+  #glitch-filters-global {
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  [data-component="logo"] {
+    [fill="black"] {
+      fill: hsl(var(--neutral-900));
+    }
+  }
 }
 
 @layer utilities {
