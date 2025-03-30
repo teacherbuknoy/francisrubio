@@ -298,7 +298,10 @@
 
   .loading-screen {
     position: fixed;
-    background-color: hsl(var(--neutral-100));
+    background-color: hsl(var(--neutral-100) / 25%);
+    background-image: url("/assets/images/glass.svg");
+    background-size: cover;
+    backdrop-filter: blur(12px);
     inset: 0;
     display: grid;
     visibility: collapsed;
@@ -313,6 +316,10 @@
     scale: 2;
     z-index: -1;
     transform: translateX(-100%);
+
+    & > * {
+      animation: glitchify 1.5s infinite alternate, link-glitch-alt 1.5s infinite alternate;
+    }
   }
 
   .loading-container {
@@ -341,14 +348,14 @@
   }
 
   body:has(:is(a, button):is(:hover, :focus-visible)) .loading-screen {
-    position: fixed;
-    opacity: 1;
-    visibility: visible;
-    scale: 1;
     display: grid;
-    z-index: 99999;
+    opacity: 1;
+    position: fixed;
+    scale: 1;
     transform: none;
     transition: opacity 300ms 300ms, scale 700ms 300ms, visibility 300ms 700ms, z-index 300ms 700ms, transform 0 700ms;
+    visibility: visible;
+    z-index: 99999;
   }
 
   @keyframes loading {
