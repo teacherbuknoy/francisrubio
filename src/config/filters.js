@@ -1,20 +1,15 @@
-const jsdom = require("jsdom")
-const { JSDOM } = jsdom
+import { JSDOM } from "jsdom"
+import EleventyFetch from "@11ty/eleventy-fetch"
+import { parse } from "node-html-parser"
+import ISO6391 from "iso-639-1"
+import markdown from "./markdown.js"
 
-const markdownIt = require('markdown-it')
-
-const md = markdownIt({ html: true, linkify: true, typographer: true })
-  .use(require('markdown-it-deflist'))
-  .use(require('markdown-it-abbr'))
-  .use(require('markdown-it-footnote'))
-  .use(require('markdown-it-attrs'))
-  .use(require('markdown-it-sup'))
-  .disable('code')
+const md = markdown
 
 
 let footnoteRefs = []
 
-module.exports = {
+export default {
   markdown: function (value) {
     return md.render(value)
   },
@@ -76,6 +71,7 @@ module.exports = {
 
     return talks
   },
+  isUpcoming: item => item.date.getTime() >= new Date().getTime() || item.data.tentativeDate != null,
   youtube: function (embedCode) {
     return `<iframe 
   class="embed embed--youtube"
@@ -140,5 +136,56 @@ module.exports = {
     const dom = new JSDOM(htmlString).window.document
     const nodes = dom.querySelectorAll('body > *')
     return [...nodes].length
+  },
+  featured: collection => collection.find(item => item.data.featured),
+  log: str => console.log('[TEMPLATE]', str),
+  metatags: async function (url) {
+    try {
+      const html = await EleventyFetch(url, { duration: '0s', type: 'text' })
+      const document = parse(html)
+      const rawMeta = {}
+      rawMeta.title = document.querySelector('title')?.innerText;
+
+      const metaTags = [...document.querySelectorAll('meta')]
+      metaTags.forEach(meta => {
+        if (meta.hasAttribute('name')) {
+          rawMeta[meta.getAttribute('name')] = meta.getAttribute('content')
+        }
+
+        if (meta.hasAttribute('property')) {
+          rawMeta[meta.getAttribute('property')] = meta.getAttribute('content')
+        }
+      })
+
+      const metadata = {
+        title: rawMeta.title ? rawMeta.title : null,
+        description: rawMeta.description
+          ? rawMeta.description
+          : rawMeta['og:description']
+            ? rawMeta['og:description']
+            : rawMeta['twitter:description']
+              ? rawMeta['twitter:description']
+              : null,
+        url,
+        image: rawMeta['og:image']
+          ? rawMeta['og:image']
+          : rawMeta['twitter:image']
+            ? rawMeta['twitter:image']
+            : null,
+        themeColor: rawMeta['theme-color']
+      }
+
+      return metadata
+    } catch (e) {
+      console.error('[ERROR]', e)
+      return { url, title: '', description: null }
+    }
+  },
+  languageCode: str => ISO6391.getName(str),
+  yearsFromToday: dateString => {
+    const today = new Date().getFullYear()
+    const past = new Date(dateString).getFullYear()
+
+    return today - past
   }
 }

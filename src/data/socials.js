@@ -1,11 +1,10 @@
-const EleventyFetch = require('@11ty/eleventy-fetch')
+import EleventyFetch from '@11ty/eleventy-fetch'
 
 const mastodon = {
   id: '109319595958763014',
   accountIds: [
     '109319595958763014',
     '109810743922547925',
-    '110673367912097624'
   ],
   endpoints: {
     profile: 'https://masto.ai/api/v1/accounts/109810743922547925',
@@ -15,7 +14,6 @@ const mastodon = {
     feed: 'https://masto.ai/api/v1/accounts/109810743922547925/statuses/?limit=40',
     feeds: [
       'https://masto.ai/api/v1/accounts/109810743922547925/statuses/?limit=40',
-      'https://social.antaresph.dev/api/v1/accounts/110673367912097624/statuses?limit=40'
     ]
   }
 }
@@ -72,7 +70,7 @@ function createFindReply(mastodon) {
   }
 }
 
-module.exports = async function () {
+export default async function () {
   const mastodon = await fetchMastodon()
   mastodon.findReply = createFindReply(mastodon)
 

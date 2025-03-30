@@ -5,7 +5,7 @@
  * @property {string} static_url
  * @property {boolean} visible_in_picker
  */
-module.exports = {
+const utils = {
   currentYear: new Date().getFullYear(),
   tentativeDate: (year, month, day) => {
     return new Date(year, month, day ? day : 1)
@@ -51,17 +51,26 @@ module.exports = {
    */
   replaceMastodonEmoji: (str, emojis) => {
     const regex = /(<a?)?:\w+:(\d{18}>)?/gm
+    const matches = str.match(regex)
 
-    return str.match(regex)
-      .reduce((finalString, emojiMatch) => {
+    if (matches) {
+      return matches.reduce((finalString, emojiMatch) => {
         const emoji = emojis.find(e => e.shortcode === emojiMatch.replaceAll(':', ''))
         const img = `<img src="${emoji.url}" alt="${emoji.shortcode}" width="16" height="16" class="emoji">`
         return finalString.replace(emojiMatch, img)
       }, str)
+    }
+
+    return str
+      
   },
   isFutureDate: value => new Date().getTime() <= new Date(value).getTime(),
   getFederatedUsername: (username, profileURL) => {
     const url = new URL(profileURL).host
     return `@${username}@${url}`
-  }
+  },
+  currentTimestamp: () => Date.now(),
+  jsonify: jsonString => JSON.parse(jsonString)
 }
+
+export default utils

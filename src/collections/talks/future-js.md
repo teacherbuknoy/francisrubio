@@ -2,6 +2,7 @@
 title: Looking at a future with JavaScript
 description: An introductory talk about the basics of JavaScript and its use in web development.
 image: /talks/future-javascript/cover.jpg
+category: JavaScript
 slug: future-js
 date: 2020-10-05
 host:

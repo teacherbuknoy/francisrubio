@@ -79,6 +79,7 @@
 
     &.webmention {
       flex-direction: row;
+      flex-wrap     : wrap;
     }
 
     &:empty {
@@ -109,6 +110,7 @@
 
     &.webmention {
       padding-block-end: var(--space);
+      display          : block;
     }
   }
 
@@ -187,6 +189,11 @@
     grid-template-columns: repeat(auto-fit, minmax(min(25ch, 100%), 1fr));
     overflow             : hidden;
 
+    &[data-webmention-entry] {
+      margin            : var(--space);
+      margin-block-start: 0;
+    }
+
     img,
     video {
       height         : auto;
@@ -213,6 +220,14 @@
 
   a {
     color: hsl(var(--primary-900));
+
+    &.u-mention {
+      font-family: var(--font-ui);
+
+      &:empty {
+        display: none;
+      }
+    }
   }
 
   .profile {
@@ -220,7 +235,7 @@
       background-color     : transparent;
       border-radius        : 0;
       box-shadow           : none;
-      column-gap           : var(--space-xs);
+      column-gap           : var(--space);
       display              : grid;
       grid-template-columns: auto 1fr;
       grid-template-rows   : 1fr 1fr;
@@ -249,7 +264,9 @@
     }
 
     &__identifier {
-      align-self: start;
+      align-self   : start;
+      overflow     : hidden;
+      text-overflow: ellipsis;
     }
   }
 }

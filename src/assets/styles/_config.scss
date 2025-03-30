@@ -10,35 +10,35 @@
   --l-subtle       : 0 0% 50%;
   --l-non-essential: 0 0% 25%;
 
-  --l-primary-900: 335 100% 14%;
-  --l-primary-700: 335 100% 24%;
-  --l-primary-500: 335 100% 34%;
-  --l-primary-300: 335 100% 54%;
-  --l-primary-100: 335 100% 84%;
+  --l-primary-100: 332 100% 97%;
+  --l-primary-300: 331 100% 67%;
+  --l-primary-500: 331 100% 47%;
+  --l-primary-700: 331 100% 37%;
+  --l-primary-900: 331 100% 17%;
 
-  --l-secondary-900: 233 100% 21%;
-  --l-secondary-700: 233 80% 41%;
-  --l-secondary-500: 233 80% 61%;
-  --l-secondary-300: 233 50% 71%;
-  --l-secondary-100: 233 50% 81%;
+  --l-secondary-900: 80 100% 97%;
+  --l-secondary-700: 80 100% 67%;
+  --l-secondary-500: 80 100% 41%;
+  --l-secondary-300: 80 100% 27%;
+  --l-secondary-100: 80 100% 17%;
 
-  --l-error-100: 5 100% 75%;
-  --l-error-300: 0 81% 63%;
+  --l-error-100: 0 57% 95%;
+  --l-error-300: 357 56% 78%;
   --l-error-500: 357 68% 46%;
-  --l-error-700: 1 94% 33%;
-  --l-error-900: 0 100% 24%;
+  --l-error-700: 357 71% 26%;
+  --l-error-900: 357 78% 16%;
 
-  --l-success-100: 82 100% 75%;
-  --l-success-300: 87 66% 58%;
+  --l-success-100: 75 64% 89%;
+  --l-success-300: 88 54% 73%;
   --l-success-500: 92 68% 43%;
-  --l-success-700: 97 95% 29%;
-  --l-success-900: 102 100% 21%;
+  --l-success-700: 88 69% 18%;
+  --l-success-900: 78 71% 5%;
 
-  --l-warning-100: 32 100% 75%;
-  --l-warning-300: 27 100% 66%;
-  --l-warning-500: 22 89% 56%;
-  --l-warning-700: 17 98% 40%;
-  --l-warning-900: 12 100% 13%;
+  --l-warning-100: 32 83% 95%;
+  --l-warning-300: 38 88% 81%;
+  --l-warning-500: 38 90% 54%;
+  --l-warning-700: 38 79% 23%;
+  --l-warning-900: 38 95% 7%;
 
   --l-info-100: 233 100% 98%;
   --l-info-300: 216 100% 84%;
@@ -46,23 +46,29 @@
   --l-info-700: 216 85% 24%;
   --l-info-900: 230 95% 7%;
 
-  --d-error-900: 5 100% 75%;
-  --d-error-700: 0 81% 63%;
+  --l-neutral-100: 0 0% 95%;
+  --l-neutral-300: 0 0% 81%;
+  --l-neutral-500: 0 0% 54%;
+  --l-neutral-700: 0 0% 23%;
+  --l-neutral-900: 0 0% 7%;
+
+  --d-error-900: 0 57% 95%;
+  --d-error-700: 357 56% 78%;
   --d-error-500: 357 68% 46%;
-  --d-error-300: 1 94% 33%;
-  --d-error-100: 0 100% 24%;
+  --d-error-300: 357 71% 26%;
+  --d-error-100: 357 78% 16%;
 
-  --d-success-900: 82 100% 75%;
-  --d-success-700: 87 66% 58%;
+  --d-success-900: 75 64% 89%;
+  --d-success-700: 88 54% 73%;
   --d-success-500: 92 68% 43%;
-  --d-success-300: 97 95% 29%;
-  --d-success-100: 102 100% 21%;
+  --d-success-300: 88 69% 18%;
+  --d-success-100: 78 71% 5%;
 
-  --d-warning-900: 32 100% 75%;
-  --d-warning-700: 27 100% 66%;
-  --d-warning-500: 22 89% 56%;
-  --d-warning-300: 17 98% 40%;
-  --d-warning-100: 12 100% 13%;
+  --d-warning-900: 32 83% 95%;
+  --d-warning-700: 38 88% 81%;
+  --d-warning-500: 38 90% 54%;
+  --d-warning-300: 38 79% 23%;
+  --d-warning-100: 38 95% 7%;
 
   --d-info-900: 233 100% 98%;
   --d-info-700: 216 100% 84%;
@@ -70,17 +76,23 @@
   --d-info-300: 216 85% 24%;
   --d-info-100: 230 95% 7%;
 
-  --d-primary-100: 335 100% 14%;
-  --d-primary-300: 335 100% 24%;
-  --d-primary-500: 335 100% 34%;
-  --d-primary-700: 335 100% 54%;
-  --d-primary-900: 335 100% 84%;
+  --d-primary-900: 332 100% 97%;
+  --d-primary-700: 331 100% 67%;
+  --d-primary-500: 331 100% 47%;
+  --d-primary-300: 331 100% 37%;
+  --d-primary-100: 331 100% 17%;
 
-  --d-secondary-100: 233 100% 21%;
-  --d-secondary-300: 233 80% 41%;
-  --d-secondary-500: 233 80% 61%;
-  --d-secondary-700: 233 50% 71%;
-  --d-secondary-900: 233 50% 81%;
+  --d-secondary-900: 80 100% 97%;
+  --d-secondary-700: 80 100% 67%;
+  --d-secondary-500: 80 100% 41%;
+  --d-secondary-300: 80 100% 27%;
+  --d-secondary-100: 80 100% 17%;
+
+  --d-neutral-900: 0 0% 95%;
+  --d-neutral-700: 0 0% 81%;
+  --d-neutral-500: 0 0% 54%;
+  --d-neutral-300: 0 0% 23%;
+  --d-neutral-100: 0 0% 7%;
 }
 
 :root {
@@ -185,7 +197,13 @@
   --secondary-300: var(--l-secondary-300);
   --secondary-500: var(--l-secondary-500);
   --secondary-700: var(--l-secondary-700);
-  --secondary-900: var(--l-secondary-900);
+
+  --neutral-100: var(--l-neutral-100);
+  --neutral-300: var(--l-neutral-300);
+  --neutral-500: var(--l-neutral-500);
+  --neutral-700: var(--l-neutral-700);
+  --neutral-900: var(--l-neutral-900);
+  --neutral-900: var(--l-neutral-900);
 
   --error-100: var(--l-error-100);
   --error-300: var(--l-error-300);
@@ -225,6 +243,13 @@
   --secondary-700: var(--d-secondary-700);
   --secondary-900: var(--d-secondary-900);
 
+  --neutral-100: var(--d-neutral-100);
+  --neutral-300: var(--d-neutral-300);
+  --neutral-500: var(--d-neutral-500);
+  --neutral-700: var(--d-neutral-700);
+  --neutral-900: var(--d-neutral-900);
+  --neutral-900: var(--d-neutral-900);
+
   --error-100: var(--d-error-100);
   --error-300: var(--d-error-300);
   --error-500: var(--d-error-500);
@@ -262,14 +287,19 @@
 
 /* FONTS */
 :root {
-  --font-sans         : "Figtree", "Noto Sans Tagalog", sans-serif;
-  --font-serif        : "Fraunces", serif;
-  --font-display      : "Figtree", "Noto Sans Tagalog", sans-serif;
+  --font-sans         : "Wix Madefor Text", "Noto Sans Tagalog", sans-serif;
+  --font-serif        : "Wix Madefor Text", sans-serif;
+  --font-display      : "Inter", "Wix Madefor Text", "Noto Sans Tagalog", sans-serif;
   --font-display-serif: "Fraunces", serif;
   --font-body         : var(--font-serif);
   --font-ui           : var(--font-sans);
   --font-mono         : "Source Code Pro", monospace;
-  --font-baybayin     : 'Noto Sans Tagalog', 'Figtree', sans-serif;
+  --font-baybayin     : 'Noto Sans Tagalog', 'Wix Madefor Text', sans-serif;
+
+  @supports(font-variation-settings: normal) {
+    --font-serif  : "Wix Madefor Text", sans-serif;
+    --font-display: "Wix Madefor Text", "Noto Sans Tagalog", sans-serif;
+  }
 
   --type-size  : 1.2rem;
   --type-size-1: 4.209rem;
@@ -320,6 +350,8 @@
   --radius-3    : 8px;
   --radius-4    : 10px;
   --radius-5    : 12px;
+  --radius-6    : 14px;
+  --radius-7    : 16px;
 }
 
 .invert-on-dark {

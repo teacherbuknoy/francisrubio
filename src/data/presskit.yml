@@ -1,0 +1,51 @@
+- src:
+    folder: gallery/a-studios-shoot-03-26-2023
+    name: DSCF0112.JPG
+  filename: francis-rubio.jpg
+  alt: Francis Rubio, taken in a pink room and he's wearing a crown
+  size:
+      width: 4000
+      height: 6000
+- url: https://ik.imagekit.io/8jjzxcl9p/tr:w-1080,h-1080,c-maintain_ratio/gallery/pride-2024/19.jpg
+  filename: francis-rubio-ltt-7.jpg
+  alt: Francis Rubio.
+  size:
+      width: 1080
+      height: 1080
+- url: https://ik.imagekit.io/8jjzxcl9p/gallery/pride-2023/4.jpg
+  filename: francis-rubio-rhp-4.jpg
+  alt: Francis Rubio, in his Rosas, Hiyas, at Perlas outfit.
+  size:
+      width: 4000
+      height: 6000
+- src:
+    name: francis-rubio-formal.png
+  filename: francis-rubio-formal.png
+  alt: Francis Rubio wearing a black long-sleeves shirt.
+  size:
+      width: 3000
+      height: 4000
+- url: https://ik.imagekit.io/8jjzxcl9p/gallery/pride-2024/7.jpg
+  filename: francis-rubio-ltt-7.jpg
+  alt: Francis Rubio.
+  size:
+      width: 720
+      height: 1280
+- url: https://ik.imagekit.io/8jjzxcl9p/gallery/pride-2023/6.jpg
+  filename: francis-rubio-rhp-6.jpg
+  alt: Francis Rubio, in his Rosas, Hiyas, at Perlas outfit.
+  size:
+      width: 4000
+      height: 6000
+- url: https://ik.imagekit.io/8jjzxcl9p/gallery/pride-2024/2.jpg
+  filename: francis-rubio-ltt-6.jpg
+  alt: Francis Rubio.
+  size:
+      width: 720
+      height: 1280
+- url: https://ik.imagekit.io/8jjzxcl9p/gallery/pride-2024/11.jpg
+  filename: francis-rubio-ltt-11.jpg
+  alt: Francis Rubio.
+  size:
+      width: 720
+      height: 1280

@@ -1,0 +1,50 @@
+{% from "components/ui/utils.njk" import image with context %}
+<article class="dark banner banner--biography" 
+  aria-labelledby="bio-banner-heading"
+  style="
+    --bg-image-mobile: url('{{ site.api.images }}{{ images.bgMobile.src }}');
+    --bg-image-desktop: url('{{ site.api.images }}{{ images.bgDesktop.src }}');
+    --bg-image-overlay: url('{{ site.api.images }}{{ images.overlay.src }}');
+  ">
+  {% set image = images.front %}
+  <responsive-picture 
+    src="{{ image.src }}"
+    alt="{{ image.alt }}"
+    sizes="1440"
+    height="{{ image.height }}" 
+    width="{{ image.width }}" {{ "linked" if image.linked }}>
+    <img class="banner__front-image" src="{{ site.api.images }}{{ image.src }}" alt="{{ image.alt }}" height="{{ image.height }}" width="{{ image.width }}">
+  </responsive-picture>
+
+  <h2 id="bio-banner-heading" class="bio-title">
+    Your favorite web developer's <b class="bio-highlight">favorite web developer</b>
+  </h2>
+  <div class="bio-body">
+    <p>I am a super graphic ultra modern <small>I'm so quirky, right?</small> Filipino developer who <del>is chronically online</del>
+      <ins>makes things on the web and teaches other Filipinos to do the same</ins>. I write articles and produce infographics and videos for <a href="https://antaresph.dev" class="bio-link">Antares Programming</a>.</p>
+    <p>I'm also very pretentious and very delusional. You'll find it really helpful for creativity and motivation. I might also be your next (<b class="bio-highlight">best</b>) personality hire. <small>I'm not problematic, I swear!</small>
+    </p>
+    <div class="bio-lists">
+      <div class="bio-list-section">
+        <h3 class="font-sans fs-5 uppercase weight-700">What I can do</h3>
+        <ul class="list list--success">
+          <li>Design and code websites</li>
+          <li>Improve or fix your existing website</li>
+          <li>Teach you how to design and code websites</li>
+          <li>Give advice on your website and brand design</li>
+          <li>Be funny <small>can't you already tell?</small></li>
+        </ul>
+      </div>
+      <div class="bio-list-section">
+        <h3 class="font-sans fs-5 uppercase weight-700">What I <strong class="bio-highlight">can't</strong> do</h3>
+        <ul class="list list--error">
+          <li>Do a death drop</li>
+          <li>Block my eyebrows and draw over it</li>
+          <li>Eat onions and garlic</li>
+          <li>Work for free</li>
+          <li>Literally everything else I'm not already doing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</article>

@@ -3,7 +3,7 @@
 {% block content %}
   {# {% include 'components/ui/navigation-bar.njk' %} #}
   {% include 'components/ui/navigation-bar.njk' %}
-  <main class="h-entry padding-block--xl padding-inline--m article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
+  <main id="view-transition-target" class="h-entry padding-block--xl padding-inline--m article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
     <header class="article__header">
       {% set postType = postType if postType else 
         'post' %}
@@ -20,6 +20,7 @@
 
       {% set defaultImageClass = "article__image" %}
       {% set focus = cover.focus %}
+      {# {% set viewTransitionName =  %} #}
       {% include "components/cdn-picture.njk" %}
       <div class="spaced cluster ai--center">
         <nav class="breadcrumb" aria-label="Breadcrumbs">
@@ -46,7 +47,7 @@
           </p>
         {% endif %}
       </div>
-      <h1 id="{{ title | slugify }}" class="p-name article__title margin--none responsive">{{ title | safe }}</h1>
+      <h1 id="{{ title | slugify }}" class="p-name article__title margin--none responsive" style="view-transition-name: {{ title | slugify }}">{{ title | safe }}</h1>
       <p class="p-summary responsive fs-4 weight-300">{{ description }}</p>
       <div class="spaced cluster ai--center">
         <div>
@@ -67,33 +68,32 @@
         </div>
       </div>
     </header>
-    <div class="article__body not-sidebar e-content">
+    <div class="article__body not-sidebar">
       <div class="article__scroller" style="--row-end: {{ content | countElements }}">
         <div class="sidebar article__sidebar border--none margin--none" style="--sidebar-width: 20ch">
           {{ content | toc | safe }}
           <div class="webmentions webmentions--summary hidden" aria-label="Web Mentions Summary" data-webmention-container>
-            <a href="#webmention-likes-repost" class="webmention__statistic">
-              {% set feathericon = "heart" %}
-              {% include 'components/feathericon.njk' %}
+            <a href="#webmentions" class="webmention__statistic">
+              {{ 'heart' | icon | safe }}
               <span data-webmention="like"></span>
               <span class="webmention__statistic-label">Likes</span>
             </a>
-            <a href="#webmention-likes-repost" class="webmention__statistic">
-              {% set feathericon = "refresh-cw" %}
-              {% include 'components/feathericon.njk' %}
+            <a href="#webmentions" class="webmention__statistic">
+              {{ 'refresh-cw' | icon | safe }}
               <span data-webmention="repost"></span>
               <span class="webmention__statistic-label">Reposts</span>
             </a>
-            <a href="#webmention-replies" class="webmention__statistic">
-              {% set feathericon = "message-circle" %}
-              {% include 'components/feathericon.njk' %}
+            <a href="#webmentions" class="webmention__statistic">
+              {{ 'message-circle' | icon | safe }}
               <span data-webmention="reply"></span>
               <span class="webmention__statistic-label">Replies</span>
             </a>
           </div>
         </div>
       </div>
-      {{ content | safe }}
+      <div style="display: contents" class="e-content">
+        {{ content | safe }}
+      </div>
 
       <!-- FURTHER READINGS -->
       {% if further_reading != null %}
@@ -116,7 +116,8 @@
     <footer class="stack padding--l">
       {% include 'components/share.njk' %}
       <div class="margin-block--xxxl">
-        {% include "components/banners/webring-banner.njk" %}
+        {% include "components/banners/commissions-banner.njk" %}
+        {% include 'components/email-form.njk' %}
       </div>
       {% include 'components/webmentions.njk' %}
     </footer>

@@ -10,11 +10,11 @@
 
 .logo {
   height: var(--type-size-5);
-  width : var(--type-size-5);
+  width: var(--type-size-5);
 
   &--large {
     height: var(--type-size-3);
-    width : var(--type-size-3);
+    width: var(--type-size-3);
   }
 
   @at-root .light & {
@@ -25,5 +25,18 @@
     @media (prefers-color-scheme: light) {
       @include logo-light;
     }
+  }
+
+  &-type {
+    color: hsl(var(--primary-900));
+    font-weight: 800;
+    font-variation-settings: 'wght' 800;
+    user-select: none;
+  }
+
+  &-dot {
+    color: hsl(var(--primary-700));
+    /* font-size: 2em;
+    line-height: 0; */
   }
 }

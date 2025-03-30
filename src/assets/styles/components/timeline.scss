@@ -4,6 +4,11 @@
   margin-inline      : auto;
   width              : min(calc((var(--content-width) / 5) * 4), 100%);
 
+  &:is(ul, ol) {
+      list-style: '';
+      padding: 0;
+    }
+
   &__item {
     padding-inline: var(--space);
     margin-block  : var(--space-l);
@@ -21,7 +26,7 @@
       border-radius   : 100%;
       content         : '';
       height          : var(--height);
-      left            : calc(var(--height) / -2);
+      left            : calc(var(--height) / -1.6);
       position        : absolute;
       top             : calc(var(--space) / 1.5);
     }
@@ -41,7 +46,7 @@
     }
 
     &__date {
-      color      : hsl(var(--fg-subtle));
+      color      : hsl(var(--fg-default));
       font-family: var(--font-sans);
       font-size  : var(--type-size-6);
     }

@@ -18,8 +18,7 @@
     </li>
     <li>
       <button class="button" data-copy="page-link" style="height: 100%;">
-        {% set feathericon = 'clipboard' %}
-        {% include 'components/feathericon.njk' %}
+        {{ 'clipboard' | icon | safe }}
         <span>Copy link</span>
       </button>
       <input type="hidden" id="page-link" value="{{ site.url }}{{ page.url }}" class="sr-only">

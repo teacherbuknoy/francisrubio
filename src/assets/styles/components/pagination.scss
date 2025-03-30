@@ -1,0 +1,21 @@
+.pagination {
+  list-style: "";
+  display: flex;
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  margin-inline: auto;
+  width: fit-content;
+
+  .button {
+    background-color: transparent;
+
+    &.icon-only {
+      padding: var(--space-s);
+    }
+  }
+
+  .button[aria-current="page"] {
+    background-color: hsl(var(--primary-500) / 25%);
+  }
+}

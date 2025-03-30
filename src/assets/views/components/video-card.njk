@@ -1,7 +1,7 @@
 
 <article class="card card--video" aria-labelledby="card--{{ post.title | slugify }}">
   <div class="card__image">
-    <img src="https://i.ytimg.com/vi_webp/{{ post.code }}/maxresdefault.webp" alt="Thumbnail" width="1280" height="1012">
+    <img src="https://i.ytimg.com/vi_webp/{{ post.code }}/maxresdefault.webp" alt="Thumbnail" width="1280" height="1012" loading="lazy">
   </div>
   <div class="card__header">
     <h{{ headingLevel if headingLevel != null else 3 }} class="card__title h5" id="card--{{ post.title | slugify }}">

@@ -1,7 +1,10 @@
 .modal {
-  position: fixed;
-  inset   : 0;
   display : grid;
+  height  : 100vh;
+  left    : 0;
+  position: fixed;
+  top     : 0;
+  width   : 100vw;
   z-index : 9999;
 
   &[hidden] {
@@ -37,11 +40,13 @@
   position        : relative;
 
   @media (min-width: 80ch) {
+    align-self   : center;
     border-radius: 6px;
-    padding      : 0;
     height       : auto;
+    justify-self : center;
     max-height   : 90%;
     max-width    : min(50ch, 100%);
+    padding      : 0;
   }
 }
 

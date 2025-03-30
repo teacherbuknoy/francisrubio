@@ -5,6 +5,7 @@ image: /literatures/resignation/cover.jpg
 cover:
   folder: resignation
   filename: cover.jpg
+  header: cover.jpg
   sizes: [300, 500, 700]
   formats: ['jpg', 'webp']
 author: teacherbuknoy

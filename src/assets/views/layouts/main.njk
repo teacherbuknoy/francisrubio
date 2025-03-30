@@ -2,7 +2,7 @@
 
 {% block content %}
   {% include 'components/ui/navigation-bar.njk' %}
-  <main id="main" tabindex="-1" aria-label="Main content">
+  <main id="main" tabindex="-1" aria-label="Main content" class="page">
     {{ content | safe }}
   </main>
   {% include 'components/footer.njk' %}

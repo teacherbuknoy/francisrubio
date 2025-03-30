@@ -12,7 +12,7 @@
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .hide-on-mobile {
@@ -50,4 +50,36 @@
   .no-js__warning {
     display: flex;
   }
+}
+
+body:not(.no-js) {
+  .show-on-noscript {
+    display: none;
+  }
+}
+
+.dark .hide-on-dark,
+.light .hide-on-light {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .system .hide-on-dark {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: light) or (prefers-color-scheme: no-preference) {
+  .system .hide-on-light {
+    display: none;
+  }
+}
+
+.not-by-ai {
+  height         : 4ch;
+  width          : auto;
+  aspect-ratio   : 131/42;
+  justify-self   : start;
+  object-fit     : contain;
+  object-position: left;
 }

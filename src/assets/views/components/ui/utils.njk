@@ -1,12 +1,22 @@
-{% macro icon(name, class) %}
-  <svg class="feather {{ class }}" aria-hidden="true">
-    <use href="/assets/images/feather-sprite.svg#{{ name }}"/>
-  </svg>
-{% endmacro %}
+{% macro icon(name, class) %}<svg class="feather {{ class }}" aria-hidden="true"><use href="/assets/images/feather-sprite.svg#{{ name }}"/></svg>{% endmacro %}
 
 {% macro emailButton(innerText) %}
-  <button class="primary button hide-on-noscript" data-dialog="modal__email">{{ innerText }}</button>
+  <button class="primary button hide-on-noscript" onclick="emailDialog.showModal()">{{ innerText }}</button>
   <noscript>
     <a href="/contact/" class="primary button">{{ innerText }}</a>
   </noscript>
+{% endmacro %}
+
+{% macro image(image) %}
+  {% if image.class != null %}
+    {% set imgClass = 'class="' + image.class + '"' %}
+  {% endif %}
+  {% if image.sizes != null %}
+    {% set sizes = 'sizes="' + sizes + '"' %}
+  {% endif %}
+  <responsive-picture 
+    src="{{ image.src }}" alt="{{ image.alt }}" {{ sizes }}
+    height="{{ image.height }}" width="{{ image.width }}" {{ "linked" if image.linked }}>
+    <img {{ imgClass }} src="{{ site.api.images }}{{ image.src }}" alt="{{ image.alt }}" height="{{ image.height }}" width="{{ image.width }}">
+  </responsive-picture>
 {% endmacro %}

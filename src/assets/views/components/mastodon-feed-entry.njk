@@ -73,8 +73,7 @@
       {% set replies = entry.replies_count %}
       <span class="statistic__figure">{{ replies if replies else '0' }}</span>
       <span class="statistic__label">
-        {% set feathericon = 'corner-up-left' %}
-        {% include "components/feathericon.njk" %}
+        {{ 'message-circle' | icon | safe }}
         <span class="sr-only">Replies</span>
       </span>
     </p>
@@ -82,8 +81,7 @@
       {% set reblog = entry.reblogs_count %}
       <span class="statistic__figure">{{ reblog if reblog else '0' }}</span>
       <span class="statistic__label">
-        {% set feathericon = 'repeat' %}
-        {% include "components/feathericon.njk" %}
+        {{ 'repeat' | icon | safe }}
         <span class="sr-only">Reblogs</span>
       </span>
     </p>
@@ -91,8 +89,7 @@
       {% set likes = entry.favourites_count %}
       <span class="statistic__figure">{{ likes if likes else '0' }}</span>
       <span class="statistic__label">
-        {% set feathericon = 'star' %}
-        {% include "components/feathericon.njk" %}
+        {{ 'star' | icon | safe }}
         <span class="sr-only">Favorites</span>
       </span>
     </p>

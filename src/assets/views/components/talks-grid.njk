@@ -10,7 +10,7 @@
       {% set item = collection[i] %}
       {% set index = i + 1 %}
       {% if isReversed %}
-      {% set index = collection.length - i %}
+        {% set index = collection.length - i %}
       {% endif %}
       {% set postURL = item.url %}
       {% set post = item.data %}

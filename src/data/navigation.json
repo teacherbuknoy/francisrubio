@@ -2,10 +2,11 @@
   { "text": "Musings", "url": "/writing/" },
   { "text": "Projects", "url": "/projects/" },
   { "text": "Talks", "url": "/speaking/" },
-  { "text": "Literature", "url": "/literature/" },
-  { "text": "Gallery", "url": "/gallery/" },
+  { "text": "Gallery", "url": "/gallery/", "recentlyUpdated": true },
+  { "overflow": true, "text": "Literature", "url": "/literature/" },
   { "overflow": true, "text": "Notes", "url": "/notes/" },
   { "overflow": true, "text": "Videos", "url": "/videos/" },
   { "overflow": true, "text": "What I Use", "url": "/uses/" },
-  { "overflow": true, "text": "Press Kit", "url": "/press-kit/" }
+  { "overflow": true, "text": "Press Kit", "url": "/press-kit/" },
+  { "overflow": true, "text": "Social Feed", "url": "/socials/mastodon/" }
 ]

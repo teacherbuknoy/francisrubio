@@ -7,12 +7,14 @@ pagination:
   reverse: true
 permalink: /speaking/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html
 activePath: speaking
+eleventyImport:
+  collections: ['talks']
 ---
 <section class="page">
   <header class="page__cover" style="--page-cover-image: image-set(
-    url(https://ik.imagekit.io/8jjzxcl9p/tr:f-avif/index/cover-pride-talks.png) type('image/avif'),
-    url(https://ik.imagekit.io/8jjzxcl9p/tr:f-webp/index/cover-pride-talks.png) type('image/webp'),
-    url(https://ik.imagekit.io/8jjzxcl9p/tr:f-png/index/cover-pride-talks.png) type('image/png')
+    url(https://ik.imagekit.io/8jjzxcl9p/tr:f-avif/index/pride-month-2024/cover-talks.png) type('image/avif'),
+    url(https://ik.imagekit.io/8jjzxcl9p/tr:f-webp/index/pride-month-2024/cover-talks.png) type('image/webp'),
+    url(https://ik.imagekit.io/8jjzxcl9p/tr:f-png/index/pride-month-2024/cover-talks.png) type('image/png')
   );background-size: cover;background-position: bottom right;">
     <hgroup class="page__header" role="group">
       <p id="section-heading-4" class="margin--none uppercase ls-l font-sans" data-baybayin="{{ sections.talks.baybayin_label }}">{{ sections.talks.label | safe }}</p>

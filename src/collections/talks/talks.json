@@ -1,5 +1,6 @@
 {
   "layout": "speaking.njk",
   "activePath": "speaking",
-  "permalink": "/speaking/{{ slug }}/"
+  "permalink": "/speaking/{{ slug }}/",
+  "stylesheets": ["project.css", "mastodon.css"]
 }

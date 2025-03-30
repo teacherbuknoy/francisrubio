@@ -1,0 +1,35 @@
+{% set mediaStyles %}
+  grid-column: {{ media.grid.column if media.grid.column else 'span 1' }};
+  grid-row: {{ media.grid.row if media.grid.row else 'span 1' }};
+{% endset %}
+{% set imageStyles %}
+  object-fit: {{ media.grid.fit if media.grid.fit else 'cover' }};
+  object-position: {{ media.grid.position if media.grid.position else 'center' }};
+{% endset %}
+<figure class="gallery-card" style="{{ mediaStyles }}">
+  <a href="{{ site.api.images }}{{ sourceUrl }}{{ media.filename }}" class="gallery-card__link no-arrow" target="_blank">
+    <span class="sr-only">Open this image in a new tab</span>
+    <picture>
+      <source type="image/avif" srcset="{{ site.api.images }}tr:w-1080,f-avif/{{ sourceUrl }}{{ media.filename }}" loading="lazy">
+      <source type="image/webp" srcset="{{ site.api.images }}tr:w-1080,f-webp/{{ sourceUrl }}{{ media.filename }}" loading="lazy">
+      <source type="image/jpg" srcset="{{ site.api.images }}tr:w-1080,f-jpg/{{ sourceUrl }}{{ media.filename }}" loading="lazy">
+
+      <img 
+        src="{{ site.api.images }}{{ sourceUrl }}{{ media.filename }}" 
+        width="{{ media.width }}"
+        height="{{ media.height }}"
+        alt="{{ media.alt }}"
+        style="{{ imageStyles }}"
+        loading="lazy">
+    </picture>
+  </a>
+  {% if media.caption %}
+    <figcaption class="gallery-card__caption">
+      {{ media.caption | markdown | safe }}
+    </figcaption>
+  {% elif media.credits %}
+    <figcaption class="gallery-card__caption gallery-card__caption--credits">
+      <p>{{ media.credits | safe }}</p>
+    </figcaption>
+  {% endif %}
+</figure>

@@ -1,7 +1,7 @@
-const { parseConfig } = require('../../scripts/library/parse-config')
+import { parseConfig } from '../../scripts/library/parse-config.js'
 const { compress_images } = parseConfig()
 const { sizes, formats } = compress_images
 
-module.exports = {
+export {
   sizes, formats
 }

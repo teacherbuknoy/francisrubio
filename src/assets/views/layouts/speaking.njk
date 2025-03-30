@@ -2,7 +2,7 @@
 
 {% block content %}
   {% include 'components/ui/navigation-bar.njk' %}
-  <main style="width: min(150ch, 100%); margin-inline: auto;" class="padding--xl article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
+  {# <main style="width: min(150ch, 100%); margin-inline: auto;" class="page padding--xl article" id="main" tabindex="-1" aria-labelledby="{{ title | slugify }}">
     <header class="article__header">
       <nav class="breadcrumb" aria-label="Breadcrumbs">
         <ol class="breadcrumb__list">
@@ -20,13 +20,14 @@
       <h1 id="{{ title | slugify }}" class="article__title margin--none responsive">{{ title | safe }}</h1>
 
       {% if tentativeDate != null %}
-      {% set tDate = tentativeDate %}
-      {% set talkDate = utils.tentativeDate(tDate.year, tDate.month, tDate.day) %}
-      <time datetime="{{ utils.machineReadableDate(talkDate) }}">
-        {{ utils.extractMonth(talkDate) }} {{ tDate.day + ', ' if tDate.day }}{{ tDate.year }} (tentative)
+        {% set tDate = tentativeDate %}
+        {% set talkDate = utils.tentativeDate(tDate.year, tDate.month, tDate.day) %}
+        <time datetime="{{ utils.machineReadableDate(talkDate) }}">
+          {{ utils.extractMonth(talkDate) }}
+          {{ tDate.day + ', ' if tDate.day }}{{ tDate.year }} (tentative)
       </time>
       {% else %}
-      <time datetime="{{ page.date | machineReadableDate }}">{{ page.date | humanReadableDate }}</time>
+        <time datetime="{{ page.date | machineReadableDate }}">{{ page.date | humanReadableDate }}</time>
       {% endif %}
 
       <div class="cluster gap--m jc--end">
@@ -66,28 +67,150 @@
       </aside>
       <div class="not-sidebar article__body" style="grid-template-columns: 1fr min(75ch, 100%) 1fr">
         {{ content | safe }}
+        {% for section in resources %}
+          <h2>{{ section.heading }}</h2>
+          <div class="link-grid">
+            {% for url in section.links %}
+              {% setAsync "meta" %}{{ url | metatags | dump | safe }}{% endsetAsync %}
+              {% set metadata = utils.jsonify(meta) %}
+              {% include 'components/ui/link-preview-card.njk' %}
+            {% endfor %}
+          </div>
+        {% endfor %}
       </div>
     </div>
+  </main> #}
+  <main class="padding--xl project page" id="main" style="width: min(100ch, 100%); margin-inline: auto;" aria-labelledby="{{ title | slugify }}">
+    <header class="project__header">
+      <nav class="breadcrumb" aria-label="Breadcrumbs">
+        <ol class="breadcrumb__list">
+          <li class="breadcrumb__list-item">
+            <a href="/" class="breadcrumb__link" data-animation="button">Frontpage</a>
+          </li>
+          <li class="breadcrumb__list-item">
+            <a href="/speaking/" class="breadcrumb__link" data-animation="button">Talks</a>
+          </li>
+          <li class="breadcrumb__list-item">
+            <a aria-current="location" class="breadcrumb__link" data-animation="button">This talk</a>
+          </li>
+        </ol>
+      </nav>
+      <div class="stack">
+        <h1 id="{{ title | slugify }}" class="project__title">{{ category | safe }}</h1>
+        <p class="project__summary">{{ title | safe }}</p>
+        <div class="project__meta">
+          {% if link %}
+            {% set links = link %}
+            {% if links.length > 1 %}
+              <div class="cluster gap--m jc--end ai--center">
+                {% for link in links %}
+                  <a href="{{ link.url }}" class="{{ "primary " if link.is_primary }}button" target="_blank" rel="noopener">{{ link.text | safe }}</a>
+                {% endfor %}
+              </div>
+            {% else  %}
+              {% set link = links[0] %}
+              <a href="{{ link.url }}" class="button" target="_blank" rel="noopener">{{ link.text | safe }}</a>
+            {% endif %}
+          {% else %}
+            <div></div>
+          {% endif %}
+          <dl class="project__details">
+            <div class="project__detail-item">
+              {% macro popover(buttonText, popoverContent) %}
+                <button class="button link-like" popovertarget="{{ buttonText | slugify }}">{{ buttonText | safe }}</button>
+                <div popover id="{{ buttonText | slugify }}">{{ popoverContent }}</div>
+              {% endmacro %}
+              <dt>Hosts</dt>
+              {% for h in host %}
+                <dd>
+                  {% if h.description != null %}
+                    {{ popover(h.name, h.description) }}
+                  {% else %}
+                    {{ h.name }}
+                  {% endif %}
+                </dd>
+              {% endfor %}
+            </div>
+            <div class="project__detail-item">
+              <dt>Event</dt>
+              {% for h in event %}
+                <dd>
+                  {% if h.description != null %}
+                    {{ popover(h.name, h.description) }}
+                  {% else %}
+                    {{ h.name }}
+                  {% endif %}
+                </dd>
+              {% endfor %}
+            </div>
+            <div class="project__detail-item">
+              <dt>Audience</dt>
+              {% for h in audience %}
+                <dd>{{ h }}</dd>
+              {% endfor %}
+            </div>
+            <div class="project__detail-item">
+              <dt>Duration</dt>
+              <dd>Around {{ duration[0] | duration }}</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </header>
+
+    {% if image != null %}
+      <img src="{{ '/assets/images' if image.startsWith("/") }}{{ image }}" alt="" class="project__image">
+    {% else %}
+      <img src="{{ cover.src }}" alt="{{ cover.alt }}" class="project__image" width="{{ cover.width }}" height="{{ cover.height }}">
+    {% endif %}
+
+    <section class="project__section">
+      {{content | safe}}
+      {% for section in resources %}
+        <h2>{{ section.heading }}</h2>
+        <div class="link-grid margin-block--xl">
+          {% for url in section.links %}
+            {% setAsync "meta" %}{{ url | metatags | dump | safe }}{% endsetAsync %}
+            {% set metadata = utils.jsonify(meta) %}
+            {% include 'components/ui/link-preview-card.njk' %}
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </section>
+
+    {% set footer = sections.talks.footer %}
+    <footer id="talks-footer" class="stack gap--xl m-block--xxxl" style="width: min(80ch, 90%); margin-inline: auto;">
+      <section class="content-wrapper margin--auto text-center margin-block-end--xxxl padding-block-end--xxxl">
+        <h2 class="fs-4 weight-700 font-sans m-block-end--none">{{ footer.title }}</h2>
+        <p class="font-sans m-block-start--none m-block-end--xl">{{ footer.description }}</p>
+        <ul class="margin-top--m cluster margin-inline--auto jc-center padding--none" style="list-style-type: '';">
+          {% for action in sections.talks.footer.actions %}
+            <a href="{{ action.url }}" class="{{ "primary" if action.isPrimary }} button">{{ action.label }}</a>
+          {% endfor %}
+        </ul>
+      </section>
+
+      {% include 'components/webmentions.njk' %}
+    </footer>
   </main>
   {% include 'components/footer.njk' %}
 {% endblock %}
 
 {% block scripts %}
-  
+
   {% set preferredDomain = site.domains | selectattr('isPreferred') | first %}
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
-        "name": "Navigation",
+      "name": "Navigation",
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
           "name": "Speaking",
           "item": "https://{{ preferredDomain.value }}/speaking/"
-        },
-        {
+        }, {
           "@type": "ListItem",
           "position": 2,
           "name": "{{ title | safe }}",

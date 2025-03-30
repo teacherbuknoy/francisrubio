@@ -1,0 +1,29 @@
+{% set mediaStyles %}
+  grid-column: {{ media.grid.column if media.grid.column else 'span 1' }};
+  grid-row: {{ media.grid.row if media.grid.row else 'span 1' }};
+{% endset %}
+{% set imageStyles %}
+  object-fit: {{ media.grid.fit if media.grid.fit else 'cover' }};
+  object-position: {{ media.grid.position if media.grid.position else 'center' }};
+  aspect-ratio: {{ media.grid.aspectRatio if media.grid.aspectRatio else "1/1" }}
+{% endset %}
+<figure class="gallery-card" style="{{ mediaStyles }}">
+  <div style="position:relative;">
+    <iframe src="{{ media.embed }}" 
+      loading="lazy" 
+      {% if media.width %} width="{{ media.width }}" {% endif %}
+      {% if media.height %} height="{{ media.height }}" {% endif %}
+      style="border:0;height:auto;width:100%;{{ imageStyles }}" 
+      allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" 
+      allowfullscreen="true"></iframe>
+  </div>
+  {% if media.caption %}
+    <figcaption class="gallery-card__caption">
+      {{ media.caption | markdown | safe }}
+    </figcaption>
+  {% elif media.credits %}
+    <figcaption class="gallery-card__caption gallery-card__caption--credits">
+      <p>{{ media.credits | safe }}</p>
+    </figcaption>
+  {% endif %}
+</figure>

@@ -1,6 +1,12 @@
 ---
-title: "Rosas, Hiyas, at Perlas"
-description: Keeping in touch with my feminine side as a queer person
+eleventyExcludeFromCollections: true
+permalink: /gallery/rosas-hiyas-at-perlas/en/
+translations:
+  - language: tl
+    url: /gallery/rosas-hiyas-at-perlas/
+title: "Roses, Gems, and Pearls"
+description: Honoring the feminine as a divine gift
+professional: true
 sizes: [200, 500, 700]
 types: [jpeg, webp, avif]
 folder: pride-2023
@@ -69,15 +75,15 @@ enum: # define filenames by number (e.g. 2.jpg, 3.jpg, etc.)
         "--img-object-position": top
         grid-column: 
     - overrideKey: 24
-      ignore: true
+      ignore: false
     - overrideKey: 29
-      ignore: true
+      ignore: false
     - overrideKey: 31
-      ignore: true
+      ignore: false
     - overrideKey: 30
-      ignore: true
+      ignore: false
     - overrideKey: 20
-      ignore: true
+      ignore: false
 count_per_statement: 7
 statements:
   - |

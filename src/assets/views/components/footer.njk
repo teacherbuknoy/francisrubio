@@ -21,9 +21,9 @@
   </nav>
 </noscript>
 <div class="bottom-fixed">
-  <a href="#top" class="primary button go-to-top" style="">
-    {% set feathericon = 'arrow-up' %}
-    {% include 'components/feathericon.njk' %}
+  <a href="#top" class="primary button go-to-top" id="top-link" style="animation: glitchify 1.5s infinite alternate,
+      link-glitch-alt 1.5s infinite alternate; animation-delay: 4s">
+    {{ 'arrow-up' | icon | safe }}
     <span class="sr-only">Back to top</span>
   </a>
   <noscript class="no-js__warning">
@@ -31,18 +31,29 @@
   </noscript>
 </div>
 <footer class="footer" id="main-footer">
+  <div class="footer__header webring font-sans">
+    <p>This website is part of the <a href="https://webring.antaresph.dev/">Pinoy Websites</a> web ring.</p>
+    <p>
+      <a href="https://webring.antaresph.dev/previous">Previous site</a>.
+      <a href="https://webring.antaresph.dev/random">Random site</a>.
+      <a href="https://webring.antaresph.dev/next">Next site</a>.
+    </p>
+  </div>
   <div class="footer__header font-sans">
     <p>&copy; {{ "" | year }} Francis Rubio. All rights reserved.</p>
-    <p>Powered by <a href="https://11ty.dev">Eleventy</a> and <a href="https://netlify.com">Netlify</a>.</p>
+    <p>Powered by <a href="https://11ty.dev">Eleventy</a> and <a href="https://vercel.com">Vercel</a>.</p>
   </div>
   <div class="footer__body">
     <div class="footer__section">
       <div class="cluster ai--center gap--m">
-        {% set logoClass = 'logo--large' %}
-        {% include "components/logo.njk" %}
-        <h2 class="responsive fs-4 font-sans weight-700 fg-primary-900" style="margin: 0;">Francis Rubio</h2>
+        <h2 class="responsive fs-4 font-sans weight-700 fg-primary-900" style="margin: 0;">
+          <span class="visually-hidden">Francis Rubio</span>
+          <span aria-hidden="true" class="logo-type">francisrub<span class="logo-dot">.</span>io</span>
+        </h2>
       </div>
       <p style="margin: 0; font-family: var(--font-sans);">Web designer, developer, and educator from the Philippines.</p>
+      <img class="not-by-ai hide-on-dark" src="/assets/images/not-by-ai/black.png" alt="Content in this site is purely produced, written, and created by humans, not by artificial intelligence.">
+      <img class="not-by-ai hide-on-light" src="/assets/images/not-by-ai/white.png" alt="Content in this site is purely produced, written, and created by humans, not by artificial intelligence.">
     </div>
     <div class="footer__section" id="footer-contact">
       <h2 class="footer__section-title">Contact Me</h2>
@@ -111,12 +122,261 @@
   <span class="p-nickname">teacherbuknoy</span>
   <div class="p-org">Antares Programming</div>
   <div class="p-job-title">Software Developer</div>
-  <img alt="Francis Rubio" class="u-photo" src="{{ site.photo }}"/>
-  <a class="u-url" rel="me" href="{{ domain.value }}">{{ domain.value }}</a>,
+  <img alt="Francis Rubio" class="u-photo" src="{{ site.photo }}" loading="lazy"/>
+  <a class="u-url" rel="me" href="https://{{ domain.value }}">{{ domain.value }}</a>,
   <a class="u-email" href="{{ site.contact.email.url }}">{{ site.contact.email.identifier }}</a>
   <div class="p-tel">{{ site.contact.phone.identifier }}</div>
   <span class="p-locality">Metro Manila</span>,
   <div class="p-country-name">Philippines</div>
   <time class="dt-bday">1999-01-13</time>
   <div class="p-note">Creator of Antares Programming</div>
+</div>
+
+<svg id="glitch-filters-global" aria-hidden="true">
+  <defs>
+    <filter id="glitch">
+      <feTurbulence baseFrequency=".005,.005" numOctaves="3" seed="0" type="fractalNoise" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G" result="distorteda"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G" result="distortedb"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G" result="distortedc"/>
+      <feColorMatrix in="distorteda" type="matrix" values="1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0" result="r"/>
+      <feColorMatrix in="distortedb" type="matrix" values="0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0" result="g"/>
+      <feColorMatrix in="distortedc" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0" result="b"/>
+      <feBlend in="r" in2="g" mode="lighten" result="rg"/>
+      <feBlend in="rg" in2="b" mode="lighten"/>
+    </filter>
+    <filter id="distort">
+      <feTurbulence baseFrequency="0.01 0.01" numOctaves="1" type="fractalNoise" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="G" yChannelSelector="G" result="distortg"/>
+    </filter>
+    <filter id="image-distort">
+      <feTurbulence baseFrequency="0.01 0.01" numOctaves="1" type="fractalNoise" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="G" yChannelSelector="G" result="distortg"/>
+    </filter>
+    <filter id="image-distort-noanim">
+      <feTurbulence baseFrequency="0.01 0.01" numOctaves="1" type="fractalNoise" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="G" yChannelSelector="G" result="distortg"/>
+    </filter>
+
+    <filter
+            id="chromatic-aberration">
+      <feOffset
+                dx="-10"
+                dy="0"
+                id="feOffset22"
+                in="SourceGraphic"
+                result="result1"/>
+      <feOffset
+                dx="10"
+                dy="0"
+                id="feOffset24"
+                in="SourceGraphic"
+                result="result2"/>
+      <feOffset
+                dx="1"
+                dy="0"
+                id="feOffset26"
+                in="SourceGraphic"
+                result="result3"/>
+      <feColorMatrix
+                     id="feColorMatrix28"
+                     in="result1"
+                     values="1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 "
+                     result="result4"/>
+      <feColorMatrix
+                     id="feColorMatrix30"
+                     in="result2"
+                     values="0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 "
+                     result="result5"/>
+      <feColorMatrix
+                     id="feColorMatrix32"
+                     in="result3"
+                     values="0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 "
+                     result="result6"/>
+      <feBlend
+               mode="screen"
+               id="feBlend34"
+               in="result4"
+               in2="result5"
+               result="result7"/>
+      <feBlend
+               mode="screen"
+               id="feBlend36"
+               in="result6"
+               in2="result7"/>
+    </filter>
+    <filter
+            id="color-interpolation">
+      <feOffset
+                dx="-1"
+                dy="0"
+                id="feOffset16"
+                in="SourceGraphic"
+                result="result1"/>
+      <feOffset
+                dx="0"
+                dy="0"
+                id="feOffset18"
+                in="SourceGraphic"
+                result="result2"/>
+      <feOffset
+                dx="1"
+                dy="0"
+                id="feOffset20"
+                in="SourceGraphic"
+                result="result3"/>
+      <feColorMatrix
+                     id="feColorMatrix22"
+                     in="result1"
+                     values="1 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0 "
+                     result="result4"/>
+      <feColorMatrix
+                     id="feColorMatrix26"
+                     in="result2"
+                     values="0 0 0 0 1 0 1 0 0 0 0 0 0 0 1 0 0 0 1 0 "
+                     result="result5"/>
+      <feColorMatrix
+                     id="feColorMatrix29"
+                     in="result3"
+                     values="0 0 0 0 1 0 0 0 0 1 0 0 1 0 0 0 0 0 1 0 "
+                     result="result6"/>
+      <feBlend
+               mode="multiply"
+               id="feBlend31"
+               in="result4"
+               in2="result5"
+               result="result7"/>
+      <feBlend
+               mode="multiply"
+               id="feBlend33"
+               in="result6"
+               in2="result7"/>
+    </filter>
+
+    <filter id="threshold">
+      <feColorMatrix type="matrix" values="0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0"/>
+
+      <feConvolveMatrix order="3 3" preserveAlpha="true" divisor=".2" bias="-0.15" kernelMatrix="-1,-1,-1 -1,9,-1 -1,-1,-1"/>
+      <feComponentTransfer result="componentTransfert">
+        <feFuncR type="discrete" tableValues=" 0 1 1 1 1"/>
+        <feFuncG type="discrete" tableValues=" 0 1 1 1 1"/>
+        <feFuncB type="discrete" tableValues=" 0 1 1 1 1"/>
+      </feComponentTransfer>
+      <feBlend
+               mode="color-burn"
+               id="feBlend34"
+               in="componentTransfert"
+               in2="SourceGraphic"
+               result="result7"/>
+    </filter>
+    <filter id="noise-filter" color-interpolation-filters="linearRGB">
+      <feTurbulence type="turbulence" baseFrequency="0.902" numOctaves="4" seed="15" stitchTiles="stitch" result="turbulence"></feTurbulence>
+      <feSpecularLighting surfaceScale="15" specularConstant="0.75" specularExponent="20" lighting-color="#7957A8" in="turbulence" result="specularLighting">
+        <feDistantLight azimuth="3" elevation="100"></feDistantLight>
+      </feSpecularLighting>
+      <feBlend
+               mode="screen"
+               id="feBlend34"
+               in="SourceGraphic"
+               in2="specularLighting"
+               result="result7"/>
+    </filter>
+    <filter id="blurred">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="13" result="blurred"/>
+      <feComposite operator="atop" in="SourceGraphic" in2="blurred"/>
+    </filter>
+    <filter id="motion-blur">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2,0"/>
+    </filter>
+  </defs>
+</svg>
+
+<style>
+
+  body:has(.loading-screen.shown) {
+    overflow: hidden;
+  }
+
+  .loading-screen {
+    position: fixed;
+    background-color: hsl(0 0 0 / 25%);
+    background-image: url("/assets/images/glass.svg");
+    background-size: cover;
+    backdrop-filter: blur(12px);
+    inset: 0;
+    display: grid;
+    visibility: collapsed;
+    place-content: center;
+    gap: 1rem;
+    transition: opacity 300ms, scale 700ms, visibility 300ms 700ms, z-index 300ms 700ms, transform 0 700ms;
+    pointer-events: none;
+    z-index: 9999;
+
+    position: absolute;
+    opacity: 0;
+    scale: 2;
+    z-index: -1;
+    transform: translateX(-100%);
+
+    & > * {
+      animation: glitchify 1.5s infinite alternate, link-glitch-alt 1.5s infinite alternate;
+    }
+  }
+
+  .loading-container {
+    display: grid;
+    gap: 1rem;
+    transition: opacity 300ms;
+    container-type: inline-size;
+
+    &::after,
+    &::before {
+      content: '';
+      aspect-ratio: 1/1;
+      height: 1rem;
+      background-color: hsl(var(--primary-500));
+      grid-row: 2/3;
+      grid-column: 1/2;
+      animation: loading 2s infinite alternate;
+      transition: scale 300ms;
+    }
+
+    &::after {
+      justify-self: end;
+      background-color: hsl(var(--secondary-500));
+      animation-name: loading-reverse;
+    }
+  }
+
+  body:has(#top-link:is(:hover, :focus-visible)) .loading-screen,
+  body.show-loader:has(:is(a, button):is(:hover, :focus-visible)) .loading-screen {
+    display: grid;
+    opacity: 1;
+    position: fixed;
+    scale: 1;
+    transform: none;
+    transition: opacity 300ms 300ms, scale 700ms 300ms, visibility 300ms 700ms, z-index 300ms 700ms, transform 0 700ms;
+    visibility: visible;
+    z-index: 99999;
+  }
+
+  @keyframes loading {
+    to {
+      translate: 80cqw;
+      rotate: 180deg;
+    }
+  }
+
+  @keyframes loading-reverse {
+    to {
+      translate: -80cqw;
+      rotate: -180deg;
+    }
+  }
+</style>
+
+<div class="loading-screen" id="loader" aria-hidden="true">
+  {% include "components/ui/logo.njk" %}
+  <p class="text-align--center">June 27, 2025</p>
+  <div class="loading-container"></div>
 </div>

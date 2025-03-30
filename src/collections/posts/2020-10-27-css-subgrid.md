@@ -65,7 +65,7 @@ This is in and of itself very powerful. It is unlike anything we have seen on th
 
 We will see in the next image that the container's immediate children, the `.card`s, align to the container's grid tracks. The cards' contents, however, do not align, as is shown by the red dashed lines.
 
-![Gray cards laid out in a grid. Two red dashed lines are drawn across the cards to show that none of the cards' headings and paragraphs align with other cards' contents.](/assets/images/posts/css-subgrid/Cards_no subgrid.png)
+![Gray cards laid out in a grid. Two red dashed lines are drawn across the cards to show that none of the cards' headings and paragraphs align with other cards' contents.](/assets/images/posts/css-subgrid/cards-with-subgrid.png)
 
 We could fix this by assigning fixed height to the cards' contents. This however would not be ideal in cases where the length of the content is unknown. This is where subgrid comes in.
 

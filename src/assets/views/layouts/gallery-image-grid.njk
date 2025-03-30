@@ -1,0 +1,117 @@
+{% set layoutStylesheets = ['mastodon.css'] %}
+{% extends "layouts/main.njk" %}
+{% block content %}
+  {% include "components/ui/navigation-bar.njk" %}
+  <main id="main" class="padding--l article gallery-layout" tabindex="-1" aria-labelledby="{{ title | slugify }}">
+    <header class="article__header" style="width: min(100ch, 100%); margin-inline: auto">
+      <nav class="breadcrumb" aria-label="Breadcrumbs">
+        <ol class="breadcrumb__list">
+          <li class="breadcrumb__list-item">
+            <a href="/" class="breadcrumb__link" data-animation="button">Frontpage</a>
+          </li>
+          <li class="breadcrumb__list-item">
+            <a href="/gallery/" class="breadcrumb__link" data-animation="button">Gallery</a>
+          </li>
+          <li class="breadcrumb__list-item">
+            <a aria-current="location" class="breadcrumb__link" data-animation="button">This collection</a>
+          </li>
+        </ol>
+      </nav>
+      <h1 style="view-transition-name: {{ title | slugify }};" id="{{ title | slugify }}" class="pname article__title margin--none responsive">{{ title | safe }}</h1>
+      <p class="p-summary responsive fs-4 weight-300">{{ description | safe }}</p>
+      <div class="spaced cluster">
+        <div>
+          Curated by <a rel="author" class="p-author h-card" href="{{ authors[author].url }}">
+            <span class="p-name">{{ authors[author].name }}</span>
+            <img class="u-photo hidden" src="{{ authors[author].photo }}"/>
+          </a>
+          on <time class="dt-published" datetime="{{ page.date | machineReadableDate }}">
+            <a class="u-url" href="{{ page.url }}">{{ page.date | humanReadableDate }}</a>
+          </time>
+        </div>
+      </div>
+    </header>
+    <div class="gallery__body" style="width: min(120ch, 100%); margin-inline: auto">
+
+      <div class="font-sans text-align--center">
+        {{ content | safe }}
+      </div>
+
+      {% for section in parts %}
+        <section>
+          {% if section.content %}
+            {% set contentStyle %}
+              {% for key, value in section.contentStyle %}
+                {{ key }}: {{ value }};
+              {% endfor %}
+            {% endset %}
+            <div class="statement" style="{{ contentStyle }}">
+              {{ section.content | markdown | safe }}
+            </div>
+          {% endif %}
+          {% if section.media %}
+            {% set sourceUrl = source.type + '/' + source.folder + "/" %}
+            {% set imageUrl = site.api.images + sourceUrl %}
+            <div class="gallery-symmetrical-grid">
+              {% for media in section.media %}
+                {% if media.type === 'image' %}
+                  {% include "components/ui/gallery-card.njk" %}
+                {% elif media.type === 'embed' %}
+                  {% include "components/ui/gallery-embed.njk" %}
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% endif %}
+        </section>
+      {% endfor %}
+    </div>
+
+    <section aria-labelledby="section-ig-title" class="stack gap--xl m-block--xxxl" style="text-align: center; margin-inline: auto; width: min(var(--content-width), 90%);">
+      <div class="section__header">
+        <hgroup role="group">
+          <h2 id="section-ig-title" class="section__subtitle fs-3">I also serve visuals somewhere else.</h2>
+          <p style="text-align: left;">Drag, make up, outfits, places, and moments. I post most of them on Instagram.</p>
+        </hgroup>
+      </div>
+      <div class="stack ai--center gap--s">
+        <a href="{{ site.contact.instagram.url }}" class="primary button" target="blank" rel="noopener">
+          {{ "instagram" | icon | safe }}
+          <span>Follow me on Instagram</span>
+        </a>
+      </div>
+    </section>
+
+    <footer class="stack padding--l">
+      <div class="margin-block--xxxl">
+        {% include 'components/email-form.njk' %}
+      </div>
+      {% include 'components/webmentions.njk' %}
+    </footer>
+  </main>
+  {% include 'components/footer.njk' %}
+{% endblock %}
+
+{% block scripts %}
+
+  {% set preferredDomain = site.domains | selectattr('isPreferred') | first %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "name": "Navigation",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Gallery",
+          "item": "https://{{ preferredDomain.value }}/gallery/"
+        }, {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{{ title | safe }}",
+          "item": "https://{{ preferredDomain.value }}{{ page.url }}"
+        }
+      ]
+    }
+  </script>
+{% endblock %}

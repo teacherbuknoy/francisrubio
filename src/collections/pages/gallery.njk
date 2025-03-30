@@ -7,13 +7,15 @@ pagination:
   reverse: true
 permalink: /gallery/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html
 activePath: gallery
+eleventyImport:
+  collections: ["gallery"]
 ---
 
 <section class="page" aria-labelledby="section-heading-4">
   <div class="page__cover" style="--page-cover-image: image-set(
-    url(https://ik.imagekit.io/8jjzxcl9p/tr:f-avif/index/cover-pride-gallery.png) type('image/avif'),
-    url(https://ik.imagekit.io/8jjzxcl9p/tr:f-webp/index/cover-pride-gallery.png) type('image/webp'),
-    url(https://ik.imagekit.io/8jjzxcl9p/tr:f-png/index/cover-pride-gallery.png) type('image/png')
+    url(https://ik.imagekit.io/8jjzxcl9p/tr:f-avif/index/pride-month-2024/cover-gallery.png) type('image/avif'),
+    url(https://ik.imagekit.io/8jjzxcl9p/tr:f-webp/index/pride-month-2024/cover-gallery.png) type('image/webp'),
+    url(https://ik.imagekit.io/8jjzxcl9p/tr:f-png/index/pride-month-2024/cover-gallery.png) type('image/png')
   )">
     <hgroup class="page__header">
       <span id="section-heading-4" class="uppercase ls-l font-sans" data-baybayin="{{ sections.gallery.baybayin_label }}">{{ sections.gallery.label | safe }}</span>
@@ -24,9 +26,21 @@ activePath: gallery
   <div class="page__inner">
     <div class="padding-block--xl gap--l symmetrical gallery-grid">
       {% for item in pagination.items %}
-        <div>
-          {% include 'components/gallery-entry.njk' %}
-        </div>
+        {% set recentlyUpdated = true %}
+        {% set entryIsNew = loop.first %}
+
+        {% if item.data.professional %}
+          <div>
+            {% include 'components/gallery-entry.njk' %}
+          </div>
+        {% endif %}
+      {% endfor %}
+      {% for item in pagination.items %}
+        {% if not item.data.professional %}
+          <div>
+            {% include 'components/gallery-entry.njk' %}
+          </div>
+        {% endif %}
       {% endfor %}
     </div>
   </div>

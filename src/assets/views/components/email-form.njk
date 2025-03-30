@@ -4,8 +4,7 @@
     <div class="modal__header">
       <h2 class="modal__title" id="heading-contact-form">Contact Form</h2>
       <button class="icon-only button" style="padding: var(--space-m)" data-dialog-hide>
-        {% set feathericon = 'x' %}
-        {% include "components/feathericon.njk" %}
+        {{ 'x' | icon | safe }}
         <span class="sr-only">Close dialog</span>
       </button>
     </div>

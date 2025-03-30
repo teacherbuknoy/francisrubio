@@ -1,10 +1,10 @@
 .webmentions {
   &--summary {
-    display         : flex;
-    justify-content : space-between;
-    gap             : 2ch;
-    z-index         : 3;
-    position        : relative;
+    display        : flex;
+    justify-content: space-between;
+    gap            : 2ch;
+    z-index        : 3;
+    position       : relative;
   }
 }
 
@@ -42,15 +42,28 @@
   list-style: none;
 
   &.likes {
-    display  : flex;
-    flex-wrap: wrap;
-    gap      : 1ch;
+    display     : flex;
+    flex-wrap   : wrap;
+    gap         : 1ch;
+    margin-block: var(--space-xxl);
   }
 
   &.replies {
-    display       : flex;
-    flex-direction: column;
-    gap           : 1ch;
+    background-color: hsl(var(--bg-secondary)/25%);
+    border-radius   : var(--ideal-radius);
+    display         : flex;
+    flex-direction  : column;
+    gap             : 1ch;
+  }
+
+  .entry {
+    --card-bg      : var(--bg-secondary) / 0%;
+    --outline-alpha: 30%;
+    box-shadow     : none;
+
+    .profile__avatar {
+      border: 3px solid hsl(var(--bg-primary) / 0);
+    }
   }
 }
 
@@ -73,6 +86,7 @@
   display    : flex;
   gap        : 1ch;
 
+  [data-webmention-entry=placeholder],
   &-photo {
     --photo-size : 5ch;
     aspect-ratio : 1;
@@ -172,6 +186,7 @@
     font-family    : var(--font-sans);
     padding-bottom : 0;
 
+    [data-webmention-entry=placeholder],
     .webmention__author-photo {
       --photo-size : 3ch;
       border-radius: 100%;
@@ -250,4 +265,46 @@ img[src*="custom_emojis"] {
   height        : 2ch;
   vertical-align: bottom;
   width         : auto;
+}
+
+[data-webmention-entry="placeholder"] {
+  align-items            : center;
+  background-color       : hsl(var(--primary-300));
+  color                  : hsl(var(--l-contrast));
+  display                : flex;
+  font-family            : var(--font-ui);
+  font-variation-settings: 'wght'700;
+  justify-content        : center;
+  outline                : 2px solid hsl(var(--primary-100));
+
+  &.profile__avatar {
+    border       : none;
+    width        : 3em;
+    outline-width: 4px;
+  }
+}
+
+.webmention__title {
+  font-family            : var(--font-sans);
+  font-weight            : bold;
+  font-variation-settings: 'wght'700;
+  margin                 : 0;
+  font-size              : var(--type-size-4);
+}
+
+[data-webmention-type="mention-of"] .entry__body {
+  padding: var(--space);
+}
+
+.webmention__type {
+  margin: 0;
+}
+
+.profile__meta {
+  line-height: 1;
+  align-self : end;
+}
+
+.profile__identifier {
+  color: hsl(var(--fg-default) / 70%);
 }

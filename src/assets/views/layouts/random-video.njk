@@ -1,0 +1,105 @@
+{% if language %}
+  {% set lang = language %}
+{% elif lang == null %}
+  {% set lang = 'en-US' %}
+{% endif %}
+<!DOCTYPE html>
+<html lang="{{ lang }}" prefix="og: https://ogp.me/ns#">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title | safe }}</title>
+
+    {% include "components/seo.njk" %}
+    {% set domain = site.domains | selectattr('isPreferred') | first %}
+
+    <meta property="og:video" content="{{ video.url }}">
+    <meta property="og:video:secure_url" content="https://{{ domain.value }}{{ page.url }}">
+    <meta property="og:video:type" content="video/mp4">
+    <meta property="og:video:width" content="{{ video.width if video.width else 1920 }}">
+    <meta property="og:video:height" content="{{ video.height if video.height else 1080 }}">
+
+    <meta name="twitter:player" content="https://{{ domain.value }}{{ page.url }}"/>
+    <meta name="twitter:player:width" content="{{ video.width if video.width else 1920 }}"/>
+    <meta name="twitter:player:height" content="{{ video.height if video.height else 1080 }}"/>
+    {% include "components/stylesheets.njk" %}
+
+    <script>
+      !function (t, e) {
+        var o,
+          n,
+          p,
+          r;
+        e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) {
+          function g(t, e) {
+            var o = e.split(".");
+            2 == o.length && (t = t[o[0]], e = o[1]),
+            t[e] = function () {
+              t.push([e].concat(Array.prototype.slice.call(arguments, 0)))
+            }
+          }(p = t.createElement("script")).type = "text/javascript",
+          p.async = !0,
+          p.src = s
+            .api_host
+            .replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js",
+          (r = t.getElementsByTagName("script")[0])
+            .parentNode
+            .insertBefore(p, r);
+          var u = e;
+          for (
+            void 0 !== a
+            ? u = e[a] = []
+            : a = "posthog",
+          u.people = u.people || [],
+          u.toString = function (t) {
+            var e = "posthog";
+            return "posthog" !== a && (e += "." + a),
+            t || (e += " (stub)"),
+            e
+          },
+          u.people.toString = function () {
+            return u.toString(1) + ".people (stub)"
+          },
+          o = "capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),
+          n = 0; n < o.length; n++) 
+            g(u, o[n]);
+          e
+            ._i
+            .push([i, s, a])
+        }, e.__SV = 1)
+      }(document, window.posthog || []);
+      posthog.init('phc_hQfZ26wKISqLmuxej0JFH0gAD1OwBlw0PNXxnVwZRbz', {
+        api_host: 'https://us.i.posthog.com',
+        person_profiles: 'identified_only' // or 'always' to create profiles for anonymous users as well
+      })
+    </script>
+
+    <style>
+      video {
+        background-color: black;
+        height: 100vh;
+        width: 100vw;
+      }
+    </style>
+  </head>
+  <body class="no-js">
+    {% block content %}
+      {{ content | safe }}
+    {% endblock %}
+
+    <div class="notification-container" aria-live="polite" role="log" data-notification-container>
+      <template>
+        <div class="toast success" hidden="true">
+          <svg class="feathericon">
+            <use href="/assets/images/feather-sprite.svg#check-circle"></use>
+          </svg>
+          <span class="toast__title">This is a toast</span>
+          <span class="toast__message">We're just trying to display a toast. That's all.</span>
+        </div>
+      </template>
+    </div>
+    {% include "components/scripts.njk" %}
+    {% block scripts %}{% endblock %}
+  </body>
+</html>

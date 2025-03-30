@@ -1,0 +1,44 @@
+{
+  "redirects": [
+    {
+      "source": "/speaker-rider/",
+      "destination": "/speaking/information-for-event-organizers/",
+      "statusCode": 301
+    },
+    {
+      "source": "/instagram/",
+      "destination": "/links/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ar-mobile",
+      "destination": "/speaking/augmented-reality-mobile-apps/",
+      "statusCode": 301
+    },
+    {
+      "source": "/speaker-rider",
+      "destination": "/speaking/information-for-event-organizers/",
+      "statusCode": 301
+    },
+    {
+      "source": "/profile-picture",
+      "destination": "/assets/images/profile-picture/dp.jpg",
+      "statusCode": 301
+    },
+    {
+      "source": "/talks/",
+      "destination": "/speaking/",
+      "statusCode": 301
+    },
+    {
+      "source": "/writing/antares-programming-videos/",
+      "destination": "/writing/en/antares-programming-videos/",
+      "statusCode": 301
+    },
+    {
+      "source": "/gallery/mga-lamuymoy-talulot-at-iba-pang-mga-salitang-nakuha-ko-sa-tesauro/",
+      "destination": "/gallery/tagos-ng-silahis/",
+      "statusCode": 301
+    }
+  ]
+}

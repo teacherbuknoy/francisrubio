@@ -1,6 +1,8 @@
 import { removeChildren } from "../utilities/dom";
 
 class NotificationManager {
+  #events
+
   /**
    * Creates an instance of NotificationManager.
    * @param {HTMLElement} element the notification container.
@@ -10,6 +12,11 @@ class NotificationManager {
   constructor(element) {
     this._element = element;
     removeChildren(this._element)
+
+    this.#events = {
+      shown: [],
+      hidden: []
+    }
   }
 
   /**
@@ -37,6 +44,7 @@ class NotificationManager {
     notification.innerHTML += `<span class="toast__message">${message}</span>`;
 
     this._element.appendChild(notification);
+    this.#events.shown.forEach(fn => fn({ title, message, type, timeoutMS }))
 
     let isMouseOver = false;
     notification.addEventListener("mouseover", (e) => {
@@ -54,6 +62,7 @@ class NotificationManager {
         notification.classList.remove("shown");
         setTimeout(() => {
           notification.remove();
+          this.#events.hidden.forEach(fn => fn({ title, message, type, timeoutMS }))
         }, 300);
       }
     };
@@ -62,6 +71,10 @@ class NotificationManager {
       notification.classList.add("shown");
       setTimeout(notificationDismisser, timeoutMS);
     }, 100)
+  }
+
+  addEventListener(eventName, callback) {
+    this.#events[eventName].push(callback)
   }
 }
 

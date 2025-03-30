@@ -7,13 +7,15 @@ pagination:
   reverse: true
 permalink: /literature/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html
 activePath: literature
+eleventyImport:
+  collections: ['literature']
 ---
 <section class="page" aria-labelledby="section-heading-4">
   <header class="page__cover" style="
     --page-cover-image: image-set(
-      url('https://ik.imagekit.io/8jjzxcl9p/tr:f-avif/index/cover-pride-literature.png') type('image/avif'),
-      url('https://ik.imagekit.io/8jjzxcl9p/tr:f-webp/index/cover-pride-literature.png') type('image/webp'),
-      url('https://ik.imagekit.io/8jjzxcl9p/tr:f-png/index/cover-pride-literature.png') type('image/png')
+      url('https://ik.imagekit.io/8jjzxcl9p/tr:f-avif/index/pride-month-2024/cover-gallery-1.png') type('image/avif'),
+      url('https://ik.imagekit.io/8jjzxcl9p/tr:f-webp/index/pride-month-2024/cover-gallery-1.png') type('image/webp'),
+      url('https://ik.imagekit.io/8jjzxcl9p/tr:f-png/index/pride-month-2024/cover-gallery-1.png') type('image/png')
       )
     ">
     <hgroup role="group" class="page__header">
@@ -44,7 +46,8 @@ activePath: literature
   </a>
 </div>
 
-{% include "components/banners/webring-banner.njk" %}
+{% include "components/banners/commissions-banner.njk" %}
+{% include 'components/email-form.njk' %}
 
 <footer class="stack gap--xl m-block--xxxl" style="text-align: center; margin-inline: auto; width: min(var(--content-width), 90%);">
   <div class="section__header">

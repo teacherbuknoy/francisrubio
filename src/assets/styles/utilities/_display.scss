@@ -8,6 +8,10 @@
   &__expand {
     flex: 1;
   }
+
+  &-wrap {
+    flex-wrap: wrap;
+  }
 }
 
 $display: block, inline, inline-block, flex, inline-flex, grid, inline-grid;

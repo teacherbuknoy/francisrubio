@@ -11,7 +11,7 @@ cover:
   sizes: [300, 500, 700]
   formats: ['jpg', 'webp']
 author: teacherbuknoy
-category: [projects, web development]
+category: [projects, web development, Antares Programming]
 language: en
 ---
 I started Antares Programming in late 2018 as a Facebook page where I advertise my services as a freelance web developer and designer. Since then it has grew into a passion project that has helped me become a better developer, designer, and educator.
