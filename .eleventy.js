@@ -1,18 +1,23 @@
-const passthroughs = require('./src/config/passthroughs')
-const collections = require('./src/config/collections')
-const filters = require('./src/config/filters')
-const watchtargets = require('./src/config/watchtargets')
-const plugins = require('./src/config/plugins')
-const shortcodes = require('./src/config/shortcodes')
-const { loadFilters } = require('./src/config/scopedFilters')
+import passthroughs from './src/config/passthroughs.js'
+import collections from './src/config/collections.js'
+import filters from './src/config/filters.js'
+import watchtargets from './src/config/watchtargets.js'
+import plugins from './src/config/plugins.js'
+import shortcodes from './src/config/shortcodes.js'
+import { loadFilters } from './src/config/scopedFilters.js'
+import scripts from './src/assets/scripts/__scripts.js'
 
-const path = require('path')
-const prettier = require('prettier')
-const yaml = require('yaml')
+import esbuild from 'esbuild'
+import path from 'path'
+import prettier from 'prettier'
+import yaml from 'yaml'
+import { config } from 'dotenv'
 
-require('dotenv').config()
+import markdown from './src/config/markdown.js'
 
-module.exports = function (eleventyConfig) {
+config()
+
+export default function (eleventyConfig) {
   Object.keys(shortcodes).forEach(key => {
     if (shortcodes[key].isPaired) {
       eleventyConfig.addPairedShortcode(key, shortcodes[key].shortcode)
@@ -73,33 +78,7 @@ module.exports = function (eleventyConfig) {
     return new Date().toISOString()
   })
 
-  const markdownIt = require('markdown-it')
-  const markdownItAnchor = require('markdown-it-anchor')
-  const slug = require('slug')
-
-  eleventyConfig.setLibrary(
-    'md',
-    markdownIt({
-      html: true,
-      linkify: true,
-      typographer: true
-    })
-      .use(markdownItAnchor, {
-        slugify: s => slug(s),
-        permalink: markdownItAnchor.permalink.linkInsideHeader({
-          symbol: `
-            <svg class="feather" aria-hidden="true"><use href="/assets/images/feather-sprite.svg#link-2" /></svg>
-          `,
-          renderAttrs: slug => ({ 'aria-label': 'Link to this header' })
-        })
-      })
-      .use(require('markdown-it-deflist'))
-      .use(require('markdown-it-abbr'))
-      .use(require('markdown-it-footnote'))
-      .use(require('markdown-it-attrs'))
-      .use(require('markdown-it-sup'))
-      .disable('code')
-  )
+  eleventyConfig.setLibrary('md', markdown)
 
   eleventyConfig.addTransform('prettier', function (content, outputPath) {
     const extname = path.extname(outputPath)
@@ -112,6 +91,26 @@ module.exports = function (eleventyConfig) {
       default:
         return content
     }
+  })
+
+  eleventyConfig.addTransform('focusableCodeSnippets', function (content, outputPath) {
+    const extname = path.extname(outputPath)
+    if (extname === '.html') {
+      return content.replaceAll(/<pre\s*class="language/gm, '<pre tabindex="0" class="language')
+    }
+
+    return content
+  })
+
+  // Script bundler
+  console.log("[SCRIPT] Building scripts", scripts)
+  eleventyConfig.on('eleventy.before', async () => {
+    await esbuild.build({
+      entryPoints: scripts.map(s => `src/assets/scripts/${s}`),
+      bundle: true,
+      outdir: "public/assets/scripts/",
+      sourcemap: true,
+    })
   })
 
   // Always return

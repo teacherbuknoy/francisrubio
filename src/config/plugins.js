@@ -1,10 +1,17 @@
-module.exports = {
+import syntaxHighlight from '@11ty/eleventy-plugin-syntaxhighlight'
+import timeToRead from 'eleventy-plugin-time-to-read'
+import toc from 'eleventy-plugin-toc'
+import rss from '@11ty/eleventy-plugin-rss'
+import { EleventyRenderPlugin } from '@11ty/eleventy'
+import unfurl from 'eleventy-plugin-unfurl'
+
+export default {
   syntaxHighlight: function () {
-    return { plugin: require('@11ty/eleventy-plugin-syntaxhighlight') }
+    return { plugin: syntaxHighlight }
   },
   timeToRead: function () {
     return {
-      plugin: require('eleventy-plugin-time-to-read'),
+      plugin: timeToRead,
       options: {
         output: data => {
 
@@ -23,7 +30,7 @@ module.exports = {
   },
   toc: function () {
     return {
-      plugin: require('eleventy-plugin-toc'),
+      plugin: toc,
       options: {
         wrapperClass: "article__toc sidebar",
         tags: ['h2']
@@ -32,13 +39,13 @@ module.exports = {
   },
   rss: function () {
     return {
-      plugin: require('@11ty/eleventy-plugin-rss')
+      plugin: rss
     }
   },
   render: function () {
     return {
-      plugin: require('@11ty/eleventy').EleventyRenderPlugin
+      plugin: EleventyRenderPlugin
     }
   },
-  unfurl: () => ({ plugin: require("eleventy-plugin-unfurl") })
+  unfurl: () => ({ plugin: unfurl })
 }

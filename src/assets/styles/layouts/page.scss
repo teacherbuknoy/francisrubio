@@ -5,6 +5,10 @@
     padding-block: var(--space-xl);
     width        : min(100ch, 90%);
     margin-inline: auto;
+
+    &:has(> .gallery-grid) {
+      width: min(120ch, 90%);
+    }
   }
 
   &__cover {
@@ -12,7 +16,7 @@
 
     --offset           : calc(-5.7rem - 10vh);
     align-content      : end;
-    background-color   : #d82b3b;
+    background-color   : hsl(331 100% 45% / 100%);
     background-position: top right;
     background-repeat  : no-repeat;
     background-size    : cover;
@@ -27,8 +31,8 @@
     }
 
     [data-baybayin]::after {
-      mix-blend-mode: multiply;
-      color         : hsl(var(--primary-100));
+      opacity: 0.75;
+      color: hsl(var(--secondary-900)) !important;
     }
   }
 

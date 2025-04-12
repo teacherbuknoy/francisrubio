@@ -7,8 +7,10 @@ class SlurToggle {
    */
   constructor(button) {
     this.button = button
-    this.button.setAttribute('aria-pressed', false)
     this.button.addEventListener('click', e => this.toggle())
+    
+    this.content = button.querySelector('[data-slur-content]')
+    this.pressed = false
   }
 
   toggle() {
@@ -16,8 +18,14 @@ class SlurToggle {
     this.pressed = isTrue ? false : true
   }
 
-  set pressed(value = null) {
-    this.button.setAttribute('aria-pressed', value)
+  set pressed(isPressed = null) {
+    this.button.setAttribute('aria-pressed', isPressed)
+
+    if (isPressed) {
+      this.content.removeAttribute('aria-hidden')
+    } else {
+      this.content.setAttribute('aria-hidden', true)
+    }
   }
 
   get pressed() {

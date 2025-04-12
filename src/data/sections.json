@@ -1,4 +1,10 @@
 {
+  "services": {
+    "label": "Services",
+    "baybayin_label": "ᜋᜈ᜔ᜄ ᜐᜒᜍ᜔ᜊᜒᜐ᜔ᜌ᜔o",
+    "title": "What I can do for you",
+    "description": null
+  },
   "experience": {
     "label": "Experience",
     "baybayin_label": "ᜃᜍᜈᜐᜈ᜔",
@@ -78,5 +84,11 @@
     "baybayin_label": "ᜊᜅ᜔ᜄᜒᜆ᜔ᜐᜉᜓᜆ᜔",
     "title": "Shoutouts from the interwebs",
     "description": "When I screamed into the void, the void screamed back. And these are what they had to say."
+  },
+  "webring": {
+    "label": "Web Ring",
+    "baybayin_label": "ᜃᜏᜒᜅ᜔",
+    "title": "Pinoy Websites",
+    "description": "<a href=\"https://webringdemo.netlify.com\">Pinoy Websites</a> is a webring of Filipino people with blogs. Your blog can be about anything. It can be about design, development, architecture, medicine, cross-stitching, knitting, puzzles, travelling—anything!</p>"
   }
 }

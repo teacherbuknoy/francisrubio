@@ -1,0 +1,19 @@
+---
+title: Webmentions - Francis Rubio
+description: Test page
+pagination:
+  data: collections.webmentions
+  size: 8
+  reverse: true
+  alias: webmentions
+permalink: /webmentions/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html
+activePath: null
+eleventyImport:
+  collections: ['webmentions']
+---
+
+<ol>
+  {% for item in webmentions %}
+    <li><a href="{{ item.url }}">{{ item.data.title }}: {{ item.data.author.name }}</a></li>
+  {% endfor %}
+</ol>

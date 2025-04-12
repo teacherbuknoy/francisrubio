@@ -13,7 +13,7 @@
 .scroll-snapper {
   //scroll-snap-type: x mandatory;
   overflow-x     : auto;
-  padding-inline : 25ch !important;
+  padding-inline : 25ch;
   scroll-behavior: smooth;
   scroll-timeline: --scroll-snapper inline;
   transition     : scrollbar-color 100ms;
@@ -39,7 +39,7 @@
   @at-root .section__inner & {
     width         : 100vw;
     margin-inline : calc((100vw - min(100ch, 98vw)) / -2);
-    padding-inline: 40vw !important;
+    padding-inline: 40vw;
   }
 }
 

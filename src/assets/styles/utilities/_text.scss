@@ -135,11 +135,11 @@ $line-heights: (xxxs: 0.5,
 /* #endregion */
 
 .quotation {
-  --border: 3px solid hsl(var(--primary-100));
-  border-inline-end: var(--border);
-  padding          : var(--space);
-  margin           : 0;
-  text-align       : end;
+  --border  : 3px solid hsl(var(--primary-100));
+  border    : none;
+  padding   : var(--space);
+  margin    : 0;
+  text-align: center;
 
   blockquote,
   &:is(blockquote) {
@@ -167,18 +167,24 @@ $line-heights: (xxxs: 0.5,
 
   figcaption {
     font-family: var(--font-sans);
+    text-align : end;
   }
 
   figcaption::before {
     content: "— ";
   }
 
-  &.quotation--small {
-    border       : 0;
-    grid-column  : 2/3;
+  &.quotation--small,
+  &.quotation--medium {
+    border: 0;
+
     margin-inline: auto;
     text-align   : start;
     width        : 80%;
+
+    &:not(.quotation--unfloated) {
+      grid-column: 2/3;
+    }
 
     blockquote {
       font-size              : 1em;
@@ -196,6 +202,14 @@ $line-heights: (xxxs: 0.5,
     }
   }
 
+  &.quotation--medium {
+    width: 100%;
+
+    blockquote {
+      font-size: 1.25em;
+    }
+  }
+
   @media(min-width: 75ch) {
     &:is(.left, .right) {
       border: none
@@ -207,6 +221,27 @@ $line-heights: (xxxs: 0.5,
 
     &.left {
       border-left: var(--border);
+    }
+  }
+
+  &.quotation--wide {
+    --article-width      : min(75ch, 100%);
+    --padding-inline     : var(--space);
+    background-color     : hsl(var(--bg-secondary));
+    display              : grid;
+    grid-column          : 1/-1 !important;
+    grid-template-columns: 1fr min(45ch, 95%) 1fr;
+    margin-inline        : calc((-100vw + var(--article-width)) / 2);
+    width                : 100vw;
+
+    @media (min-width: 1420px) {
+      --article-width      : min(120ch, 95%);
+      grid-template-columns: subgrid;
+      width                : 100%;
+    }
+
+    &>* {
+      grid-column: 2/3;
     }
   }
 }
@@ -363,7 +398,7 @@ hr {
       filter: invert(1)
     }
 
-    @media (prefers-color-scheme) {
+    @media (prefers-color-scheme: dark) {
 
       .default &,
       .system & {
@@ -377,4 +412,33 @@ mark.mark {
   background-color: hsl(var(--success-100));
   color           : hsl(var(--fg-contrast));
   padding-inline  : 0.25ch;
+}
+
+.list {
+
+  &,
+  &--error,
+  &--success {
+    li::marker {
+      margin-inline-end: 1ch;
+      font-size: 2rem;
+      line-height: 1rem;
+    }
+
+    li + li {
+      margin-block-start: 1rem;
+      margin-block-start: 1lh;
+    }
+  }
+
+  &--error li::marker {
+    content: '× ';
+    color: hsl(var(--error-100));
+  }
+
+  &--success li::marker {
+    content: '✓ ';
+    color: hsl(var(--success-500));
+    font-size: 1.5rem;
+  }
 }

@@ -2,6 +2,7 @@
 title: Advanced graphic design on the Web with CSS
 description: An overview of the newest graphic design techniques in CSS
 image: /talks/advanced-graphic-design/cover.jpeg
+category: Cascading Style Sheets
 slug: advanced-graphic-design-css
 date: 2021-06-03
 link:

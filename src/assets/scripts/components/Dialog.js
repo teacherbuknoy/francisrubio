@@ -208,7 +208,7 @@ const windowDialogs = dialogIDs.map(id => {
 
     return dialog
   } else {
-    console.error({ message: `Element ${dialogID} is null.`, button })
+    console.error({ message: `Element ${id} is null.`})
   }
 })
 

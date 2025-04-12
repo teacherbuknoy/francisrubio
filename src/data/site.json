@@ -1,11 +1,24 @@
 {
   "title": "Francis Rubio",
   "description": "Web developer, designer, and educator",
-  "url": "https://francisrubio.antaresph.dev",
-  "photo": "https://ik.imagekit.io/8jjzxcl9p/tr:w-300/authors/teacherbuknoy.jpg?updatedAt=1679810276132",
+  "url": "https://francisrub.io",
+  "photo": "https://francisrub.io/profile-picture",
+  "experiences": [
+    { "name": "Educator and Content Creator", "start": "2019-03-23T16:00:00.000Z" },
+    { "name": "UI/UX Designer", "start": "2018-07-23T16:00:00.000Z" },
+    { "name": "Web Developer", "start": "2018-07-23T16:00:00.000Z" }
+  ],
   "seo": {
     "fb_image": "/assets/images/fb_image.png",
-    "twitter_image": "/assets/images/twitter_image.png"
+    "twitter_image": "/assets/images/twitter_image.png",
+    "twitter": {
+      "url": "https://ik.imagekit.io/8jjzxcl9p/twitter_2024.png",
+      "alt": "Francis Rubio"
+    },
+    "og": {
+      "url": "https://ik.imagekit.io/8jjzxcl9p/og_2024.png",
+      "alt": "Francis Rubio"
+    }
   },
   "contact": {
     "phone": {
@@ -16,8 +29,8 @@
     },
     "email": {
       "name": "Email",
-      "identifier": "francis@antaresph.dev",
-      "url": "mailto:francis@antaresph.dev"
+      "identifier": "hello@francisrub.io",
+      "url": "mailto:hello@francisrub.io"
     },
     "linkedin": {
       "name": "LinkedIn",
@@ -51,6 +64,18 @@
       "url": "https://pixelfed.social/teacherbuknoy",
       "rel": "me"
     },
+    "friendica": {
+      "name": "Friendica",
+      "identifier": "teacherbuknoy",
+      "url": "https://friendica.world/profile/teacherbuknoy",
+      "rel": "me"
+    },
+    "sharkey": {
+      "name": "Sharkey",
+      "identifier": "teacherbuknoy",
+      "url": "https://plasmatrap.com/@teacherbuknoy",
+      "rel": "me"
+    },
     "youtube": {
       "name": "YouTube",
       "identifier": "teacherbuknoy",
@@ -73,13 +98,18 @@
     {
       "name": "Google Domains",
       "value": "francisrubio.antaresph.dev",
+      "isPreferred": false
+    },
+    {
+      "name": "Cloudflare",
+      "value": "francisrub.io",
       "isPreferred": true
     }
   ],
   "api": {
     "email": "https://form.taxi/s/egdwtcqq",
     "images": "https://ik.imagekit.io/8jjzxcl9p/",
-    "webmentions": "https://webmention.io/francisrubio.antaresph.dev/webmention",
+    "webmentions": "https://webmention.io/francisrub.io/webmention",
     "mastodon": {
       "profile": "https://masto.ai/api/v1/accounts/109810743922547925",
       "feed": "https://masto.ai/api/v1/accounts/109810743922547925/statuses/?limit=40"

@@ -10,7 +10,7 @@ permalink: /site-data.json
         "title": {{ item.data.title | dump | safe }},
         "description": {{ item.data.description | dump | safe }},
         "type": {{ item.data.type | dump | safe }},
-        "image": "/assets/images{{ item.data.image | safe }}"
+        "image": "{{ site.api.images }}tr:f-png,w-200/literature/{{ item.data.cover.folder }}/{{ item.data.cover.filename }}"
       }
       {{ "," if loop.index < collections.literature.length }}
     {% endfor %}
@@ -23,7 +23,7 @@ permalink: /site-data.json
         "title": {{ item.data.title | dump | safe }},
         "description": {{ item.data.description | dump | safe }},
         "category": {{ item.data.category | dump | safe }},
-        "image": "/assets/images{{ item.data.image | safe }}",
+        "image": "{{ site.api.images }}tr:f-png,w-200/posts/{{ item.data.cover.folder }}/{{ item.data.cover.filename }}",
         "date": {{ item.date | dump | safe }}
       }
       {{ "," if loop.index < collection.length }}
@@ -42,7 +42,7 @@ permalink: /site-data.json
             {{ "," if loop.index < item.data.tags.length }}
           {% endfor %}
         ],
-        "image": {{ item.data.logo | dump | safe }}
+        "image": "{{ site.api.images }}tr:f-png,w-200/projects/{{ item.data.image.folder }}/{{ item.data.image.filename }}"
       }
       {{ "," if loop.index < collection.length }}
     {% endfor %}
@@ -65,8 +65,8 @@ permalink: /site-data.json
       {
         "url" : {{ item.url | dump |safe }},
         "title": {{ item.data.title | dump | safe }},
-        "description": "",
-        "image": "/assets/images{{ item.data.image | safe }}"
+        "description": {{ item.content | dump | safe }},
+        "image": "https://i.ytimg.com/vi/{{ item.data.code }}/hqdefault.jpg"
       }
       {{ "," if loop.index < collection.length }}
     {% endfor %}
@@ -77,8 +77,8 @@ permalink: /site-data.json
       {
         "url" : {{ item.url | dump |safe }},
         "title": {{ item.data.title | dump | safe }},
-        "description": "",
-        "image": "/assets/images{{ item.data.image | safe }}",
+        "description": {{ item.content | dump | safe }},
+        "image": null,
         "tags": {{ item.data.tags | dump | safe }}
       }
       {{ "," if loop.index < collection.length }}

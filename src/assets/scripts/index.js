@@ -4,6 +4,7 @@ import './components/Dialog'
 import './components/PopOver'
 import './components/SearchUI'
 import './components/ColorScheme'
+import './webcomponents/ResponsivePicture'
 import { SlurToggle } from './components/SlurToggle'
 import { $, $$ } from './utilities/dom'
 import { Tab, TabControl } from './components/TabControl'
@@ -16,6 +17,7 @@ window.onJSLoadCallbacks = []
 
 const container = $('[data-notification-container]')
 const notifications = new NotificationManager(container)
+window.notifications = notifications
 
 let tabs = [...document.querySelectorAll('[data-tab]:is(button, a)')].map(
   tab => {

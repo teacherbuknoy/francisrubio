@@ -40,6 +40,9 @@
     {% if focus %}
       object-position: {{ focus }};
     {% endif %}
+    {% if viewTransitionName %}
+      view-transition-name: {{ viewTransitionName }};
+    {% endif %}
   {% endset %}
 
   <img 

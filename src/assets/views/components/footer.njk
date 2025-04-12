@@ -22,8 +22,7 @@
 </noscript>
 <div class="bottom-fixed">
   <a href="#top" class="primary button go-to-top" style="">
-    {% set feathericon = 'arrow-up' %}
-    {% include 'components/feathericon.njk' %}
+    {{ 'arrow-up' | icon | safe }}
     <span class="sr-only">Back to top</span>
   </a>
   <noscript class="no-js__warning">
@@ -31,18 +30,29 @@
   </noscript>
 </div>
 <footer class="footer" id="main-footer">
+  <div class="footer__header webring font-sans">
+    <p>This website is part of the <a href="https://webring.antaresph.dev/">Pinoy Websites</a> web ring.</p>
+    <p>
+      <a href="https://webring.antaresph.dev/previous">Previous site</a>.
+      <a href="https://webring.antaresph.dev/random">Random site</a>.
+      <a href="https://webring.antaresph.dev/next">Next site</a>.
+    </p>
+  </div>
   <div class="footer__header font-sans">
     <p>&copy; {{ "" | year }} Francis Rubio. All rights reserved.</p>
-    <p>Powered by <a href="https://11ty.dev">Eleventy</a> and <a href="https://netlify.com">Netlify</a>.</p>
+    <p>Powered by <a href="https://11ty.dev">Eleventy</a> and <a href="https://vercel.com">Vercel</a>.</p>
   </div>
   <div class="footer__body">
     <div class="footer__section">
       <div class="cluster ai--center gap--m">
-        {% set logoClass = 'logo--large' %}
-        {% include "components/logo.njk" %}
-        <h2 class="responsive fs-4 font-sans weight-700 fg-primary-900" style="margin: 0;">Francis Rubio</h2>
+        <h2 class="responsive fs-4 font-sans weight-700 fg-primary-900" style="margin: 0;">
+          <span class="visually-hidden">Francis Rubio</span>
+          <span aria-hidden="true" class="logo-type">francisrub<span class="logo-dot">.</span>io</span>
+        </h2>
       </div>
       <p style="margin: 0; font-family: var(--font-sans);">Web designer, developer, and educator from the Philippines.</p>
+      <img class="not-by-ai hide-on-dark" src="/assets/images/not-by-ai/black.png" alt="Content in this site is purely produced, written, and created by humans, not by artificial intelligence.">
+      <img class="not-by-ai hide-on-light" src="/assets/images/not-by-ai/white.png" alt="Content in this site is purely produced, written, and created by humans, not by artificial intelligence.">
     </div>
     <div class="footer__section" id="footer-contact">
       <h2 class="footer__section-title">Contact Me</h2>
@@ -111,8 +121,8 @@
   <span class="p-nickname">teacherbuknoy</span>
   <div class="p-org">Antares Programming</div>
   <div class="p-job-title">Software Developer</div>
-  <img alt="Francis Rubio" class="u-photo" src="{{ site.photo }}"/>
-  <a class="u-url" rel="me" href="{{ domain.value }}">{{ domain.value }}</a>,
+  <img alt="Francis Rubio" class="u-photo" src="{{ site.photo }}" loading="lazy"/>
+  <a class="u-url" rel="me" href="https://{{ domain.value }}">{{ domain.value }}</a>,
   <a class="u-email" href="{{ site.contact.email.url }}">{{ site.contact.email.identifier }}</a>
   <div class="p-tel">{{ site.contact.phone.identifier }}</div>
   <span class="p-locality">Metro Manila</span>,

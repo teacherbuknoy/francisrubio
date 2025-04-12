@@ -1,0 +1,33 @@
+- title: Firefox
+  description: A privacy-focused browser.
+  tags:
+   - Browser
+  links:
+   - text: Official Website
+     url: https://firefox.com/
+  rating: 4.5
+- title: Samsung Galaxy A52s 5G
+  description: One of the best mid-range smartphones from Samsung's Galaxy line up
+  tags:
+   - Smartphone
+   - Android
+  links:
+   - text: Official Website
+     url: https://www.samsung.com/ph/smartphones/galaxy-a/galaxy-a52s-5g-awesome-mint-256gb-sm-a528blgiphl/
+  rating: 4.6
+- title: GOMO
+  description: A network that offers no-expiry Internet data connection for a very affordable price.
+  tags:
+   - Network
+  links:
+   - text: Official Website
+     url: https://www.gomo.ph/
+  rating: 4.6
+- title: Rakk Lam Ang
+  description: An affordable mechanical keyboard.
+  tags:
+   - Keyboard
+  links:
+   - text: Buy on Shopee
+     url: https://shopee.ph/RAKK-Lam-Ang-Pro-Wireless-RGB-Mechanical-Gaming-Keyboard-Bluetooth-5.0-Universal-HotSwap-87-Keys-i.77398075.14250208768
+  ratings: 4.5

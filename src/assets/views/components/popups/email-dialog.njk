@@ -1,0 +1,17 @@
+<dialog class="dialog" id="emailDialog" aria-labelledby="emaildialog__title">
+  <form id="close-dialog" method="dialog"></form>
+  <header>
+    <h2 id="emaildialog__title">Get in touch.</h2>
+    <button class="transparent icon-only button padding" form="close-dialog">
+      <i aria-hidden="true" class="material-symbol">close</i>
+      <span class="sr-only">Close this dialog</span>
+    </button>
+  </header>
+  {% set emailFormPrefix = 'dlg-' %}
+  {% include "components/ui/email-form.njk" %}
+  <footer>
+    <p class="dialog__comment">All fields are required</p>
+    <button form="close-dialog" class="button">Cancel</button>
+    <button form="{{ emailFormPrefix }}email-form" class="primary button">Send</button>
+  </footer>
+</dialog>

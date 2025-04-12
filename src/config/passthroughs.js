@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   // icons: function () {
   //   return { 'src/assets/icons': 'assets/icons' }
   // },

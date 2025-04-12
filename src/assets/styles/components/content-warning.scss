@@ -1,3 +1,6 @@
+@import '../mixins';
+
+.disclosure,
 .content-warning {
   --bg-content-warning: var(--bg-secondary);
   background-color    : hsl(var(--bg-content-warning) / var(--bg-content-warning-opacity, 1));
@@ -50,6 +53,16 @@
         content: 'Select to close'
       }
     }
+
+    &.webmentions--summary {
+      :last-child {
+        margin-inline-end: auto;
+      }
+
+      .webmention__statistic-label {
+        @include visually-hidden();
+      }
+    }
   }
 
   &__category {
@@ -58,11 +71,12 @@
     background-color   : hsl(var(--bg-content-warning-accent) / var(--bg-content-warning-accent-opacity, 1));
     padding            : var(--space-xxs);
     padding-inline     : var(--space-xs);
-    border-radius      : var(--ideal-radius);
+    border-radius      : var(--radius-2);
     margin-inline-start: calc(-1 * var(--space-xs));
   }
 
   &__body {
+    color         : hsl(var(--fg-disclosure-body, var(--fg-content-warning, var(--fg-default))));
     display       : flex;
     flex-direction: column;
     gap           : var(--space);
@@ -71,6 +85,10 @@
 
     &>* {
       margin: 0;
+    }
+
+    :is(a:not([class])) {
+      color: inherit;
     }
   }
 
@@ -100,11 +118,12 @@
   }
 
   &--info {
-    --bg-content-warning               : var(--info-100);
-    --bg-content-warning-opacity       : 0.25;
+    --bg-content-warning               : var(--info-900);
     --bg-content-warning-accent        : var(--info-300);
     --bg-content-warning-accent-opacity: 0.25;
-    --fg-content-warning               : var(--info-900);
+    --bg-content-warning-opacity       : 1;
+    --fg-content-warning               : var(--info-100);
+    --fg-disclosure-body               : var(--info-100) / 75%;
   }
 }
 
@@ -153,10 +172,14 @@
     padding-block          : 0.2ch;
   }
 
+  &[aria-pressed=true]::after {
+    content: attr(data-slur-details);
+  }
+
   &::after {
     background-color: hsl(var(--warning-100));
     bottom          : calc(100% + var(--space-xs));
-    content         : attr(data-slur-details);
+    content         : '';
     left            : 50%;
     padding         : var(--space-xs);
     position        : absolute;

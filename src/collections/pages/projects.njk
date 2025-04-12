@@ -7,13 +7,17 @@ pagination:
   reverse: true
 permalink: /projects/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}index.html
 activePath: projects
+eleventyImport:
+  collections: ['projects']
 ---
-<section class="page" aria-labelledby="section-heading-4" style="--page-cover-image: image-set(
-  url(https://ik.imagekit.io/8jjzxcl9p/tr:f-avif/index/cover-pride-projects.png) type('image/avif'),
-  url(https://ik.imagekit.io/8jjzxcl9p/tr:f-webp/index/cover-pride-projects.png) type('image/webp'),
-  url(https://ik.imagekit.io/8jjzxcl9p/tr:f-png/index/cover-pride-projects.png) type('image/png')
+<section class="page" aria-labelledby="section-heading-4" style="--page-cover-image: 
+radial-gradient(circle at bottom left, hsl(331 100% 25% / 20%), hsl(331 100% 25% / 0%)),
+image-set(
+  url(https://ik.imagekit.io/8jjzxcl9p/tr:f-avif/index/pride-month-2024/cover-projects.png) type('image/avif'),
+  url(https://ik.imagekit.io/8jjzxcl9p/tr:f-webp/index/pride-month-2024/cover-projects.png) type('image/webp'),
+  url(https://ik.imagekit.io/8jjzxcl9p/tr:f-png/index/pride-month-2024/cover-projects.png) type('image/png')
 )">
-  <header class="page__cover" style="background-position: top calc(var(--offset) * -0.5) left;background-size: cover;">
+  <header class="page__cover" style="background-position: calc(var(--offset) * -0.5) left;background-size: cover;">
     <hgroup class="page__header">
       <span id="section-heading-4" class="uppercase ls-l font-sans" data-baybayin="{{ sections.projects.baybayin_label }}">{{ sections.projects.label | safe }}</span>
       <h1 class="responsive">{{ sections.projects.title | safe }}</h1>

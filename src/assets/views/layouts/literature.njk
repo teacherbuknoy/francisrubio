@@ -1,3 +1,4 @@
+{% set layoutStylesheets = ['mastodon.css'] %}
 {% extends 'layouts/base.njk' %}
 
 {% block content %}
@@ -10,7 +11,7 @@
         {% set width = 600 %}
         {% set height = 350 %}
         {% set formats = cover.types %}
-        {% set filename = '/literature/' + cover.folder + '/' + cover.filename %}
+        {% set filename = '/literature/' + cover.folder + '/' + cover.header %}
         {% set defaultImageClass = "article__image" %}
         {% set focus = cover.focus %}
         {% include "components/cdn-picture.njk" %}
@@ -28,16 +29,20 @@
         </ol>
       </nav>
       <h1 id="{{ title | slugify }}" class="article__title margin--none responsive">{{ title | safe }}</h1>
+      {% if description %}
+        <p>{{ description | safe }}</p>
+      {% endif %}
       <div class="spaced cluster">
         <time datetime="{{ page.date | machineReadableDate }}">{{ page.date | humanReadableDate }}</time>
         <span class="badge">{{ type | safe }}</span>
       </div>
     </header>
-    <div class="literature__body">
+    <div class="literature__body" style="--body-width: {{ 'var(--page-width)' if size === 'full' else '65ch' }}">
       {{ content | safe }}
     </div>
     <footer class="stack padding--l">
       {% include 'components/share.njk' %}
+      {% include 'components/webmentions.njk' %}
     </footer>
   </main>
   {% include 'components/footer.njk' %}

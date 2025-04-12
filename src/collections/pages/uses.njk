@@ -9,61 +9,20 @@ permalink: /uses/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 
 activePath: what-i-use
 ---
 
-{# <section class="padding-block--xl" aria-labelledby="section-heading-1" style="width: min(100ch, 90%); margin-inline: auto;">
-  <h1 class="responsive fs-2" id="section-heading-1">Uses</h1>
-  <div class="post-grid padding--xl gap--l jc--center">
-    {% for item in pagination.items %}
-      {% include 'components/product-card.njk' %}
+<section class="padding-block--xl padding-inline--m" aria-labelledby="section-heading-4" style="width: min(100ch, 90%); margin-inline: auto;">
+  <hgroup role="group" class="page__header">
+    <span id="section-heading-4" class="uppercase ls-l font-sans" data-baybayin="{{ sections.uses.baybayin_label }}">{{ sections.uses.label | safe }}</span>
+    <h2 class="responsive">{{ sections.uses.title | safe }}</h2>
+    <p>{{ sections.uses.description | safe }}</p>
+  </hgroup>
+  <div class="margin-bottom--xl uses-grid gap--s padding-top--l wide-wrapper margin-inline--auto padding-inline--l">
+    {% for item in uses %}
+      {% include 'components/use-card.njk' %}
     {% endfor %}
   </div>
-</section> #}
-
-<hgroup role="group" class="stack gap wide-wrapper margin-inline--auto margin-top--l padding-inline--l">
-  <span id="section-heading-4" class="uppercase ls-l font-sans" data-baybayin="{{ sections.uses.baybayin_label }}">{{ sections.uses.label | safe }}</span>
-  <h2 class="responsive">{{ sections.uses.title | safe }}</h2>
-  <p>{{ sections.uses.description | safe }}</p>
-</hgroup>
-
-<!--section aria-labelledby="section-heading-1" class="padding--xl margin-inline--auto content-wrapper">
-  <h2 id="section-heading-1">Hardware</h2>
-  <ul>
-    <li>Lenovo ThinkPad E14 (Windows 10)</li>
-    <li>Logitech M170 Wireless Mouse</li>
-    <li>NVision external monitor (75Hz, 1440&times;900)</li>
-    <li>Logitech Z333 2.1 Multimedia Speaker System</li>
-    <li>Samsung A52s 5G</li>
-  </ul>
 </section>
-<section aria-labelledby="section-heading-2" class="padding--xl margin-inline--auto content-wrapper">
-  <h2 id="section-heading-2">Software</h2>
-  <ul>
-    <li>
-        Firefox (for daily use)
-        <ul>
-        <li>uBlock Origin (to block trackers and ads)</li>
-        <li>Multi-account Containers (to use multiple accounts in same sites at the same time)</li>
-        <li>Facebook Containers (to block Facebook from tracking me outside of Facebook)</li>
-        <li>Stylus (so I can tweak site styles to my liking)</li>
-      </ul>
-    </li>
-    <li>Microsoft Edge (for work stuff and testing)</li>
-    <li>Google Chrome (for Google Meet's virtual background to work)</li>
-    <li>Notion (for all of my note-taking needs)</li>
-    <li>Draw.io (for all of my diagramming needs)</li>
-    <li>Figma (for creating mockups and infographics)</li>
-    <li>VS Code (my code editor of choice for web devleopment)</li>
-    <li>Intellij Idea (my IDE of choice for Java devleopment)</li>
-    <li>Windows Terminal</li>
-    <li>Ubuntu on <abbr>WSL</abbr> (Windows Subsystem for Linux)</li>
-    <li>OpenVPN</li>
-    <li>Spotify</li>
-    <li>Discord (so I could be in a voice channel with my boyfriend while we both sleep)</li>
-    <li>Microsoft PowerToys</li>
-  </ul>
-</section-->
 
-<div class="margin-bottom--xl uses-grid gap--s padding-top--l wide-wrapper margin-inline--auto padding-inline--l">
-  {% for item in collections.uses %}
-    {% include 'components/use-card.njk' %}
-  {% endfor %}
+<div class="margin-block-end--xxl">
+  {% include "components/banners/commissions-banner.njk" %}
+  {% include 'components/email-form.njk' %}
 </div>

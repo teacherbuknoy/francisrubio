@@ -1,5 +1,6 @@
 import { ToggleComponent } from "./ToggleComponent"
-import { replaceMastodonEmoji } from "../../../data/utils"
+import utils from '../../../data/utils.js'
+const  { replaceMastodonEmoji } = utils
 const CONTENT_PREFIX = 'content'
 
 class SocialPostMedia {

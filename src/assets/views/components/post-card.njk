@@ -1,11 +1,11 @@
-<a class="post-card{{ " themed" if post.theme }}" href="{{ postURL }}"
+<a class="post-card{{ " themed" if post.theme }}{{ " no-mask" if post.theme.noMask }}" href="{{ postURL }}"
     {% if post.theme %}style="--theme-color: {{ post.theme.color }}; --theme-color-hsl: {{ post.theme['color-hsl'] }};"{% endif %}>
   <div class="post-card__image" {% if post.theme.style.image %}
     style="
       {% for key, value in post.theme.style.image %}
       {{ key }}: {{ value }};
       {% endfor %}
-    "
+    " 
   {% endif %}>
     {% set postType = postType if postType else 'posts' %}
     {% set sizes = post.cover.sizes %}
@@ -18,15 +18,14 @@
     {% include "components/cdn-picture.njk" %}
   </div>
   <div class="post-card__body {{ post.theme.scheme }}">
-    <h{{ cardLevel if cardLevel != null else 3 }} class="post-card__title">{{ post.title | safe }}</h{{ cardLevel if cardLevel != null else 3 }}>
+    <h{{ cardLevel if cardLevel != null else 3 }} style="view-transition-name: {{ post.title | slugify }};" class="post-card__title">{{ post.title | safe }}</h{{ cardLevel if cardLevel != null else 3 }}>
     <div class="post-card__footer">
       <p class="post-card__description">{{ post.description | safe }}</p>
       <div class="spaced cluster font-sans fs-7 margin-top--m">
         <span>{{ item.date | humanReadableDate }}</span>
         <span class="post-card__link margin-left--auto">
         Read More
-        {% set feathericon = 'arrow-right' %}
-          {% include 'components/feathericon.njk' %}
+        {{ 'arrow-right' | icon | safe }}
         </span>
       </div>
     </div>

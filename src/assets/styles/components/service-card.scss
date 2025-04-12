@@ -1,0 +1,39 @@
+.service-card {
+  display: grid;
+  font-family: var(--font-ui);
+  gap: var(--space-xxs);
+  grid-template-rows: min-content min-content auto;
+
+  .title {
+    font-family: var(--font-ui);
+    font-size: var(--type-size-5);
+    font-variation-settings: 'wght' 600;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .material-symbol {
+    color: hsl(var(--primary-700));
+    font-size: var(--type-size-3);
+    grid-row: 1;
+  }
+
+  .teaser {
+    font-size: var(--type-size-6);
+    margin: 0;
+  }
+}
+
+.service-grid {
+  column-gap: var(--space-xxxl);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: var(--space);
+  position: relative;
+  row-gap: var(--space);
+
+  .service-card {
+    flex: 0 1 25ch;
+  }
+}

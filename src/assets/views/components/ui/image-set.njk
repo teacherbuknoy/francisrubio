@@ -1,0 +1,12 @@
+{% set sizes = sizes if sizes else 
+  [1, 2] %}
+{% set formats = formats if formats else 
+  ['png', 'avif', 'webp'] %}
+{% set cdnUrl = site.api.images %}
+
+
+image-set(
+  {% for size in sizes %}
+    url('{{ cdnUrl }}tr:f-{{ format }},w-{{ 1 / size }}{{ filename }}') {{ size }}x{{ ',' if not loop.last }}
+  {% endfor %}
+)

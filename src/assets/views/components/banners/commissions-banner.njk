@@ -1,0 +1,23 @@
+{# {% from "components/ui/utils.njk" import emailButton %}
+<article class="banner banner--commissions dark">
+  {% set postType = postType if postType else 
+    'ads' %}
+  {% set alt = "" %}
+  {% set sizes = [2, 1] %}
+  {% set width = 600 %}
+  {% set height = 350 %}
+  {% set formats = ['avif', 'webp', 'png'] %}
+  {% set filename = '/ads/commissions.png' %}
+  {% set defaultImageClass = "banner__image" %}
+  {% set imageset %}
+    {% include "components/ui/image-set.njk" %}
+  {% endset %}
+  <div class="banner__decorations"></div>
+  <div class="banner__image" style="--image-set: {{ imageset }}"></div>
+  <div class="banner__body">
+    <h2 class="banner__title">Pre-book now for a 10% discount!
+    </h2>
+    <p class="banner__summary">My commissions are opening up in July 2024. Partner with me for your next web design and development project.</p>
+  </div>
+  {{ emailButton('Get a quote!') }}
+</article> #}

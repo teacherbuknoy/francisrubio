@@ -1,5 +1,11 @@
 @import "mixins";
 
+@layer reset,
+layouts,
+components,
+utilities,
+print;
+
 @layer reset {
   @import "reset";
   @import "fonts";
@@ -17,76 +23,76 @@
   }
 
   :root {
-    --fg-contrast     : var(--d-contrast);
-    --fg-default      : var(--d-default);
-    --fg-subtle       : var(--d-subtle);
+    --fg-contrast: var(--d-contrast);
+    --fg-default: var(--d-default);
+    --fg-subtle: var(--d-subtle);
     --fg-non-essential: var(--d-non-essential);
 
-    --bg-primary  : var(--l-contrast);
+    --bg-primary: var(--l-contrast);
     --bg-secondary: var(--l-default);
-    --bg-accent   : var(--l-subtle);
+    --bg-accent: var(--l-subtle);
     --bg-exception: var(--l-non-essential);
 
     @media (prefers-color-scheme: dark) {
-      --fg-contrast     : var(--l-contrast);
-      --fg-default      : var(--l-default);
-      --fg-subtle       : var(--l-subtle);
+      --fg-contrast: var(--l-contrast);
+      --fg-default: var(--l-default);
+      --fg-subtle: var(--l-subtle);
       --fg-non-essential: var(--l-non-essential);
 
-      --bg-primary  : var(--d-default);
+      --bg-primary: var(--d-default);
       --bg-secondary: var(--d-contrast);
-      --bg-accent   : var(--d-subtle);
+      --bg-accent: var(--d-subtle);
       --bg-exception: var(--d-non-essential);
     }
   }
 
   .light {
-    --fg-contrast     : var(--d-contrast);
-    --fg-default      : var(--d-default);
-    --fg-subtle       : var(--d-subtle);
+    --fg-contrast: var(--d-contrast);
+    --fg-default: var(--d-default);
+    --fg-subtle: var(--d-subtle);
     --fg-non-essential: var(--d-non-essential);
 
-    --bg-primary  : var(--l-contrast);
+    --bg-primary: var(--l-contrast);
     --bg-secondary: var(--l-default);
-    --bg-accent   : var(--l-subtle);
+    --bg-accent: var(--l-subtle);
     --bg-exception: var(--l-non-essential);
   }
 
   .dark {
-    --fg-contrast     : var(--l-contrast);
-    --fg-default      : var(--l-default);
-    --fg-subtle       : var(--l-subtle);
+    --fg-contrast: var(--l-contrast);
+    --fg-default: var(--l-default);
+    --fg-subtle: var(--l-subtle);
     --fg-non-essential: var(--l-non-essential);
 
-    --bg-primary  : var(--d-default);
+    --bg-primary: var(--d-default);
     --bg-secondary: var(--d-contrast);
-    --bg-accent   : var(--d-subtle);
+    --bg-accent: var(--d-subtle);
     --bg-exception: var(--d-non-essential);
   }
 
   .light,
   .dark,
   body {
-    color: hsl(var(--fg-contrast) / 80%);
+    color: hsl(var(--fg-contrast));
   }
 
   :root {
     scroll-padding-top: 9rem;
-    scroll-behavior   : smooth;
+    scroll-behavior: smooth;
   }
 
   body {
-    background-color       : hsl(var(--bg-primary));
-    font-family            : var(--font-body);
-    font-size              : var(--type-size);
-    font-variation-settings: "SOFT"100, "WONK"0, 'wght'350;
-    min-height             : 100vh;
-    scroll-behavior        : smooth;
-    font-weight            : 350;
+    background-color: hsl(var(--bg-primary));
+    font-family: var(--font-body);
+    font-size: var(--type-size);
+    font-variation-settings: "SOFT" 100, "WONK" 0, 'wght' 350;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    font-weight: 350;
   }
 
   body {
-    display       : flex;
+    display: flex;
     flex-direction: column;
 
     @at-root #main {
@@ -100,10 +106,10 @@
   h4,
   h5,
   h6 {
-    color                  : hsl(var(--fg-contrast));
-    font-family            : var(--font-display-serif);
-    font-weight            : normal;
-    font-variation-settings: "SOFT"100, "WONK"0, 'wght'350;
+    color: hsl(var(--fg-contrast));
+    font-family: var(--font-display-serif);
+    font-weight: normal;
+    font-variation-settings: "SOFT" 100, "WONK" 0, 'wght' 350;
   }
 
   @for $size from 1 through 5 {
@@ -117,24 +123,38 @@
   }
 
   .feathericon {
-    display        : inline-block;
-    width          : 1.25em;
-    height         : 1.25em;
-    fill           : none;
-    stroke         : currentColor;
-    stroke-width   : 1px;
+    display: inline-block;
+    width: 1.25em;
+    height: 1.25em;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1px;
     stroke-linejoin: unset;
-    stroke-linecap : round;
+    stroke-linecap: round;
+  }
+
+  .material-symbol,
+  .material-icon {
+    font-family: 'Material Symbols Rounded';
+    font-size: 1em;
+    font-style: normal;
+    font-weight: inherit;
+    user-select: none;
+    font-variation-settings:
+      'FILL' 0,
+      'wght' 200,
+      'GRAD' 0,
+      'opsz' 24
   }
 
   a {
     box-decoration-break: clone;
-    color               : hsl(var(--fg-default));
-    text-decoration     : underline solid hsl(var(--primary-500));
-    outline             : var(--radius-1) solid;
-    outline-color       : hsl(var(--primary-500) / 0);
-    outline-offset      : var(--ideal-radius);
-    transition          : outline 200ms, outline-offset 200ms;
+    color: hsl(var(--fg-default));
+    text-decoration: underline solid hsl(var(--primary-500));
+    outline: var(--radius-1) solid;
+    outline-color: hsl(var(--primary-500) / 0);
+    outline-offset: var(--ideal-radius);
+    transition: outline 200ms, outline-offset 200ms;
 
     &:not([href]) {
       text-decoration: none;
@@ -144,20 +164,20 @@
       border-radius: var(--ideal-radius);
     }
 
-    &:not(.no-arrow)[target="_blank"] {
+    &:not(.no-arrow):not(.button)[target="_blank"] {
       display: inline-flex;
-      gap    : 1ch;
+      gap: 1ch;
 
       &::after {
-        align-self         : baseline;
-        align-self         : center;
-        background-image   : url('/assets/images/external-link.svg');
-        background-size    : cover;
-        content            : "";
-        height             : 1em;
+        align-self: baseline;
+        align-self: center;
+        background-image: url('/assets/images/external-link.svg');
+        background-size: cover;
+        content: "";
+        height: 1em;
         margin-inline-start: auto;
-        opacity            : 0.5;
-        width              : 1em;
+        opacity: 0.5;
+        width: 1em;
 
         @at-root .theme-dark & {
           filter: invert(1);
@@ -170,14 +190,27 @@
     }
 
     &:where([href]):hover {
-      color                : hsl(var(--primary-900));
+      color: hsl(var(--primary-900));
       text-decoration-color: hsl(var(--fg-default));
     }
 
     &:focus-visible {
-      color           : hsl(var(--primary-900));
-      outline-color   : hsl(var(--primary-500) / 1);
-      outline-offset  : var(--radius-2);
+      color: hsl(var(--primary-900));
+      outline-color: hsl(var(--primary-500) / 1);
+      outline-offset: var(--radius-2);
+    }
+  }
+
+  pre[class^=language] {
+    outline: var(--radius-1) solid;
+    outline-color: hsl(var(--primary-500) / 0);
+    outline-offset: var(--ideal-radius);
+    transition: outline 200ms, outline-offset 200ms;
+
+    &:focus-visible {
+      color: hsl(var(--primary-900));
+      outline-color: hsl(var(--primary-500) / 1);
+      outline-offset: var(--radius-2);
     }
   }
 
@@ -186,18 +219,18 @@
   }
 
   :target {
-    animation      : notify 300ms;
+    animation: notify 300ms;
     animation-delay: 1000ms;
   }
 
   @keyframes notify {
     from {
-      outline       : 5px solid hsl(var(--primary-500));
+      outline: 5px solid hsl(var(--primary-500));
       outline-offset: 0;
     }
 
     to {
-      outline       : 5px solid hsl(var(--primary-500) / 0%);
+      outline: 5px solid hsl(var(--primary-500) / 0%);
       outline-offset: 1rem;
     }
   }
@@ -205,9 +238,9 @@
   code,
   var,
   samp {
-    font-family            : var(--font-mono);
-    font-variation-settings: "MONO"1, "CASL"0, "CRSV"0;
-    font-weight            : 390;
+    font-family: var(--font-mono);
+    font-variation-settings: "MONO" 1, "CASL" 0, "CRSV" 0;
+    font-weight: 390;
   }
 
   :root {
@@ -215,28 +248,28 @@
   }
 
   *::-webkit-scrollbar {
-    width : 0.75em;
+    width: 0.75em;
     height: 0.75em;
   }
 
   ::-webkit-scrollbar-thumb {
     background-color: hsl(var(--bg-accent));
-    border          : 3px solid hsl(var(--bg-primary));
-    border-radius   : 100px;
+    border: 3px solid hsl(var(--bg-primary));
+    border-radius: 100px;
   }
 
   ::-webkit-scrollbar-track {
     background-color: hsl(var(--bg-primary));
-    border-radius   : var(--ideal-radius);
+    border-radius: var(--ideal-radius);
   }
 
   .no-list {
     list-style: none;
-    margin    : 0;
-    padding   : 0;
+    margin: 0;
+    padding: 0;
 
     li:before {
-      content : "\200B";
+      content: "\200B";
       position: absolute;
     }
   }
@@ -246,20 +279,20 @@
   }
 
   del {
-    text-decoration      : line-through;
+    text-decoration: line-through;
     text-decoration-color: hsl(var(--error-500));
-    color                : hsl(var(--fg-subtle));
+    color: hsl(var(--fg-subtle));
   }
 
   ins {
     text-decoration: none;
-    color          : hsl(var(--success-900));
+    color: hsl(var(--success-900));
   }
 
   b,
   strong {
-    font-weight            : bold;
-    font-variation-settings: 'wght'700;
+    font-weight: bold;
+    font-variation-settings: 'wght' 700;
   }
 
   em,
@@ -270,10 +303,10 @@
   }
 
   img {
-    background-image   : var(--thumbnail);
+    background-image: var(--thumbnail);
     background-position: center;
-    background-repeat  : no-repeat;
-    background-size    : cover;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .animated-fallback {
@@ -303,11 +336,22 @@
   @import "layouts/stack";
   @import "layouts/talk-grid";
   @import "layouts/page.scss";
+
+  @view-transition {
+    navigation: auto;
+  }
+
+  @media (prefers-reduced-motion) {
+    @view-transition {
+      navigation: none;
+    }
+  }
 }
 
 @layer components {
   /* COMPONENTS */
   @import "components/badge";
+  @import "components/banner";
   @import "components/button";
   @import "components/breadcrumb.scss";
   @import "components/card";
@@ -335,6 +379,7 @@
   @import "components/logo.scss";
   @import "components/spotlight.scss";
   @import "components/unfurl.scss";
+  @import "components/pagination.scss";
 }
 
 @layer utilities {

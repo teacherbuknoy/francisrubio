@@ -1,4 +1,3 @@
-
 {% set siteTitleId = 'site-title' %}
 <header class="dark hero" aria-labelledby="{{ siteTitleId }}">
   <div class="hero__inner">
@@ -13,41 +12,25 @@
       </svg>
     </h1>
     <picture>
-      <source srcset="https://ik.imagekit.io/8jjzxcl9p/tr:f-avif,w-650,q-100/index/pride-month-2023/header--mobile.png"
-        media="(max-width: 670px)"
-        type="image/avif"
-        width="600" height="858">
-      <source srcset="https://ik.imagekit.io/8jjzxcl9p/tr:f-webp,w-650,q-100/index/pride-month-2023/header--mobile.png"
-        media="(max-width: 670px)"
-        type="image/webp"
-        width="600" height="858">
-      <source srcset="https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-650,q-100/index/pride-month-2023/header--mobile.png"
-        media="(max-width: 670px)"
-        type="image/png"
-        width="600" height="858">
+      {% set formats = ['webp', 'jpg'] %}
+      {% for format in formats %}
+        <source srcset="https://ik.imagekit.io/8jjzxcl9p/tr:f-{{ format }},h-700/index/pride-month-2024/header--mobile.png"
+          media="(max-width: 670px)"
+          type="image/{{ format }}"
+          width="600" height="858">
 
-      <source srcset="https://ik.imagekit.io/8jjzxcl9p/tr:f-avif,w-650,q-100/index/pride-month-2023/header--tablet.png"
-        media="(max-width: 1079px)"
-        type="image/avif"
-        width="600" height="858">
-      <source srcset="https://ik.imagekit.io/8jjzxcl9p/tr:f-webp,w-650,q-100/index/pride-month-2023/header--tablet.png"
-        media="(max-width: 1079px)"
-        type="image/webp"
-        width="600" height="858">
-      <source srcset="https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-650,q-100/index/pride-month-2023/header--tablet.png"
-        media="(max-width: 1079px)"
-        type="image/png"
-        width="600" height="858">
+        <source srcset="https://ik.imagekit.io/8jjzxcl9p/tr:f-{{ format }},w-1100/index/pride-month-2023/header--tablet.png"
+          media="(max-width: 1079px)"
+          type="image/{{ format }}"
+          width="630" height="919">
 
-      <source srcset="https://ik.imagekit.io/8jjzxcl9p/tr:f-avif,w-650,q-100/index/pride-month-2023/header--desktop.png"
-        media="(min-width: 1080px)"
-        type="image/avif"
-        width="600" height="858">
-      <source srcset="https://ik.imagekit.io/8jjzxcl9p/tr:f-webp,w-650,q-100/index/pride-month-2023/header--desktop.png"
-        media="(min-width: 1080px)"
-        type="image/webp"
-        width="600" height="858">
-      <img class="hero__image" src="https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-650,q-100/index/pride-month-2023/header--desktop.png"
+        <source srcset="https://ik.imagekit.io/8jjzxcl9p/tr:f-{{ format }},w-720/index/pride-month-2024/header--wide.png"
+          media="(min-width: 1080px)"
+          type="image/{{ format }}"
+          width="650" height="807">
+      {% endfor %}
+
+      <img class="hero__image" src="https://ik.imagekit.io/8jjzxcl9p/tr:f-png,w-720,q-100/index/pride-month-2024/header--wide.png"
       alt="Francis Rubio" width="600" height="858">
     </picture>
     <div class="hero__body">
@@ -60,46 +43,106 @@
         <div class="animated" lang="tl">
           <button class="term" aria-pressed="false" style="width: 9ch">
             <span class="term__hidden">Kalayaan</span>
-            <i class="term__baybayin" aria-hidden="true">
-              <span>ᜃ</span><span>ᜎ</span><span>ᜌ</span><span>ᜀ</span><span>ᜈ᜔</span>
+            <i class="term__baybayin" aria-hidden="true" lang="fil-Tglg">
+              <span>ᜃ</span>
+              <span>ᜎ</span>
+              <span>ᜌ</span>
+              <span>ᜀ</span>
+              <span>ᜈ᜔</span>
             </i>
             <i class="term__latin" aria-hidden="true">
-              <span>K</span><span>a</span><span>l</span><span>a</span><span>y</span><span>a</span><span>a</span><span>n</span>
+              <span>K</span>
+              <span>a</span>
+              <span>l</span>
+              <span>a</span>
+              <span>y</span>
+              <span>a</span>
+              <span>a</span>
+              <span>n</span>
             </i>
           </button>
           <button class="term" aria-pressed="false" style="width: 21ch">
             <span class="term__hidden">Pagkakapantay-pantay</span>
-            <i class="term__baybayin" aria-hidden="true">
-              <span>ᜉ</span><span>ᜄ᜔</span><span>ᜃ</span><span>ᜃ</span><span>ᜉ</span><span>ᜈ᜔</span><span>ᜆ</span><span>ᜌ᜔</span><span>ᜉ</span><span>ᜈ᜔</span><span>ᜆ</span><span>ᜌ᜔</span>
+            <i class="term__baybayin" aria-hidden="true" lang="fil-Tglg">
+              <span>ᜉ</span>
+              <span>ᜄ᜔</span>
+              <span>ᜃ</span>
+              <span>ᜃ</span>
+              <span>ᜉ</span>
+              <span>ᜈ᜔</span>
+              <span>ᜆ</span>
+              <span>ᜌ᜔</span>
+              <span>ᜉ</span>
+              <span>ᜈ᜔</span>
+              <span>ᜆ</span>
+              <span>ᜌ᜔</span>
             </i>
             <i class="term__latin" aria-hidden="true">
-              <span>P</span><span>a</span><span>g</span><span>k</span><span>a</span><span>k</span><span>a</span><span>p</span><span>a</span><span>n</span><span>t</span><span>a</span><span>y</span><span>-</span><span>p</span><span>a</span><span>n</span><span>t</span><span>a</span><span>y</span>
+              <span>P</span>
+              <span>a</span>
+              <span>g</span>
+              <span>k</span>
+              <span>a</span>
+              <span>k</span>
+              <span>a</span>
+              <span>p</span>
+              <span>a</span>
+              <span>n</span>
+              <span>t</span>
+              <span>a</span>
+              <span>y</span>
+              <span>-</span>
+              <span>p</span>
+              <span>a</span>
+              <span>n</span>
+              <span>t</span>
+              <span>a</span>
+              <span>y</span>
             </i>
           </button>
           <button class="term" aria-pressed="false" style="width: 17ch">
             <span class="term__hidden">Karapatang Pantao</span>
-            <i class="term__baybayin" aria-hidden="true">
-              <span>ᜃ</span><span>ᜍ</span><span>ᜉ</span><span>ᜆ</span><span>ᜅ᜔</span><span></span><span>ᜉ</span><span>ᜈ᜔</span><span>ᜆ</span><span>ᜂ</span>
+            <i class="term__baybayin" aria-hidden="true" lang="fil-Tglg">
+              <span>ᜃ</span>
+              <span>ᜍ</span>
+              <span>ᜉ</span>
+              <span>ᜆ</span>
+              <span>ᜅ᜔</span>
+              <span></span>
+              <span>ᜉ</span>
+              <span>ᜈ᜔</span>
+              <span>ᜆ</span>
+              <span>ᜂ</span>
             </i>
             <i class="term__latin" aria-hidden="true">
-              <span>K</span><span>a</span><span>r</span><span>a</span><span>p</span><span>a</span><span>t</span><span>a</span><span>n</span><span>g</span><span></span><span>p</span><span>a</span><span>n</span><span>t</span><span>a</span><span>o</span>
+              <span>K</span>
+              <span>a</span>
+              <span>r</span>
+              <span>a</span>
+              <span>p</span>
+              <span>a</span>
+              <span>t</span>
+              <span>a</span>
+              <span>n</span>
+              <span>g</span>
+              <span></span>
+              <span>p</span>
+              <span>a</span>
+              <span>n</span>
+              <span>t</span>
+              <span>a</span>
+              <span>o</span>
             </i>
           </button>
         </div>
       </div>
       <dl class="hero__captionlist" style="--spotlight-color: hsl(var(--banner-bg-3) / 20%)">
-        <div class="hero__caption">
-          <dt>Educator and Content Creator</dt>
-          <dd>5 years</dd>
-        </div>
-        <div class="hero__caption">
-          <dt>Web Designer</dt>
-          <dd>4 years</dd>
-        </div>
-        <div class="hero__caption">
-          <dt>Web Developer</dt>
-          <dd>4 years</dd>
-        </div>
+        {% for experience in site.experiences %}
+          <div class="hero__caption">
+            <dt>{{ experience.name }}</dt>
+            <dd>{{ experience.start | yearsFromToday }} years</dd>
+          </div>
+        {% endfor %}
       </dl>
       <div class="elevated hero__actions">
         <a href="{{ files.resume.path }}" download="{{ files.resume.filename }}" class="button">Download my résumé</a>

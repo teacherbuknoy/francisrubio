@@ -7,12 +7,38 @@
 <link rel="preload" href="/assets/fonts/fraunces-bold-italic.ttf" as="font" type="font/ttf" crossorigin /> #}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="expect" blocking="render" href="#{{ title | slugify }}">
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tagalog&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Wix+Madefor+Text:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css"/>
 <link rel="stylesheet" href="/assets/styles/styles.css">
+<link rel="stylesheet" href="/assets/styles/print.css" media="print">
+
+{% if layoutStylesheets %}
+  {% for sheet in layoutStylesheets %}
+    <link rel="stylesheet" href="/assets/styles/{{ sheet }}">
+  {% endfor %}
+{% endif %}
 
 {% if stylesheets %}
   {% for sheet in stylesheets %}
     <link rel="stylesheet" href="/assets/styles/{{ sheet }}">
   {% endfor %}
 {% endif %}
+
+<style>
+  ::view-transition-old {
+    opacity: 0;
+    transition-delay: 1s;
+    width: min-content;
+    scale: 0.2;
+  }
+  ::view-transition-new {
+    opacity: 0;
+    transition-delay: 1s;
+    width: min-content;
+    scale: 0.2;
+  }
+</style>

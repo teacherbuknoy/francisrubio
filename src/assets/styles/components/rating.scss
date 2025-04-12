@@ -1,0 +1,91 @@
+.rating {
+  display: grid;
+  position: relative;
+  gap: var(--space);
+
+  .rating__inner {
+    background-color: hsl(var(--bg-secondary));
+    border-radius: var(--ideal-radius);
+    display: grid;
+    padding: var(--space);
+    place-content: center;
+    text-align: center;
+  }
+
+  .rating__value {
+    text-align: center;
+    font-weight: bold;
+    font-variation-settings: 'wght' 900;
+    font-size: var(--type-size-1);
+    display: grid;
+    grid-template-rows: 1fr auto;
+
+    &::before,
+    &::after {
+      content: "★★★★★";
+      grid-column: 1/2;
+      grid-row: 2/3;
+      font-size: var(--type-size-3);
+    }
+
+    &::after {
+      color: hsl(var(--warning-500));
+      mask-image: linear-gradient(to right, black 100%, transparent 100%);
+      mask-size: var(--rating);
+      mask-repeat: no-repeat;
+    }
+
+    &::before {
+      color: hsl(var(--warning-500) / 25%);
+    }
+  }
+
+  .rating__product-link {
+    width: 100%;
+  }
+
+  .icon-shopee-logo--official-shop {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    height: 1rem;
+    width: 1rem;
+    fill: currentColor;
+  }
+}
+
+div:not([class]):has(> .rating) {
+  .rating {
+    margin-inline: auto;
+  }
+
+  @media (width > 690px) {
+    .rating {
+      float: left;
+      margin: var(--space-xl);
+      margin-block-end: var(--space);
+      margin-block-start: 0;
+    }
+  }
+
+  @media (width > 1420px) {
+    --article-width: min(120ch, 95%);
+    display: grid;
+    grid-column: 1/-1;
+    grid-template-columns: 1fr min(65ch, 100%) 1fr;
+    margin-inline: calc((-100vw + var(--article-width)) / 2);
+    width: 100vw;
+
+    & > :not(.rating) {
+      grid-column: 2/3;
+    }
+
+    .rating {
+      align-self: start;
+      grid-column: 1/2;
+      grid-row: span 3;
+      justify-self: end;
+    }
+  }
+}

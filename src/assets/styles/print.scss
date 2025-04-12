@@ -1,0 +1,217 @@
+@layer print {
+
+  div:has(> webring-banner),
+  webring-banner,
+  form,
+  .footer,
+  .skip-link,
+  .bottom-fixed,
+  .navbar-wrapper,
+  .article__sidebar {
+    display: none;
+  }
+
+  button.button,
+  .hide-on-noscript {
+    opacity: 25%;
+    filter : grayscale(1);
+  }
+
+  .hero {
+    --top-offset: 0;
+    padding-top : var(--space-xl);
+
+    &__actions {
+      display: none;
+    }
+  }
+
+  .feature-card {
+    gap               : var(--space) !important;
+    grid-template-rows: auto 1fr;
+
+    &__header {
+      font-size      : var(--type-size-5);
+      justify-content: center;
+
+      &::after {
+        content: none !important;
+      }
+    }
+
+    &__content {
+      padding: var(--space);
+    }
+  }
+
+  .scroll-snapper,
+  .deck-card-container {
+    display              : grid;
+    grid-template-columns: repeat(auto-fit, minmax(25ch, 1fr));
+    padding-inline       : var(--space-xl);
+    overflow             : visible;
+    gap                  : var(--space-l);
+    grid-auto-rows       : auto 1fr;
+
+    .feature-card {
+      grid-template-rows: subgrid;
+      grid-row          : span 2;
+    }
+  }
+
+  .sidebar:has([data-tablist]) {
+    display: none;
+  }
+
+  .tabpanel-container {
+    display       : flex;
+    flex-direction: column;
+    gap           : var(--space-xxxl);
+  }
+
+  .tab-panel {
+    border-block-end : 1px solid hsl(var(--bg-secondary));
+    padding-block-end: var(--space-xxxl);
+
+    &[role="tabpanel"][hidden] {
+      visibility: visible;
+    }
+  }
+
+  .deck-card-container {
+    align-items          : center;
+    grid-template-columns: repeat(auto-fit, minmax(35ch, 1fr));
+    justify-items        : center;
+  }
+
+  .deck-card {
+    max-width: none;
+  }
+
+  .h-entry {
+    padding-block-start: 0;
+  }
+
+  .feature-card,
+  hgroup,
+  :is(h1, h2, h3, h4, h5, h6) {
+    break-inside: avoid-page;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1;
+  }
+
+  .callout__body {
+    font-size: var(--type-size);
+  }
+
+  .sidenote {
+    font-size: var(--type-size-8);
+  }
+
+  .article__body {
+    column-count: 2;
+    column-gap  : var(--space-l);
+    display     : block;
+
+    &> :is(p, ul, ol) {
+      margin-block: var(--space);
+    }
+  }
+
+  ul:not([class]) {
+    padding-inline: var(--space);
+  }
+
+  .callout {
+    break-inside: avoid-column;
+  }
+
+  .article__image {
+    height: 6rem;
+  }
+
+  figure {
+    column-span: all;
+    float      : none;
+    width      : 100%;
+  }
+
+  :is(.quotation) blockquote p {
+    font-size: var(--type-size-3);
+  }
+}
+
+@layer print {
+  .statement {
+    --statement-gap: var(--space-xl);
+    break-before   : avoid;
+    margin-block   : var(--space-xl);
+    margin-inline  : auto;
+
+    &::before,
+    &::after {
+      content: none;
+    }
+
+    p {
+      widows : 2;
+      orphans: 2;
+    }
+  }
+
+  .gallery-grid {
+    break-after          : avoid;
+    break-before         : page;
+    break-inside         : avoid;
+    column-width         : 15ch;
+    display              : block;
+    grid-auto-rows       : auto;
+    grid-template-columns: repeat(auto-fill, minmax(15ch, 1fr));
+  }
+
+  .gallery__body {
+    columns: 2;
+    display: block;
+  }
+}
+
+@layer print {
+  :root {
+    --type-size  : 12pt;
+    --type-size-1: 24.33pt;
+    --type-size-2: 21.62pt;
+    --type-size-3: 19.22pt;
+    --type-size-4: 17.09pt;
+    --type-size-5: 15.19pt;
+    --type-size-6: 13.5pt;
+    --type-size-7: 12pt;
+    --type-size-8: 10.67pt;
+    --type-size-9: 9.48pt;
+
+    --vtype-size  : var(--type-size);
+    --vtype-size-1: var(--type-size-1);
+    --vtype-size-2: var(--type-size-2);
+    --vtype-size-3: var(--type-size-3);
+    --vtype-size-4: var(--type-size-4);
+    --vtype-size-5: var(--type-size-5);
+    --vtype-size-6: var(--type-size-6);
+    --vtype-size-7: var(--type-size-7);
+    --vtype-size-8: var(--type-size-8);
+    --vtype-size-9: var(--type-size-9);
+  }
+}
+
+@page {
+
+  /* margin box at top right showing page number */
+  @bottom-right {
+    content: counter(pageNumber);
+  }
+}

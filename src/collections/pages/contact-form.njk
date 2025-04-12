@@ -6,7 +6,7 @@ activePath: frontpage
 stylesheets: ['frontpage.css', mastodon.css]
 scripts: ['frontpage.js', mastodon.js]
 eleventyImport:
-collections: ["posts"]
+  collections: ["posts"]
 ---
 
 <section class="section padding-block--xxl bg-secondary" id="contact-footer" aria-labelledby="footer-heading">
@@ -21,32 +21,14 @@ collections: ["posts"]
         team, commission my services for a project, invite me as a speaker in your event, or just for a chat, you can
         reach out to me through this form. I will try to reply as soon as possible.</p>
     </div>
-    <form id="frm-email" action="{{ site.api.email }}" class="form m-block-start--xxl" method="POST">
-      <div class="form-group">
-        <input placeholder=" " class="form-control" type="text" name="name" id="frm-email__name" aria-describedby="frm-address__message-comment" required
-          aria-describedby="frm-name__message-status">
-        <label for="frm-email__name" class="form-label">Your Name</label>
-        <p class="form-comment" id="frm-name__message-comment">So I know how to address you in my reply.</p>
-        <p class="form-status" id="frm-email__name-status">This field cannot be empty</p>
-      </div>
-      <div class="form-group">
-        <input placeholder=" " class="form-control" type="email" name="email" id="frm-email__email" aria-describedby="frm-address__message-comment" required />
-        <label for="frm-email__email" class="form-label">Your Email</label>
-        <p class="form-comment" id="frm-address__message-comment">So I can reply to your message.</p>
-      </div>
-      <div class="form-group">
-        <textarea placeholder=" " class="form-control" name="message" id="frm-email__message"
-          aria-describedby="frm-email__message-description" required></textarea>
-        <label for="frm-email__message" class="form-label">Message</label>
-        <p class="form-comment" id="frm-email__message-comment">Why are you reaching out? Is it an interesting project
-          you want to build? Or do you want to invite me as a guest speaker?</p>
-        <p class="form-status" id="frm-email__message-description">This field cannot be empty</p>
-      </div>
-      <div class="modal__footer-section form-group">
-        <p style="white-space: nowrap" class="form-comment text-align--right">All fields are required</p>
-        <button form="frm-email" type="reset" data-dialog-hide class="button">Reset all fields</button>
-        <button form="frm-email" type="submit" class="primary button">Send</button>
-      </div>
-    </form>
+    <div class="margin--xxl">
+      {% set emailFormPrefix = 'contact-' %}
+      {% include "components/ui/email-form.njk" %}
+    </div>
+    <div class="modal__footer-section form-group">
+      <p style="white-space: nowrap" class="form-comment text-align--right">All fields are required</p>
+      <button form="{{ emailFormPrefix }}email-form" type="reset" data-dialog-hide class="button">Reset all fields</button>
+      <button form="{{ emailFormPrefix }}email-form" type="submit" class="primary button">Send</button>
+    </div>
   </div>
 </section>
