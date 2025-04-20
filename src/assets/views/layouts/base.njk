@@ -76,6 +76,10 @@
         border-block-start: 1px solid hsl(var(--neutral-900) / 25%);
         display: flex;
         gap: 1em;
+
+        path {
+          fill: currentColor;
+        }
       }
 
       .marquee .button {
@@ -87,14 +91,14 @@
 
       @layer component {
         body:has([data-marquee]:not(.hidden)) {
-        margin-block-end: 3em;
-        .button.go-to-top {
-          bottom: 3rem;
+          margin-block-end: 3em;
+          .button.go-to-top {
+            bottom: 3rem;
+          }
+          .hero {
+            min-height: calc(100dvh - 3rem);
+          }
         }
-        .hero {
-          min-height: calc(100dvh - 3rem);
-        }
-      }
       }
     </style>
     <article class="marquee" data-marquee>
